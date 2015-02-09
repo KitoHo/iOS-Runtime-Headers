@@ -41,6 +41,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)error;
 - (id)initWithCoder:(id)arg1;
+- (id)logString;
 - (id)options;
 - (void)setActivityDate:(id)arg1;
 - (void)setActivityPayload:(id)arg1;

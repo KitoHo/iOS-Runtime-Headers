@@ -26,6 +26,8 @@
 @property int inputContractionMode;
 @property bool inputEightDotBraille;
 
++ (id)statusAttributeDotText;
+
 - (void)_deathTimerHandler;
 - (void)_deviceConnected:(id)arg1;
 - (id)_getWorkingString;

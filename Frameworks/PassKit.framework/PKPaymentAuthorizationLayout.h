@@ -2,19 +2,19 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class NSString, PKServicePaymentAuthorizationViewController, UITraitCollection;
+@class NSString, PKPaymentAuthorizationServiceViewController, UITraitCollection;
 
 @interface PKPaymentAuthorizationLayout : NSObject <UITraitEnvironment> {
     double _contentHeightPadding;
     double _contentMargin;
-    PKServicePaymentAuthorizationViewController *_controller;
+    PKPaymentAuthorizationServiceViewController *_controller;
     double _headerMargin;
     double _valueLeftMargin;
 }
 
 @property(readonly) double contentHeightPadding;
 @property(readonly) double contentMargin;
-@property PKServicePaymentAuthorizationViewController * controller;
+@property PKPaymentAuthorizationServiceViewController * controller;
 @property(copy,readonly) NSString * debugDescription;
 @property(copy,readonly) NSString * description;
 @property(readonly) unsigned long long hash;

@@ -74,7 +74,7 @@
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFontNamed:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (bool)isEqualToNode:(id)arg1;
 - (id)nodeAtPoint:(struct CGPoint { double x1; double x2; })arg1 recursive:(bool)arg2;
 - (id)nodesAtPoint:(struct CGPoint { double x1; double x2; })arg1;
 - (void)setBlendMode:(long long)arg1;

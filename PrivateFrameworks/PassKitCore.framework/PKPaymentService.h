@@ -2,13 +2,14 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class <PKPaymentServiceDelegate>, NSLock, NSString, NSXPCConnection, PKPaymentServiceExportedProxy, PKPaymentWebService;
+@class <PKPaymentServiceDelegate>, NSLock, NSString, NSXPCConnection, PKPaymentServiceExportedProxy, PKPaymentWebServiceContext;
 
 @interface PKPaymentService : NSObject <PKPaymentServiceExportedInterface> {
     NSXPCConnection *_connection;
     NSLock *_connectionLock;
     <PKPaymentServiceDelegate> *_delegate;
     PKPaymentServiceExportedProxy *_exportedProxy;
+    unsigned long long _paymentInterfacePreventionCounter;
 }
 
 @property(retain) NSString * defaultPaymentPassUniqueIdentifier;
@@ -17,19 +18,17 @@
 @property(readonly) bool paymentDeviceIsInField;
 @property(readonly) bool paymentDeviceIsInRestrictedMode;
 @property(readonly) NSString * secureElementIdentifier;
-@property(retain) PKPaymentWebService * sharedPaymentWebService;
+@property(retain) PKPaymentWebServiceContext * sharedPaymentWebServiceContext;
 
-+ (void)_tearDownPaymentServiceConnection:(id)arg1 exportedProxy:(id)arg2;
 + (bool)paymentServiceIsAvailable;
 
 - (void)_activationStateForPaymentPassWithUniqueIdentifier:(id)arg1 completion:(id)arg2;
 - (id)_connection;
 - (id)_connectionWithTeardownExisting:(bool)arg1 createNewIfNecessary:(bool)arg2;
 - (void)_defaultPaymentPassUniqueIdentifier:(id)arg1;
-- (void)_deleteAllMessagesForPaymentPassWithUniqueIdentifier:(id)arg1 completion:(id)arg2;
+- (void)_deleteMessageWithIdentifier:(id)arg1 fromPassWithUniqueIdentifier:(id)arg2 completion:(id)arg3;
 - (id)_errorHandlerWithCompletion:(id)arg1;
 - (void)_establishPaymentServiceConnection;
-- (void)_markAllPaymentApplicationsForDeleteWithCompletion:(id)arg1;
 - (void)_paymentDeviceIsAvailableWithCompletion:(id)arg1;
 - (void)_paymentDeviceIsInFieldWithCompletion:(id)arg1;
 - (void)_paymentDeviceIsInRestrictedModeWithCompletion:(id)arg1;
@@ -38,25 +37,29 @@
 - (void)_secureElementIdentifierWithCompletion:(id)arg1;
 - (void)_sendResumed;
 - (void)_sendSuspended;
-- (void)_sharedPaymentWebServiceWithCompletion:(id)arg1;
+- (void)_sharedPaymentWebServiceContextWithCompletion:(id)arg1;
 - (void)_tearDownPaymentServiceConnection;
 - (void)_unregisterForApplicationLifeCycleNotifications;
 - (void)_unregisterForPaymentServiceNotifications;
 - (void)activatePaymentPassWithUniqueIdentifier:(id)arg1 completion:(id)arg2;
 - (long long)activationStateForPaymentPassWithUniqueIdentifier:(id)arg1;
-- (void)addPaymentDeviceContactlessInterfaceRestrictionOverride:(id)arg1;
 - (void)authorizeInAppPaymentRequest:(id)arg1 completion:(id)arg2;
 - (void)authorizePaymentPassWithUniqueIdentifier:(id)arg1 authenticationCredential:(id)arg2 completion:(id)arg3;
+- (void)beginPreventingPaymentInterfacePresentation;
 - (void)consistencyCheck;
 - (void)dealloc;
 - (void)deauthorizePaymentPassWithUniqueIdentifier:(id)arg1 completion:(id)arg2;
 - (id)defaultPaymentPassUniqueIdentifier;
 - (id)delegate;
-- (void)deleteAllMessagesForPaymentPassWithUniqueIdentifier:(id)arg1;
+- (void)deleteMessageWithIdentifier:(id)arg1 fromPassWithUniqueIdentifier:(id)arg2;
+- (void)didUpdateDefaultPaymentPassWithUniqueIdentifier:(id)arg1;
+- (void)downloadAllPaymentPasses;
+- (void)endPreventingPaymentInterfacePresentation;
 - (id)init;
 - (id)initWithDelegate:(id)arg1;
+- (void)insertOrUpdatePaymentTransaction:(id)arg1 forPassUniqueIdentifier:(id)arg2 paymentApplication:(id)arg3 completion:(id)arg4;
 - (void)markAllPaymentApplicationsForDelete;
-- (void)messageForPaymentPassWithUniqueIdentifier:(id)arg1 completion:(id)arg2;
+- (void)messagesForPaymentPassWithUniqueIdentifier:(id)arg1 completion:(id)arg2;
 - (void)paymentDeviceDidBecomeAvailable;
 - (void)paymentDeviceDidBecomeUnavailable;
 - (void)paymentDeviceDidEnterField;
@@ -77,14 +80,13 @@
 - (void)paymentPassWithUniqueIdentifierDidDeauthorize:(id)arg1;
 - (void)paymentPassWithUniqueIdentifierDidFailTransaction:(id)arg1;
 - (void)presentPaymentInterfaceWithCompletion:(id)arg1;
-- (void)removePaymentDeviceContactlessInterfaceRestrictionOverride:(id)arg1;
 - (id)secureElementIdentifier;
 - (void)setDefaultPaymentPassUniqueIdentifier:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setNewAuthRandom;
-- (void)setNewAuthRandomIfNecessaryWithCompletion:(id)arg1;
-- (void)setSharedPaymentWebService:(id)arg1;
-- (id)sharedPaymentWebService;
+- (void)setNewAuthRandomIfNecessaryWithRetryCount:(unsigned long long)arg1 completion:(id)arg2;
+- (void)setSharedPaymentWebServiceContext:(id)arg1;
+- (id)sharedPaymentWebServiceContext;
 - (void)simulatePaymentPush;
 - (void)submitVerificationCode:(id)arg1 verificationData:(id)arg2 forDPANIdentifier:(id)arg3 completion:(id)arg4;
 - (void)submitVerificationCode:(id)arg1 verificationData:(id)arg2 forDPANIdentifier:(id)arg3;

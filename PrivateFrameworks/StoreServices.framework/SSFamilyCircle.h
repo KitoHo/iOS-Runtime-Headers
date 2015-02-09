@@ -22,7 +22,9 @@
 - (void)dealloc;
 - (id)familyMembers;
 - (id)iTunesAccountNames;
+- (id)initWithCacheRepresentation:(id)arg1;
 - (id)initWithXPCEncoding:(id)arg1;
+- (id)newCacheRepresentation;
 - (void)setFamilyMembers:(id)arg1;
 - (void)setITunesAccountNames:(id)arg1;
 

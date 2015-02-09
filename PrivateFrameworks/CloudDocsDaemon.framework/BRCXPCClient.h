@@ -2,14 +2,14 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-@class BRCAccountSession, NSMutableSet, NSSet, NSString, NSXPCConnection;
+@class BRCAccountSession, NSCountedSet, NSSet, NSString, NSXPCConnection;
 
-@interface BRCXPCClient : NSObject <BRCProcessMonitorDelegate, BRProtocol> {
+@interface BRCXPCClient : NSObject <BRCProcessMonitorDelegate> {
     BRCAccountSession *_accountSession;
     NSString *_applicationIdenfier;
     int _clientPid;
     NSXPCConnection *_connection;
-    NSMutableSet *_containers;
+    NSCountedSet *_containers;
     NSString *_debugIdentifier;
     NSString *_defaultContainerID;
     NSSet *_entitledContainerIDs;
@@ -54,77 +54,26 @@
 - (void)_stopMonitoringProcess;
 - (void)accessLogicalOrPhysicalURL:(id)arg1 needsWrite:(bool)arg2 asynchronously:(bool)arg3 handler:(id)arg4;
 - (void)addContainer:(id)arg1;
-- (void)addExternalDocumentReferenceTo:(id)arg1 forPid:(int)arg2 inContainer:(id)arg3 underParent:(id)arg4 reply:(id)arg5;
-- (oneway void)bundleDidAccessExternalDocument:(id)arg1;
 - (id)bundleID;
 - (bool)canAccessPath:(const char *)arg1 needsWrite:(bool)arg2;
 - (bool)canAccessPhysicalURL:(id)arg1;
-- (oneway void)checkinAskClientIfUsingUbiquity:(bool)arg1;
 - (BOOL)cloudEnabledStatus;
 - (BOOL)cloudEnabledStatusForPID:(int)arg1;
-- (void)computePurgableSpaceWithUrgency:(int)arg1 reply:(id)arg2;
 - (id)connection;
 - (id)copyContainerIDsForPid:(int)arg1 error:(id*)arg2;
-- (void)currentAccountCopyTokenWithBundleID:(id)arg1 version:(id)arg2 reply:(id)arg3;
-- (void)currentAccountCreateWithID:(id)arg1 reply:(id)arg2;
-- (void)currentAccountIsUsingUbiquityWithReply:(id)arg1;
-- (void)currentAccountLogoutWithReply:(id)arg1;
 - (id)defaultContainerID;
 - (id)description;
 - (bool)dieOnInvalidate;
-- (void)dumpDatabaseTo:(id)arg1 containerID:(id)arg2 reply:(id)arg3;
 - (id)entitledContainerIDs;
-- (void)evictItemAtURL:(id)arg1 reply:(id)arg2;
-- (void)forceConflictForURL:(id)arg1 bookmarkData:(id)arg2 forcedEtag:(id)arg3 reply:(id)arg4;
-- (void)forceSyncContainerID:(id)arg1 reply:(id)arg2;
-- (void)gatherInformationForPath:(id)arg1 reply:(id)arg2;
-- (void)getApplicationDocumentUsageInfoForBundleID:(id)arg1 withReply:(id)arg2;
-- (void)getApplicationStatus:(id)arg1;
-- (void)getApplicationStatusWithPID:(int)arg1 reply:(id)arg2;
-- (void)getAttributeValues:(id)arg1 forItemAtURL:(id)arg2 reply:(id)arg3;
-- (void)getBookmarkDataForURL:(id)arg1 reply:(id)arg2;
-- (void)getContainerForURL:(id)arg1 reply:(id)arg2;
-- (void)getContainerLastServerUpdateWithID:(id)arg1 reply:(id)arg2;
-- (void)getContainerStatusWithID:(id)arg1 reply:(id)arg2;
-- (void)getContainerURLForID:(id)arg1 forPid:(int)arg2 reply:(id)arg3;
-- (void)getContainerURLForID:(id)arg1 reply:(id)arg2;
-- (void)getContainersByID:(id)arg1;
-- (void)getContainersNeedingUpload:(id)arg1;
-- (void)getIsContainerWithIDOverQuota:(id)arg1 reply:(id)arg2;
-- (void)getItemUpdateSenderWithReceiver:(id)arg1 reply:(id)arg2;
-- (void)getMigrationStatusForPrimaryiCloudAccount:(id)arg1;
-- (void)getNonLocalVersionSenderWithReceiver:(id)arg1 documentURL:(id)arg2 reply:(id)arg3;
-- (void)getNotificationInfoAtURL:(id)arg1 reply:(id)arg2;
-- (void)getPublishedURLForItemAtURL:(id)arg1 forStreaming:(bool)arg2 requestedTTL:(unsigned long long)arg3 reply:(id)arg4;
-- (void)getTotalApplicationDocumentUsageWithReply:(id)arg1;
-- (void)getiWorkPublishingBadgingStatusAtURL:(id)arg1 reply:(id)arg2;
-- (void)getiWorkPublishingInfoAtURL:(id)arg1 reply:(id)arg2;
 - (id)initWithConnection:(id)arg1 accountSession:(id)arg2;
 - (void)invalidate;
 - (bool)isSandboxed;
 - (bool)isUsingUbiquity;
 - (id)issueContainerExtensionForURL:(id)arg1 error:(id*)arg2;
-- (void)jetsamCloudDocsAppsWithReply:(id)arg1;
-- (oneway void)log:(const char *)arg1 function:(const char *)arg2 source:(const char *)arg3 line:(int)arg4 message:(id)arg5;
 - (unsigned long long)loggedStatus;
-- (void)performSelfCheck:(id)arg1 reply:(id)arg2;
-- (void)printStatus:(id)arg1 reply:(id)arg2;
 - (void)process:(int)arg1 didBecomeForeground:(bool)arg2;
-- (void)purgeAmount:(long long)arg1 withUrgency:(int)arg2 reply:(id)arg3;
-- (void)reclaimAmount:(long long)arg1 withUrgency:(int)arg2 reply:(id)arg3;
-- (void)registerInitialSyncBarrierForID:(id)arg1 reply:(id)arg2;
 - (void)removeContainer:(id)arg1;
-- (void)resetBudgets:(id)arg1 reply:(id)arg2;
-- (void)resolveBookmarkDataToURL:(id)arg1 reply:(id)arg2;
-- (void)resolveConflictWithName:(id)arg1 atURL:(id)arg2 reply:(id)arg3;
 - (void)setIsUsingUbiquity:(bool)arg1;
-- (void)setMigrationStatus:(BOOL)arg1 forDSID:(id)arg2 shouldNotify:(bool)arg3 reply:(id)arg4;
-- (void)setiWorkPublishingInfoAtURL:(id)arg1 publish:(bool)arg2 readonly:(bool)arg3 reply:(id)arg4;
 - (id)setupContainer:(id)arg1 root:(id)arg2 error:(id*)arg3;
-- (void)setupInstanceWithDict:(id)arg1 reply:(id)arg2;
-- (void)startDownloadItemsAtURLs:(id)arg1 options:(unsigned long long)arg2 reply:(id)arg3;
-- (void)thumbnailChangedForItemAtURL:(id)arg1 reply:(id)arg2;
-- (oneway void)updateContainerMetadataForID:(id)arg1 bundleID:(id)arg2;
-- (void)waitForFileSystemChangeProcessingWithReply:(id)arg1;
 
 @end

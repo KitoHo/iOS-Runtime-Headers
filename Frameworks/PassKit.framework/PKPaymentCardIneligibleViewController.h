@@ -47,6 +47,7 @@
 - (id)setupDelegate;
 - (void)viewDidLoad;
 - (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
+- (bool)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(long long)arg3;
 - (id)webView;
 - (void)webViewDidFinishLoad:(id)arg1;
 

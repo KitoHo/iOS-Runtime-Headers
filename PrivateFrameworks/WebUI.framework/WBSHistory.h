@@ -34,6 +34,7 @@
 - (void)_addItemToStringsForUserTypedDomainExpansion:(id)arg1;
 - (void)_addVisitedLinksForItemsIfNeeded:(id)arg1;
 - (double)_ageLimitDay;
+- (unsigned long long)_cachedNumberOfDevicesInSyncCircle;
 - (void)_clearHistoryVisitsAddedAfterDate:(id)arg1 beforeDate:(id)arg2 completionHandler:(id)arg3;
 - (id)_createHistoryStore;
 - (void)_dispatchHistoryCleared:(id)arg1;
@@ -44,6 +45,7 @@
 - (void)_dispatchHistoryItemsRemoved:(id)arg1;
 - (void)_dispatchHistoryItemsRemovedDuringLoading:(id)arg1;
 - (void)_dispatchHistoryLoaded;
+- (id)_fetchThrottlerData;
 - (void)_getAllTombstonesWithCompletion:(id)arg1;
 - (void)_getServerChangeTokenDataWithCompletion:(id)arg1;
 - (void)_getVisitsAndTombstonesNeedingSyncWithCompletion:(id)arg1;
@@ -59,8 +61,12 @@
 - (void)_removeItemFromStringsForUserTypedDomainExpansion:(id)arg1;
 - (void)_replayAndAddTombstone:(id)arg1;
 - (void)_sendNotification:(id)arg1 withItems:(id)arg2;
+- (void)_setCachedNumberOfDevicesInSyncCircle:(unsigned long long)arg1;
+- (void)_setFetchThrottlerData:(id)arg1;
 - (void)_setPushThrottlerData:(id)arg1;
 - (void)_setServerChangeTokenData:(id)arg1;
+- (void)_setSyncCircleSizeRetrievalThrottlerData:(id)arg1;
+- (id)_syncCircleSizeRetrievalThrottlerData;
 - (void)_visitIdentifiersMatchingExistingVisits:(id)arg1 populateAssociatedVisits:(bool)arg2 completion:(id)arg3;
 - (void)_waitUntilHistoryHasLoadedMainThread;
 - (void)addAutocompleteTrigger:(id)arg1 forURLString:(id)arg2;

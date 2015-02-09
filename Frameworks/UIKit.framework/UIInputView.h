@@ -61,7 +61,6 @@
 - (struct CGSize { double x1; double x2; })_defaultSize;
 - (bool)_disableSplitSupport;
 - (void)_endSplitTransitionIfNeeded:(bool)arg1;
-- (id)_inheritedRenderConfig;
 - (bool)_isSplit;
 - (bool)_isToolbars;
 - (bool)_isTransitioning;
@@ -79,7 +78,6 @@
 - (bool)_supportsSplit;
 - (bool)_suppressBackgroundStyling;
 - (id)_toolbarBorderedBackground;
-- (void)_updateBackgroundColor;
 - (void)_updateClipCorners;
 - (void)_updateWithSize:(struct CGSize { double x1; double x2; })arg1;
 - (double)contentRatio;

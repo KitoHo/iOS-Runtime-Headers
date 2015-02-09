@@ -10,7 +10,6 @@
 
 - (id)_mediaRemoteCommandInfoOptions;
 - (unsigned long long)currentRepeatType;
-- (id)keyPathsForValuesTriggeringCommandsChanged;
 - (void)setCurrentRepeatType:(unsigned long long)arg1;
 
 @end

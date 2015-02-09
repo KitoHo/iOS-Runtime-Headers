@@ -62,6 +62,7 @@
 - (void)setPendingResponses:(id)arg1;
 - (void)setPendingSentMessages:(id)arg1;
 - (void)setWorkQueue:(id)arg1;
+- (void)start;
 - (id)transientDevices;
 - (void)updatePeerDeviceAddresses:(id)arg1;
 - (id)workQueue;

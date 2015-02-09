@@ -22,6 +22,7 @@
 - (id)allExistingViews;
 - (void)applyLayoutAttributes:(id)arg1;
 - (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })contentInset;
+- (void)dealloc;
 - (void)enumerateExistingViewsForReuseIdentifier:(id)arg1 usingBlock:(id)arg2;
 - (id)existingViewForIndex:(long long)arg1;
 - (id)existingViewsForReuseIdentifier:(id)arg1;

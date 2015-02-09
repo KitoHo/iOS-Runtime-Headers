@@ -113,6 +113,7 @@
 - (void)setCurrentAlertHandler:(id)arg1;
 - (void)setGestureOverrides:(id)arg1;
 - (void)setHearingAidControlVisible:(bool)arg1;
+- (void)setOrientationLocked:(bool)arg1;
 - (void)setReachabilityHandlers:(id)arg1;
 - (void)setShowSpeechPlaybackControls:(bool)arg1;
 - (void)setSiriIsTalking:(bool)arg1;

@@ -41,7 +41,7 @@
 - (void)_conversationListDidFinishLoadingConversations:(id)arg1;
 - (void)_conversationMessageWasSent:(id)arg1;
 - (void)_conversationMuteDidChangeNotification:(id)arg1;
-- (void)_getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; double x5; int x6; }*)arg1;
+- (void)_getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; boolx5; double x6; int x7; }*)arg1;
 - (void)_groupsChanged:(id)arg1;
 - (unsigned long long)_indexOfConverationClosestToDeletedIndex:(unsigned long long)arg1;
 - (unsigned long long)_indexOfDefaultConversation;

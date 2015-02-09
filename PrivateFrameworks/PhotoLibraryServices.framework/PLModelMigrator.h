@@ -22,6 +22,7 @@
 + (void)_applySyncedProperties:(id)arg1 toAsset:(id)arg2;
 + (bool)_batchFetchedObjects:(id)arg1 inMOC:(id)arg2 batchSize:(unsigned long long)arg3 objectHandler:(id)arg4 error:(id*)arg5;
 + (bool)_batchOfflineDeleteFromDatabaseOnlyAssets:(id)arg1 inManagedObjectContext:(id)arg2 error:(id*)arg3;
++ (bool)_clearChangeStore;
 + (bool)_convertManagedAdjustmentsInStore:(id)arg1;
 + (void)_createDatabase;
 + (id)_dateWithiTunesTimeInterval:(double)arg1;
@@ -29,7 +30,11 @@
 + (bool)_deletePhotoCloudSharingMetadataInManagedObjectContext:(id)arg1 error:(id*)arg2;
 + (bool)_deletePhotoStreamAssetReferencesInStore:(id)arg1;
 + (bool)_disableICloudPhoto;
++ (bool)_duplicateResourceIn:(id)arg1 forAsset:(id)arg2 forType:(unsigned long long)arg3 inManagedObjectContext:(id)arg4;
++ (bool)_fixAdjustedAssets:(id)arg1;
 + (bool)_fixCorruptedOrientationsInStore:(id)arg1;
++ (bool)_fixDuplicatedAssets:(id)arg1;
++ (bool)_fixNonDuplicatedAssets:(id)arg1 adjusted:(bool)arg2;
 + (bool)_fixVideoDimensionsForAsset:(id)arg1;
 + (bool)_fixVideoDimensionsInStore:(id)arg1;
 + (bool)_fixupAlbumOrderInAlbumListInStore:(id)arg1;
@@ -45,6 +50,7 @@
 + (bool)_forceAlbumMetadataToDiskInStore:(id)arg1;
 + (void)_forceCreateIndexOnOrderedAssets:(bool)arg1;
 + (bool)_forceDupeAnalysis;
++ (bool)_forceSoftResetSync;
 + (bool)_generateAddedDateForAssetsInStore:(id)arg1;
 + (bool)_initiateLightweightReimportOfAllPhotoCloudSharingMetadataInStore:(id)arg1;
 + (bool)_invalidateSearchIndexDataInStore:(id)arg1;
@@ -63,6 +69,7 @@
 + (bool)_removeEvents:(id)arg1;
 + (bool)_repairSingletonObjectsInDatabaseForOfflineStore:(id)arg1;
 + (bool)_repairSingletonObjectsInDatabaseUsingContext:(id)arg1 error:(id*)arg2;
++ (bool)_repersistDuplicatedAssets:(id)arg1;
 + (bool)_resetAndReimportUnmanagedAdjustmentInStore:(id)arg1;
 + (bool)_resetDupesAnalysisInStore:(id)arg1 resetHashes:(bool)arg2;
 + (bool)_resetThumbnailsAndInitiateRebuildRequest;

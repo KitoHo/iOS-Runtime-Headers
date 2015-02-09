@@ -2,22 +2,19 @@
    Image: /System/Library/Frameworks/iAd.framework/iAd
  */
 
-@class <ADBannerViewDelegate>, <ADBannerViewInternalDelegate>, ADAdSpace, ADTapGestureRecognizer, NSString, NSTimer, NSURL, UIView, UIViewController, _UIRemoteView;
+@class <ADBannerViewDelegate>, <ADBannerViewInternalDelegate>, ADAdSpace, NSString, NSTimer, NSURL, UIView, UIViewController;
 
-@interface ADBannerView : UIView <ADAdRecipient> {
+@interface ADBannerView : UIView <ADAdRecipient, ADDimmerViewDelegate> {
     ADAdSpace *_adSpace;
     long long _adType;
     NSString *_advertisingSection;
     NSString *_authenticationUserName;
     double _constraintBasedWidth;
-    UIView *_dimmerView;
-    ADTapGestureRecognizer *_gestureRecognizer;
     UIView *_highlightClippedView;
     UIView *_highlightHittableView;
     NSTimer *_highlightUpdateTimer;
     int _internalAdType;
     long long _options;
-    _UIRemoteView *_remoteView;
     NSURL *_serverURL;
     <ADBannerViewDelegate> *_weakDelegate;
     <ADBannerViewInternalDelegate> *_weakInternalDelegate;
@@ -25,7 +22,6 @@
     bool_createdForIBInternal;
     bool_determiningConstraintBasedWidth;
     bool_dimmed;
-    bool_hasFailedHitTest;
     bool_inSecondConstraintsPass;
 }
 
@@ -43,9 +39,6 @@
 @property(copy,readonly) NSString * description;
 @property bool determiningConstraintBasedWidth;
 @property bool dimmed;
-@property(retain) UIView * dimmerView;
-@property(retain) ADTapGestureRecognizer * gestureRecognizer;
-@property bool hasFailedHitTest;
 @property(readonly) unsigned long long hash;
 @property(retain) UIView * highlightClippedView;
 @property(retain) UIView * highlightHittableView;
@@ -54,7 +47,6 @@
 @property(readonly) int internalAdType;
 @property(readonly) long long options;
 @property(readonly) UIViewController * presentingViewController;
-@property(retain) _UIRemoteView * remoteView;
 @property(copy) NSURL * serverURL;
 @property(readonly) Class superclass;
 
@@ -62,11 +54,11 @@
 + (struct CGSize { double x1; double x2; })_landscapeBannerSize;
 + (struct CGSize { double x1; double x2; })_portraitBannerSize;
 + (struct CGSize { double x1; double x2; })_sizeThatFitsSize:(struct CGSize { double x1; double x2; })arg1 adType:(int)arg2 statusBarOrientationIsPortrait:(bool)arg3;
++ (bool)requiresConstraintBasedLayout;
 + (void)setServerURL:(id)arg1;
 + (struct CGSize { double x1; double x2; })sizeFromBannerContentSizeIdentifier:(id)arg1;
 
 - (id)_accessibilityUserTestingElementAttributes;
-- (void)_bannerTapped:(id)arg1;
 - (void)_commonInit;
 - (void)_forwardErrorToDelegate:(id)arg1;
 - (id)_initWithInternalAdType:(int)arg1 options:(long long)arg2;
@@ -85,6 +77,7 @@
 - (id)authenticationUserName;
 - (void)bannerDidAppear;
 - (void)bannerDidDisappear;
+- (void)bannerTappedAtPoint:(struct CGPoint { double x1; double x2; })arg1;
 - (void)beginAction;
 - (void)cancelBannerViewAction;
 - (void)cancelScheduledAd;
@@ -99,10 +92,9 @@
 - (bool)determiningConstraintBasedWidth;
 - (void)didMoveToWindow;
 - (bool)dimmed;
-- (id)dimmerView;
+- (void)dimmerView:(id)arg1 didReceiveTouchUpAtPoint:(struct CGPoint { double x1; double x2; })arg2;
+- (bool)enableDimmerView:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)gestureRecognizer;
-- (bool)hasFailedHitTest;
 - (id)headlineForLCD;
 - (id)highlightClippedView;
 - (id)highlightHittableView;
@@ -134,7 +126,6 @@
 - (void)prerollDidStop;
 - (id)presentingViewController;
 - (id)publicImpressionAttributes;
-- (id)remoteView;
 - (id)requiredContentSizeIdentifiers;
 - (void)resizeWithOldSuperviewSize:(struct CGSize { double x1; double x2; })arg1;
 - (void)resumeBannerMedia;
@@ -159,19 +150,14 @@
 - (void)setDelegate:(id)arg1;
 - (void)setDeterminingConstraintBasedWidth:(bool)arg1;
 - (void)setDimmed:(bool)arg1;
-- (void)setDimmerView:(id)arg1;
 - (void)setFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (void)setGestureRecognizer:(id)arg1;
-- (void)setHasFailedHitTest:(bool)arg1;
 - (void)setHidden:(bool)arg1;
 - (void)setHighlightClippedView:(id)arg1;
 - (void)setHighlightHittableView:(id)arg1;
 - (void)setHighlightUpdateTimer:(id)arg1;
-- (void)setHostedWindowHostingHandle:(id)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setInSecondConstraintsPass:(bool)arg1;
 - (void)setInternalDelegate:(id)arg1;
-- (void)setRemoteView:(id)arg1;
 - (void)setRequiredContentSizeIdentifiers:(id)arg1;
 - (void)setServerURL:(id)arg1;
 - (void)setTransform:(struct CGAffineTransform { double x1; double x2; double x3; double x4; double x5; double x6; })arg1;

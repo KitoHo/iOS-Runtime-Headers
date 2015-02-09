@@ -32,7 +32,7 @@
 + (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (void)_execute:(id)arg1;
+- (void)_execute:(id)arg1 writeRequestTuples:(id)arg2;
 - (id)_generateOverallError:(id)arg1;
 - (void)_handleAddActionRequest:(id)arg1;
 - (void)_handleRemoveActionRequest:(id)arg1;
@@ -56,6 +56,7 @@
 - (id)messageTargetUUID;
 - (id)msgDispatcher;
 - (id)name;
+- (void)prepareMessageForRemoteExecuteActionSet:(id)arg1;
 - (void)removeAccessory:(id)arg1;
 - (void)removeActionForCharacteristic:(id)arg1;
 - (void)removeService:(id)arg1;

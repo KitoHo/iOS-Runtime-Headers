@@ -53,6 +53,7 @@
 - (id)compositionByClippingToComposedTimeRange:(struct { double x1; double x2; })arg1;
 - (id)compositionByDeletingAndSplittingAtComposedTimeRange:(struct { double x1; double x2; })arg1;
 - (id)compositionByDuplicatingResourcesToDestinationComposedAVURL:(id)arg1;
+- (id)compositionByReloadingFromDefaultMetadataLocation;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)creationDate;
 - (id)decomposedFragments;

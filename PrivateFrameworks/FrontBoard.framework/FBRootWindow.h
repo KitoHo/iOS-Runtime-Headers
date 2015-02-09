@@ -18,6 +18,7 @@
 + (bool)_isSecure;
 
 - (bool)_appearsInLoupe;
+- (bool)_canBecomeKeyWindow;
 - (bool)_isClippedByScreenJail;
 - (bool)_isConstrainedByScreenJail;
 - (bool)_isOffsetByScreenJail;

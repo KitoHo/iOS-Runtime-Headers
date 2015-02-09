@@ -17,6 +17,7 @@
 @property(copy) NSString * purposeIdentifier;
 
 + (void)__itemAtURL:(id)arg1 didChangeUbiquityWithPurposeID:(id)arg2;
++ (void)__itemAtURL:(id)arg1 didChangeWithPurposeID:(id)arg2;
 + (void)__itemAtURL:(id)arg1 didDisappearWithPurposeID:(id)arg2;
 + (void)__itemAtURL:(id)arg1 didDisconnectWithPurposeID:(id)arg2;
 + (void)__itemAtURL:(id)arg1 didGainVersionWithClientID:(id)arg2 name:(id)arg3 purposeID:(id)arg4;
@@ -64,6 +65,7 @@
 - (void)_invokeAccessor:(id)arg1 thenCompletionHandler:(id)arg2;
 - (void)_itemAtURL:(id)arg1 didMoveToURL:(id)arg2;
 - (void)_itemAtURL:(id)arg1 willMoveToURL:(id)arg2;
+- (void)_itemDidChangeAtURL:(id)arg1;
 - (void)_itemDidDisappearAtURL:(id)arg1;
 - (void)_lockdownPurposeIdentifier;
 - (bool)_purposeIdentifierLockedDown;

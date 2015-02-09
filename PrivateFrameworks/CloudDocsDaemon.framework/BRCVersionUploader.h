@@ -22,7 +22,7 @@
 - (void)_didUploadContentWithItemID:(id)arg1 record:(id)arg2;
 - (bool)_scheduleUploadForItem:(id)arg1;
 - (void)_scheduleUploads;
-- (void)cancelAllUploads;
+- (id)cancelAllUploads;
 - (void)cancelUploadForItemID:(id)arg1;
 - (void)clearOverQuotaItemsWithSizeLessThan:(unsigned long long)arg1;
 - (void)close;

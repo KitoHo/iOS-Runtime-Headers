@@ -5,6 +5,7 @@
 @interface PLSecurity : NSObject {
 }
 
++ (bool)canSkipUserPromptsForProcessWithName:(id)arg1 identifier:(int)arg2;
 + (bool)connection:(id)arg1 hasEntitlement:(id)arg2;
 + (bool)connectionIsEntitledForPhotoKit:(id)arg1;
 + (bool)isEntitledForPhotoKit;

@@ -67,6 +67,7 @@
 - (id)fileURLForAssetURL:(id)arg1 withAdjustments:(bool)arg2;
 - (id)fileURLForNewAssetWithType:(unsigned int)arg1 extension:(id)arg2;
 - (void)finalizeOTARestoreRecreatingAlbums:(bool)arg1;
+- (void)getCPLRemainingUploadCountsWithHandler:(id)arg1;
 - (id)getCPLState;
 - (long long)getCurrentApplicationBadgeCount;
 - (id)getCurrentBulletins;
@@ -134,6 +135,7 @@
 - (void)updateSharedAlbumsCachedServerConfigurationLimits;
 - (void)updateStatusOfCPLDownloadWithContext:(id)arg1;
 - (void)updateThumbnailsForPhotos:(id)arg1 waitForReply:(bool)arg2 assignNewIndex:(bool)arg3 forceRefresh:(bool)arg4;
+- (void)verifyAndRepairOrphanedAssets;
 - (void)waitUntilConnectionSendsAllMessages;
 - (void)writeDataInBackground:(id)arg1 toFileURL:(id)arg2;
 

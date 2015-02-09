@@ -74,6 +74,8 @@
 - (void)_handleExecuteActionSet:(id)arg1;
 - (void)_handleMultipleCharacteristicRead:(id)arg1;
 - (void)_handleMultipleCharacteristicWrite:(id)arg1;
+- (void)_handlePrepareExecuteActionSet:(id)arg1;
+- (void)_handlePrepareMultipleCharacteristicWrite:(id)arg1;
 - (void)_handleQueryUserPrivilege:(id)arg1;
 - (void)_handleRemoveAccessories:(id)arg1;
 - (void)_handleRemoveAccessory:(id)arg1;
@@ -121,7 +123,7 @@
 - (void)configure:(id)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (void)fixupReplacementAccessories:(id)arg1 commonAccessories:(id)arg2;
+- (void)fixupReplacementAccessories:(id)arg1 commonAccessories:(id)arg2 idsDataSync:(bool)arg3;
 - (void)handleBackgroundTaskAgentJob:(id)arg1;
 - (id)homeManager;
 - (id)initWithCoder:(id)arg1;
@@ -184,6 +186,7 @@
 - (id)uuid;
 - (id)workQueue;
 - (void)writeCharacteristicValues:(id)arg1 withCompletionHandler:(id)arg2;
+- (id)writeRequestTuplesFromMessage:(id)arg1;
 - (id)zoneWithName:(id)arg1;
 - (id)zoneWithUUID:(id)arg1;
 - (id)zones;

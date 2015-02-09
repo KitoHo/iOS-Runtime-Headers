@@ -24,8 +24,8 @@
 - (id)init;
 - (void)performPlaceDataRequest:(id)arg1 traits:(id)arg2 networkActivity:(id)arg3 requesterHandler:(id)arg4;
 - (void)performPlaceDataRequest:(id)arg1 traits:(id)arg2 requesterHandler:(id)arg3;
-- (void)requestMUIDs:(id)arg1 includeETA:(bool)arg2 traits:(id)arg3 networkActivity:(id)arg4 requesterHandler:(id)arg5;
-- (void)requestMUIDs:(id)arg1 includeETA:(bool)arg2 traits:(id)arg3 requesterHandler:(id)arg4;
+- (void)requestMUIDs:(id)arg1 resultProviderID:(int)arg2 includeETA:(bool)arg3 traits:(id)arg4 networkActivity:(id)arg5 requesterHandler:(id)arg6;
+- (void)requestMUIDs:(id)arg1 resultProviderID:(int)arg2 includeETA:(bool)arg3 traits:(id)arg4 requesterHandler:(id)arg5;
 - (void)requestPhoneNumbers:(id)arg1 allowCellularDataForLookup:(bool)arg2 traits:(id)arg3 networkActivity:(id)arg4 requesterHandler:(id)arg5;
 - (void)requestPhoneNumbers:(id)arg1 allowCellularDataForLookup:(bool)arg2 traits:(id)arg3 requesterHandler:(id)arg4;
 - (void)shrinkToSize:(unsigned long long)arg1 finished:(id)arg2;

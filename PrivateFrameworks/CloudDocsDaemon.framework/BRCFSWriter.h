@@ -23,7 +23,7 @@
 - (void).cxx_destruct;
 - (void)_applyChangesForAliasWithRank:(id)arg1 container:(id)arg2 li:(id)arg3 si:(id)arg4 diffs:(unsigned long long)arg5;
 - (void)_stageCreationOfDirectory:(id)arg1;
-- (void)applyAdditionsForItemID:(id)arg1 inContainer:(id)arg2;
+- (long long)applyAdditionsForItemID:(id)arg1 inContainer:(id)arg2;
 - (void)applyChangesForItem:(id)arg1 rank:(id)arg2 inContainer:(id)arg3;
 - (void)close;
 - (void)fixupItemsAtStartup;

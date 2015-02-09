@@ -34,7 +34,7 @@
 - (void)closeServiceConnection;
 - (void)dealloc;
 - (oneway void)disableOrphanHandlingWithCompletionBlock:(id)arg1;
-- (oneway void)disableOrphanedFragmentCleanupForCompositionAVURL:(id)arg1;
+- (oneway void)disableOrphanedFragmentCleanupForCompositionAVURL:(id)arg1 completionBlock:(id)arg2;
 - (oneway void)enableOrphanHandlingWithCompletionBlock:(id)arg1;
 - (oneway void)enableOrphanedFragmentCleanupForCompositionAVURL:(id)arg1;
 - (oneway void)endAccessSessionWithToken:(id)arg1;

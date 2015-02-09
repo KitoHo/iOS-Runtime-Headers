@@ -37,6 +37,7 @@
 - (void)_popuplateLayer:(id)arg1 withContents:(id)arg2;
 - (void)_setRenderConfig:(id)arg1;
 - (bool)active;
+- (id)borderFilterTypeForCurrentStyle;
 - (bool)cacheDeferable;
 - (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })cacheInsets;
 - (id)cacheKey;

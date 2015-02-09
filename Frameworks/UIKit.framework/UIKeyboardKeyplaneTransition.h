@@ -31,13 +31,14 @@
 @property <UIKeyboardKeyplaneTransitionDelegate> * transitionDelegate;
 
 - (bool)canDisplayTransitionFromKeyplane:(id)arg1 toKeyplane:(id)arg2;
+- (void)commitTransitionRebuild;
 - (id)completionBlock;
 - (void)dealloc;
 - (double)endHeight;
 - (void)finalizeTransition;
 - (void)finishWithProgress:(double)arg1 completionBlock:(id)arg2;
 - (bool)initiallyAtEnd;
-- (void)rebuildFromStartKeyplane:(id)arg1 startView:(id)arg2 toEndKeyplane:(id)arg3 endView:(id)arg4;
+- (void)rebuildWithStartKeyplane:(id)arg1 startView:(id)arg2 endKeyplane:(id)arg3 endView:(id)arg4;
 - (void)removeAllAnimations;
 - (void)setCompletionBlock:(id)arg1;
 - (void)setInitiallyAtEnd:(bool)arg1;

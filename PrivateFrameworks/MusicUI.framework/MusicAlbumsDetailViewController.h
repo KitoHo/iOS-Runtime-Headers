@@ -4,7 +4,7 @@
 
 @class MPUCompletionQueryDataSource, NSOperationQueue, NSString;
 
-@interface MusicAlbumsDetailViewController : MusicTableViewController <MPUCompletionQueryDataSourceDelegate, MPUCompletionFooterViewDelegate> {
+@interface MusicAlbumsDetailViewController : MusicTableViewController <MPUCompletionQueryDataSourceDelegate, MPUCompletionFooterViewDelegate, MusicViewControllerKeepLocalContainer> {
     NSOperationQueue *_downloadabilityOperationQueue;
     long long _downloadableSongCount;
     double _maximumDurationWidth;
@@ -54,6 +54,7 @@
 - (void)downloadManager:(id)arg1 downloadDidFinish:(id)arg2;
 - (long long)downloadableSongCount;
 - (id)initWithDataSource:(id)arg1;
+- (bool)isCollectionKeptLocalForMediaItem:(id)arg1 inSection:(long long)arg2;
 - (bool)isDownloading;
 - (double)maximumDurationWidth;
 - (bool)music_appendCurrentUserActivityContainerItems:(id)arg1 previousViewController:(id)arg2 nextViewController:(id)arg3;

@@ -97,7 +97,7 @@
 + (id)fetchMomentsInMomentList:(id)arg1 options:(id)arg2;
 + (id)fetchMomentsWithOptions:(id)arg1;
 + (id)fetchPredicateFromComparisonPredicate:(id)arg1;
-+ (id)fetchRecentlyAddedAlbumWithOptions:(id)arg1;
++ (id)fetchUserLibraryAlbumWithOptions:(id)arg1;
 + (id)identifierCode;
 + (id)managedEntityName;
 + (bool)managedObjectSupportsTrashedState;

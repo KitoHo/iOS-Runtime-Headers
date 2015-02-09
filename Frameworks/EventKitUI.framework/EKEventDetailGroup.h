@@ -29,5 +29,6 @@
 - (void)setItems:(id)arg1;
 - (void)setTag:(long long)arg1;
 - (long long)tag;
+- (void)updateCellLayoutsForRowCountIfNeededUsingWidth:(double)arg1;
 
 @end

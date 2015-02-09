@@ -2,14 +2,15 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSDictionary, NSHashTable, NSMutableDictionary, NSMutableOrderedSet, NSMutableSet, NSObject<OS_dispatch_queue>, NSPredicate, NSSet, NSString, PHFetchResult;
+@class NSHashTable, NSMutableDictionary, NSMutableOrderedSet, NSMutableSet, NSObject<OS_dispatch_queue>, NSPredicate, NSSet, NSString, PHFetchResult, PUPhotosDataSourceSectionCache;
 
-@interface PUPhotosDataSource : NSObject <PHPhotoLibraryChangeObserver> {
-    NSDictionary *__assetCollectionSectionLookup;
+@interface PUPhotosDataSource : NSObject <PUPhotoLibraryUIChangeObserver> {
+    PUPhotosDataSourceSectionCache *__preparedSectionCache;
     unsigned long long __previousCollectionsCount;
+    PUPhotosDataSourceSectionCache *__sectionCache;
     NSSet *_allowedUUIDs;
     long long _backgroundFetchOriginSection;
-    NSObject<OS_dispatch_queue> *_backgroundFetchQueue;
+    NSObject<OS_dispatch_queue> *_backgroundQueue;
     PHFetchResult *_collectionListFetchResult;
     NSPredicate *_filterPredicate;
     NSMutableSet *_inaccurateAssetCollections;
@@ -33,6 +34,8 @@
 @property(retain) PHFetchResult * collectionListFetchResult;
 @property(copy,readonly) NSString * debugDescription;
 @property(copy,readonly) NSString * description;
+@property(readonly) long long estimatedPhotosCount;
+@property(readonly) long long estimatedVideosCount;
 @property(retain) NSPredicate * filterPredicate;
 @property(readonly) unsigned long long hash;
 @property(readonly) bool isEmpty;
@@ -42,27 +45,23 @@
 - (bool)_allSectionsAccurate;
 - (id)_allowedUUIDsForAssetCollection:(id)arg1;
 - (bool)_areFiltersDisabledForAssetCollection:(id)arg1;
-- (id)_assetCollectionSectionLookup;
+- (unsigned long long)_cachedSectionForAssetCollection:(id)arg1;
 - (void)_cancelBackgroundFetchIfNeeded;
-- (void)_clearAssetCollectionSectionLookup;
-- (id)_createChangeForCollectionListChangeNotifications:(id)arg1 collectionChangeNotificationDict:(id)arg2;
 - (id)_createFilteredFetchResultForAssetCollection:(id)arg1 calledOnMainQueue:(bool)arg2;
 - (void)_didFinishBackgroundFetching;
 - (void)_fetchRemainingCollectionsBackgroundLoop;
 - (id)_filterPredicateForAssetCollection:(id)arg1;
-- (void)_getInsertedCollectionIndexes:(id*)arg1 removedIndexes:(id*)arg2 changedIndexes:(id*)arg3 forCollectionListChangeNotifications:(id)arg4;
 - (void)_interruptBackgroundFetch;
 - (bool)_isAssetCollectionAccurate:(id)arg1;
 - (unsigned long long)_previousCollectionsCount;
 - (void)_processAndPublishPendingCollectionFetchResults;
 - (void)_processAndPublishPendingCollectionFetchResultsWhenAppropriate;
-- (void)_processAndPublishPhotoLibraryChange:(id)arg1;
 - (void)_publishChange:(id)arg1;
 - (void)_publishDidReceivePhotoLibraryChange:(id)arg1;
 - (void)_publishReloadChange;
 - (void)_publishWillChange;
+- (id)_sectionCache;
 - (void)_setPreviousCollectionsCount:(unsigned long long)arg1;
-- (bool)_shouldPerformFullReloadForCollectionListChangeNotifications:(id)arg1 collectionChangeNotifications:(id)arg2;
 - (void)_startBackgroundFetchIfNeeded;
 - (id)allowedUUIDs;
 - (id)approximateAssetsAtIndexPaths:(id)arg1 consolidatingFetches:(bool)arg2;
@@ -73,6 +72,8 @@
 - (void)clearResultsForAssetCollection:(id)arg1;
 - (id)collectionListFetchResult;
 - (void)dealloc;
+- (long long)estimatedPhotosCount;
+- (long long)estimatedVideosCount;
 - (id)filterPredicate;
 - (bool)forceAccurateAllSectionsIfNeeded;
 - (bool)forceAccurateSectionsIfNeeded:(id)arg1;
@@ -82,7 +83,8 @@
 - (bool)isEmpty;
 - (long long)numberOfItemsInSection:(long long)arg1;
 - (long long)numberOfSections;
-- (void)photoLibraryDidChange:(id)arg1;
+- (void)photoLibraryDidChangeOnMainQueue:(id)arg1;
+- (void)prepareForPhotoLibraryChange:(id)arg1;
 - (void)registerChangeObserver:(id)arg1;
 - (unsigned long long)sectionForAssetCollection:(id)arg1;
 - (void)setBackgroundFetchOriginSection:(long long)arg1;

@@ -17,8 +17,11 @@
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
++ (id)_createGroupsController;
 + (bool)_isSecureForRemoteViewService;
 + (bool)_shouldForwardViewWillTransitionToSize;
++ (id)groupsController;
++ (void)preloadGroupsController;
 
 - (void)_dismiss;
 - (void)_dismissIfRestricted;
@@ -27,8 +30,8 @@
 - (void)dealloc;
 - (void)handleHomeButtonPressed;
 - (id)init;
+- (void)paymentContainerDidFinishAnimatingNotification:(id)arg1;
 - (void)paymentPassWithUniqueIdentifierDidAuthorize:(id)arg1;
-- (void)paymentPassWithUniqueIdentifierDidCompleteTransaction:(id)arg1;
 - (void)paymentPassWithUniqueIdentifierDidDeauthorize:(id)arg1;
 - (bool)shouldAutorotate;
 - (struct CGSize { double x1; double x2; })sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize { double x1; double x2; })arg2;

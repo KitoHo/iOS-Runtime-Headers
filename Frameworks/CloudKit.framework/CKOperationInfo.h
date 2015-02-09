@@ -2,7 +2,7 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSString;
+@class CKContainerSetupInfo, NSString;
 
 @interface CKOperationInfo : NSObject <NSSecureCoding> {
     NSString *_deviceIdentifier;
@@ -10,6 +10,7 @@
     id _parentOperation;
     NSString *_parentSectionID;
     long long _qualityOfService;
+    CKContainerSetupInfo *_setupInfo;
     NSString *_sourceApplicationBundleIdentifier;
     NSString *_sourceApplicationSecondaryIdentifier;
     long long _usesBackgroundSessionOverride;
@@ -22,6 +23,7 @@
 @property id parentOperation;
 @property(retain) NSString * parentSectionID;
 @property long long qualityOfService;
+@property(retain) CKContainerSetupInfo * setupInfo;
 @property(retain) NSString * sourceApplicationBundleIdentifier;
 @property(retain) NSString * sourceApplicationSecondaryIdentifier;
 @property long long usesBackgroundSessionOverride;
@@ -44,9 +46,11 @@
 - (void)setParentOperation:(id)arg1;
 - (void)setParentSectionID:(id)arg1;
 - (void)setQualityOfService:(long long)arg1;
+- (void)setSetupInfo:(id)arg1;
 - (void)setSourceApplicationBundleIdentifier:(id)arg1;
 - (void)setSourceApplicationSecondaryIdentifier:(id)arg1;
 - (void)setUsesBackgroundSessionOverride:(long long)arg1;
+- (id)setupInfo;
 - (id)sourceApplicationBundleIdentifier;
 - (id)sourceApplicationSecondaryIdentifier;
 - (long long)usesBackgroundSessionOverride;

@@ -6,7 +6,7 @@
     double _blurRadius;
     double _blurSaturation;
     double _keycapOpacity;
-    double _lightLatinKeycapOpacity;
+    double _lightKeycapOpacity;
     bool_lightKeyboard;
 }
 
@@ -15,7 +15,7 @@
 @property double blurSaturation;
 @property double keycapOpacity;
 @property bool lightKeyboard;
-@property double lightLatinKeycapOpacity;
+@property double lightKeycapOpacity;
 @property(readonly) bool whiteText;
 
 + (long long)backdropStyleForStyle:(long long)arg1;
@@ -31,12 +31,12 @@
 - (bool)isEqual:(id)arg1;
 - (double)keycapOpacity;
 - (bool)lightKeyboard;
-- (double)lightLatinKeycapOpacity;
+- (double)lightKeycapOpacity;
 - (void)setBlurRadius:(double)arg1;
 - (void)setBlurSaturation:(double)arg1;
 - (void)setKeycapOpacity:(double)arg1;
 - (void)setLightKeyboard:(bool)arg1;
-- (void)setLightLatinKeycapOpacity:(double)arg1;
+- (void)setLightKeycapOpacity:(double)arg1;
 - (bool)whiteText;
 
 @end

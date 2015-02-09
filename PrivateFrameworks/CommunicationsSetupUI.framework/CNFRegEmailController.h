@@ -2,10 +2,15 @@
    Image: /System/Library/PrivateFrameworks/CommunicationsSetupUI.framework/CommunicationsSetupUI
  */
 
+/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
+   See Warning(s) below.
+ */
+
 @class NSArray, NSString, NSTimer, PSSpecifier;
 
 @interface CNFRegEmailController : CNFRegFirstRunController {
     PSSpecifier *_actionGroupSpecifier;
+    id _alertHandler;
     NSArray *_checkMailSpecifiers;
     PSSpecifier *_currentActionSpecifier;
     PSSpecifier *_emailSpecifier;
@@ -14,6 +19,7 @@
     bool_validating;
 }
 
+@property(copy) id alertHandler;
 @property(copy) NSString * pendingAlias;
 
 - (void)_buildActionGroupSpecifierCache:(id)arg1;
@@ -34,6 +40,8 @@
 - (void)_stopValidationModeAnimated:(bool)arg1;
 - (void)_updateControllerState;
 - (void)_updateUI;
+- (id)alertHandler;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
 - (id)aliasSpecifiers;
 - (id)bundle;
 - (void)checkMailTapped:(id)arg1;
@@ -47,6 +55,7 @@
 - (id)pendingAlias;
 - (id)pendingAliasForSpecifier:(id)arg1;
 - (id)selectedAliases;
+- (void)setAlertHandler:(id)arg1;
 - (void)setAliasSelected:(id)arg1;
 - (void)setPendingAlias:(id)arg1 forSpecifier:(id)arg2;
 - (void)setPendingAlias:(id)arg1;

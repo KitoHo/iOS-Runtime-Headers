@@ -22,7 +22,11 @@
     bool_shouldFetchPasscodeLockState;
 }
 
++ (id)_journalPath;
++ (id)_journaledDefaultsAndTypes;
++ (void)_loadLockControllerDefaultsJournalIfNecessary;
 + (id)_lockStateDefaults;
++ (void)_updateLockControllerDefaultsJournal;
 
 - (void)_addDeviceLockDisableAssertion:(id)arg1;
 - (void)_cachePassword:(id)arg1;
@@ -63,5 +67,6 @@
 - (id)lastLockDate;
 - (void)setBlockedForThermalCondition:(bool)arg1;
 - (void)synchronize;
+- (void)updateLockControllerDefaultsWithBlock:(id)arg1 journaled:(bool)arg2;
 
 @end

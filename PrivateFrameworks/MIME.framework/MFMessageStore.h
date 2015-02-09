@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/MIME.framework/MIME
  */
 
-@class MFMessageStoreIntKeyCaches, MFMessageStoreObjectCaches, NSMutableSet, NSString;
+@class MFMessageStoreObjectCache, NSMutableSet, NSString;
 
 @interface MFMessageStore : NSObject <NSCopying> {
+    MFMessageStoreObjectCache *_objectCache;
     NSMutableSet *_uniqueStrings;
-    MFMessageStoreIntKeyCaches *intKeyCaches;
-    MFMessageStoreObjectCaches *objectCaches;
 }
 
-@property(retain) MFMessageStoreIntKeyCaches * intKeyCaches;
-@property(retain) MFMessageStoreObjectCaches * objectCaches;
+@property(retain,readonly) MFMessageStoreObjectCache * objectCache;
 @property(copy) NSString * storagePath;
 
 + (Class)classForMimePart;
@@ -46,12 +44,10 @@
 - (id)headerDataForMessage:(id)arg1 downloadIfNecessary:(bool)arg2;
 - (id)headersForMessage:(id)arg1 fetchIfNotAvailable:(bool)arg2;
 - (id)init;
-- (id)intKeyCaches;
-- (id)objectCaches;
-- (void)setIntKeyCaches:(id)arg1;
+- (id)newObjectCache;
+- (id)objectCache;
 - (void)setMessageClass:(Class)arg1;
 - (void)setNumberOfAttachments:(unsigned int)arg1 isSigned:(bool)arg2 isEncrypted:(bool)arg3 forMessage:(id)arg4;
-- (void)setObjectCaches:(id)arg1;
 - (void)setStoragePath:(id)arg1;
 - (id)storagePath;
 - (id)uniquedString:(id)arg1;

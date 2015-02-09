@@ -39,6 +39,7 @@
 + (id)SLDictionaryWithOAuthAccessTokenResponseData:(id)arg1;
 + (id)_dictionaryWithData:(id)arg1 isPlist:(bool)arg2 allowedClasses:(id)arg3;
 + (id)_geo_dictionaryFromXPCObject:(id)arg1;
++ (id)_geo_replyDictionaryForError:(id)arg1 key:(id)arg2;
 + (id)_gkClientImageDictionaryForServerImageURLs:(id)arg1;
 + (id)_gkDictionaryWithFormEncodedString:(id)arg1;
 + (id)_gkImageCacheKeyPathsByKey;
@@ -138,6 +139,7 @@
 - (id)_dataForKey:(id)arg1;
 - (id)_defaultOffer;
 - (id)_dictionaryForKey:(id)arg1;
+- (id)_geo_errorForKey:(id)arg1;
 - (id)_geo_newXPCObject;
 - (id)_gkDictionaryByRemovingObjectForKey:(id)arg1;
 - (id)_gkDictionaryByRemovingObjectsForKeys:(id)arg1;

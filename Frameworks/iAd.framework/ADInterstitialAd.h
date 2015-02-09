@@ -34,7 +34,7 @@
 @property <ADInterstitialAdDelegate> * internalDelegate;
 @property UIViewController * internalPresentingViewController;
 @property(retain) ADInterstitialView * interstitialView;
-@property(getter=isLoaded,readonly) bool loaded;
+@property(getter=isLoaded) bool loaded;
 @property(readonly) long long options;
 @property(retain) ADInterstitialAdPresentationViewController * presentationViewController;
 @property(readonly) UIViewController * presentingViewController;
@@ -45,6 +45,7 @@
 - (void)_presentFromViewController:(id)arg1;
 - (id)adSpace;
 - (id)adSpaceView;
+- (void)bannerTappedAtPoint:(struct CGPoint { double x1; double x2; })arg1;
 - (bool)canLoadMoreThanOnce;
 - (void)cancelAction;
 - (int)clickAction;
@@ -52,7 +53,6 @@
 - (int)creativeType;
 - (void)dealloc;
 - (id)delegate;
-- (void)handleTapOnInterstitialViewAtLocation:(struct CGPoint { double x1; double x2; })arg1;
 - (bool)hasLoadedFirstAd;
 - (id)identifier;
 - (id)init;
@@ -83,7 +83,6 @@
 - (void)setCreativeType:(int)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setHasLoadedFirstAd:(bool)arg1;
-- (void)setHostedWindowHostingHandle:(id)arg1;
 - (void)setInternalDelegate:(id)arg1;
 - (void)setInternalPresentingViewController:(id)arg1;
 - (void)setInterstitialView:(id)arg1;

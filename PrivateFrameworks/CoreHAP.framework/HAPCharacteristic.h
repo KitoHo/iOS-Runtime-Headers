@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/CoreHAP.framework/CoreHAP
  */
 
-@class HAPCharacteristicMetadata, HAPService, NSData, NSNumber, NSString;
+@class HAPCharacteristicMetadata, HAPService, NSNumber, NSString;
 
 @interface HAPCharacteristic : NSObject {
-    NSData *_authorizationData;
     NSNumber *_instanceID;
     HAPCharacteristicMetadata *_metadata;
     unsigned long long _properties;
@@ -15,7 +14,6 @@
     bool_eventNotificationsEnabled;
 }
 
-@property(copy) NSData * authorizationData;
 @property bool eventNotificationsEnabled;
 @property(copy) NSNumber * instanceID;
 @property(retain) HAPCharacteristicMetadata * metadata;
@@ -31,7 +29,6 @@
 - (id)_generateValidMetadata:(id)arg1;
 - (id)_getDefaultMetadata;
 - (void)_updateMetadata:(id)arg1 withProvidedMetadata:(id)arg2;
-- (id)authorizationData;
 - (id)description;
 - (bool)eventNotificationsEnabled;
 - (id)initWithType:(id)arg1 instanceID:(id)arg2 value:(id)arg3 properties:(unsigned long long)arg4 eventNotificationsEnabled:(bool)arg5 metadata:(id)arg6;
@@ -41,7 +38,6 @@
 - (unsigned long long)properties;
 - (id)propertiesDescription;
 - (id)service;
-- (void)setAuthorizationData:(id)arg1;
 - (void)setEventNotificationsEnabled:(bool)arg1;
 - (void)setInstanceID:(id)arg1;
 - (void)setMetadata:(id)arg1;

@@ -14,6 +14,7 @@
 
 - (void).cxx_destruct;
 - (id)convertToCHRecentCalls_sync:(id)arg1;
+- (bool)createCallRecord:(id)arg1 error:(id*)arg2 save:(bool)arg3;
 - (bool)createCallRecord:(id)arg1 error:(id*)arg2;
 - (bool)createCallRecord:(id)arg1;
 - (bool)createCallRecords:(id)arg1 error:(id*)arg2;
@@ -22,6 +23,7 @@
 - (void)dealloc;
 - (bool)deleteAll:(id*)arg1;
 - (bool)deleteAll;
+- (bool)deleteObjectWithUniqueId:(id)arg1 error:(id*)arg2 save:(bool)arg3;
 - (bool)deleteObjectWithUniqueId:(id)arg1 error:(id*)arg2;
 - (bool)deleteObjectWithUniqueId:(id)arg1;
 - (bool)deleteObjectsWithUniqueIds:(id)arg1 error:(id*)arg2;
@@ -39,6 +41,7 @@
 - (void)parseCallStatus_sync:(unsigned int)arg1 isAnswered:(bool*)arg2 isOriginated:(bool*)arg3;
 - (void)registerForNotifications;
 - (void)resetTimers;
+- (bool)saveDatabase:(id*)arg1;
 - (void)setClientObject_sync:(id)arg1 withStoreObject:(id)arg2;
 - (void)setStoreObject_sync:(id)arg1 withClientObject:(id)arg2;
 - (id)timerIncoming;
@@ -50,9 +53,10 @@
 - (id)updateAllCallRecords:(id)arg1;
 - (id)updateAllCallRecords_sync:(id)arg1 error:(id*)arg2;
 - (bool)updateCallRecord_sync:(id)arg1 withChangeDict:(id)arg2;
+- (id)updateCallRecords:(id)arg1 error:(id*)arg2 save:(bool)arg3;
 - (id)updateCallRecords:(id)arg1 error:(id*)arg2;
 - (id)updateCallRecords:(id)arg1;
-- (id)updateCallRecords_sync:(id)arg1 error:(id*)arg2;
+- (id)updateCallRecords_sync:(id)arg1 error:(id*)arg2 save:(bool)arg3;
 - (bool)willHandleNotification_sync:(id)arg1;
 
 @end

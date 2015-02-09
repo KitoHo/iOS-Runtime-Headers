@@ -10,6 +10,8 @@
     NSMutableDictionary *_associatedRemotePeers;
     HMDCloudDataSyncManager *_cloudDataSyncManager;
     HMDCloudDataSyncStateFilter *_cloudDataSyncStateFilter;
+    unsigned long long _cloudOperationRetryCount;
+    NSObject<OS_dispatch_source> *_cloudOperationRetryTimer;
     NSObject<OS_dispatch_source> *_cloudUploadTimer;
     unsigned long long _generationCounter;
     NSMutableDictionary *_homeNames;
@@ -34,7 +36,9 @@
     NSObject<OS_dispatch_queue> *_workQueue;
     bool_accountActive;
     bool_accountStatusFailedDueToNetworkFailure;
+    bool_backOffOperationInProgress;
     bool_lastAnswerForShouldCloudSyncData;
+    bool_newiCloudAccountAdded;
     bool_uploadToCloudIsPending;
 }
 
@@ -43,8 +47,11 @@
 @property bool accountActive;
 @property bool accountStatusFailedDueToNetworkFailure;
 @property(retain) NSMutableDictionary * associatedRemotePeers;
+@property bool backOffOperationInProgress;
 @property(retain) HMDCloudDataSyncManager * cloudDataSyncManager;
 @property(retain) HMDCloudDataSyncStateFilter * cloudDataSyncStateFilter;
+@property unsigned long long cloudOperationRetryCount;
+@property(retain) NSObject<OS_dispatch_source> * cloudOperationRetryTimer;
 @property(retain) NSObject<OS_dispatch_source> * cloudUploadTimer;
 @property(copy,readonly) NSString * debugDescription;
 @property(copy,readonly) NSString * description;
@@ -61,6 +68,7 @@
 @property(retain) HMDMessageFilterChain * msgFilterChain;
 @property(retain) HMDNameValidator * nameValidator;
 @property long long networkConnectionAvailable;
+@property bool newiCloudAccountAdded;
 @property(retain) NSMutableArray * pendingAccessoryTransactions;
 @property(retain) NSMutableDictionary * pendingDataSyncAcks;
 @property(retain) NSMutableDictionary * pendingRemoteSessions;
@@ -107,6 +115,7 @@
 - (void)_handleDoYouSeeUnpairedAccessories:(id)arg1;
 - (void)_handleElectDeviceForIDSSession:(id)arg1;
 - (void)_handleHomeDataSync:(id)arg1;
+- (void)_handleIDSAccountStatusChanged:(id)arg1;
 - (void)_handleLogControl:(id)arg1;
 - (void)_handlePrimaryAccountDeleted:(id)arg1;
 - (void)_handlePrimaryAccountModified:(id)arg1;
@@ -139,6 +148,8 @@
 - (void)_removeFromUnassociatedPeers:(id)arg1;
 - (void)_removeHome:(id)arg1 withMessage:(id)arg2;
 - (void)_removePendingDataSyncAcksForUser:(id)arg1 forHome:(id)arg2;
+- (void)_resetCloudOperationRetryCounters;
+- (void)_retryCloudOperationWithName:(id)arg1 completionHandler:(id)arg2;
 - (void)_saveToPersistentStore;
 - (void)_saveWithReason:(id)arg1 information:(id)arg2 postSyncNotification:(bool)arg3;
 - (void)_saveWithReason:(id)arg1 postSyncNotification:(bool)arg2;
@@ -147,8 +158,11 @@
 - (void)_sendUserRemoved:(id)arg1 fromHome:(id)arg2 pairingUsername:(id)arg3;
 - (void)_startAccessoryFinderTimer;
 - (void)_startAccessoryFinderTimerExpired;
+- (void)_startCloudOperationRetryWithTimeout:(unsigned long long)arg1 completionHandler:(id)arg2;
 - (void)_startScanningForAccessories:(id)arg1;
+- (void)_startTimerToResetCloudOperationRetryCounter;
 - (void)_startUploadTimer;
+- (void)_stopCloudOperationRetryTimer;
 - (void)_stopUploadTimer;
 - (void)_suspendXPCConnectionAndMergeRemoteHomes:(id)arg1 remotePrimaryHome:(id)arg2 remoteAccessories:(id)arg3 needConflictResolution:(bool)arg4 idsDataSync:(bool)arg5 completionHandler:(id)arg6;
 - (void)_teardownRemoteAccessForHome:(id)arg1;
@@ -165,9 +179,12 @@
 - (bool)accountStatusFailedDueToNetworkFailure;
 - (id)addName:(id)arg1 namespace:(id)arg2;
 - (id)associatedRemotePeers;
+- (bool)backOffOperationInProgress;
 - (void)checkTimerTriggersForHomes;
 - (id)cloudDataSyncManager;
 - (id)cloudDataSyncStateFilter;
+- (unsigned long long)cloudOperationRetryCount;
+- (id)cloudOperationRetryTimer;
 - (id)cloudUploadTimer;
 - (bool)doesSaveReasonAffectOnlyLocalData:(id)arg1;
 - (void)electDeviceForUser:(id)arg1 destination:(id)arg2 queue:(id)arg3 completionHandler:(id)arg4;
@@ -188,6 +205,7 @@
 - (id)msgFilterChain;
 - (id)nameValidator;
 - (long long)networkConnectionAvailable;
+- (bool)newiCloudAccountAdded;
 - (void)notifyPrimaryHomeUpdated:(id)arg1;
 - (void)notifySyncDataChanged;
 - (id)pendingAccessoryTransactions;
@@ -199,6 +217,7 @@
 - (id)powerManager;
 - (id)primaryHomeUUID;
 - (struct __SCNetworkReachability { }*)reachability;
+- (id)remotePeerDeviceAddress:(id)arg1;
 - (id)removeName:(id)arg1 namespace:(id)arg2;
 - (id)replaceName:(id)arg1 withNewName:(id)arg2 inNamespaces:(id)arg3;
 - (void)saveRequestFromHome:(id)arg1 reason:(id)arg2 information:(id)arg3 postSyncNotification:(bool)arg4;
@@ -212,12 +231,16 @@
 - (void)setAccountActive:(bool)arg1;
 - (void)setAccountStatusFailedDueToNetworkFailure:(bool)arg1;
 - (void)setAssociatedRemotePeers:(id)arg1;
+- (void)setBackOffOperationInProgress:(bool)arg1;
 - (void)setCloudDataSyncManager:(id)arg1;
 - (void)setCloudDataSyncStateFilter:(id)arg1;
+- (void)setCloudOperationRetryCount:(unsigned long long)arg1;
+- (void)setCloudOperationRetryTimer:(id)arg1;
 - (void)setCloudUploadTimer:(id)arg1;
 - (void)setGenerationCounter:(unsigned long long)arg1;
 - (void)setHomeNames:(id)arg1;
 - (void)setHomes:(id)arg1;
+- (void)setHomesConfigured:(bool)arg1;
 - (void)setIdentityRegistry:(id)arg1;
 - (void)setIdsMessageDispatcher:(id)arg1;
 - (void)setLastAnswerForShouldCloudSyncData:(bool)arg1;
@@ -225,6 +248,7 @@
 - (void)setMsgFilterChain:(id)arg1;
 - (void)setNameValidator:(id)arg1;
 - (void)setNetworkConnectionAvailable:(long long)arg1;
+- (void)setNewiCloudAccountAdded:(bool)arg1;
 - (void)setPendingAccessoryTransactions:(id)arg1;
 - (void)setPendingDataSyncAcks:(id)arg1;
 - (void)setPendingRemoteSessions:(id)arg1;

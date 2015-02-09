@@ -8,7 +8,7 @@
 
 @class <PUPhotosSharingViewControllerDelegate>, NSIndexPath, NSMutableDictionary, NSMutableSet, NSPredicate, NSString, PHAsset, PHCachingImageManager, PHFetchResult, PUActivityViewController, PUPhotoPinchGestureRecognizer, PUPhotoSelectionManager, PUPhotosSharingCollectionViewLayout, PUPhotosSharingTransitionContext, PUPhotosSharingViewControllerSpec, PUPhotosZoomingSharingGridCell, PUScrollViewSpeedometer, PUTransitionViewAnimator, UIBarButtonItem, UICollectionView, UICollectionViewLayout, UITapGestureRecognizer, UIView;
 
-@interface PUPhotosSharingViewController : UIViewController <PLDismissableViewController, UIGestureRecognizerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PUPhotosSharingCollectionViewLayoutDelegate, UIActivityViewControllerDelegate, PUTransitionViewAnimatorDelegate, PUScrollViewSpeedometerDelegate, PUActivityViewControllerDelegate, PHPhotoLibraryChangeObserver, PUPhotosSharingTransitionViewController, PHAssetCollectionDataSource> {
+@interface PUPhotosSharingViewController : UIViewController <PLDismissableViewController, UIGestureRecognizerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PUPhotosSharingCollectionViewLayoutDelegate, UIActivityViewControllerDelegate, PUTransitionViewAnimatorDelegate, PUScrollViewSpeedometerDelegate, PUActivityViewControllerDelegate, PUPhotoLibraryUIChangeObserver, PUPhotosSharingTransitionViewController, PHAssetCollectionDataSource> {
     struct CGRect { 
         struct CGPoint { 
             double x; 
@@ -189,13 +189,14 @@
 - (id)mainCollectionViewLayout;
 - (long long)numberOfSectionsInCollectionView:(id)arg1;
 - (id)photoCollectionsFetchResult;
-- (void)photoLibraryDidChange:(id)arg1;
+- (void)photoLibraryDidChangeOnMainQueue:(id)arg1;
 - (id)photoSelectionManager;
 - (id)photosSharingTransitionContext;
 - (void)ppt_faultInScollViewContentSize;
 - (bool)ppt_scrollToAssetAtRelativeIndex:(long long)arg1 completion:(id)arg2;
 - (id)ppt_scrollView;
 - (bool)prepareForDismissingForced:(bool)arg1;
+- (void)prepareForPhotoLibraryChange:(id)arg1;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(bool)arg2;
 - (void)scrollViewDidEndScrollingAnimation:(id)arg1;

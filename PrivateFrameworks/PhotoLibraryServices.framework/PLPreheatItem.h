@@ -27,11 +27,13 @@
 - (void)cancelPreheatRequest;
 - (long long)decrementPrefetchCount;
 - (int)format;
+- (bool)hasPrefetchCount;
 - (bool)heated;
 - (long long)imageType;
 - (long long)incrementPrefetchCount;
 - (bool)isCancelled;
 - (struct CGSize { double x1; double x2; })optimalSourcePixelSize;
+- (void)resetPrefetchCount;
 - (void)setBestFormat:(int)arg1;
 - (void)setHeated:(bool)arg1;
 - (void)startPreheatRequestWithCompletionHandler:(id)arg1;

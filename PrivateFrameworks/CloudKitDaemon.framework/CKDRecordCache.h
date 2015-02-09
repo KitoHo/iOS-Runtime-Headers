@@ -26,6 +26,7 @@
 - (id)context;
 - (void)deleteRecordWithID:(id)arg1;
 - (id)etagForRecordID:(id)arg1 requiredKeys:(id)arg2;
+- (void)expireRecordsWithExpiryDate:(id)arg1;
 - (id)initWithPath:(id)arg1 queue:(id)arg2;
 - (id)queue;
 - (id)recordWithID:(id)arg1 requiredKeys:(id)arg2;

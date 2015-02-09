@@ -112,6 +112,7 @@
     } _grayWorldWhiteBalanceGains;
     } _ispOutputDimensions;
     } _lastISPCropDimensions;
+    NSArray *_lastValidDetectedFacesArray;
     float _lensPosition;
     int _lowLightBoostLock;
     struct OpaqueFigSimpleMutex { } *_manualPropertyMutex;
@@ -163,6 +164,7 @@
     bool_autoTorchEnabled;
     bool_autoTorchStatsCheckedForVideoRecording;
     bool_awbStable;
+    bool_cacheDetectedFacesForBracketedCapture;
     bool_clientProcessHasAccessToCamera;
     bool_deferMetadataDictionaryCreation;
     bool_enableSphereWhenAvailable;

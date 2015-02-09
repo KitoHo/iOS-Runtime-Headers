@@ -39,7 +39,7 @@
 - (id)cachedClassName;
 - (void)checkPointDB;
 - (void)closeConnection;
-- (bool)copyDatabaseToPath:(id)arg1 fromDate:(id)arg2 toDate:(id)arg3 withTableFilters:(id)arg4;
+- (bool)copyDatabaseToPath:(id)arg1 fromDate:(id)arg2 toDate:(id)arg3 withTableFilters:(id)arg4 vacuumDB:(bool)arg5;
 - (bool)copyDatabaseToPath:(id)arg1 fromDate:(id)arg2 toDate:(id)arg3;
 - (bool)copyDatabaseToPath:(id)arg1;
 - (void)createCoveringIndexOnTable:(id)arg1 forColumns:(id)arg2;

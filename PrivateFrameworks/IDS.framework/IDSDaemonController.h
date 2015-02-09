@@ -31,7 +31,6 @@
 }
 
 @property(setter=_setAutoReconnect:) bool _autoReconnect;
-@property(setter=_setListenerID:,retain) NSString * _listenerID;
 @property(readonly) NSObject<OS_dispatch_queue> * _remoteMessageQueue;
 @property(copy,readonly) NSString * debugDescription;
 @property id delegate;
@@ -39,6 +38,7 @@
 @property(readonly) unsigned long long hash;
 @property(readonly) bool isConnecting;
 @property(readonly) IDSDaemonListener * listener;
+@property(readonly) NSString * listenerID;
 @property(readonly) Class superclass;
 
 + (bool)_applicationWillTerminate;
@@ -52,7 +52,6 @@
 - (void)_connectToDaemonWithLaunch:(bool)arg1 services:(id)arg2 commands:(id)arg3 capabilities:(unsigned int)arg4;
 - (void)_disconnectFromDaemonWithForce:(bool)arg1;
 - (void)_handleDaemonException:(id)arg1;
-- (id)_listenerID;
 - (void)_listenerSetUpdated;
 - (void)_localObjectCleanup;
 - (bool)_makeConnectionWithLaunch:(bool)arg1 completionBlock:(id)arg2;
@@ -65,7 +64,6 @@
 - (void)_setAutoReconnect:(bool)arg1;
 - (bool)_setCapabilities:(unsigned int)arg1;
 - (bool)_setCommands:(id)arg1;
-- (void)_setListenerID:(id)arg1;
 - (void)_setServices:(id)arg1 commands:(id)arg2 capabilities:(unsigned int)arg3;
 - (bool)_setServices:(id)arg1;
 - (bool)addListenerID:(id)arg1 services:(id)arg2 commands:(id)arg3;
@@ -87,6 +85,7 @@
 - (bool)isConnected;
 - (bool)isConnecting;
 - (id)listener;
+- (id)listenerID;
 - (id)localObject;
 - (void)localObjectDiedNotification:(id)arg1;
 - (bool)localObjectExists;

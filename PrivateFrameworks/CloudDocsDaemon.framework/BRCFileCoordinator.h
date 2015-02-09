@@ -22,7 +22,7 @@
 @property bool isUpdateForReconnecting;
 
 + (void)itemAtPath:(id)arg1 didBounceToName:(id)arg2;
-+ (void)itemAtPath:(id)arg1 logicalFilename:(id)arg2 didMoveToPath:(id)arg3 logicalFilename:(id)arg4;
++ (void)itemAtPath:(id)arg1 logicalFilename:(id)arg2 didMoveToPath:(id)arg3 logicalFilename:(id)arg4 hasContentUpdate:(bool)arg5;
 + (void)itemDidAppearAtPath:(id)arg1 logicalFilename:(id)arg2;
 + (void)itemDidDisappearAtPath:(id)arg1 logicalFilename:(id)arg2;
 
@@ -34,7 +34,7 @@
 - (bool)isUpdateForReconnecting;
 - (void)scheduleDeleteOfItemAtURL:(id)arg1 target:(id)arg2;
 - (void)scheduleReadOfItemAtURL:(id)arg1 target:(id)arg2;
-- (void)scheduleRenameOfItemAtURL:(id)arg1 toItemAtURL:(id)arg2 target:(id)arg3;
+- (void)scheduleRenameOfItemAtURL:(id)arg1 toItemAtURL:(id)arg2 contentUpdate:(bool)arg3 target:(id)arg4;
 - (void)scheduleUpdateOfItemAtURL:(id)arg1 target:(id)arg2;
 - (void)setIsUpdateForReconnecting:(bool)arg1;
 

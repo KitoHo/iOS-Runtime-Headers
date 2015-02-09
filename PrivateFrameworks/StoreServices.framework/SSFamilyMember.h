@@ -32,10 +32,12 @@
 - (id)iCloudAccountName;
 - (id)iCloudIdentifier;
 - (id)iTunesIdentifier;
+- (id)initWithCacheRepresentation:(id)arg1;
 - (id)initWithXPCEncoding:(id)arg1;
 - (bool)isMe;
 - (bool)isSharingPurchases;
 - (id)lastName;
+- (id)newCacheRepresentation;
 - (void)setFirstName:(id)arg1;
 - (void)setICloudAccountName:(id)arg1;
 - (void)setICloudIdentifier:(id)arg1;

@@ -53,6 +53,9 @@
 @property(readonly) double smartToneBaseHighlights;
 @property(readonly) double smartToneBaseShadows;
 
++ (id)_editedImagePropertiesFromOriginalImageProperties:(id)arg1 preserveRegions:(bool)arg2;
++ (id)createImageDataFromCGImage:(struct CGImage { }*)arg1 withCompressionQuality:(double)arg2 metadataSourceImageURL:(id)arg3 preserveRegionsInMetadata:(bool)arg4;
+
 - (id)_editedGeometryImageWithBaseImage:(id)arg1;
 - (id)_editedImage;
 - (void)_invalidateCachedFilters;
@@ -65,6 +68,7 @@
 - (void)createEditedImageWithCompletion:(id)arg1;
 - (void)dealloc;
 - (void)drawEditedImageInContext:(id)arg1 inRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg2 viewportWidth:(int)arg3 viewportHeight:(int)arg4;
+- (void)generateEditedImageDataWithCompressionQuality:(double)arg1 metadataSourceImageURL:(id)arg2 completionHandler:(id)arg3;
 - (id)init;
 - (struct CGImage { }*)newEditedImage;
 - (id)originalImage;

@@ -28,6 +28,7 @@
     CBCharacteristic *_pairSetupCharacteristic;
     CBCharacteristic *_pairVerifyCharacteristic;
     id _pairVerifyCompletionBlock;
+    unsigned long long _pairingFeatureFlags;
     CBCharacteristic *_pairingFeaturesCharacteristic;
     CBService *_pairingService;
     struct PairingSessionPrivate { } *_pairingSession;
@@ -42,6 +43,7 @@
     id _unpairedIdentifyCompletionBlock;
     NSMutableData *_writeNonce;
     bool_disconnecting;
+    bool_pairingFeaturesRead;
     bool_removeOnDisconnect;
     bool_startPairingRequested;
     bool_unpairedIdentifyRequested;
@@ -70,7 +72,9 @@
 @property(retain) CBCharacteristic * pairSetupCharacteristic;
 @property(retain) CBCharacteristic * pairVerifyCharacteristic;
 @property(copy) id pairVerifyCompletionBlock;
+@property unsigned long long pairingFeatureFlags;
 @property(retain) CBCharacteristic * pairingFeaturesCharacteristic;
+@property bool pairingFeaturesRead;
 @property(retain) CBService * pairingService;
 @property(retain) CBCharacteristic * pairingsCharacteristic;
 @property(retain) CBPeripheral * peripheral;
@@ -93,10 +97,11 @@
 - (void)_addPairingWithIdentifier:(id)arg1 publicKey:(id)arg2 admin:(bool)arg3 queue:(id)arg4 completion:(id)arg5;
 - (id)_btleCharacteristicForHAPCharacteristic:(id)arg1;
 - (void)_cancelConnectionLifetimeTimer;
+- (void)_checkForAuthPrompt;
 - (bool)_checkPairedState;
 - (id)_convertFromBTLEValue:(id)arg1 metadata:(id)arg2;
 - (id)_convertToBTLEValue:(id)arg1 metadata:(id)arg2;
-- (id)_convertValueToTLV:(id)arg1 characteristic:(id)arg2 error:(id*)arg3;
+- (id)_convertValueToTLV:(id)arg1 characteristic:(id)arg2 authorizationData:(id)arg3 error:(id*)arg4;
 - (void)_createPrimaryAccessoryFromAdvertisementData;
 - (id)_decryptData:(id)arg1 error:(id*)arg2;
 - (bool)_delegateRespondsToSelector:(SEL)arg1;
@@ -141,7 +146,7 @@
 - (bool)_shouldEnableSessionSecurity;
 - (void)_updateConnectionLifetimeTimer;
 - (void)_writeCharacteristicValues:(id)arg1 queue:(id)arg2 completionHandler:(id)arg3;
-- (void)_writeValue:(id)arg1 forCharacteristic:(id)arg2 withCompletionHandler:(id)arg3 queue:(id)arg4;
+- (void)_writeValue:(id)arg1 forCharacteristic:(id)arg2 authorizationData:(id)arg3 withCompletionHandler:(id)arg4 queue:(id)arg5;
 - (id)accessoryInfoService;
 - (id)accessoryPairingUsername;
 - (bool)addPairingWithIdentifier:(id)arg1 publicKey:(id)arg2 admin:(bool)arg3 queue:(id)arg4 completion:(id)arg5;
@@ -176,7 +181,9 @@
 - (id)pairSetupCharacteristic;
 - (id)pairVerifyCharacteristic;
 - (id)pairVerifyCompletionBlock;
+- (unsigned long long)pairingFeatureFlags;
 - (id)pairingFeaturesCharacteristic;
+- (bool)pairingFeaturesRead;
 - (id)pairingService;
 - (id)pairingsCharacteristic;
 - (void)peripheral:(id)arg1 didDiscoverCharacteristicsForService:(id)arg2 error:(id)arg3;
@@ -216,7 +223,9 @@
 - (void)setPairSetupCharacteristic:(id)arg1;
 - (void)setPairVerifyCharacteristic:(id)arg1;
 - (void)setPairVerifyCompletionBlock:(id)arg1;
+- (void)setPairingFeatureFlags:(unsigned long long)arg1;
 - (void)setPairingFeaturesCharacteristic:(id)arg1;
+- (void)setPairingFeaturesRead:(bool)arg1;
 - (void)setPairingService:(id)arg1;
 - (void)setPairingsCharacteristic:(id)arg1;
 - (void)setPeripheral:(id)arg1;
@@ -240,6 +249,6 @@
 - (bool)unpairedIdentifyRequested;
 - (void)writeCharacteristicValues:(id)arg1 queue:(id)arg2 completionHandler:(id)arg3;
 - (id)writeNonce;
-- (void)writeValue:(id)arg1 forCharacteristic:(id)arg2 queue:(id)arg3 completionHandler:(id)arg4;
+- (void)writeValue:(id)arg1 forCharacteristic:(id)arg2 authorizationData:(id)arg3 queue:(id)arg4 completionHandler:(id)arg5;
 
 @end

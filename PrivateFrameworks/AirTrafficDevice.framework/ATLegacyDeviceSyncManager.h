@@ -10,6 +10,7 @@
 
 @interface ATLegacyDeviceSyncManager : ATDeviceSyncManager <ATEnvironmentMonitorObserver, ATSessionObserver, ATLegacyAssetLinkProgressDelegate> {
     ATLegacyAssetLink *_assetLink;
+    struct CacheDeleteToken { } *_cacheDeleteToken;
     ATClientController *_clientController;
     id _clientProgressCallback;
     ATAsset *_currentAsset;
@@ -50,6 +51,7 @@
 - (void)_handleRequestingSyncMessage:(id)arg1 fromLink:(id)arg2;
 - (void)_handleSyncFailedMessage:(id)arg1 fromLink:(id)arg2;
 - (void)_handleSyncStatusMessage:(id)arg1 fromLink:(id)arg2;
+- (void)_reconcileSyncWithMessage:(id)arg1;
 - (void)_reportLocalProgress;
 - (void)_reset;
 - (void)_sendDiskUsageForDataClasses:(id)arg1;

@@ -64,6 +64,7 @@
 - (void)_fireReferenceLocationTimer;
 - (struct CGSize { double x1; double x2; })_imageSize;
 - (id)_labelWithFontSize:(double)arg1;
+- (void)_locationApprovalDidChange;
 - (unsigned long long)_maxNameLengthForEndingString:(id)arg1;
 - (unsigned long long)_maxSecondaryStringLengthForEndingString:(id)arg1;
 - (void)_updateColors;

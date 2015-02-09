@@ -10,6 +10,7 @@
             struct SuddenTerminationDisabler {} *__first_; 
         } __ptr_; 
     double _ageLimit;
+    long long _cachedNumberOfDevicesInSyncCircle;
     long long _currentGeneration;
     WBSSQLiteDatabase *_database;
     int _databaseLockingPolicy;
@@ -17,6 +18,7 @@
     NSURL *_databaseURL;
     <WBSHistoryStoreDelegate> *_delegate;
     NSArray *_discardedItems;
+    NSData *_fetchThrottlerData;
     Class _historyItemClass;
     int _importState;
     unsigned long long _itemCountLimit;
@@ -33,6 +35,7 @@
     NSData *_pushThrottlerData;
     NSMutableDictionary *_statements;
     } _suddenTerminationDisabler;
+    NSData *_syncCircleSizeRetrievalThrottlerData;
     NSMapTable *_weakVisitsByDatabaseID;
     NSTimer *_writeTimer;
     bool_commitGenerationValuesOnNextWrite;
@@ -50,6 +53,7 @@
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (unsigned long long)_cachedNumberOfDevicesInSyncCircleOnDatabaseQueue;
 - (bool)_checkDatabaseIntegrity;
 - (void)_clearHistoryVisitsAddedAfterDate:(id)arg1 beforeDate:(id)arg2 addingTombstone:(id)arg3 completionHandler:(id)arg4;
 - (void)_clearHistoryVisitsMatchingURLString:(id)arg1 afterDate:(id)arg2 beforeDate:(id)arg3 addingTombstone:(id)arg4 completionHandler:(id)arg5;
@@ -108,6 +112,7 @@
 - (id)_visitsWithOrigins:(id)arg1;
 - (void)_writeTimerFired;
 - (void)addOrUpdateItemsOnDatabaseQueue:(id)arg1;
+- (unsigned long long)cachedNumberOfDevicesInSyncCircle;
 - (void)clearHistoryVisitsAddedAfterDate:(id)arg1 beforeDate:(id)arg2 completionHandler:(id)arg3;
 - (void)clearHistoryWithCompletionHandler:(id)arg1;
 - (void)close;
@@ -116,6 +121,7 @@
 - (id)debugDictionaryRepresentation;
 - (id)delegate;
 - (id)existingItemFromVisitRow:(id)arg1;
+- (id)fetchThrottlerData;
 - (void)getAllTombstonesWithCompletion:(id)arg1;
 - (void)getServerChangeTokenDataWithCompletion:(id)arg1;
 - (void)getVisitsAndTombstonesNeedingSyncWithCompletion:(id)arg1;
@@ -130,10 +136,14 @@
 - (void)removePastHistoryVisitsForItem:(id)arg1 completionHandler:(id)arg2;
 - (void)replayAndAddTombstone:(id)arg1;
 - (void)savePendingChangesWithCompletionHandler:(id)arg1;
+- (void)setCachedNumberOfDevicesInSyncCircle:(unsigned long long)arg1;
 - (void)setDelegate:(id)arg1;
+- (void)setFetchThrottlerData:(id)arg1;
 - (void)setPushThrottlerData:(id)arg1;
 - (void)setServerChangeTokenData:(id)arg1;
+- (void)setSyncCircleSizeRetrievalThrottlerData:(id)arg1;
 - (void)startLoading;
+- (id)syncCircleSizeRetrievalThrottlerData;
 - (id)visitForItem:(id)arg1 row:(id)arg2;
 - (id)visitForRow:(id)arg1;
 - (void)visitIdentifiersMatchingExistingVisits:(id)arg1 populateAssociatedVisits:(bool)arg2 completion:(id)arg3;

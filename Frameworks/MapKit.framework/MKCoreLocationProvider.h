@@ -37,6 +37,7 @@
 @property(readonly) unsigned long long hash;
 @property int headingOrientation;
 @property(readonly) bool isSimulation;
+@property(readonly) bool isTracePlayer;
 @property(getter=isLocationServicesPreferencesDialogEnabled) bool locationServicesPreferencesDialogEnabled;
 @property bool matchInfoEnabled;
 @property(readonly) Class superclass;
@@ -63,6 +64,7 @@
 - (id)init;
 - (bool)isLocationServicesPreferencesDialogEnabled;
 - (bool)isSimulation;
+- (bool)isTracePlayer;
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
 - (void)locationManager:(id)arg1 didFailWithError:(id)arg2;
 - (void)locationManager:(id)arg1 didUpdateHeading:(id)arg2;

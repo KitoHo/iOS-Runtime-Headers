@@ -75,7 +75,7 @@
 - (void)notifyAttachedObjectsPullQueueIsFull;
 - (void)notifyAttachedObjectsResourceDidDowloadInBackground:(id)arg1;
 - (void)notifyAttachedObjectsResourceDidFailBackgroundDownloadOfResource:(id)arg1;
-- (void)notifyAttachedObjectsSizeOfResourcesToUploadDidChangeToSize:(unsigned long long)arg1;
+- (void)notifyAttachedObjectsSizeOfResourcesToUploadDidChangeToSize:(unsigned long long)arg1 numberOfImages:(unsigned long long)arg2 numberOfVideos:(unsigned long long)arg3 numberOfOtherItems:(unsigned long long)arg4;
 - (void)notifyAttachedObjectsUploadTask:(id)arg1 didFinishWithError:(id)arg2;
 - (void)notifyAttachedObjectsUploadTask:(id)arg1 didProgress:(float)arg2;
 - (void)notifyAttachedObjectsUploadTaskDidStart:(id)arg1;
@@ -94,6 +94,7 @@
 - (id)syncManager;
 - (id)systemMonitor;
 - (id)transport;
+- (void)updateAssetCountsFromServer:(id)arg1;
 - (void)updateLastSuccessfullSyncDate:(id)arg1;
 
 @end

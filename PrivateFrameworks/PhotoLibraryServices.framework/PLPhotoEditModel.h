@@ -108,6 +108,7 @@
 @property(readonly) double whiteBalanceFaceStrength;
 @property(readonly) double whiteBalanceFaceWarmth;
 
++ (id)_identityModel;
 + (void)_loadReferenceLevelsFromCIFilterWithName:(id)arg1 attributeKeys:(id)arg2 intoLevelStructs:(struct { /* ? */ }**)arg3;
 + (void)_loadSubfilterReferenceLevelsIfNeeded;
 + (double)_referenceValueOfType:(long long)arg1 fromLevels:(struct { double x1; double x2; double x3; })arg2;
@@ -172,6 +173,7 @@
 - (id)init;
 - (bool)isEqualToPhotoEditModel:(id)arg1;
 - (bool)isGeometryEqualToPhotoEditModel:(id)arg1;
+- (bool)isGeometryIdentity;
 - (bool)isIdentityModel;
 - (bool)isSmartBWEnabled;
 - (bool)isSmartColorEnabled;

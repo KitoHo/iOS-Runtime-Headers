@@ -37,6 +37,7 @@
 @property(retain,readonly) PKPassGroupStackView * groupStackView;
 @property(readonly) unsigned long long hash;
 @property bool passesAreOutdated;
+@property(getter=isShowingWelcome,readonly) bool showingWelcome;
 @property(readonly) Class superclass;
 @property(getter=isWelcomeStateEnabled) bool welcomeStateEnabled;
 
@@ -49,13 +50,16 @@
 - (void)_handleStatusBarChange:(id)arg1;
 - (void)_loadWelcomeContainer;
 - (void)_loadWelcomeContainerIfNecessary;
+- (void)_localeDidChangeNotification:(id)arg1;
 - (void)_passViewedNotificationTimerFired;
 - (void)_presentGroupWithIndex:(unsigned long long)arg1 animated:(bool)arg2 completionHandler:(id)arg3;
 - (void)_presentGroupWithIndex:(unsigned long long)arg1 animated:(bool)arg2;
 - (void)_presentWithUpdatedPasses:(id)arg1;
+- (void)_regionConfigurationDidChangeNotification;
 - (void)_setShowingWelcome:(bool)arg1;
 - (void)_startPassViewedNotificationTimer;
 - (void)_toggleWelcomeContainerVisible;
+- (void)_updateStatusBarGradientOpacity:(bool)arg1;
 - (void)_updateWelcomeButton:(bool)arg1;
 - (void)_updateWelcomeButtonOpacity:(bool)arg1;
 - (double)_welcomeContainerDesiredHeight;
@@ -88,6 +92,7 @@
 - (id)init;
 - (id)initWithGroupsController:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (bool)isShowingWelcome;
 - (bool)isWelcomeStateEnabled;
 - (void)loadView;
 - (unsigned long long)numberOfGroups;
@@ -102,6 +107,7 @@
 - (void)presentOffscreenAnimated:(bool)arg1 withCompletionHandler:(id)arg2;
 - (void)presentOnscreen:(bool)arg1 withCompletionHandler:(id)arg2;
 - (void)presentPassWithBulletinRecordID:(id)arg1;
+- (void)presentPassWithUniqueID:(id)arg1 animated:(bool)arg2 completionHandler:(id)arg3 fallbackHandler:(id)arg4;
 - (void)presentPassWithUniqueID:(id)arg1 animated:(bool)arg2 completionHandler:(id)arg3;
 - (void)presentPassWithUniqueID:(id)arg1 animated:(bool)arg2;
 - (void)reloadPasses;
@@ -118,6 +124,7 @@
 - (unsigned long long)supportedInterfaceOrientations;
 - (unsigned long long)suppressedContent;
 - (void)updateLockscreenIdleTimer;
+- (void)updateRegionSupportIfNecessary;
 - (void)viewDidDisappear:(bool)arg1;
 - (void)viewWillAppear:(bool)arg1;
 - (void)viewWillLayoutSubviews;

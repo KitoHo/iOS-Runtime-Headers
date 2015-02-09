@@ -196,6 +196,7 @@
 - (id)arrayByFlattening;
 - (id)arrayByFlattening;
 - (id)arrayByPerformingSpecifierUpdatesUsingBlock:(id)arg1;
+- (id)arrayByRemovingObject:(id)arg1;
 - (id)arrayByRemovingObjectsFromArray:(id)arg1;
 - (id)arrayByRemovingObjectsIdenticalToObjectsInArray:(id)arg1;
 - (id)arrayByRemovingObjectsIdenticalToObjectsInArray:(id)arg1;

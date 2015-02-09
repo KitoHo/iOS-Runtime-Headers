@@ -9,7 +9,6 @@
 @property long long state;
 
 - (id)_mediaRemoteCommandInfoOptions;
-- (id)keyPathsForValuesTriggeringCommandsChanged;
 - (void)setState:(long long)arg1;
 - (long long)state;
 

@@ -81,6 +81,7 @@
 - (bool)setAdmissionMask:(unsigned long long)arg1 bitfield:(unsigned long long)arg2 error:(id*)arg3 replyHandler:(id)arg4;
 - (bool)setDebugBitmap:(unsigned long long)arg1 error:(id*)arg2 replyHandler:(id)arg3;
 - (bool)setManualType:(unsigned long long)arg1 type:(bool)arg2 error:(id*)arg3 replyHandler:(id)arg4;
+- (bool)setNonAppBundlId:(id)arg1 error:(id*)arg2 replyHandler:(id)arg3;
 - (bool)versionWithError:(id*)arg1 replyHandler:(id)arg2;
 
 @end

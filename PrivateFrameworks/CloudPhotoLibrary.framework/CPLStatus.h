@@ -2,7 +2,7 @@
    Image: /System/Library/PrivateFrameworks/CloudPhotoLibrary.framework/CloudPhotoLibrary
  */
 
-@class <CPLStatusDelegate>, NSDate, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSURL;
+@class <CPLStatusDelegate>, NSDate, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSURL;
 
 @interface CPLStatus : NSObject {
     <CPLStatusDelegate> *_delegate;
@@ -11,6 +11,8 @@
     NSURL *_statusFileURL;
 }
 
+@property(readonly) NSDictionary * cloudAssetCountPerType;
+@property(readonly) NSDate * cloudAssetCountPerTypeLastCheckDate;
 @property <CPLStatusDelegate> * delegate;
 @property NSDate * exitDeleteTime;
 @property bool hasChangesToProcess;
@@ -25,6 +27,8 @@
 - (void)_loadIfNecessary;
 - (void)_save;
 - (void)_statusDidChange;
+- (id)cloudAssetCountPerType;
+- (id)cloudAssetCountPerTypeLastCheckDate;
 - (id)delegate;
 - (id)exitDeleteTime;
 - (bool)hasChangesToProcess;
@@ -34,6 +38,7 @@
 - (bool)isExceedingQuota;
 - (id)lastSuccessfulSyncDate;
 - (void)refetchFromDisk;
+- (void)setCloudAssetCountPerType:(id)arg1 updateCheckDate:(bool)arg2;
 - (void)setDelegate:(id)arg1;
 - (void)setExitDeleteTime:(id)arg1;
 - (void)setHasChangesToProcess:(bool)arg1;

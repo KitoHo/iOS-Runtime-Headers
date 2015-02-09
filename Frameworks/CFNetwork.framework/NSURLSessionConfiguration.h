@@ -49,6 +49,8 @@
     bool__disallowsSPDY;
     bool__forcesNewConnections;
     bool__infersDiscretionaryFromOriginatingClient;
+    bool__overridesBackgroundSessionAutoRedirect;
+    bool__performsEVCertCheck;
     bool__phskip_cookieStorageSet;
     bool__phskip_credStorageSet;
     bool__phskip_hstsStorageSet;
@@ -95,6 +97,8 @@
 @property bool _forcesNewConnections;
 @property bool _infersDiscretionaryFromOriginatingClient;
 @property(copy) NSString * _ledBellyServiceIdentifier;
+@property bool _overridesBackgroundSessionAutoRedirect;
+@property bool _performsEVCertCheck;
 @property(retain) NSHTTPCookieStorage * _phskip_cookieStorage;
 @property bool _phskip_cookieStorageSet;
 @property(retain) NSURLCredentialStorage * _phskip_credStorage;
@@ -175,6 +179,8 @@
 - (bool)_infersDiscretionaryFromOriginatingClient;
 - (bool)_isProxySession;
 - (id)_ledBellyServiceIdentifier;
+- (bool)_overridesBackgroundSessionAutoRedirect;
+- (bool)_performsEVCertCheck;
 - (id)_phskip_cookieStorage;
 - (bool)_phskip_cookieStorageSet;
 - (id)_phskip_credStorage;
@@ -266,6 +272,8 @@
 - (void)set_forcesNewConnections:(bool)arg1;
 - (void)set_infersDiscretionaryFromOriginatingClient:(bool)arg1;
 - (void)set_ledBellyServiceIdentifier:(id)arg1;
+- (void)set_overridesBackgroundSessionAutoRedirect:(bool)arg1;
+- (void)set_performsEVCertCheck:(bool)arg1;
 - (void)set_phskip_cookieStorage:(id)arg1;
 - (void)set_phskip_cookieStorageSet:(bool)arg1;
 - (void)set_phskip_credStorage:(id)arg1;

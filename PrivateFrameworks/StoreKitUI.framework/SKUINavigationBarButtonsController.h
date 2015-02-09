@@ -27,6 +27,7 @@
 - (id)addButtonItemWithButtonViewElement:(id)arg1;
 - (void)artworkRequest:(id)arg1 didLoadImage:(id)arg2;
 - (id)barButtonItemForElementIdentifier:(id)arg1;
+- (void)dealloc;
 - (void)disconnectAllButtons;
 - (id)initWithNavigationBarViewElement:(id)arg1;
 - (void)reloadAfterDocumentUpdateWithNavigationItem:(id)arg1;

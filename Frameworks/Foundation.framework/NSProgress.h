@@ -71,7 +71,6 @@
 + (id)childProgressForBundleID:(id)arg1 andPhase:(unsigned long long)arg2;
 + (id)currentProgress;
 + (id)downloadProgressWithBRCLocalItem:(id)arg1;
-+ (void)initialize;
 + (id)keyPathsForValuesAffectingInstallPhase;
 + (id)keyPathsForValuesAffectingInstallState;
 + (id)keyPathsForValuesAffectingLocalizedAdditionalDescription;
@@ -100,7 +99,6 @@
 - (void)_setRemoteValue:(id)arg1 forKey:(id)arg2 inUserInfo:(bool)arg3;
 - (void)_setUserInfoValue:(id)arg1 forKey:(id)arg2;
 - (void)_setValueForKeys:(id)arg1 settingBlock:(id)arg2;
-- (void)_tsts_becomeCurrentWithPendingUnitCount:(long long)arg1;
 - (void)_unblockDisconnecting;
 - (void)_unblockUnpublishing;
 - (void)_unpublish;

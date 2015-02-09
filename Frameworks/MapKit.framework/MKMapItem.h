@@ -52,6 +52,7 @@
 @property(getter=_hasUserRatingScore,readonly) bool hasUserRatingScore;
 @property(readonly) unsigned long long hash;
 @property bool isCurrentLocation;
+@property(getter=_isEmptyContactMapItem,readonly) bool isEmptyContactMapItem;
 @property(readonly) bool isPlaceHolder;
 @property(getter=_localizedOperatingHours,readonly) NSString * localizedOperatingHours;
 @property(readonly) MKMapItemMetadata * metadata;
@@ -83,11 +84,11 @@
 @property(getter=_webURL,copy,readonly) NSURL * webURL;
 @property(readonly) NSString * yelpID;
 
++ (void)_fillOutRequest:(id)arg1 withMapsDataString:(id)arg2;
 + (id)_itemWithAddressBookRef:(void*)arg1 geoMapItem:(id)arg2;
 + (id)_itemWithGeoMapItem:(id)arg1;
 + (id)_mapItemWithWithLocation:(id)arg1 addressDictionary:(id)arg2 name:(id)arg3 businessURL:(id)arg4 phoneNumber:(id)arg5 sessionID:(id)arg6 muid:(unsigned long long)arg7 attributionID:(id)arg8 sampleSizeForUserRatingScore:(unsigned int)arg9 normalizedUserRatingScore:(float)arg10;
 + (void)_mapItemsWithSerializedPlaceDataResponse:(id)arg1 handler:(id)arg2;
-+ (unsigned long long)_placeCardIDForMapsDataString:(id)arg1;
 + (id)mapItemForCurrentLocation;
 + (id)mapItemWithDictionary:(id)arg1;
 + (id)mapItemWithSerializedPlaceData:(id)arg1;
@@ -132,6 +133,7 @@
 - (bool)_hasTakesReservationsAmenity;
 - (bool)_hasUserRatingScore;
 - (id)_infoAttributionWithSourceStringFormat:(id)arg1 moreSourceStringFormat:(id)arg2;
+- (bool)_isEmptyContactMapItem;
 - (bool)_isEquivalentURLRepresentationTo:(id)arg1;
 - (id)_localizedCategoryNamesForType:(unsigned int)arg1;
 - (id)_localizedOperatingHours;
@@ -174,6 +176,7 @@
 - (unsigned long long)hash;
 - (id)initWithAddressDictionary:(id)arg1;
 - (id)initWithCLLocation:(id)arg1;
+- (id)initWithContact:(id)arg1;
 - (id)initWithGeoMapItem:(id)arg1 isPlaceHolderPlace:(bool)arg2;
 - (id)initWithPlace:(id)arg1 isPlaceHolderPlace:(bool)arg2;
 - (id)initWithPlace:(id)arg1 sessionGuid:(id)arg2;

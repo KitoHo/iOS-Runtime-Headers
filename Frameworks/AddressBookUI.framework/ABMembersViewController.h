@@ -27,7 +27,7 @@
 
 - (void)_applicationEnteringBackground;
 - (void)_applicationEnteringForeground;
-- (void)_getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; double x5; int x6; }*)arg1;
+- (void)_getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; boolx5; double x6; int x7; }*)arg1;
 - (void)_updateForModel;
 - (int)abViewControllerType;
 - (id)accessDeniedView;

@@ -6,6 +6,7 @@
 
 @interface WebApplication : UIApplication <UIApplicationDelegate> {
     NSURL *_lastActiveWebClipURL;
+    bool_wasSuspendedUnderLock;
     NSMutableDictionary *webAppControllerDictionary;
 }
 

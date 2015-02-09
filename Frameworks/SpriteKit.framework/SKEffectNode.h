@@ -24,7 +24,7 @@
 - (unsigned long long)hash;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (bool)isEqualToNode:(id)arg1;
 - (void)setBlendMode:(long long)arg1;
 - (void)setFilter:(id)arg1;
 - (void)setShader:(id)arg1;

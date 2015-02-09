@@ -18,6 +18,7 @@
 - (bool)applyBatch:(id)arg1 withError:(id*)arg2;
 - (id)compactedBatchFromExpandedBatch:(id)arg1;
 - (bool)deleteRecordWithIdentifier:(id)arg1 error:(id*)arg2;
+- (bool)hasRecordWithIdentifier:(id)arg1;
 - (id)localChangeBatchFromCloudBatch:(id)arg1 usingMapping:(id)arg2 withError:(id*)arg3;
 - (id)recordWithIdentifier:(id)arg1;
 - (id)recordsWithRelatedIdentifier:(id)arg1;

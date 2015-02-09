@@ -2,7 +2,7 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class CLLocation, NSDate, NSDecimalNumber, NSString, PKMerchant;
+@class CLLocation, NSDate, NSDecimalNumber, NSNumber, NSString, PKMerchant;
 
 @interface PKPaymentTransaction : NSObject <NSSecureCoding> {
     NSString *_administrativeArea;
@@ -10,10 +10,14 @@
     NSString *_currencyCode;
     NSString *_identifier;
     NSString *_locality;
+    double _locationAltitude;
+    NSDate *_locationDate;
+    double _locationHorizontalAccuracy;
     double _locationLatitude;
     double _locationLongitude;
+    double _locationVerticalAccuracy;
     PKMerchant *_merchant;
-    NSString *_sublocality;
+    NSNumber *_persistentIdentifier;
     long long _technologyType;
     NSDate *_transactionDate;
     NSString *_transactionIdentifier;
@@ -26,13 +30,19 @@
 @property(copy) NSDecimalNumber * amount;
 @property(copy) NSString * currencyCode;
 @property(readonly) NSString * displayLocation;
+@property(readonly) bool hasNotificationServiceSource;
 @property(copy) NSString * identifier;
 @property(retain) NSString * locality;
 @property(retain) CLLocation * location;
+@property double locationAltitude;
+@property(retain) NSDate * locationDate;
+@property double locationHorizontalAccuracy;
 @property double locationLatitude;
 @property double locationLongitude;
+@property double locationVerticalAccuracy;
 @property(retain) PKMerchant * merchant;
-@property(retain) NSString * sublocality;
+@property(readonly) bool originatedFromThisDevice;
+@property(copy) NSNumber * persistentIdentifier;
 @property long long technologyType;
 @property(copy) NSDate * transactionDate;
 @property(copy) NSString * transactionIdentifier;
@@ -51,6 +61,7 @@
 - (id)description;
 - (id)displayLocation;
 - (void)encodeWithCoder:(id)arg1;
+- (bool)hasNotificationServiceSource;
 - (unsigned long long)hash;
 - (id)identifier;
 - (id)init;
@@ -59,26 +70,35 @@
 - (bool)isEqualToPaymentTransaction:(id)arg1;
 - (id)locality;
 - (id)location;
+- (double)locationAltitude;
+- (id)locationDate;
+- (double)locationHorizontalAccuracy;
 - (double)locationLatitude;
 - (double)locationLongitude;
+- (double)locationVerticalAccuracy;
 - (id)merchant;
+- (bool)originatedFromThisDevice;
+- (id)persistentIdentifier;
 - (void)setAdministrativeArea:(id)arg1;
 - (void)setAmount:(id)arg1;
 - (void)setCurrencyCode:(id)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setLocality:(id)arg1;
 - (void)setLocation:(id)arg1;
+- (void)setLocationAltitude:(double)arg1;
+- (void)setLocationDate:(id)arg1;
+- (void)setLocationHorizontalAccuracy:(double)arg1;
 - (void)setLocationLatitude:(double)arg1;
 - (void)setLocationLongitude:(double)arg1;
+- (void)setLocationVerticalAccuracy:(double)arg1;
 - (void)setMerchant:(id)arg1;
-- (void)setSublocality:(id)arg1;
+- (void)setPersistentIdentifier:(id)arg1;
 - (void)setTechnologyType:(long long)arg1;
 - (void)setTransactionDate:(id)arg1;
 - (void)setTransactionIdentifier:(id)arg1;
 - (void)setTransactionSources:(unsigned long long)arg1;
 - (void)setTransactionStatus:(long long)arg1;
 - (void)setTransactionType:(long long)arg1;
-- (id)sublocality;
 - (long long)technologyType;
 - (id)transactionDate;
 - (id)transactionIdentifier;

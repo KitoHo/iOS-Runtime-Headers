@@ -21,6 +21,7 @@
 - (id)_sectionInfo;
 - (bool)_supportsBackgroundAppRefresh;
 - (id)appCellularDataEnabledForSpecifier:(id)arg1;
+- (id)authLevelStringForStatus:(int)arg1;
 - (id)backgroundAppRefreshSpecifier;
 - (id)bundleIdentifier;
 - (id)cellularSpecifier;
@@ -30,10 +31,11 @@
 - (id)isBackgroundRefreshEnabled:(id)arg1;
 - (bool)isCellularBundleID:(id)arg1;
 - (id)locationServicesSpecifier;
+- (id)locationStatus:(id)arg1;
 - (id)notificationSpecifier;
 - (id)privacyAccessForSpecifier:(id)arg1;
-- (id)privacySpecifier;
 - (id)privacySpecifierForService:(struct __CFString { }*)arg1;
+- (id)privacySpecifiers;
 - (void)setAppCellularDataEnabled:(id)arg1 forSpecifier:(id)arg2;
 - (void)setBackgroundRefreshEnabled:(id)arg1 forSpecifier:(id)arg2;
 - (void)setBundleIdentifier:(id)arg1;

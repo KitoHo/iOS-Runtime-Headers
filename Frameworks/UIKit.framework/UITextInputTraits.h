@@ -167,6 +167,7 @@
 - (int)textSelectionBehavior;
 - (id)textSuggestionDelegate;
 - (struct __CFCharacterSet { }*)textTrimmingSet;
+- (long long)updateResultComparedToTraits:(id)arg1;
 - (bool)useInterfaceLanguageForLocalization;
 
 @end

@@ -9,7 +9,6 @@
     struct __CFDictionary { } *_groupObjectsById;
     long long _options;
     NSString *_path;
-    int _pendingUpdatesCount;
     NSDictionary *_preparedStatements;
     int _queryCounter;
     NSObject<OS_dispatch_queue> *_searchQueue;
@@ -19,7 +18,6 @@
 
 @property(readonly) long long options;
 @property(readonly) NSString * path;
-@property(readonly) int pendingUpdatesCount;
 
 + (void)_dropDatabase:(struct sqlite3 { }*)arg1 withCompletion:(id)arg2;
 + (struct sqlite3 { }*)_openDatabaseAtPath:(id)arg1 options:(long long)arg2;
@@ -48,7 +46,8 @@
 - (void)_inqUpdateGATableWithGroupId:(unsigned long long)arg1 assetId:(unsigned long long)arg2;
 - (void)_inqUpdatePrefixTreeWithGroupId:(unsigned long long)arg1 tokens:(id)arg2;
 - (void)_query:(id)arg1 recursiveAddToGroupResults:(id)arg2 aggregate:(id)arg3 atIndex:(unsigned long long)arg4 outOf:(unsigned long long)arg5 inGroupArrays:(id)arg6;
-- (void)addAsset:(id)arg1;
+- (void)addAsset:(id)arg1 withCompletion:(id)arg2;
+- (void)addAssets:(id)arg1 withCompletion:(id)arg2;
 - (void)dealloc;
 - (void)dropDatabaseWithCompletion:(id)arg1;
 - (void)group:(id)arg1 fetchOwningContentString:(bool)arg2 assetUUIDs:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg3 completionHandler:(id)arg4;
@@ -56,8 +55,8 @@
 - (id)newQueryWithSearchText:(id)arg1;
 - (long long)options;
 - (id)path;
-- (int)pendingUpdatesCount;
 - (void)query:(id)arg1 searchString:(id)arg2 resultsHandler:(id)arg3;
-- (void)removeAssetWithUUID:(id)arg1;
+- (void)removeAssetWithUUID:(id)arg1 completion:(id)arg2;
+- (void)removeAssetsWithUUIDs:(id)arg1 completion:(id)arg2;
 
 @end

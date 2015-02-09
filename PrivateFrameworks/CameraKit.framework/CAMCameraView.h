@@ -167,6 +167,7 @@
     bool__processingHDR;
     bool__processingModeChange;
     bool__receivedInitialPreviewDidStartNotification;
+    bool__recoveringFromServerError;
     bool__reviewingImagePickerCapture;
     bool__stopVideoCaptureWhenRecordingStarts;
     bool__switchingBetweenCameras;
@@ -264,6 +265,7 @@
 @property(getter=_isProcessingHDR,setter=_setProcessingHDR:) bool _processingHDR;
 @property(getter=_isProcessingModeChange,readonly) bool _processingModeChange;
 @property(readonly) bool _receivedInitialPreviewDidStartNotification;
+@property(setter=_setRecoveringFromServerError:) bool _recoveringFromServerError;
 @property(readonly) long long _remainingDelayedCaptureTicks;
 @property(getter=_isReviewingImagePickerCapture,setter=_setReviewingImagePickerCapture:) bool _reviewingImagePickerCapture;
 @property(readonly) bool _shouldBlurWhenSessionStops;
@@ -526,6 +528,7 @@
 - (bool)_isPostprocessing;
 - (bool)_isPreparingToRecord;
 - (bool)_isPreviewViewAspectModeAllowed:(int)arg1;
+- (bool)_isPreviewViewInSnapshotWindow;
 - (bool)_isProcessingHDR;
 - (bool)_isProcessingModeChange;
 - (bool)_isReviewingImagePickerCapture;
@@ -588,6 +591,8 @@
 - (bool)_readyToLayoutBadge:(id)arg1;
 - (void)_reallyToggleCamera;
 - (bool)_receivedInitialPreviewDidStartNotification;
+- (void)_recoverFromServerError;
+- (bool)_recoveringFromServerError;
 - (void)_registerForSystemSound;
 - (long long)_remainingDelayedCaptureTicks;
 - (void)_removeModeSwitchingBlurAnimated:(bool)arg1 withCompletionBlock:(id)arg2;
@@ -637,6 +642,7 @@
 - (void)_setPreviewPaused:(bool)arg1;
 - (void)_setPreviewViewAspectMode:(int)arg1;
 - (void)_setProcessingHDR:(bool)arg1;
+- (void)_setRecoveringFromServerError:(bool)arg1;
 - (void)_setReviewingImagePickerCapture:(bool)arg1 updateUI:(bool)arg2;
 - (void)_setReviewingImagePickerCapture:(bool)arg1;
 - (void)_setShouldShowFocus:(bool)arg1;
@@ -846,7 +852,7 @@
 - (void)cameraControllerFocusDidStart:(id)arg1;
 - (void)cameraControllerModeDidChange:(id)arg1;
 - (void)cameraControllerPreviewDidStart:(id)arg1;
-- (void)cameraControllerServerDied:(id)arg1;
+- (void)cameraControllerServerError:(id)arg1;
 - (void)cameraControllerSessionDidStart:(id)arg1;
 - (void)cameraControllerSessionDidStop:(id)arg1;
 - (void)cameraControllerSessionInterruptionEnded:(id)arg1;

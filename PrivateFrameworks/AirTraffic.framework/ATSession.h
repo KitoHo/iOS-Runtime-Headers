@@ -23,6 +23,7 @@
     bool_cancelled;
     bool_finished;
     bool_running;
+    bool_suspended;
 }
 
 @property(getter=isCancelled) bool cancelled;
@@ -39,6 +40,7 @@
 @property(retain) NSString * sessionIdentifier;
 @property(retain) NSString * sessionTypeIdentifier;
 @property(readonly) Class superclass;
+@property(getter=isSuspended) bool suspended;
 
 + (id)_remoteSessionsWithTypeIdentifier:(id)arg1;
 + (id)allSessions;
@@ -71,6 +73,7 @@
 - (bool)isCancelled;
 - (bool)isFinished;
 - (bool)isRunning;
+- (bool)isSuspended;
 - (id)localizedDescription;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4;
 - (double)progress;
@@ -88,6 +91,7 @@
 - (void)setRunning:(bool)arg1;
 - (void)setSessionIdentifier:(id)arg1;
 - (void)setSessionTypeIdentifier:(id)arg1;
+- (void)setSuspended:(bool)arg1;
 - (void)start;
 - (void)updateSessionTask:(id)arg1;
 - (void)waitToFinish;

@@ -7,6 +7,8 @@
 @interface EKCalendarEventInvitationNotificationAttendee : NSObject <EKIdentityProtocol> {
     NSString *_comment;
     NSString *_emailAddress;
+    NSString *_firstName;
+    NSString *_lastName;
     NSString *_name;
     int _participantStatus;
     NSURL *_url;
@@ -19,7 +21,9 @@
 @property(copy,readonly) NSString * debugDescription;
 @property(copy,readonly) NSString * description;
 @property(readonly) NSString * emailAddress;
+@property(readonly) NSString * firstName;
 @property(readonly) unsigned long long hash;
+@property(readonly) NSString * lastName;
 @property(readonly) NSString * name;
 @property(readonly) int participantStatus;
 @property(readonly) bool statusChanged;
@@ -30,7 +34,9 @@
 - (bool)commentChanged;
 - (void)dealloc;
 - (id)emailAddress;
+- (id)firstName;
 - (id)initWithAttendee:(id)arg1;
+- (id)lastName;
 - (id)name;
 - (int)participantStatus;
 - (bool)statusChanged;

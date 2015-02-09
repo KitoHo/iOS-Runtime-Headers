@@ -23,6 +23,7 @@
 }
 
 @property <BRCTransferQueueDelegate> * delegate;
+@property(readonly) bool isSuspended;
 
 + (id)sharedTargetQueue;
 
@@ -30,7 +31,7 @@
 - (double)_availableBudgetForPriority:(long long)arg1;
 - (double)_budgetInFlightForPriority:(long long)arg1;
 - (void)_requestOperations;
-- (void)cancelAllOperations;
+- (id)cancelAllOperations;
 - (void)cancelOperationForKey:(id)arg1;
 - (void)close;
 - (id)delegate;
@@ -38,6 +39,7 @@
 - (void)dumpToContext:(id)arg1 name:(id)arg2;
 - (id)inflightOperationForKey:(id)arg1;
 - (id)initWithName:(id)arg1;
+- (bool)isSuspended;
 - (void)noteShouldRequestsOperations;
 - (void)resume;
 - (void)setDelegate:(id)arg1;

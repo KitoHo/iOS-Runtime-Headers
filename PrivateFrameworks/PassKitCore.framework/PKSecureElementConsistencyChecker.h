@@ -20,6 +20,7 @@
 - (id)initWithPaymentWebService:(id)arg1 delegate:(id)arg2;
 - (id)paymentWebService;
 - (void)queue_checkConsistencyWithPaymentApplications:(id)arg1 secureElementCards:(id)arg2 completion:(id)arg3;
+- (void)queue_startWithCompletion:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setPaymentWebService:(id)arg1;
 - (void)startWithCompletion:(id)arg1;

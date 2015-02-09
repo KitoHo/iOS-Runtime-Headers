@@ -22,6 +22,7 @@
 - (void)browserDidChangeState:(id)arg1;
 - (void)browserDidDisconnect:(id)arg1;
 - (id)browserDidStartTransfer:(id)arg1;
+- (void)defer;
 - (id)delegate;
 - (id)init;
 - (void)setDelegate:(id)arg1;

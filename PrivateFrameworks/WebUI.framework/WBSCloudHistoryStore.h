@@ -18,7 +18,7 @@
 - (id)_debugDescriptionForRecord:(id)arg1;
 - (void)_deleteAllRecordsWithCompletion:(id)arg1;
 - (id)_dictionaryForRecordData:(id)arg1;
-- (void)_fetchRecordsWithServerChangeToken:(id)arg1 result:(id)arg2 completion:(id)arg3;
+- (void)_fetchRecordsWithServerChangeToken:(id)arg1 numberOfFetchRecordsOperationsPerformedSoFar:(unsigned long long)arg2 result:(id)arg3 completion:(id)arg4;
 - (void)_prepareRecordZoneWithCompletion:(id)arg1;
 - (id)_recordDataForDictionary:(id)arg1;
 - (id)_recordWithCloudHistoryVisits:(id)arg1 zoneID:(id)arg2;

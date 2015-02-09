@@ -63,7 +63,7 @@
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (bool)isAntialiased;
-- (bool)isEqual:(id)arg1;
+- (bool)isEqualToNode:(id)arg1;
 - (int)lineCap;
 - (int)lineJoin;
 - (double)lineLength;

@@ -6,7 +6,7 @@
    See Warning(s) below.
  */
 
-@class ATAssetLinkController, NSMutableOrderedSet, NSObject<OS_dispatch_queue>, NSPredicate, NSString;
+@class ATAssetLinkController, NSMutableOrderedSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSPredicate, NSString;
 
 @interface ATAssetSessionTask : ATSessionTask <ATAssetLinkControllerObserver> {
     ATAssetLinkController *_assetLinkController;
@@ -15,9 +15,12 @@
     NSPredicate *_filterPredicate;
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableOrderedSet *_remainingAssets;
+    double _retryInterval;
+    NSObject<OS_dispatch_source> *_retryTimer;
     id _shouldRetryAssetBlock;
     bool_cancelAtStart;
     bool_retryUntilFinished;
+    bool_waitingForRetry;
 }
 
 @property(retain) ATAssetLinkController * assetLinkController;
@@ -44,6 +47,7 @@
 - (id)filterPredicate;
 - (id)initWithDataClass:(id)arg1;
 - (id)remainingAssets;
+- (void)resume;
 - (bool)retryUntilFinished;
 - (id)sessionGroupingKey;
 - (void)setAssetLinkController:(id)arg1;
@@ -52,5 +56,6 @@
 - (void)setShouldRetryAssetBlock:(id)arg1;
 - (id)shouldRetryAssetBlock;
 - (void)start;
+- (void)suspend;
 
 @end

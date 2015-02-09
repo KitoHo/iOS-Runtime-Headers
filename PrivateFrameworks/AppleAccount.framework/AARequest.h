@@ -6,17 +6,14 @@
    See Warning(s) below.
  */
 
-@class NSError, NSHTTPURLResponse, NSMutableData, NSString, NSURLRequest;
+@class NSString, NSURLRequest;
 
 @interface AARequest : NSObject <NSURLSessionDataDelegate> {
     struct OpaqueCFHTTPCookieStorage { } *_cookieStorage;
-    NSError *_error;
     id _handler;
     NSString *_initialURLString;
     NSString *_machineId;
     NSString *_oneTimePassword;
-    NSHTTPURLResponse *_response;
-    NSMutableData *_responseData;
     bool_flushCache;
 }
 
@@ -31,11 +28,8 @@
 + (Class)responseClass;
 
 - (void).cxx_destruct;
-- (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveData:(id)arg3;
-- (void)URLSession:(id)arg1 didBecomeInvalidWithError:(id)arg2;
-- (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
+- (void)_handleDataTaskCompletionWithData:(id)arg1 response:(id)arg2 error:(id)arg3;
 - (id)_redactedHeadersFromHTTPHeaders:(id)arg1;
-- (id)_urlSession;
 - (id)bodyDictionary;
 - (void)dealloc;
 - (bool)flushCache;

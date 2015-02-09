@@ -2,15 +2,50 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
+@class NSArray;
+
 @interface UIKeyboardSquishTransition : UIKeyboardKeyplaneTransition {
+    unsigned long long _animationType;
+    NSArray *_commonVisibleKeys;
+    NSArray *_endGeometries;
     double _offsetX;
+    NSArray *_startGeometries;
     double _widthRatio;
+    bool_disableMeshOptimization;
+    bool_nonoverlappingCrossfade;
     bool_transitionNeedsUpdate;
 }
 
+@property unsigned long long animationType;
+@property(retain) NSArray * commonVisibleKeys;
+@property bool disableMeshOptimization;
+@property(retain) NSArray * endGeometries;
+@property bool nonoverlappingCrossfade;
+@property(retain) NSArray * startGeometries;
+@property(readonly) double transitionOverlapDelta;
+
 - (void)_updateTransition;
-- (void)rebuildFromStartKeyplane:(id)arg1 startView:(id)arg2 toEndKeyplane:(id)arg3 endView:(id)arg4;
+- (unsigned long long)animationType;
+- (void)commitTransitionRebuild;
+- (id)commonVisibleKeys;
+- (void)dealloc;
+- (bool)disableMeshOptimization;
+- (id)endGeometries;
+- (id)geometriesForKeyplane:(id)arg1;
+- (id)meshTransformForKeyplane:(id)arg1 toKeyplane:(id)arg2;
+- (bool)nonoverlappingCrossfade;
+- (void)rebuildWithStartKeyplane:(id)arg1 startView:(id)arg2 endKeyplane:(id)arg3 endView:(id)arg4;
 - (void)removeAllAnimations;
+- (void)setAnimationType:(unsigned long long)arg1;
+- (void)setCommonVisibleKeys:(id)arg1;
+- (void)setDisableMeshOptimization:(bool)arg1;
+- (void)setEndGeometries:(id)arg1;
+- (void)setNonoverlappingCrossfade:(bool)arg1;
+- (void)setStartGeometries:(id)arg1;
+- (id)sortedCommonVisibleKeys;
+- (id)startGeometries;
+- (id)symmetricMeshTransformForKeyplane:(id)arg1;
+- (double)transitionOverlapDelta;
 - (void)updateTransitionIfNeeded;
 - (void)updateWithProgress:(double)arg1;
 

@@ -5,6 +5,8 @@
 @class CKAccountInfo, CKContainerID, CKDAccount, CKDFlowControlManager, CKDMMCS, CKDMescalSession, CKDPCSManager, CKDServerConfiguration, CKDZoneGatekeeper, NSBundle, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString, NSURL;
 
 @interface CKDClientContext : NSObject <CKLoggingProtocol> {
+    struct { 
+        unsigned int val[8]; 
     CKDMMCS *_MMCS;
     CKDAccount *_account;
     CKAccountInfo *_accountInfoOverride;
@@ -22,6 +24,7 @@
     NSString *_applicationPackageUploadDirectory;
     NSString *_applicationRecordCacheDirectory;
     NSString *_applicationVersion;
+    } _auditToken;
     CKDZoneGatekeeper *_backgroundZoneGatekeeper;
     CKDServerConfiguration *_config;
     NSString *_containerHardwareIDHash;
@@ -47,6 +50,8 @@
     bool_canSetDeviceIdentifier;
     bool_finishedAppProxySetup;
     bool_hasDataContainer;
+    bool_hasSystemServiceEntitlement;
+    bool_isForClouddInternalUse;
     bool_sandboxed;
 }
 
@@ -70,6 +75,7 @@
 @property(retain) NSString * applicationRecordCacheDirectory;
 @property(retain) NSString * applicationVersion;
 @property(setter=setAPSEnvironmentString:,retain) NSString * apsEnvironmentString;
+@property struct { unsigned int x1[8]; } auditToken;
 @property(retain) CKDZoneGatekeeper * backgroundZoneGatekeeper;
 @property(readonly) bool canAccessAccount;
 @property bool canAccessProtectionData;
@@ -86,7 +92,9 @@
 @property(retain) CKDFlowControlManager * flowControlManager;
 @property(retain) CKDZoneGatekeeper * foregroundZoneGatekeeper;
 @property bool hasDataContainer;
+@property bool hasSystemServiceEntitlement;
 @property(readonly) unsigned long long hash;
+@property bool isForClouddInternalUse;
 @property(retain) CKDMescalSession * mescalSession;
 @property(retain) NSMutableArray * oldApplicationCaches;
 @property(retain) CKDPCSManager * pcsManager;
@@ -100,11 +108,12 @@
 @property(readonly) long long type;
 @property long long usesAPSPublicToken;
 
-+ (id)_sharedContextWithAppContainerTuple:(id)arg1 accountInfoOverride:(id)arg2 proxy:(id)arg3;
++ (id)_sharedContextWithAppContainerTuple:(id)arg1 accountInfoOverride:(id)arg2 proxy:(id)arg3 forInternalUse:(bool)arg4;
 + (id)applicationContainerPathForBundleID:(id)arg1 bundleURL:(id*)arg2 type:(long long*)arg3;
 + (id)contextWithAppContainerTuple:(id)arg1 accountInfoOverride:(id)arg2 proxy:(id)arg3;
++ (id)sharedContextForInternalUseWithAppContainerTuple:(id)arg1;
++ (id)sharedContextWithAppContainerTuple:(id)arg1 accountInfoOverride:(id)arg2 proxy:(id)arg3 forInternalUse:(bool)arg4;
 + (id)sharedContextWithAppContainerTuple:(id)arg1 accountInfoOverride:(id)arg2 proxy:(id)arg3;
-+ (id)sharedContextWithAppContainerTuple:(id)arg1;
 + (id)sharedContexts;
 
 - (void).cxx_destruct;
@@ -134,13 +143,14 @@
 - (id)applicationRecordCacheDirectory;
 - (id)applicationVersion;
 - (id)apsEnvironmentString;
+- (struct { unsigned int x1[8]; })auditToken;
 - (id)backgroundZoneGatekeeper;
 - (bool)canAccessAccount;
 - (bool)canAccessProtectionData;
 - (bool)canSetDeviceIdentifier;
 - (void)clearAssetCache;
 - (void)clearAssetCacheWithDatabaseScope:(long long)arg1;
-- (void)clearAuthTokensForRecordWithID:(id)arg1 inScope:(long long)arg2;
+- (void)clearAuthTokensForRecordWithID:(id)arg1 databaseScope:(long long)arg2;
 - (void)clearRecordCacheWithDatabaseScope:(long long)arg1;
 - (id)config;
 - (id)containerHardwareIDHash;
@@ -150,12 +160,14 @@
 - (void)dealloc;
 - (id)description;
 - (id)fakeErrorByClassName;
-- (void)finishSetupWithClientProxy:(id)arg1;
+- (void)finishSetupWithClientProxy:(id)arg1 completionHandler:(id)arg2;
 - (bool)finishedAppProxySetup;
 - (id)flowControlManager;
 - (id)foregroundZoneGatekeeper;
 - (bool)hasDataContainer;
+- (bool)hasSystemServiceEntitlement;
 - (id)initWithAppContainerTuple:(id)arg1 accountInfoOverride:(id)arg2 proxy:(id)arg3;
+- (bool)isForClouddInternalUse;
 - (bool)isSandboxed;
 - (void)logWithFile:(const char *)arg1 function:(const char *)arg2 line:(int)arg3 level:(int)arg4 section:(id)arg5 format:(id)arg6;
 - (id)mescalSession;
@@ -181,6 +193,7 @@
 - (void)setApplicationPackageUploadDirectory:(id)arg1;
 - (void)setApplicationRecordCacheDirectory:(id)arg1;
 - (void)setApplicationVersion:(id)arg1;
+- (void)setAuditToken:(struct { unsigned int x1[8]; })arg1;
 - (void)setBackgroundZoneGatekeeper:(id)arg1;
 - (void)setCanAccessProtectionData:(bool)arg1;
 - (void)setCanSetDeviceIdentifier:(bool)arg1;
@@ -192,6 +205,8 @@
 - (void)setFlowControlManager:(id)arg1;
 - (void)setForegroundZoneGatekeeper:(id)arg1;
 - (void)setHasDataContainer:(bool)arg1;
+- (void)setHasSystemServiceEntitlement:(bool)arg1;
+- (void)setIsForClouddInternalUse:(bool)arg1;
 - (void)setMMCS:(id)arg1;
 - (void)setMescalSession:(id)arg1;
 - (void)setOldApplicationCaches:(id)arg1;
@@ -207,7 +222,7 @@
 - (bool)setupMMCSWrapperWithError:(id*)arg1;
 - (id)setupQueue;
 - (void)showUserNotification:(struct __CFUserNotification { }*)arg1 withCompletionBlock:(id)arg2;
-- (id)startSetupWithClientProxy:(id)arg1;
+- (void)startSetupWithClientProxy:(id)arg1 completionHandler:(id)arg2;
 - (void)tearDownAssetTransfers;
 - (long long)type;
 - (long long)usesAPSPublicToken;

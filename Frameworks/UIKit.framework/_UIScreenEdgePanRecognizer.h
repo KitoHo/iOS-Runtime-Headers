@@ -42,6 +42,7 @@
     bool_useGrapeFlags;
 }
 
+@property(readonly) struct CGPoint { double x1; double x2; } _lastTouchLocation;
 @property(copy,readonly) NSString * debugDescription;
 @property <_UIScreenEdgePanRecognizerDelegate> * delegate;
 @property(copy,readonly) NSString * description;
@@ -62,6 +63,7 @@
 - (void)_idleTimerElapsed:(id)arg1;
 - (void)_incorporateIncrementalSampleAtLocation:(struct CGPoint { double x1; double x2; })arg1 timestamp:(double)arg2 modifier:(long long)arg3 interfaceOrientation:(long long)arg4;
 - (void)_incorporateInitialTouchAtLocation:(struct CGPoint { double x1; double x2; })arg1 timestamp:(double)arg2 modifier:(long long)arg3 interfaceOrientation:(long long)arg4;
+- (struct CGPoint { double x1; double x2; })_lastTouchLocation;
 - (void)_longPressTimerElapsed:(id)arg1;
 - (void)_setState:(long long)arg1;
 - (unsigned long long)_targetEdges;

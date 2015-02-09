@@ -57,10 +57,10 @@
 - (void)saveGeneratedWaveformIfNecessary;
 - (id)saveableWaveform;
 - (id)segmentsInCompositionByConvertingFromActiveLoadingFragment:(id)arg1;
-- (void)setAccumulatorWaveformSegments:(id)arg1;
 - (bool)setPaused:(bool)arg1;
 - (id)synchronouslyApproximateWaveformSegmentsByReadingCurrentFileAheadTimeRange:(struct { double x1; double x2; })arg1;
 - (struct { double x1; double x2; })timeRangeToHighlight;
+- (void)updateAccumulatorWaveformSegmentsWithBlock:(id)arg1;
 - (bool)waitUntilFinished;
 - (void)waveformGenerator:(id)arg1 didLoadWaveformSegment:(id)arg2;
 - (id)waveformGenerator;

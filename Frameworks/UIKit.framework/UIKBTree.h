@@ -117,7 +117,7 @@
 - (id)localizationKey;
 - (bool)looksLike:(id)arg1;
 - (bool)looksLikeShiftAlternate;
-- (void)mergeKeyNames:(id)arg1;
+- (id)mergeKeyNames:(id)arg1;
 - (bool)modifiesKeyplane;
 - (id)name;
 - (id)nameFromAttributes;

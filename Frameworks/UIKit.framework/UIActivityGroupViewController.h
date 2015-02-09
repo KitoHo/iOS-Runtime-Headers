@@ -85,7 +85,7 @@
 - (void)ignoreUserDefaultsChangesWhileUsingBlock:(id)arg1;
 - (id)indexPathForMenuActivity;
 - (id)initWithActivityCategory:(long long)arg1 userDefaults:(id)arg2 userDefaultsIdentifier:(id)arg3;
-- (id)initWithActivityCategory:(long long)arg1;
+- (id)initWithActivityCategory:(long long)arg1 userDefaults:(id)arg2;
 - (struct CGPoint { double x1; double x2; })initialDraggingLocation;
 - (bool)isEmbedded;
 - (bool)isPicker;

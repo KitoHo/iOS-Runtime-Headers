@@ -20,8 +20,10 @@
     NSString *_statusText;
     int _style;
     bool_allowsStatusTextUpdatingOnResignFirstResponder;
+    bool_appearingForSmartCoverUnlock;
     bool_becameVisible;
     bool_deviceHasBeenUnlockedOnceSinceBoot;
+    bool_enabledMatching;
     bool_mesaLockedOut;
     bool_playsKeypadSounds;
     bool_shouldResetForFailedPasscodeAttempt;
@@ -60,6 +62,7 @@
 - (double)_luminanceBoostFromDisplayBrightness;
 - (double)_luminanceBoostFromLegibility;
 - (double)_luminosityBoost;
+- (void)_noteAppearingForSmartCoverUnlock:(bool)arg1;
 - (void)_noteBioMatchingEnabledDidChange;
 - (void)_noteDeviceHasBeenUnlockedOnceSinceBoot:(bool)arg1;
 - (void)_noteScreenBrightnessDidChange;

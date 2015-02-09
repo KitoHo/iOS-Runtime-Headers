@@ -14,6 +14,7 @@
 @property(readonly) unsigned long long approximateCount;
 @property(retain,readonly) NSOrderedSet * assets;
 @property(readonly) unsigned long long assetsCount;
+@property unsigned long long batchSize;
 @property(readonly) bool canContributeToCloudSharedAlbum;
 @property(readonly) bool canShowAvalancheStacks;
 @property(readonly) bool canShowComments;
@@ -46,6 +47,7 @@
 @property(readonly) bool isRootFolder;
 @property(readonly) bool isSmartAlbum;
 @property(readonly) bool isStandInAlbum;
+@property(readonly) bool isUserLibraryAlbum;
 @property(readonly) bool isWallpaperAlbum;
 @property(retain) PLManagedAsset * keyAsset;
 @property(retain,readonly) NSNumber * kind;
@@ -126,10 +128,10 @@
 + (id)keyPathsForValuesAffectingName;
 + (id)localizedTitleForAlbumKind:(int)arg1;
 + (id)otaRestoreProgressAlbumInLibrary:(id)arg1;
-+ (id)recentlyAddedAlbumInLibrary:(id)arg1;
 + (id)rootFolderInLibrary:(id)arg1;
 + (id)syncProgressAlbumInLibrary:(id)arg1;
 + (id)trashBinAlbumInLibrary:(id)arg1;
++ (id)userLibraryAlbumInLibrary:(id)arg1;
 + (id)uuidFromGroupURL:(id)arg1;
 + (id)wallpaperAlbumInLibrary:(id)arg1;
 
@@ -188,6 +190,7 @@
 - (bool)isSmartAlbum;
 - (bool)isSpecial;
 - (bool)isStandInAlbum;
+- (bool)isUserLibraryAlbum;
 - (bool)isWallpaperAlbum;
 - (id)kind;
 - (int)kindValue;

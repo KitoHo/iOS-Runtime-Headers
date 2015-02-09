@@ -34,7 +34,7 @@
 @property bool allowsCellularAccess;
 @property(retain) NSObject<OS_dispatch_queue> * callbackQueue;
 @property(retain) NSMutableArray * childOperations;
-@property(readonly) CKDClientContext * context;
+@property(retain) CKDClientContext * context;
 @property(retain) NSString * deviceIdentifier;
 @property(retain) NSError * error;
 @property(retain) NSMutableArray * finishedChildOperationIDs;
@@ -109,6 +109,7 @@
 - (void)setAllowsCellularAccess:(bool)arg1;
 - (void)setCallbackQueue:(id)arg1;
 - (void)setChildOperations:(id)arg1;
+- (void)setContext:(id)arg1;
 - (void)setDeviceIdentifier:(id)arg1;
 - (void)setError:(id)arg1;
 - (void)setFinishedChildOperationIDs:(id)arg1;

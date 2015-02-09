@@ -13,6 +13,7 @@
 @property double perspectiveTransform;
 
 + (struct CGSize { double x1; double x2; })_requiredOverhangSizeForCurrentDevice;
++ (struct CGSize { double x1; double x2; })bestWallpaperSizeForParallaxFactor:(double)arg1 portrait:(bool)arg2;
 + (struct CGSize { double x1; double x2; })bestWallpaperSizeForParallaxFactor:(double)arg1;
 + (struct CGSize { double x1; double x2; })minimumWallpaperSizeForCurrentDevice;
 + (struct CGSize { double x1; double x2; })overhangSizeForCurrentDevice;

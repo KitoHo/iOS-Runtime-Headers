@@ -15,6 +15,7 @@
 @property(readonly) unsigned long long accessTimeDeltaInLowUrgency;
 @property(readonly) unsigned long long accessTimeDeltaInMedUrgency;
 @property(readonly) bool accountSessionZombiesEnabled;
+@property(readonly) NSDictionary * additionsThrottleParams;
 @property(readonly) NSDictionary * applyThrottleParams;
 @property(readonly) NSObject<OS_xpc_object> * configurationUpdateXPCActivity;
 @property(readonly) NSDictionary * containerResetThrottleParams;
@@ -28,6 +29,7 @@
 @property(readonly) double forcedBackgroundSyncInterval;
 @property(readonly) double forcedSyncIntervalOnUse;
 @property(readonly) NSObject<OS_xpc_object> * forcedSyncXPCActivity;
+@property(readonly) double foregroundGracePeriod;
 @property(readonly) double fseventsLatency;
 @property(readonly) double fseventsResetBackoff;
 @property(readonly) bool greedyContainer;
@@ -106,6 +108,7 @@
 - (unsigned long long)accessTimeDeltaInLowUrgency;
 - (unsigned long long)accessTimeDeltaInMedUrgency;
 - (bool)accountSessionZombiesEnabled;
+- (id)additionsThrottleParams;
 - (id)applyThrottleParams;
 - (bool)boolForKey:(id)arg1 byDefault:(bool)arg2;
 - (id)configurationUpdateXPCActivity;
@@ -123,6 +126,7 @@
 - (double)forcedBackgroundSyncInterval;
 - (double)forcedSyncIntervalOnUse;
 - (id)forcedSyncXPCActivity;
+- (double)foregroundGracePeriod;
 - (double)fseventsLatency;
 - (double)fseventsResetBackoff;
 - (bool)greedyContainer;

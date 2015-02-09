@@ -63,7 +63,7 @@
 - (void)backgroundTask:(unsigned long long)arg1 didReceiveResponse:(id)arg2 timingData:(id)arg3;
 - (void)backgroundTask:(unsigned long long)arg1 didSendBodyData:(long long)arg2 totalBytesSent:(long long)arg3 totalBytesExpectedToSend:(long long)arg4;
 - (void)backgroundTask:(unsigned long long)arg1 needNewBodyStream:(bool)arg2 withReply:(id)arg3;
-- (void)backgroundTask:(unsigned long long)arg1 willPerformHTTPRedirectionWithNewRequest:(id)arg2 reply:(id)arg3;
+- (void)backgroundTask:(unsigned long long)arg1 willPerformHTTPRedirection:(id)arg2 withNewRequest:(id)arg3 reply:(id)arg4;
 - (void)backgroundTaskDidResume:(unsigned long long)arg1;
 - (void)backgroundTaskDidSuspend:(unsigned long long)arg1;
 - (void)backgroundTaskHasConnectionWaiting:(unsigned long long)arg1;

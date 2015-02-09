@@ -22,6 +22,7 @@
 @property(retain,readonly) NSOrderedSet * assets;
 @property(readonly) unsigned long long assetsCount;
 @property(retain) NSObject<PLAlbumProtocol> * backingAlbum;
+@property unsigned long long batchSize;
 @property(copy,readonly) <NSObject><NSCopying> * cachedIndexMapState;
 @property(readonly) bool canContributeToCloudSharedAlbum;
 @property(readonly) bool canShowAvalancheStacks;
@@ -74,6 +75,7 @@
 @property(readonly) bool isPhotoStreamAlbum;
 @property(readonly) bool isRecentlyAddedAlbum;
 @property(readonly) bool isStandInAlbum;
+@property(readonly) bool isUserLibraryAlbum;
 @property(readonly) bool isWallpaperAlbum;
 @property(retain) PLManagedAsset * keyAsset;
 @property(retain,readonly) NSNumber * kind;
@@ -187,6 +189,7 @@
 - (bool)isPhotoStreamAlbum;
 - (bool)isRecentlyAddedAlbum;
 - (bool)isStandInAlbum;
+- (bool)isUserLibraryAlbum;
 - (bool)isWallpaperAlbum;
 - (id)keyAsset;
 - (id)kind;

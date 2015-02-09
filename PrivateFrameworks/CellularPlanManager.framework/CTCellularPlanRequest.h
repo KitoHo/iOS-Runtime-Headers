@@ -36,7 +36,6 @@
 @property NSData * serializedCookies;
 @property(readonly) Class superclass;
 
-+ (id)confirmPurchaseCompleteRequestWithIccid:(id)arg1 didFinishPurchase:(bool)arg2;
 + (id)connectionSettingsForServiceType:(long long)arg1;
 + (id)createSessionRequest;
 + (void)initialize;

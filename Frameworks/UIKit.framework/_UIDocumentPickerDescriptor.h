@@ -23,6 +23,7 @@
 + (id)descriptorWithIdentifier:(id)arg1;
 + (id)enabledPickersForMode:(unsigned long long)arg1 documentTypes:(id)arg2;
 + (id)hostBundleID;
++ (id)manageablePickers;
 + (void)setCloudEnabledStatus:(BOOL)arg1;
 + (void)setHostBundleID:(id)arg1;
 

@@ -6,30 +6,26 @@
    See Warning(s) below.
  */
 
-@class CRRecentContactsLibrary, NSArray, NSMutableArray, NSMutableDictionary;
+@class NSArray, NSMutableArray, NSMutableDictionary, PKPaymentOptionsRecents;
 
 @interface PKPaymentOptionsModel : NSObject {
-    void *_abRef;
-    CRRecentContactsLibrary *_coreRecentsLibrary;
     id _modelChangedHandler;
     NSMutableDictionary *_optionGroupMap;
     NSMutableArray *_optionGroups;
+    PKPaymentOptionsRecents *_recents;
 }
 
 @property(copy) id modelChangedHandler;
 @property(readonly) NSArray * optionGroups;
 
-+ (id)_coreRecentsKindForPropertyID:(int)arg1;
 + (id)_detailForReferenceObject:(id)arg1 withGroupType:(id)arg2;
 + (int)_propertyIDForGroupType:(id)arg1;
 + (id)_titleForReferenceObject:(id)arg1 withGroupType:(id)arg2;
 
 - (void)_addMeCardEntriesForPropertyID:(int)arg1 toCoreRecentAndOptionsGroup:(id)arg2 afterItem:(id)arg3;
-- (id)_coreRecentsLibrary;
 - (id)_displayableNameFor:(id)arg1 withLabel:(id)arg2;
 - (void)_fetchItemsFromCoreRecentsWithPropertyID:(int)arg1 forOptionGroup:(id)arg2 afterItem:(id)arg3;
 - (void)_mergeInCoreRecentsResults:(id)arg1 withPropertyID:(int)arg2 forOptionGroup:(id)arg3 afterItem:(id)arg4;
-- (void)_saveItemToCoreRecents:(id)arg1 metadata:(id)arg2 label:(id)arg3 kind:(id)arg4;
 - (void)addPeoplePickedLabeledValue:(id)arg1 contact:(id)arg2 propertyID:(int)arg3 toOptionsGroup:(id)arg4;
 - (void)dealloc;
 - (id)init;

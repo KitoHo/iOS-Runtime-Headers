@@ -2,7 +2,7 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class AFDictationConnection, AFDictationOptions, AFPreferences, CADisplayLink, NSArray, NSMutableArray, NSString, NSTimer, UIAlertView, UIDictationStreamingOperations, UIKeyboardInputMode;
+@class AFDictationConnection, AFDictationOptions, AFPreferences, CADisplayLink, NSArray, NSMutableArray, NSString, NSTimer, UIAlertView, UIDictationStreamingOperations, UIKeyboardInputMode, UIWindow, _UIDictationPrivacySheetController;
 
 @interface UIDictationController : NSObject <_UITouchPhaseChangeDelegate> {
     struct _NSRange { 
@@ -13,6 +13,8 @@
     void *_callCenterFrameworkFileHandle;
     AFDictationConnection *_connection;
     UIAlertView *_dictationAvailableSoonAlert;
+    UIWindow *_dictationPresenterWindow;
+    _UIDictationPrivacySheetController *_dictationPrivacySheetController;
     void *_facetimeCallFrameworkFileHandle;
     id _facetimeCallManager;
     UIKeyboardInputMode *_inputModeThatInvokedDictation;
@@ -42,6 +44,8 @@
 
 @property(copy,readonly) NSString * debugDescription;
 @property(copy,readonly) NSString * description;
+@property(retain) UIWindow * dictationPresenterWindow;
+@property(retain) _UIDictationPrivacySheetController * dictationPrivacySheetController;
 @property bool dictationStartedFromGesture;
 @property bool discardNextHypothesis;
 @property bool hasPreheated;
@@ -59,6 +63,7 @@
 + (id)activeInstance;
 + (void)applicationDidBecomeActive;
 + (void)applicationDidChangeStatusBarFrame;
++ (void)applicationDidEnterBackgroundNotification;
 + (void)applicationWillResignActive;
 + (id)attributedStringForDictationResult:(id)arg1 andCorrectionIdentifier:(id)arg2;
 + (id)bestInterpretationForDictationResult:(id)arg1;
@@ -108,10 +113,14 @@
 + (bool)usingTypeAndTalk;
 + (int)viewMode;
 
+- (void)_beginEnableDictationPrompt;
 - (id)_connection;
 - (void)_displayLinkFired:(id)arg1;
+- (void)_endEnableDictationPromptAnimated:(bool)arg1;
 - (void)_finalizeDictationText;
 - (id)_hypothesisRangeFromSelectionRange:(id)arg1 inputDelegate:(id)arg2;
+- (void)_presentOptInAlert;
+- (void)_presentPrivacySheet;
 - (id)_rangeByExtendingRange:(id)arg1 by:(long long)arg2 inputDelegate:(id)arg3;
 - (void)_restartDictation;
 - (bool)_shouldDeleteBackwardInInputDelegate:(id)arg1;
@@ -142,6 +151,8 @@
 - (void)dictationConnnectionDidChangeAvailability:(id)arg1;
 - (bool)dictationEnabled;
 - (id)dictationPhraseArrayFromDictationResult:(id)arg1;
+- (id)dictationPresenterWindow;
+- (id)dictationPrivacySheetController;
 - (bool)dictationStartedFromGesture;
 - (void)disableAutorotation;
 - (bool)disabledDueToTelephonyActivity;
@@ -180,6 +191,8 @@
 - (id)resultWithTrailingSpace:(id)arg1;
 - (id)selectedTextForInputDelegate:(id)arg1;
 - (void)setDictationInputmode;
+- (void)setDictationPresenterWindow:(id)arg1;
+- (void)setDictationPrivacySheetController:(id)arg1;
 - (void)setDictationStartedFromGesture:(bool)arg1;
 - (void)setDiscardNextHypothesis:(bool)arg1;
 - (void)setHasPreheated:(bool)arg1;

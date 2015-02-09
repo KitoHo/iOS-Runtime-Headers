@@ -11,6 +11,7 @@
 @property <PKPaymentServiceExportedInterface> * delegate;
 
 - (id)delegate;
+- (void)didUpdateDefaultPaymentPassWithUniqueIdentifier:(id)arg1;
 - (id)initWithDelegate:(id)arg1;
 - (void)paymentDeviceDidBecomeAvailable;
 - (void)paymentDeviceDidBecomeUnavailable;

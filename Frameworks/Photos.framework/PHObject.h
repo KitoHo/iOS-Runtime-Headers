@@ -27,9 +27,13 @@
 + (id)localIdentifierWithUUID:(id)arg1;
 + (id)managedEntityName;
 + (bool)managedObjectSupportsBursts;
++ (bool)managedObjectSupportsCloudSharedType;
 + (bool)managedObjectSupportsHiddenState;
++ (bool)managedObjectSupportsPhotoStreamType;
 + (bool)managedObjectSupportsTrashedState;
++ (bool)managedObjectSupportsVisibilityState;
 + (bool)managedObjectSupportsWallpaperType;
++ (bool)managedObjectSupportsiTunesSyncType;
 + (id)propertiesToFetchWithHint:(unsigned long long)arg1;
 + (id)uuidFromLocalIdentifier:(id)arg1;
 

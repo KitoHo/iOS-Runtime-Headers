@@ -25,6 +25,7 @@
 - (void).cxx_destruct;
 - (id)bestFileNameForResource;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
+- (bool)deleteAfterUpload;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (bool)generateDerivative;
@@ -37,6 +38,7 @@
 - (id)itemIdentifier;
 - (unsigned long long)maxPixelSizeForPhotoResource;
 - (unsigned long long)resourceType;
+- (void)setDeleteAfterUpload:(bool)arg1;
 - (void)setGenerateDerivative:(bool)arg1;
 - (void)setIdentity:(id)arg1;
 - (void)setItemIdentifier:(id)arg1;

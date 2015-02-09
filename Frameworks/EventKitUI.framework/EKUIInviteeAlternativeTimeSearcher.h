@@ -68,6 +68,7 @@
 + (void)_insertUniqueParticipants:(id)arg1 intoExistingParticipantsArray:(id)arg2;
 + (long long)_invalidBinarySearchIndex;
 + (id)_rankNonOptimalTimeSpans:(id)arg1;
++ (id)_selfOrganizerForNewlyScheduledEventWithAddress:(id)arg1;
 + (bool)_span:(id)arg1 hasSameConflictedParticipantsAsSpan:(id)arg2;
 + (void)_validateSpans:(id)arg1;
 + (id)stateAsString:(long long)arg1;

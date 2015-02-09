@@ -13,6 +13,7 @@
 @property(copy) NSString * memberEmail;
 
 - (void).cxx_destruct;
+- (bool)isUserInitiated;
 - (id)memberDSID;
 - (id)memberEmail;
 - (void)setMemberDSID:(id)arg1;

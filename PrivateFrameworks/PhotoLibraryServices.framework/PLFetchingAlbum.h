@@ -6,6 +6,7 @@
 
 @interface PLFetchingAlbum : _PLFetchingAlbum {
     NSPredicate *_ALAssetsGroupFilterPredicate;
+    unsigned long long _batchSize;
     NSArray *_cachedKeyAssets;
     unsigned long long _countForDisplay;
     int _emptyState;
@@ -14,6 +15,7 @@
 }
 
 @property(retain) NSPredicate * ALAssetsGroupFilterPredicate;
+@property unsigned long long batchSize;
 @property(retain) NSData * customQueryParameters;
 @property(retain) NSString * customQueryType;
 @property(retain,readonly) NSPredicate * extraFilterPredicate;
@@ -57,6 +59,7 @@
 - (id)secondaryKeyAsset;
 - (void)setALAssetsGroupFilterPredicate:(id)arg1;
 - (void)setAssets:(id)arg1;
+- (void)setBatchSize:(unsigned long long)arg1;
 - (void)setFetchRequest:(id)arg1;
 - (void)setKeyAsset:(id)arg1;
 - (void)setSecondaryKeyAsset:(id)arg1;

@@ -152,6 +152,7 @@
 - (id)_alertView:(id)arg1 externalButtonTitleForMainScreenButtonTitle:(id)arg2 atIndex:(long long)arg3;
 - (void)_applicationBecameActive:(id)arg1;
 - (void)_askToTurnOnReadReceiptsIfNeeded;
+- (void)_askToTurnOnSMSRelayIfNeeded;
 - (void)_beginTransitioningToTranscript;
 - (bool)_canReloadView;
 - (void)_cancelMessageSendAnimation;
@@ -211,6 +212,7 @@
 - (void)_setupTranscriptTableHeader;
 - (void)_setupViewForConversation;
 - (bool)_shouldAllowCameraAttachments;
+- (bool)_shouldShowReadRecieptAlert;
 - (bool)_shouldUseExistingConversations;
 - (void)_showCurrentPreviewItemForPreviewController:(id)arg1;
 - (void)_showMapViewerForMediaObject:(id)arg1;

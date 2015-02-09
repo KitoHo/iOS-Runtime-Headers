@@ -59,6 +59,7 @@
 + (unsigned long long)_indexValueForPropertyNames:(id)arg1 entityName:(id)arg2 indexesByPropertyNamesByEntityNames:(id)arg3;
 + (id)_indexesByAttributeNamesByEntityNames;
 + (id)_indexesByRelationshipNamesByEntityNames;
++ (bool)_isAssetLibraryFetchingAlbum:(id)arg1;
 + (bool)_openAndMigrateStoreWithURL:(id)arg1 options:(id)arg2 coordinator:(id)arg3 forceSourceModelVersion:(id)arg4;
 + (id)_propertyNamesForIndexValues:(unsigned long long)arg1 entity:(id)arg2 propertyNamesByIndexByEntityNames:(id)arg3;
 + (bool)_rebuildAndRetryPersistentStoreWithURL:(id)arg1 options:(id)arg2 coordinator:(id)arg3 forced:(bool)arg4;

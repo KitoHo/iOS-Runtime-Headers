@@ -72,7 +72,7 @@
         unsigned int delegateSessionDidStop : 1; 
         unsigned int delegateSessionWasInterrupted : 1; 
         unsigned int delegateSessionInterruptionEnded : 1; 
-        unsigned int delegateServerDied : 1; 
+        unsigned int delegateServerError : 1; 
         unsigned int delegateCleanApertureDidChange : 1; 
         unsigned int delegateModeWillChange : 1; 
         unsigned int delegateModeDidChange : 1; 
@@ -449,7 +449,7 @@
 - (void)_processSampleBuffer:(struct opaqueCMSampleBuffer { }*)arg1;
 - (id)_processingPanoramaCaptureRequests;
 - (bool)_rebuildingSession;
-- (void)_recoverFromServerError;
+- (void)_recoverFromServerError:(id)arg1;
 - (void)_removeVideoCaptureFileAndDirectoryAtPath:(id)arg1;
 - (void)_resetFocus:(bool)arg1 andExposure:(bool)arg2;
 - (void)_resetFocusAndExposureIfNotExplicitlyLocked;

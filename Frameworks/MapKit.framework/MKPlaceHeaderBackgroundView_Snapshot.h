@@ -11,6 +11,7 @@
     unsigned long long _pinColor;
     double _zoomLevel;
     bool_orbiting;
+    bool_settingUpOrbitAnimation;
     bool_showsPin;
     bool_useSatellite;
 }
@@ -22,6 +23,7 @@
 @property(retain) MKMapCamera * orbitCamera;
 @property bool orbiting;
 @property unsigned long long pinColor;
+@property bool settingUpOrbitAnimation;
 @property bool showsPin;
 @property(readonly) Class superclass;
 @property bool useSatellite;
@@ -54,9 +56,11 @@
 - (void)setOrbitCamera:(id)arg1;
 - (void)setOrbiting:(bool)arg1;
 - (void)setPinColor:(unsigned long long)arg1;
+- (void)setSettingUpOrbitAnimation:(bool)arg1;
 - (void)setShowsPin:(bool)arg1;
 - (void)setUseSatellite:(bool)arg1;
 - (void)setZoomLevel:(double)arg1;
+- (bool)settingUpOrbitAnimation;
 - (bool)showsPin;
 - (bool)useSatellite;
 - (double)zoomLevel;

@@ -13,6 +13,8 @@
     <SiriUISuggestionsViewDelegate> *_delegate;
     UILabel *_headerLabel;
     NSString *_headerText;
+    UILabel *_largeSubheaderLabel;
+    NSString *_largeSubheaderText;
     UILabel *_oldHeaderLabel;
     NSArray *_oldSuggestionLabels;
     long long _orientation;
@@ -28,6 +30,7 @@
 @property struct CGPoint { double x1; double x2; } contentOffset;
 @property <SiriUISuggestionsViewDelegate> * delegate;
 @property(copy) NSString * headerText;
+@property(copy) NSString * largeSubheaderText;
 @property long long orientation;
 @property(copy) NSString * subheaderText;
 @property(copy) UIColor * textColor;
@@ -38,9 +41,12 @@
 - (void)_animateInSuggestionAtIndex:(unsigned long long)arg1;
 - (void)_animateOutSuggestionAtIndex:(unsigned long long)arg1;
 - (double)_headerFontSize;
+- (double)_headerToLargeSubheaderOffset;
 - (double)_headerToSubheaderOffset;
 - (int)_heightType;
 - (bool)_isPortrait;
+- (double)_largeSubheaderFontSize;
+- (void)_loadLargeSubheaderViewIfNeeded;
 - (void)_loadSubheaderViewIfNeeded;
 - (void)_loadSuggestionsViewsIfNeeded;
 - (unsigned long long)_numberOfSuggestionsToDisplay;
@@ -59,11 +65,13 @@
 - (id)headerText;
 - (void)hideAcousticIDSpinner;
 - (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)largeSubheaderText;
 - (void)layoutSubviews;
 - (long long)orientation;
 - (void)setContentOffset:(struct CGPoint { double x1; double x2; })arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setHeaderText:(id)arg1;
+- (void)setLargeSubheaderText:(id)arg1;
 - (void)setOrientation:(long long)arg1;
 - (void)setSubheaderText:(id)arg1;
 - (void)setTextColor:(id)arg1;

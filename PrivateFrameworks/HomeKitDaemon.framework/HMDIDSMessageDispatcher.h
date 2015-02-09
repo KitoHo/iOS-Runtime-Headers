@@ -29,6 +29,7 @@
 @property(readonly) NSArray * transientDevices;
 
 + (bool)isWhitelistedLocalMessage:(id)arg1;
++ (id)remappedRemotePrepareWriteCommands;
 + (id)whitelistedCommands;
 
 - (void).cxx_destruct;

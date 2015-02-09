@@ -25,6 +25,7 @@
 - (id)dictionaryPropertyEncoding;
 - (id)expiry;
 - (id)flowControlBudgetForContainer:(id)arg1;
+- (id)flowControlMaximumThrottleTime:(id)arg1;
 - (id)flowControlRegenerationForContainer:(id)arg1;
 - (id)initWithPropertyDictionary:(id)arg1;
 - (id)initWithValues:(id)arg1;

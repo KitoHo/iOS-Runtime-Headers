@@ -11,7 +11,7 @@
 - (bool)canPruneResource;
 - (unsigned long long)cost;
 - (bool)keepOriginalsEnabled;
-- (void)markAsLocallyAvailable:(bool)arg1;
+- (void)markAsNotLocallyAvailable;
 - (void)requestCancel;
 - (void)runOperationWithCompletionHandler:(id)arg1;
 

@@ -390,6 +390,7 @@
 - (void)deleteFromInputWithExecutionContext:(id)arg1;
 - (void)deleteHandwritingStrokesAtIndexes:(id)arg1;
 - (void)deleteOnceFromInputWithExecutionContext:(id)arg1;
+- (id)desirableInputModesFromList:(id)arg1 forTraits:(id)arg2;
 - (void)detach;
 - (void)didAcceptAutocorrection:(id)arg1 wordTerminator:(id)arg2;
 - (void)didApplyAutocorrection:(id)arg1 autocorrectPromptFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg2;
@@ -532,8 +533,7 @@
 - (void)prepareLayoutForInterfaceOrientation:(long long)arg1;
 - (id)privateInputDelegate;
 - (bool)receivedCandidatesInCurrentInputMode;
-- (void)recomputeActiveInputModes;
-- (void)recomputeActiveInputModesFromList:(id)arg1;
+- (void)recomputeActiveInputModesWithExtensions:(bool)arg1;
 - (id)recorder;
 - (void)refreshKeyboardState;
 - (void)refreshRivenPreferences;

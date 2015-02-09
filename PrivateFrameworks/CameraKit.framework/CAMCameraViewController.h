@@ -10,7 +10,7 @@
 
 - (void).cxx_destruct;
 - (bool)_displaysFullScreen;
-- (void)_getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; double x5; int x6; }*)arg1;
+- (void)_getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; boolx5; double x6; int x7; }*)arg1;
 - (void)dealloc;
 - (void)viewDidAppear:(bool)arg1;
 - (void)viewWillDisappear:(bool)arg1;

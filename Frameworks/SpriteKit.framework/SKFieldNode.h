@@ -60,7 +60,7 @@
 - (id)initWithCoder:(id)arg1 field:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (bool)isEnabled;
-- (bool)isEqual:(id)arg1;
+- (bool)isEqualToNode:(id)arg1;
 - (bool)isExclusive;
 - (float)minimumRadius;
 - (id)region;

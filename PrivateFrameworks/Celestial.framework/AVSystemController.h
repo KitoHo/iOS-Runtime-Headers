@@ -18,6 +18,7 @@
 - (bool)changeVolumeForAccessoryBy:(float)arg1 forCategory:(id)arg2 accessoryRoute:(id)arg3 andAccessoryDeviceIdentifier:(id)arg4;
 - (bool)currentRouteHasVolumeControl;
 - (void)dealloc;
+- (bool)didCancelRoutePicking:(id)arg1;
 - (bool)enablePortDiscovery:(bool)arg1;
 - (bool)getActiveCategoryMuted:(bool*)arg1 forRoute:(id)arg2 andDeviceIdentifier:(id)arg3;
 - (bool)getActiveCategoryMuted:(bool*)arg1;
@@ -49,5 +50,6 @@
 - (bool)toggleActiveCategoryMuted;
 - (bool)toggleActiveCategoryMutedForRoute:(id)arg1 andDeviceIdentifier:(id)arg2;
 - (id)volumeCategoryForAudioCategory:(id)arg1;
+- (bool)willStartRoutePicking:(id)arg1;
 
 @end

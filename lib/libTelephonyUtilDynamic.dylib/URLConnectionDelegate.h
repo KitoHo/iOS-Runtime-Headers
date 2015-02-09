@@ -2,7 +2,7 @@
    Image: /usr/lib/libTelephonyUtilDynamic.dylib
  */
 
-@class NSMutableData, NSString;
+@class NSDictionary, NSMutableData, NSString;
 
 @interface URLConnectionDelegate : NSObject <NSURLConnectionDelegate> {
     struct weak_ptr<ctu::Http::URLConnectionCallbackHandler> { 
@@ -15,6 +15,7 @@
     NSMutableData *fData;
     } fHandler;
     NSMutableData *fPostData;
+    NSDictionary *fProxySettings;
     } fResponse;
 }
 
@@ -34,9 +35,6 @@
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)dealloc;
 - (struct shared_ptr<ctu::Http::URLConnectionCallbackHandler> { struct URLConnectionCallbackHandler {} *x1; struct __shared_weak_count {} *x2; })getHandler;
-- (bool)getRedirection;
 - (id)initWithCallbackHandler:(struct shared_ptr<ctu::Http::URLConnectionCallbackHandler> { struct URLConnectionCallbackHandler {} *x1; struct __shared_weak_count {} *x2; })arg1;
-- (void)setOriginalPostBody:(id)arg1;
-- (void)setRedirection:(bool)arg1;
 
 @end

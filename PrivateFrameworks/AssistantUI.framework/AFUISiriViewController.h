@@ -17,6 +17,7 @@
     UIStatusBar *_statusBar;
     double _viewDidAppearTime;
     long long _vtEnabledCount;
+    bool_active;
     bool_attemptingRemoteViewControllerPresentation;
     bool_eyesFree;
     bool_hasCalledBeginAppearanceTransition;
@@ -24,6 +25,7 @@
     bool_inHoldToTalkMode;
     bool_isStark;
     bool_mapsGatekeeperEnabled;
+    bool_remoteViewControllerDispatchQueueSuspended;
     bool_showsStatusBar;
     bool_statusBarEnabled;
     bool_visible;
@@ -75,6 +77,7 @@
 - (id)_remoteViewController;
 - (id)_remoteViewControllerDispatchQueue;
 - (void)_removeStatusBar;
+- (void)_resumeRemoteViewControllerDispatchQueue;
 - (id)_routePickerController;
 - (void)_sendBeginAppearanceTransitionIfReadyAnimated:(bool)arg1;
 - (void)_sendEndAppearanceTransitionIfReady;
@@ -92,6 +95,7 @@
 - (id)_statusBar;
 - (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })_statusBarFrame;
 - (void)_statusBarFrameDidChange:(id)arg1;
+- (void)_suspendRemoteViewControllerDispatchQueue;
 - (void)_transitionToAutomaticEndpointMode;
 - (void)_updateAudioRoutePicker;
 - (double)_viewDidAppearTime;
@@ -197,7 +201,9 @@
 - (void)viewDidAppear:(bool)arg1;
 - (void)viewDidDisappear:(bool)arg1;
 - (void)viewWillAppear:(bool)arg1;
+- (void)viewWillAppearFinishedForSiriRemoteViewController:(id)arg1;
 - (void)viewWillDisappear:(bool)arg1;
+- (void)viewWillDisappearFinishedForSiriRemoteViewController:(id)arg1;
 - (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 
 @end

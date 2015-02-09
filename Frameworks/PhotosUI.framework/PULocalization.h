@@ -5,6 +5,7 @@
 @interface PULocalization : NSObject {
 }
 
++ (id)_emptyMyPhotoStreamMessage;
 + (id)_messageForEmptyPhotoLibraryIsLockScreenCameraRoll:(bool)arg1;
 + (id)messageForCloudFeedUpdatingLibraryNoNetwork;
 + (id)messageForEmptyAlbumList:(id)arg1;

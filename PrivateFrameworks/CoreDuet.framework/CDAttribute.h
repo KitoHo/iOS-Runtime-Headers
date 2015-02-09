@@ -2,7 +2,7 @@
    Image: /System/Library/PrivateFrameworks/CoreDuet.framework/CoreDuet
  */
 
-@class CDSession, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
+@class CDSession, NSDate, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface CDAttribute : NSObject {
     unsigned short _admissionMask;
@@ -13,10 +13,13 @@
     CDSession *_session;
     long long _type;
     int conditionChangeToken;
+    NSMutableDictionary *costCache;
     int focalAppToken;
+    NSDate *lastUpdate;
     int resourceCallToken;
     NSMutableArray *resourceCallbackList;
     NSObject<OS_dispatch_queue> *resourceCallbackQueue;
+    int systemConditionChangeToken;
 }
 
 @property(readonly) NSObject<OS_dispatch_queue> * deferredRequestsQ;
@@ -44,7 +47,7 @@
 - (bool)attributeIsClientWriteable;
 - (id)budgetStatisticsForHistoryWindow:(id)arg1 error:(id*)arg2;
 - (long long)budgetStatusWithError:(id*)arg1;
-- (void)callListOfCallbacks:(id)arg1 token:(int*)arg2 oneshotCall:(bool)arg3;
+- (void)callListOfCallbacks:(id)arg1 oneshotCall:(bool)arg2;
 - (double)correlationOfValue:(id)arg1 toAttribute:(id)arg2 withValue:(id)arg3 temporalLeeway:(double)arg4 error:(id*)arg5;
 - (void)dealloc;
 - (id)deferredRequestsQ;
@@ -55,6 +58,7 @@
 - (id)historyOfValue:(id)arg1 forWindow:(id)arg2 filter:(long long)arg3 maximumElements:(unsigned long long)arg4 error:(id*)arg5;
 - (id)initWithSession:(id)arg1 name:(id)arg2 type:(long long)arg3 integerId:(unsigned long long)arg4 error:(id*)arg5;
 - (unsigned long long)integerId;
+- (bool)isBypassClient;
 - (unsigned long long)meteringStartedWithValue:(id)arg1 costDictionary:(id)arg2 onDate:(id)arg3 error:(id*)arg4;
 - (bool)meteringStoppedWithValue:(id)arg1 costDictionary:(id)arg2 onDate:(id)arg3 meteringToken:(unsigned long long)arg4 error:(id*)arg5;
 - (bool)meteringUpdateWithValue:(id)arg1 costDictionary:(id)arg2 onDate:(id)arg3 meteringToken:(unsigned long long)arg4 error:(id*)arg5;

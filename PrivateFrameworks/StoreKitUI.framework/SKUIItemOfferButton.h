@@ -15,6 +15,7 @@
     UIView *_borderView;
     SKUIFocusedTouchGestureRecognizer *_cancelGestureRecognizer;
     UIImage *_cloudImage;
+    UIColor *_cloudTintColor;
     UIColor *_confirmationColor;
     NSMutableAttributedString *_confirmationTitleAttributedString;
     } _confirmationTitleFitSize;
@@ -31,12 +32,12 @@
     UILabel *_titleLabel;
     long long _titleStyle;
     UIImageView *_universalImageView;
-    bool_isUbered;
     bool_showsConfirmationState;
     bool_universal;
     bool_usesDrawRectPath;
 }
 
+@property(copy) UIColor * cloudTintColor;
 @property(copy) NSString * confirmationTitle;
 @property long long confirmationTitleStyle;
 @property(copy,readonly) NSString * debugDescription;
@@ -57,7 +58,7 @@
 
 + (id)_basicAnimationWithKeyPath:(id)arg1;
 + (id)_cachedImageForAttributedTitle:(id)arg1 titleStyle:(long long)arg2 size:(struct CGSize { double x1; double x2; })arg3 fillStyle:(long long)arg4 universal:(bool)arg5 tintColor:(id)arg6;
-+ (id)_cloudImageForTint:(id)arg1 isUbered:(bool)arg2;
++ (id)_cloudImageWithTintColor:(id)arg1 arrowTintColor:(id)arg2;
 + (id)_defaultTitleAttributes;
 + (id)_imageForAttributedTitle:(id)arg1 titleStyle:(long long)arg2 size:(struct CGSize { double x1; double x2; })arg3 fillStyle:(long long)arg4 universal:(bool)arg5 tintColor:(id)arg6;
 + (id)_imageForProgressType:(long long)arg1;
@@ -65,6 +66,7 @@
 + (bool)_sizeMattersForTitleStyle:(long long)arg1;
 + (struct CGSize { double x1; double x2; })_titleSizeThatFitsForSize:(struct CGSize { double x1; double x2; })arg1 titleStyle:(long long)arg2 mutableAttributedString:(id)arg3;
 + (id)_universalPlusImageWithTintColor:(id)arg1;
++ (id)cloudTintColorForBackgroundColor:(id)arg1;
 + (id)itemOfferButtonWithAppearance:(id)arg1;
 + (id)localizedTitleForItemState:(id)arg1 clientContext:(id)arg2;
 
@@ -93,6 +95,7 @@
 - (void)_updateForChangedTitleProperty;
 - (bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (void)cancelTrackingWithEvent:(id)arg1;
+- (id)cloudTintColor;
 - (id)confirmationTitle;
 - (long long)confirmationTitleStyle;
 - (bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
@@ -113,6 +116,7 @@
 - (long long)progressType;
 - (void)removeButtonStateAnimations;
 - (void)setBackgroundColor:(id)arg1;
+- (void)setCloudTintColor:(id)arg1;
 - (void)setColoringWithAppearance:(id)arg1;
 - (void)setConfirmationTitle:(id)arg1;
 - (void)setConfirmationTitleStyle:(long long)arg1;

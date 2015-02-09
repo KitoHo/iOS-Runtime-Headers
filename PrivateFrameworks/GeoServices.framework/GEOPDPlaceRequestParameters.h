@@ -56,7 +56,7 @@
 - (id)initWithCoordinateHint:(struct { double x1; double x2; })arg1 addressHint:(id)arg2 placeNameHint:(id)arg3 traits:(id)arg4;
 - (id)initWithForwardGeocodeAddress:(id)arg1 maxResults:(unsigned int)arg2 traits:(id)arg3;
 - (id)initWithForwardGeocodeAddressString:(id)arg1 maxResults:(unsigned int)arg2 traits:(id)arg3;
-- (id)initWithMUIDs:(id)arg1;
+- (id)initWithMUIDs:(id)arg1 resultProviderID:(int)arg2;
 - (id)initWithMapItemToRefine:(id)arg1 traits:(id)arg2;
 - (id)initWithMerchantCode:(id)arg1 paymentNetwork:(id)arg2 transactionDate:(id)arg3 transactionLocation:(id)arg4;
 - (id)initWithReverseGeocodeCoordinate:(struct { double x1; double x2; })arg1;

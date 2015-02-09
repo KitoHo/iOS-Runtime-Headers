@@ -71,6 +71,7 @@
 - (void)_handleCharacteristicRead:(id)arg1;
 - (void)_handleCharacteristicWrite:(id)arg1;
 - (void)_handleIdentify:(id)arg1;
+- (void)_handlePrepareCharacteristicWrite:(id)arg1;
 - (void)_handleRename:(id)arg1;
 - (void)_handleRenameService:(id)arg1;
 - (void)_handleUpdateAssociatedServiceType:(id)arg1;
@@ -86,7 +87,7 @@
 - (void)_sendBlockedNotification:(bool)arg1 withError:(id)arg2 withIdentifier:(id)arg3 withCompletion:(id)arg4;
 - (void)_sendConnectivityNotification:(bool)arg1 remoteAccessChanged:(bool)arg2;
 - (void)_writeCharacteristicValues:(id)arg1 queue:(id)arg2 completionHandler:(id)arg3;
-- (void)_writeValue:(id)arg1 forCharacteristic:(id)arg2 identifier:(id)arg3 queue:(id)arg4 completionHandler:(id)arg5;
+- (void)_writeValue:(id)arg1 forCharacteristic:(id)arg2 authorizationData:(id)arg3 identifier:(id)arg4 queue:(id)arg5 completionHandler:(id)arg6;
 - (id)accessoryManager;
 - (void)addBridgedAccessory:(id)arg1;
 - (void)blockWithError:(id)arg1;
@@ -165,6 +166,5 @@
 - (id)uuid;
 - (id)workQueue;
 - (void)writeCharacteristicValues:(id)arg1 queue:(id)arg2 completionHandler:(id)arg3;
-- (void)writeValue:(id)arg1 forCharacteristic:(id)arg2 queue:(id)arg3 completionHandler:(id)arg4;
 
 @end

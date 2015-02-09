@@ -32,6 +32,7 @@
 @property(retain) CKDPCSCache * zoneCache;
 
 - (void).cxx_destruct;
+- (void)_clearCachedIdentities;
 - (void)_fetchPCSForRecordWithIDFromServer:(id)arg1 operation:(id)arg2 forCache:(id)arg3;
 - (void)_fetchPCSForShareWithIDFromServer:(id)arg1 operation:(id)arg2 forCache:(id)arg3;
 - (void)_fetchPCSForZoneWithIDFromServer:(id)arg1 operation:(id)arg2 forCache:(id)arg3;

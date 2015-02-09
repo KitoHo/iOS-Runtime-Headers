@@ -115,6 +115,7 @@
 @property(readonly) bool isManaged;
 @property(readonly) bool isOperational;
 @property(readonly) bool isRegistered;
+@property(readonly) bool isSMSRelayCapable;
 @property(readonly) bool justLoggedIn;
 @property(retain) NSString * login;
 @property(readonly) id loginIMHandle;
@@ -271,6 +272,8 @@
 - (bool)emailAddressIsID:(id)arg1;
 - (id)emailDomains;
 - (void)endChanges;
+- (void)enrollDeviceInSMSRelay:(id)arg1;
+- (void)enrollSelfDeviceInSMSRelay;
 - (bool)equalID:(id)arg1 andID:(id)arg2;
 - (id)existingIMHandleWithID:(id)arg1 alreadyCanonical:(bool)arg2;
 - (id)existingIMHandleWithID:(id)arg1 countryCode:(id)arg2;
@@ -316,6 +319,7 @@
 - (bool)isManaged;
 - (bool)isOperational;
 - (bool)isRegistered;
+- (bool)isSMSRelayCapable;
 - (bool)justLoggedIn;
 - (void)loadFromDictionary:(id)arg1;
 - (id)login;
@@ -436,6 +440,7 @@
 - (void)targetGroupStateTimeout;
 - (id)temporaryPassword;
 - (long long)typeForAlias:(id)arg1;
+- (void)unEnrollDeviceInSMSRelay:(id)arg1;
 - (id)uniqueID;
 - (bool)unregisterAccount;
 - (void)unregisterIMHandle:(id)arg1;

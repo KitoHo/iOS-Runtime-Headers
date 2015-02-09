@@ -24,6 +24,7 @@
 - (void).cxx_destruct;
 - (id)changeDetailsForFetchResult:(id)arg1;
 - (id)changeDetailsForObject:(id)arg1;
+- (bool)contentChangedForPHAssetOID:(id)arg1;
 - (id)deletedObjectIDs;
 - (id)description;
 - (id)init;

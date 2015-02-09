@@ -17,6 +17,7 @@
     bool_dataIsLoading;
 }
 
+@property(readonly) NSString * imagePath;
 @property(readonly) unsigned int options;
 
 + (id)jpegDataLoadSemaphore;
@@ -32,6 +33,7 @@
 - (id)createDecodedImage:(struct CGImage { }*)arg1 data:(id)arg2;
 - (void)dealloc;
 - (struct __CFDictionary { }*)decodeSessionOptions;
+- (id)imagePath;
 - (id)initWithImagePath:(id)arg1 format:(int)arg2 imageType:(long long)arg3 optimalSourcePixelSize:(struct CGSize { double x1; double x2; })arg4 options:(unsigned int)arg5;
 - (id)initialDecodeSessionOptions;
 - (bool)isCancelled;

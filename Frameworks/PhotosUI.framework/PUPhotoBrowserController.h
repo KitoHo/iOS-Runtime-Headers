@@ -8,7 +8,7 @@
 
 @class <PUPhotoBrowserControllerDelegate>, NSDictionary, NSMutableDictionary, NSMutableSet, NSString, PHAsset, PHAssetCollection, PHCachingImageManager, PHFetchResult, PLCloudSharedComment, PLPhotoBrowserController, PLPhotoTileViewController, PLSlalomRegionEditor, PUAirplayRoute, PUAvalancheReviewController, PUPhotoBrowserControllerSpec, PUPhotoBrowserTitleView, PUPhotoPinchGestureRecognizer, PUPhotosSharingViewController, PUSlideshowSettings, PUVideoEditPluginSession, UIColor, UIImage, UIMovieScrubber, UIPopoverController, UIView, _UIContentUnavailableView, _UINavigationControllerPalette;
 
-@interface PUPhotoBrowserController : UIViewController <PLPhotoBrowserControllerDelegate, PUPhotosSharingViewControllerDelegate, PUPhotosSharingTransitionDelegate, PUPhotoEditViewControllerDelegate, UIGestureRecognizerDelegate, PUCollectionViewLayoutProvider, PUAvalancheReviewControllerDelegate, UIPopoverControllerDelegate, PUVideoEditPluginSessionDataSource, PUEditPluginSessionDelegate, PLDismissableViewController, PHPhotoLibraryChangeObserver, PHAssetCollectionDataSource> {
+@interface PUPhotoBrowserController : UIViewController <PLPhotoBrowserControllerDelegate, PUPhotosSharingViewControllerDelegate, PUPhotosSharingTransitionDelegate, PUPhotoEditViewControllerDelegate, UIGestureRecognizerDelegate, PUCollectionViewLayoutProvider, PUAvalancheReviewControllerDelegate, UIPopoverControllerDelegate, PUVideoEditPluginSessionDataSource, PUEditPluginSessionDelegate, PUPhotoLibraryUIChangeObserver, PLDismissableViewController, PHAssetCollectionDataSource> {
     _UIContentUnavailableView *__emptyPlaceholderView;
     id __lockScreenSharingObserver;
     unsigned long long _allowedActions;
@@ -182,6 +182,8 @@
 - (void)_updateVideoScrubberVisibility;
 - (void)_updateVideoViewAttachments:(id)arg1;
 - (id)_videoTrimSaveItem;
+- (void)_waitForCondition:(id)arg1 withRetryCount:(long long)arg2 retryInterval:(double)arg3 handler:(id)arg4;
+- (void)_waitUntilReadyToTransitionToShareSheetWithHandler:(id)arg1;
 - (unsigned long long)allowedActions;
 - (bool)areOverlaysVisible;
 - (id)assetCollections;
@@ -192,6 +194,7 @@
 - (bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (struct CGSize { double x1; double x2; })collectionViewContentSize;
 - (id)commentsView;
+- (void)commitPendingUpdatesWithCompletionHandler:(id)arg1;
 - (id)contentScrollView;
 - (void)copy:(id)arg1;
 - (id)currentAsset;
@@ -248,6 +251,7 @@
 - (id)photoBrowserControllerRequestsAirPlayRemoteSlideshowForCurrentRoute:(id)arg1;
 - (id)photoBrowserControllerRequestsCurrentAirplayRouteDictionary:(id)arg1;
 - (id)photoBrowserControllerRequestsMediaControlClientForCurrentRoute:(id)arg1;
+- (bool)photoBrowserControllerShouldHandleLibraryChangesInternally:(id)arg1;
 - (void)photoBrowserControllerWillBeginPaging:(id)arg1;
 - (void)photoBrowserControllerWillBeginPlayingVideo:(id)arg1;
 - (void)photoBrowserControllerWillBeginSlideshow:(id)arg1 playingOnExternalDisplay:(bool)arg2;
@@ -258,7 +262,7 @@
 - (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })photoFrameForZoomTransition;
 - (id)photoImage;
 - (id)photoImageForZoomTransition;
-- (void)photoLibraryDidChange:(id)arg1;
+- (void)photoLibraryDidChangeOnMainQueue:(id)arg1;
 - (struct CGPoint { double x1; double x2; })photosSharingTransition:(id)arg1 contentOffsetForKeyAssetIndexPath:(id)arg2 inAssetCollectionsDataSource:(id)arg3;
 - (id)photosSharingTransition:(id)arg1 layoutForKeyAssetIndexPath:(id)arg2 inAssetCollectionsDataSource:(id)arg3;
 - (void)photosSharingTransition:(id)arg1 setVisibility:(bool)arg2 forKeyAssetIndexPath:(id)arg3 inAssetCollectionsDataSource:(id)arg4;
@@ -280,6 +284,7 @@
 - (void)ppt_setOverlaysVisible:(bool)arg1;
 - (id)ppt_sharingViewController;
 - (bool)prepareForDismissingForced:(bool)arg1;
+- (void)prepareForPhotoLibraryChange:(id)arg1;
 - (id)pu_debugRows;
 - (bool)pu_wantsNavigationBarVisible;
 - (bool)pu_wantsStatusBarVisible;

@@ -106,7 +106,7 @@
 - (void)_executeActivity;
 - (void)_gkCallOnSuperSkippingSelf_viewDidAppear:(bool)arg1;
 - (void)_mailAutosaveWithHandler:(id)arg1;
-- (id)_newActivityGroupViewControllerForItems:(id)arg1 category:(long long)arg2;
+- (id)_newActivityGroupViewControllerForItems:(id)arg1 category:(long long)arg2 userDefaults:(id)arg3;
 - (void)_notifyReloadImageForActivity:(id)arg1;
 - (void)_performActivity:(id)arg1;
 - (void)_performActivityOfType:(id)arg1;
@@ -161,6 +161,7 @@
 - (Class)originalPopoverBackgroundViewClass;
 - (bool)performActivityForStateRestoration;
 - (id)preCompletionHandler;
+- (void)preferredContentSizeDidChangeForChildContentContainer:(id)arg1;
 - (void)presentViewController:(id)arg1 animated:(bool)arg2 completion:(id)arg3;
 - (void)setActivity:(id)arg1;
 - (void)setActivityAlertController:(id)arg1;

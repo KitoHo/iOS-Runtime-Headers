@@ -58,6 +58,7 @@
 + (bool)_accessibilityCalShow24Hours;
 + (bool)_accessibilityCalSpaceBetweenDesignatorsAndHour;
 + (void)_accessibilityConvertDecimalDegreeToDMS:(double)arg1 degreesPtr:(long long*)arg2 minutesPtr:(long long*)arg3 secondsPtr:(double*)arg4;
++ (id)_accessibilityCreateAXUIElementsFromUIElements:(id)arg1 attributeDirection:(int)arg2 count:(unsigned int)arg3 startElement:(id)arg4;
 + (void)_accessibilityPerformValidations:(id)arg1;
 + (id)_accessibilityStringForDate:(struct { int x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; double x6; })arg1;
 + (id)_accessibilityStringForDayOfWeek:(int)arg1;
@@ -256,6 +257,7 @@
 - (int)_accessibilityAvailableAutoscrollDirections;
 - (bool)_accessibilityBackingElementIsValid;
 - (id)_accessibilityBaseHitTest:(struct CGPoint { double x1; double x2; })arg1 withEvent:(id)arg2;
+- (bool)_accessibilityBaseScrollToVisible;
 - (bool)_accessibilityBookShowsDualPages;
 - (bool)_accessibilityBoolValueForKey:(id)arg1;
 - (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })_accessibilityBoundsForRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1;

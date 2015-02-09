@@ -19,6 +19,7 @@
 + (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
+- (id)assetUuid;
 - (void)cancelTask;
 - (Class)classForCoder;
 - (Class)classForKeyedArchiver;
@@ -32,6 +33,7 @@
 - (bool)isHighPriority;
 - (void)launch;
 - (id)resource;
+- (void)setAssetUuid:(id)arg1;
 - (void)setHighPriority:(bool)arg1;
 - (void)setResource:(id)arg1;
 - (void)setTaskIdentifier:(id)arg1;

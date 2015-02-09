@@ -244,7 +244,6 @@
 - (id)WF_normalizedRelativePath;
 - (void)_ICSStringWithOptions:(unsigned long long)arg1 appendingToString:(id)arg2;
 - (id)_URLByEscapingSpacesAndControlChars;
-- (id)_br_pathRelativeToMobileDocuments;
 - (unsigned long long)_cfTypeID;
 - (struct __CFURL { }*)_cfurl;
 - (struct __CFDictionary { }*)_clientsCreatingIfNecessary:(bool)arg1;
@@ -324,6 +323,7 @@
 - (void)br_bookmarkableStringWithEtag:(bool)arg1 completion:(id)arg2;
 - (id)br_cloudDocsContainer;
 - (id)br_containerID;
+- (void)br_containerIDsWithExternalReferencesWithHandler:(id)arg1;
 - (id)br_debugDescription;
 - (bool)br_getTagNames:(id*)arg1 error:(id*)arg2;
 - (void)br_isConflictedWithHandler:(id)arg1;
@@ -333,6 +333,7 @@
 - (bool)br_isInMobileDocuments;
 - (bool)br_isParentOfURL:(id)arg1;
 - (id)br_lastEditorDeviceName;
+- (id)br_pathRelativeToMobileDocuments;
 - (void)br_preCacheBookmarkData:(id)arg1 versionEtag:(id)arg2;
 - (bool)br_setTagNames:(id)arg1 error:(id*)arg2;
 - (id)brc_attributesValues:(id)arg1 container:(id)arg2 lookup:(id)arg3;
@@ -492,6 +493,7 @@
 - (id)radarWebURL;
 - (id)rawPath;
 - (id)rc_URLByAppendingStringToLastComponentBasename:(id)arg1;
+- (id)rc_URLByFixingUpPersistentMediaRecordingsDirectory;
 - (id)rc_URLByReplacingPathExtensionWithExtension:(id)arg1;
 - (id)relativePath;
 - (id)relativeString;

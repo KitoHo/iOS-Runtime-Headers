@@ -10,11 +10,13 @@
     NSUUID *_identifier;
     unsigned long long _mtuLength;
     long long _pairingState;
+    bool_isLinkEncrypted;
 }
 
 @property(readonly) struct __CFUUID { }* UUID;
 @property long long hostState;
 @property(readonly) NSUUID * identifier;
+@property bool isLinkEncrypted;
 @property unsigned long long mtuLength;
 @property long long pairingState;
 
@@ -22,14 +24,17 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (void)handleHostStateUpdated:(id)arg1;
+- (void)handleLinkEncryptionChanged:(id)arg1;
 - (void)handleMTUChanged:(id)arg1;
 - (void)handleMsg:(int)arg1 args:(id)arg2;
 - (long long)hostState;
 - (id)identifier;
 - (id)initWithIdentifier:(id)arg1;
+- (bool)isLinkEncrypted;
 - (unsigned long long)mtuLength;
 - (long long)pairingState;
 - (void)setHostState:(long long)arg1;
+- (void)setIsLinkEncrypted:(bool)arg1;
 - (void)setMtuLength:(unsigned long long)arg1;
 - (void)setPairingState:(long long)arg1;
 

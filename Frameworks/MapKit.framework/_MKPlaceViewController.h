@@ -26,6 +26,7 @@
     MKSegmentedControlTabBarView *_tabBar;
     bool_disableReportAProblem;
     bool_hasCheckedDistanceAvailability;
+    bool_hasContactOnlyMapItem;
     bool_hideDirectionsButtons;
     bool_hideInlineMap;
     bool_isSearchingForNearbyApps;

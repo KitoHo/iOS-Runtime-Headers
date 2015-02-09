@@ -8,9 +8,7 @@
     CPLEngineFileStorage *_fileStorage;
     NSMutableSet *_identitiesToCommit;
     NSMutableSet *_identitiesToDelete;
-    unsigned long long _previousSizeOfResourcesToUpload;
     NSURL *_tempFolderURL;
-    bool_modifiedSizeOfResourcesToUpload;
 }
 
 @property(copy,readonly) NSString * debugDescription;

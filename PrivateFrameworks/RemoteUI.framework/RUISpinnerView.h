@@ -2,9 +2,10 @@
    Image: /System/Library/PrivateFrameworks/RemoteUI.framework/RemoteUI
  */
 
-@class RUIObjectModel, UIActivityIndicatorView, UIView;
+@class RUIObjectModel, UIActivityIndicatorView, UILabel, UIView;
 
 @interface RUISpinnerView : RUIElement {
+    UILabel *_label;
     RUIObjectModel *_objectModel;
     UIActivityIndicatorView *_spinner;
     UIView *_view;

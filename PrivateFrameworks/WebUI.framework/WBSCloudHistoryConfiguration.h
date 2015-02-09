@@ -6,14 +6,20 @@
 
 @interface WBSCloudHistoryConfiguration : NSObject {
     unsigned long long _maximumRequestCharacterCount;
+    NSString *_multipleDeviceFetchChangesThrottlingPolicyString;
     NSString *_multipleDeviceSaveChangesThrottlingPolicyString;
+    NSString *_singleDeviceFetchChangesThrottlingPolicyString;
     NSString *_singleDeviceSaveChangesThrottlingPolicyString;
+    NSString *_syncCircleSizeRetrievalThrottlingPolicyString;
     unsigned long long _syncWindow;
 }
 
 @property unsigned long long maximumRequestCharacterCount;
+@property(retain) NSString * multipleDeviceFetchChangesThrottlingPolicyString;
 @property(retain) NSString * multipleDeviceSaveChangesThrottlingPolicyString;
+@property(retain) NSString * singleDeviceFetchChangesThrottlingPolicyString;
 @property(retain) NSString * singleDeviceSaveChangesThrottlingPolicyString;
+@property(retain) NSString * syncCircleSizeRetrievalThrottlingPolicyString;
 @property unsigned long long syncWindow;
 
 + (id)existingSharedCloudHistoryConfiguration;
@@ -27,14 +33,20 @@
 - (void)applyRemoteConfiguration:(id)arg1;
 - (id)init;
 - (unsigned long long)maximumRequestCharacterCount;
+- (id)multipleDeviceFetchChangesThrottlingPolicyString;
 - (id)multipleDeviceSaveChangesThrottlingPolicyString;
 - (id)platformBuiltInConfiguration;
 - (id)remoteConfiguration;
 - (void)setMaximumRequestCharacterCount:(unsigned long long)arg1;
+- (void)setMultipleDeviceFetchChangesThrottlingPolicyString:(id)arg1;
 - (void)setMultipleDeviceSaveChangesThrottlingPolicyString:(id)arg1;
+- (void)setSingleDeviceFetchChangesThrottlingPolicyString:(id)arg1;
 - (void)setSingleDeviceSaveChangesThrottlingPolicyString:(id)arg1;
+- (void)setSyncCircleSizeRetrievalThrottlingPolicyString:(id)arg1;
 - (void)setSyncWindow:(unsigned long long)arg1;
+- (id)singleDeviceFetchChangesThrottlingPolicyString;
 - (id)singleDeviceSaveChangesThrottlingPolicyString;
+- (id)syncCircleSizeRetrievalThrottlingPolicyString;
 - (unsigned long long)syncWindow;
 
 @end

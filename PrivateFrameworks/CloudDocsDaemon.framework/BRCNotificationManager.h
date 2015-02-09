@@ -35,6 +35,7 @@
 - (void)flushUpdates;
 - (bool)hasActiveAliasWatchers;
 - (id)initWithAccountSession:(id)arg1;
+- (void)invalidatePipesWatchingContainerID:(id)arg1;
 - (id)notificationGatheredFromItem:(id)arg1;
 - (id)pipeWithReceiver:(id)arg1 root:(id)arg2;
 - (id)pipeWithXPCReceiver:(id)arg1 client:(id)arg2 root:(id)arg3;

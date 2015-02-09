@@ -9,15 +9,6 @@
 @class NSIndexPath, NSMutableDictionary, NSString, PHAsset, PHAssetCollection, PHCachingImageManager, PHFetchResult, PLDeletePhotosActionController, PUActivityViewController, PUAlbumListTransitionContext, PUAlbumPickerViewController, PUPhotoBrowserController, PUPhotoPinchGestureRecognizer, PUPhotoSelectionManager, PUPhotosDataSource, PUPhotosGridViewController, PUPhotosGridViewControllerSpec, PUPhotosSinglePickerViewController, PUPopoverController, PUScrollViewSpeedometer, PUSearchButtonItem, PUSearchViewController, PUSessionInfo, UIActionSheet, UIBarButtonItem, UICollectionViewLayout, UICollectionViewLayout<PUGridLayoutProtocol>, UILongPressGestureRecognizer, UINavigationButton, UIView;
 
 @interface PUPhotosGridViewController : UICollectionViewController <UIPopoverControllerDelegate, UIPopoverPresentationControllerDelegate, PUCollectionViewReorderDelegate, PUSessionInfoObserver, PHAssetCollectionDataSource, _UISettingsKeyObserver, UISearchBarDelegate, PUSearchViewControllerDelegate, PUPhotosDataSourceChangeObserver, UIGestureRecognizerDelegate, PLNavigableAssetContainerViewController, PLDismissableViewController, PUStackedAlbumControllerTransition, PUScrollViewSpeedometerDelegate> {
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
     struct CGPoint { 
         double x; 
         double y; 
@@ -33,6 +24,7 @@
     PUActivityViewController *__activityViewController;
     UICollectionViewLayout *__albumListTransitionLayout;
     PUAlbumPickerViewController *__albumPickerViewController;
+    long long __batchPreheatingCount;
     PHCachingImageManager *__cachingImageManager;
     PUScrollViewSpeedometer *__collectionViewSpeedometer;
     PLDeletePhotosActionController *__deleteActionController;
@@ -55,7 +47,6 @@
     UIBarButtonItem *_cancelButtonItem;
     UIBarButtonItem *_customDoneButtonItem;
     PUPhotosGridViewControllerSpec *_gridSpec;
-    long long _imageCount;
     double _lastTransitionWidth;
     double _lastUpdateLayoutMetricsCollectionViewWidth;
     UILongPressGestureRecognizer *_longPressGestureRecognizer;
@@ -79,12 +70,11 @@
     UIBarButtonItem *_slideshowButton;
     UIBarButtonItem *_slideshowButtonSpacer;
     unsigned long long _suppressesColorSettingsCount;
-    long long _videoCount;
     PHAsset *_visibleReferenceAssetBeforeChange;
     PHAssetCollection *_visibleReferenceAssetContainerBeforeChange;
-    } _visibleReferenceAssetFrameBeforeChange;
-    bool__assetsNeedsCounting;
+    double _visibleReferenceAssetRelativeYBeforeChange;
     bool__hasEditSessionReorderedItems;
+    bool__shouldConsolidateFetchesForPreheating;
     bool_alwaysHideTabBar;
     bool_contentViewInSyncWithModel;
     bool_deletesDuplicatesWhenNecessary;
@@ -98,7 +88,7 @@
 @property(setter=_setActivityViewController:,retain) PUActivityViewController * _activityViewController;
 @property(setter=setAlbumListTransitionLayout:,retain) UICollectionViewLayout * _albumListTransitionLayout;
 @property(setter=_setAlbumPickerViewController:,retain) PUAlbumPickerViewController * _albumPickerViewController;
-@property(setter=_setAssetsNeedsCounting:) bool _assetsNeedsCounting;
+@property(setter=_setBatchPreheatingCount:) long long _batchPreheatingCount;
 @property(readonly) PHCachingImageManager * _cachingImageManager;
 @property(setter=_setCollectionViewSpeedometer:,retain) PUScrollViewSpeedometer * _collectionViewSpeedometer;
 @property(setter=_setDeleteActionController:,retain) PLDeletePhotosActionController * _deleteActionController;
@@ -115,6 +105,7 @@
 @property(setter=_setPushedPhotoBrowserController:,retain) PUPhotoBrowserController * _pushedPhotoBrowserController;
 @property(setter=_setRemoveActionSheet:,retain) UIActionSheet * _removeActionSheet;
 @property(setter=_setSharingPhotosPickerViewController:,retain) PUPhotosSinglePickerViewController * _sharingPhotosPickerViewController;
+@property(setter=_setShouldConsolidateFetchesForPreheating:) bool _shouldConsolidateFetchesForPreheating;
 @property(retain) PUAlbumListTransitionContext * albumListTransitionContext;
 @property unsigned long long allowedActions;
 @property bool alwaysHideTabBar;
@@ -126,7 +117,6 @@
 @property(copy,readonly) NSString * description;
 @property(retain) PUPhotosGridViewControllerSpec * gridSpec;
 @property(readonly) unsigned long long hash;
-@property(setter=_setImageCount:) long long imageCount;
 @property bool initiallyScrolledToBottom;
 @property(setter=setDisplayingSearchResults:) bool isDisplayingSearchResults;
 @property(retain) UICollectionViewLayout<PUGridLayoutProtocol> * mainGridLayout;
@@ -138,7 +128,6 @@
 @property(retain) PUSessionInfo * sessionInfo;
 @property bool showsCustomDoneButtonItemOnLeft;
 @property(readonly) Class superclass;
-@property(setter=_setVideoCount:) long long videoCount;
 
 - (void).cxx_destruct;
 - (id)_activityViewController;
@@ -150,9 +139,9 @@
 - (bool)_areAllAssetsSelected;
 - (id)_assetsAllowingDelete:(bool)arg1 orRemove:(bool)arg2 fromAssets:(id)arg3;
 - (id)_assetsAllowingEditOperation:(long long)arg1 fromAssets:(id)arg2;
-- (bool)_assetsNeedsCounting;
 - (id)_avalancheStackImageForAsset:(id)arg1 partialStack:(bool)arg2;
 - (id)_barButtonSpacerWithWidth:(double)arg1;
+- (long long)_batchPreheatingCount;
 - (void)_beginInteractiveNavigationForItemAtIndexPath:(id)arg1;
 - (void)_beginInteractiveStackCollapse:(id)arg1;
 - (id)_cachingImageManager;
@@ -169,7 +158,6 @@
 - (id)_collectionViewSpeedometer;
 - (void)_configureAddPlaceholderCell:(id)arg1 animated:(bool)arg2;
 - (void)_configureDecorationsForCell:(id)arg1 withAsset:(id)arg2 thumbnailIsPlaceholder:(bool)arg3 assetMayHaveChanged:(bool)arg4;
-- (void)_countAssetsIfNeeded;
 - (id)_deleteActionController;
 - (void)_didDismissSearchResultsViewController;
 - (void)_didDismissSearchViewController;
@@ -214,12 +202,11 @@
 - (void)_sender:(id)arg1 shareAssets:(id)arg2 aggregateKey:(struct __CFString { }*)arg3 completion:(id)arg4;
 - (void)_setActivityViewController:(id)arg1;
 - (void)_setAlbumPickerViewController:(id)arg1;
-- (void)_setAssetsNeedsCounting:(bool)arg1;
+- (void)_setBatchPreheatingCount:(long long)arg1;
 - (void)_setCollectionViewSpeedometer:(id)arg1;
 - (void)_setDeleteActionController:(id)arg1;
 - (void)_setEmptyPlaceholderView:(id)arg1;
 - (void)_setHasEditSessionReorderedItems:(bool)arg1;
-- (void)_setImageCount:(long long)arg1;
 - (void)_setLockScreenSharingObserver:(id)arg1;
 - (void)_setMaximumNumberOfRowsToPreheat:(long long)arg1;
 - (void)_setModalSearchResultsViewController:(id)arg1;
@@ -232,10 +219,11 @@
 - (void)_setPushedPhotoBrowserController:(id)arg1;
 - (void)_setRemoveActionSheet:(id)arg1;
 - (void)_setSharingPhotosPickerViewController:(id)arg1;
-- (void)_setVideoCount:(long long)arg1;
+- (void)_setShouldConsolidateFetchesForPreheating:(bool)arg1;
 - (void)_shareButtonPressed:(id)arg1;
 - (id)_shareableAssetsFromAssets:(id)arg1;
 - (id)_sharingPhotosPickerViewController;
+- (bool)_shouldConsolidateFetchesForPreheating;
 - (void)_slideshowButtonPressed:(id)arg1;
 - (void)_startSlideshowWithSettings:(id)arg1;
 - (void)_updateAfterSizeChangeIfNecessary;
@@ -268,6 +256,7 @@
 - (id)assetCollectionsFetchResult;
 - (id)assetIndexPathForPhotoToken:(id)arg1;
 - (id)assetsInAssetCollection:(id)arg1;
+- (void)beginBatchPreheating;
 - (id)beginShowingProgressForAsset:(id)arg1 inCollection:(id)arg2;
 - (void)beginSuppressingColorSettingsUpdate;
 - (id)bestReferenceItemIndexPath;
@@ -304,8 +293,8 @@
 - (bool)deletesDuplicatesWhenNecessary;
 - (void)didReceiveMemoryWarning;
 - (void)didSelectAddPlaceholderInSection:(long long)arg1;
-- (void)didUpdateAssetCounts;
 - (id)emptyPlaceholderView;
+- (void)endBatchPreheating;
 - (void)endShowingProgressWithIdentifier:(id)arg1;
 - (void)endSuppressingColorSettingsUpdate;
 - (bool)gestureRecognizerShouldBegin:(id)arg1;
@@ -320,7 +309,6 @@
 - (void)handleToggleSelectionOfItemAtIndexPath:(id)arg1;
 - (void)handleTransitionFade:(bool)arg1 animate:(bool)arg2;
 - (bool)hasScrollableContent;
-- (long long)imageCount;
 - (long long)imageDeliveryMode;
 - (id)imageForAsset:(id)arg1 outIsPlaceholder:(bool*)arg2;
 - (id)imageRequestOptionsForAsset:(id)arg1 pixelSize:(inout struct CGSize { double x1; double x2; }*)arg2;
@@ -337,6 +325,7 @@
 - (bool)isCurrentCollectionViewDataSource;
 - (bool)isDisplayingSearchResults;
 - (bool)isEmpty;
+- (bool)isPreheatingEnabled;
 - (bool)isTrashBinViewController;
 - (id)itemIndexPathAtPoint:(struct CGPoint { double x1; double x2; })arg1 outClosestMatch:(id*)arg2;
 - (void)loadView;
@@ -345,7 +334,6 @@
 - (id)longPressGestureRecognizer;
 - (id)mainGridLayout;
 - (void)navigateToPhoto:(id)arg1 inAssetContainer:(id)arg2 animated:(bool)arg3;
-- (void)navigateToRevealAssetAtIndexPath:(id)arg1 animated:(bool)arg2;
 - (void)navigateToRevealPhoto:(id)arg1 inAssetContainer:(id)arg2 animated:(bool)arg3;
 - (id)newGridLayout;
 - (id)newToolbarItems;
@@ -424,6 +412,7 @@
 - (bool)shouldShowTabBar;
 - (bool)shouldShowToolbar;
 - (bool)showsCustomDoneButtonItemOnLeft;
+- (struct CGPoint { double x1; double x2; })stableUpdatesContentOffsetForProposedContentOffset:(struct CGPoint { double x1; double x2; })arg1;
 - (unsigned long long)supportedInterfaceOrientations;
 - (void)uninstallGestureRecognizers;
 - (void)updateGlobalFooter;
@@ -438,7 +427,6 @@
 - (void)updateTitle;
 - (void)updateVisibleSectionHeadersAtIndexes:(id)arg1;
 - (void)updateVisibleSupplementaryViewsOfKind:(id)arg1 animated:(bool)arg2;
-- (long long)videoCount;
 - (void)viewDidAppear:(bool)arg1;
 - (void)viewDidDisappear:(bool)arg1;
 - (void)viewDidLayoutSubviews;

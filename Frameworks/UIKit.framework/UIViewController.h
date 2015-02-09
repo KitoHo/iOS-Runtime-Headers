@@ -538,7 +538,7 @@
 - (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })_frameForContainerViewInSheetForBounds:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 displayingTopView:(bool)arg2 andBottomView:(bool)arg3;
 - (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })_frameForContainerViewInSheetForBounds:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
 - (bool)_frameIsNotResizedForDoubleHeightStatusBarChanges;
-- (void)_getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; double x5; int x6; }*)arg1;
+- (void)_getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; boolx5; double x6; int x7; }*)arg1;
 - (void)_gkAddPositionConstraintsForOverlayBubble:(id)arg1 center:(struct CGPoint { double x1; double x2; })arg2 movingFromView:(id)arg3 toView:(id)arg4;
 - (id)_gkAlertControllerForBarButtonItem:(id)arg1;
 - (id)_gkBorrowBubbleViewFromOverlayWithBubbleType:(long long)arg1 andMoveTo:(id)arg2;
@@ -684,7 +684,7 @@
 - (void)_prepareForNestedDisplayWithNavigationController:(id)arg1;
 - (void)_prepareForNormalDisplayWithNavigationController:(id)arg1;
 - (void)_prepareForPresentationInPopover:(id)arg1;
-- (void)_presentViewController:(id)arg1 presentationController:(id)arg2 animationController:(id)arg3 interactionController:(id)arg4 completion:(id)arg5;
+- (void)_presentViewController:(id)arg1 modalSourceViewController:(id)arg2 presentationController:(id)arg3 animationController:(id)arg4 interactionController:(id)arg5 completion:(id)arg6;
 - (void)_presentViewController:(id)arg1 withAnimationController:(id)arg2 completion:(id)arg3;
 - (void)_presentViewControllerForStateRestoration:(id)arg1 animated:(bool)arg2;
 - (id)_presentationController;
@@ -954,7 +954,7 @@
 - (void)fmf_presentModalViewController:(id)arg1;
 - (void)forceUnloadView;
 - (struct CGSize { double x1; double x2; })formSheetSize;
-- (void)getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; double x5; int x6; }*)arg1 forWindow:(id)arg2;
+- (void)getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; boolx5; double x6; int x7; }*)arg1 forWindow:(id)arg2;
 - (long long)gkFocusBubbleType;
 - (id)gkPopoverController;
 - (void)handleStoreFailureWithError:(id)arg1;

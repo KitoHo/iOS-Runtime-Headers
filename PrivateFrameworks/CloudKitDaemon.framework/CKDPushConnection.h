@@ -11,6 +11,7 @@
     NSMutableSet *_enabledTopics;
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableDictionary *_tokensCache;
+    NSMutableSet *_topicsAwaitingPrivateToken;
     NSMutableSet *_topicsAwaitingPublicToken;
     NSMutableDictionary *_topicsToWaitingAppContainerTuples;
 }
@@ -25,6 +26,7 @@
 @property(retain) NSObject<OS_dispatch_queue> * queue;
 @property(readonly) Class superclass;
 @property(retain) NSMutableDictionary * tokensCache;
+@property(retain) NSMutableSet * topicsAwaitingPrivateToken;
 @property(retain) NSMutableSet * topicsAwaitingPublicToken;
 @property(retain) NSMutableDictionary * topicsToWaitingAppContainerTuples;
 
@@ -53,9 +55,11 @@
 - (void)setEnabledTopics:(id)arg1;
 - (void)setQueue:(id)arg1;
 - (void)setTokensCache:(id)arg1;
+- (void)setTopicsAwaitingPrivateToken:(id)arg1;
 - (void)setTopicsAwaitingPublicToken:(id)arg1;
 - (void)setTopicsToWaitingAppContainerTuples:(id)arg1;
 - (id)tokensCache;
+- (id)topicsAwaitingPrivateToken;
 - (id)topicsAwaitingPublicToken;
 - (id)topicsToWaitingAppContainerTuples;
 

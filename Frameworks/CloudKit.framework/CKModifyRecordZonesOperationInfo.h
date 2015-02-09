@@ -8,9 +8,11 @@
     NSArray *_recordZoneIDsToDelete;
     NSArray *_recordZonesToSave;
     bool_allowDefaultZoneSave;
+    bool_markZonesAsUserPurged;
 }
 
 @property bool allowDefaultZoneSave;
+@property bool markZonesAsUserPurged;
 @property(retain) NSArray * recordZoneIDsToDelete;
 @property(retain) NSArray * recordZonesToSave;
 
@@ -20,9 +22,11 @@
 - (bool)allowDefaultZoneSave;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (bool)markZonesAsUserPurged;
 - (id)recordZoneIDsToDelete;
 - (id)recordZonesToSave;
 - (void)setAllowDefaultZoneSave:(bool)arg1;
+- (void)setMarkZonesAsUserPurged:(bool)arg1;
 - (void)setRecordZoneIDsToDelete:(id)arg1;
 - (void)setRecordZonesToSave:(id)arg1;
 

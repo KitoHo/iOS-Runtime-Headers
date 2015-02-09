@@ -73,6 +73,7 @@
 @property(copy,readonly) NSArray * urlAddresses;
 
 + (id)contact;
++ (id)contactWithPkDictionary:(id)arg1;
 + (id)contactWithRecord:(void*)arg1 unify:(bool)arg2;
 + (id)contactWithRecord:(void*)arg1;
 + (id)contactWithRecordID:(int)arg1 addressBook:(void*)arg2;
@@ -154,6 +155,7 @@
 - (id)phoneticGivenName;
 - (id)phoneticMiddleName;
 - (id)photoThumbnail;
+- (id)pkDictionaryForPropertyID:(int)arg1;
 - (id)pkFormattedContactAddress;
 - (id)pkSingleLineFormattedContactAddress;
 - (id)postalAddresses;

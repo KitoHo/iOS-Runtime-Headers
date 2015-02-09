@@ -7,16 +7,21 @@
 @interface PKPassPaymentFooterView : UIView {
     PKPassPaymentFooterContentView *_contentView;
     PKPassView *_passView;
+    long long _paymentApplicationState;
+    long long _state;
     bool_isVisible;
 }
 
 @property(retain) PKPassView * passView;
+@property(readonly) long long state;
 
+- (void)_configureForState:(long long)arg1 withPassView:(id)arg2;
 - (void)_deleteButtonTapped;
+- (void)_handleEnterBackgroundNotification:(id)arg1;
+- (void)_handleEnterForegroundNotification:(id)arg1;
 - (void)_lostModeButtonTapped;
-- (void)configureForPaymentApplication:(id)arg1;
-- (void)configureForPaymentDeviceUnavailable;
-- (void)configureForRestrictedMode;
+- (void)configureForPaymentApplication;
+- (void)configureForState:(long long)arg1 withPassView:(id)arg2;
 - (void)dealloc;
 - (void)didBecomeHiddenAnimated:(bool)arg1;
 - (void)didBecomeVisibleAnimated:(bool)arg1;
@@ -25,6 +30,7 @@
 - (id)passView;
 - (void)setContentView:(id)arg1;
 - (void)setPassView:(id)arg1;
+- (long long)state;
 - (void)willBecomeHiddenAnimated:(bool)arg1;
 - (void)willBecomeVisibleAnimated:(bool)arg1;
 

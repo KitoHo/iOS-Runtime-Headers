@@ -26,7 +26,6 @@
 - (void)_appDidBecomeActive;
 - (void)_appWillResignActive;
 - (id)_linkedOnVersion;
-- (void)_orientationChanged;
 - (void)_remote_heartbeatTokenDidChange:(id)arg1 expirationDate:(double)arg2 error:(id)arg3;
 - (void)_remote_policyEngineTestStationDescriptionsComputed:(id)arg1;
 - (void)adSheetConnectionEstablished;

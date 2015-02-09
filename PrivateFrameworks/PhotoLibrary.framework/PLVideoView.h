@@ -169,7 +169,7 @@
 - (void)_cancelRemaking:(id)arg1;
 - (void)_clearImageGenerators;
 - (void)_commitPendingAdjustmentsUpdate;
-- (void)_commitPendingAdjustmentsUpdateAndWait:(bool)arg1;
+- (void)_commitPendingAdjustmentsUpdateAndWait:(bool)arg1 completionHandler:(id)arg2;
 - (void)_configureImageGenerator:(id)arg1 thumbnailSize:(struct CGSize { double x1; double x2; })arg2 forSummaryThumbnails:(bool)arg3;
 - (void)_configurePlayerForStreamedVideoIfNecessary;
 - (void)_createScrubberIfNeeded;
@@ -277,6 +277,7 @@
 - (void)applicationWillResignActive;
 - (bool)canEdit;
 - (void)cancelTrim;
+- (void)commitPendingUpdatesWithCompletionHandler:(id)arg1;
 - (double)currentTime;
 - (void)dealloc;
 - (id)delegate;

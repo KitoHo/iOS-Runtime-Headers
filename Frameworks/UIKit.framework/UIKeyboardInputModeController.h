@@ -99,6 +99,7 @@
 - (id)nextInputModeToUseForTraits:(id)arg1;
 - (id)normalizedEnabledInputModeIdentifiers;
 - (id)normalizedInputModes;
+- (void)performWithForcedExtensionInputModes:(id)arg1;
 - (void)performWithoutExtensionInputModes:(id)arg1;
 - (id)preferredLanguages;
 - (void)setCurrentInputMode:(id)arg1;

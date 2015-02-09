@@ -26,6 +26,8 @@
 - (void)cancel:(id)arg1;
 - (void)dealloc;
 - (void)handleDownloadedPasses:(id)arg1 fromViewController:(id)arg2 withCompletion:(id)arg3;
+- (void)handlePassAlreadyProvisionedError;
+- (void)handleProvisioningError:(id)arg1 forApplicationIdentifier:(id)arg2;
 - (id)initWithPaymentWebService:(id)arg1 context:(long long)arg2;
 - (id)prefetchedCredentials;
 - (void)preflightWithCompletion:(id)arg1;

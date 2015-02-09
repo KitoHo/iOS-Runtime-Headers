@@ -21,7 +21,7 @@
 - (void)_downloadCompletedForItemID:(id)arg1 etag:(id)arg2 downloadedObject:(id)arg3 error:(id)arg4;
 - (void)_scheduleAllDownloads;
 - (bool)_scheduleDownloadForItem:(id)arg1;
-- (void)cancelAllDownloads;
+- (id)cancelAllDownloads;
 - (void)cancelDownloadForItemID:(id)arg1;
 - (void)close;
 - (void)dumpToContext:(id)arg1;

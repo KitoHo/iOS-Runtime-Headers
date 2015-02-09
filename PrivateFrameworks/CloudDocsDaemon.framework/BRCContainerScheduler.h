@@ -77,12 +77,11 @@
 
 - (void).cxx_destruct;
 - (void)_addContainerToScheduler:(id)arg1;
-- (void)_applyAdditionsInContainer:(id)arg1;
+- (long long)_applyAdditionsInContainer:(id)arg1;
 - (long long)_applyChangesScheduleContainer:(id)arg1;
 - (void)_automaticSyncSchedule;
 - (id)_containerMetadataRecordsToSave;
 - (id)_containersMetadataSyncDatabase;
-- (bool)_createContainerOnDisk:(id)arg1 andDocumentsFolder:(bool)arg2 underRoot:(id)arg3;
 - (void)_lostScanSchedule;
 - (unsigned long long)_readCoordinationCount;
 - (long long)_readerScheduleContainer:(id)arg1;
@@ -108,7 +107,8 @@
 - (id)containerByMangledID:(id)arg1;
 - (void)containerDidBecomeBackground:(id)arg1;
 - (void)containerDidBecomeForeground:(id)arg1;
-- (id)createContainerIfNeeded:(id)arg1;
+- (id)createContainerIfNeeded:(id)arg1 isInReset:(bool)arg2;
+- (bool)createContainerOnDisk:(id)arg1 createdRoot:(bool*)arg2 createdDocuments:(bool*)arg3;
 - (void)deactivate;
 - (void)didChangeApplyChangesStatusForContainer:(id)arg1;
 - (void)didChangeLostScanStatusForContainer:(id)arg1;

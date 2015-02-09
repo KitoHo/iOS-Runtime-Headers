@@ -8,7 +8,6 @@
 
 - (unsigned long long)cost;
 - (id)description;
-- (void)markAsLocallyAvailable:(bool)arg1;
 - (void)requestCancel;
 - (void)runOperationWithCompletionHandler:(id)arg1;
 

@@ -19,9 +19,11 @@
 + (bool)isProblemReportingEnabled;
 
 - (id)appActivitySpecifiers;
+- (void)checkDiagnosticsSessionAvailability;
 - (void)dealloc;
 - (void)dismissAboutSheet:(id)arg1;
 - (id)filesystemMetadataSnapshotSpecifier;
+- (void)launchDiagnosticsSession:(id)arg1;
 - (void)setProblemReportingEnabled:(bool)arg1;
 - (void)setShouldShareAppActivityWithAppDevelopers:(id)arg1 specifier:(id)arg2;
 - (bool)shouldEnableProblemReportingForCheckedSpecifier;

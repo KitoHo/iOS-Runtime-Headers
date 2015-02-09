@@ -5,6 +5,7 @@
 @class CFPDSource;
 
 @interface CFPrefsDirectSource : CFPrefsPlistSource {
+    unsigned long long _inode;
     CFPDSource *_underlyingSource;
     bool_managed;
 }

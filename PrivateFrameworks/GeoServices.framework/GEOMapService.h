@@ -43,6 +43,7 @@
 - (id)ticketForInterleavedInstantSearchFragment:(id)arg1 traits:(id)arg2;
 - (id)ticketForInterleavedLocalitiesAndLandmarksSearchFragment:(id)arg1 traits:(id)arg2;
 - (id)ticketForMUIDs:(id)arg1 includeETA:(bool)arg2 traits:(id)arg3;
+- (id)ticketForMUIDs:(id)arg1 resultProviderID:(int)arg2 includeETA:(bool)arg3 traits:(id)arg4;
 - (id)ticketForMapItemToRefine:(id)arg1 traits:(id)arg2;
 - (id)ticketForMerchantCode:(id)arg1 paymentNetwork:(id)arg2 transactionDate:(id)arg3 transactionLocation:(id)arg4 traits:(id)arg5;
 - (id)ticketForOptInToProblemSubmissionID:(id)arg1 allowNotificationsAtPushToken:(id)arg2 allowContactBackAtEmailAddress:(id)arg3 traits:(id)arg4;

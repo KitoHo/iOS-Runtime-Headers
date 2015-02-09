@@ -13,7 +13,11 @@
     NSPredicate *_predicate;
     NSArray *_sortDescriptors;
     NSString *_transientIdentifier;
+    bool_forceIncludeCloudSharedAssets;
+    bool_forceIncludeiTunesSyncAssets;
+    bool_hasIncludeCloudSharedAssetsOverride;
     bool_includeAllBurstAssets;
+    bool_includeDuplicateAssets;
     bool_includeHiddenAssets;
     bool_includeWallpaperAssets;
     bool_wantsIncrementalChangeDetails;
@@ -22,7 +26,11 @@
 @property long long chunkSizeForFetch;
 @property(retain) NSArray * customObjectIDSortOrder;
 @property unsigned long long fetchPropertyHint;
+@property bool forceIncludeCloudSharedAssets;
+@property bool forceIncludeiTunesSyncAssets;
+@property(readonly) bool hasIncludeCloudSharedAssetsOverride;
 @property bool includeAllBurstAssets;
+@property bool includeDuplicateAssets;
 @property bool includeHiddenAssets;
 @property bool includeWallpaperAssets;
 @property(retain) NSPredicate * internalPredicate;
@@ -41,7 +49,11 @@
 - (id)customObjectIDSortOrder;
 - (id)description;
 - (unsigned long long)fetchPropertyHint;
+- (bool)forceIncludeCloudSharedAssets;
+- (bool)forceIncludeiTunesSyncAssets;
+- (bool)hasIncludeCloudSharedAssetsOverride;
 - (bool)includeAllBurstAssets;
+- (bool)includeDuplicateAssets;
 - (bool)includeHiddenAssets;
 - (bool)includeWallpaperAssets;
 - (id)init;
@@ -51,7 +63,10 @@
 - (void)setChunkSizeForFetch:(long long)arg1;
 - (void)setCustomObjectIDSortOrder:(id)arg1;
 - (void)setFetchPropertyHint:(unsigned long long)arg1;
+- (void)setForceIncludeCloudSharedAssets:(bool)arg1;
+- (void)setForceIncludeiTunesSyncAssets:(bool)arg1;
 - (void)setIncludeAllBurstAssets:(bool)arg1;
+- (void)setIncludeDuplicateAssets:(bool)arg1;
 - (void)setIncludeHiddenAssets:(bool)arg1;
 - (void)setIncludeWallpaperAssets:(bool)arg1;
 - (void)setInternalPredicate:(id)arg1;

@@ -51,6 +51,7 @@
 + (unsigned int)CHCallStatusForCallWithDuration:(double)arg1 isOriginated:(bool)arg2 isAnswered:(bool)arg3;
 
 - (void).cxx_destruct;
+- (void)addMultipleCallsToCallHistory:(id)arg1;
 - (void)addToCallHistory:(id)arg1;
 - (void)addressBookChanged:(id)arg1;
 - (id)addressBookChangedNotificationRef;

@@ -58,6 +58,7 @@
 @property bool isValid;
 @property(retain) LTEAudioSessionConfig * sessionConfig;
 
+- (unsigned int)AMRModeToBitrate;
 - (id)addAudioPayload:(int)arg1;
 - (bool)allocateBundleBuffer;
 - (int)captureMeshMode:(char *)arg1 numBytes:(int)arg2 numSamples:(int)arg3 timeStamp:(unsigned int)arg4 bufferedSamples:(int)arg5 hostTime:(double)arg6 voiceActivity:(bool)arg7;

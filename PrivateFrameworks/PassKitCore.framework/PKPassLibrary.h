@@ -24,7 +24,7 @@
 - (void)_establishPassLibraryConnection;
 - (void)_getArchivedObjectWithUniqueID:(id)arg1 completion:(id)arg2;
 - (void)_getPassWithUniqueID:(id)arg1 completion:(id)arg2;
-- (void)_getPassesAndCatalog:(bool)arg1 withRetries:(unsigned long long)arg2 withHandler:(id)arg3;
+- (void)_getPassesAndCatalogOfPassTypes:(unsigned long long)arg1 limitResults:(bool)arg2 withRetries:(unsigned long long)arg3 handler:(id)arg4;
 - (bool)_isPaymentPassActivationAvailable;
 - (id)_passesOfType:(unsigned long long)arg1 withRetries:(unsigned long long)arg2;
 - (id)_passesWithRetries:(unsigned long long)arg1;
@@ -49,6 +49,7 @@
 - (void)fetchImageSetForUniqueID:(id)arg1 ofType:(long long)arg2 displayProfile:(id)arg3 withCompletion:(id)arg4;
 - (void)getContainmentStatusAndSettingsForPass:(id)arg1 withHandler:(id)arg2;
 - (void)getPassesAndCatalog:(bool)arg1 withHandler:(id)arg2;
+- (void)getPassesAndCatalogOfPassTypes:(unsigned long long)arg1 withHandler:(id)arg2;
 - (void)getRouteRelevantPassesFromLocation:(id)arg1 handler:(id)arg2;
 - (void)hasInAppPaymentPassesForNetworks:(id)arg1 withHandler:(id)arg2;
 - (bool)hasPassesOfType:(unsigned long long)arg1;
@@ -56,6 +57,7 @@
 - (void)ingestPassData:(id)arg1 settings:(id)arg2 completion:(id)arg3;
 - (id)init;
 - (void)introduceDatabaseIntegrityProblem;
+- (bool)isRemovingPassesOfType:(unsigned long long)arg1;
 - (void)logDelayExitReasons;
 - (bool)migrateData;
 - (void)noteAccountChanged;
@@ -73,6 +75,8 @@
 - (void)removePass:(id)arg1;
 - (void)removePassWithUniqueID:(id)arg1;
 - (void)removePassesOfType:(unsigned long long)arg1;
+- (void)removingPassesOfType:(unsigned long long)arg1 didFinishWithSuccess:(bool)arg2;
+- (void)removingPassesOfType:(unsigned long long)arg1 didUpdateWithProgress:(double)arg2;
 - (bool)replacePassWithPass:(id)arg1;
 - (void)requestUpdateOfObjectWithUniqueID:(id)arg1 completion:(id)arg2;
 - (void)sendPassbookUIServiceLaunched;

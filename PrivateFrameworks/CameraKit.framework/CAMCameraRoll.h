@@ -7,8 +7,8 @@
 @interface CAMCameraRoll : NSObject {
     NSMutableSet *__cachedChangeObservers;
     NSMutableDictionary *__inflightAssets;
-    PHFetchResult *__recentlyAddedAssetsFetchResult;
     NSMutableSet *__sessionAssetUUIDs;
+    PHFetchResult *__userLibraryAssetsFetchResult;
     PHAssetCollection *__weakAssetCollection;
     PHFetchResult *__weakAssetCollectionFetchResult;
     NSDate *_sessionIdentifier;
@@ -22,8 +22,8 @@
 @property(readonly) bool _hasLoadedCameraRollFrameworks;
 @property(readonly) bool _hasPendingSessionAssets;
 @property(readonly) NSMutableDictionary * _inflightAssets;
-@property(readonly) PHFetchResult * _recentlyAddedAssetsFetchResult;
 @property(readonly) NSMutableSet * _sessionAssetUUIDs;
+@property(readonly) PHFetchResult * _userLibraryAssetsFetchResult;
 @property(readonly) PHAssetCollection * _weakAssetCollection;
 @property(readonly) PHFetchResult * _weakAssetCollectionFetchResult;
 @property(getter=_isWeakAssetCollectionLoaded,readonly) bool _weakAssetCollectionLoaded;
@@ -41,7 +41,6 @@
 - (id)_inflightAssets;
 - (void)_invalidateAssetCollection;
 - (bool)_isWeakAssetCollectionLoaded;
-- (id)_recentlyAddedAssetsFetchResult;
 - (void)_registerAllChangeNotificationObservers;
 - (void)_registerChangeNotificationObserver:(id)arg1;
 - (void)_reloadSessionAssets;
@@ -53,6 +52,7 @@
 - (void)_unregisterChangeNotificationObserver:(id)arg1;
 - (void)_updateWeakAlbumChangeNotificationsState;
 - (void)_updateWeakAssetCollectionFromSessionChange;
+- (id)_userLibraryAssetsFetchResult;
 - (id)_weakAssetCollection;
 - (id)_weakAssetCollectionFetchResult;
 - (void)addChangeNotificationsObserver:(id)arg1;

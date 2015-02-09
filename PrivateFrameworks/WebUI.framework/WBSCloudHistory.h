@@ -2,7 +2,7 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class <NSObject>, NSObject<OS_dispatch_queue>, NSString, NSTimer, WBSCloudHistorySyncThrottler;
+@class <NSObject>, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSTimer, WBSCloudHistorySyncThrottler;
 
 @interface WBSCloudHistory : NSObject <WBSCloudHistorySyncThrottlerDataStore> {
     struct unique_ptr<SafariShared::SuddenTerminationDisabler, std::__1::default_delete<SafariShared::SuddenTerminationDisabler> > { 
@@ -14,15 +14,20 @@
             struct SuddenTerminationDisabler {} *__first_; 
         } __ptr_; 
     NSObject<OS_dispatch_queue> *_cloudHistoryQueue;
+    WBSCloudHistorySyncThrottler *_fetchChangesThrottler;
     } _fetchOperationSuddenTerminationDisabler;
     <NSObject> *_historyWasLoadedObserver;
     unsigned long long _numberOfDevicesInSyncCircle;
-    NSTimer *_saveChangesLaterTimer;
     WBSCloudHistorySyncThrottler *_saveChangesThrottler;
     } _saveOperationSuddenTerminationDisabler;
+    NSTimer *_serverBackoffTimer;
+    NSMutableDictionary *_syncCircleSizeRetrievalCompletionHandlersByOperation;
+    WBSCloudHistorySyncThrottler *_syncCircleSizeRetrievalThrottler;
     bool_cloudHistoryEnabled;
+    bool_fetchChangesWhenBackoffTimerFires;
     bool_fetchChangesWhenHistoryLoads;
     bool_removedHistoryItemsArePendingSave;
+    bool_saveChangesWhenBackoffTimerFires;
     bool_saveChangesWhenHistoryLoads;
 }
 
@@ -37,28 +42,35 @@
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (void)_backOffWithInterval:(double)arg1;
 - (double)_backoffTimeIntervalFromError:(id)arg1;
+- (unsigned long long)_cachedNumberOfDevicesInSyncCircle;
 - (void)_cloudHistoryConfigurationChanged:(id)arg1;
+- (id)_currentFetchChangesThrottlerPolicyString;
+- (id)_currentSyncCircleSizeRetrievalThrottlerPolicyString;
+- (void)_determineNumberOfDevicesInSyncCircleForOperation:(id)arg1 completionHandler:(id)arg2;
 - (long long)_estimatedPriorityForPotentialSaveAttempt;
-- (void)_fetchAndMergeChangesWithServerChangeTokenData:(id)arg1 intoHistory:(id)arg2;
+- (void)_fetchAndMergeChangesBypassingThrottler:(bool)arg1;
+- (void)_fetchAndMergeChangesWithServerChangeTokenData:(id)arg1 intoHistory:(id)arg2 withPriority:(long long)arg3;
 - (void)_fetchChangesWhenHistoryLoads;
 - (void)_historyItemsWereRemoved:(id)arg1;
 - (void)_historyWasLoaded:(id)arg1;
+- (void)_performBlockAsynchronouslyOnCloudHistoryQueueAfterHistoryHasLoaded:(id)arg1;
 - (void)_postSaveChangesAttemptCompletedNotificationWithAllPendingDataSaved:(bool)arg1;
 - (long long)_priorityForSaveWithVisits:(id)arg1 tombstones:(id)arg2 bypassingThrottler:(bool)arg3;
 - (void)_registerForHistoryWasLoadedNotificationIfNecessary;
 - (long long)_resultFromError:(id)arg1;
-- (void)_saveChangesAfterDeterminingNumberOfDevicesInSyncCircle:(id)arg1;
-- (void)_saveChangesLaterTimerFired:(id)arg1;
 - (void)_saveChangesToCloudHistoryStoreBypassingThrottler:(bool)arg1;
 - (void)_saveChangesWhenHistoryLoads;
 - (void)_saveVisits:(id)arg1 tombstones:(id)arg2 toCloudHistoryBypassingThrottler:(bool)arg3 withCallback:(id)arg4;
-- (void)_scheduleSaveChangesLaterTimerWithInterval:(double)arg1;
-- (void)_updateSaveChangesThrottlingPolicy;
+- (void)_serverBackoffTimerFired:(id)arg1;
+- (void)_setCachedNumberOfDevicesInSyncCircle:(unsigned long long)arg1;
+- (void)_updateFetchThrottlerAndSaveThrottlerPolicies;
 - (id)currentSaveChangesThrottlerPolicyString;
 - (id)dateOfNextPermittedSaveChangesAttempt;
 - (void)dealloc;
 - (void)fetchAndMergeChanges;
+- (void)fetchAndMergeChangesBypassingThrottler;
 - (id)init;
 - (bool)isCloudHistoryEnabled;
 - (unsigned long long)numberOfDevicesInSyncCircle;

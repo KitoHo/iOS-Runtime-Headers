@@ -15,15 +15,14 @@
     NSObject<OS_dispatch_queue> *_eventQueue;
     id _messageHandler;
     NSMutableSet *_outstandingMessages;
+    int _timeoutDisabled;
     bool_ownsQueue;
-    bool_timeoutDisabled;
 }
 
 @property(retain) id context;
 @property(copy) id disconnectHandler;
 @property(copy) id messageHandler;
 @property(readonly) NSString * serviceName;
-@property bool timeoutDisabled;
 
 - (void)_handleXPCError:(id)arg1;
 - (void)_handleXPCMessage:(id)arg1;

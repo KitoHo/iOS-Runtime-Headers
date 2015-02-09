@@ -13,6 +13,7 @@
     double _damping;
     double _duration;
     double _mass;
+    double _maximumVendedDelay;
     double _stiffness;
     CAMediaTimingFunction *_timing;
     double _velocity;
@@ -25,6 +26,7 @@
 @property(readonly) double duration;
 @property(readonly) unsigned long long hash;
 @property double mass;
+@property(readonly) double maximumVendedDelay;
 @property double stiffness;
 @property(readonly) Class superclass;
 @property(retain) CAMediaTimingFunction * timing;
@@ -49,6 +51,7 @@
 - (id)initWithVelocity:(double)arg1 timing:(id)arg2;
 - (id)initWithVelocity:(double)arg1;
 - (double)mass;
+- (double)maximumVendedDelay;
 - (void)setAnimationDelayHandler:(id)arg1;
 - (void)setDamping:(double)arg1;
 - (void)setMass:(double)arg1;

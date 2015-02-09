@@ -18,6 +18,7 @@
 @property(copy) NSString * pickabilityReason;
 @property bool pickable;
 @property(readonly) NSDate * sortDate;
+@property(retain,readonly) NSString * subtitle2;
 @property(retain,readonly) NSString * subtitle;
 @property(retain) NSMapTable * thumbnailsBySize;
 @property(retain,readonly) NSString * title;
@@ -48,6 +49,7 @@
 - (void)setThumbnailsBySize:(id)arg1;
 - (id)sortDate;
 - (id)sortTag;
+- (id)subtitle2;
 - (id)subtitle;
 - (id)tagBlipsWithHeight:(double)arg1 scale:(double)arg2;
 - (id)tags;

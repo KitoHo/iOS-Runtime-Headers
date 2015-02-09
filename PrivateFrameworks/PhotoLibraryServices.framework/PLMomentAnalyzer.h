@@ -2,10 +2,10 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class <GEOMapItemPrivate>, <PLMomentGenerationDataManagement>, CLLocation, NSDate, NSDateFormatter, NSDictionary, NSMutableOrderedSet, NSMutableSet, NSObject<OS_dispatch_queue>, NSOrderedSet, NSString, PLMomentAnalyzerWorkThread;
+@class <GEOMapItemPrivate>, <PLMomentGenerationDataManagement>, CLLocation, NSDate, NSDateFormatter, NSDictionary, NSMutableArray, NSMutableOrderedSet, NSMutableSet, NSObject<OS_dispatch_queue>, NSOrderedSet, NSString, PLMomentAnalyzerWorkThread;
 
 @interface PLMomentAnalyzer : NSObject {
-    NSMutableSet *_activeGEORequests;
+    NSMutableArray *_activeGEORequests;
     double _analysisStartTime;
     NSString *_currentProviderId;
     unsigned long long _currentRevGeoServerVersionNum;

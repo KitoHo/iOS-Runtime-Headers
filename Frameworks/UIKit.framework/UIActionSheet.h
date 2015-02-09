@@ -44,6 +44,7 @@
 - (id)_attributedTitleString;
 - (id)_buttonAtIndex:(long long)arg1;
 - (id)_contentView;
+- (void)_didPresent;
 - (void)_dismissForTappedIndex:(long long)arg1;
 - (id)_indexesOfSelectedButtons;
 - (bool)_isSBAlert;

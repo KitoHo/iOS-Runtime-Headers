@@ -13,7 +13,7 @@
 @property(setter=_setSaveButton:,retain) UIBarButtonItem * _saveButton;
 @property(retain,readonly) TKVibrationPickerViewController * vibrationPickerViewController;
 
-- (void)_getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; double x5; int x6; }*)arg1;
+- (void)_getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; boolx5; double x6; int x7; }*)arg1;
 - (id)_saveButton;
 - (void)_setSaveButton:(id)arg1;
 - (void)_vibrationSaveButtonClicked:(id)arg1;

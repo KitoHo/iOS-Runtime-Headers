@@ -2,17 +2,19 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIKeyboard, UIKeyboardInputMode, UIViewController;
+@class UIKeyboard, UIKeyboardInputMode, UIView, UIViewController;
 
 @interface UICompatibilityInputViewController : UIInputViewController {
     UIKeyboard *_deferredSystemView;
     UIKeyboardInputMode *_incomingExtensionInputMode;
     UIViewController *_inputController;
+    UIView *_inputControllerSnapshot;
     UIKeyboardInputMode *_inputMode;
     bool_shouldRegenerateSizingConstraints;
 }
 
 @property(retain) UIViewController * inputController;
+@property(retain) UIView * inputControllerSnapshot;
 
 + (bool)_requiresProxyInterface;
 + (bool)_shouldForwardViewWillTransitionToSize;
@@ -32,12 +34,16 @@
 - (void)finishSplitTransition:(bool)arg1;
 - (void)generateCompatibleSizeConstraintsIfNecessary;
 - (id)inputController;
+- (id)inputControllerSnapshot;
 - (void)loadView;
 - (void)rebuildChildConstraints;
+- (void)removeSnapshotView;
 - (void)setInputController:(id)arg1;
+- (void)setInputControllerSnapshot:(id)arg1;
 - (void)setInputMode:(id)arg1;
 - (bool)shouldAutomaticallyForwardAppearanceMethods;
 - (bool)shouldAutomaticallyForwardRotationMethods;
+- (void)snapshotCurrentDisplay;
 - (void)tearDownInputController;
 - (void)viewDidLayoutSubviews;
 - (void)viewWillAppear:(bool)arg1;

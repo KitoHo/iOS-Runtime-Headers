@@ -3,9 +3,11 @@
  */
 
 @interface PKPaymentBackgroundDownloadRecord : NSObject <NSSecureCoding> {
+    long long _retryCount;
     long long _taskType;
 }
 
+@property long long retryCount;
 @property long long taskType;
 
 + (bool)supportsSecureCoding;
@@ -13,6 +15,8 @@
 
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (long long)retryCount;
+- (void)setRetryCount:(long long)arg1;
 - (void)setTaskType:(long long)arg1;
 - (long long)taskType;
 

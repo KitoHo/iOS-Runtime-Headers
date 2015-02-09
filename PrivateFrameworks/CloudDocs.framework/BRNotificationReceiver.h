@@ -8,7 +8,7 @@
 
 @class <BRNotificationReceiverDelegate>, BRNotificationQueue, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
 
-@interface BRNotificationReceiver : NSObject <BRReachabilityObserver, BRItemNotificationReceiving> {
+@interface BRNotificationReceiver : NSObject <BRItemNotificationReceiving> {
     unsigned long long _batchingChanges;
     double _batchingDelay;
     <BRNotificationReceiverDelegate> *_delegate;
@@ -17,6 +17,7 @@
     NSObject<OS_dispatch_queue> *_ipcQueue;
     NSMutableDictionary *_itemInTransferByID;
     unsigned long long _lastBatchTime;
+    int _networkReachabilityToken;
     BRNotificationQueue *_notifs;
     NSMutableDictionary *_progressObserverByID;
     NSObject<OS_dispatch_queue> *_queue;
@@ -24,6 +25,7 @@
     NSMutableArray *_senders;
     NSObject<OS_dispatch_source> *_source;
     NSObject<OS_dispatch_source> *_timer;
+    bool_isNetworkReachable;
     /* Warning: Unrecognized filer type: 'A' using 'void*' */ void*_suspendCount;
 }
 
@@ -52,8 +54,8 @@
 - (oneway void)invalidate;
 - (oneway void)invalidateAndDontNotifyDelegate;
 - (void)invalidateAndNotify:(bool)arg1;
+- (void)networkDidChangeReachabilityStatusTo:(bool)arg1;
 - (unsigned long long)pendingCount;
-- (void)reachabilityMonitor:(id)arg1 didChangeReachabilityStatusTo:(bool)arg2;
 - (void)receiveStitchingUpdates:(id)arg1;
 - (void)receiveUpdates:(id)arg1 logicalExtensions:(id)arg2 physicalExtensions:(id)arg3 reply:(id)arg4;
 - (void)resume;

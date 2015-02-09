@@ -39,6 +39,7 @@
 @property(copy) NSNumber * uiScale;
 @property(copy) NSString * userInterfaceIdiom;
 @property bool voiceOver;
+@property(copy) NSNumber * voiceTriggerEnabled;
 
 + (id)setAssistantData;
 + (id)setAssistantDataWithDictionary:(id)arg1 context:(id)arg2;
@@ -89,6 +90,7 @@
 - (void)setUiScale:(id)arg1;
 - (void)setUserInterfaceIdiom:(id)arg1;
 - (void)setVoiceOver:(bool)arg1;
+- (void)setVoiceTriggerEnabled:(id)arg1;
 - (id)storefront;
 - (id)temperatureUnit;
 - (id)timeZoneId;
@@ -97,5 +99,6 @@
 - (id)uiScale;
 - (id)userInterfaceIdiom;
 - (bool)voiceOver;
+- (id)voiceTriggerEnabled;
 
 @end

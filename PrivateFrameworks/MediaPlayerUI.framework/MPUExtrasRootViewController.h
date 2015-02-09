@@ -4,7 +4,7 @@
 
 @class <IKAppDataStoring>, IKAppContext, MPUExtrasArtworkDataSource, MPUExtrasContext, MPUExtrasFeatureContainerViewController, MPUExtrasMainTemplateViewController, MPUExtrasNavigationController, NSObject<OS_dispatch_queue>, NSString, UINavigationController, UIView;
 
-@interface MPUExtrasRootViewController : UIViewController <IKApplication, IKAppContextDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, MPVideoOverlayDelegate> {
+@interface MPUExtrasRootViewController : UIViewController <IKApplication, IKAppContextDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, IKAppDeviceConfig, MPVideoOverlayDelegate> {
     IKAppContext *_applicationContext;
     MPUExtrasArtworkDataSource *_artworkDataSource;
     MPUExtrasContext *_context;
@@ -58,6 +58,7 @@
 - (id)deviceConfigForContext:(id)arg1;
 - (id)featureContainer;
 - (id)initWithContext:(id)arg1;
+- (bool)isTimeZoneSet;
 - (id)localStorage;
 - (id)mainMenuBar;
 - (id)mainTemplateViewController;
@@ -67,7 +68,10 @@
 - (id)navigationControllerForContext:(id)arg1;
 - (void)overlayTappedBackButton:(id)arg1;
 - (void)popToFeatureOrMain;
+- (unsigned long long)preferredVideoFormat;
+- (unsigned long long)preferredVideoPreviewFormat;
 - (bool)prefersStatusBarHidden;
+- (struct CGSize { double x1; double x2; })screenSize;
 - (void)setApplicationContext:(id)arg1;
 - (void)setArtworkDataSource:(id)arg1;
 - (void)setFeatureContainer:(id)arg1;
@@ -77,7 +81,10 @@
 - (bool)shouldAutorotate;
 - (bool)shouldIgnoreJSValidation;
 - (void)start;
+- (id)storeFrontCountryCode;
 - (unsigned long long)supportedInterfaceOrientations;
+- (id)systemLanguage;
+- (id)timeZone;
 - (id)vendorIdentifier;
 - (id)vendorStorage;
 - (void)viewDidLoad;

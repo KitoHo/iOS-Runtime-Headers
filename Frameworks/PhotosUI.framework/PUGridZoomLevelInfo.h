@@ -87,6 +87,7 @@
 - (void)sectionedGridLayout:(id)arg1 didInvalidateWithContext:(id)arg2;
 - (void)sectionedGridLayout:(id)arg1 didPrepareTransitionIsAppearing:(bool)arg2;
 - (long long)sectionedGridLayout:(id)arg1 maximumRowsForVisualSection:(long long)arg2;
+- (struct CGPoint { double x1; double x2; })sectionedGridLayout:(id)arg1 targetContentOffsetForProposedUpdatesContentOffset:(struct CGPoint { double x1; double x2; })arg2;
 - (id)sectionedGridLayoutAnchorItemForAdjustingContentOffset:(id)arg1;
 - (id)sectionedGridLayoutName:(id)arg1;
 - (bool)sectionedGridLayoutTransitionAutoAdjustContentOffsetEnabled:(id)arg1;

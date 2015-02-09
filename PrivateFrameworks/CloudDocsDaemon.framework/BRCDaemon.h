@@ -7,9 +7,9 @@
            "int (*funcName)()",  where funcName might be null. 
  */
 
-@class BRCAccountHandler, BRCAccountSession, BRCCloudFileProvider, BRCVersionsFileProvider, NSDate, NSError, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_source>, NSString, NSXPCListener, NSXPCListenerEndpoint;
+@class BRCAccountHandler, BRCAccountSession, BRCCloudFileProvider, BRCVersionsFileProvider, NSDate, NSError, NSObject<OS_dispatch_source>, NSString, NSXPCListener, NSXPCListenerEndpoint;
 
-@interface BRCDaemon : NSObject <NSXPCListenerDelegate, BRCAccountHandlerDelegate> {
+@interface BRCDaemon : NSObject <BRCReachabilityDelegate, NSXPCListenerDelegate, BRCAccountHandlerDelegate> {
     BRCAccountHandler *_accountHandler;
     BRCAccountSession *_accountSession;
     NSString *_appSupportDirPath;
@@ -17,14 +17,15 @@
     Class _containerClass;
     BRCCloudFileProvider *_fileProvider;
     unsigned long long _forceIsGreedyState;
-    NSObject<OS_dispatch_group> *_ipcBlockerGroup;
     NSError *_loggedOutError;
     NSString *_logsDirPath;
     NSString *_rootDirPath;
+    int _serverAvailabilityNotifyToken;
     NSObject<OS_dispatch_source> *_sigIntSrc;
     NSObject<OS_dispatch_source> *_sigQuitSrc;
     NSObject<OS_dispatch_source> *_sigTermSrc;
     NSDate *_startupDate;
+    NSXPCListener *_tokenListener;
     NSString *_ubiquityTokenSalt;
     BRCVersionsFileProvider *_versionsProvider;
     NSXPCListener *_xpcListener;
@@ -81,6 +82,7 @@
 - (bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (id)loggedOutError;
 - (id)logsDirPath;
+- (void)networkReachabilityChanged:(bool)arg1;
 - (long long)purgeSpace:(long long)arg1 withUrgency:(int)arg2;
 - (void)resume;
 - (id)rootDirPath;

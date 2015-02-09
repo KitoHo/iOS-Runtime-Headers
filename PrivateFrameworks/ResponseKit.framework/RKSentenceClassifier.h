@@ -47,7 +47,7 @@
 + (id)polarTagRegularExpressionForLanguage:(id)arg1;
 + (id)preProcessTextMessageForLinguisticTagger:(id)arg1 withLocale:(id)arg2;
 + (id)preferenceKeyForCategory:(unsigned long long)arg1;
-+ (id)sensitiveSubjectsForLanguage:(id)arg1;
++ (id)sensitiveSubjectRegularExpressionForLanguage:(id)arg1;
 + (id)sentenceClassification:(id)arg1 withLanguageIdentifier:(id)arg2 options:(unsigned long long)arg3;
 + (id)stringFromLexicalEntities:(id)arg1;
 + (Class)subclassForLanguageIdentifier:(id)arg1;

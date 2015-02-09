@@ -5,6 +5,7 @@
 @class NSArray, NSString, NSURL;
 
 @interface _UIDocumentPickerContainerMetadataItem : _UIDocumentPickerContainerItem {
+    NSString *_cachedSubtitle2;
     NSString *_cachedSubtitle;
     NSArray *_cachedTags;
     NSString *_cachedTitle;
@@ -17,6 +18,7 @@
 - (void)dealloc;
 - (id)initWithItem:(id)arg1;
 - (id)sortDate;
+- (id)subtitle2;
 - (id)subtitle;
 - (id)tags;
 - (id)title;

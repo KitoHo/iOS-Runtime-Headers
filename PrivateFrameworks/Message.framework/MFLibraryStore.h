@@ -25,7 +25,6 @@
 - (id)URLString;
 - (void)_addInvocationToQueue:(id)arg1;
 - (id)_cachedBodyDataContainerForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
-- (id)_cachedBodyDataForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
 - (id)_cachedBodyForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
 - (id)_cachedHeaderDataForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
 - (id)_cachedHeadersForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
@@ -37,7 +36,6 @@
 - (id)_fetchHeaderDataForMessage:(id)arg1 downloadIfNecessary:(bool)arg2;
 - (unsigned long long)_fetchWindowMinimum;
 - (unsigned long long)_fetchWindowMultiple;
-- (void)_flushAllCaches;
 - (void)_handleFlagsChangedForMessages:(id)arg1 flags:(id)arg2 oldFlagsByMessage:(id)arg3;
 - (bool)_isSingleCoreDevice;
 - (id)_memberMessagesWithCompactionNotification:(id)arg1;
@@ -99,6 +97,7 @@
 - (id)messageWithLibraryID:(unsigned int)arg1 options:(unsigned int)arg2;
 - (void)messagesWereAdded:(id)arg1 earliestReceivedDate:(id)arg2;
 - (id)mutableCopyOfAllMessages;
+- (id)newObjectCache;
 - (unsigned long long)nonDeletedCountIncludingServerSearch:(bool)arg1 andThreadSearch:(bool)arg2;
 - (long long)oldestKnownConversation;
 - (void)openSynchronously;

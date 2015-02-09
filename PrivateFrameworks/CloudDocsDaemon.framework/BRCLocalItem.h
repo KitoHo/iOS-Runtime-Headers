@@ -187,8 +187,8 @@
 - (void)markNeedsReading;
 - (void)markNeedsUploadOrSyncingUpWithAliasTarget:(id)arg1;
 - (void)markOverQuotaWithError:(id)arg1;
-- (void)markRemovedFromFilesystem;
-- (void)markRenamedUsingServerItem:(id)arg1;
+- (void)markRemovedFromFilesystemForServerEdit:(bool)arg1;
+- (void)markRenamedUsingServerItem:(id)arg1 parentFileID:(id)arg2;
 - (void)markReserved;
 - (void)markStagedWithFileID:(unsigned long long)arg1 generationID:(unsigned int)arg2 documentID:(unsigned int)arg3;
 - (void)markStagedWithFileID:(unsigned long long)arg1 generationID:(unsigned int)arg2;
@@ -218,6 +218,7 @@
 - (unsigned int)syncUpState;
 - (long long)transferPriority;
 - (void)triggerTransferNotificationIfNeeded;
+- (void)unstageDesiredLosers;
 - (void)updateContentsCKInfoAndDeviceIDFromServerItem:(id)arg1;
 - (bool)updateFromFSAtPath:(id)arg1 parentID:(id)arg2;
 - (void)updateFromFSAtPath:(id)arg1;

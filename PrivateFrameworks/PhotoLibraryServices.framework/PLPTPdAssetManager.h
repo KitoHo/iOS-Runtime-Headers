@@ -2,7 +2,7 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSArray, NSFileManager, NSObject<OS_dispatch_queue>, NSObject<PhotoLibraryPTPDelegate>, NSSet, NSString, PLManagedObjectContext, PLPhotoLibrary;
+@class NSArray, NSFileManager, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<PhotoLibraryPTPDelegate>, NSSet, NSString, PLManagedObjectContext, PLPhotoLibrary;
 
 @interface PLPTPdAssetManager : NSObject <PLManagedObjectContextPTPNotificationDelegate> {
     NSArray *_albumObjectIDs;
@@ -11,6 +11,7 @@
     NSString *_firstDCIMFolderServiced;
     int _libraryStatus;
     PLPhotoLibrary *_photoLibrary;
+    NSMutableSet *_ptpDeletedAssets;
     NSObject<OS_dispatch_queue> *availableAssetsQueue;
     NSFileManager *fileManager;
 }

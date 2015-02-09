@@ -6,21 +6,25 @@
 
 @interface GEOPDMerchantLookupParameters : PBCodable <NSCopying> {
     struct { 
+        unsigned int transactionLocationAge : 1; 
         unsigned int transactionTimestamp : 1; 
     } _has;
     NSString *_merchantCode;
     NSString *_paymentNetwork;
     GEOLocation *_transactionLocation;
+    double _transactionLocationAge;
     double _transactionTimestamp;
 }
 
 @property(readonly) bool hasMerchantCode;
 @property(readonly) bool hasPaymentNetwork;
 @property(readonly) bool hasTransactionLocation;
+@property bool hasTransactionLocationAge;
 @property bool hasTransactionTimestamp;
 @property(retain) NSString * merchantCode;
 @property(retain) NSString * paymentNetwork;
 @property(retain) GEOLocation * transactionLocation;
+@property double transactionLocationAge;
 @property double transactionTimestamp;
 
 - (void)copyTo:(id)arg1;
@@ -31,6 +35,7 @@
 - (bool)hasMerchantCode;
 - (bool)hasPaymentNetwork;
 - (bool)hasTransactionLocation;
+- (bool)hasTransactionLocationAge;
 - (bool)hasTransactionTimestamp;
 - (unsigned long long)hash;
 - (bool)isEqual:(id)arg1;
@@ -38,12 +43,15 @@
 - (void)mergeFrom:(id)arg1;
 - (id)paymentNetwork;
 - (bool)readFrom:(id)arg1;
+- (void)setHasTransactionLocationAge:(bool)arg1;
 - (void)setHasTransactionTimestamp:(bool)arg1;
 - (void)setMerchantCode:(id)arg1;
 - (void)setPaymentNetwork:(id)arg1;
 - (void)setTransactionLocation:(id)arg1;
+- (void)setTransactionLocationAge:(double)arg1;
 - (void)setTransactionTimestamp:(double)arg1;
 - (id)transactionLocation;
+- (double)transactionLocationAge;
 - (double)transactionTimestamp;
 - (void)writeTo:(id)arg1;
 

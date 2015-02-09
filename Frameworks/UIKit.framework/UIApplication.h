@@ -205,6 +205,8 @@
 + (bool)isRunningEventPump;
 + (bool)isRunningInStoreDemoMode;
 + (double)rc_animationDragCoefficient;
++ (id)rc_beginTemporaryInteractionEventIgnoringWithTimeout:(double)arg1 sessionWillEndHandler:(id)arg2;
++ (void)rc_endTemporaryInteractionEventIgnoringForToken:(id)arg1;
 + (bool)rc_isRunningInStoreDemoMode;
 + (bool)rc_shouldMakeUIForDefaultPNG;
 + (bool)registerAsSystemApp;

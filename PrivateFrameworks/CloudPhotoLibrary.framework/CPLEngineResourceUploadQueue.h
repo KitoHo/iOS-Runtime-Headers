@@ -17,6 +17,9 @@
 - (bool)_markResourcesAsStaleForItemWithIdentifier:(id)arg1 withResources:(id)arg2 includePending:(bool)arg3 error:(id*)arg4;
 - (id)_uploadTaskForResource:(id)arg1 foreground:(bool)arg2 withCompletionHandler:(id)arg3;
 - (unsigned long long)availabilityOfResource:(id)arg1;
+- (unsigned long long)countOfOriginalImages;
+- (unsigned long long)countOfOriginalOthers;
+- (unsigned long long)countOfOriginalVideos;
 - (unsigned long long)countOfQueuedUploadTasks;
 - (id)dequeueBackgroundUploadTaskForResourceType:(unsigned long long)arg1 foreground:(bool)arg2 withCompletionHandler:(id)arg3;
 - (bool)discardResourceForUpload:(id)arg1 error:(id*)arg2;

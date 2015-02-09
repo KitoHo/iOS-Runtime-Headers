@@ -29,6 +29,7 @@
 - (void)forwardRelinquishmentMessageWithKind:(id)arg1 parameters:(id)arg2 resultHandler:(id)arg3;
 - (void)forwardUsingMessageSender:(id)arg1;
 - (bool)inSubarbiter;
+- (void)observeChangeAtSubitemPath:(id)arg1;
 - (void)observeDisappearanceAtSubitemPath:(id)arg1;
 - (void)observeDisconnectionByWriterWithPurposeID:(id)arg1;
 - (void)observeMoveByWriterWithPurposeID:(id)arg1;

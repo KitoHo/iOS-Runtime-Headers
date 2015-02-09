@@ -59,6 +59,7 @@
 - (void)setClientId:(unsigned long long)arg1;
 - (bool)setDevicesChangedHandlerWithError:(id*)arg1 handler:(id)arg2;
 - (void)setEnabledCaching:(bool)arg1;
+- (bool)setNonAppBundlIdWithError:(id)arg1 error:(id*)arg2;
 - (void)setUnlocked:(bool)arg1;
 - (void)setVerbose:(bool)arg1;
 - (bool)unlocked;

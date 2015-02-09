@@ -13,6 +13,7 @@
     NSMutableDictionary *_propertiesByBundleID;
     NSMultiReadUniWriteLock *_readWriteLock;
     bool_isCloudSyncTCCDisabled;
+    bool_isInInitialState;
     bool_isOverQuota;
 }
 
@@ -26,6 +27,7 @@
 @property(readonly) NSSet * importedTypes;
 @property bool isCloudSyncTCCDisabled;
 @property(readonly) bool isDocumentScopePublic;
+@property bool isInInitialState;
 @property(retain) NSDate * lastServerUpdate;
 @property(retain,readonly) NSDate * lastServerUpdate;
 @property(readonly) NSString * localizedName;
@@ -65,7 +67,7 @@
 - (id)enumeratorOfBundleProperty:(id)arg1 valuesOfClass:(Class)arg2;
 - (id)exportedTypes;
 - (bool)hasIconWithName:(id)arg1;
-- (bool)hasMetadataForBundleID:(id)arg1;
+- (bool)hasMostRecentMetadataForBundleID:(id)arg1;
 - (id)iconURLs;
 - (id)identifier;
 - (id)imageDataForSize:(struct CGSize { double x1; double x2; })arg1 scale:(long long)arg2;
@@ -75,14 +77,16 @@
 - (id)initWithContainerID:(id)arg1 propertiesByBundleID:(id)arg2;
 - (bool)isCloudSyncTCCDisabled;
 - (bool)isDocumentScopePublic;
+- (bool)isInInitialState;
 - (bool)isOverQuota;
 - (id)lastServerUpdate;
 - (id)localizedName;
-- (id)localizedNameForLanguageCode:(id)arg1;
+- (id)localizedNameForLocale:(id)arg1;
 - (id)mangledID;
 - (id)propertiesData;
 - (void)setCurrentStatus:(unsigned int)arg1;
 - (void)setIsCloudSyncTCCDisabled:(bool)arg1;
+- (void)setIsInInitialState:(bool)arg1;
 - (void)setLastServerUpdate:(id)arg1;
 - (bool)setProperties:(id)arg1 stagedBundleIconPaths:(id)arg2 forBundleIdentifier:(id)arg3 salt:(id)arg4;
 - (bool)setPropertiesData:(id)arg1 stagedBundleIconPaths:(id)arg2 salt:(id)arg3 refresh:(bool)arg4;

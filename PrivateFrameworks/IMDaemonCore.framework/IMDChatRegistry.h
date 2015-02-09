@@ -18,6 +18,7 @@
 - (id)_chatInfo;
 - (id)_chatInfoForSaving;
 - (void)_forceReloadChats:(bool)arg1;
+- (void)_rebuildSpotlightDatabaseFor18306262;
 - (bool)_saveChats;
 - (void)addChat:(id)arg1;
 - (void)addItem:(id)arg1 toChat:(id)arg2;
@@ -42,6 +43,7 @@
 - (void)removeMessage:(id)arg1 fromChat:(id)arg2;
 - (bool)saveChats;
 - (void)systemDidLeaveFirstDataProtectionLock;
+- (void)systemDidUnlock;
 - (void)updateLastMessageForChat:(id)arg1 hintMessage:(id)arg2;
 - (void)updateLastMessageForChat:(id)arg1;
 - (bool)updateProperties:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3;

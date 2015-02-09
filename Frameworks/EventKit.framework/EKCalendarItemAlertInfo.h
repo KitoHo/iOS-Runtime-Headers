@@ -18,6 +18,7 @@
     <EKTravelAdvice> *_latestTravelAdvice;
     NSString *_location;
     long long _proximity;
+    NSString *_publisherBulletinID;
     NSString *_title;
     bool_acknowledged;
     bool_allDay;
@@ -41,6 +42,8 @@
 @property(retain) <EKTravelAdvice> * latestTravelAdvice;
 @property(readonly) NSString * location;
 @property(readonly) long long proximity;
+@property(readonly) NSString * publisherBulletinID;
+@property(readonly) NSString * recordID;
 @property(readonly) bool tentative;
 @property(readonly) NSString * title;
 
@@ -59,13 +62,15 @@
 - (id)externalID;
 - (id)firstDateAlertedForTravelAdvice;
 - (unsigned long long)hash;
-- (id)initWithTitle:(id)arg1 location:(id)arg2 date:(id)arg3 endDate:(id)arg4 timeZone:(id)arg5 allDay:(bool)arg6 tentative:(bool)arg7 entityID:(id)arg8 action:(id)arg9 proximity:(long long)arg10 externalID:(id)arg11 acknowledged:(bool)arg12 dismissalID:(id)arg13 alarmID:(id)arg14 isOffsetFromTravelTimeStart:(bool)arg15;
+- (id)initWithTitle:(id)arg1 location:(id)arg2 date:(id)arg3 endDate:(id)arg4 timeZone:(id)arg5 allDay:(bool)arg6 tentative:(bool)arg7 publisherBulletinID:(id)arg8 entityID:(id)arg9 action:(id)arg10 proximity:(long long)arg11 externalID:(id)arg12 acknowledged:(bool)arg13 dismissalID:(id)arg14 alarmID:(id)arg15 isOffsetFromTravelTimeStart:(bool)arg16;
 - (bool)isEqual:(id)arg1;
 - (bool)isOffsetFromTravelTimeStart;
 - (id)lastFireTimeOfAlertOffsetFromTravelTime;
 - (id)latestTravelAdvice;
 - (id)location;
 - (long long)proximity;
+- (id)publisherBulletinID;
+- (id)recordID;
 - (void)setFirstDateAlertedForTravelAdvice:(id)arg1;
 - (void)setLastFireTimeOfAlertOffsetFromTravelTime:(id)arg1;
 - (void)setLatestTravelAdvice:(id)arg1;

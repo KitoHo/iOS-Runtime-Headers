@@ -64,7 +64,6 @@
 - (id)_handleMescalSignSAPSetupRequest:(id)arg1 message:(id)arg2;
 - (id)_handleOptOutRequest:(id)arg1 message:(id)arg2;
 - (id)_handlePostRequest:(id)arg1;
-- (id)_handlePurchaseRequest:(id)arg1 message:(id)arg2;
 - (id)_handleRewardRequest:(id)arg1 message:(id)arg2;
 - (id)_handleRewardsCodeResultRequest:(id)arg1 message:(id)arg2;
 - (id)_handleSegmentUpdateRequest:(id)arg1 message:(id)arg2;

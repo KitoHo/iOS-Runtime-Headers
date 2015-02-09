@@ -18,8 +18,10 @@
 + (id)currentReleaseType;
 + (id)errorWithCode:(long long)arg1 originalError:(id)arg2;
 + (id)errorWithCode:(long long)arg1;
++ (bool)freeCachedSpaceSynchronous:(unsigned long long)arg1 timeout:(double)arg2;
 + (id)gregorianCalendar;
 + (bool)hasCellularRadio;
++ (bool)hasEnoughDiskSpace:(unsigned long long)arg1 deltaSpaceNeeded:(unsigned long long*)arg2;
 + (bool)hasEnoughDiskSpace:(unsigned long long)arg1;
 + (int)installationKeybagState;
 + (bool)isCellularDataCapable;

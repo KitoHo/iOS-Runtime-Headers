@@ -46,7 +46,7 @@
 @property long long syncGenerationID;
 
 + (id)_notInKeepLocalCollectionPredicate;
-+ (id)_purgeableTrackPredicateWithUrgency:(unsigned long long)arg1;
++ (id)_purgeableTrackPredicateWithUrgency:(unsigned long long)arg1 includeCloudAssets:(bool)arg2;
 + (id)allPragmaSQL;
 + (id)allSchemaSQL;
 + (id)allTables;
@@ -94,13 +94,13 @@
 
 - (void).cxx_destruct;
 - (id)_allKeepLocalPlaylistTracks;
-- (void)_autogenerateArtworkForRelativePath:(id)arg1 artworkType:(long long)arg2 mediaType:(unsigned int)arg3;
+- (void)_autogenerateArtworkForRelativePath:(id)arg1 artworkType:(long long)arg2 mediaType:(unsigned int)arg3 completionHandler:(id)arg4;
 - (bool)_canConfigureMediaLibraryDatabaseConnection:(id)arg1;
 - (bool)_clearAllRowsFromTables:(id)arg1;
 - (void)_configureMediaLibraryDatabaseConnection:(id)arg1;
 - (void)_deleteAllArtworkVariantsAtRelativePaths:(id)arg1;
 - (void)_effectiveSettingsDidChangeNotification:(id)arg1;
-- (void)_enumeratePurgeableTracksForUrgency:(unsigned long long)arg1 respectSongMattress:(bool)arg2 usingBlock:(id)arg3;
+- (void)_enumeratePurgeableTracksForUrgency:(unsigned long long)arg1 includeCloudAssets:(bool)arg2 usingBlock:(id)arg3;
 - (bool)_insertArtworkRowWithArtworkToken:(id)arg1 artworkType:(long long)arg2 sourceType:(long long)arg3 relativePath:(id)arg4;
 - (void)_loggingSettingsDidChangeNotification:(id)arg1;
 - (id)_newGeniusDBConnectionAtPath:(id)arg1;
@@ -116,15 +116,15 @@
 - (id)artistForArtistName:(id)arg1 seriesName:(id)arg2;
 - (id)artistGroupingKeyForArtistName:(id)arg1 seriesName:(id)arg2;
 - (long long)autoFilledTracksTotalSize;
-- (long long)autoFilledTracksTotalSizeWithUrgency:(unsigned long long)arg1 respectSongMattress:(bool)arg2;
 - (long long)autoFilledTracksTotalSizeWithUrgency:(unsigned long long)arg1;
-- (void)autogenerateSupportedSizesForAllOriginalArtworkPostMigrationWithConnection:(id)arg1;
+- (void)autogenerateSupportedSizesForAllOriginalArtworkWithConnection:(id)arg1;
 - (bool)automaticDatabaseValidationDisabled;
 - (void)checkForChangesInHomeSharingLibrary:(id)arg1 completionHandler:(id)arg2;
 - (void)checkInDatabaseConnection:(id)arg1;
 - (id)checkoutReaderConnection;
 - (id)checkoutWriterConnection;
 - (bool)clearAllGeniusData;
+- (unsigned long long)cloudAssetsTotalSize;
 - (bool)coerceValidDatabase;
 - (id)composerForComposerName:(id)arg1;
 - (void)connection:(id)arg1 didEndDatabaseTransactionAndCommit:(bool)arg2;
@@ -216,6 +216,7 @@
 - (void)removeItemsWithFamilyAccountID:(unsigned long long)arg1 purchaserAccountID:(unsigned long long)arg2 downloaderAccountID:(unsigned long long)arg3;
 - (void)removeJaliscoTrackData;
 - (void)removeOrphanedTracks;
+- (void)removeOrphanedTracksOnlyInCaches:(bool)arg1;
 - (void)removeSagaTrackData;
 - (bool)removeSource:(int)arg1 fromTracksWithPersistentIDs:(id)arg2 usingConnection:(id)arg3;
 - (bool)removeSource:(int)arg1 fromTracksWithPersistentIDs:(id)arg2;

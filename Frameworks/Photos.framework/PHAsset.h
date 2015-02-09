@@ -87,9 +87,13 @@
 + (id)identifierCode;
 + (id)managedEntityName;
 + (bool)managedObjectSupportsBursts;
++ (bool)managedObjectSupportsCloudSharedType;
 + (bool)managedObjectSupportsHiddenState;
++ (bool)managedObjectSupportsPhotoStreamType;
 + (bool)managedObjectSupportsTrashedState;
++ (bool)managedObjectSupportsVisibilityState;
 + (bool)managedObjectSupportsWallpaperType;
++ (bool)managedObjectSupportsiTunesSyncType;
 + (id)pl_managedAssetsForAssets:(id)arg1;
 + (unsigned long long)pl_phAssetMediaSubtypeForPLAssetSubtype:(short)arg1;
 + (id)propertiesToFetchWithHint:(unsigned long long)arg1;
@@ -183,7 +187,9 @@
 - (int)orientation;
 - (long long)originalImageOrientation;
 - (id)originalMetadataProperties;
+- (id)pathForAdjustmentDirectory;
 - (id)pathForAdjustmentFile;
+- (id)pathForMutationsDirectory;
 - (id)pathForOriginalFile;
 - (id)pathForPenultimateFullsizeRenderImageFile;
 - (id)pathForSubstandardFullsizeRenderImageFile;

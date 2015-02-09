@@ -21,6 +21,8 @@
 @property <EKEventDetailItemDelegate> * delegate;
 @property(copy,readonly) NSString * description;
 @property(readonly) unsigned long long hash;
+@property(readonly) unsigned long long maximumNumberOfSubItems;
+@property(readonly) bool requiresLayoutForSubitemCount;
 @property bool shouldIndent;
 @property(readonly) Class superclass;
 @property(retain) UIViewController * viewController;
@@ -43,10 +45,12 @@
 - (void)eventViewController:(id)arg1 didUnhighlightSubitem:(unsigned long long)arg2;
 - (bool)hasDetailViewControllerAtIndex:(unsigned long long)arg1;
 - (void)layoutCellsForWidth:(double)arg1 position:(int)arg2;
+- (unsigned long long)maximumNumberOfSubItems;
 - (void)notifyDidEndEditing;
 - (void)notifyDidStartEditing;
 - (void)notifySubitemDidCommit:(unsigned long long)arg1;
 - (unsigned long long)numberOfSubitems;
+- (bool)requiresLayoutForSubitemCount;
 - (void)reset;
 - (bool)saveAndDismissWithForce:(bool)arg1;
 - (void)setAllowsEditing:(bool)arg1;

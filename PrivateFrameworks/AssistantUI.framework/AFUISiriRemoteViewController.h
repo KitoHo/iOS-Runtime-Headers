@@ -69,5 +69,7 @@
 - (id)speechSynthesisDelegate;
 - (void)userInteractionDidOccur;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
+- (void)viewWillAppear:(bool)arg1;
+- (void)viewWillDisappear:(bool)arg1;
 
 @end

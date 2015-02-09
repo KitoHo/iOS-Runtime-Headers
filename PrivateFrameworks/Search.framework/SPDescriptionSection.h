@@ -7,6 +7,7 @@
 @interface SPDescriptionSection : SPSection <PRSDescriptionSection> {
 }
 
+@property(retain) NSURL * attribution_url;
 @property bool description_expand;
 @property(retain) NSString * description_expand_text;
 @property long long description_maxlines;

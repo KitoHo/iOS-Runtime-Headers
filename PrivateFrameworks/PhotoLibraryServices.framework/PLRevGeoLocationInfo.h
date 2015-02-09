@@ -25,6 +25,7 @@
 
 + (id)_namingOrderForAssetReverseGeoDescription;
 + (unsigned long long)currentVersion;
++ (bool)isValidFromData:(id)arg1;
 + (unsigned long long)qualityTypeForPointInCountryCode:(id)arg1 withDataProviderId:(id)arg2;
 + (id)sortedNameInfoComparatorWithHomeAtEnd:(bool)arg1;
 

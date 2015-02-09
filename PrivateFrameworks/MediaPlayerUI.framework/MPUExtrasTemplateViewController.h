@@ -26,6 +26,7 @@
 - (void)_startBackgroundAudio;
 - (void)configureBackgroundWithElements:(id)arg1;
 - (id)context;
+- (void)dealloc;
 - (id)document;
 - (void)documentDidFail:(id)arg1 withError:(id)arg2;
 - (void)documentDidUpdate:(id)arg1;
@@ -34,6 +35,7 @@
 - (bool)shouldUpdateByReplacingViewControllerWithTemplate:(id)arg1;
 - (bool)showsPlaceholder;
 - (void)viewDidAppear:(bool)arg1;
+- (void)viewDidDisappear:(bool)arg1;
 - (void)viewDidLoad;
 
 @end

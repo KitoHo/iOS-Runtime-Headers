@@ -2,7 +2,7 @@
    Image: /System/Library/PrivateFrameworks/HomeKitDaemon.framework/HomeKitDaemon
  */
 
-@class HMMessageDispatcher, NSMutableSet, NSObject<OS_dispatch_group>, NSString, NSXPCConnection;
+@class HMMessageDispatcher, NSMutableSet, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
 
 @interface HMDConnectionProxy : NSObject <HMDaemonConnection> {
     unsigned long long _activeMessageCount;
@@ -10,6 +10,7 @@
     NSString *_clientName;
     NSMutableSet *_pendingRequests;
     HMMessageDispatcher *_recvDispatcher;
+    NSObject<OS_dispatch_queue> *_workQueue;
     NSXPCConnection *_xpcConnection;
     bool_activated;
     bool_ready;
@@ -26,6 +27,7 @@
 @property bool ready;
 @property(retain) HMMessageDispatcher * recvDispatcher;
 @property(readonly) Class superclass;
+@property(retain) NSObject<OS_dispatch_queue> * workQueue;
 @property NSXPCConnection * xpcConnection;
 
 - (void).cxx_destruct;
@@ -55,8 +57,10 @@
 - (void)setPendingRequests:(id)arg1;
 - (void)setReady:(bool)arg1;
 - (void)setRecvDispatcher:(id)arg1;
+- (void)setWorkQueue:(id)arg1;
 - (void)setXpcConnection:(id)arg1;
 - (bool)shouldSendResponseForMessageIdentifier:(id)arg1;
+- (id)workQueue;
 - (id)xpcConnection;
 
 @end

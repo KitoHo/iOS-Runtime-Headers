@@ -85,7 +85,7 @@
 - (unsigned long long)hash;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (bool)isEqualToNode:(id)arg1;
 - (unsigned long long)numParticlesToEmit;
 - (id)particleAction;
 - (double)particleAlpha;

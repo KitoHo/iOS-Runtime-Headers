@@ -10,6 +10,7 @@
         boolpreserveHeight; 
         boolavoidFadingBottomOfContent; 
         boolskipSnapshotOfEndState; 
+        boolpreventAdditveAnimations; 
         double contentStretchRightEdgeInset; 
         int edgeClip; 
     NSArray *_backdropViews;

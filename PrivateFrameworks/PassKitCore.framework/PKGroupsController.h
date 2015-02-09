@@ -37,17 +37,18 @@
 - (void)_fixIndex:(unsigned long long)arg1;
 - (void)_fixIndicesFrom:(unsigned long long)arg1 through:(unsigned long long)arg2;
 - (void)_fixIndicesFrom:(unsigned long long)arg1;
+- (void)_getPassesAndCatalogWithHandler:(id)arg1;
 - (bool)_groupIDIsNew:(id)arg1;
 - (unsigned long long)_indexOfGroupID:(id)arg1;
 - (void)_insertGroup:(id)arg1 atIndex:(unsigned long long)arg2 notify:(bool)arg3;
-- (void)_insertLocalGroupsIntoCatalog:(id)arg1;
+- (void)_insertLocalGroupsIntoCatalog:(id)arg1 withPassesByUniqueID:(id)arg2;
 - (void)_moveGroup:(id)arg1 fromIndex:(unsigned long long)arg2 toIndex:(unsigned long long)arg3 notify:(bool)arg4;
 - (id)_passesDictionaryFromSet:(id)arg1;
 - (void)_performEnqueuedUpdates;
 - (void)_performOrEnqueueUpdate:(id)arg1;
 - (void)_placeGroup:(id)arg1 atIndex:(unsigned long long)arg2 notify:(bool)arg3;
 - (void)_removeGroup:(id)arg1 notify:(bool)arg2;
-- (id)_updateAndCreateGroupsWithCatalog:(id)arg1 passes:(id)arg2 notify:(bool)arg3;
+- (id)_updateAndCreateGroupsWithCatalog:(id)arg1 passesByUniqueID:(id)arg2 notify:(bool)arg3;
 - (void)_updateStateWithCatalog:(id)arg1 passes:(id)arg2 notify:(bool)arg3;
 - (void)addLocalPasses:(id)arg1;
 - (void)dealloc;
@@ -68,6 +69,7 @@
 - (void)loadGroupsWithCompletion:(id)arg1;
 - (void)moveGroupAtIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (void)passLibrary:(id)arg1 receivedUpdatedCatalog:(id)arg2 passes:(id)arg3;
+- (void)preloadGroupsAndFrontFaceImages;
 - (void)reloadGroups;
 - (void)reloadGroupsAndNotify:(bool)arg1 completion:(id)arg2;
 - (void)reloadGroupsWithCompletion:(id)arg1;

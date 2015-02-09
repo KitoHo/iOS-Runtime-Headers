@@ -34,7 +34,7 @@
 - (void)_updateAnimating;
 - (void)_updateSampleTimer;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 proceduralWallpaper:(id)arg2 options:(id)arg3;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 proceduralWallpaper:(id)arg2 options:(id)arg3 variant:(long long)arg4;
 - (void)invalidate;
 - (bool)isDisplayingWallpaper:(id)arg1 forVariant:(long long)arg2 options:(id)arg3;
 - (void)layoutSubviews;

@@ -71,6 +71,6 @@
 - (bool)stopPairingWithError:(id*)arg1;
 - (bool)tryPairingPassword:(id)arg1 error:(id*)arg2;
 - (void)writeCharacteristicValues:(id)arg1 queue:(id)arg2 completionHandler:(id)arg3;
-- (void)writeValue:(id)arg1 forCharacteristic:(id)arg2 queue:(id)arg3 completionHandler:(id)arg4;
+- (void)writeValue:(id)arg1 forCharacteristic:(id)arg2 authorizationData:(id)arg3 queue:(id)arg4 completionHandler:(id)arg5;
 
 @end

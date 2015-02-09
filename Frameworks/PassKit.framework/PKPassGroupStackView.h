@@ -61,8 +61,6 @@
     id _transitionCanceller;
     NSMutableArray *_transitionCompletionHandlers;
     unsigned int _userInteractionCounter;
-    bool_footerConfiguredForPaymentDeviceUnavailable;
-    bool_footerConfiguredForRestrictedMode;
     bool_hasSuspendedTransition;
     bool_inPassthroughHitTest;
     bool_showingFooter;
@@ -117,6 +115,7 @@
 - (void)_enumerateLoadedGroupViews:(id)arg1;
 - (void)_executeCompletionHandlers:(id)arg1 cancelled:(bool)arg2;
 - (void)_fanAndPageGroupView:(id)arg1 animated:(bool)arg2;
+- (long long)_footerStateForPassView:(id)arg1;
 - (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })_frameForPaymentFooterView;
 - (id)_frontmostPastViewForGroupIndex:(unsigned long long)arg1;
 - (void)_generateModalGroupPileWithVisibleIndexes:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1 reservePlaceForModalGroup:(bool)arg2;
@@ -180,7 +179,6 @@
 - (void)_tileGroupsForState:(long long)arg1 eager:(bool)arg2;
 - (bool)_tileSentinelGroup:(id)arg1 forState:(long long)arg2 withAlreadyTiledGroupIDs:(id)arg3;
 - (void)_transformCardGroupView:(id)arg1 toState:(long long)arg2 startTime:(double)arg3 animated:(bool)arg4;
-- (void)_transformCardGroupView:(id)arg1 toState:(long long)arg2 startTime:(double)arg3 duration:(double)arg4;
 - (struct CATransform3D { double x1; double x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; double x11; double x12; double x13; double x14; double x15; double x16; })_transformForGroupView:(id)arg1 forState:(long long)arg2;
 - (void)_transitionSuccessful:(bool)arg1;
 - (void)_translateCardGroupView:(id)arg1 toState:(long long)arg2 startTime:(double)arg3 animated:(bool)arg4;
@@ -191,6 +189,9 @@
 - (void)_updateGroupView:(id)arg1 toPresentationState:(long long)arg2 withSpringFactory:(id)arg3;
 - (void)_updatePaymentFooterViewAnimated:(bool)arg1;
 - (void)_updatePaymentFooterViewIfNecessaryAnimated:(bool)arg1 withBecomeVisibleDelay:(double)arg2;
+- (void)_updatePositionForGroupView:(id)arg1 toPresentationState:(long long)arg2 withSpringFactory:(id)arg3 atIndex:(unsigned long long)arg4;
+- (void)_updatePositionForGroupView:(id)arg1 toPresentationState:(long long)arg2 withSpringFactory:(id)arg3;
+- (void)_updateTransformForGroupView:(id)arg1 toPresentationState:(long long)arg2 withSpringFactory:(id)arg3;
 - (double)_xPositionForGroupView:(id)arg1 forState:(long long)arg2;
 - (double)_yForGroupInModalPileAtIndex:(unsigned long long)arg1;
 - (double)_yForGroupInModalPileWithModalGroupY:(double)arg1;

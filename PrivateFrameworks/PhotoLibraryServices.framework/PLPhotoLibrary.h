@@ -24,9 +24,9 @@
     NSMutableArray *_photoStreamAlbums;
     NSMutableDictionary *_photoStreamAlbumsByStreamID;
     NSSet *_rawImageFileExtensions;
-    PLFetchingAlbum *_recentlyAddedAlbum;
     PLThumbnailManager *_thumbnailManager;
     NSMutableArray *_transactionCompletionHandlers;
+    PLFetchingAlbum *_userLibraryAlbum;
     bool_isTransient;
     bool_listeningForITunesSyncing;
     PLManagedObjectContext *managedObjectContext;
@@ -42,10 +42,10 @@
 @property(copy,readonly) NSArray * photoStreamAlbums;
 @property(copy,readonly) NSArray * photoStreamAlbumsForPreferences;
 @property(copy,readonly) NSArray * placeAlbums;
-@property(retain,readonly) NSObject<PLAlbumProtocol> * recentlyAddedAlbum;
 @property(retain,readonly) NSObject<PLAlbumProtocol> * savedPhotosAlbum;
 @property(retain,readonly) PLThumbnailManager * thumbnailManager;
 @property(copy,readonly) NSArray * userAlbums;
+@property(retain,readonly) NSObject<PLAlbumProtocol> * userLibraryAlbum;
 @property(copy,readonly) NSArray * wallpaperAlbums;
 
 + (unsigned long long)CloudPhotoLibrarySize;
@@ -68,6 +68,8 @@
 + (id)enableICloudPhotosFilePath;
 + (void)enqeueRecoveryJob:(id)arg1;
 + (id)fileReservationForFileAtPath:(id)arg1 exclusive:(bool)arg2;
++ (void)forceSoftResetSync;
++ (id)forceSoftResetSyncPath;
 + (void)handlePossibleCoreDataError:(id)arg1;
 + (id)iTunesPhotosDirectory;
 + (id)iTunesSyncedAssetMetadataThumbnailsDirectory;
@@ -82,6 +84,7 @@
 + (bool)isDisableICloudPhotos;
 + (bool)isDupeAnalysisNeeded;
 + (bool)isEnableICloudPhotos;
++ (bool)isForceSoftResetSync;
 + (bool)isICloudPhotosPaused;
 + (bool)isMomentAnalysisNeeded;
 + (bool)isRunningInStoreDemoMode;
@@ -281,7 +284,6 @@
 - (void)prepareDatabaseForOTAAssetsPhase;
 - (int)priorityForFileExtension:(id)arg1;
 - (void)processSyncSaveJob:(id)arg1 albumMap:(id)arg2;
-- (struct NSObject { Class x1; }*)recentlyAddedAlbum;
 - (void)recreateAlbumsFromMetadata;
 - (void)removeFromKnownPhotoStreamAlbums:(id)arg1;
 - (void)removeInflightAssets:(id)arg1;
@@ -298,6 +300,7 @@
 - (id)userAlbums;
 - (void)userExpungeAlbums:(id)arg1;
 - (void)userExpungeAssets:(id)arg1;
+- (struct NSObject { Class x1; }*)userLibraryAlbum;
 - (void)userTrashAlbums:(id)arg1;
 - (void)userTrashAssets:(id)arg1;
 - (void)userUntrashAlbums:(id)arg1;

@@ -15,6 +15,7 @@
 
 - (void).cxx_destruct;
 - (void)_finishPurchaseForOptions:(id)arg1 purchaseResponse:(id)arg2;
+- (void)_purchaseRequestDidSucceedNotification:(id)arg1;
 - (void)approveInPerson:(id)arg1 :(id)arg2;
 - (void)attemptLocalAskToBuyApproval:(id)arg1;
 - (void)buy:(id)arg1;

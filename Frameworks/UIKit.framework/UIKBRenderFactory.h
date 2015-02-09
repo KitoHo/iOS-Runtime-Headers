@@ -29,6 +29,7 @@
 + (id)segmentedControlColor:(bool)arg1;
 
 - (double)RivenFactor:(double)arg1;
+- (id)_controlKeyBackgroundColorName;
 - (void)_customizeTraits:(id)arg1 forPopupForKey:(id)arg2 withRenderConfig:(id)arg3 keycapsFontName:(id)arg4;
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
 - (void)addLayoutSegment:(id)arg1;
@@ -47,6 +48,7 @@
 - (id)dictationKeyImageName;
 - (id)dismissKeyImageName;
 - (id)displayContentsForKey:(id)arg1;
+- (long long)enabledBlendForm;
 - (id)extraPasscodePaddleTraits;
 - (id)globalEmojiKeyImageName;
 - (id)globalKeyImageName;
@@ -56,6 +58,7 @@
 - (double)keyCornerRadius;
 - (id)keyImageNameWithSkinnyVariation:(id)arg1;
 - (id)leftArrowKeyImageName;
+- (long long)lightHighQualityEnabledBlendForm;
 - (id)lightKeycapsFontName;
 - (id)lightPadKeycapsFontName;
 - (id)lightTextFontName;

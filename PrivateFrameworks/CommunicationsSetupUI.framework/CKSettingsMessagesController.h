@@ -28,6 +28,7 @@
 - (void)_setupAccountHandlersForDisabling;
 - (void)_showMadridSetupIfNecessary:(bool)arg1;
 - (void)_showMadridSetupIfNecessary;
+- (id)_smsRelayDevicesController;
 - (void)_startListeningForProfileChanges;
 - (void)_stopListeningForProfileChanges;
 - (id)_switchFooterText:(bool*)arg1;
@@ -48,6 +49,7 @@
 - (id)getAudioMessageAutoKeep:(id)arg1;
 - (id)getKeepMessages:(id)arg1;
 - (id)getRaiseToListenEnabled:(id)arg1;
+- (id)getSMSRelayDevicesSummary:(id)arg1;
 - (id)getVideoMessageAutoKeep:(id)arg1;
 - (id)init;
 - (id)isDeliveryReportsEnabled:(id)arg1;
@@ -84,8 +86,10 @@
 - (bool)shouldShowMadridSwitch;
 - (bool)shouldShowRaiseToListenSwitch;
 - (bool)shouldShowReadReceipts;
+- (bool)shouldShowSMSRelaySettings;
 - (bool)shouldShowSendAsSMS;
 - (bool)shouldShowVideoMessageSettings;
+- (id)smsRelaySettingsSpecifierIdentifiers;
 - (id)specifiers;
 - (void)systemApplicationDidEnterBackground;
 - (void)systemApplicationWillEnterForeground;

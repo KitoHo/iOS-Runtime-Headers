@@ -25,6 +25,7 @@
     NSMutableArray *_lifeAssertions;
     BBContent *_modalAlertContent;
     NSMutableSet *_observers;
+    NSString *_parentSectionID;
     NSDate *_publicationDate;
     NSString *_publisherBulletinID;
     NSString *_publisherRecordID;
@@ -96,6 +97,7 @@
 @property(retain) BBContent * modalAlertContent;
 @property(retain) NSMutableSet * observers;
 @property(readonly) bool orderSectionUsingRecencyDate;
+@property(copy) NSString * parentSectionID;
 @property(readonly) bool preservesUnlockActionCase;
 @property(readonly) bool preventLock;
 @property(readonly) long long primaryAttachmentType;
@@ -234,6 +236,7 @@
 - (unsigned long long)numberOfAdditionalAttachmentsOfType:(long long)arg1;
 - (id)observers;
 - (bool)orderSectionUsingRecencyDate;
+- (id)parentSectionID;
 - (bool)playSound;
 - (bool)preservesUnlockActionCase;
 - (bool)preventLock;
@@ -297,6 +300,7 @@
 - (void)setMessage:(id)arg1;
 - (void)setModalAlertContent:(id)arg1;
 - (void)setObservers:(id)arg1;
+- (void)setParentSectionID:(id)arg1;
 - (void)setPublicationDate:(id)arg1;
 - (void)setPublisherBulletinID:(id)arg1;
 - (void)setRaiseAction:(id)arg1;

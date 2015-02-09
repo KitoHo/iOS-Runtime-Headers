@@ -23,6 +23,7 @@
     NSString *_naturalLanguageQuery;
     NSArray *_phoneNumbers;
     } _region;
+    int _resultProviderID;
     bool_allowPhoneNumberLookupUsingCellular;
     bool_hasRegion;
 }
@@ -38,6 +39,7 @@
 @property(copy) NSString * naturalLanguageQuery;
 @property(getter=_phoneNumbers,setter=_setPhoneNumbers:,retain) NSArray * phoneNumbers;
 @property struct { struct { double x_1_1_1; double x_1_1_2; } x1; struct { double x_2_1_1; double x_2_1_2; } x2; } region;
+@property(getter=_resultProviderID,setter=_setResultProviderID:) int resultProviderID;
 
 + (id)searchRequestWithCompletion:(id)arg1;
 
@@ -51,6 +53,7 @@
 - (id)_merchantParameters;
 - (id)_muids;
 - (id)_phoneNumbers;
+- (int)_resultProviderID;
 - (void)_setAllowPhoneNumberLookupUsingCellular:(bool)arg1;
 - (void)_setCanonicalSearchString:(id)arg1;
 - (void)_setContactsDataString:(id)arg1;
@@ -58,6 +61,7 @@
 - (void)_setMerchantParameters:(id)arg1;
 - (void)_setMuids:(id)arg1;
 - (void)_setPhoneNumbers:(id)arg1;
+- (void)_setResultProviderID:(int)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)geoCompletionItem;

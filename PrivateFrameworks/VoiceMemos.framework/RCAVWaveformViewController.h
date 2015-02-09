@@ -73,6 +73,7 @@
 - (unsigned long long)_currentTimeDisplayOptionsIgnoringSelectionOverlayState:(bool)arg1;
 - (void)_didUpdateDisplayableTime;
 - (void)_endShowingSelectionOverlayWithCompletionBlock:(id)arg1;
+- (id)_selectionOverlay;
 - (void)_setSelectionOverlayEnabled:(bool)arg1;
 - (void)_setWaveformDataSource:(id)arg1 initialTime:(double)arg2;
 - (void)_updateCurrentTimeForCapturedInput;

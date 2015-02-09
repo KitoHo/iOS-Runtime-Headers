@@ -63,6 +63,7 @@
     SEL _spaceLongAction;
     id _spaceTarget;
     id _touchInfo;
+    long long _transitionTargetBias;
     UIKeyboardSplitTransitionView *_transitionView;
     _UIKeyboardTypingSpeedLogger *_typingSpeedLogger;
     UISwipeGestureRecognizer *_upSwipeRecognizer;
@@ -70,7 +71,6 @@
     bool_autoshift;
     bool_didLongPress;
     bool_edgeSwipeDetected;
-    bool_edgeSwipeInhibited;
     bool_ghostKeysEnabled;
     bool_isOutOfBounds;
     bool_isRebuilding;
@@ -164,7 +164,9 @@
 - (id)defaultNameForKeyplaneName:(id)arg1;
 - (void)deleteHandwritingStrokesAtIndexes:(id)arg1;
 - (void)didClearInput;
+- (void)didFinishScreenGestureRecognition;
 - (bool)didLongPress;
+- (void)didRecognizeGestureOnEdge:(unsigned long long)arg1 withDistance:(double)arg2;
 - (void)didRotate;
 - (int)displayTypeHintForMoreKey;
 - (int)displayTypeHintForShiftKey;
@@ -212,7 +214,6 @@
 - (id)initialKeyplaneNameWithKBStarName:(id)arg1;
 - (void)installGestureRecognizers;
 - (double)interpretPinchSeparationValues;
-- (void)interpretTouchesForEdgeSwipe;
 - (void)interpretTouchesForSplit;
 - (bool)isAlphabeticPlane;
 - (bool)isLongPressedKey:(id)arg1;
@@ -230,6 +231,7 @@
 - (id)keyboardName;
 - (int)keycodeForKey:(id)arg1;
 - (id)keyplane;
+- (bool)keyplaneContainsEmojiKey;
 - (id)keyplaneForKey:(id)arg1;
 - (id)keyplaneName;
 - (id)keyplaneNameForRevertAfterTouch;
@@ -335,6 +337,7 @@
 - (int)stateForStylingKey:(id)arg1;
 - (bool)supportStylingWithKey:(id)arg1;
 - (void)swipeDetected:(id)arg1;
+- (unsigned long long)targetEdgesForScreenGestureRecognition;
 - (unsigned long long)textEditingKeyMask;
 - (void)touchCancelled:(id)arg1 executionContext:(id)arg2;
 - (void)touchDown:(id)arg1 executionContext:(id)arg2;

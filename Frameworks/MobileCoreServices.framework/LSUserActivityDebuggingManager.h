@@ -2,11 +2,16 @@
    Image: /System/Library/Frameworks/MobileCoreServices.framework/MobileCoreServices
  */
 
+@class NSUserDefaults;
+
 @interface LSUserActivityDebuggingManager : NSObject {
     struct __asl_object_s { } *_client;
+    NSUserDefaults *_userDefaults;
 }
 
 @property struct __asl_object_s { }* client;
+@property(readonly) bool loggingEnabled;
+@property(retain) NSUserDefaults * userDefaults;
 
 + (id)hexDataDump:(id)arg1;
 + (void)log:(int)arg1 format:(id)arg2;
@@ -19,8 +24,12 @@
 - (void)log:(int)arg1 format:(id)arg2 args:(char *)arg3;
 - (void)log:(int)arg1 format:(id)arg2;
 - (void)logCommon:(unsigned long long)arg1 format:(id)arg2 args:(char *)arg3;
+- (bool)logFileEnabled;
+- (bool)loggingEnabled;
 - (void)setClient:(struct __asl_object_s { }*)arg1;
+- (void)setUserDefaults:(id)arg1;
 - (bool)shouldLog:(int)arg1;
 - (bool)shouldLogCommon:(unsigned long long)arg1;
+- (id)userDefaults;
 
 @end

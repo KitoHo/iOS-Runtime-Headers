@@ -31,6 +31,7 @@
 + (id)viewWithRemoteContextID:(unsigned int)arg1;
 
 - (bool)_actsAsTintView;
+- (void)_compensateForGlobalMediaTimeAdjustmentsIfNecessary;
 - (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
 - (id)_hitTest:(struct CGPoint { double x1; double x2; })arg1 withEvent:(id)arg2 windowServerHitTestWindow:(id)arg3;
 - (bool)_inheritsSecurity;

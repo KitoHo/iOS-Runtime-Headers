@@ -25,7 +25,6 @@
 + (id)alertForCPLEnableError:(id)arg1;
 + (id)alertForStorageUpgradeLoadFailure;
 + (id)deleteITunesContentAlertWithAssetCount:(long long)arg1 includesPhotos:(bool)arg2 includesVideos:(bool)arg3;
-+ (void)showCPLBetaAlertViewWithCompletion:(id)arg1;
 
 - (void).cxx_destruct;
 - (void)_tearDown;

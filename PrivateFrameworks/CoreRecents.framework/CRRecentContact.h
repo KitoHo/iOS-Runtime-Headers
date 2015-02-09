@@ -55,6 +55,7 @@
 - (id)archivableGroupMembers;
 - (id)archivableMetadata;
 - (id)archivableRecentID;
+- (id)contactForPropertyID:(int)arg1;
 - (long long)contactID;
 - (unsigned long long)countOfRecents;
 - (void)dealloc;

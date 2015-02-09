@@ -9,7 +9,7 @@
 
 - (bool)colorSamplingEnabled;
 - (id)initWithPhoto:(id)arg1;
-- (id)initWithUIImage:(id)arg1 cropRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg2;
+- (id)initWithUIImage:(id)arg1 name:(id)arg2;
 - (id)initWithUIImage:(id)arg1;
 - (void)photoTileViewControllerDidEndGesture:(id)arg1;
 - (void)providerLegibilitySettingsChanged:(id)arg1;

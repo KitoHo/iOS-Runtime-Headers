@@ -183,6 +183,7 @@
 - (id)_cocoaErrorStringWithKind:(id)arg1 variant:(id)arg2;
 - (id)_cocoaErrorStringWithKind:(id)arg1;
 - (long long)_collectApplicableUserInfoFormatters:(struct { /* ? */ }**)arg1 max:(long long)arg2;
+- (id)_cplSafeUserInfoForXPCDidChange:(bool*)arg1;
 - (id)_formatCocoaErrorString:(id)arg1 parameters:(const char *)arg2 applicableFormatters:(struct { /* ? */ }**)arg3 count:(long long)arg4;
 - (id)_geo_newXPCData;
 - (bool)_gkIsUnauthenticatedError;
@@ -228,6 +229,7 @@
 - (long long)code;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)copyXPCEncoding;
+- (id)cplSafeErrorForXPC;
 - (id)cplShortDomainDescription;
 - (id)cplUnderlyingPOSIXError;
 - (void)dealloc;

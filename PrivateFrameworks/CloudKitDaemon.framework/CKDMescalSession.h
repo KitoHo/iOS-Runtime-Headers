@@ -2,13 +2,14 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDClientContext, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSOperationQueue;
+@class CKDClientContext, NSError, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSOperationQueue;
 
 @interface CKDMescalSession : NSObject {
     struct FairPlayHWInfo_ { 
         unsigned int IDLength; 
         unsigned char ID[20]; 
     CKDClientContext *_context;
+    NSError *_lastSetupError;
     } _mescalHWInfo;
     struct FPSAPContextOpaque_ { } *_mescalSession;
     NSObject<OS_dispatch_queue> *_opQueue;
@@ -20,6 +21,7 @@
 
 @property(readonly) CKDClientContext * context;
 @property bool isSetup;
+@property(retain) NSError * lastSetupError;
 @property struct FairPlayHWInfo_ { unsigned int x1; unsigned char x2[20]; } mescalHWInfo;
 @property struct FPSAPContextOpaque_ { }* mescalSession;
 @property(retain) NSObject<OS_dispatch_queue> * opQueue;
@@ -34,11 +36,13 @@
 - (void)_reallySignData:(id)arg1 withCompletionHandler:(id)arg2;
 - (void)_setUpWithCompletionHandler:(id)arg1;
 - (void)_teardown;
+- (void)_teardownLocked;
 - (id)context;
 - (void)dealloc;
 - (void)exchangeData:(id)arg1 serverVersion:(int)arg2 withCompletionHandler:(id)arg3;
 - (id)initWithContext:(id)arg1;
 - (bool)isSetup;
+- (id)lastSetupError;
 - (struct FairPlayHWInfo_ { unsigned int x1; unsigned char x2[20]; })mescalHWInfo;
 - (struct FPSAPContextOpaque_ { }*)mescalSession;
 - (id)opQueue;
@@ -49,6 +53,7 @@
 - (bool)renewing;
 - (void)resetMescalSession;
 - (void)setIsSetup:(bool)arg1;
+- (void)setLastSetupError:(id)arg1;
 - (void)setMescalHWInfo:(struct FairPlayHWInfo_ { unsigned int x1; unsigned char x2[20]; })arg1;
 - (void)setMescalSession:(struct FPSAPContextOpaque_ { }*)arg1;
 - (void)setOpQueue:(id)arg1;

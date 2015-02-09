@@ -10,7 +10,9 @@
     UIActionSheet *_pickerActionSheet;
     SiriRoutePickerAlertController *_pickerAlertController;
     UIWindow *_window;
+    bool_bluetoothIsPicked;
     bool_hasRoutesToPick;
+    bool_overrideIsPicked;
     bool_useActionSheet;
 }
 
@@ -18,14 +20,16 @@
 @property <SiriUIAudioRoutePickerControllerDelegate> * delegate;
 @property(copy,readonly) NSString * description;
 @property(readonly) unsigned long long hash;
+@property(retain) UIActionSheet * pickerActionSheet;
+@property(retain) SiriRoutePickerAlertController * pickerAlertController;
 @property(readonly) Class superclass;
+
++ (id)_nameForRouteInfo:(id)arg1 overridePicked:(bool)arg2 isSelected:(bool*)arg3 isBluetooth:(bool*)arg4 isOverride:(bool*)arg5 audioRouteName:(id*)arg6;
 
 - (void).cxx_destruct;
 - (void)_dismissAlertController:(bool)arg1;
-- (bool)_hasPickableRouteOtherThanBuiltIn;
-- (id)_nameForRouteInfo:(id)arg1 overridePicked:(bool)arg2 isSelected:(bool*)arg3;
+- (void)_fetchPickableRoutesForCategory:(id)arg1 withCompletion:(id)arg2;
 - (bool)_overrideIsPicked;
-- (id)_pickableRoutes;
 - (void)_pickableRoutesChanged:(id)arg1;
 - (void)_removeWindow;
 - (void)_routeChanged:(id)arg1;
@@ -38,11 +42,14 @@
 - (void)dealloc;
 - (id)delegate;
 - (bool)hasRoutesToPick;
-- (id)initWithCategory:(id)arg1;
+- (id)initWithCategory:(id)arg1 delegate:(id)arg2;
 - (bool)isShowingPicker;
+- (id)pickerActionSheet;
+- (id)pickerAlertController;
+- (void)refreshRoutes;
 - (void)setDelegate:(id)arg1;
+- (void)setPickerActionSheet:(id)arg1;
+- (void)setPickerAlertController:(id)arg1;
 - (void)showPickerFromViewController:(id)arg1 animated:(bool)arg2;
-- (void)startUpdatingRoutes;
-- (void)stopUpdatingRoutes;
 
 @end

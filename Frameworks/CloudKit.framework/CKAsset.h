@@ -2,7 +2,7 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class CKRecord, NSData, NSDate, NSNumber, NSString, NSURL;
+@class CKRecord, CKRecordID, NSData, NSDate, NSNumber, NSString, NSURL;
 
 @interface CKAsset : NSObject <NSSecureCoding, CKRecordValue> {
     NSString *_assetHandleUUID;
@@ -20,6 +20,7 @@
     NSData *_inlineData;
     NSString *_owner;
     CKRecord *_record;
+    CKRecordID *_recordID;
     NSString *_recordKey;
     NSString *_referenceIdentifierString;
     NSData *_referenceSignature;
@@ -52,6 +53,7 @@
 @property(copy) NSData * inlineData;
 @property(retain) NSString * owner;
 @property CKRecord * record;
+@property(retain) CKRecordID * recordID;
 @property(copy) NSString * recordKey;
 @property(retain) NSString * referenceIdentifierString;
 @property(retain) NSData * referenceSignature;
@@ -94,6 +96,7 @@
 - (bool)isUploaded;
 - (id)owner;
 - (id)record;
+- (id)recordID;
 - (id)recordKey;
 - (id)referenceIdentifierString;
 - (id)referenceSignature;
@@ -112,6 +115,7 @@
 - (void)setInlineData:(id)arg1;
 - (void)setOwner:(id)arg1;
 - (void)setRecord:(id)arg1;
+- (void)setRecordID:(id)arg1;
 - (void)setRecordKey:(id)arg1;
 - (void)setReferenceIdentifierString:(id)arg1;
 - (void)setReferenceSignature:(id)arg1;

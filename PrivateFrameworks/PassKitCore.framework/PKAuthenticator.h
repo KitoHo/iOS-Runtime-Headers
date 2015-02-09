@@ -8,6 +8,9 @@
     NSNumber *_applicationProcessID;
     double _authenticationTimeout;
     <PKAuthenticatorDelegate> *_delegate;
+    double _evaluationStartTime;
+    double _lastFingerOffTimestamp;
+    double _lastMatchTimestamp;
     VRCredentialReference *_reference;
     NSObject<OS_dispatch_queue> *_referenceMutationQueue;
     bool_fingerPresent;
@@ -21,6 +24,7 @@
 
 + (void)_preflightPolicy:(long long)arg1 completion:(id)arg2;
 + (unsigned long long)currentStateForPreflightPolicy:(long long)arg1;
++ (void)preheatAuthenticator;
 
 - (id)_credentialReference;
 - (bool)_credentialReferenceMatches:(id)arg1;

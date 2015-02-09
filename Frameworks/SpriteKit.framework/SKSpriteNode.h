@@ -50,7 +50,7 @@
 - (id)initWithImageNamed:(id)arg1;
 - (id)initWithTexture:(id)arg1 color:(id)arg2 size:(struct CGSize { double x1; double x2; })arg3;
 - (id)initWithTexture:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (bool)isEqualToNode:(id)arg1;
 - (unsigned int)lightingBitMask;
 - (id)normalTexture;
 - (bool)repeatTexture;

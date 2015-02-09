@@ -44,12 +44,11 @@
 - (id)copyCachedResult:(id)arg1 webSearch:(bool)arg2;
 - (id)createFeedbackRequest:(id*)arg1;
 - (id)createQueryURL:(id)arg1 userQueryString:(id)arg2 currentLocation:(id)arg3 locationSource:(id)arg4 currentCoordinates:(struct { double x1; double x2; })arg5 storeFrontId:(id)arg6 locale:(id)arg7 context:(id)arg8;
-- (id)createURLRequestWithString:(id)arg1 webSearch:(bool)arg2 scaleFactor:(double)arg3 fallbackURL:(id*)arg4;
-- (id)createWarmupRequest;
+- (id)createURLRequestWithString:(id)arg1 webSearch:(bool)arg2 scaleFactor:(double)arg3 allowLocation:(bool)arg4 fallbackURL:(id*)arg5;
 - (void)deactivate;
 - (void)dealloc;
 - (void)didDisplayCompletionListItems:(id)arg1 forQuery:(id)arg2;
-- (void)flushFeedback;
+- (bool)flushFeedback;
 - (id)fteLearnMoreString;
 - (id)fteLocString;
 - (void)getCachedQueries:(id*)arg1 results:(id*)arg2 webSearch:(bool)arg3;

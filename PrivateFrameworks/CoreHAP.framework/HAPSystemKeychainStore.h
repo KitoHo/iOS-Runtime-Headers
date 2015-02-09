@@ -29,7 +29,7 @@
 - (bool)_removeAccessoryKeyForName:(id)arg1;
 - (int)_removeControllerKeyPair;
 - (int)_removeControllerKeyPairForIdentifier:(id)arg1;
-- (int)_removeKeychainItem:(id)arg1;
+- (int)_removeKeychainItem:(id)arg1 leaveTombstone:(bool)arg2;
 - (int)_savePeripheralIdentifier:(id)arg1 forAccessoryName:(id)arg2;
 - (int)_savePublicKey:(id)arg1 forAccessoryName:(id)arg2;
 - (int)_updateCurrentiCloudIdentifier:(id)arg1 controllerPairingIdentifier:(id)arg2;

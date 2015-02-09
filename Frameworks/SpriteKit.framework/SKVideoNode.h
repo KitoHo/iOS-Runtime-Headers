@@ -30,7 +30,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithVideoFileNamed:(id)arg1;
 - (id)initWithVideoURL:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (bool)isEqualToNode:(id)arg1;
 - (bool)isPaused;
 - (void)pause;
 - (void)play;

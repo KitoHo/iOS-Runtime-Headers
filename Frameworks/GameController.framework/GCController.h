@@ -22,6 +22,7 @@
 + (void)__daemon__controllerWithUDID:(unsigned long long)arg1 setValue:(float)arg2 forElement:(int)arg3;
 + (void)__daemon__removeController:(id)arg1;
 + (void)__daemon__requestConnectedHostUpdatesWithHandler:(id)arg1;
++ (void)__daemon__setUserActivityUserInfo:(id)arg1;
 + (void)__daemon__startBonjourService;
 + (void)__open__;
 + (void)__setLogger__:(id)arg1;

@@ -77,6 +77,7 @@
 - (void)_notifyBlursInvalidated;
 - (void)_notifyGeometryInvalidated;
 - (void)_prepareToAnimateGradients;
+- (id)_primaryColorOverride;
 - (void)_removeParallax;
 - (void)_setLegibilitySettings:(id)arg1 notify:(bool)arg2;
 - (bool)_shouldShowBottomGradient;
@@ -93,6 +94,7 @@
 - (void)_updateParallaxSettings;
 - (void)_updateRasterizationState;
 - (void)_updateScaleFactor;
+- (id)_wallpaperName;
 - (id)averageColorInRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 withSmudgeRadius:(double)arg2;
 - (id)blurredImage;
 - (double)contentScaleFactor;
@@ -109,6 +111,7 @@
 - (bool)filtersAverageColor;
 - (double)gradientOpacityInRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 contrastWithinBoxesFactor:(double)arg2 allowLuminanceCheck:(bool)arg3;
 - (id)imageForBackdropParameters:(struct { long long x1; long long x2; long long x3; })arg1 includeTint:(bool)arg2;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 variant:(long long)arg2;
 - (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
 - (id)internalObserver;
 - (void)invalidate;
@@ -137,6 +140,7 @@
 - (void)setParallaxEnabled:(bool)arg1;
 - (void)setParallaxFactor:(double)arg1;
 - (void)setSuppressesGradients:(bool)arg1;
+- (void)setVariant:(long long)arg1 withAnimationFactory:(id)arg2 forced:(bool)arg3;
 - (void)setVariant:(long long)arg1 withAnimationFactory:(id)arg2;
 - (void)setVariant:(long long)arg1;
 - (void)setWallpaperAnimationEnabled:(bool)arg1;

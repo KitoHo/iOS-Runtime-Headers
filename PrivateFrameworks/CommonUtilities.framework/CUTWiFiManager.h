@@ -23,7 +23,6 @@
     bool_isPrimaryCellularCached;
     bool_isWakeOnWiFiEnabled;
     bool_isWakeOnWiFiSupported;
-    bool_isWifiAssociated;
     bool_isWifiEnabled;
     bool_shouldAutoAssociateAsForeground;
 }

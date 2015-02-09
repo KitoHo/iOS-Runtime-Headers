@@ -10,12 +10,15 @@
     NSMutableSet *_deletes;
     NSHashTable *_fetchResults;
     NSMutableSet *_inserts;
+    double _lastChangeProcessingStarted;
     NSHashTable *_observers;
     PLPhotoLibrary *_photoLibrary;
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableDictionary *_saveTokensToKnownUUIDs;
     NSObject<OS_dispatch_queue> *_transactionQueue;
     NSMutableSet *_updates;
+    bool_isChangeProcessingPending;
+    bool_unknownMergeEvent;
 }
 
 @property(retain) NSMutableDictionary * changeNotificationInfo;
@@ -23,11 +26,14 @@
 @property(retain) NSMutableSet * deletes;
 @property(retain) NSHashTable * fetchResults;
 @property(retain) NSMutableSet * inserts;
+@property bool isChangeProcessingPending;
+@property double lastChangeProcessingStarted;
 @property(retain) NSHashTable * observers;
 @property(retain) PLPhotoLibrary * photoLibrary;
 @property(retain) NSObject<OS_dispatch_queue> * queue;
 @property(retain) NSMutableDictionary * saveTokensToKnownUUIDs;
 @property(retain) NSObject<OS_dispatch_queue> * transactionQueue;
+@property bool unknownMergeEvent;
 @property(retain) NSMutableSet * updates;
 
 + (Class)PHObjectClassForEntityName:(id)arg1;
@@ -44,6 +50,7 @@
 - (void).cxx_destruct;
 - (void)_beginTransaction;
 - (void)_commitTransaction:(id)arg1;
+- (void)_processPendingChanges;
 - (void)assertTransaction;
 - (id)changeNotificationInfo;
 - (id)changeRequestForUUID:(id)arg1;
@@ -59,12 +66,19 @@
 - (id)initSharedLibrary;
 - (id)inserts;
 - (bool)isApplyingRequestedChanges;
+- (bool)isChangeProcessingPending;
+- (double)lastChangeProcessingStarted;
 - (id)managedObjectContext;
 - (id)observers;
 - (void)performChanges:(id)arg1 completionHandler:(id)arg2;
 - (bool)performChangesAndWait:(id)arg1 error:(id*)arg2;
 - (id)photoLibrary;
 - (id)pl_syncProgressAlbums;
+- (id)pu_beginPausingChangesWithTimeout:(double)arg1;
+- (id)pu_changeDistributer;
+- (void)pu_endPausingChanges:(id)arg1;
+- (void)pu_registerChangeObserver:(id)arg1;
+- (void)pu_unregisterChangeObserver:(id)arg1;
 - (id)queryForType:(id)arg1 withIdentifiers:(id)arg2 local:(bool)arg3;
 - (id)queue;
 - (void)recordDeleteRequest:(id)arg1;
@@ -81,15 +95,19 @@
 - (void)setDeletes:(id)arg1;
 - (void)setFetchResults:(id)arg1;
 - (void)setInserts:(id)arg1;
+- (void)setIsChangeProcessingPending:(bool)arg1;
+- (void)setLastChangeProcessingStarted:(double)arg1;
 - (void)setObservers:(id)arg1;
 - (void)setPhotoLibrary:(id)arg1;
 - (void)setQueue:(id)arg1;
 - (void)setSaveTokensToKnownUUIDs:(id)arg1;
 - (void)setTransactionQueue:(id)arg1;
+- (void)setUnknownMergeEvent:(bool)arg1;
 - (void)setUpdates:(id)arg1;
 - (id)transactionContext;
 - (id)transactionPLPhotoLibrary;
 - (id)transactionQueue;
+- (bool)unknownMergeEvent;
 - (void)unregisterChangeObserver:(id)arg1;
 - (void)unregisterFetchResult:(id)arg1;
 - (id)updates;

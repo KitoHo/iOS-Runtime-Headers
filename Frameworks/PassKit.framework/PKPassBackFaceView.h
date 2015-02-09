@@ -2,7 +2,7 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class BluetoothManager, NSArray, NSMutableDictionary, NSString, NSTimer, PKLinkedAppView, PKSettingTableCell, UIAlertView, UIButton, UILabel, UIRefreshControl, UITableView, UIView;
+@class BluetoothManager, NSArray, NSMutableDictionary, NSString, NSTimer, PKLinkedAppView, PKSettingTableCell, UIButton, UILabel, UIRefreshControl, UITableView, UIView;
 
 @interface PKPassBackFaceView : PKPassFaceView <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate> {
     PKSettingTableCell *_automaticUpdates;
@@ -19,7 +19,6 @@
     NSArray *_rowCountBySection;
     unsigned long long _settingsSection;
     PKSettingTableCell *_showInLockScreen;
-    UIAlertView *_storeDemoRefuseDeleteAlert;
     UILabel *_updateDateLabel;
     bool_isBluetoothEnabled;
     bool_isLocationEnabled;
@@ -39,7 +38,6 @@
 @property bool showsLinkedApp;
 @property bool showsLinks;
 @property bool showsSettings;
-@property(retain) UIAlertView * storeDemoRefuseDeleteAlert;
 @property(readonly) Class superclass;
 
 + (id)_linkColor;
@@ -62,8 +60,6 @@
 - (id)_updateLabelAttributedStringWithDate:(id)arg1;
 - (id)_updateLabelAttributedStringWithString:(id)arg1;
 - (void)_wifiChanged:(id)arg1;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
-- (void)applicationDidEnterBackground:(id)arg1;
 - (struct CGSize { double x1; double x2; })contentSize;
 - (void)createBodyInvariantViews;
 - (void)dealloc;
@@ -76,13 +72,11 @@
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)pushSettingsFromViewToModel;
 - (void)refreshControlValueChanged:(id)arg1;
-- (void)registerForEnterBackgroundNotification;
 - (void)setLinkedApp:(id)arg1;
 - (void)setShowsDelete:(bool)arg1;
 - (void)setShowsLinkedApp:(bool)arg1;
 - (void)setShowsLinks:(bool)arg1;
 - (void)setShowsSettings:(bool)arg1;
-- (void)setStoreDemoRefuseDeleteAlert:(id)arg1;
 - (void)setupRefreshControl:(id)arg1;
 - (bool)shouldAllowRefresh;
 - (bool)showBackgroundMatte;
@@ -91,7 +85,6 @@
 - (bool)showsLinkedApp;
 - (bool)showsLinks;
 - (bool)showsSettings;
-- (id)storeDemoRefuseDeleteAlert;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForFooterInSection:(long long)arg2;
@@ -100,7 +93,6 @@
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (id)tableView:(id)arg1 viewForFooterInSection:(long long)arg2;
 - (bool)textView:(id)arg1 shouldInteractWithURL:(id)arg2 inRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg3;
-- (void)unregisterForEnterBackgroundNotification;
 - (void)willMoveToSuperview:(id)arg1;
 
 @end

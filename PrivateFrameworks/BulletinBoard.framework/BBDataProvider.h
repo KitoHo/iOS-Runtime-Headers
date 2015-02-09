@@ -2,10 +2,11 @@
    Image: /System/Library/PrivateFrameworks/BulletinBoard.framework/BulletinBoard
  */
 
-@class BBDataProviderIdentity, NSString;
+@class BBDataProviderIdentity, NSObject<OS_dispatch_queue>, NSString;
 
 @interface BBDataProvider : NSObject <BBSectionIdentity> {
-    BBDataProviderIdentity *_identity;
+    BBDataProviderIdentity *__identity;
+    NSObject<OS_dispatch_queue> *_identityQueue;
 }
 
 @property(copy,readonly) NSString * debugDescription;
@@ -32,6 +33,7 @@
 - (id)description;
 - (id)displayNameForSubsectionID:(id)arg1;
 - (id)identity;
+- (id)init;
 - (bool)initialized;
 - (void)invalidate;
 - (bool)isPushDataProvider;

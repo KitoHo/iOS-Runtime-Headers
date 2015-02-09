@@ -11,10 +11,11 @@
            "int (*funcName)()",  where funcName might be null. 
  */
 
-@class <BRCLocalContainerDelegate>, BRCAccountSession, BRCDBThrottle, BRCRelativePath, BRCServerContainer, BRCSyncBudgetThrottle, BRCSyncDownOperation, BRCSyncOperationThrottle, BRCSyncUpOperation, BRCVersionDownloader, BRCVersionUploader, BRContainer, CDAttribute, CDBudget, NSArray, NSDictionary, NSError, NSMutableIndexSet, NSMutableSet, NSNumber, NSObject<OS_dispatch_group>, NSString, NSURL, PQLConnection, PQLNameInjection;
+@class <BRCLocalContainerDelegate>, BRCAccountSession, BRCDBThrottle, BRCRelativePath, BRCServerContainer, BRCSyncBudgetThrottle, BRCSyncDownOperation, BRCSyncOperationThrottle, BRCSyncUpOperation, BRCThrottle, BRCVersionDownloader, BRCVersionUploader, BRContainer, CDAttribute, CDBudget, NSArray, NSDate, NSDictionary, NSError, NSMutableIndexSet, NSMutableSet, NSNumber, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSURL, PQLConnection, PQLNameInjection;
 
 @interface BRCLocalContainer : NSObject <BRCContainer> {
     NSMutableSet *_XPCClientsUsingUbiquity;
+    BRCThrottle *_additionsThrottle;
     NSMutableIndexSet *_appliedTombstoneRanks;
     BRCDBThrottle *_applyThrottle;
     NSString *_containerID;
@@ -24,15 +25,19 @@
     CDBudget *_coreDuetContainerDataBudget;
     CDBudget *_coreDuetContainerEnergyBudget;
     CDAttribute *_coreDuetContainerEventAttribute;
+    NSDate *_dateWhenLastForegroundClientLeft;
     PQLConnection *_db;
     NSNumber *_deepScanStamp;
     <BRCLocalContainerDelegate> *_delegate;
     PQLNameInjection *_desiredAdditionsTable;
     NSObject<OS_dispatch_group> *_faultingGroup;
     NSNumber *_fileID;
+    NSObject<OS_dispatch_queue> *_foregroundStateQueue;
     NSMutableSet *_foregroundXPCClients;
     NSNumber *_generationID;
     PQLNameInjection *_itemsTable;
+    NSString *_lastForegroundClientDescription;
+    unsigned long long _lastInsertedRank;
     NSError *_lastSyncDownError;
     NSError *_lastSyncUpError;
     unsigned long long _lostHeapKey;
@@ -59,6 +64,7 @@
     unsigned long long _syncUpRetryAfter;
     BRCSyncOperationThrottle *_syncUpThrottle;
     NSArray *_tableNames;
+    NSObject<OS_dispatch_source> *_timerForGraceForegroundPeriod;
     BRCVersionDownloader *_versionDownloader;
     BRCVersionUploader *_versionUploader;
     bool_activated;
@@ -75,6 +81,7 @@
 }
 
 @property(retain) BRCAccountSession * accountSession;
+@property(readonly) BRCThrottle * additionsThrottle;
 @property(readonly) bool allowsCellularAccess;
 @property(readonly) BRCDBThrottle * applyThrottle;
 @property(readonly) NSString * containerID;
@@ -129,6 +136,7 @@
 
 - (void).cxx_destruct;
 - (void)_activateState:(unsigned int)arg1 origState:(unsigned int)arg2;
+- (void)_armForegroundGraceTimerForClientDescription:(id)arg1;
 - (void)_buildUnappliedCommandsQueue:(unsigned long long)arg1 maxRank:(unsigned long long)arg2;
 - (void)_checkResultSetIsEmpty:(id)arg1 logToFile:(struct __sFILE { char *x1; int x2; int x3; short x4; short x5; struct __sbuf { char *x_6_1_1; int x_6_1_2; } x6; int x7; void *x8; int (*x9)(); int (*x10)(); int (*x11)(); int (*x12)(); struct __sbuf { char *x_13_1_1; int x_13_1_2; } x13; struct __sFILEX {} *x14; int x15; unsigned char x16[3]; unsigned char x17[1]; struct __sbuf { char *x_18_1_1; int x_18_1_2; } x18; int x19; long long x20; }*)arg2 reason:(id)arg3 result:(bool*)arg4;
 - (bool)_dumpChildrenOfDirectory:(id)arg1 toContext:(id)arg2 visitedItems:(id)arg3 depth:(int)arg4 error:(id*)arg5;
@@ -146,6 +154,7 @@
 - (void)activateWithServerContainer:(id)arg1 forCreation:(bool)arg2;
 - (void)addClientUsingUbiquity:(id)arg1;
 - (void)addForegroundClient:(id)arg1;
+- (id)additionsThrottle;
 - (unsigned long long)allocateLostStampAddingBackoff:(bool)arg1;
 - (bool)allowsCellularAccess;
 - (id)applyThrottle;
@@ -155,6 +164,7 @@
 - (bool)changedAtRelativePath:(id)arg1;
 - (void)clearStateBits:(unsigned int)arg1;
 - (void)clearSyncStateBits:(unsigned int)arg1;
+- (void)clearSyncUpError;
 - (id)containerID;
 - (id)containerMetadata;
 - (id)containerMetadataEtag;
@@ -176,6 +186,7 @@
 - (id)desiredThumbnailForItemID:(id)arg1;
 - (id)deviceKeyForName:(id)arg1;
 - (void)didClearAllItemsMarkedOverQuota;
+- (void)didCreateDocumentScopedItem;
 - (void)didDownloadAllItems;
 - (void)didFindLostItem:(id)arg1;
 - (void)didGCTombstoneRanks:(id)arg1;
@@ -184,7 +195,7 @@
 - (void)didMarkItemRejected;
 - (void)didMarkItemUploadOverQuota;
 - (void)didMarkItemWithSizeDecreaseNeedsSyncUp;
-- (void)didSyncDownRequestID:(unsigned long long)arg1 recoverFromRank:(id)arg2 caughtUpWithServer:(bool)arg3 flushClientTruth:(bool)arg4;
+- (void)didSyncDownRequestID:(unsigned long long)arg1 caughtUpWithServer:(bool)arg2 flushClientTruth:(bool)arg3;
 - (void)didUpdateCurrentVersionOfItem:(id)arg1;
 - (void)didUploadAllItems;
 - (id)directoryItemIDByFileID:(unsigned long long)arg1;
@@ -268,6 +279,7 @@
 - (void)rescheduleUnappliedItemID:(id)arg1 forFaultCreation:(bool)arg2;
 - (void)rescheduleUnappliedRank:(id)arg1 forFaultCreation:(bool)arg2;
 - (id)reservedItemByParentID:(id)arg1 andDisplayName:(id)arg2;
+- (void)reset:(unsigned long long)arg1 withCoordinationCompletionHandler:(id)arg2;
 - (void)reset:(unsigned long long)arg1;
 - (void)resetSyncBudgetAndThrottle;
 - (id)resolveClashOfAlias:(id)arg1 atPath:(id)arg2 withAlias:(id)arg3 atPath:(id)arg4;

@@ -14,10 +14,7 @@
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
 - (id)activeControlKeyTraits;
 - (double)assistKeyFontSize;
-- (id)backgroundTraitsForKeyplane:(id)arg1;
 - (struct CGPoint { double x1; double x2; })boldKeyOffset;
-- (id)controlKeyBackgroundColorName;
-- (id)controlKeyForegroundColorName;
 - (id)controlKeyTraits;
 - (struct CGPoint { double x1; double x2; })copyKeyOffset;
 - (struct CGPoint { double x1; double x2; })cutKeyOffset;
@@ -33,6 +30,7 @@
 - (struct CGPoint { double x1; double x2; })internationalKeyOffset;
 - (bool)isTallPopup;
 - (struct CGPoint { double x1; double x2; })leftArrowKeyOffset;
+- (long long)lightHighQualityEnabledBlendForm;
 - (struct CGPoint { double x1; double x2; })more123KeyOffset;
 - (double)moreABCKeyFontSize;
 - (struct CGPoint { double x1; double x2; })moreABCKeyOffset;

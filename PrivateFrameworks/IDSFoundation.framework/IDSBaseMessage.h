@@ -26,6 +26,7 @@
     unsigned long long _uniqueID;
     NSDictionary *_userInfo;
     bool_forceCellular;
+    bool_hasReceivedPushAck;
     bool_highPriority;
     bool_usingOutgoingPush;
     bool_wantsBinaryPush;
@@ -52,6 +53,7 @@
 @property(copy) id deliveryAcknowledgementBlock;
 @property(setter=setDSAuthID:,copy) NSString * dsAuthID;
 @property bool forceCellular;
+@property bool hasReceivedPushAck;
 @property bool highPriority;
 @property(readonly) struct __SecKey { }* identityPrivateKey;
 @property(readonly) struct __SecKey { }* identityPublicKey;
@@ -125,6 +127,7 @@
 - (bool)forceCellular;
 - (void)handleResponseDictionary:(id)arg1;
 - (void)handleResponseHeaders:(id)arg1;
+- (bool)hasReceivedPushAck;
 - (bool)hasRequiredKeys:(id*)arg1;
 - (bool)highPriority;
 - (struct __SecKey { }*)identityPrivateKey;
@@ -155,6 +158,7 @@
 - (void)setDSAuthID:(id)arg1;
 - (void)setDeliveryAcknowledgementBlock:(id)arg1;
 - (void)setForceCellular:(bool)arg1;
+- (void)setHasReceivedPushAck:(bool)arg1;
 - (void)setHighPriority:(bool)arg1;
 - (void)setPrivateKeyArray:(id)arg1;
 - (void)setPublicKeyArray:(id)arg1;

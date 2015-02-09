@@ -256,7 +256,7 @@
 - (void)_forceDismissAlertView:(bool)arg1 enableToolbarTimer:(bool)arg2;
 - (void)_forceDismissDeleteController:(bool)arg1 enableToolbarTimer:(bool)arg2;
 - (void)_forceRemoveSavingPhotoHUD;
-- (void)_getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; double x5; int x6; }*)arg1;
+- (void)_getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; boolx5; double x6; int x7; }*)arg1;
 - (void)_handleImageResultForPhoto:(id)arg1 inTile:(id)arg2 objectID:(id)arg3 result:(id)arg4 info:(id)arg5;
 - (void)_hideCallout;
 - (void)_hideCommentsTableIfNecessary:(double)arg1;
@@ -394,6 +394,7 @@
 - (void)cancelVideoEditingMode:(id)arg1;
 - (void)cleanupAfterDismissal;
 - (id)commentsView;
+- (void)commitPendingUpdatesWithCompletionHandler:(id)arg1;
 - (id)contentScrollView;
 - (void)currentAirplayRouteChanged;
 - (id)currentAsset;
@@ -447,6 +448,7 @@
 - (void)pauseCurrentMedia:(id)arg1;
 - (id)photoCountFormatter;
 - (void)photoLibraryDidChange:(id)arg1;
+- (void)photoLibraryDidChangeOnMainQueue:(id)arg1;
 - (id)photoScrollerTitle;
 - (id)photoScrubber:(id)arg1 loadImageSynchronously:(bool)arg2 atIndex:(long long)arg3 forLoupe:(bool)arg4;
 - (void)photoScrubber:(id)arg1 scrubbingSpeedDidChange:(long long)arg2;

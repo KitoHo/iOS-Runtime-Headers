@@ -75,6 +75,7 @@
 - (id)attributeForName:(id)arg1;
 - (id)attributeNames;
 - (id)attributesForNames:(id)arg1;
+- (bool)canMerge:(id)arg1;
 - (void)clearDiffs;
 - (id)containerID;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;

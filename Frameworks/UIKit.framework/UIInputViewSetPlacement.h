@@ -3,8 +3,10 @@
  */
 
 @interface UIInputViewSetPlacement : NSObject {
+    double _extendedHeight;
 }
 
+@property double extendedHeight;
 @property(readonly) bool isInteractive;
 @property(readonly) bool isUndocked;
 @property(readonly) bool showsInputViews;
@@ -13,12 +15,14 @@
 + (id)placement;
 
 - (bool)accessoryViewWillAppear;
+- (double)extendedHeight;
 - (id)horizontalConstraintForInputViewSet:(id)arg1 hostView:(id)arg2 containerView:(id)arg3;
 - (bool)inputViewWillAppear;
 - (bool)isEqual:(id)arg1;
 - (bool)isInteractive;
 - (bool)isUndocked;
 - (unsigned long long)notificationsForTransitionToPlacement:(id)arg1;
+- (void)setExtendedHeight:(double)arg1;
 - (bool)showsInputViews;
 - (bool)showsKeyboard;
 - (id)verticalConstraintForInputViewSet:(id)arg1 hostView:(id)arg2 containerView:(id)arg3;

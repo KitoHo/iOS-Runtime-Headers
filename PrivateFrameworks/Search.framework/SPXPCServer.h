@@ -16,6 +16,7 @@
     id _disconnectHandler;
     NSObject<OS_dispatch_queue> *_eventQueue;
     NSMutableDictionary *_handlerMap;
+    double _idleTimerInterval;
     NSObject<OS_dispatch_source> *_idleTimerSource;
     id _shutdownHandler;
     NSObject<OS_dispatch_queue> *_timerQueue;
@@ -31,7 +32,7 @@
 - (void)_handleNewConnection:(id)arg1;
 - (id)_handlerForMessageName:(id)arg1;
 - (id)_highAvailabilityQueue;
-- (void)_rescheduleIdleTimerSourceWithInterval:(double)arg1;
+- (void)_rescheduleIdleTimer;
 - (void)_resetMessageFlag;
 - (bool)_runShutdownHandler;
 - (bool)connectionsAreActive;

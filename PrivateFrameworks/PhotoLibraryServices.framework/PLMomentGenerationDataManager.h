@@ -94,6 +94,7 @@
 - (void)setupPhotoLibrary;
 - (void)stopObservingNetworkReachabilityChanges;
 - (id)updatedObjects;
+- (void)verifyAndRepairOrphanedAssets:(id)arg1;
 - (bool)wantsMomentReplayLogging;
 - (id)yearMomentListForYear:(long long)arg1 wantsEarliest:(bool)arg2;
 

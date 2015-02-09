@@ -28,7 +28,7 @@
 - (id)dictionaryRepresentation;
 - (bool)hasResultProviderId;
 - (unsigned long long)hash;
-- (id)initWithMUIDs:(id)arg1;
+- (id)initWithMUIDs:(id)arg1 resultProviderID:(int)arg2;
 - (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)muidAtIndex:(unsigned long long)arg1;

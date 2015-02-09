@@ -30,7 +30,7 @@
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (bool)isEnabled;
-- (bool)isEqual:(id)arg1;
+- (bool)isEqualToNode:(id)arg1;
 - (unsigned int)lightCategoryBitMask;
 - (id)lightColor;
 - (double)lightDecay;

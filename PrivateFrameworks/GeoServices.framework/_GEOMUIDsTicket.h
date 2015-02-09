@@ -6,6 +6,7 @@
 
 @interface _GEOMUIDsTicket : NSObject <GEOMapServiceTicket> {
     NSArray *_muids;
+    int _resultProviderID;
     GEOMapServiceTraits *_traits;
     bool_canceled;
     bool_includeETA;
@@ -23,7 +24,7 @@
 - (void)cancel;
 - (void)dealloc;
 - (id)description;
-- (id)initWithMUIDs:(id)arg1 includeETA:(bool)arg2 traits:(id)arg3;
+- (id)initWithMUIDs:(id)arg1 resultProviderID:(int)arg2 includeETA:(bool)arg3 traits:(id)arg4;
 - (bool)isCanceled;
 - (id)resultBoundingRegion;
 - (void)submitWithHandler:(id)arg1 networkActivity:(id)arg2;

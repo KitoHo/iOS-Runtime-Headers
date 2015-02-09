@@ -133,8 +133,9 @@
 - (void)presentScene:(id)arg1 transition:(id)arg2;
 - (void)presentScene:(id)arg1;
 - (void)remakeFramebuffer:(double)arg1;
-- (void)renderCallback:(double)arg1;
+- (void)renderCallback:(double)arg1 shouldBlock:(bool)arg2;
 - (void)renderContent;
+- (void)renderForTime:(double)arg1 shouldBlock:(bool)arg2;
 - (void)renderToIOSurfaceID:(unsigned int)arg1 withScaleFactor:(double)arg2;
 - (void)renderToOpenGLTextureId:(unsigned int)arg1 size:(struct CGSize { double x1; double x2; })arg2 scaleFactor:(double)arg3;
 - (id)scene;

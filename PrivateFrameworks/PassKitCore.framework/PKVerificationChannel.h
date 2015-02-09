@@ -30,6 +30,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)identifier;
 - (id)initWithCoder:(id)arg1;
+- (bool)needsServerRequest;
 - (bool)requiresUserInteraction;
 - (void)setContactPoint:(id)arg1;
 - (void)setIdentifier:(id)arg1;

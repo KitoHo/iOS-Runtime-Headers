@@ -25,7 +25,6 @@
 - (void)configureGlobalFooterView:(id)arg1;
 - (void)configureGlobalHeaderView:(id)arg1;
 - (struct CGPoint { double x1; double x2; })contentOffsetForPreheating;
-- (void)didUpdateAssetCounts;
 - (id)filterPredicateForAlbum:(struct NSObject { Class x1; }*)arg1;
 - (double)globalHeaderHeight;
 - (void)handleAddFromAction;
@@ -41,6 +40,7 @@
 - (void)setAssetCollection:(id)arg1 fetchResultContainingAssetCollection:(id)arg2 filterPredicate:(id)arg3;
 - (void)setupScrubber;
 - (void)updateTitle;
+- (void)viewWillAppear:(bool)arg1;
 - (bool)wantsAssetCounts;
 - (bool)wantsGlobalFooter;
 

@@ -31,6 +31,7 @@
 - (long long)numberOfItems;
 - (struct CGSize { double x1; double x2; })preferredSize;
 - (void)setFinishSplitTransitionBlock:(id)arg1;
+- (void)setSplitAndUndocked:(bool)arg1;
 - (id)titleForItemAtIndex:(int)arg1;
 
 @end

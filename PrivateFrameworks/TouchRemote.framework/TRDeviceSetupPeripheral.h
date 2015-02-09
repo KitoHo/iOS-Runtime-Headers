@@ -35,6 +35,7 @@
 - (void)_showUserNotificationForErrorWithTitle:(id)arg1 message:(id)arg2;
 - (bool)_showUserNotificationForRememberPasswordForAppleID:(id)arg1;
 - (void)_startAuthentication;
+- (void)cancelPreparingForSetup;
 - (void)cancelSetupForStateChange;
 - (void)cancelSetupForTimeout;
 - (id)delegate;

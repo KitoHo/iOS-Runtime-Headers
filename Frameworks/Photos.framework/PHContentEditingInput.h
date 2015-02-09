@@ -2,11 +2,12 @@
    Image: /System/Library/Frameworks/Photos.framework/Photos
  */
 
-@class AVAsset, CLLocation, NSDate, NSString, NSURL, PHAdjustmentData, UIImage;
+@class AVAsset, CLLocation, NSDate, NSObject<OS_dispatch_queue>, NSString, NSURL, PHAdjustmentData, UIImage;
 
 @interface PHContentEditingInput : NSObject {
     PHAdjustmentData *_adjustmentData;
     AVAsset *_avAsset;
+    NSObject<OS_dispatch_queue> *_avAssetIsolationQueue;
     long long _baseVersion;
     NSDate *_creationDate;
     UIImage *_displaySizeImage;
@@ -17,10 +18,11 @@
     long long _mediaType;
     long long _sandboxExtensionHandle;
     NSString *_uniformTypeIdentifier;
+    NSURL *_videoURL;
 }
 
 @property(retain) PHAdjustmentData * adjustmentData;
-@property(retain) AVAsset * avAsset;
+@property(readonly) AVAsset * avAsset;
 @property long long baseVersion;
 @property(copy) NSDate * creationDate;
 @property(retain) UIImage * displaySizeImage;
@@ -30,8 +32,10 @@
 @property unsigned long long mediaSubtypes;
 @property long long mediaType;
 @property(copy) NSString * uniformTypeIdentifier;
+@property(copy) NSURL * videoURL;
 
 - (void).cxx_destruct;
+- (void)_invalidateAVAsset;
 - (id)adjustmentData;
 - (id)audioMix;
 - (id)avAsset;
@@ -44,13 +48,13 @@
 - (int)fullSizeImageOrientation;
 - (id)fullSizeImageURL;
 - (id)imagePreview;
+- (id)init;
 - (bool)isMediaSubtype:(unsigned long long)arg1;
 - (void)loadFullSizeImageDataWithCompletionHandler:(id)arg1;
 - (id)location;
 - (unsigned long long)mediaSubtypes;
 - (long long)mediaType;
 - (void)requestFullSizeImageURLWithCompletionHandler:(id)arg1;
-- (void)setAVAsset:(id)arg1;
 - (void)setAdjustmentData:(id)arg1;
 - (void)setBaseVersion:(long long)arg1;
 - (void)setCreationDate:(id)arg1;
@@ -61,7 +65,9 @@
 - (void)setMediaSubtypes:(unsigned long long)arg1;
 - (void)setMediaType:(long long)arg1;
 - (void)setUniformTypeIdentifier:(id)arg1;
+- (void)setVideoURL:(id)arg1;
 - (id)uniformTypeIdentifier;
 - (id)videoComposition;
+- (id)videoURL;
 
 @end

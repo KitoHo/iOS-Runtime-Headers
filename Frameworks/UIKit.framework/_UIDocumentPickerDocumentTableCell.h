@@ -54,7 +54,6 @@
 - (void)startDownload:(id)arg1;
 - (id)subtitleLabel;
 - (id)tableView;
-- (void)tintColorDidChange;
 - (id)titleLabel;
 - (void)updateForDownloadStatus;
 - (void)updateProgress:(id)arg1;

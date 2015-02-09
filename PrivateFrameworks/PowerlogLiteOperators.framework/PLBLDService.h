@@ -34,6 +34,8 @@
 - (id)aggregateStatsResultWithBucketLength:(double)arg1 inTimeIntervalRange:(struct _PLTimeIntervalRange { double x1; double x2; })arg2;
 - (double)appBreakdownThresholdPercent;
 - (int)appTypeForBundleID:(id)arg1 withValidBundles:(id)arg2 withDeletedApps:(id)arg3 withWebApps:(id)arg4;
+- (void)bldRetailResponse:(id)arg1 withValidBundle:(id)arg2 withDeletedApps:(id)arg3 withWebApps:(id)arg4 withDaemonTransformation:(id)arg5;
+- (id)bldRetailResponseForRange:(struct _PLTimeIntervalRange { double x1; double x2; })arg1 withArgs:(id)arg2 withValidBundle:(id)arg3 withDeletedApps:(id)arg4 withWebApps:(id)arg5 withDaemonTransformation:(id)arg6;
 - (id)combineAndTrimAppQualifiersArray:(id)arg1;
 - (id)combineEntitiesInArray:(id)arg1 withTransformation:(id)arg2;
 - (id)daemonTransformation;
@@ -51,7 +53,8 @@
 - (bool)isStringAValidBundleName:(id)arg1;
 - (bool)isStringAValidName:(id)arg1;
 - (void)logEventPointBUI;
-- (void)logEventPointBUIWithUIData:(id)arg1;
+- (void)logEventPointBUIForBLDRetail:(bool)arg1;
+- (void)logEventPointBUIWithUIData:(id)arg1 forBLDRetailData:(bool)arg2;
 - (id)nonAppBundleIDsWhitelist;
 - (void)qualifierTesting;
 - (bool)qualifierThresholdPass:(id)arg1 withQualifierRules:(id)arg2 forQualifierEntryKey:(id)arg3;
@@ -67,6 +70,7 @@
 - (void)setXpcResponderUIBattery:(id)arg1;
 - (void)setXpcResponderUIBatteryForModels:(id)arg1;
 - (bool)shouldAppBeDisplayed:(int)arg1 forQuery:(int)arg2;
+- (void)storeBLDRetailResponse:(struct _PLTimeIntervalRange { double x1; double x2; })arg1 withArgs:(id)arg2 withKey:(id)arg3 withValidBundle:(id)arg4 withDeletedApps:(id)arg5 withWebApps:(id)arg6 withDaemonTransformation:(id)arg7;
 - (double)totalEnergyReturned:(id)arg1;
 - (void)trimQualifiers:(id)arg1 combineOne:(id)arg2 combineTwo:(id)arg3 combineInto:(id)arg4;
 - (void)trimQualifiers:(id)arg1 removeQualifier:(id)arg2 ifQualifierPresent:(id)arg3;

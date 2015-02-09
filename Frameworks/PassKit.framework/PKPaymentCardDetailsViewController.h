@@ -26,6 +26,10 @@
 @property(readonly) Class superclass;
 @property(retain) PKPaymentWebService * webService;
 
++ (void)handleDownloadedPasses:(id)arg1 fromViewController:(id)arg2 withCompletion:(id)arg3;
++ (void)handlePassAlreadyProvisionedError;
++ (void)handleProvisioningError:(id)arg1 forApplicationIdentifier:(id)arg2;
+
 - (void)_handlePassSuccessfullyAdded:(id)arg1;
 - (void)_showEligibilityIssueWithCredential:(id)arg1 completion:(id)arg2;
 - (void)_showProvisioningError:(id)arg1 completion:(id)arg2;

@@ -30,6 +30,7 @@
 - (int)_runSetupStepWithInput:(const void*)arg1 inputLength:(unsigned long long)arg2 outputData:(id*)arg3;
 - (int)_runVerifyStepWithInput:(const void*)arg1 inputLength:(unsigned long long)arg2 outputData:(id*)arg3;
 - (void)dealloc;
+- (void)defer;
 - (id)delegate;
 - (id)init;
 - (void)setDelegate:(id)arg1;

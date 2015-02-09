@@ -15,6 +15,9 @@
     NSString *_effectiveClientBundleIdentifier;
     NSString *_libraryIdentifier;
     NSString *_libraryVersion;
+    unsigned long long _numberOfImagesToUpload;
+    unsigned long long _numberOfOtherItemsToUpload;
+    unsigned long long _numberOfVideosToUpload;
     CPLPlatformObject *_platformObject;
     NSObject<OS_dispatch_queue> *_queue;
     <CPLResourceProgressDelegate> *_resourceProgressDelegate;
@@ -41,9 +44,12 @@
 @property(readonly) unsigned long long hash;
 @property(copy,readonly) NSString * libraryIdentifier;
 @property(copy,readonly) NSString * libraryVersion;
+@property(readonly) unsigned long long numberOfImagesToUpload;
+@property(readonly) unsigned long long numberOfOtherItemsToUpload;
+@property(readonly) unsigned long long numberOfVideosToUpload;
 @property(readonly) CPLPlatformObject * platformObject;
 @property <CPLResourceProgressDelegate> * resourceProgressDelegate;
-@property unsigned long long sizeOfResourcesToUpload;
+@property(readonly) unsigned long long sizeOfResourcesToUpload;
 @property unsigned long long state;
 @property(readonly) unsigned long long status;
 @property(readonly) NSError * statusError;
@@ -61,7 +67,7 @@
 - (void)_getMappedIdentifiersForIdentifiers:(id)arg1 inAreLocalIdentifiers:(bool)arg2 completionHandler:(id)arg3;
 - (void)_setCurrentSession:(id)arg1;
 - (void)_setLibraryVersion:(id)arg1;
-- (void)_setSizeOfResourcesToUpload:(unsigned long long)arg1;
+- (void)_setSizeOfResourcesToUpload:(unsigned long long)arg1 numberOfImages:(unsigned long long)arg2 numberOfVideos:(unsigned long long)arg3 numberOfOtherItems:(unsigned long long)arg4;
 - (bool)_setStatus:(unsigned long long)arg1 andError:(id)arg2;
 - (void)_statusDidChange;
 - (void)addInfoToLog:(id)arg1;
@@ -104,6 +110,9 @@
 - (void)noteClientIsInBackground;
 - (void)noteClientIsInForeground;
 - (void)noteClientReceivedNotificationOfServerChanges;
+- (unsigned long long)numberOfImagesToUpload;
+- (unsigned long long)numberOfOtherItemsToUpload;
+- (unsigned long long)numberOfVideosToUpload;
 - (void)openWithCompletionHandler:(id)arg1;
 - (id)platformObject;
 - (void)publishResource:(id)arg1 completionHandler:(id)arg2;

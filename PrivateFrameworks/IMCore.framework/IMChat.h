@@ -78,7 +78,7 @@
 @property(retain,readonly) NSSet * fmfHandles;
 @property bool forceMMS;
 @property(retain) NSArray * frequentReplies;
-@property(retain,readonly) NSString * groupID;
+@property(retain) NSString * groupID;
 @property(readonly) NSString * guid;
 @property(readonly) bool hasMoreMessagesToLoad;
 @property(readonly) bool hasRecipientsFollowingLocation;
@@ -222,6 +222,7 @@
 - (void)_unmapSendingItem:(id)arg1;
 - (void)_unwatchHandleStatusChangedForHandle:(id)arg1;
 - (void)_updateChatItems;
+- (void)_updateChatItemsWithReason:(id)arg1 block:(id)arg2 shouldPost:(bool)arg3;
 - (void)_updateChatItemsWithReason:(id)arg1 block:(id)arg2;
 - (void)_updateDisplayName:(id)arg1;
 - (void)_updateDowngradeState:(BOOL)arg1 checkAgainInterval:(double)arg2;
@@ -325,6 +326,7 @@
 - (void)setDisplayName:(id)arg1;
 - (void)setForceMMS:(bool)arg1;
 - (void)setFrequentReplies:(id)arg1;
+- (void)setGroupID:(id)arg1;
 - (void)setInvitationForPendingParticipants:(id)arg1;
 - (void)setLocalUserIsRecording:(bool)arg1;
 - (void)setLocalUserIsTyping:(bool)arg1;

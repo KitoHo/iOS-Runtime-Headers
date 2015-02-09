@@ -4,7 +4,7 @@
 
 @class NSError;
 
-@interface PKPaymentAuthorizationInvalidDataParam : NSObject {
+@interface PKPaymentAuthorizationInvalidDataParam : PKPaymentAuthorizationParam {
     long long _dataType;
     NSError *_error;
     bool_animated;
@@ -13,8 +13,6 @@
 @property bool animated;
 @property long long dataType;
 @property(retain) NSError * error;
-
-+ (id)param;
 
 - (bool)animated;
 - (long long)dataType;

@@ -2,22 +2,14 @@
    Image: /System/Library/Frameworks/iAd.framework/iAd
  */
 
-@class <ADAdRecipient>, <ADSAdSpace_RPC><NSObject>, ADAdImpressionPublicAttributes, ADAdSpaceConfiguration, NSDictionary, NSSet, NSString, NSURL, _ADRemoteViewController, _UIAsyncInvocation;
+@class <ADAdRecipient>, <ADSAdSpace_RPC><NSObject>, ADAdImpressionPublicAttributes, ADAdSpaceConfiguration, ADAdSpaceRemoteViewController, NSDictionary, NSSet, NSString, NSURL, _ADRemoteViewController, _UIAsyncInvocation;
 
-@interface ADAdSpace : NSObject <UIViewControllerTransitioningDelegate, ADAdSpace_RPC> {
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
+@interface ADAdSpace : NSObject <UIViewControllerTransitioningDelegate, ADAdSpace_RPC, ADAdSpaceRemoteViewControllerDelegate> {
     NSDictionary *_adToLoad;
     NSString *_advertisingSection;
     NSString *_authenticationUserName;
     NSSet *_context;
+    ADAdSpaceRemoteViewController *_creativeViewController;
     ADAdImpressionPublicAttributes *_currentAdImpressionPublicAttributes;
     NSString *_identifier;
     double _lastSlowCheck;
@@ -26,8 +18,6 @@
     _ADRemoteViewController *_remoteViewController;
     _UIAsyncInvocation *_remoteViewControllerRequestCancelationInvocation;
     NSURL *_serverURL;
-    <ADSAdSpace_RPC><NSObject> *_serviceAdSpace;
-    } _viewFrame;
     long long _visibility;
     bool_actionViewControllerReadyForPresentation;
     bool_actionViewControllerWantsDismissal;
@@ -44,6 +34,7 @@
 @property(readonly) ADAdSpaceConfiguration * configuration;
 @property(readonly) NSString * connectionAssertionIdentifier;
 @property(copy) NSSet * context;
+@property(retain) ADAdSpaceRemoteViewController * creativeViewController;
 @property(retain) ADAdImpressionPublicAttributes * currentAdImpressionPublicAttributes;
 @property(copy,readonly) NSString * debugDescription;
 @property(copy,readonly) NSString * description;
@@ -55,11 +46,10 @@
 @property(retain) _ADRemoteViewController * remoteViewController;
 @property(retain) _UIAsyncInvocation * remoteViewControllerRequestCancelationInvocation;
 @property(copy) NSURL * serverURL;
-@property(retain) <ADSAdSpace_RPC><NSObject> * serviceAdSpace;
+@property(readonly) <ADSAdSpace_RPC><NSObject> * serviceAdSpace;
 @property bool serviceAdSpaceRequestInProgress;
 @property bool shouldPresentActionViewControllerWhenReady;
 @property(readonly) Class superclass;
-@property struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } viewFrame;
 @property long long visibility;
 @property bool visibilityCheckScheduled;
 
@@ -69,6 +59,7 @@
 - (void)_considerPresentingActionViewController;
 - (void)_remote_actionViewControllerReadyForPresentation;
 - (void)_remote_adImpressionDidLoadWithPublicAttributes:(id)arg1;
+- (void)_remote_close;
 - (void)_remote_creativeDidFailWithError:(id)arg1;
 - (void)_remote_creativeWillLoad;
 - (void)_remote_dismissPortraitOnlyViewController;
@@ -78,13 +69,12 @@
 - (void)_remote_requestPortraitOnlyViewController;
 - (void)_remote_requestViewControllerWithClassName:(id)arg1 forAdSpaceControllerWithIdentifier:(id)arg2;
 - (void)_remote_resumeBannerMedia;
-- (void)_remote_setHostedWindowHostingHandle:(id)arg1;
 - (void)_remote_updateViewControllerSupportedOrientations:(unsigned long long)arg1;
 - (void)_requestServiceAdSpace;
-- (void)_serviceConnectionLost;
 - (void)_updateAllProperties;
 - (bool)actionViewControllerReadyForPresentation;
 - (bool)actionViewControllerWantsDismissal;
+- (void)adSpaceRemoteViewControllerDidTerminateWithError:(id)arg1;
 - (id)adToLoad;
 - (id)advertisingSection;
 - (id)authenticationUserName;
@@ -93,6 +83,7 @@
 - (id)configuration;
 - (id)connectionAssertionIdentifier;
 - (id)context;
+- (id)creativeViewController;
 - (id)currentAdImpressionPublicAttributes;
 - (void)dealloc;
 - (id)description;
@@ -117,6 +108,7 @@
 - (void)setAdvertisingSection:(id)arg1;
 - (void)setAuthenticationUserName:(id)arg1;
 - (void)setContext:(id)arg1;
+- (void)setCreativeViewController:(id)arg1;
 - (void)setCurrentAdImpressionPublicAttributes:(id)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setLastSlowCheck:(double)arg1;
@@ -124,15 +116,13 @@
 - (void)setRemoteViewController:(id)arg1;
 - (void)setRemoteViewControllerRequestCancelationInvocation:(id)arg1;
 - (void)setServerURL:(id)arg1;
-- (void)setServiceAdSpace:(id)arg1;
 - (void)setServiceAdSpaceRequestInProgress:(bool)arg1;
 - (void)setShouldPresentActionViewControllerWhenReady:(bool)arg1;
-- (void)setViewFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
 - (void)setVisibility:(long long)arg1;
 - (void)setVisibilityCheckScheduled:(bool)arg1;
 - (bool)shouldPresentActionViewControllerWhenReady;
 - (void)updateVisibility;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })viewFrame;
+- (void)viewServiceDidTerminateWithError:(id)arg1;
 - (long long)visibility;
 - (bool)visibilityCheckScheduled;
 

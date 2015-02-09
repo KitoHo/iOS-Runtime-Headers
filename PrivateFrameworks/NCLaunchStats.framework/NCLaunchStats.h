@@ -12,6 +12,7 @@
     NSArray *activitySlots;
     CDDHistoryWindow *allTimeWindow;
     id asyncRecommendHandler;
+    boolbackgroundAppRefreshSwitchedOn;
     boolisClassCLocked;
     boolkEnableSyslog;
     CDAttribute *bundleAttr;
@@ -48,5 +49,6 @@
 - (void)setNCLaunchRecommendationHandlerWithCompletion:(id)arg1;
 - (void)startEvent:(id)arg1;
 - (void)timerFired:(id)arg1;
+- (void)updateBARSwitch;
 
 @end

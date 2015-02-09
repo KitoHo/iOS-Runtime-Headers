@@ -46,6 +46,8 @@
 - (id)deleteCount;
 - (id)deletedTitle;
 - (id)emailAddress;
+- (id)firstName;
+- (id)lastName;
 - (id)lazyLoadRelationForKey:(id)arg1;
 - (bool)locationChanged;
 - (id)name;

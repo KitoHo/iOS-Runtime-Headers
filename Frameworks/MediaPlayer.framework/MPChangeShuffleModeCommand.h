@@ -10,7 +10,6 @@
 
 - (id)_mediaRemoteCommandInfoOptions;
 - (unsigned long long)currentShuffleType;
-- (id)keyPathsForValuesTriggeringCommandsChanged;
 - (void)setCurrentShuffleType:(unsigned long long)arg1;
 
 @end

@@ -39,7 +39,6 @@
 - (id)assetsFilter;
 - (void)dealloc;
 - (unsigned long long)groupType;
-- (bool)hasFilter;
 - (id)initWithAlbum:(struct NSObject { Class x1; }*)arg1 library:(id)arg2;
 - (bool)isCloudSharedGroup;
 - (bool)isValid;
@@ -58,6 +57,7 @@
 - (void)setPropertyValues:(id)arg1;
 - (void)setValue:(id)arg1 forProperty:(id)arg2;
 - (void)set_photoLibrary:(id)arg1;
+- (void)updateAlbumFiltering;
 - (id)valueForProperty:(id)arg1;
 
 @end

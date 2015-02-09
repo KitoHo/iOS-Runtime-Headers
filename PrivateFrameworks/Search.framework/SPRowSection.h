@@ -7,6 +7,7 @@
 @interface SPRowSection : SPSection <PRSRowSection> {
 }
 
+@property(retain) NSURL * attribution_url;
 @property(retain) NSString * key;
 @property bool key_nowrap;
 @property long long key_weight;

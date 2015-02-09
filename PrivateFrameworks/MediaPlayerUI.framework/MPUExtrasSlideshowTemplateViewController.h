@@ -8,6 +8,7 @@
     NSArray *_imageElements;
     MPUExtrasSlideshowViewController *_slideshowViewController;
     UITapGestureRecognizer *_tapGestureRecognizer;
+    bool_overlayHidden;
     bool_preventNavbarAutohide;
 }
 

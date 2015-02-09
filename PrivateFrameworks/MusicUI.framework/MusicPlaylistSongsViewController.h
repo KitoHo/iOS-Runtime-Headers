@@ -4,7 +4,7 @@
 
 @class MusicPlaylistActionsView, NSOperationQueue, NSString, UIActionSheet;
 
-@interface MusicPlaylistSongsViewController : MusicSongsViewController <MusicPickerOverlayDelegate, UIActionSheetDelegate> {
+@interface MusicPlaylistSongsViewController : MusicSongsViewController <MusicPickerOverlayDelegate, MusicViewControllerKeepLocalContainer, UIActionSheetDelegate> {
     struct UIEdgeInsets { 
         double top; 
         double left; 
@@ -16,6 +16,7 @@
     UIActionSheet *_deleteActionSheet;
     NSOperationQueue *_downloadabilityOperationQueue;
     long long _downloadableSongCount;
+    BOOL _isCollectionKeptLocal;
     bool_isDownloading;
     bool_isTransitioning;
 }
@@ -57,6 +58,7 @@
 - (void)downloadManager:(id)arg1 didAddDownloads:(id)arg2 removeDownloads:(id)arg3;
 - (long long)downloadableSongCount;
 - (id)initWithDataSource:(id)arg1;
+- (bool)isCollectionKeptLocalForMediaItem:(id)arg1 inSection:(long long)arg2;
 - (bool)isDownloading;
 - (void)pickerOverlayDidFinish:(id)arg1;
 - (void)pickerOverlayRequestsFinish:(id)arg1;

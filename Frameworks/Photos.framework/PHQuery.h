@@ -16,11 +16,15 @@
     PHPhotoLibrary *_photoLibrary;
     NSArray *_seedOIDs;
     bool__includesCameraRoll;
+    bool__includesCloudSharedAssets;
     bool__includesTrashedObjects;
+    bool__includesiTunesSyncAssets;
 }
 
 @property(setter=_setIncludesCameraRoll:) bool _includesCameraRoll;
+@property(setter=_setIncludesCloudSharedAssets:) bool _includesCloudSharedAssets;
 @property(setter=_setIncludesTrashedObjects:) bool _includesTrashedObjects;
+@property(setter=_setIncludesiTunesSyncAssets:) bool _includesiTunesSyncAssets;
 @property(readonly) NSPredicate * basePredicate;
 @property(copy) PHFetchOptions * fetchOptions;
 @property(readonly) NSFetchRequest * fetchRequest;
@@ -30,6 +34,7 @@
 @property(readonly) NSArray * seedOIDs;
 
 + (id)_containerIdentifierForFetchType:(id)arg1 predicate:(id)arg2;
++ (id)_fetchOptionsForFetchingAssetsFromAssetCollection:(id)arg1 options:(id)arg2;
 + (id)_filterPredicateFromFetchOptionsPredicate:(id)arg1 phClass:(Class)arg2;
 + (id)_relationshipForFetchType:(id)arg1 predicate:(id)arg2;
 + (id)_rootFolderID;
@@ -72,9 +77,13 @@
 - (void).cxx_destruct;
 - (id)_createFetchRequest;
 - (bool)_includesCameraRoll;
+- (bool)_includesCloudSharedAssets;
 - (bool)_includesTrashedObjects;
+- (bool)_includesiTunesSyncAssets;
 - (void)_setIncludesCameraRoll:(bool)arg1;
+- (void)_setIncludesCloudSharedAssets:(bool)arg1;
 - (void)_setIncludesTrashedObjects:(bool)arg1;
+- (void)_setIncludesiTunesSyncAssets:(bool)arg1;
 - (id)basePredicate;
 - (long long)collectionFetchType;
 - (id)containerIdentifier;

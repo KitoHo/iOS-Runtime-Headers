@@ -132,7 +132,7 @@
 - (int)_clipCornersOfView:(id)arg1;
 - (void)_finishRotationFromInterfaceOrientation:(long long)arg1;
 - (void)_forcePreLayoutHostViewFrame;
-- (void)_getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; double x5; int x6; }*)arg1;
+- (void)_getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; boolx5; double x6; int x7; }*)arg1;
 - (id)_inputAccessoryBackdropView;
 - (id)_inputAccessoryView;
 - (id)_inputAccessoryViewController;
@@ -177,6 +177,7 @@
 - (void)initializeTranslateGestureRecognizer;
 - (id)inputViewHeightConstraint;
 - (id)inputViewSet;
+- (id)inputViewSnapshotOfView:(id)arg1 afterScreenUpdates:(bool)arg2;
 - (void)invalidateDisplayLink;
 - (bool)isChangingPlacement;
 - (bool)isOnScreen;

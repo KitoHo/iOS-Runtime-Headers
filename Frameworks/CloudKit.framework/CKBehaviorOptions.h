@@ -57,6 +57,7 @@
 - (id)init;
 - (bool)isAppleInternalInstall;
 - (unsigned long long)maxBatchSize;
+- (double)maximumThrottleSeconds;
 - (double)operationTimeout;
 - (bool)optimisticPCS;
 - (id)primaryAccountEmailOverride;

@@ -5,6 +5,7 @@
 @interface AAChildAccountCreationUIRequest : AAFamilyRequest {
 }
 
+- (bool)isUserInitiated;
 - (id)urlString;
 
 @end

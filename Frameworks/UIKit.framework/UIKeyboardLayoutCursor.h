@@ -55,6 +55,7 @@
 - (bool)shouldRetestKey:(id)arg1 withKeyplane:(id)arg2;
 - (void)showKeyboardWithInputTraits:(id)arg1 screenTraits:(id)arg2 splitTraits:(id)arg3;
 - (void)takeKeyAction:(id)arg1;
+- (unsigned long long)targetEdgesForScreenGestureRecognition;
 - (void)updateSelectionForCurrentKeyplane;
 - (void)updateStatesForGridSelection;
 

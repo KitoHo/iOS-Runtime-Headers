@@ -20,6 +20,7 @@
 - (id)appleAccount;
 - (id)grandSlamAccount;
 - (id)initWithAppleAccount:(id)arg1 grandSlamAccount:(id)arg2 accountStore:(id)arg3 appTokenID:(id)arg4;
+- (bool)signURLRequest:(id)arg1 isUserInitiated:(bool)arg2;
 - (bool)signURLRequest:(id)arg1;
 
 @end

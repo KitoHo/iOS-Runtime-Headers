@@ -39,7 +39,10 @@
     PCPersistentTimer *_trashCompactionTimer;
     unsigned int _trashedCount;
     unsigned int _unreadCount;
+    bool_VVMDataConnectionAvailable;
 }
+
+@property bool VVMDataConnectionAvailable;
 
 + (void)_handleSIMChange;
 + (bool)_lockedSharedServiceIsSubscribed;
@@ -52,6 +55,7 @@
 + (id)sharedService;
 + (bool)sharedServiceIsSubscribed;
 
+- (bool)VVMDataConnectionAvailable;
 - (void)_attemptDelayedSynchronize:(id)arg1;
 - (void)_attemptDelayedSynchronize;
 - (void)_attemptScheduledTrashCompaction;
@@ -141,6 +145,7 @@
 - (void)setSubscribed:(bool)arg1;
 - (void)setTrashedCount:(unsigned int)arg1;
 - (void)setUnreadCount:(unsigned int)arg1;
+- (void)setVVMDataConnectionAvailable:(bool)arg1;
 - (bool)sharedSubscriptionRequiresSetup;
 - (bool)shouldScheduleAutoTrashOnMailboxUsageChange;
 - (bool)shouldTrashCompactRecord:(void*)arg1;

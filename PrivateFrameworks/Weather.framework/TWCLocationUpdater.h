@@ -6,12 +6,13 @@
    See Warning(s) below.
  */
 
-@class CLGeocoder, City;
+@class CLGeocoder, City, _MKLocationShifter;
 
 @interface TWCLocationUpdater : TWCUpdater {
     City *_currentCity;
     CLGeocoder *_geocoder;
     id _localWeatherHandler;
+    _MKLocationShifter *_locationShifter;
 }
 
 @property(retain) City * currentCity;
@@ -20,6 +21,7 @@
 + (id)sharedLocationUpdater;
 
 - (void)_failed:(unsigned long long)arg1;
+- (void)_geocodeLocation:(id)arg1;
 - (id)aggregateDictionaryDomain;
 - (void)cancel;
 - (id)currentCity;

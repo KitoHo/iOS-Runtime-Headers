@@ -24,6 +24,7 @@
 - (id)componentName;
 - (id)downloadBatchTaskForSyncAnchor:(id)arg1 completionHandler:(id)arg2;
 - (id)engineLibrary;
+- (id)getAssetCountsTaskWithCompletionHandler:(id)arg1;
 - (void)getStatusDictionaryWithCompletionHandler:(id)arg1;
 - (void)getStatusWithCompletionHandler:(id)arg1;
 - (id)initWithEngineLibrary:(id)arg1;

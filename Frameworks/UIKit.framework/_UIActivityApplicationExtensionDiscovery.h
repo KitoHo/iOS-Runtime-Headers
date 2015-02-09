@@ -14,7 +14,7 @@
 @property(copy) NSArray * extensionPointIdentifiers;
 @property bool performsInitialMatching;
 
-- (id)activitiesMatchingInputItems:(id)arg1 error:(id*)arg2 updateBlock:(id)arg3;
+- (id)activitiesMatchingInputItems:(id)arg1 sourceIsManaged:(bool)arg2 error:(id*)arg3 updateBlock:(id)arg4;
 - (void)cancelUpdatesIfNeeded;
 - (void)dealloc;
 - (id)extensionMatchingContext;

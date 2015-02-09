@@ -6,10 +6,10 @@
    See Warning(s) below.
  */
 
-@class BrightnessSystemClient, NSObject<OS_dispatch_queue>, NSString;
+@class BrightnessSystemClientInternal, NSObject<OS_dispatch_queue>, NSString;
 
 @interface BrightnessSystemClientExportedObj : NSObject <BacklightSystemDelegateXpcProtocol> {
-    BrightnessSystemClient *_target;
+    BrightnessSystemClientInternal *_target;
     id clientBlock;
     NSObject<OS_dispatch_queue> *queue;
 }
@@ -18,7 +18,7 @@
 @property(copy,readonly) NSString * description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
-@property BrightnessSystemClient * target;
+@property BrightnessSystemClientInternal * target;
 
 - (void)dealloc;
 - (void)notifyChangedProperty:(id)arg1 value:(id)arg2;

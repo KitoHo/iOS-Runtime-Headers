@@ -14,6 +14,7 @@
 - (bool)facedownGestureEnabled;
 - (bool)fileLoggingIsEnabled;
 - (id)fileLoggingLevel;
+- (bool)hasExplicitlySetVoiceTriggerEnabled;
 - (id)languageCode;
 - (id)localizedTriggerPhrase;
 - (id)localizedTriggerPhraseForLanguageCode:(id)arg1;

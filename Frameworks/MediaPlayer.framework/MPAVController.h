@@ -207,6 +207,7 @@
 - (id)_expectedAssetTypesForPlaybackMode:(int)arg1;
 - (id)_extractImageFromMetadata:(id)arg1;
 - (void)_firstVideoFrameDisplayed:(id)arg1;
+- (bool)_hasEnoughDataToPlay;
 - (bool)_isChangingQueueContents;
 - (void)_isExternalPlaybackActiveDidChange:(id)arg1;
 - (bool)_isVideoLayerAttachedToPlayer;
@@ -365,9 +366,12 @@
 - (void)pause;
 - (void)pauseWithFadeout:(float)arg1;
 - (void)play;
+- (void)playChapterTimeMarkerAtIndex:(unsigned long long)arg1 withOptions:(long long)arg2;
 - (void)playChapterTimeMarkerAtIndex:(unsigned long long)arg1;
 - (void)playItemAtIndex:(unsigned long long)arg1 forceRestart:(bool)arg2;
+- (void)playItemAtIndex:(unsigned long long)arg1 withOptions:(long long)arg2;
 - (void)playItemAtIndex:(unsigned long long)arg1;
+- (void)playWithOptions:(long long)arg1;
 - (double)playableDurationOfCurrentItemIfAvailable;
 - (int)playbackMode;
 - (float)rate;
@@ -436,6 +440,7 @@
 - (double)timeOfSeekableEnd;
 - (double)timeOfSeekableStart;
 - (void)togglePlayback;
+- (void)togglePlaybackWithOptions:(long long)arg1;
 - (bool)ubiquitousBookkeepingEnabled;
 - (void)updateBookkeepingNow;
 - (bool)useAirPlayMusicMode;

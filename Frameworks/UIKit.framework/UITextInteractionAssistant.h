@@ -131,6 +131,7 @@
 - (id)oneFingerTripleTapRecognizer;
 - (id)phraseBoundaryGestureRecognizer;
 - (id)rangeForTextReplacement:(id)arg1;
+- (void)rangeSelectionCanceled;
 - (void)rangeSelectionEnded:(struct CGPoint { double x1; double x2; })arg1;
 - (void)rangeSelectionMoved:(struct CGPoint { double x1; double x2; })arg1 withTouchPoint:(struct CGPoint { double x1; double x2; })arg2;
 - (void)rangeSelectionStarted:(struct CGPoint { double x1; double x2; })arg1;

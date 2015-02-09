@@ -16,7 +16,6 @@
 
 - (id)_mediaRemoteCommandInfoOptions;
 - (bool)adPreventsDisplay;
-- (id)keyPathsForValuesTriggeringCommandsChanged;
 - (void)setAdPreventsDisplay:(bool)arg1;
 - (void)setSkipLimit:(struct { long long x1; long long x2; double x3; })arg1;
 - (struct { long long x1; long long x2; double x3; })skipLimit;

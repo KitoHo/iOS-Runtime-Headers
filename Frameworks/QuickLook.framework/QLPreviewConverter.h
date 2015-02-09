@@ -26,6 +26,7 @@
 + (bool)isIWorkDocumentType:(id)arg1;
 + (bool)isLPDFDocumentType:(id)arg1;
 + (bool)isOfficeDocumentType:(id)arg1;
++ (bool)isRTFDocumentType:(id)arg1;
 + (bool)isSafeRequest:(id)arg1;
 + (bool)isSafeURL:(id)arg1;
 + (bool)isSpreadSheetDocumentType:(id)arg1;

@@ -5,12 +5,16 @@
 @class CPLLibraryManager, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSObject<OS_xpc_object>, NSString, PLCloudTaskManager, PLPhotoLibrary;
 
 @interface PLCloudPhotoLibraryManager : NSObject <CPLResourceProgressDelegate, CPLLibraryManagerDelegate, PLForegroundObserver> {
+    unsigned long long _boundForUploadingOtherItems;
+    unsigned long long _boundForUploadingPhotos;
+    unsigned long long _boundForUploadingVideos;
     NSMutableArray *_cameraAsset;
     CPLLibraryManager *_cplLibrary;
     unsigned long long _defaultResourceDownloadType;
     unsigned long long _downloadCounterCheck;
     NSMutableArray *_downloadedDeleteUuid;
     NSObject<OS_xpc_object> *_hubConnection;
+    unsigned long long _imageDeletionsSinceLastSync;
     NSObject<OS_dispatch_queue> *_isolationQueue;
     unsigned long long _lastKnownChangeHubEventIndex;
     NSString *_lastKnownStoreUUID;
@@ -18,10 +22,13 @@
     unsigned char _nodeUUID[16];
     int _notifyToken;
     PLPhotoLibrary *_photoLibrary;
+    unsigned long long _serverPhotoCount;
+    unsigned long long _serverVideoCount;
     PLCloudTaskManager *_taskManager;
     NSObject<OS_dispatch_source> *_unpauseDispatchTimer;
     NSMutableArray *_uploadBatchArray;
     unsigned long long _uploadCounterCheck;
+    unsigned long long _videoDeletionsSinceLastSync;
     bool_closeLibrary;
     bool_initialUpload;
     bool_modeChangePending;
@@ -39,7 +46,12 @@
 @property(copy,readonly) NSString * debugDescription;
 @property(copy,readonly) NSString * description;
 @property(readonly) unsigned long long hash;
+@property(readonly) unsigned long long imageDeletionsSinceLastSync;
+@property(readonly) unsigned long long numberOfOtherItemsToUpload;
+@property(readonly) unsigned long long numberOfPhotosToUpload;
+@property(readonly) unsigned long long numberOfVideosToUpload;
 @property(readonly) Class superclass;
+@property(readonly) unsigned long long videoDeletionsSinceLastSync;
 
 + (id)descriptionForResourceType:(unsigned long long)arg1;
 
@@ -86,13 +98,14 @@
 - (void)doSoftResetSync;
 - (void)downloadAsset:(id)arg1 resourceType:(unsigned long long)arg2 highPriority:(bool)arg3 clientBundleID:(id)arg4 taskDidBeginHandler:(id)arg5 progressBlock:(id)arg6 completionHandler:(id)arg7;
 - (void)downloadFromCloud;
-- (void)downloadResource:(id)arg1 highPriority:(bool)arg2 clientBundleID:(id)arg3 taskDidBeginHandler:(id)arg4 progressBlock:(id)arg5 completionHandler:(id)arg6;
+- (void)downloadResource:(id)arg1 forAssetUuid:(id)arg2 highPriority:(bool)arg3 clientBundleID:(id)arg4 taskDidBeginHandler:(id)arg5 progressBlock:(id)arg6 completionHandler:(id)arg7;
 - (void)dumpStatusIncludingDaemon:(bool)arg1;
 - (void)fetchNewEventsFromChangeHub;
 - (void)fetchPublicURLForAsset:(id)arg1 resourceType:(unsigned long long)arg2 completionHandler:(id)arg3;
 - (id)filterCloudDeleteForKey:(const char *)arg1 fromEvent:(id)arg2;
 - (void)foregroundMonitor:(id)arg1 changedStateToForeground:(bool)arg2 context:(id)arg3;
 - (id)getCPLState;
+- (unsigned long long)imageDeletionsSinceLastSync;
 - (id)init;
 - (bool)isResourceTransferTaskAliveWithTaskWithIdentifier:(id)arg1;
 - (id)lastKnownCloudVersionFromDisk;
@@ -108,6 +121,9 @@
 - (void)libraryManagerStatusDidChange:(id)arg1;
 - (bool)needResetSyncErrorType:(id)arg1;
 - (void)notifyCPLLibraryOnReset;
+- (unsigned long long)numberOfOtherItemsToUpload;
+- (unsigned long long)numberOfPhotosToUpload;
+- (unsigned long long)numberOfVideosToUpload;
 - (void)openCPLLibrary;
 - (void)pause;
 - (void)prepareEventForUploadProcess:(id)arg1;
@@ -118,6 +134,7 @@
 - (void)resetFlags;
 - (void)resume;
 - (void)saveCPLPlistVersion:(id)arg1 forVersionKey:(id)arg2;
+- (void)saveLastKnownIndexFromChangeHubToDisk;
 - (void)saveStoreUUID:(id)arg1;
 - (void)sendAlbums:(id)arg1 toBatchManager:(id)arg2;
 - (void)sendAssets:(id)arg1 toBatchManager:(id)arg2;
@@ -134,7 +151,9 @@
 - (void)unpause;
 - (void)unregisterToChangeHubNotification;
 - (void)updateLastKnownIndexFromChangeHub;
+- (void)updateUploadCounts;
 - (void)uploadFullPhotoLibraryToCloud;
 - (void)uploadToCloudForEvents:(id)arg1;
+- (unsigned long long)videoDeletionsSinceLastSync;
 
 @end

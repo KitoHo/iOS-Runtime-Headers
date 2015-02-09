@@ -16,7 +16,6 @@
 - (void).cxx_destruct;
 - (id)_mediaRemoteCommandInfoOptions;
 - (bool)isActive;
-- (id)keyPathsForValuesTriggeringCommandsChanged;
 - (id)localizedShortTitle;
 - (id)localizedTitle;
 - (void)setActive:(bool)arg1;

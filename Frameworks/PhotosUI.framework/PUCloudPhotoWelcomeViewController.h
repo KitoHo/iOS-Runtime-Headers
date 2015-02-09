@@ -6,6 +6,7 @@
 
 @interface PUCloudPhotoWelcomeViewController : UIViewController <PUCloudPhotoWelcomeViewDelegate, PSCloudStorageOffersManagerDelegate> {
     ACAccountStore *_accountStore;
+    UIBarButtonItem *_betaGoButtonItem;
     PSCloudStorageOffersManager *_offersManager;
     UIBarButtonItem *_skipBarButtonItem;
     PUCloudPhotoWelcomeView *_welcomeView;
@@ -14,6 +15,7 @@
 }
 
 @property(retain) ACAccountStore * accountStore;
+@property(readonly) UIBarButtonItem * betaGoButtonItem;
 @property(copy,readonly) NSString * debugDescription;
 @property(copy,readonly) NSString * description;
 @property(readonly) unsigned long long hash;
@@ -27,14 +29,18 @@
 + (void)showWithPresentingViewController:(id)arg1;
 
 - (void).cxx_destruct;
+- (void)_betaGoButtonTapped:(id)arg1;
 - (void)_continueWithoutStoragePurchase:(id)arg1;
 - (void)_dismiss;
+- (void)_enableButtons;
 - (void)_enableCPLDataClass;
 - (void)_enableCloudPhotoLibrary;
 - (void)_handleEnableError:(id)arg1;
+- (void)_handleGoButtonTapped;
 - (void)_presentStoragePurchaseController;
 - (void)_skipButtonTapped:(id)arg1;
 - (id)accountStore;
+- (id)betaGoButtonItem;
 - (void)cloudPhotoWelcomeViewGoButtonTapped:(id)arg1;
 - (void)cloudPhotoWelcomeViewLearnMoreTapped:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

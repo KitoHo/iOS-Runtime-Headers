@@ -28,6 +28,7 @@
 - (id)handleManager;
 - (id)init;
 - (void)insert:(id)arg1;
+- (void)insertRecordsWithoutTransactions:(id)arg1;
 - (void)insertWithoutTransaction:(id)arg1;
 - (void)resetTimers;
 - (double)timerIncoming;

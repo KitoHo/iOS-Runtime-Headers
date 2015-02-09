@@ -83,6 +83,7 @@
 - (void)databaseUpdated:(id)arg1;
 - (void)dealloc;
 - (void)defaultsChanged:(id)arg1 forService:(id)arg2;
+- (void)displayPinCodeForAccount:(id)arg1 pinCode:(id)arg2 deviceName:(id)arg3 deviceType:(id)arg4 phoneNumber:(id)arg5;
 - (void)fileTransfer:(id)arg1 createdWithProperties:(id)arg2;
 - (void)fileTransfer:(id)arg1 updatedWithCurrentBytes:(unsigned long long)arg2 totalBytes:(unsigned long long)arg3 averageTransferRate:(unsigned long long)arg4;
 - (void)fileTransfer:(id)arg1 updatedWithProperties:(id)arg2;
@@ -99,6 +100,7 @@
 - (id)myStatusMessage;
 - (id)persistentProperties;
 - (void)persistentProperty:(id)arg1 changedTo:(id)arg2 from:(id)arg3;
+- (void)pinCodeAlertCompleted:(id)arg1 deviceName:(id)arg2 deviceType:(id)arg3 phoneNumber:(id)arg4 responseFromDevice:(bool)arg5 wasCancelled:(bool)arg6;
 - (id)properties;
 - (void)property:(id)arg1 changedTo:(id)arg2 from:(id)arg3;
 - (void)releaseHeldChatMessages;

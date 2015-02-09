@@ -29,7 +29,7 @@
 - (void)_performRevertToOriginalOperation;
 - (void)_performSaveContentEditingOutput;
 - (void)_performSaveEditsOperation;
-- (void)_renderAndSaveBaseImage:(id)arg1 withOrientation:(long long)arg2;
+- (void)_renderAndSaveBaseImage:(id)arg1 withOrientation:(long long)arg2 baseImageURL:(id)arg3;
 - (void)_transitionToState:(long long)arg1;
 - (void)beginSaveOperationWithCompletionHandler:(id)arg1;
 - (void)cancelSaveOperation;

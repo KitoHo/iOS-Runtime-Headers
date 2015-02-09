@@ -20,7 +20,6 @@
 
 + (id)_amountTextFont;
 + (id)_detailTextFont;
-+ (id)_detailsButtonFont;
 + (id)_primaryTextFont;
 + (struct CGSize { double x1; double x2; })_sizeForLabelWithText:(id)arg1 font:(id)arg2 maximumNumberOfLines:(long long)arg3 width:(double)arg4;
 + (double)heightWithPrimaryText:(id)arg1 primaryTextNumberOfLines:(long long)arg2 detailText:(id)arg3 amountText:(id)arg4 image:(id)arg5 showDetailsButton:(bool)arg6 width:(double)arg7;

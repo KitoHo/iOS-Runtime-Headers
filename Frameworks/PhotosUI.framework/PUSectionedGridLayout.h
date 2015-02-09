@@ -99,11 +99,13 @@
     bool_delegateSupportsAnchorItemForContentOffset;
     bool_delegateSupportsDidInvalidateWithContext;
     bool_delegateSupportsGroupedSections;
+    bool_delegateSupportsTargetContentOffset;
     bool_delegateSupportsTransitionAutoContentOffsetEnabled;
     bool_floatingHeadersLayoutIsValid;
     bool_floatingSectionHeadersEnabled;
     bool_hasFloatingHeaders;
     bool_layoutDataIsValid;
+    bool_processingCollectionViewUpdates;
     bool_samplingDataIsValid;
     bool_sectioningDataIsValid;
     bool_transitionAnchorShiftsColumns;

@@ -6,7 +6,7 @@
    See Warning(s) below.
  */
 
-@class <CKDAccountInfoProvider>, <CKDResponseBodyParser>, CKDClientContext, CKDProtobufStreamWriter, CKDProtocolTranslator, NSArray, NSData, NSDate, NSDictionary, NSError, NSFileHandle, NSHTTPURLResponse, NSInputStream, NSMutableArray, NSMutableData, NSMutableDictionary, NSOperationQueue, NSRunLoop, NSString, NSURL, NSURLRequest, NSURLSessionConfiguration, NSURLSessionDataTask;
+@class <CKDAccountInfoProvider>, <CKDResponseBodyParser>, CKDClientContext, CKDProtobufStreamWriter, CKDProtocolTranslator, NSArray, NSData, NSDate, NSDictionary, NSError, NSFileHandle, NSHTTPURLResponse, NSInputStream, NSMutableArray, NSMutableData, NSMutableDictionary, NSOperationQueue, NSString, NSURL, NSURLRequest, NSURLSessionConfiguration, NSURLSessionDataTask;
 
 @interface CKDURLRequest : NSObject <CKDURLSessionTaskDelegate, CKDProtobufMessageSigningDelegate, CKDFlowControllable> {
     struct CC_SHA256state_st { 
@@ -53,7 +53,6 @@
     NSString *_responseLogFilePath;
     id _responseProgressBlock;
     long long _responseStatusCode;
-    NSRunLoop *_runLoopToFireOn;
     NSURLSessionConfiguration *_sessionConfiguration;
     NSString *_sourceApplicationBundleIdentifier;
     NSString *_sourceApplicationSecondaryIdentifier;

@@ -20,6 +20,7 @@
 - (id)identifier;
 - (id)identifierForActivity:(id)arg1;
 - (id)initWithIdentifier:(id)arg1 userDefaults:(id)arg2;
+- (id)mergeArray:(id)arg1 withObjectsFromArray:(id)arg2;
 - (void)postActivityUserDefaultsNotification;
 - (void)setActivity:(id)arg1 asHidden:(bool)arg2;
 - (void)setDefaultsValue:(id)arg1 forKey:(id)arg2 activity:(id)arg3;

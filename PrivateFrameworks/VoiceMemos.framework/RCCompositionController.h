@@ -38,8 +38,7 @@
 - (id)activityViewControllerPlaceholderItem:(id)arg1;
 - (void)beginAccessSessionToExportWithAssetReadyBlock:(id)arg1;
 - (void)beginAccessSessionToPlayTimeRange:(struct { double x1; double x2; })arg1 readyToPlayBlock:(id)arg2;
-- (void)beginAccessSessionToTrimWithAssetReadyBlock:(id)arg1;
-- (void)beginEditing;
+- (void)beginAccessSessionToTrimAsCopy:(bool)arg1 assetReadyBlock:(id)arg2;
 - (void)beginRecordingWithInputDevice:(id)arg1 captureInsertionRange:(struct { double x1; double x2; })arg2 isUndoable:(bool)arg3 isOverdub:(bool)arg4 sessionPreparedBlock:(id)arg5 sessionFinishedBlock:(id)arg6;
 - (id)composition;
 - (unsigned long long)countOfUndoableCompositions;
@@ -55,6 +54,7 @@
 - (bool)isTopUndoableCompositionFromCapture;
 - (void)performCompositionRedoWithRedoItem:(id)arg1 completionBlock:(id)arg2;
 - (void)performCompositionUndoWithCompletionBlock:(id)arg1;
+- (void)prepareToBeginEditingWithReadyBlock:(id)arg1;
 - (void)rcs_composeToFinalDestinationAndDeleteDecomposedFragments:(bool)arg1 composeWaveform:(bool)arg2 canGenerateWaveformByProcessingAVURL:(bool)arg3 completionBlock:(id)arg4;
 - (void)rcs_repairDecomposedFragmentMetadataIfNecessary;
 - (void)sanitizeWithCompletionBlock:(id)arg1;

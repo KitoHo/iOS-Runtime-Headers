@@ -8,7 +8,7 @@
 
 @class <PUPhotoEditViewControllerDelegate>, CIImage, GLKView, NSArray, NSString, NSURL, PHAsset, PLPhotoEditModel, PLPhotoEditMutableModel, PLPhotoEditRenderer, PUAdjustmentsToolController, PUAutoAdjustmentController, PUCropToolController, PUEditPluginSession, PUFiltersToolController, PUPhotoEditOverlayBadge, PUPhotoEditToolController, PUPhotoEditToolbar, PUPhotoEditValuesCalculator, PUPhotoEditViewControllerSpec, PUProgressIndicatorView, PURedeyeToolController, PUResourceDownloadRequest, UIButton, UIImage, UIImageView, UILongPressGestureRecognizer, UIScrollView, _PUPhotoEditSnapshot;
 
-@interface PUPhotoEditViewController : UIViewController <GLKViewDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate, PUPhotoEditToolControllerDelegate, PUImageEditPluginSessionDataSource, PUEditPluginSessionDelegate, PHPhotoLibraryChangeObserver, PUPhotoEditLayoutSource> {
+@interface PUPhotoEditViewController : UIViewController <GLKViewDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate, PUPhotoEditToolControllerDelegate, PUImageEditPluginSessionDataSource, PUEditPluginSessionDelegate, PUPhotoLibraryUIChangeObserver, PUPhotoEditLayoutSource> {
     struct CGSize { 
         double width; 
         double height; 
@@ -273,8 +273,9 @@
 - (long long)layoutOrientation;
 - (id)photo;
 - (id)photoEditSpec;
-- (void)photoLibraryDidChange:(id)arg1;
+- (void)photoLibraryDidChangeOnMainQueue:(id)arg1;
 - (id)placeholderImage;
+- (void)prepareForPhotoLibraryChange:(id)arg1;
 - (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })previewViewFrame;
 - (bool)pu_wantsNavigationBarVisible;
 - (bool)pu_wantsStatusBarVisible;

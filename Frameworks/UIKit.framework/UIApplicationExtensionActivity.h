@@ -34,6 +34,7 @@
 @property(retain) UIImage * renderedActivityImage;
 @property(retain) UIImage * renderedActivitySettingsImage;
 
++ (id)_applicationExtensionActivitiesForItems:(id)arg1 sourceIsManaged:(bool)arg2;
 + (id)_applicationExtensionActivitiesForItems:(id)arg1;
 + (long long)activityCategory;
 

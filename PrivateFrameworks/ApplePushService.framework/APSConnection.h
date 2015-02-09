@@ -39,6 +39,8 @@
 @property bool usesAppLaunchStats;
 
 + (void)_blockingXPCCallWithArgumentBlock:(id)arg1 resultHandler:(id)arg2;
++ (void)_safelyCancelAndReleaseAfterBarrierConnection:(id)arg1;
++ (void)_safelyCancelAndReleaseConnection:(id)arg1;
 + (void)_setTokenState;
 + (id)connectionsDebuggingState;
 + (struct __SecIdentity { }*)copyIdentity;

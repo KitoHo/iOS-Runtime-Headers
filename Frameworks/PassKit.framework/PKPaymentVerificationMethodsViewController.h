@@ -23,6 +23,7 @@
 @property <PKPaymentSetupViewControllerDelegate> * setupDelegate;
 @property(copy) id verificationRequestHandler;
 
+- (id)_detailTextLabelForChanne:(id)arg1;
 - (void)_disableCells;
 - (void)_enableCells;
 - (void)_showRequestError:(id)arg1;
@@ -43,6 +44,6 @@
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (id)verificationRequestHandler;
-- (void)viewDidLoad;
+- (void)viewWillAppear:(bool)arg1;
 
 @end

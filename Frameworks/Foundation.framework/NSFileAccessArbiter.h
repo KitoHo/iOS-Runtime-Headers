@@ -35,6 +35,7 @@
 - (void)_sendSubarbitersMessageWithKind:(id)arg1 parameters:(id)arg2;
 - (void)_startArbitratingItemsAtURLs:(id)arg1 withSuperarbitrationServer:(id)arg2;
 - (void)_tiePresenterForID:(id)arg1 toItemAtURL:(id)arg2;
+- (void)_writerWithPurposeID:(id)arg1 didChangeItemAtURL:(id)arg2;
 - (void)_writerWithPurposeID:(id)arg1 didChangeUbiquityOfItemAtURL:(id)arg2;
 - (void)_writerWithPurposeID:(id)arg1 didDisconnectItemAtURL:(id)arg2;
 - (void)_writerWithPurposeID:(id)arg1 didMakeItemDisappearAtURL:(id)arg2;
@@ -52,6 +53,7 @@
 - (id)rootNode;
 - (void)stopArbitrating;
 - (void)tiePresenterForID:(id)arg1 toItemAtURL:(id)arg2;
+- (void)writerWithPurposeID:(id)arg1 didChangeItemAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didChangeUbiquityOfItemAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didDisconnectItemAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didMakeItemDisappearAtURL:(id)arg2;

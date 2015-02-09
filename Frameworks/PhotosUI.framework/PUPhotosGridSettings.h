@@ -11,6 +11,7 @@
     double _sideMargins;
     bool_badgeAllItemsAsVideos;
     bool_displayAllItemsAsBursts;
+    bool_flashDegradedImages;
     bool_forceJPEGThumbnailsInDefaultGrid;
     bool_slowBackgroundFetch;
 }
@@ -18,6 +19,7 @@
 @property bool badgeAllItemsAsVideos;
 @property double defaultItemSideSize;
 @property bool displayAllItemsAsBursts;
+@property bool flashDegradedImages;
 @property bool forceJPEGThumbnailsInDefaultGrid;
 @property double maximumSpacing;
 @property double minimumSpacing;
@@ -32,6 +34,7 @@
 - (bool)badgeAllItemsAsVideos;
 - (double)defaultItemSideSize;
 - (bool)displayAllItemsAsBursts;
+- (bool)flashDegradedImages;
 - (bool)forceJPEGThumbnailsInDefaultGrid;
 - (double)maximumSpacing;
 - (double)minimumSpacing;
@@ -41,6 +44,7 @@
 - (void)setDefaultItemSideSize:(double)arg1;
 - (void)setDefaultValues;
 - (void)setDisplayAllItemsAsBursts:(bool)arg1;
+- (void)setFlashDegradedImages:(bool)arg1;
 - (void)setForceJPEGThumbnailsInDefaultGrid:(bool)arg1;
 - (void)setMaximumSpacing:(double)arg1;
 - (void)setMinimumSpacing:(double)arg1;

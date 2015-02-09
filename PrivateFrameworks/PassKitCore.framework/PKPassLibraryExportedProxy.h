@@ -16,6 +16,8 @@
 - (void)passAdded:(id)arg1;
 - (void)passRemoved:(id)arg1;
 - (void)passUpdated:(id)arg1;
+- (void)removingPassesOfType:(unsigned long long)arg1 didFinishWithSuccess:(bool)arg2;
+- (void)removingPassesOfType:(unsigned long long)arg1 didUpdateWithProgress:(double)arg2;
 - (void)setDelegate:(id)arg1;
 
 @end

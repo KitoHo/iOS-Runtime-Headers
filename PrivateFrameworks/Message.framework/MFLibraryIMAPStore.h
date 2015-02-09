@@ -45,9 +45,6 @@
 + (void)setHandlerForTemporaryUidToRemoteIDMapping:(id)arg1;
 
 - (void)_addOfflineTransferMessages:(id)arg1;
-- (id)_cachedBodyForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
-- (id)_cachedHeaderDataForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
-- (id)_cachedHeadersForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
 - (bool)_changedFlagsForMessage:(id)arg1 fetchResponse:(id)arg2 newFlags:(unsigned long long*)arg3;
 - (id)_dataForMessage:(id)arg1 readHeadersOnly:(bool)arg2;
 - (unsigned long long)_doAppend:(struct { id x1; id x2; id x3; id x4; boolx5; id x6; id x7; id x8; id x9; unsigned int x10; unsigned int x11; }*)arg1;

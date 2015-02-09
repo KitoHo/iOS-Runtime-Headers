@@ -2,19 +2,16 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class <PKPassDeleteHandler>, <PKPaymentVerificationEntryDelegate>, NSMutableArray, NSNumberFormatter, NSString, NSURL, PKPassLibrary, PKPassView, PKPaymentApplication, PKPaymentPass, PKPaymentPassDetailActivationFooterView, PKPaymentService, PKPaymentWebService, PKVerificationRequestRecord;
+@class <PKPassDeleteHandler>, <PKPaymentVerificationEntryDelegate>, NSMutableArray, NSNumberFormatter, NSObject<OS_dispatch_source>, NSString, NSURL, PKPassLibrary, PKPassView, PKPaymentApplication, PKPaymentPass, PKPaymentPassDetailActivationFooterView, PKPaymentService, PKPaymentVerificationPresentationController, PKPaymentWebService, PKVerificationRequestRecord;
 
-@interface PKPaymentPassDetailViewController : UITableViewController <PKPaymentServiceDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate> {
+@interface PKPaymentPassDetailViewController : UITableViewController <PKPaymentServiceDelegate, PKPaymentVerificationPresentationDelegate, MFMailComposeViewControllerDelegate> {
     PKPaymentPassDetailActivationFooterView *_activationFooter;
     unsigned long long _activationSection;
     NSString *_appLaunchToken;
     long long _cardInfoNameIndex;
     long long _cardInfoNumberIndex;
     unsigned long long _cardInfoSection;
-    long long _contactEmailIndex;
     unsigned long long _contactIssuerSection;
-    long long _contactPhoneIndex;
-    long long _contactWebsiteIndex;
     unsigned long long _deleteCardSection;
     <PKPassDeleteHandler> *_deleteOverrider;
     unsigned long long _digitalAccountNumberSection;
@@ -33,9 +30,11 @@
     unsigned long long _sectionCount;
     long long _style;
     unsigned long long _transactionNotificationsSection;
+    NSObject<OS_dispatch_source> *_transactionTimer;
     NSMutableArray *_transactions;
     unsigned long long _transactionsSection;
     <PKPaymentVerificationEntryDelegate> *_verificationDelegate;
+    PKPaymentVerificationPresentationController *_verificationPresenter;
     PKVerificationRequestRecord *_verificationRecord;
     PKPaymentWebService *_webService;
 }
@@ -47,17 +46,16 @@
 @property(readonly) Class superclass;
 @property <PKPaymentVerificationEntryDelegate> * verificationDelegate;
 
+- (void)_activationFooterPressed:(id)arg1;
 - (id)_activationFooterView;
 - (void)_callIssuer;
 - (void)_cancel:(id)arg1;
 - (id)_cardInfoCellForIndex:(unsigned long long)arg1;
-- (void)_completeVerificationButtonPressed;
 - (id)_defaultCell;
 - (void)_deleteCard;
 - (id)_deleteCardCell;
 - (id)_digitalAccountNumberCell;
 - (void)_emailIssuer;
-- (void)_enterCodeButtonPressed;
 - (id)_infoCell:(id)arg1;
 - (id)_linkCellWithText:(id)arg1;
 - (id)_linkedAppCell;
@@ -74,16 +72,16 @@
 - (bool)_shouldShowPrivacyPolicyCell;
 - (bool)_shouldShowTermsCell;
 - (id)_transactionCellForIndexPath:(id)arg1;
-- (id)_verificationStringForRecord:(id)arg1;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
+- (void)_updateTransactionsArrayWithTransaction:(id)arg1;
 - (void)dealloc;
 - (id)deleteOverrider;
+- (void)didChangeVerificationPresentation;
 - (id)initWithPass:(id)arg1 webService:(id)arg2 style:(long long)arg3;
 - (void)mailComposeController:(id)arg1 didFinishWithResult:(int)arg2 error:(id)arg3;
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didEnableTransactionService:(bool)arg2;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didReceiveTransaction:(id)arg2;
+- (void)presentVerificationViewController:(id)arg1 animated:(bool)arg2 completion:(id)arg3;
 - (void)setDeleteOverrider:(id)arg1;
 - (void)setVerificationDelegate:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;

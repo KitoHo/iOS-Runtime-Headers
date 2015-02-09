@@ -72,7 +72,7 @@
 - (void)_defaultCameraDevice:(id*)arg1 cameraMode:(id*)arg2;
 - (id)_dictionaryFromPackedArray:(id)arg1;
 - (bool)_didApplyConfigurationToCameraView;
-- (void)_getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; double x5; int x6; }*)arg1;
+- (void)_getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; boolx5; double x6; int x7; }*)arg1;
 - (void)_handleVolumeButtonDown;
 - (void)_handleVolumeButtonUp;
 - (bool)_handlesVolumeButtons;

@@ -33,6 +33,7 @@
 - (bool)clientDebug;
 - (id)init;
 - (void)logForClientID:(short)arg1 withKey:(id)arg2 withPayload:(id)arg3;
+- (void)logStateCaches;
 - (id)pendingTaskCache;
 - (id)pendingTasksForType:(id)arg1 forClientID:(short)arg2 forKey:(id)arg3;
 - (id)permissionCache;

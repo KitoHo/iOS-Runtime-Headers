@@ -88,6 +88,7 @@
 - (void)_clearConnectionMonitor;
 - (void)_clearDowngradeMarkersForChat:(id)arg1;
 - (void)_data_connection_ready;
+- (bool)_didReceiveMessageDeliveryReceiptForMessageID:(id)arg1 attempts:(long long)arg2 date:(id)arg3;
 - (void)_didReceiveMessagePlayedForMessageID:(id)arg1 date:(id)arg2 attempts:(long long)arg3 useMessageSuppression:(bool)arg4 completionBlock:(id)arg5;
 - (void)_didReceiveMessagePlayedReceiptForMessageID:(id)arg1 date:(id)arg2 attempts:(long long)arg3 completionBlock:(id)arg4;
 - (void)_didReceiveMessageReadForMessageID:(id)arg1 date:(id)arg2 attempts:(long long)arg3 useMessageSuppression:(bool)arg4 completionBlock:(id)arg5;
@@ -220,9 +221,10 @@
 - (bool)isActive;
 - (bool)isAwaitingStorageTimer;
 - (bool)isChatRegistered:(id)arg1 style:(unsigned char)arg2;
-- (void)joinChat:(id)arg1 handleInfo:(id)arg2 style:(unsigned char)arg3 joinProperties:(id)arg4;
+- (void)joinChat:(id)arg1 handleInfo:(id)arg2 style:(unsigned char)arg3 groupID:(id)arg4 joinProperties:(id)arg5;
+- (void)joinChat:(id)arg1 style:(unsigned char)arg2 groupID:(id)arg3 joinProperties:(id)arg4;
 - (void)joinChat:(id)arg1 style:(unsigned char)arg2 joinProperties:(id)arg3;
-- (void)joinChatID:(id)arg1 handleInfo:(id)arg2 identifier:(id)arg3 style:(unsigned char)arg4 joinProperties:(id)arg5;
+- (void)joinChatID:(id)arg1 handleInfo:(id)arg2 identifier:(id)arg3 style:(unsigned char)arg4 groupID:(id)arg5 joinProperties:(id)arg6;
 - (void)leaveAllChats;
 - (void)leaveChat:(id)arg1 style:(unsigned char)arg2;
 - (void)leaveChatID:(id)arg1 identifier:(id)arg2 style:(unsigned char)arg3;
@@ -256,6 +258,7 @@
 - (long long)proxyType;
 - (void)refreshServiceCapabilities;
 - (void)registerAccount;
+- (void)registerChat:(id)arg1 groupID:(id)arg2 style:(unsigned char)arg3;
 - (void)registerChat:(id)arg1 style:(unsigned char)arg2 displayName:(id)arg3 groupID:(id)arg4 handleInfo:(id)arg5;
 - (void)registerChat:(id)arg1 style:(unsigned char)arg2 handleInfo:(id)arg3;
 - (void)registerChat:(id)arg1 style:(unsigned char)arg2;

@@ -2,7 +2,7 @@
    Image: /System/Library/PrivateFrameworks/DataAccess.framework/DataAccess
  */
 
-@class ACAccount, DAStatusReport, DATaskManager, NSArray, NSData, NSMapTable, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString, NSURL;
+@class ACAccount, DAStatusReport, DATaskManager, DATrustHandler, NSArray, NSData, NSMapTable, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString, NSURL;
 
 @interface DAAccount : NSObject {
     NSArray *_appIdsForPasswordPrompt;
@@ -10,13 +10,13 @@
     NSString *_clientToken;
     NSMapTable *_consumers;
     NSMutableDictionary *_dataclassPropertyURLsByDataclass;
-    NSMutableDictionary *_haveWarnedAboutCertDict;
     unsigned long long _lastQueryStartedTime;
     NSMutableArray *_pendingQueries;
     NSObject<OS_dispatch_queue> *_pendingQueryQueue;
     DAStatusReport *_statusReport;
     struct __CFURLStorageSession { } *_storageSession;
     DATaskManager *_taskManager;
+    DATrustHandler *_trustHandler;
     bool_hasInitted;
     bool_isValidating;
     bool_shouldFailAllTasks;
@@ -60,6 +60,7 @@
 @property(retain) NSData * signingIdentityPersistentReference;
 @property(retain) DAStatusReport * statusReport;
 @property(readonly) DATaskManager * taskManager;
+@property(retain) DATrustHandler * trustHandler;
 @property bool useSSL;
 @property(copy) NSString * user;
 @property(readonly) NSString * userAgentHeader;
@@ -72,7 +73,6 @@
 + (void)reacquireClientRestrictions:(id)arg1;
 
 - (void).cxx_destruct;
-- (int)_actionForTrust:(struct __SecTrust { }*)arg1 host:(id)arg2 service:(id)arg3;
 - (void)_dequeueQuery;
 - (bool)_isIdentityManagedByProfile;
 - (void)_reallyCancelAllSearchQueries;
@@ -80,7 +80,6 @@
 - (void)_reallyCancelSearchQuery:(id)arg1;
 - (void)_reallyPerformSearchQuery:(id)arg1;
 - (bool)_reallySearchQueriesRunning;
-- (id)_serverSuffixesToAlwaysFail;
 - (void)_setPersistentUUID:(id)arg1;
 - (void)_webLoginRequestedAtURL:(id)arg1 reasonString:(id)arg2 completionBlock:(id)arg3;
 - (bool)accountBoolPropertyForKey:(id)arg1;
@@ -140,10 +139,8 @@
 - (id)getPendingQueryQueue;
 - (void)getRootFolderWithConsumer:(id)arg1;
 - (bool)handleCertificateError:(id)arg1;
-- (void)handleTrust:(struct __SecTrust { }*)arg1 forHost:(id)arg2 withCompletionBlock:(id)arg3;
 - (bool)handleTrustChallenge:(id)arg1;
 - (void)handleValidationError:(id)arg1 completion:(id)arg2;
-- (bool)haveWarnedAboutCert:(id)arg1 forHost:(id)arg2;
 - (id)host;
 - (id)hostFromDataclassPropertiesForDataclass:(id)arg1;
 - (id)identityPersist;
@@ -223,7 +220,6 @@
 - (void)setEnabled:(bool)arg1 forDataclass:(id)arg2;
 - (oneway void)setEncryptionIdentityPersistentReference:(id)arg1;
 - (void)setExceptions:(struct __CFData { }*)arg1 forDigest:(id)arg2;
-- (void)setHaveWarnedAboutCert:(id)arg1 forHost:(id)arg2;
 - (void)setHost:(id)arg1;
 - (void)setIdentityCertificatePersistentID:(id)arg1 managedByProfile:(bool)arg2;
 - (void)setIsValidating:(bool)arg1;
@@ -240,6 +236,7 @@
 - (oneway void)setSigningIdentityPersistentReference:(id)arg1;
 - (void)setStatusReport:(id)arg1;
 - (void)setToDosNumberOfPastDaysToSync:(int)arg1;
+- (void)setTrustHandler:(id)arg1;
 - (void)setUseSSL:(bool)arg1;
 - (void)setUser:(id)arg1;
 - (void)setUsername:(id)arg1;
@@ -270,6 +267,7 @@
 - (void)tearDown;
 - (id)toDosFolders;
 - (int)toDosNumberOfPastDaysToSync;
+- (id)trustHandler;
 - (id)unactionableICSRepresentationForMetaData:(id)arg1 inFolderWithId:(id)arg2 outSummary:(id*)arg3;
 - (void)updateOofSettingsWithParams:(id)arg1 consumer:(id)arg2;
 - (bool)upgradeAccount;

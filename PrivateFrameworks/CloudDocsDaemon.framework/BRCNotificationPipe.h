@@ -6,11 +6,12 @@
    See Warning(s) below.
  */
 
-@class <BRItemNotificationReceiving>, BRCItemID, BRCNotificationGatherer, BRCNotificationManager, BRCRelativePath, BRCXPCClient, BRNotificationQueue, NSNumber, NSObject<OS_dispatch_queue>, NSSet, NSString;
+@class <BRItemNotificationReceiving>, BRCItemID, BRCNotificationGatherer, BRCNotificationManager, BRCRelativePath, BRCXPCClient, BRNotificationQueue, NSMutableSet, NSNumber, NSObject<OS_dispatch_queue>, NSSet, NSString;
 
 @interface BRCNotificationPipe : NSObject <BRItemNotificationSending> {
     id _boostReply;
     BRCXPCClient *_client;
+    NSMutableSet *_externalContainers;
     BRCNotificationGatherer *_gatherer;
     BRCNotificationManager *_manager;
     BRNotificationQueue *_notifs;
@@ -52,6 +53,7 @@
 - (id)initWithReceiver:(id)arg1 root:(id)arg2 manager:(id)arg3;
 - (id)initWithXPCReceiver:(id)arg1 client:(id)arg2 root:(id)arg3 manager:(id)arg4;
 - (oneway void)invalidate;
+- (void)invalidateReceiverIfWatchingContainerID:(id)arg1;
 - (void)processUpdates:(id)arg1;
 - (void)watchItemAtURL:(id)arg1 container:(id)arg2 lookup:(id)arg3 options:(unsigned short)arg4 reply:(id)arg5;
 - (void)watchItemAtURL:(id)arg1 options:(unsigned short)arg2 reply:(id)arg3;

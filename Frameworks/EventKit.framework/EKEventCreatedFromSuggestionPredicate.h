@@ -24,6 +24,7 @@
 - (id)initWithOpaqueKey:(id)arg1;
 - (bool)isEqual:(id)arg1;
 - (id)opaqueKey;
+- (id)predicateFormat;
 - (bool)shouldLoadDefaultProperties;
 
 @end

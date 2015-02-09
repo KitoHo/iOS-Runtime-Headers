@@ -5,6 +5,7 @@
 @class NSString, NSURL;
 
 @interface PKPaymentCredential : NSObject <NSSecureCoding> {
+    NSString *_applicationIdentifier;
     NSString *_cardSecurityCode;
     NSString *_cardholderName;
     long long _credentialType;
@@ -21,6 +22,7 @@
     NSURL *_termsURL;
 }
 
+@property(copy) NSString * applicationIdentifier;
 @property(copy) NSString * cardSecurityCode;
 @property(readonly) NSString * cardTypeDescription;
 @property(copy) NSString * cardholderName;
@@ -42,6 +44,7 @@
 + (id)credentialWithDictionary:(id)arg1;
 + (bool)supportsSecureCoding;
 
+- (id)applicationIdentifier;
 - (id)cardSecurityCode;
 - (id)cardTypeDescription;
 - (id)cardholderName;
@@ -61,6 +64,7 @@
 - (id)passURL;
 - (id)primaryAccountNumber;
 - (id)sanitizedPrimaryAccountNumber;
+- (void)setApplicationIdentifier:(id)arg1;
 - (void)setCardSecurityCode:(id)arg1;
 - (void)setCardholderName:(id)arg1;
 - (void)setCredentialType:(long long)arg1;

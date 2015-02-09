@@ -595,6 +595,7 @@
 - (bool)brc_isInPackage;
 - (bool)brc_isPackageRoot;
 - (bool)brc_isSideFaultName;
+- (id)brc_libnotifyPerUserNotificationName;
 - (bool)brc_nameIsRepresentableOnHFS;
 - (id)brc_pathExtension;
 - (id)brc_pathOfPackageRoot;
@@ -624,7 +625,6 @@
 - (id)ckShortDescription;
 - (Class)classForCoder;
 - (double)colorInRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1;
-- (id)colorizeWithKeywords:(id)arg1 classes:(id)arg2;
 - (id)commonNonWordBreakingPrefixWithString:(id)arg1 options:(unsigned long long)arg2;
 - (id)commonPrefixWithString:(id)arg1 options:(unsigned long long)arg2;
 - (long long)compare:(id)arg1 options:(unsigned long long)arg2 range:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg3 locale:(id)arg4;
@@ -693,6 +693,7 @@
 - (id)decomposedStringWithCanonicalMapping;
 - (id)decomposedStringWithCompatibilityMapping;
 - (id)description;
+- (bool)destinationIdIsCallControlCode;
 - (bool)destinationIdIsEmailAddress;
 - (bool)destinationIdIsPhoneNumber;
 - (id)dictionaryWithResponseStringUsingSeparator:(id)arg1 unescape:(bool)arg2;
@@ -1039,6 +1040,7 @@
 - (id)pathStringForDisplay;
 - (id)phoneURL;
 - (id)pinyinStringFromPinyinWithToneNumber;
+- (id)pk_uppercaseStringForPreferredLocale;
 - (id)plistArchiveWithCPLArchiver:(id)arg1;
 - (id)positiveSubpatternOfNumberFormatPattern;
 - (id)positiveSubpatternOfNumberFormatPattern;
@@ -1330,7 +1332,6 @@
 - (id)trimWhiteSpace;
 - (id)trimWhiteSpace;
 - (id)trimmedString;
-- (void)tryToColorizeWithTokens:(char **)arg1 nbTokens:(unsigned long long)arg2 ptr:(char *)arg3 text:(const char *)arg4 firstCharSet:(id)arg5 secondCharSet:(id)arg6 color:(id)arg7 font:(id)arg8 attributedString:(id)arg9;
 - (id)tsp_stringByAppendingExtensionFieldComponent:(unsigned int)arg1;
 - (bool)tst_hasFormulaEqualsPrefix;
 - (bool)tst_hasLeadingCharacterInSet:(id)arg1;

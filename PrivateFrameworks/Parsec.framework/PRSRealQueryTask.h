@@ -11,11 +11,13 @@
     NSString *_queryString;
     double _scaleFactor;
     double _startTime;
+    bool_allowLocation;
     bool_doCache;
     bool_doResume;
     bool_failed;
 }
 
+@property bool allowLocation;
 @property(retain) NSMutableData * collectedData;
 @property(retain) NSURLSessionDataTask * dataTask;
 @property(copy,readonly) NSString * debugDescription;
@@ -30,11 +32,14 @@
 @property double startTime;
 @property(readonly) Class superclass;
 
++ (id)existingQueryForString:(id)arg1 scaleFactor:(double)arg2 webSearch:(bool)arg3 handler:(id)arg4;
+
 - (void).cxx_destruct;
 - (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveData:(id)arg3;
 - (void)URLSession:(id)arg1 didBecomeInvalidWithError:(id)arg2;
 - (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
 - (void)_processSearchResponseOnClientQueue:(id)arg1;
+- (bool)allowLocation;
 - (void)cancel;
 - (id)collectedData;
 - (id)dataTask;
@@ -42,10 +47,11 @@
 - (bool)doResume;
 - (id)factory;
 - (bool)failed;
-- (id)initWithSession:(id)arg1 handler:(id)arg2 factory:(id)arg3 queue:(id)arg4 scaleFactor:(double)arg5 feedback:(id)arg6;
+- (id)initWithSession:(id)arg1 handler:(id)arg2 factory:(id)arg3 queue:(id)arg4 scaleFactor:(double)arg5 allowLocation:(bool)arg6 feedback:(id)arg7;
 - (id)queryString;
 - (void)resume;
 - (double)scaleFactor;
+- (void)setAllowLocation:(bool)arg1;
 - (void)setCollectedData:(id)arg1;
 - (void)setDataTask:(id)arg1;
 - (void)setDoCache:(bool)arg1;

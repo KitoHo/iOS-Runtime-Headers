@@ -7,6 +7,7 @@
 @interface _UIRemoteViewController : UIViewController <_UIRemoteViewController_ViewControllerOperatorInterface, _UIRemoteViewController_TextEffectsOperatorInterface, UIActionSheetDelegate> {
     int __automatic_invalidation_retainCount;
     NSArray *_allowedNotifications;
+    int _applicationDeactivationReason;
     unsigned int _deferredContextID;
     NSString *_deferredDisplayUUID;
     _UITextEffectsRemoteView *_fullScreenTextEffectsRemoteView;
@@ -92,6 +93,7 @@
 - (void)_addPreFencedCommitAction:(id)arg1;
 - (void)_appearanceInvocationsDidChange:(id)arg1;
 - (id)_appearanceSource;
+- (void)_applicationDidAddDeactivationReason:(id)arg1;
 - (void)_applicationDidBecomeActive:(id)arg1;
 - (void)_applicationDidEnterBackground:(id)arg1;
 - (void)_applicationDidFinishSuspendSnapshot:(id)arg1;
@@ -119,6 +121,7 @@
 - (void)_setContentOverlayInsets:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; })arg1;
 - (void)_setDeferred:(bool)arg1 forDisplayUUID:(id)arg2;
 - (void)_setTouchDeliveryPolicyAssertion:(id)arg1;
+- (void)_snapshotAdjustedMediaTiming:(id)arg1;
 - (void)_snapshotAndRemoveTextEffectsRemoteView;
 - (void)_statusBarHeightDidChange:(id)arg1;
 - (void)_statusBarOrientationDidChange:(id)arg1;

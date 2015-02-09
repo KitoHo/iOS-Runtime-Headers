@@ -36,6 +36,7 @@
 - (id)_rightPageComponents;
 - (id)_rightVCColorScheme;
 - (id)_rootNavigationTitle;
+- (void)_updateChildViewControllers;
 - (id)contentScrollView;
 - (void)dealloc;
 - (void)documentDidUpdate:(id)arg1;

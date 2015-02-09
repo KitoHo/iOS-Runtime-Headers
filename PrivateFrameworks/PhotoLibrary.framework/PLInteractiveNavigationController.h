@@ -46,7 +46,7 @@
 - (void)_finishCurrentOperation;
 - (void)_finishCurrentOperationBeforePushingViewController:(id)arg1;
 - (void)_finishedAnimatingTopAlpha:(id)arg1 finished:(id)arg2 topItem:(id)arg3;
-- (void)_getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; double x5; int x6; }*)arg1;
+- (void)_getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; boolx5; double x6; int x7; }*)arg1;
 - (void)_notifyAction:(SEL)arg1 expandableView:(id)arg2 duration:(double)arg3;
 - (void)_notifyAction:(SEL)arg1 expandableView:(id)arg2;
 - (void)_performNavBarPushPop:(int)arg1 transition:(int)arg2;

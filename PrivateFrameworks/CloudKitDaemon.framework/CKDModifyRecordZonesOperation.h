@@ -17,10 +17,12 @@
     NSMutableArray *_recordZonesToSave;
     id _saveCompletionBlock;
     bool_allowDefaultZoneSave;
+    bool_markZonesAsUserPurged;
 }
 
 @property bool allowDefaultZoneSave;
 @property(copy) id deleteCompletionBlock;
+@property bool markZonesAsUserPurged;
 @property int numZoneSaveAttempts;
 @property(retain) NSMutableDictionary * pcsOplockFailureCountByZoneID;
 @property(retain) NSArray * recordZoneIDsToDelete;
@@ -41,6 +43,7 @@
 - (id)initWithOperationInfo:(id)arg1 clientContext:(id)arg2;
 - (void)main;
 - (bool)makeStateTransition;
+- (bool)markZonesAsUserPurged;
 - (id)nameForState:(unsigned long long)arg1;
 - (int)numZoneSaveAttempts;
 - (id)pcsOplockFailureCountByZoneID;
@@ -50,6 +53,7 @@
 - (id)saveCompletionBlock;
 - (void)setAllowDefaultZoneSave:(bool)arg1;
 - (void)setDeleteCompletionBlock:(id)arg1;
+- (void)setMarkZonesAsUserPurged:(bool)arg1;
 - (void)setNumZoneSaveAttempts:(int)arg1;
 - (void)setPcsOplockFailureCountByZoneID:(id)arg1;
 - (void)setRecordZoneIDsToDelete:(id)arg1;

@@ -119,6 +119,8 @@
 - (void)removeAllObjects;
 - (void)removeAllObjectsWithClass:(Class)arg1;
 - (void)removeAllObjectsWithClass:(Class)arg1;
+- (void)removeExactObject:(id)arg1;
+- (void)removeExactObjectsInArray:(id)arg1;
 - (void)removeFirstObject;
 - (void)removeFirstObject;
 - (void)removeItemAtIndex:(unsigned long long)arg1;

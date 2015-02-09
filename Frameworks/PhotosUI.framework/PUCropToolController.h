@@ -167,13 +167,11 @@
 - (bool)_contentViewsHidden;
 - (unsigned long long)_contentViewsHiddenAnimationCount;
 - (struct CGVector { double x1; double x2; })_correctInputVector:(struct CGVector { double x1; double x2; })arg1 forHandle:(unsigned long long)arg2 onCropRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg3 lockDirection:(bool)arg4;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })_correctRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 withAspect:(double)arg2;
 - (id)_cropAspect;
 - (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })_cropCanvasFrame;
 - (id)_cropCanvasView;
 - (id)_cropHandleViewsByHandle;
 - (id)_cropOverlayView;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })_cropRectForCurrentAspectRatio;
 - (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })_cropRectFromPanningHandle:(unsigned long long)arg1 byAmount:(struct CGVector { double x1; double x2; })arg2;
 - (id)_cropToggleButton;
 - (id)_cropToggleButtonTitle;
@@ -300,6 +298,7 @@
 - (void)_updatePreviewViewInsets;
 - (void)_updateTiltControlColor;
 - (void)_updateTiltWheelConstraintsIfNeeded;
+- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })_validatedRectFromNormalizedImageRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
 - (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })_viewCropRect;
 - (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })_viewCropToMatchPreview;
 - (bool)_wantsPreviewViewHidden;

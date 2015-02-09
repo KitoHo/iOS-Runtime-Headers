@@ -45,7 +45,7 @@
 - (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)textFieldDidChange:(id)arg1;
-- (void)textFieldDidEndEditing:(id)arg1;
+- (bool)textFieldShouldReturn:(id)arg1;
 - (void)viewDidLoad;
 
 @end

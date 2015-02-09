@@ -10,8 +10,8 @@
     NSString *_objectClassPrefix;
     unsigned long long _openCount;
     NSString *_path;
-    NSString *_schemaPath;
-    unsigned long long _schemaVersion;
+    NSString *_schema;
+    NSString *_schemaVersion;
     NSMutableDictionary *_statementsBySQL;
     bool_corrupt;
 }
@@ -23,15 +23,14 @@
 @property(retain) NSString * objectClassPrefix;
 @property unsigned long long openCount;
 @property(readonly) NSString * path;
-@property(readonly) NSString * schemaPath;
-@property(readonly) unsigned long long schemaVersion;
+@property(readonly) NSString * schema;
+@property(readonly) NSString * schemaVersion;
 @property(readonly) NSMutableDictionary * statementsBySQL;
 
 - (void).cxx_destruct;
 - (id)_boxedPropertyDictionary:(id)arg1 forObjCClass:(id)arg2;
 - (id)_boxedValue:(id)arg1 forObjcCProperty:(id)arg2;
-- (id)_schemaString;
-- (id)_schemaVersionString;
+- (id)_createSchemaHash;
 - (id)_tableNameForClass:(Class)arg1;
 - (id)allTableNames;
 - (void)analyze;
@@ -48,9 +47,7 @@
 - (void)end;
 - (void)executeSQL:(id)arg1 arguments:(char *)arg2;
 - (void)executeSQL:(id)arg1;
-- (id)initWithPath:(id)arg1 bundle:(id)arg2 schemaFilename:(id)arg3 schemaVersion:(unsigned long long)arg4;
-- (id)initWithPath:(id)arg1 schemaFilename:(id)arg2 schemaVersion:(unsigned long long)arg3;
-- (id)initWithPath:(id)arg1 schemaPath:(id)arg2 schemaVersion:(unsigned long long)arg3;
+- (id)initWithPath:(id)arg1 schema:(id)arg2;
 - (long long)insertOrReplaceInto:(id)arg1 values:(id)arg2;
 - (long long)insertOrReplaceObject:(id)arg1;
 - (bool)isOpen;
@@ -66,8 +63,8 @@
 - (void)removeAllStatements;
 - (void)removePropertyForKey:(id)arg1;
 - (void)rollback;
-- (id)schemaPath;
-- (unsigned long long)schemaVersion;
+- (id)schema;
+- (id)schemaVersion;
 - (id)select:(id)arg1 from:(id)arg2 where:(id)arg3 bindings:(id)arg4;
 - (id)select:(id)arg1 from:(id)arg2;
 - (id)selectAllFrom:(id)arg1 where:(id)arg2 bindings:(id)arg3;

@@ -9,6 +9,7 @@
 }
 
 + (bool)setupAssistantNeedsToRun;
++ (bool)setupAssistantNeedsToRunReturningRequirements:(unsigned long long*)arg1;
 
 - (void)aboutButtonTouched:(id)arg1;
 - (void)dealloc;

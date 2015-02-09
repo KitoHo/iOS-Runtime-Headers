@@ -8,6 +8,7 @@
 }
 
 @property(retain) PLAdditionalAssetAttributes * assetAttributes;
+@property(retain) NSString * assetUuid;
 @property(retain) PLCloudMaster * cloudMaster;
 @property(retain) NSString * filePath;
 @property long long fileSize;
@@ -31,6 +32,6 @@
 - (void)applyPropertiesFromCloudResource:(id)arg1 forAsset:(id)arg2;
 - (id)cplResourceWithItemIdentifier:(id)arg1 includeFile:(bool)arg2;
 - (id)description;
-- (id)localPathForAsset:(id)arg1;
+- (void)duplicatePropertiesFromCloudResource:(id)arg1 withFilePath:(id)arg2 forAssetUuid:(id)arg3;
 
 @end

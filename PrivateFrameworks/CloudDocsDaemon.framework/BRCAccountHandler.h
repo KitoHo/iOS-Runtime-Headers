@@ -18,7 +18,7 @@
 
 + (void)_migrateAccountIfNecessaryForAccountID:(id)arg1;
 + (id)inSystemStoreAccountIDForUbiquityDataclass;
-+ (id)inSystemStoreAccountIDWithServiceValidation:(bool)arg1 isServiceEnabled:(bool*)arg2;
++ (id)inSystemStoreAccountIDWithServiceValidation:(bool)arg1 isServiceEnabled:(bool*)arg2 didCompleteFirstSyncDown:(bool*)arg3;
 + (id)inSystemStoreAccountIDWithServiceValidation:(bool)arg1;
 + (bool)isAccountStillUsingUbiquity;
 

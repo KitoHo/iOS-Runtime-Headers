@@ -27,6 +27,9 @@
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
++ (id)_publisherBulletinIDForReminder:(id)arg1;
++ (id)_publisherBulletinIDForTask:(void*)arg1;
++ (id)_publisherBulletinIDForTaskUniqueIdentifier:(id)arg1;
 + (id)sharedInstance;
 
 - (void)_adjustFences:(id)arg1;

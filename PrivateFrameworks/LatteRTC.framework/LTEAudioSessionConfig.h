@@ -13,6 +13,7 @@
     unsigned long long _dtmfTimestampRate;
     LTENetworkAddress *_localAddress;
     unsigned long long _maxPtime;
+    long long _preferredAMRMode;
     unsigned long long _ptime;
     long long _rateModeMask;
     LTENetworkAddress *_remoteAddress;
@@ -41,6 +42,7 @@
 @property(retain) LTENetworkAddress * localAddress;
 @property unsigned long long maxPtime;
 @property(getter=isOctectAligned) bool octetAligned;
+@property long long preferredAMRMode;
 @property unsigned long long ptime;
 @property(getter=isRateAdaptationEnabled) bool rateAdaptationEnabled;
 @property long long rateModeMask;
@@ -76,6 +78,7 @@
 - (bool)isValidConfig;
 - (id)localAddress;
 - (unsigned long long)maxPtime;
+- (long long)preferredAMRMode;
 - (unsigned long long)ptime;
 - (long long)rateModeMask;
 - (id)remoteAddress;
@@ -94,6 +97,7 @@
 - (void)setLocalAddress:(id)arg1;
 - (void)setMaxPtime:(unsigned long long)arg1;
 - (void)setOctetAligned:(bool)arg1;
+- (void)setPreferredAMRMode:(long long)arg1;
 - (void)setPtime:(unsigned long long)arg1;
 - (void)setRateAdaptationEnabled:(bool)arg1;
 - (void)setRateModeMask:(long long)arg1;

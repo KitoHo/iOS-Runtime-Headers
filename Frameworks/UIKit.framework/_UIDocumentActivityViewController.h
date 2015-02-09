@@ -21,6 +21,5 @@
 - (void)setDocumentInteractionController:(id)arg1;
 - (void)setHideSystemActivities:(bool)arg1;
 - (bool)sourceIsManaged;
-- (void)viewDidDisappear:(bool)arg1;
 
 @end

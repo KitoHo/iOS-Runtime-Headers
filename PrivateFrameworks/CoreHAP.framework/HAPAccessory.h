@@ -63,6 +63,6 @@
 - (void)setServices:(id)arg1;
 - (void)setUniqueIdentifier:(id)arg1;
 - (id)uniqueIdentifier;
-- (void)writeValue:(id)arg1 forCharacteristic:(id)arg2 queue:(id)arg3 completionHandler:(id)arg4;
+- (void)writeValue:(id)arg1 forCharacteristic:(id)arg2 authorizationData:(id)arg3 queue:(id)arg4 completionHandler:(id)arg5;
 
 @end

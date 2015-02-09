@@ -2,15 +2,21 @@
    Image: /System/Library/PrivateFrameworks/CommunicationsSetupUI.framework/CommunicationsSetupUI
  */
 
+/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
+   See Warning(s) below.
+ */
+
 @class CNFRegAlias, NSArray, PSSpecifier;
 
 @interface CNFRegAliasDetailController : CNFRegListController {
+    id _alertHandler;
     CNFRegAlias *_alias;
     PSSpecifier *_removeButtonSpecifier;
     PSSpecifier *_removeGroupSpecifier;
     NSArray *_resendValidationSpecifierGroup;
 }
 
+@property(copy) id alertHandler;
 @property(retain) CNFRegAlias * alias;
 
 - (void)_buildSpecifierCache:(id)arg1;
@@ -18,12 +24,15 @@
 - (void)_showAliasValidationError:(id)arg1;
 - (void)_showResendGroup:(bool)arg1 animated:(bool)arg2;
 - (void)_updateUIAnimated:(bool)arg1;
+- (id)alertHandler;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
 - (id)alias;
 - (id)bundle;
 - (void)dealloc;
 - (void)forgetAliasTapped:(id)arg1;
 - (id)initWithRegController:(id)arg1 alias:(id)arg2;
 - (void)resendValidationEmailTapped:(id)arg1;
+- (void)setAlertHandler:(id)arg1;
 - (void)setAlias:(id)arg1;
 - (void)setRemoveAliasEnabled:(bool)arg1 animated:(bool)arg2;
 - (void)showRemoveAliasConfirmation;

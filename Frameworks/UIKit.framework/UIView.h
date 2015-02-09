@@ -56,10 +56,11 @@
         unsigned int subviewWantsAutolayout : 1; 
         unsigned int isApplyingValuesFromEngine : 1; 
         unsigned int isInAutolayout : 1; 
-        unsigned int isUpdatingAutoresizingConstraints : 1; 
+        unsigned int isSubviewUpdatingAutoresizingConstraints : 1; 
         unsigned int isUpdatingConstraints : 1; 
         unsigned int isHostingUpdateConstraintsPassDuringLayout : 1; 
         unsigned int isRunningEngineLevelConstraintsPass : 1; 
+        unsigned int isUnsatisfiableConstraintsLoggingSuspended : 1; 
         unsigned int systemLayoutFittingSizeNeedsUpdate : 1; 
         unsigned int systemLayoutFittingSizeNeedsUpdateInWholeSubtree : 1; 
         unsigned int isCalculatingSystemLayoutFittingSize : 1; 
@@ -178,6 +179,8 @@
 @property long long tag;
 @property(readonly) UITraitCollection * traitCollection;
 @property struct CGAffineTransform { double x1; double x2; double x3; double x4; double x5; double x6; } transform;
+@property(getter=_isUnsatisfiableConstraintsLoggingSuspended,setter=_setUnsatisfiableConstraintsLoggingSuspended:) bool unsatisfiableConstraintsLoggingSuspended;
+@property(getter=_isUnsatisfiableConstraintsLoggingSuspended,setter=_setUnsatisfiableConstraintsLoggingSuspended:) bool unsatisfiableConstraintsLoggingSuspended;
 @property(getter=isUserInteractionEnabled) bool userInteractionEnabled;
 @property(getter=_viewDelegate,setter=_setViewDelegate:) UIViewController * viewDelegate;
 @property bool viewTraversalMark;
@@ -423,6 +426,7 @@
 - (struct CGPoint { double x1; double x2; })_constrainedScrollPoint:(struct CGPoint { double x1; double x2; })arg1 contentSize:(struct CGSize { double x1; double x2; })arg2;
 - (id)_constraintForIdentifier:(id)arg1;
 - (id)_constraintsArray;
+- (id)_constraintsBrokenWhileUnsatisfiableConstraintsLoggingSuspended;
 - (id)_constraintsEquivalentToAutoresizingMask;
 - (id)_constraintsExceptingSubviewAutoresizingConstraints;
 - (id)_constraintsValidityDescription;
@@ -593,6 +597,7 @@
 - (bool)_isRootForKeyResponderCycle;
 - (bool)_isRubberBanding;
 - (bool)_isScrollingEnabled;
+- (bool)_isUnsatisfiableConstraintsLoggingSuspended;
 - (bool)_isViewHierarchyPreparedForConstraint:(id)arg1;
 - (void)_is_layout;
 - (bool)_is_needsLayout;
@@ -679,6 +684,7 @@
 - (id)_rc_constraintsNamed:(id)arg1;
 - (void)_rebuildLayoutFromScratch;
 - (void)_receiveVisitor:(id)arg1;
+- (void)_recordConstraintBrokenWhileUnsatisfiableConstraintsLoggingSuspended:(id)arg1;
 - (id)_recursiveAutolayoutTraceAtLevel:(long long)arg1;
 - (void)_recursiveCollectTemporaryInternalConstraintsWithEngine:(id)arg1 ignoreAutoresizingMaskConstraints:(bool)arg2 returningConstraintsForViewsNeedingSecondPass:(id*)arg3 constraintsRemovedForFitting:(id)arg4 constraintsAddedForFitting:(id)arg5;
 - (id)_recursiveConstraintsTraceAtLevel:(long long)arg1;
@@ -789,6 +795,7 @@
 - (void)_setTraitStorageConstraints:(id)arg1;
 - (void)_setTraitStorageSubviews:(id)arg1;
 - (void)_setTransformForBackdropMaskViews:(struct CGAffineTransform { double x1; double x2; double x3; double x4; double x5; double x6; })arg1;
+- (void)_setUnsatisfiableConstraintsLoggingSuspended:(bool)arg1;
 - (void)_setUserInterfaceIdiom:(long long)arg1;
 - (void)_setViewDelegate:(id)arg1;
 - (void)_setVisualAltitude:(double)arg1;
@@ -892,6 +899,8 @@
 - (id)_window;
 - (void)_withAutomaticEngineOptimizationDisabled:(id)arg1;
 - (void)_withAutomaticEngineOptimizationDisabledIfEngineExists:(id)arg1;
+- (void)_withUnsatisfiableConstraintsLoggingSuspendedIfEngineDelegateExists:(id)arg1;
+- (void)_wrappedProcessTraitsDidChangeRecursively:(id)arg1 forceNotification:(bool)arg2;
 - (float)_zoomAnimationDurationForScale:(double)arg1;
 - (float)_zoomAnimationProgress;
 - (float)_zoomScale;
@@ -917,9 +926,7 @@
 - (void)addGestureRecognizer:(id)arg1;
 - (void)addMotionEffect:(id)arg1;
 - (void)addSubview:(id)arg1;
-- (void)addTransformAnimationWithStartTime:(double)arg1 duration:(double)arg2 timing:(id)arg3;
 - (void)addTransformSpringWithMass:(double)arg1 stiffness:(double)arg2 damping:(double)arg3 startTime:(double)arg4 timing:(id)arg5;
-- (void)addTranslationAnimationWithStartTime:(double)arg1 duration:(double)arg2 timing:(id)arg3;
 - (void)addTranslationSpringWithMass:(double)arg1 stiffness:(double)arg2 damping:(double)arg3 startTime:(double)arg4 timing:(id)arg5;
 - (void)addTranslationSpringWithMass:(double)arg1 stiffness:(double)arg2 damping:(double)arg3 startTime:(double)arg4 velocity:(double)arg5 timing:(id)arg6;
 - (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })alignmentRectForFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;

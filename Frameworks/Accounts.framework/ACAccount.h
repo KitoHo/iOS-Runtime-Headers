@@ -64,6 +64,7 @@
 @property(setter=aa_setPrimaryAccount:) bool aa_isPrimaryAccount;
 @property(setter=aa_setPrimaryEmailVerified:) bool aa_isPrimaryEmailVerified;
 @property(setter=aa_setSyncedAccount:) bool aa_isSyncedAccount;
+@property(setter=aa_setUndergoingRepair:) bool aa_isUndergoingRepair;
 @property(setter=aa_setUsesCloudDocs:) bool aa_isUsingCloudDocs;
 @property(setter=aa_setLastName:,copy) NSString * aa_lastName;
 @property(readonly) NSString * aa_mapsToken;
@@ -74,6 +75,7 @@
 @property(readonly) NSString * aa_personID;
 @property(readonly) NSString * aa_primaryEmail;
 @property(readonly) NSString * aa_protocolVersion;
+@property(readonly) int aa_repairerPID;
 @property(readonly) bool aa_serviceUnavailable;
 @property(readonly) NSDictionary * aa_serviceUnavailableInfo;
 @property(readonly) NSString * aa_syncStoreIdentifier;
@@ -158,6 +160,7 @@
 - (bool)aa_isPrimaryAccount;
 - (bool)aa_isPrimaryEmailVerified;
 - (bool)aa_isSyncedAccount;
+- (bool)aa_isUndergoingRepair;
 - (bool)aa_isUsingCloudDocs;
 - (id)aa_lastName;
 - (id)aa_mapsToken;
@@ -169,6 +172,7 @@
 - (id)aa_primaryEmail;
 - (id)aa_protocolVersion;
 - (void)aa_removeCerts;
+- (int)aa_repairerPID;
 - (bool)aa_serviceUnavailable;
 - (id)aa_serviceUnavailableInfo;
 - (void)aa_setAuthToken:(id)arg1;
@@ -182,6 +186,7 @@
 - (void)aa_setPrimaryAccount:(bool)arg1;
 - (void)aa_setPrimaryEmailVerified:(bool)arg1;
 - (void)aa_setSyncedAccount:(bool)arg1;
+- (void)aa_setUndergoingRepair:(bool)arg1;
 - (void)aa_setUseCellular:(bool)arg1 forDataclass:(id)arg2;
 - (void)aa_setUsesCloudDocs:(bool)arg1;
 - (id)aa_syncStoreIdentifier;

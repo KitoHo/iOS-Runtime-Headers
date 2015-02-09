@@ -6,7 +6,7 @@
    See Warning(s) below.
  */
 
-@class <CPLEngineStoreUserIdentifier>, <CPLEngineTransportSetupTask>, CPLBackgroundDownloadsTask, CPLBackgroundUploadsTask, CPLEngineLibrary, CPLEngineSyncEmergencyTask, CPLMinglePulledChangesTask, CPLPlatformObject, CPLPullFromTransportTask, CPLPushToTransportTask, NSError, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class <CPLEngineStoreUserIdentifier>, <CPLEngineTransportSetupTask>, CPLBackgroundDownloadsTask, CPLBackgroundUploadsTask, CPLEngineLibrary, CPLEngineSyncEmergencyTask, CPLGetAssetCountsTask, CPLMinglePulledChangesTask, CPLPlatformObject, CPLPullFromTransportTask, CPLPushToTransportTask, NSError, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface CPLEngineSyncManager : NSObject <CPLEngineSyncEmergencyTaskDelegate, CPLPushToTransportTaskDelegate, CPLPullFromTransportTaskDelegate, CPLMinglePulledChangesTaskDelegate, CPLBackgroundUploadsTaskDelegate, CPLBackgroundDownloadsTaskDelegate, CPLAbstractObject, CPLEngineComponent> {
     NSMutableArray *_archivedManagementTasks;
@@ -15,6 +15,7 @@
     id _closingCompletionHandler;
     NSMutableDictionary *_completionHandlerPerTaskIdentifier;
     CPLEngineLibrary *_engineLibrary;
+    CPLGetAssetCountsTask *_getAssetCountsTask;
     NSError *_lastError;
     NSMutableArray *_lastErrors;
     NSObject<OS_dispatch_queue> *_lock;
@@ -51,6 +52,7 @@
 - (void)_advanceToNextStateLocked;
 - (void)_cancelAllTasksForBackgroundDownloads;
 - (void)_cancelAllTasksForBackgroundUploads;
+- (void)_cancelAllTasksForGetAssetCounts;
 - (void)_cancelAllTasksForManagement;
 - (void)_cancelAllTasksForPull;
 - (void)_cancelAllTasksForPush;
@@ -59,6 +61,7 @@
 - (id)_descriptionForBackgroundDownloadsTasks;
 - (id)_descriptionForBackgroundUploadsTasks;
 - (id)_descriptionForCurrentState;
+- (id)_descriptionForGetAssetCountsTasks;
 - (id)_descriptionForLaunchedTasks;
 - (id)_descriptionForManagementTasks;
 - (id)_descriptionForPullTasks;
@@ -66,6 +69,7 @@
 - (id)_descriptionForSetupTasks;
 - (bool)_didFinishBackgroundDownloadsTask:(id)arg1 withError:(id)arg2 shouldStop:(bool*)arg3;
 - (bool)_didFinishBackgroundUploadsTask:(id)arg1 withError:(id)arg2 shouldStop:(bool*)arg3;
+- (bool)_didFinishGetAssetCountsTask:(id)arg1 withError:(id)arg2 shouldStop:(bool*)arg3;
 - (bool)_didFinishManagementTask:(id)arg1 withError:(id)arg2 shouldStop:(bool*)arg3;
 - (bool)_didFinishPullTask:(id)arg1 withError:(id)arg2 shouldStop:(bool*)arg3;
 - (bool)_didFinishPushTask:(id)arg1 withError:(id)arg2 shouldStop:(bool*)arg3;
@@ -74,6 +78,7 @@
 - (bool)_launchNecessaryTasksForBackgroundDownloads;
 - (bool)_launchNecessaryTasksForBackgroundUploads;
 - (bool)_launchNecessaryTasksForCurrentStateLocked;
+- (bool)_launchNecessaryTasksForGetAssetCounts;
 - (bool)_launchNecessaryTasksForPull;
 - (bool)_launchNecessaryTasksForPush;
 - (bool)_launchSetupTask;
@@ -83,6 +88,7 @@
 - (bool)_prepareAndLaunchSyncTask:(id*)arg1;
 - (float)_progressForBackgroundDownloadsTask:(id)arg1 progress:(float)arg2;
 - (float)_progressForBackgroundUploadsTask:(id)arg1 progress:(float)arg2;
+- (float)_progressForGetAssetCountsTask:(id)arg1 progress:(float)arg2;
 - (float)_progressForPullTask:(id)arg1 progress:(float)arg2;
 - (float)_progressForPushTask:(id)arg1 progress:(float)arg2;
 - (void)_resetErrorForSyncSession;

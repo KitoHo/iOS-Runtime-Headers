@@ -48,7 +48,7 @@
 - (int)CPLDownloadUpdateNotifyToken;
 - (bool)_asyncFetchCloudSharedAnySizeImageAsNon5551BytesIfNecessaryWithRequest:(id)arg1 library:(id)arg2 format:(int)arg3 bestFormat:(int)arg4 optimalSourcePixelSize:(struct CGSize { double x1; double x2; })arg5 sync:(bool)arg6 completionHandler:(id)arg7;
 - (void)_asyncGenerateLiveRenderedImageWithRequest:(id)arg1 library:(id)arg2 format:(int)arg3 desiredImagePixelSize:(struct CGSize { double x1; double x2; })arg4 completionHandler:(id)arg5;
-- (void)_cancelAndFlushPreheatItemsForAssets:(id)arg1 domain:(id)arg2 passingTestHandler:(id)arg3;
+- (void)_cancelAndFlushPreheatItemsForAssets:(id)arg1 domain:(id)arg2 operation:(long long)arg3 passingTestHandler:(id)arg4;
 - (void)_cancelAndFlushPreheatWithAsset:(id)arg1 format:(int)arg2 domain:(id)arg3;
 - (bool)_cancelAndFlushPreheatWithAsset:(id)arg1 preheatItem:(id)arg2 domain:(id)arg3;
 - (void)_cancelAsynchronousRequestWithID:(int)arg1;

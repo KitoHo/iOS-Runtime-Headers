@@ -4,7 +4,7 @@
 
 @class MKMapView, NSArray, NSMutableArray, NSObject<PLDiagnosticsProvider>, NSString, PHFetchResult, PUMapAnnotationManager, PUMapViewControllerSpec;
 
-@interface PUMapViewController : UIViewController <PHPhotoLibraryChangeObserver, MKMapViewDelegate, PUMapAnnotationManagerDataSource, PUPhotoBrowserZoomTransitionDelegate, PUStackedAlbumTransitionDelegate> {
+@interface PUMapViewController : UIViewController <PUPhotoLibraryUIChangeObserver, MKMapViewDelegate, PUMapAnnotationManagerDataSource, PUPhotoBrowserZoomTransitionDelegate, PUStackedAlbumTransitionDelegate> {
     struct CGSize { 
         double width; 
         double height; 
@@ -60,7 +60,8 @@
 - (id)mapView:(id)arg1 viewForAnnotation:(id)arg2;
 - (id)mapView:(id)arg1 viewForOverlay:(id)arg2;
 - (unsigned long long)maxItemsInitialZoom;
-- (void)photoLibraryDidChange:(id)arg1;
+- (void)photoLibraryDidChangeOnMainQueue:(id)arg1;
+- (void)prepareForPhotoLibraryChange:(id)arg1;
 - (bool)pu_wantsTabBarVisible;
 - (bool)pu_wantsToolbarVisible;
 - (void)setDiagnosticsProvider:(id)arg1;
