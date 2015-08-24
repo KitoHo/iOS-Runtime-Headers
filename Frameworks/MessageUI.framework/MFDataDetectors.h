@@ -2,14 +2,13 @@
    Image: /System/Library/Frameworks/MessageUI.framework/MessageUI
  */
 
-@interface MFDataDetectors : NSObject {
-}
+@interface MFDataDetectors : NSObject
 
 + (Class)_DDURLifierClass;
 + (id)sharedDetectionController;
-+ (bool)urlIfyNode:(id)arg1 phoneNumberTypes:(unsigned long long)arg2;
-+ (bool)urlIfyNode:(id)arg1;
-+ (id)urlMatchesForString:(id)arg1 includingTel:(bool)arg2;
++ (BOOL)urlIfyNode:(id)arg1;
++ (BOOL)urlIfyNode:(id)arg1 phoneNumberTypes:(unsigned int)arg2;
 + (id)urlMatchesForString:(id)arg1;
++ (id)urlMatchesForString:(id)arg1 includingTel:(BOOL)arg2;
 
 @end

@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@interface EKEventEditableDetailGroup : EKEventDetailGroup {
-}
+@interface EKEventEditableDetailGroup : EKEventDetailGroup
 
-- (id)itemAtIndex:(unsigned long long)arg1;
+- (id)itemAtIndex:(unsigned int)arg1;
 
 @end

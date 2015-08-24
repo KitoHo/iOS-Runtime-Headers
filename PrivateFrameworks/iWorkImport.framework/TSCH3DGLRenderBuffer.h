@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString;
-
 @interface TSCH3DGLRenderBuffer : NSObject <TSCH3DGLBindable> {
     unsigned int mBuffer;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void)bindInSession:(id)arg1;
 - (void)deactivateInContext:(id)arg1;
@@ -19,6 +17,6 @@
 - (id)description;
 - (void)destroyResourcesInContext:(id)arg1;
 - (id)initWithGLBuffer:(unsigned int)arg1;
-- (bool)valid;
+- (BOOL)valid;
 
 @end

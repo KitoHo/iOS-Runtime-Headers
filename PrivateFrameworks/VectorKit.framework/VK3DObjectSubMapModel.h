@@ -2,48 +2,48 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class VKBuildingFootprintMapModel;
-
 @interface VK3DObjectSubMapModel : NSObject {
-    struct unique_ptr<ggl::FragmentedPool<ggl::Building::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::Building::Shader::Setup> > > { 
-        struct __compressed_pair<ggl::FragmentedPool<ggl::Building::Shader::Setup> *, std::__1::default_delete<ggl::FragmentedPool<ggl::Building::Shader::Setup> > > { 
-            struct FragmentedPool<ggl::Building::Shader::Setup> {} *__first_; 
+    VKBuildingFootprintMapModel *_buildingMapModel;
+    struct unique_ptr<ggl::FragmentedPool<ggl::FoggedBuilding::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::FoggedBuilding::Shader::Setup> > > { 
+        struct __compressed_pair<ggl::FragmentedPool<ggl::FoggedBuilding::Shader::Setup> *, std::__1::default_delete<ggl::FragmentedPool<ggl::FoggedBuilding::Shader::Setup> > > { 
+            struct FragmentedPool<ggl::FoggedBuilding::Shader::Setup> {} *__first_; 
         } __ptr_; 
+    } _foggedObjectShaderSetupPool;
     struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState> > { 
         struct __compressed_pair<ggl::RenderState *, std::__1::default_delete<ggl::RenderState> > { 
             struct RenderState {} *__first_; 
         } __ptr_; 
+    } _object2DRenderState;
     struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState> > { 
         struct __compressed_pair<ggl::RenderState *, std::__1::default_delete<ggl::RenderState> > { 
             struct RenderState {} *__first_; 
         } __ptr_; 
+    } _object2DRenderStateWithBlending;
     struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState> > { 
         struct __compressed_pair<ggl::RenderState *, std::__1::default_delete<ggl::RenderState> > { 
             struct RenderState {} *__first_; 
         } __ptr_; 
+    } _object3DRenderState;
     struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState> > { 
         struct __compressed_pair<ggl::RenderState *, std::__1::default_delete<ggl::RenderState> > { 
             struct RenderState {} *__first_; 
         } __ptr_; 
+    } _object3DRenderStateWithBlending;
     struct unique_ptr<ggl::FragmentedPool<ggl::RenderItem>, std::__1::default_delete<ggl::FragmentedPool<ggl::RenderItem> > > { 
         struct __compressed_pair<ggl::FragmentedPool<ggl::RenderItem> *, std::__1::default_delete<ggl::FragmentedPool<ggl::RenderItem> > > { 
             struct FragmentedPool<ggl::RenderItem> {} *__first_; 
         } __ptr_; 
-    VKBuildingFootprintMapModel *_buildingMapModel;
-    } _object2DRenderState;
-    } _object2DRenderStateWithBlending;
-    } _object3DRenderState;
-    } _object3DRenderStateWithBlending;
     } _objectRenderItemPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::Building::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::Building::Shader::Setup> > > { 
+        struct __compressed_pair<ggl::FragmentedPool<ggl::Building::Shader::Setup> *, std::__1::default_delete<ggl::FragmentedPool<ggl::Building::Shader::Setup> > > { 
+            struct FragmentedPool<ggl::Building::Shader::Setup> {} *__first_; 
+        } __ptr_; 
     } _objectShaderSetupPool;
+    int _vectorType;
 }
 
-@property VKBuildingFootprintMapModel * buildingMapModel;
+@property (nonatomic) VKBuildingFootprintMapModel *buildingMapModel;
+@property (nonatomic) int vectorType;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
@@ -53,5 +53,7 @@
 - (id)initWithBuildingMapModel:(id)arg1;
 - (void)resetPools;
 - (void)setBuildingMapModel:(id)arg1;
+- (void)setVectorType:(int)arg1;
+- (int)vectorType;
 
 @end

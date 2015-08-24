@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/MIME.framework/MIME
  */
 
-@class MFMimePart;
-
 @interface MFMimeBody : MFMessageBody {
-    unsigned int _preferredAlternative : 16;
-    unsigned int _numAlternatives : 16;
+    unsigned int _numAlternatives;
+    unsigned int _preferredAlternative;
     MFMimePart *_topLevelPart;
 }
 
@@ -15,23 +13,23 @@
 
 - (id)attachmentURLs;
 - (id)attachments;
-- (id)contentToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long*)arg2 asHTML:(bool)arg3 isComplete:(bool*)arg4;
+- (id)contentToOffset:(unsigned int)arg1 resultOffset:(unsigned int*)arg2 asHTML:(BOOL)arg3 isComplete:(BOOL*)arg4;
 - (void)dealloc;
-- (id)firstPartPassingTest:(id)arg1;
+- (id)firstPartPassingTest:(id /* block */)arg1;
 - (id)init;
-- (bool)isHTML;
-- (bool)isRich;
+- (BOOL)isHTML;
+- (BOOL)isRich;
 - (id)mimeSubtype;
 - (id)mimeType;
-- (long long)numberOfAlternatives;
-- (unsigned int)numberOfAttachmentsSigned:(bool*)arg1 encrypted:(bool*)arg2;
+- (int)numberOfAlternatives;
+- (unsigned int)numberOfAttachmentsSigned:(BOOL*)arg1 encrypted:(BOOL*)arg2;
 - (id)partWithNumber:(id)arg1;
-- (long long)preferredAlternative;
+- (int)preferredAlternative;
 - (id)preferredBodyPart;
-- (void)setPreferredAlternative:(long long)arg1;
+- (void)setPreferredAlternative:(int)arg1;
 - (void)setTopLevelPart:(id)arg1;
 - (id)textHtmlPart;
 - (id)topLevelPart;
-- (unsigned long long)totalTextSize;
+- (unsigned int)totalTextSize;
 
 @end

@@ -2,8 +2,7 @@
    Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
  */
 
-@interface HDMetadataKeyEntity : HDHealthEntity {
-}
+@interface HDMetadataKeyEntity : HDHealthEntity
 
 + (id)_entityForKey:(id)arg1 database:(id)arg2;
 + (id)_insertEntityWithKey:(id)arg1 database:(id)arg2;
@@ -13,8 +12,7 @@
 + (id)databaseTable;
 + (id)entityForKey:(id)arg1 healthDatabase:(id)arg2 error:(id*)arg3;
 + (id)insertEntityWithKey:(id)arg1 healthDatabase:(id)arg2 error:(id*)arg3;
-+ (void)load;
-+ (long long)protectionClass;
++ (int)protectionClass;
 + (id)resultForKeyID:(id)arg1 healthDatabase:(id)arg2;
 
 - (id)resultWithDatabase:(id)arg1;

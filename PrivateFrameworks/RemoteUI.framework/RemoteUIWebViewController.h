@@ -2,44 +2,38 @@
    Image: /System/Library/PrivateFrameworks/RemoteUI.framework/RemoteUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <RemoteUIWebViewControllerDelegate>, NSString, UIToolbar, UIWebView, _UIBackdropView;
-
 @interface RemoteUIWebViewController : UIViewController <UIWebViewDelegate> {
     <RemoteUIWebViewControllerDelegate> *_delegate;
-    id _loadCompletion;
+    id /* block */ _loadCompletion;
+    BOOL _scalesPageToFit;
     _UIBackdropView *_statusBarBackdrop;
     UIToolbar *_toolbar;
     UIWebView *_webView;
-    bool_scalesPageToFit;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <RemoteUIWebViewControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property bool scalesPageToFit;
-@property(readonly) Class superclass;
-@property(readonly) UIToolbar * toolbar;
-@property(readonly) UIWebView * webView;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <RemoteUIWebViewControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) BOOL scalesPageToFit;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) UIToolbar *toolbar;
+@property (nonatomic, readonly) UIWebView *webView;
 
 - (void).cxx_destruct;
 - (void)dealloc;
 - (id)delegate;
 - (void)donePressed:(id)arg1;
-- (void)loadURL:(id)arg1 completion:(id)arg2;
 - (void)loadURL:(id)arg1;
-- (bool)scalesPageToFit;
+- (void)loadURL:(id)arg1 completion:(id /* block */)arg2;
+- (BOOL)scalesPageToFit;
 - (void)setDelegate:(id)arg1;
-- (void)setScalesPageToFit:(bool)arg1;
+- (void)setScalesPageToFit:(BOOL)arg1;
 - (id)toolbar;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
-- (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
 - (id)webView;
+- (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
 - (void)webViewDidFinishLoad:(id)arg1;
 
 @end

@@ -2,15 +2,13 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVWeakReference, NSDictionary, NSString;
-
 @interface AVMediaSelectionKeyValueOption : AVMediaSelectionOption {
     NSDictionary *_dictionary;
+    BOOL _displaysNonForcedSubtitles;
     id _groupID;
     id _groupMediaType;
     NSString *_optionMediaType;
     AVWeakReference *_weakReferenceToGroup;
-    bool_displaysNonForcedSubtitles;
 }
 
 - (id)_groupID;
@@ -20,11 +18,11 @@
 - (void)dealloc;
 - (id)dictionary;
 - (id)group;
-- (bool)hasMediaCharacteristic:(id)arg1;
-- (unsigned long long)hash;
+- (BOOL)hasMediaCharacteristic:(id)arg1;
+- (unsigned int)hash;
 - (id)initWithAsset:(id)arg1 group:(id)arg2 dictionary:(id)arg3;
-- (bool)isEqual:(id)arg1;
-- (bool)isPlayable;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isPlayable;
 - (id)locale;
 - (id)mediaSubTypes;
 - (id)mediaType;

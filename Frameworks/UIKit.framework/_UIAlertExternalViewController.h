@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSMutableArray, UIAlertView, UILabel;
-
 @interface _UIAlertExternalViewController : UIViewController {
     NSMutableArray *_buttons;
     UILabel *_messageLabel;
@@ -11,10 +9,10 @@
     UILabel *_titleLabel;
 }
 
-@property UIAlertView * representedAlert;
+@property (nonatomic) UIAlertView *representedAlert;
 
 - (void)_buttonTapped:(id)arg1;
-- (id)_buttonWithTitle:(id)arg1 index:(long long)arg2;
+- (id)_buttonWithTitle:(id)arg1 index:(int)arg2;
 - (void)_dismissIfCapable;
 - (id)_messageAttributedString;
 - (id)_messageAttributedStringSmallText;

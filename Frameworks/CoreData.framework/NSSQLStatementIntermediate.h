@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSSQLEntity, NSSQLLimitIntermediate, NSSQLOrderIntermediate, NSSQLWhereIntermediate, NSString;
-
 @interface NSSQLStatementIntermediate : NSSQLIntermediate {
     NSString *_correlationToken;
     NSString *_governingAlias;
@@ -19,7 +17,7 @@
 - (id)governingEntity;
 - (id)governingEntityForKeypathExpression:(id)arg1;
 - (id)initWithEntity:(id)arg1 alias:(id)arg2 inScope:(id)arg3;
-- (bool)keypathExpressionIsSafeLHSForIn:(id)arg1;
+- (BOOL)keypathExpressionIsSafeLHSForIn:(id)arg1;
 - (id)limitIntermediate;
 - (id)orderIntermediate;
 - (void)setCorrelationToken:(id)arg1;

@@ -2,35 +2,38 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSDictionary, NSHashTable, NSMutableDictionary, NSMutableOrderedSet, NSString, TSPObjectContext, TSPPasteboard, TSPPasteboardNativeDataProvider, TSPPasteboardObject, TSURetainedPointerKeyDictionary;
-
-@interface TSPPasteboardWriteAssistant : NSObject <TSPPasteboardWriting, TSPProxyObjectManager> {
+@interface TSPPasteboardWriteAssistant : NSObject <TSPEncoderWriteCoordinatorDelegate, TSPPasteboardWriting, TSPProxyObjectMapping> {
     NSDictionary *_contentDescription;
     NSMutableDictionary *_dataProviderMap;
     NSMutableOrderedSet *_dataProviderTypes;
-    NSHashTable *_delayedObjects;
-    long long _nativeDataOnceToken;
+    BOOL _didAttemptToSerializeNativeData;
+    TSPMemoryEncoder *_encoder;
+    BOOL _excludeNativeData;
+    long _nativeDataOnceToken;
     TSPPasteboard *_nativeDataPasteboard;
     TSPPasteboardNativeDataProvider *_nativeDataProvider;
     TSPObjectContext *_pasteboardContext;
     TSPPasteboardObject *_pasteboardObject;
-    TSURetainedPointerKeyDictionary *_proxyObjectMap;
-    long long _writeNativeDataToPasteboardOnceToken;
-    bool_didAttemptToSerializeNativeData;
-    bool_shouldRefuseAdditionalDataProviders;
+    BOOL _shouldRefuseAdditionalDataProviders;
+    TSPEncoderWriteCoordinator *_writeCoordinator;
+    long _writeNativeDataToPasteboardOnceToken;
 }
 
-@property(copy) NSDictionary * contentDescription;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) TSPObjectContext * pasteboardContext;
-@property(readonly) TSPPasteboardObject * pasteboardObject;
-@property(readonly) Class superclass;
+@property (nonatomic, copy) NSDictionary *contentDescription;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) BOOL excludeNativeData;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) TSPObjectContext *pasteboardContext;
+@property (nonatomic, readonly) TSPPasteboardObject *pasteboardObject;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
+- (int)componentWriterMode;
 - (id)contentDescription;
+- (id)createMetadataForRootObject:(id)arg1 dataArchiver:(id)arg2 objectUUIDToIdentifierDictionary:(id)arg3 externalReferences:(id)arg4 weakExternalReferences:(id)arg5 lazyReferences:(id)arg6 dataReferences:(id)arg7 error:(id*)arg8;
 - (void)delayArchivingOfObject:(id)arg1;
+- (BOOL)excludeNativeData;
 - (id)initWithContext:(id)arg1;
 - (void)loadData;
 - (id)pasteboardContext;
@@ -39,7 +42,10 @@
 - (id)proxyForReferencedObject:(id)arg1;
 - (void)setContentDescription:(id)arg1;
 - (void)setDataProvider:(id)arg1 forTypes:(id)arg2;
+- (void)setExcludeNativeData:(BOOL)arg1;
 - (void)setProxy:(id)arg1 forReferencedObject:(id)arg2;
+- (BOOL)skipMetadataObjectSerialization;
+- (id)tspPasteboardWithPasteboard:(id)arg1;
 - (void)waitForNativeDataIfNeeded;
 - (id)writableTypesForPasteboard:(id)arg1;
 - (void)writeNativeDataToPasteboard:(id)arg1;

@@ -2,70 +2,68 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@class NSArray, NSDate, NSString;
-
 @interface EKCalendarEventInvitationNotification : EKCalendarNotification {
+    BOOL _allDay;
+    BOOL _attendeeReplyChanged;
     NSArray *_attendees;
+    BOOL _dateChanged;
     NSDate *_endDate;
+    BOOL _hasRecurrenceRules;
     NSString *_location;
+    BOOL _locationChanged;
     int _participationStatus;
     NSDate *_participationStatusModifiedDate;
     NSDate *_startDate;
     NSDate *_startDateForNextOccurrence;
     int _status;
-    bool_allDay;
-    bool_attendeeReplyChanged;
-    bool_dateChanged;
-    bool_hasRecurrenceRules;
-    bool_locationChanged;
-    bool_timeChanged;
+    BOOL _timeChanged;
 }
 
-@property(getter=isAllDay) bool allDay;
-@property bool attendeeReplyChanged;
-@property(retain) NSArray * attendees;
-@property bool dateChanged;
-@property(retain) NSDate * endDate;
-@property bool hasRecurrenceRules;
-@property(retain) NSString * location;
-@property bool locationChanged;
-@property int participationStatus;
-@property(retain) NSDate * participationStatusModifiedDate;
-@property(retain) NSDate * startDate;
-@property(retain) NSDate * startDateForNextOccurrence;
-@property int status;
-@property bool timeChanged;
+@property (getter=isAllDay, nonatomic) BOOL allDay;
+@property (nonatomic) BOOL attendeeReplyChanged;
+@property (nonatomic, retain) NSArray *attendees;
+@property (nonatomic) BOOL dateChanged;
+@property (nonatomic, retain) NSDate *endDate;
+@property (nonatomic) BOOL hasRecurrenceRules;
+@property (nonatomic, retain) NSString *location;
+@property (nonatomic) BOOL locationChanged;
+@property (nonatomic) int participationStatus;
+@property (nonatomic, retain) NSDate *participationStatusModifiedDate;
+@property (nonatomic, retain) NSDate *startDate;
+@property (nonatomic, retain) NSDate *startDateForNextOccurrence;
+@property (nonatomic) int status;
+@property (nonatomic) BOOL timeChanged;
 
-- (bool)attendeeReplyChanged;
+- (BOOL)attendeeReplyChanged;
 - (id)attendees;
-- (bool)dateChanged;
+- (BOOL)dateChanged;
 - (void)dealloc;
 - (id)endDate;
 - (id)eventFromEventStore:(id)arg1;
-- (bool)hasRecurrenceRules;
+- (BOOL)hasRecurrenceRules;
 - (id)initWithEvent:(id)arg1;
-- (bool)isAllDay;
+- (BOOL)isAllDay;
 - (id)location;
-- (bool)locationChanged;
+- (BOOL)locationChanged;
 - (int)participationStatus;
 - (id)participationStatusModifiedDate;
-- (void)setAllDay:(bool)arg1;
-- (void)setAttendeeReplyChanged:(bool)arg1;
+- (void)setAllDay:(BOOL)arg1;
+- (void)setAttendeeReplyChanged:(BOOL)arg1;
 - (void)setAttendees:(id)arg1;
-- (void)setDateChanged:(bool)arg1;
+- (void)setDateChanged:(BOOL)arg1;
 - (void)setEndDate:(id)arg1;
-- (void)setHasRecurrenceRules:(bool)arg1;
+- (void)setHasRecurrenceRules:(BOOL)arg1;
 - (void)setLocation:(id)arg1;
-- (void)setLocationChanged:(bool)arg1;
+- (void)setLocationChanged:(BOOL)arg1;
 - (void)setParticipationStatus:(int)arg1;
 - (void)setParticipationStatusModifiedDate:(id)arg1;
 - (void)setStartDate:(id)arg1;
 - (void)setStartDateForNextOccurrence:(id)arg1;
 - (void)setStatus:(int)arg1;
-- (void)setTimeChanged:(bool)arg1;
+- (void)setTimeChanged:(BOOL)arg1;
 - (id)startDate;
 - (id)startDateForNextOccurrence;
 - (int)status;
-- (bool)timeChanged;
+- (BOOL)timeChanged;
 
 @end

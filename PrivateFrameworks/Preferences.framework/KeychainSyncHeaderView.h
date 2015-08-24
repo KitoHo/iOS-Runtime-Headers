@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class UILabel;
-
 @interface KeychainSyncHeaderView : UIView <PSHeaderFooterView> {
     UILabel *_detailLabel;
     UILabel *_titleLabel;
-    bool_usesCompactLayout;
+    BOOL _usesCompactLayout;
 }
 
-@property bool usesCompactLayout;
+@property (nonatomic) BOOL usesCompactLayout;
 
 - (void)dealloc;
 - (id)initWithSpecifier:(id)arg1;
 - (void)layoutSubviews;
-- (double)preferredHeightForWidth:(double)arg1 inTableView:(id)arg2;
+- (float)preferredHeightForWidth:(float)arg1 inTableView:(id)arg2;
 - (void)setDetailText:(id)arg1;
 - (void)setTitleText:(id)arg1;
-- (void)setUsesCompactLayout:(bool)arg1;
-- (bool)usesCompactLayout;
+- (void)setUsesCompactLayout:(BOOL)arg1;
+- (BOOL)usesCompactLayout;
 
 @end

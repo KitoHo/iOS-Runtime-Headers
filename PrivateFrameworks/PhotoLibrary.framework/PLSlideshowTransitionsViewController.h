@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-@class NSArray, NSMutableArray, NSString, UITableView, UIView;
-
 @interface PLSlideshowTransitionsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     NSArray *_alternateLocalizations;
     UIView *_containerView;
@@ -13,28 +11,28 @@
     NSArray *_transitionKeys;
 }
 
-@property(retain) NSArray * alternateLocalizations;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) NSString * selectedTransition;
-@property(readonly) Class superclass;
-@property(retain) NSArray * transitionKeys;
+@property (nonatomic, retain) NSArray *alternateLocalizations;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NSString *selectedTransition;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSArray *transitionKeys;
 
 - (void)_configureTableCells;
 - (id)alternateLocalizations;
-- (struct CGSize { double x1; double x2; })contentSizeForViewInPopoverView;
+- (struct CGSize { float x1; float x2; })contentSizeForViewInPopoverView;
 - (void)dealloc;
 - (id)initWithTransitions:(id)arg1 alternateTransitionLocalizations:(id)arg2;
 - (void)loadView;
 - (id)selectedTransition;
 - (void)setAlternateLocalizations:(id)arg1;
 - (void)setSelectedTransition:(id)arg1;
-- (void)setTransitionKeys:(id)arg1 alternateLocalizations:(id)arg2;
 - (void)setTransitionKeys:(id)arg1;
+- (void)setTransitionKeys:(id)arg1 alternateLocalizations:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (id)transitionKeys;
 - (void)viewDidUnload;
 

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CorePrediction.framework/CorePrediction
  */
 
-@class NSMutableArray, NSMutableString;
-
 @interface CPMLSchema : NSObject {
     NSMutableArray *attribute;
     NSMutableArray *availableOptions;
@@ -16,32 +14,32 @@
     int yColumnPosition;
 }
 
-@property(readonly) NSMutableArray * attribute;
-@property(readonly) NSMutableArray * availableOptions;
-@property(readonly) NSMutableArray * indexColumnList;
-@property(readonly) NSMutableArray * nsRemapTable;
-@property(readonly) NSMutableString * schemaHeader;
-@property(readonly) NSMutableString * schemaHeaderWithType;
+@property (nonatomic, readonly) NSMutableArray *attribute;
+@property (nonatomic, readonly) NSMutableArray *availableOptions;
+@property (nonatomic, readonly) NSMutableArray *indexColumnList;
+@property (nonatomic, readonly) NSMutableArray *nsRemapTable;
+@property (nonatomic, readonly) NSMutableString *schemaHeader;
+@property (nonatomic, readonly) NSMutableString *schemaHeaderWithType;
 
 - (void).cxx_destruct;
 - (id)attribute;
 - (id)availableOptions;
-- (id)getColumnName:(unsigned long long)arg1;
+- (id)getColumnName:(unsigned int)arg1;
 - (int)getColumnPosition:(id)arg1;
-- (int)getSchemaType:(unsigned long long)arg1;
-- (unsigned long long)getTotalAttributes;
-- (int)getVectorContent:(unsigned long long)arg1;
+- (int)getSchemaType:(unsigned int)arg1;
+- (unsigned int)getTotalAttributes;
+- (int)getVectorContent:(unsigned int)arg1;
 - (int)getYColumnPosition;
-- (bool)hasOptions:(unsigned long long)arg1;
+- (BOOL)hasOptions:(unsigned int)arg1;
 - (id)indexColumnList;
 - (id)init:(id)arg1;
 - (id)initWithPlist:(id)arg1;
-- (bool)isColumnContinous:(unsigned int)arg1;
-- (bool)isIntType:(unsigned long long)arg1;
-- (bool)isNumType:(unsigned long long)arg1;
-- (bool)isRealType:(unsigned long long)arg1;
-- (bool)isStringType:(unsigned long long)arg1;
-- (bool)isVectorType:(unsigned long long)arg1;
+- (BOOL)isColumnContinous:(unsigned long)arg1;
+- (BOOL)isIntType:(unsigned int)arg1;
+- (BOOL)isNumType:(unsigned int)arg1;
+- (BOOL)isRealType:(unsigned int)arg1;
+- (BOOL)isStringType:(unsigned int)arg1;
+- (BOOL)isVectorType:(unsigned int)arg1;
 - (id)nsRemapTable;
 - (id)schemaHeader;
 - (id)schemaHeaderWithType;

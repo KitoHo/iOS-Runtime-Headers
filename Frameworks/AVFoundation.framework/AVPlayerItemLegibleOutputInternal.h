@@ -2,15 +2,13 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class <AVPlayerItemLegibleOutputDependencyFactory>, AVWeakReference, AVWeakReferencingDelegateStorage, NSArray, NSObject<OS_dispatch_queue>, NSString;
-
 @interface AVPlayerItemLegibleOutputInternal : NSObject {
     double advanceInterval;
-    boolsuppressesPlayerRendering;
     AVWeakReferencingDelegateStorage *delegateStorage;
     <AVPlayerItemLegibleOutputDependencyFactory> *dependencyFactory;
     NSObject<OS_dispatch_queue> *ivarAccessQueue;
     NSArray *nativeRepresentationSubtypes;
+    BOOL suppressesPlayerRendering;
     NSString *textStylingResolution;
     AVWeakReference *weakReferenceToHost;
 }

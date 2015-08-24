@@ -2,38 +2,40 @@
    Image: /System/Library/PrivateFrameworks/Stocks.framework/Stocks
  */
 
-@class NSString;
-
 @interface Exchange : NSObject {
     double _lastUpdateTime;
     NSString *_name;
-    long long _status;
+    NSDate *_nextOpenDate;
+    int _status;
     double _streamInterval;
 }
 
-@property(readonly) double lastUpdateTime;
-@property(copy) NSString * name;
-@property long long status;
-@property double streamInterval;
+@property (nonatomic, readonly) double lastUpdateTime;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, retain) NSDate *nextOpenDate;
+@property (nonatomic) int status;
+@property (nonatomic) double streamInterval;
 
 + (id)formattedExchangeNameForName:(id)arg1;
 
 - (void).cxx_destruct;
-- (void)_updateWithDictionary:(id)arg1 newUpdate:(bool)arg2;
+- (void)_updateWithDictionary:(id)arg1 newUpdate:(BOOL)arg2;
 - (id)archiveDictionary;
 - (id)description;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithName:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (double)lastUpdateTime;
-- (bool)marketIsAfterHours;
-- (bool)marketIsOpen;
+- (BOOL)marketIsAfterHours;
+- (BOOL)marketIsOpen;
 - (id)name;
+- (id)nextOpenDate;
 - (void)setName:(id)arg1;
-- (void)setStatus:(long long)arg1;
+- (void)setNextOpenDate:(id)arg1;
+- (void)setStatus:(int)arg1;
 - (void)setStreamInterval:(double)arg1;
-- (long long)status;
+- (int)status;
 - (double)streamInterval;
 - (void)updateWithDictionary:(id)arg1;
 

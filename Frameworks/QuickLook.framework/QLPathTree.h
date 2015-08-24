@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/QuickLook.framework/QuickLook
  */
 
-@class NSMutableArray, NSMutableDictionary, NSString, QLPackageChecker;
-
 @interface QLPathTree : NSObject {
     NSMutableDictionary *_directoryChildren;
     QLPackageChecker *_packageChecker;
@@ -11,7 +9,7 @@
     NSString *_path;
 }
 
-@property(copy,readonly) NSString * path;
+@property (readonly, copy) NSString *path;
 
 - (void)addPath:(id)arg1;
 - (void)addPathComponents:(id)arg1;
@@ -19,11 +17,11 @@
 - (void)dealloc;
 - (id)description;
 - (id)initWithPackageChecker:(id)arg1;
-- (id)initWithPath:(id)arg1 isPackage:(bool)arg2 packageChecker:(id)arg3;
-- (void)insertInItemsSource:(id)arg1 archiveController:(id)arg2 atIndex:(unsigned long long*)arg3 uiIndex:(unsigned long long*)arg4 level:(long long)arg5;
+- (id)initWithPath:(id)arg1 isPackage:(BOOL)arg2 packageChecker:(id)arg3;
 - (void)insertInItemsSource:(id)arg1 archiveController:(id)arg2;
-- (bool)isFolder;
-- (bool)isPackage;
+- (void)insertInItemsSource:(id)arg1 archiveController:(id)arg2 atIndex:(unsigned int*)arg3 uiIndex:(unsigned int*)arg4 level:(int)arg5;
+- (BOOL)isFolder;
+- (BOOL)isPackage;
 - (id)path;
 
 @end

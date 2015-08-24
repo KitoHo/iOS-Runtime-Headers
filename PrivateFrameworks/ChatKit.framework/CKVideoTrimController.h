@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class <CKTrimControllerDelegate>, CKMediaObject, NSString, UIVideoEditorController;
-
-@interface CKVideoTrimController : NSObject <UIVideoEditorControllerDelegatePrivate, UINavigationControllerDelegate> {
+@interface CKVideoTrimController : NSObject <UINavigationControllerDelegate, UIVideoEditorControllerDelegatePrivate> {
     <CKTrimControllerDelegate> *_delegate;
     UIVideoEditorController *_editVideoVC;
     CKMediaObject *_originalMediaObject;
     CKMediaObject *_trimmedMediaObject;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <CKTrimControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(retain) UIVideoEditorController * editVideoVC;
-@property(readonly) unsigned long long hash;
-@property(retain) CKMediaObject * originalMediaObject;
-@property(readonly) Class superclass;
-@property(retain) CKMediaObject * trimmedMediaObject;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <CKTrimControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) UIVideoEditorController *editVideoVC;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) CKMediaObject *originalMediaObject;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) CKMediaObject *trimmedMediaObject;
 
 - (void)dealloc;
 - (id)delegate;

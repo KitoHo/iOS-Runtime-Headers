@@ -2,17 +2,16 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@interface SAHABooleanValue : SAHAAttributeValue {
-}
+@interface SAHABooleanValue : SAHAAttributeValue
 
-@property bool value;
+@property (nonatomic) BOOL value;
 
 + (id)booleanValue;
 + (id)booleanValueWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (void)setValue:(bool)arg1;
-- (bool)value;
+- (void)setValue:(BOOL)arg1;
+- (BOOL)value;
 
 @end

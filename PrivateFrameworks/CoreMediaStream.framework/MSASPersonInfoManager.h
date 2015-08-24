@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/CoreMediaStream.framework/CoreMediaStream
  */
 
-@class NSMutableDictionary, NSString;
-
 @interface MSASPersonInfoManager : NSObject {
     NSString *_pathForPersonInfoDictionary;
     NSMutableDictionary *_personIDToPersonInfoDictionary;
 }
 
-@property(retain) NSString * pathForPersonInfoDictionary;
-@property(retain) NSMutableDictionary * personIDToPersonInfoDictionary;
+@property (nonatomic, retain) NSString *pathForPersonInfoDictionary;
+@property (nonatomic, retain) NSMutableDictionary *personIDToPersonInfoDictionary;
 
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
 + (id)sharedManager;
@@ -25,6 +23,6 @@
 - (id)personIDToPersonInfoDictionary;
 - (void)setPathForPersonInfoDictionary:(id)arg1;
 - (void)setPersonIDToPersonInfoDictionary:(id)arg1;
-- (bool)updateWithSharingRelationship:(id)arg1;
+- (BOOL)updateWithSharingRelationship:(id)arg1;
 
 @end

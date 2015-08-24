@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-@class NSMutableArray;
-
 @interface PLCameraImportQueue : NSObject {
-    unsigned long long _index;
+    unsigned int _index;
     NSMutableArray *_items;
 }
 
@@ -16,7 +14,7 @@
 - (id)description;
 - (void)didCompleteItem:(id)arg1;
 - (id)initWithItems:(id)arg1;
-- (bool)isCompleted;
+- (BOOL)isCompleted;
 - (id)items;
 - (id)itemsNotCompleted;
 - (void)setItems:(id)arg1;

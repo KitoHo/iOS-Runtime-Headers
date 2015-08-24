@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class <MDRenderTarget>, <VKCameraControllerDelegate>, VKCamera;
-
 @interface VKCameraController : NSObject {
     VKCamera *_camera;
     <MDRenderTarget> *_canvas;
     <VKCameraControllerDelegate> *_delegate;
-    unsigned long long _regionChangeCount;
-    bool_gesturing;
-    bool_inProgressRegionChangeIsAnimated;
+    BOOL _gesturing;
+    BOOL _inProgressRegionChangeIsAnimated;
+    unsigned int _regionChangeCount;
 }
 
-@property(getter=isAnimating,readonly) bool animating;
-@property(retain) VKCamera * camera;
-@property <MDRenderTarget> * canvas;
-@property <VKCameraControllerDelegate> * delegate;
-@property(getter=isGesturing) bool gesturing;
+@property (getter=isAnimating, nonatomic, readonly) BOOL animating;
+@property (nonatomic, retain) VKCamera *camera;
+@property (nonatomic) <MDRenderTarget> *canvas;
+@property (nonatomic) <VKCameraControllerDelegate> *delegate;
+@property (getter=isGesturing, nonatomic) BOOL gesturing;
 
-- (void)beginRegionChange:(bool)arg1;
+- (void)beginRegionChange:(BOOL)arg1;
 - (id)camera;
 - (id)canvas;
 - (void)canvasDidLayout;
@@ -27,11 +25,11 @@
 - (id)delegate;
 - (id)detailedDescription;
 - (void)endRegionChange;
-- (bool)isAnimating;
-- (bool)isGesturing;
+- (BOOL)isAnimating;
+- (BOOL)isGesturing;
 - (void)setCamera:(id)arg1;
 - (void)setCanvas:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setGesturing:(bool)arg1;
+- (void)setGesturing:(BOOL)arg1;
 
 @end

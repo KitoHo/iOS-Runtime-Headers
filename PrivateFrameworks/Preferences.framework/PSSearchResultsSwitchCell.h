@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class PSSpecifier, UISwitch;
-
 @interface PSSearchResultsSwitchCell : PSSearchResultsCell {
     SEL _getter;
     SEL _setter;
@@ -12,17 +10,17 @@
     id _target;
 }
 
-@property SEL getter;
-@property SEL setter;
-@property(retain) PSSpecifier * specifier;
-@property id target;
+@property (nonatomic) SEL getter;
+@property (nonatomic) SEL setter;
+@property (nonatomic, retain) PSSpecifier *specifier;
+@property (nonatomic) id target;
 
 - (void)_switchValueChanged:(id)arg1;
 - (void)dealloc;
 - (SEL)getter;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (void)prepareForReuse;
-- (void)reloadValue:(bool)arg1;
+- (void)reloadValue:(BOOL)arg1;
 - (void)setGetter:(SEL)arg1;
 - (void)setSetter:(SEL)arg1;
 - (void)setSpecifier:(id)arg1;

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADFill;
-
 @interface OADFillOverlayEffect : OADEffect {
     int mBlendMode;
     OADFill *mFill;
@@ -12,9 +10,9 @@
 - (int)blendMode;
 - (void)dealloc;
 - (id)fill;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)setBlendMode:(int)arg1;
 - (void)setFill:(id)arg1;
 

@@ -2,24 +2,20 @@
    Image: /System/Library/PrivateFrameworks/VoiceTrigger.framework/VoiceTrigger
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface VTStateManager : NSObject {
-    id _callback;
+    id /* block */ _callback;
 }
 
 + (id)_serviceClient;
-+ (bool)enabledByAssertion;
-+ (bool)onBattery;
-+ (void)requestVoiceTriggerEnabled:(bool)arg1 forReason:(id)arg2;
++ (BOOL)enabledByAssertion;
++ (BOOL)onBattery;
++ (void)requestVoiceTriggerEnabled:(BOOL)arg1 forReason:(id)arg2;
 + (void)requestVoiceTriggerEnabledForAlert;
-+ (void)suggestVoiceTriggerThresholdLevel:(long long)arg1 forReason:(id)arg2;
++ (void)suggestVoiceTriggerThresholdLevel:(int)arg1 forReason:(id)arg2;
 
 - (void).cxx_destruct;
 - (void)dealloc;
-- (id)initWithStateTransitionCallback:(id)arg1;
-- (void)notify:(bool)arg1;
+- (id)initWithStateTransitionCallback:(id /* block */)arg1;
+- (void)notify:(BOOL)arg1;
 
 @end

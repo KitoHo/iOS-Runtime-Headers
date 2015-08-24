@@ -2,29 +2,35 @@
    Image: /System/Library/PrivateFrameworks/FamilyCircle.framework/FamilyCircle
  */
 
-@class NSArray;
-
 @interface FAFetchFamilyCircleRequest : FAFamilyCircleRequest {
+    BOOL _doNotFetchFromServer;
     NSArray *_expectedDSIDs;
-    bool_doNotFetchFromServer;
-    bool_forceServerFetch;
-    bool_signedInAccountShouldBeApprover;
+    BOOL _forceServerFetch;
+    BOOL _promptUserToResolveAuthenticatonFailure;
+    NSDictionary *_serverResponse;
+    BOOL _signedInAccountShouldBeApprover;
 }
 
-@property bool doNotFetchFromServer;
-@property(copy) NSArray * expectedDSIDs;
-@property bool forceServerFetch;
-@property bool signedInAccountShouldBeApprover;
+@property BOOL doNotFetchFromServer;
+@property (copy) NSArray *expectedDSIDs;
+@property BOOL forceServerFetch;
+@property BOOL promptUserToResolveAuthenticatonFailure;
+@property (readonly, retain) NSDictionary *serverResponse;
+@property BOOL signedInAccountShouldBeApprover;
 
 - (void).cxx_destruct;
-- (bool)doNotFetchFromServer;
+- (BOOL)doNotFetchFromServer;
 - (id)expectedDSIDs;
-- (bool)forceServerFetch;
-- (void)setDoNotFetchFromServer:(bool)arg1;
+- (BOOL)forceServerFetch;
+- (BOOL)promptUserToResolveAuthenticatonFailure;
+- (id)requestOptions;
+- (id)serverResponse;
+- (void)setDoNotFetchFromServer:(BOOL)arg1;
 - (void)setExpectedDSIDs:(id)arg1;
-- (void)setForceServerFetch:(bool)arg1;
-- (void)setSignedInAccountShouldBeApprover:(bool)arg1;
-- (bool)signedInAccountShouldBeApprover;
-- (void)startRequestWithCompletionHandler:(id)arg1;
+- (void)setForceServerFetch:(BOOL)arg1;
+- (void)setPromptUserToResolveAuthenticatonFailure:(BOOL)arg1;
+- (void)setSignedInAccountShouldBeApprover:(BOOL)arg1;
+- (BOOL)signedInAccountShouldBeApprover;
+- (void)startRequestWithCompletionHandler:(id /* block */)arg1;
 
 @end

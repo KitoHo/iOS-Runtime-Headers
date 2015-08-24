@@ -2,28 +2,25 @@
    Image: /System/Library/PrivateFrameworks/CameraKit.framework/CameraKit
  */
 
-@class <CAMStillImageCaptureRequestDelegate>;
+@interface CAMMutableStillImageCaptureRequest : CAMStillImageCaptureRequest
 
-@interface CAMMutableStillImageCaptureRequest : CAMStillImageCaptureRequest {
-}
+@property (nonatomic) int captureDevice;
+@property (nonatomic) <CAMStillImageCaptureRequestDelegate> *delegate;
+@property (nonatomic) int deviceOrientation;
+@property (nonatomic) int flashMode;
+@property (nonatomic) int hdrMode;
+@property (getter=isTransient, nonatomic) BOOL transient;
+@property (nonatomic) BOOL usesStillImageStabilization;
+@property (nonatomic) BOOL wantsAudioForCapture;
 
-@property long long captureDevice;
-@property <CAMStillImageCaptureRequestDelegate> * delegate;
-@property long long deviceOrientation;
-@property long long flashMode;
-@property int hdrMode;
-@property(getter=isTransient) bool transient;
-@property bool usesStillImageStabilization;
-@property bool wantsAudioForCapture;
-
-- (void)setCaptureDevice:(long long)arg1;
+- (void)setCaptureDevice:(int)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setDeviceOrientation:(long long)arg1;
-- (void)setFlashMode:(long long)arg1;
+- (void)setDeviceOrientation:(int)arg1;
+- (void)setFlashMode:(int)arg1;
 - (void)setHdrMode:(int)arg1;
 - (void)setParameter:(id)arg1 forKey:(id)arg2;
-- (void)setTransient:(bool)arg1;
-- (void)setUsesStillImageStabilization:(bool)arg1;
-- (void)setWantsAudioForCapture:(bool)arg1;
+- (void)setTransient:(BOOL)arg1;
+- (void)setUsesStillImageStabilization:(BOOL)arg1;
+- (void)setWantsAudioForCapture:(BOOL)arg1;
 
 @end

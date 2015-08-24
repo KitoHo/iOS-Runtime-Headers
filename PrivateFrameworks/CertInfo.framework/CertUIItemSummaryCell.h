@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CertInfo.framework/CertInfo
  */
 
-@class UIImageView, UILabel, UIView;
-
 @interface CertUIItemSummaryCell : UITableViewCell {
     UIImageView *_itemImageView;
     UILabel *_itemSubtitleLabel;
@@ -11,19 +9,19 @@
     UIView *_itemTitleView;
 }
 
-@property(retain) UIImageView * itemImageView;
-@property(retain) UILabel * itemSubtitleLabel;
-@property(retain) UILabel * itemTitleLabel;
-@property(retain) UIView * itemTitleView;
+@property (nonatomic, retain) UIImageView *itemImageView;
+@property (nonatomic, retain) UILabel *itemSubtitleLabel;
+@property (nonatomic, retain) UILabel *itemTitleLabel;
+@property (nonatomic, retain) UIView *itemTitleView;
 
-+ (double)titleOriginX;
++ (float)titleOriginX;
 
 - (void).cxx_destruct;
 - (id)_profileImageAppropriateForDevice;
 - (void)_setupCell;
 - (void)_setupConstraints;
-- (double)cellHeight;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (float)cellHeight;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (id)itemImageView;
 - (id)itemSubtitleLabel;
 - (id)itemTitleLabel;
@@ -32,6 +30,6 @@
 - (void)setItemSubtitleLabel:(id)arg1;
 - (void)setItemTitleLabel:(id)arg1;
 - (void)setItemTitleView:(id)arg1;
-- (void)setSelected:(bool)arg1 animated:(bool)arg2;
+- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
 
 @end

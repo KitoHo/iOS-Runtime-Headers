@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@class NSArray, NSData, NSDictionary, NSString;
-
 @interface MCSCEPPayload : MCCertificatePayload {
     NSArray *_CACaps;
     NSData *_CAFingerprint;
     NSString *_CAInstanceName;
     NSString *_URLString;
     NSString *_challenge;
-    unsigned long long _keySize;
-    unsigned long long _retries;
-    unsigned long long _retryDelay;
+    unsigned int _keySize;
+    unsigned int _retries;
+    unsigned int _retryDelay;
     NSArray *_subject;
     NSDictionary *_subjectAltName;
     int _usageFlags;
 }
 
-@property(retain,readonly) NSArray * CACaps;
-@property(retain,readonly) NSData * CAFingerprint;
-@property(retain,readonly) NSString * CAInstanceName;
-@property(retain,readonly) NSString * URLString;
-@property(retain,readonly) NSString * challenge;
-@property(readonly) unsigned long long keySize;
-@property(readonly) unsigned long long retries;
-@property(readonly) unsigned long long retryDelay;
-@property(retain,readonly) NSArray * subject;
-@property(retain,readonly) NSDictionary * subjectAltName;
-@property(readonly) int usageFlags;
+@property (nonatomic, readonly, retain) NSArray *CACaps;
+@property (nonatomic, readonly, retain) NSData *CAFingerprint;
+@property (nonatomic, readonly, retain) NSString *CAInstanceName;
+@property (nonatomic, readonly, retain) NSString *URLString;
+@property (nonatomic, readonly, retain) NSString *challenge;
+@property (nonatomic, readonly) unsigned int keySize;
+@property (nonatomic, readonly) unsigned int retries;
+@property (nonatomic, readonly) unsigned int retryDelay;
+@property (nonatomic, readonly, retain) NSArray *subject;
+@property (nonatomic, readonly, retain) NSDictionary *subjectAltName;
+@property (nonatomic, readonly) int usageFlags;
 
 + (id)localizedPluralForm;
 + (id)localizedSingularForm;
@@ -44,12 +42,12 @@
 - (struct __SecIdentity { }*)copyIdentityFromKeychain;
 - (id)description;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id*)arg3;
-- (bool)isIdentity;
-- (bool)isRoot;
-- (unsigned long long)keySize;
+- (BOOL)isIdentity;
+- (BOOL)isRoot;
+- (unsigned int)keySize;
 - (id)payloadDescriptionKeyValueSections;
-- (unsigned long long)retries;
-- (unsigned long long)retryDelay;
+- (unsigned int)retries;
+- (unsigned int)retryDelay;
 - (id)stubDictionary;
 - (id)subject;
 - (id)subjectAltName;

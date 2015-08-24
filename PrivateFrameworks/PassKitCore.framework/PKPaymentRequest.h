@@ -2,38 +2,43 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSArray, NSData, NSString;
-
 @interface PKPaymentRequest : NSObject <NSSecureCoding> {
     NSData *_applicationData;
     void *_billingAddress;
     NSString *_countryCode;
     NSString *_currencyCode;
-    unsigned long long _merchantCapabilities;
+    unsigned int _merchantCapabilities;
     NSString *_merchantIdentifier;
     NSArray *_paymentSummaryItems;
-    unsigned long long _requiredBillingAddressFields;
-    unsigned long long _requiredShippingAddressFields;
+    unsigned int _requiredBillingAddressFields;
+    unsigned int _requiredShippingAddressFields;
     void *_shippingAddress;
+    BOOL _shippingEditable;
+    NSString *_shippingEditableMessage;
     NSArray *_shippingMethods;
+    unsigned int _shippingType;
     NSArray *_supportedNetworks;
 }
 
-@property(copy) NSData * applicationData;
-@property void* billingAddress;
-@property(copy) NSString * countryCode;
-@property(copy) NSString * currencyCode;
-@property unsigned long long merchantCapabilities;
-@property(copy) NSString * merchantIdentifier;
-@property(copy) NSArray * paymentSummaryItems;
-@property unsigned long long requiredBillingAddressFields;
-@property unsigned long long requiredShippingAddressFields;
-@property void* shippingAddress;
-@property(copy) NSArray * shippingMethods;
-@property(copy) NSArray * supportedNetworks;
+@property (nonatomic, copy) NSData *applicationData;
+@property (nonatomic) void*billingAddress;
+@property (nonatomic, copy) NSString *countryCode;
+@property (nonatomic, copy) NSString *currencyCode;
+@property (nonatomic) unsigned int merchantCapabilities;
+@property (nonatomic, copy) NSString *merchantIdentifier;
+@property (nonatomic, copy) NSArray *paymentSummaryItems;
+@property (nonatomic) unsigned int requiredBillingAddressFields;
+@property (nonatomic) unsigned int requiredShippingAddressFields;
+@property (nonatomic) void*shippingAddress;
+@property (getter=isShippingEditable, nonatomic) BOOL shippingEditable;
+@property (nonatomic, copy) NSString *shippingEditableMessage;
+@property (nonatomic, copy) NSArray *shippingMethods;
+@property (nonatomic) unsigned int shippingType;
+@property (nonatomic, copy) NSArray *supportedNetworks;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
+- (id)_shippingTypeToString;
 - (id)_transactionAmount;
 - (id)applicationData;
 - (void*)billingAddress;
@@ -41,26 +46,33 @@
 - (id)currencyCode;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
+- (id)init;
 - (id)initWithCoder:(id)arg1;
-- (unsigned long long)merchantCapabilities;
+- (BOOL)isShippingEditable;
+- (unsigned int)merchantCapabilities;
 - (id)merchantIdentifier;
 - (id)paymentSummaryItems;
-- (unsigned long long)requiredBillingAddressFields;
-- (unsigned long long)requiredShippingAddressFields;
+- (unsigned int)requiredBillingAddressFields;
+- (unsigned int)requiredShippingAddressFields;
 - (void)setApplicationData:(id)arg1;
 - (void)setBillingAddress:(void*)arg1;
 - (void)setCountryCode:(id)arg1;
 - (void)setCurrencyCode:(id)arg1;
-- (void)setMerchantCapabilities:(unsigned long long)arg1;
+- (void)setMerchantCapabilities:(unsigned int)arg1;
 - (void)setMerchantIdentifier:(id)arg1;
 - (void)setPaymentSummaryItems:(id)arg1;
-- (void)setRequiredBillingAddressFields:(unsigned long long)arg1;
-- (void)setRequiredShippingAddressFields:(unsigned long long)arg1;
+- (void)setRequiredBillingAddressFields:(unsigned int)arg1;
+- (void)setRequiredShippingAddressFields:(unsigned int)arg1;
 - (void)setShippingAddress:(void*)arg1;
+- (void)setShippingEditable:(BOOL)arg1;
+- (void)setShippingEditableMessage:(id)arg1;
 - (void)setShippingMethods:(id)arg1;
+- (void)setShippingType:(unsigned int)arg1;
 - (void)setSupportedNetworks:(id)arg1;
 - (void*)shippingAddress;
+- (id)shippingEditableMessage;
 - (id)shippingMethods;
+- (unsigned int)shippingType;
 - (id)supportedNetworks;
 
 @end

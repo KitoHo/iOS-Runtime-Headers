@@ -2,12 +2,16 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-@interface _HKBehavior : NSObject {
-}
+@interface _HKBehavior : NSObject
 
 + (id)currentDeviceDisplayName;
 + (id)currentDeviceProductType;
-+ (bool)isAppleInternalInstall;
-+ (bool)isDeviceSupported;
++ (unsigned long long)currentDiskSpaceAvailable;
++ (id)currentDiskUsage;
++ (id)currentOSBuild;
++ (BOOL)isAppleInternalInstall;
++ (BOOL)isDeviceSupported;
++ (BOOL)isNano;
++ (unsigned long long)totalDiskCapacity;
 
 @end

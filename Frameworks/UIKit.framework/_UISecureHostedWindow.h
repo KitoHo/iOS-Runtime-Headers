@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface _UISecureHostedWindow : _UIHostedWindow {
-}
+@interface _UISecureHostedWindow : _UIHostedWindow
 
-+ (bool)_isSecure;
++ (BOOL)_isSecure;
 
 @end

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class <SKUIBannerViewDelegate>, NSDictionary, NSMutableArray, NSOperationQueue, NSString, SKUIBannerView, SKUIClientContext, SKUIItemArtworkContext, SKUIItemStateCenter, SSLookupItem, UIImage;
-
 @interface SKUIBannerViewController : UIViewController <SKUIItemStateCenterObserver> {
     SKUIBannerView *_bannerView;
     SKUIClientContext *_clientContext;
@@ -18,14 +16,14 @@
     NSDictionary *_scriptContextDictionary;
 }
 
-@property(retain) SKUIClientContext * clientContext;
-@property(copy,readonly) NSString * debugDescription;
-@property <SKUIBannerViewDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) NSOperationQueue * resourceOperationQueue;
-@property(copy) NSDictionary * scriptContextDictionary;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) SKUIClientContext *clientContext;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <SKUIBannerViewDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NSOperationQueue *resourceOperationQueue;
+@property (nonatomic, copy) NSDictionary *scriptContextDictionary;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (void)_bannerViewAction:(id)arg1;
@@ -38,9 +36,9 @@
 - (void)_launchURL:(id)arg1 withBundleIdentifier:(id)arg2;
 - (void)_loadImages;
 - (void)_reloadBannerView;
-- (id)_screenshotConsumerWithSize:(struct CGSize { double x1; double x2; })arg1;
+- (id)_screenshotConsumerWithSize:(struct CGSize { float x1; float x2; })arg1;
 - (void)_setIcon:(id)arg1 error:(id)arg2;
-- (void)_setScreenshot:(id)arg1 forIndex:(long long)arg2 error:(id)arg3;
+- (void)_setScreenshot:(id)arg1 forIndex:(int)arg2 error:(id)arg3;
 - (void)_warmItemStateCenter;
 - (id)clientContext;
 - (void)dealloc;

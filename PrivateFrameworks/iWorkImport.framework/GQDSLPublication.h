@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class GQDSLPageMargins, GQDSStylesheet;
-
 @interface GQDSLPublication : GQDRoot {
-    struct CGSize { 
-        double width; 
-        double height; 
-    boolmHasBody;
-    boolmHasFooters;
-    boolmHasHeaders;
-    boolmIsOldTemplateNameMapInitialized;
-    boolmShowOutliner;
+    BOOL mHasBody;
+    BOOL mHasFooters;
+    BOOL mHasHeaders;
+    BOOL mIsOldTemplateNameMapInitialized;
     struct __CFDictionary { } *mOldTemplateNameMap;
     GQDSLPageMargins *mPageMargins;
+    struct CGSize { 
+        float width; 
+        float height; 
     } mPageSize;
+    BOOL mShowOutliner;
     GQDSStylesheet *mStylesheet;
 }
 
@@ -27,17 +25,17 @@
 - (struct __CFString { }*)createUpgradedPathForOldAssetPath:(struct __CFString { }*)arg1;
 - (struct __CFURL { }*)createUrlToAppBundleResource:(struct __CFString { }*)arg1 processorBundle:(struct __CFBundle { }*)arg2 fileUrl:(struct __CFURL { }*)arg3;
 - (void)dealloc;
-- (bool)hasBody;
-- (bool)hasFooters;
-- (bool)hasHeaders;
+- (BOOL)hasBody;
+- (BOOL)hasFooters;
+- (BOOL)hasHeaders;
 - (id)init;
 - (void)initializeAppBundleResourcesUrl:(struct __CFURL { }*)arg1;
 - (id)pageMargins;
-- (struct CGSize { double x1; double x2; })pageSize;
+- (struct CGSize { float x1; float x2; })pageSize;
 - (int)readAttributesFromReader:(struct _xmlTextReader { }*)arg1;
 - (void)setPageMargins:(id)arg1;
 - (void)setStylesheet:(id)arg1;
-- (bool)showOutliner;
+- (BOOL)showOutliner;
 - (id)stylesheet;
 
 @end

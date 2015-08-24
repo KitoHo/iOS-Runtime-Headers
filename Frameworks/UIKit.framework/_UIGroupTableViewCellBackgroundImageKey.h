@@ -2,51 +2,49 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIColor;
-
 @interface _UIGroupTableViewCellBackgroundImageKey : NSObject <NSCopying> {
-    struct CGSize { 
-        double width; 
-        double height; 
-    struct UIEdgeInsets { 
-        double top; 
-        double left; 
-        double bottom; 
-        double right; 
     UIColor *_backgroundColor;
     UIColor *_bottomShadowColor;
     UIColor *_fillColor;
-    double _leftPhase;
-    double _rightPhase;
+    float _leftPhase;
+    BOOL _opaque;
+    float _rightPhase;
     UIColor *_sectionBorderColor;
-    double _sectionBorderWidth;
+    float _sectionBorderWidth;
     int _sectionLocation;
+    BOOL _selected;
     UIColor *_selectionColor;
-    long long _selectionStyle;
+    int _selectionStyle;
     UIColor *_separatorColor;
+    struct UIEdgeInsets { 
+        float top; 
+        float left; 
+        float bottom; 
+        float right; 
     } _separatorInset;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _size;
     UIColor *_topShadowColor;
-    bool_opaque;
-    bool_selected;
 }
 
-@property(retain) UIColor * backgroundColor;
-@property(retain) UIColor * bottomShadowColor;
-@property(retain) UIColor * fillColor;
-@property double leftPhase;
-@property bool opaque;
-@property double rightPhase;
-@property(retain) UIColor * sectionBorderColor;
-@property double sectionBorderWidth;
-@property int sectionLocation;
-@property bool selected;
-@property(retain) UIColor * selectionColor;
-@property long long selectionStyle;
-@property(retain) UIColor * separatorColor;
-@property struct UIEdgeInsets { double x1; double x2; double x3; double x4; } separatorInset;
-@property struct CGSize { double x1; double x2; } size;
-@property(retain) UIColor * topShadowColor;
+@property (nonatomic, retain) UIColor *backgroundColor;
+@property (nonatomic, retain) UIColor *bottomShadowColor;
+@property (nonatomic, retain) UIColor *fillColor;
+@property (nonatomic) float leftPhase;
+@property (nonatomic) BOOL opaque;
+@property (nonatomic) float rightPhase;
+@property (nonatomic, retain) UIColor *sectionBorderColor;
+@property (nonatomic) float sectionBorderWidth;
+@property (nonatomic) int sectionLocation;
+@property (nonatomic) BOOL selected;
+@property (nonatomic, retain) UIColor *selectionColor;
+@property (nonatomic) int selectionStyle;
+@property (nonatomic, retain) UIColor *separatorColor;
+@property (nonatomic) struct UIEdgeInsets { float x1; float x2; float x3; float x4; } separatorInset;
+@property (nonatomic) struct CGSize { float x1; float x2; } size;
+@property (nonatomic, retain) UIColor *topShadowColor;
 
 - (id)backgroundColor;
 - (id)bottomShadowColor;
@@ -54,36 +52,36 @@
 - (void)dealloc;
 - (id)description;
 - (id)fillColor;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
-- (double)leftPhase;
-- (bool)opaque;
-- (double)rightPhase;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (float)leftPhase;
+- (BOOL)opaque;
+- (float)rightPhase;
 - (id)sectionBorderColor;
-- (double)sectionBorderWidth;
+- (float)sectionBorderWidth;
 - (int)sectionLocation;
-- (bool)selected;
+- (BOOL)selected;
 - (id)selectionColor;
-- (long long)selectionStyle;
+- (int)selectionStyle;
 - (id)separatorColor;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })separatorInset;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })separatorInset;
 - (void)setBackgroundColor:(id)arg1;
 - (void)setBottomShadowColor:(id)arg1;
 - (void)setFillColor:(id)arg1;
-- (void)setLeftPhase:(double)arg1;
-- (void)setOpaque:(bool)arg1;
-- (void)setRightPhase:(double)arg1;
+- (void)setLeftPhase:(float)arg1;
+- (void)setOpaque:(BOOL)arg1;
+- (void)setRightPhase:(float)arg1;
 - (void)setSectionBorderColor:(id)arg1;
-- (void)setSectionBorderWidth:(double)arg1;
+- (void)setSectionBorderWidth:(float)arg1;
 - (void)setSectionLocation:(int)arg1;
-- (void)setSelected:(bool)arg1;
+- (void)setSelected:(BOOL)arg1;
 - (void)setSelectionColor:(id)arg1;
-- (void)setSelectionStyle:(long long)arg1;
+- (void)setSelectionStyle:(int)arg1;
 - (void)setSeparatorColor:(id)arg1;
-- (void)setSeparatorInset:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; })arg1;
-- (void)setSize:(struct CGSize { double x1; double x2; })arg1;
+- (void)setSeparatorInset:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg1;
+- (void)setSize:(struct CGSize { float x1; float x2; })arg1;
 - (void)setTopShadowColor:(id)arg1;
-- (struct CGSize { double x1; double x2; })size;
+- (struct CGSize { float x1; float x2; })size;
 - (id)topShadowColor;
 
 @end

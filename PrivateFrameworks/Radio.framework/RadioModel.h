@@ -2,39 +2,38 @@
    Image: /System/Library/PrivateFrameworks/Radio.framework/Radio
  */
 
-@class BKSProcessAssertion, NSArray, NSFetchRequest, NSFetchedResultsController, NSManagedObjectContext, NSManagedObjectModel, NSMapTable, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSOperationQueue, NSPersistentStoreCoordinator, NSString;
-
 @interface RadioModel : NSObject <NSFetchedResultsControllerDelegate> {
     NSObject<OS_dispatch_queue> *_accessSerialQueue;
     NSOperationQueue *_backgroundCleanupQueue;
     BKSProcessAssertion *_backgroundProcessAssertion;
-    long long _backgroundTaskCount;
+    int _backgroundTaskCount;
     NSObject<OS_dispatch_source> *_backgroundTaskInvalidateTimerSource;
     NSManagedObjectContext *_context;
+    BOOL _isBackgroundModel;
     NSManagedObjectModel *_model;
     int _modelChangedToken;
+    BOOL _modelChangedTokenIsValid;
     int _modelDeletedToken;
+    BOOL _modelDeletedTokenIsValid;
     NSFetchRequest *_stationFetchRequest;
     NSFetchedResultsController *_stationFetchedResultsController;
     NSMapTable *_stationToSkipControllerMapTable;
     NSPersistentStoreCoordinator *_storeCoordinator;
-    long long _transactionCount;
-    bool_isBackgroundModel;
-    bool_modelChangedTokenIsValid;
-    bool_modelDeletedTokenIsValid;
+    int _transactionCount;
 }
 
-@property(readonly) NSArray * allStations;
-@property unsigned long long authenticatedAccountIdentifier;
-@property(readonly) NSArray * featuredStations;
-@property(copy) NSString * globalHash;
-@property unsigned long long globalVersion;
-@property(readonly) NSArray * previewStations;
-@property(copy,readonly) NSArray * reportProblemIssueTypes;
-@property(copy) NSArray * stationSortOrdering;
-@property(readonly) NSArray * stations;
-@property(readonly) NSArray * userStations;
+@property (nonatomic, readonly) NSArray *allStations;
+@property (nonatomic) unsigned long long authenticatedAccountIdentifier;
+@property (nonatomic, readonly) NSArray *featuredStations;
+@property (nonatomic, copy) NSString *globalHash;
+@property (nonatomic) unsigned long long globalVersion;
+@property (nonatomic, readonly) NSArray *previewStations;
+@property (nonatomic, readonly, copy) NSArray *reportProblemIssueTypes;
+@property (nonatomic, copy) NSArray *stationSortOrdering;
+@property (nonatomic, readonly) NSArray *stations;
+@property (nonatomic, readonly) NSArray *userStations;
 
++ (id)_persistentStoreConfigurationOptions;
 + (void)_postAccountDidDeauthenticateNotification;
 + (id)_radioDatabasePath;
 + (id)_radioDirectoryPath;
@@ -54,15 +53,15 @@
 - (void)_endBackgroundTaskAssertion;
 - (id)_init;
 - (id)_initBackgroundModelWithPersistentStoreCoordinator:(id)arg1;
-- (void)_insertRevisionWithStationID:(long long)arg1 revisionType:(long long)arg2;
+- (void)_insertRevisionWithStationID:(long long)arg1 revisionType:(int)arg2;
 - (id)_managedSkipHistoryWithSkipIdentifier:(id)arg1;
 - (id)_managedSkipHistoryWithStationHash:(id)arg1;
 - (id)_managedSkipHistoryWithStationID:(long long)arg1;
 - (id)_newManagedSkipHistoryWithSkipIdentifier:(id)arg1;
 - (id)_newManagedSkipHistoryWithStationHash:(id)arg1;
 - (id)_newManagedSkipHistoryWithStationID:(long long)arg1;
-- (unsigned long long)_numberOfSkipsUsedWithSkipTimestamps:(id)arg1 currentTimestamp:(double)arg2 skipInterval:(double)arg3 returningEarliestSkipTimestamp:(double*)arg4;
-- (void)_performTransactionAndSave:(bool)arg1 withBlock:(id)arg2;
+- (unsigned int)_numberOfSkipsUsedWithSkipTimestamps:(id)arg1 currentTimestamp:(double)arg2 skipInterval:(double)arg3 returningEarliestSkipTimestamp:(double*)arg4;
+- (void)_performTransactionAndSave:(BOOL)arg1 withBlock:(id /* block */)arg2;
 - (void)_postContextDidChangeNotification:(id)arg1;
 - (void)_prepareModel;
 - (void)_registerStationSkipController:(id)arg1;
@@ -72,9 +71,9 @@
 - (void)_unregisterStationSkipController:(id)arg1;
 - (id)allStations;
 - (unsigned long long)authenticatedAccountIdentifier;
-- (bool)canSkipTracksForStation:(id)arg1;
+- (BOOL)canSkipTracksForStation:(id)arg1;
 - (id)context;
-- (void)controller:(id)arg1 didChangeObject:(id)arg2 atIndexPath:(id)arg3 forChangeType:(unsigned long long)arg4 newIndexPath:(id)arg5;
+- (void)controller:(id)arg1 didChangeObject:(id)arg2 atIndexPath:(id)arg3 forChangeType:(unsigned int)arg4 newIndexPath:(id)arg5;
 - (void)controllerDidChangeContent:(id)arg1;
 - (id)convertObject:(id)arg1;
 - (id)convertObjects:(id)arg1;
@@ -86,7 +85,7 @@
 - (void)deletePreviewStation:(id)arg1;
 - (void)deleteStation:(id)arg1;
 - (void)deleteStationWithID:(long long)arg1;
-- (void)enumerateRevisionsSinceRevisionID:(long long)arg1 usingBlock:(id)arg2;
+- (void)enumerateRevisionsSinceRevisionID:(long long)arg1 usingBlock:(id /* block */)arg2;
 - (id)featuredStations;
 - (id)globalHash;
 - (unsigned long long)globalVersion;
@@ -94,12 +93,12 @@
 - (id)newFeaturedStationWithDictionary:(id)arg1;
 - (id)newPreviewStationWithDictionary:(id)arg1;
 - (id)newStationWithDictionary:(id)arg1;
-- (void)noteTrackWasSkippedForStation:(id)arg1 onDate:(id)arg2;
 - (void)noteTrackWasSkippedForStation:(id)arg1;
-- (unsigned long long)numberOfTracksSkippedForStation:(id)arg1 returningEarliestSkipDate:(id*)arg2;
-- (unsigned long long)numberOfTracksSkippedForStation:(id)arg1;
-- (void)performTransactionWithBlock:(id)arg1;
-- (void)performWriteTransactionWithBlock:(id)arg1;
+- (void)noteTrackWasSkippedForStation:(id)arg1 onDate:(id)arg2;
+- (unsigned int)numberOfTracksSkippedForStation:(id)arg1;
+- (unsigned int)numberOfTracksSkippedForStation:(id)arg1 returningEarliestSkipDate:(id*)arg2;
+- (void)performTransactionWithBlock:(id /* block */)arg1;
+- (void)performWriteTransactionWithBlock:(id /* block */)arg1;
 - (id)previewStations;
 - (void)removeTrackPlaybackDescriptor:(id)arg1 fromStation:(id)arg2;
 - (void)removeTrackPlaybackDescriptorQueuesForAllStations;
@@ -116,6 +115,7 @@
 - (id)stationWithHash:(id)arg1;
 - (id)stationWithID:(long long)arg1;
 - (id)stationWithPersistentID:(long long)arg1;
+- (id)stationWithStationStringID:(id)arg1;
 - (id)stations;
 - (id)userStations;
 

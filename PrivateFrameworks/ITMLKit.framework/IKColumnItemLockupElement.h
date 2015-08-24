@@ -2,37 +2,34 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@class IKButtonElement, IKImageElement, IKOrdinalElement, IKTextBadgeAttachment, IKTextElement, IKVideoElement, NSArray, NSString;
+@interface IKColumnItemLockupElement : IKViewElement
 
-@interface IKColumnItemLockupElement : IKViewElement {
-}
-
-@property(retain,readonly) IKButtonElement * button;
-@property(copy,readonly) NSString * columnItemType;
-@property(retain,readonly) IKTextElement * descriptionText;
-@property(readonly) bool hasSeparator;
-@property(readonly) IKImageElement * image;
-@property(readonly) NSArray * images;
-@property(readonly) bool isWatchlisted;
-@property(readonly) bool onlyVisibleOnColumnHighlight;
-@property(retain,readonly) IKOrdinalElement * ordinal;
-@property(retain,readonly) IKTextElement * secondarySubtitle;
-@property(retain,readonly) IKTextElement * subtitle;
-@property(readonly) IKTextBadgeAttachment * subtitleBadge;
-@property(retain,readonly) NSArray * textElements;
-@property(retain,readonly) IKTextElement * title;
-@property(readonly) IKTextBadgeAttachment * titleBadge;
-@property(retain,readonly) IKVideoElement * video;
+@property (nonatomic, readonly, retain) IKButtonElement *button;
+@property (nonatomic, readonly, copy) NSString *columnItemType;
+@property (nonatomic, readonly, retain) IKTextElement *descriptionText;
+@property (nonatomic, readonly) BOOL hasSeparator;
+@property (nonatomic, readonly) IKImageElement *image;
+@property (nonatomic, readonly) NSArray *images;
+@property (nonatomic, readonly) BOOL isWatchlisted;
+@property (nonatomic, readonly) BOOL onlyVisibleOnColumnHighlight;
+@property (nonatomic, readonly, retain) IKOrdinalElement *ordinal;
+@property (nonatomic, readonly, retain) IKTextElement *secondarySubtitle;
+@property (nonatomic, readonly, retain) IKTextElement *subtitle;
+@property (nonatomic, readonly) IKTextBadgeAttachment *subtitleBadge;
+@property (nonatomic, readonly, retain) NSArray *textElements;
+@property (nonatomic, readonly, retain) IKTextElement *title;
+@property (nonatomic, readonly) IKTextBadgeAttachment *titleBadge;
+@property (nonatomic, readonly, retain) IKVideoElement *video;
 
 - (void)_computeTitle:(id*)arg1 subtitle:(id*)arg2 secondarySubtitle:(id*)arg3 unstyledTextElements:(id*)arg4;
 - (id)button;
 - (id)columnItemType;
 - (id)descriptionText;
-- (bool)hasSeparator;
+- (BOOL)hasSeparator;
 - (id)image;
 - (id)images;
-- (bool)isWatchlisted;
-- (bool)onlyVisibleOnColumnHighlight;
+- (BOOL)isWatchlisted;
+- (BOOL)onlyVisibleOnColumnHighlight;
 - (id)ordinal;
 - (id)secondarySubtitle;
 - (id)subtitle;

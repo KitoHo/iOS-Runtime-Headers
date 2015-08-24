@@ -2,35 +2,54 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class _UIHostedWindowHostingHandle;
-
 @interface _UIHostedWindow : UIWindow {
-    long long _hostTintAdjustmentMode;
+    int _fromWindowOrientation;
+    int _hostTintAdjustmentMode;
+    UITraitCollection *_hostTraitCollection;
+    int _toWindowOrientation;
+    BOOL _wantsTraitPropigation;
 }
 
-@property(setter=_setHostTintAdjustmentMode:) long long _hostTintAdjustmentMode;
-@property(readonly) _UIHostedWindowHostingHandle * hostingHandle;
+@property (setter=_setHostTintAdjustmentMode:, nonatomic) int _hostTintAdjustmentMode;
+@property (setter=_setHostTraitCollection:, nonatomic) UITraitCollection *_hostTraitCollection;
+@property (setter=_setWantsTraitPropigation:, nonatomic) BOOL _wantsTraitPropigation;
+@property (getter=_fromWindowOrientation, setter=_setFromWindowOrientation:, nonatomic) int fromWindowOrientation;
+@property (nonatomic, readonly) _UIHostedWindowHostingHandle *hostingHandle;
+@property (getter=_toWindowOrientation, setter=_setToWindowOrientation:, nonatomic) int toWindowOrientation;
 
-- (bool)_canPromoteFromKeyWindowStack;
+- (BOOL)_canPromoteFromKeyWindowStack;
 - (void)_configureContextOptions:(id)arg1;
-- (long long)_defaultTintAdjustmentMode;
-- (long long)_hostTintAdjustmentMode;
-- (bool)_isClippedByScreenJail;
-- (bool)_isConstrainedByScreenJail;
-- (bool)_isOffsetByScreenJail;
-- (bool)_isRotatedByScreenJail;
-- (bool)_isScaledByScreenJail;
-- (bool)_isWindowServerHostingManaged;
-- (bool)_needsShakesWhenInactive;
-- (bool)_presentActionSheet:(id)arg1 inView:(id)arg2 fromYCoordinate:(double)arg3;
+- (int)_defaultTintAdjustmentMode;
+- (int)_fromWindowOrientation;
+- (int)_hostTintAdjustmentMode;
+- (id)_hostTraitCollection;
+- (BOOL)_isClippedByScreenJail;
+- (BOOL)_isConstrainedByScreenJail;
+- (BOOL)_isOffsetByScreenJail;
+- (BOOL)_isRotatedByScreenJail;
+- (BOOL)_isScaledByScreenJail;
+- (BOOL)_isWindowServerHostingManaged;
+- (BOOL)_needsShakesWhenInactive;
+- (BOOL)_presentActionSheet:(id)arg1 inView:(id)arg2 fromYCoordinate:(float)arg3;
 - (void)_registerScrollToTopView:(id)arg1;
-- (void)_setHostTintAdjustmentMode:(long long)arg1;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })_sceneBounds;
+- (void)_setFromWindowOrientation:(int)arg1;
+- (void)_setHostTintAdjustmentMode:(int)arg1;
+- (void)_setHostTraitCollection:(id)arg1;
+- (void)_setToWindowOrientation:(int)arg1;
+- (void)_setWantsTraitPropigation:(BOOL)arg1;
+- (BOOL)_shouldPropigateTraitCollectionChanges;
+- (int)_toWindowOrientation;
+- (id)_traitCollectionForSize:(struct CGSize { float x1; float x2; })arg1 screenCollection:(id)arg2 virtualHorizontalSizeClass:(int)arg3 virtualVerticalSizeClass:(int)arg4;
 - (void)_unregisterScrollToTopView:(id)arg1;
 - (void)_updateAppTintView;
 - (void)_updateTransformLayerForClassicPresentation;
-- (bool)_usesWindowServerHitTesting;
+- (BOOL)_usesWindowServerHitTesting;
+- (BOOL)_wantsTraitPropigation;
 - (unsigned int)contextID;
+- (void)dealloc;
 - (id)hostingHandle;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (void)setScreen:(id)arg1;
 
 @end

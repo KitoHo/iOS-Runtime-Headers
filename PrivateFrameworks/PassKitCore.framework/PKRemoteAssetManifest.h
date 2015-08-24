@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSDictionary, NSMutableDictionary, NSString, NSURL;
-
 @interface PKRemoteAssetManifest : NSObject {
     NSURL *_fileURL;
     NSString *_name;
     NSMutableDictionary *_remoteAssets;
 }
 
-@property(readonly) NSURL * fileURL;
-@property(readonly) NSString * name;
-@property(readonly) NSDictionary * remoteAssets;
+@property (nonatomic, readonly) NSURL *fileURL;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) NSDictionary *remoteAssets;
 
 - (void)dealloc;
 - (id)deviceSpecificAsset;
-- (id)deviceSpecificAssetForScreenScale:(double)arg1 suffix:(id)arg2;
+- (id)deviceSpecificAssetForScreenScale:(float)arg1 suffix:(id)arg2;
 - (id)fileURL;
 - (id)initWithFileURL:(id)arg1 passURL:(id)arg2 error:(id*)arg3;
 - (id)name;

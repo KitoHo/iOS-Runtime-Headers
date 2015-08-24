@@ -2,21 +2,17 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface _UIDictationPrivacySheetController : UINavigationController {
-    id _dismissHandler;
+    id /* block */ _dismissHandler;
 }
 
-@property(copy) id dismissHandler;
+@property (copy) id /* block */ dismissHandler;
 
-+ (id)controllerWithDismissHandler:(id)arg1;
++ (id)controllerWithDismissHandler:(id /* block */)arg1;
 
 - (void)dismiss;
-- (id)dismissHandler;
-- (id)initWithHandler:(id)arg1;
-- (void)setDismissHandler:(id)arg1;
+- (id /* block */)dismissHandler;
+- (id)initWithHandler:(id /* block */)arg1;
+- (void)setDismissHandler:(id /* block */)arg1;
 
 @end

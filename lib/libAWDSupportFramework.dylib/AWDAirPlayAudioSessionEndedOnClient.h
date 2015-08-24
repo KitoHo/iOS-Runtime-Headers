@@ -2,9 +2,9 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDAirPlayAudioSessionEndedOnClient : PBCodable <NSCopying> {
+    unsigned int _duration;
+    unsigned int _futileRetransmits;
     struct { 
         unsigned int timestamp : 1; 
         unsigned int duration : 1; 
@@ -12,8 +12,6 @@
         unsigned int reason : 1; 
         unsigned int retransmits : 1; 
         unsigned int slowKeepAlives : 1; 
-    unsigned int _duration;
-    unsigned int _futileRetransmits;
     } _has;
     int _reason;
     unsigned int _retransmits;
@@ -22,20 +20,20 @@
     unsigned long long _timestamp;
 }
 
-@property unsigned int duration;
-@property unsigned int futileRetransmits;
-@property bool hasDuration;
-@property bool hasFutileRetransmits;
-@property bool hasReason;
-@property bool hasRetransmits;
-@property(readonly) bool hasSessionUUID;
-@property bool hasSlowKeepAlives;
-@property bool hasTimestamp;
-@property int reason;
-@property unsigned int retransmits;
-@property(retain) NSString * sessionUUID;
-@property unsigned int slowKeepAlives;
-@property unsigned long long timestamp;
+@property (nonatomic) unsigned int duration;
+@property (nonatomic) unsigned int futileRetransmits;
+@property (nonatomic) BOOL hasDuration;
+@property (nonatomic) BOOL hasFutileRetransmits;
+@property (nonatomic) BOOL hasReason;
+@property (nonatomic) BOOL hasRetransmits;
+@property (nonatomic, readonly) BOOL hasSessionUUID;
+@property (nonatomic) BOOL hasSlowKeepAlives;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) int reason;
+@property (nonatomic) unsigned int retransmits;
+@property (nonatomic, retain) NSString *sessionUUID;
+@property (nonatomic) unsigned int slowKeepAlives;
+@property (nonatomic) unsigned long long timestamp;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -44,28 +42,28 @@
 - (id)dictionaryRepresentation;
 - (unsigned int)duration;
 - (unsigned int)futileRetransmits;
-- (bool)hasDuration;
-- (bool)hasFutileRetransmits;
-- (bool)hasReason;
-- (bool)hasRetransmits;
-- (bool)hasSessionUUID;
-- (bool)hasSlowKeepAlives;
-- (bool)hasTimestamp;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasDuration;
+- (BOOL)hasFutileRetransmits;
+- (BOOL)hasReason;
+- (BOOL)hasRetransmits;
+- (BOOL)hasSessionUUID;
+- (BOOL)hasSlowKeepAlives;
+- (BOOL)hasTimestamp;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (int)reason;
 - (unsigned int)retransmits;
 - (id)sessionUUID;
 - (void)setDuration:(unsigned int)arg1;
 - (void)setFutileRetransmits:(unsigned int)arg1;
-- (void)setHasDuration:(bool)arg1;
-- (void)setHasFutileRetransmits:(bool)arg1;
-- (void)setHasReason:(bool)arg1;
-- (void)setHasRetransmits:(bool)arg1;
-- (void)setHasSlowKeepAlives:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
+- (void)setHasDuration:(BOOL)arg1;
+- (void)setHasFutileRetransmits:(BOOL)arg1;
+- (void)setHasReason:(BOOL)arg1;
+- (void)setHasRetransmits:(BOOL)arg1;
+- (void)setHasSlowKeepAlives:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
 - (void)setReason:(int)arg1;
 - (void)setRetransmits:(unsigned int)arg1;
 - (void)setSessionUUID:(id)arg1;

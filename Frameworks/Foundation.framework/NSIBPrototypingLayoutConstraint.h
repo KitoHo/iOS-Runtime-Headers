@@ -2,11 +2,10 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@interface NSIBPrototypingLayoutConstraint : NSLayoutConstraint {
-}
+@interface NSIBPrototypingLayoutConstraint : NSLayoutConstraint
 
 + (id)classFallbacksForKeyedArchiver;
 
-- (bool)_isIBPrototypingLayoutConstraint;
+- (BOOL)_isIBPrototypingLayoutConstraint;
 
 @end

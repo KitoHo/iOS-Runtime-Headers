@@ -2,36 +2,34 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString;
-
 @interface TSDGLFrameBufferTextureLookupInfo : NSObject {
-    struct CGSize { 
-        double width; 
-        double height; 
     unsigned int _attachment;
-    long long _indexOnAttachment;
+    int _indexOnAttachment;
     NSString *_name;
     unsigned int _textureName;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _textureSize;
 }
 
-@property unsigned int attachment;
-@property long long indexOnAttachment;
-@property(readonly) NSString * name;
-@property(readonly) unsigned int textureName;
-@property(readonly) struct CGSize { double x1; double x2; } textureSize;
+@property (nonatomic) unsigned int attachment;
+@property (nonatomic) int indexOnAttachment;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) unsigned int textureName;
+@property (nonatomic, readonly) struct CGSize { float x1; float x2; } textureSize;
 
-+ (id)textureLookupInfoWithAttachment:(unsigned int)arg1 indexOnAttachment:(long long)arg2 textureName:(unsigned int)arg3 textureSize:(struct CGSize { double x1; double x2; })arg4 name:(id)arg5;
++ (id)textureLookupInfoWithAttachment:(unsigned int)arg1 indexOnAttachment:(int)arg2 textureName:(unsigned int)arg3 textureSize:(struct CGSize { float x1; float x2; })arg4 name:(id)arg5;
 
 - (unsigned int)attachment;
 - (void)dealloc;
 - (id)description;
-- (long long)indexOnAttachment;
-- (id)initWithAttachment:(unsigned int)arg1 indexOnAttachment:(long long)arg2 textureName:(unsigned int)arg3 textureSize:(struct CGSize { double x1; double x2; })arg4 name:(id)arg5;
+- (int)indexOnAttachment;
+- (id)initWithAttachment:(unsigned int)arg1 indexOnAttachment:(int)arg2 textureName:(unsigned int)arg3 textureSize:(struct CGSize { float x1; float x2; })arg4 name:(id)arg5;
 - (id)name;
 - (void)setAttachment:(unsigned int)arg1;
-- (void)setIndexOnAttachment:(long long)arg1;
+- (void)setIndexOnAttachment:(int)arg1;
 - (unsigned int)textureName;
-- (struct CGSize { double x1; double x2; })textureSize;
+- (struct CGSize { float x1; float x2; })textureSize;
 
 @end

@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableArray, NSMutableDictionary, NSString;
-
 @interface OCXRelationships : NSObject {
-    unsigned long long mNextId;
+    unsigned int mNextId;
     NSString *mPath;
     NSMutableDictionary *mRelationshipMap;
     NSMutableArray *mRelationships;
 }
 
-- (id)addRelationshipForKey:(id)arg1 type:(id)arg2 target:(id)arg3 external:(bool)arg4;
 - (id)addRelationshipForKey:(id)arg1 type:(id)arg2 target:(id)arg3;
+- (id)addRelationshipForKey:(id)arg1 type:(id)arg2 target:(id)arg3 external:(BOOL)arg4;
 - (void)dealloc;
 - (id)idForKey:(id)arg1;
 - (id)initWithPath:(id)arg1;
-- (bool)isEmpty;
+- (BOOL)isEmpty;
 - (id)path;
 - (void)writeRelationshipsToFilename:(id)arg1 stream:(id)arg2;
 

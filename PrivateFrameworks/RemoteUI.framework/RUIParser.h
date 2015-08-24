@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/RemoteUI.framework/RemoteUI
  */
 
-@class <RUIParserDelegate>, NSData, NSDictionary, NSMutableArray, NSMutableString, NSString, NSURL, NSXMLParser, RUIObjectModel;
-
 @interface RUIParser : NSObject <NSXMLParserDelegate> {
     NSMutableString *_accumulator;
     int _actionSignal;
@@ -14,27 +12,27 @@
     NSMutableArray *_pages;
     NSXMLParser *_parser;
     int _parserState;
+    BOOL _succeeded;
     RUIObjectModel *_uiObjectModel;
     NSData *_xmlData;
-    bool_succeeded;
 }
 
-@property(retain) NSURL * baseURL;
-@property(copy,readonly) NSString * debugDescription;
-@property <RUIParserDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) bool succeeded;
-@property(readonly) Class superclass;
-@property(retain) NSData * xmlData;
+@property (nonatomic, retain) NSURL *baseURL;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <RUIParserDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) BOOL succeeded;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSData *xmlData;
 
-+ (long long)textAlignmentForString:(id)arg1;
++ (int)textAlignmentForString:(id)arg1;
 
 - (void).cxx_destruct;
 - (void)_addNavigationBarWithAttributes:(id)arg1;
 - (void)_addSectionDetailHeaderText:(id)arg1 withAttributes:(id)arg2;
-- (void)_addSectionFooterText:(id)arg1 withAttributes:(id)arg2 isHTML:(bool)arg3;
-- (void)_addSectionHeaderText:(id)arg1 withAttributes:(id)arg2 isHTML:(bool)arg3;
+- (void)_addSectionFooterText:(id)arg1 withAttributes:(id)arg2 isHTML:(BOOL)arg3;
+- (void)_addSectionHeaderText:(id)arg1 withAttributes:(id)arg2 isHTML:(BOOL)arg3;
 - (void)_addSectionSubHeaderText:(id)arg1 withAttributes:(id)arg2;
 - (void)_addSectionWithAttributes:(id)arg1;
 - (void)_addTableFooterViewWithAttributes:(id)arg1;
@@ -49,8 +47,8 @@
 - (id)baseURL;
 - (void)dealloc;
 - (id)delegate;
-- (id)initWithXML:(id)arg1 baseURL:(id)arg2 delegate:(id)arg3;
 - (id)initWithXML:(id)arg1;
+- (id)initWithXML:(id)arg1 baseURL:(id)arg2 delegate:(id)arg3;
 - (void)parser:(id)arg1 didEndElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4;
 - (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;
 - (void)parser:(id)arg1 foundCDATA:(id)arg2;
@@ -60,7 +58,7 @@
 - (void)setBaseURL:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setXmlData:(id)arg1;
-- (bool)succeeded;
+- (BOOL)succeeded;
 - (id)uiObjectModel;
 - (id)xmlData;
 

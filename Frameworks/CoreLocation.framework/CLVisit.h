@@ -2,28 +2,26 @@
    Image: /System/Library/Frameworks/CoreLocation.framework/CoreLocation
  */
 
-@class NSDate;
-
-@interface CLVisit : NSObject <NSSecureCoding, NSCopying> {
+@interface CLVisit : NSObject <NSCopying, NSSecureCoding> {
+    NSDate *_arrivalDate;
     struct { 
         double latitude; 
         double longitude; 
-    NSDate *_arrivalDate;
     } _coordinate;
     NSDate *_departureDate;
     NSDate *_detectionDate;
     double _horizontalAccuracy;
 }
 
-@property(copy,readonly) NSDate * arrivalDate;
-@property(readonly) struct { double x1; double x2; } coordinate;
-@property(copy,readonly) NSDate * departureDate;
-@property(copy,readonly) NSDate * detectionDate;
-@property(readonly) bool hasArrivalDate;
-@property(readonly) bool hasDepartureDate;
-@property(readonly) double horizontalAccuracy;
+@property (nonatomic, readonly, copy) NSDate *arrivalDate;
+@property (nonatomic, readonly) struct { double x1; double x2; } coordinate;
+@property (nonatomic, readonly, copy) NSDate *departureDate;
+@property (nonatomic, readonly, copy) NSDate *detectionDate;
+@property (nonatomic, readonly) BOOL hasArrivalDate;
+@property (nonatomic, readonly) BOOL hasDepartureDate;
+@property (nonatomic, readonly) double horizontalAccuracy;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)arrivalDate;
 - (struct { double x1; double x2; })coordinate;
@@ -33,8 +31,8 @@
 - (id)description;
 - (id)detectionDate;
 - (void)encodeWithCoder:(id)arg1;
-- (bool)hasArrivalDate;
-- (bool)hasDepartureDate;
+- (BOOL)hasArrivalDate;
+- (BOOL)hasDepartureDate;
 - (double)horizontalAccuracy;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithCoordinate:(struct { double x1; double x2; })arg1 horizontalAccuracy:(double)arg2 arrivalDate:(id)arg3 departureDate:(id)arg4 detectionDate:(id)arg5;

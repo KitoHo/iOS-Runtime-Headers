@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSTConditionalStyleSet;
-
 @interface TSTTableDataConditionalStyleSet : TSTTableDataObject {
     TSTConditionalStyleSet *mConditionalStyleSet;
 }
 
 - (void)dealloc;
 - (id)description;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initObjectWithConditionalStyleSet:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 
 @end

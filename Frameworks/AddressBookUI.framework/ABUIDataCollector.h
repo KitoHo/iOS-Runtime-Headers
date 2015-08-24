@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@class ABUIDataCollectorLogger, NSString;
-
 @interface ABUIDataCollector : NSObject {
     NSString *_appIdentifier;
     ABUIDataCollectorLogger *_logger;
 }
 
-@property(retain) NSString * appIdentifier;
-@property(retain) ABUIDataCollectorLogger * logger;
+@property (nonatomic, retain) NSString *appIdentifier;
+@property (nonatomic, retain) ABUIDataCollectorLogger *logger;
 
-+ (bool)isEnabled;
++ (BOOL)isEnabled;
 + (id)sharedCollector;
 
 - (void)_reallyLogIndexUsage;
@@ -21,7 +19,7 @@
 - (id)init;
 - (void)logAddProperty:(int)arg1 contact:(void*)arg2;
 - (void)logContactActionType:(id)arg1 attributes:(id)arg2;
-- (void)logGroupsShown:(long long)arg1 totalGroups:(long long)arg2;
+- (void)logGroupsShown:(int)arg1 totalGroups:(int)arg2;
 - (void)logIndexUsage;
 - (void)logPresentation;
 - (void)logRefreshUsage;

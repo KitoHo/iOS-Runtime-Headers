@@ -2,31 +2,29 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class ACAccountCredential, ACAccountStore, NSMapTable, NSString, OAURLRequestSigner;
-
 @interface MKMapItemMetadataRequester : NSObject <NSURLConnectionDelegate> {
     ACAccountStore *_accountStore;
     NSMapTable *_connectionsForURLs;
     NSMapTable *_dataForConnections;
+    BOOL _hasCheckedYelpAccountCredentials;
     NSMapTable *_requestsForURLs;
     OAURLRequestSigner *_signer;
     ACAccountCredential *_yelpAccountCredentials;
-    bool_hasCheckedYelpAccountCredentials;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) OAURLRequestSigner * signer;
-@property(readonly) Class superclass;
-@property(readonly) ACAccountCredential * yelpAccountCredentials;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) OAURLRequestSigner *signer;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) ACAccountCredential *yelpAccountCredentials;
 
 + (id)sharedInstance;
 
 - (void).cxx_destruct;
 - (id)accountStore;
 - (void)accountStoreDidChange:(id)arg1;
-- (void)cancelRequestsForBusinessMetadata:(id)arg1;
+- (void)cancelRequestsForMapItem:(id)arg1;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;

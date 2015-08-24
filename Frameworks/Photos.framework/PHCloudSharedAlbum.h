@@ -2,44 +2,42 @@
    Image: /System/Library/Frameworks/Photos.framework/Photos
  */
 
-@class NSNumber, NSString;
-
 @interface PHCloudSharedAlbum : PHAssetCollection {
     short _cloudAlbumSubtype;
+    BOOL _cloudMultipleContributorsEnabled;
     NSNumber *_cloudOwnerEmailKey;
     NSString *_cloudOwnerFirstName;
     NSString *_cloudOwnerFullName;
     NSString *_cloudOwnerLastName;
-    bool_cloudMultipleContributorsEnabled;
-    bool_owned;
+    BOOL _owned;
 }
 
-@property(readonly) short cloudAlbumSubtype;
-@property(getter=isCloudMultipleContributorsEnabled,readonly) bool cloudMultipleContributorsEnabled;
-@property(retain,readonly) NSNumber * cloudOwnerEmailKey;
-@property(retain,readonly) NSString * cloudOwnerFirstName;
-@property(retain,readonly) NSString * cloudOwnerFullName;
-@property(retain,readonly) NSString * cloudOwnerLastName;
-@property(getter=isOwned,readonly) bool owned;
+@property (nonatomic, readonly) short cloudAlbumSubtype;
+@property (getter=isCloudMultipleContributorsEnabled, nonatomic, readonly) BOOL cloudMultipleContributorsEnabled;
+@property (nonatomic, readonly, retain) NSNumber *cloudOwnerEmailKey;
+@property (nonatomic, readonly, retain) NSString *cloudOwnerFirstName;
+@property (nonatomic, readonly, retain) NSString *cloudOwnerFullName;
+@property (nonatomic, readonly, retain) NSString *cloudOwnerLastName;
+@property (getter=isOwned, nonatomic, readonly) BOOL owned;
 
 + (id)identifierCode;
 + (id)managedEntityName;
-+ (id)propertiesToFetchWithHint:(unsigned long long)arg1;
++ (id)propertiesToFetchWithHint:(unsigned int)arg1;
 
 - (void).cxx_destruct;
-- (bool)canPerformEditOperation:(long long)arg1;
+- (BOOL)canPerformEditOperation:(int)arg1;
 - (Class)changeRequestClass;
 - (short)cloudAlbumSubtype;
 - (id)cloudOwnerEmailKey;
 - (id)cloudOwnerFirstName;
 - (id)cloudOwnerFullName;
 - (id)cloudOwnerLastName;
-- (bool)collectionHasFixedOrder;
+- (BOOL)collectionHasFixedOrder;
 - (id)description;
-- (id)initWithFetchDictionary:(id)arg1 propertyHint:(unsigned long long)arg2 photoLibrary:(id)arg3;
-- (bool)isCloudMultipleContributorsEnabled;
-- (bool)isOwned;
-- (bool)isOwnedCloudSharedAlbum;
-- (id)localizedSharedByLabelAllowsEmail:(bool)arg1;
+- (id)initWithFetchDictionary:(id)arg1 propertyHint:(unsigned int)arg2 photoLibrary:(id)arg3;
+- (BOOL)isCloudMultipleContributorsEnabled;
+- (BOOL)isOwned;
+- (BOOL)isOwnedCloudSharedAlbum;
+- (id)localizedSharedByLabelAllowsEmail:(BOOL)arg1;
 
 @end

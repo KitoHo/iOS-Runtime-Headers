@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/TouchRemote.framework/TouchRemote
  */
 
-@class NSMutableArray, NSObject<OS_dispatch_queue>, TRDBrowser, TRService;
-
 @interface TRDServerConnection : TRTCPConnection {
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSMutableArray *_authorizationCompletionHandlers;
+    BOOL _authorized;
     TRDBrowser *_browser;
     NSObject<OS_dispatch_queue> *_packetEventQueue;
     TRService *_service;
-    bool_authorized;
 }
 
-@property(readonly) TRService * service;
+@property (nonatomic, readonly) TRService *service;
 
 - (void).cxx_destruct;
 - (void)_browserDidRemoveServiceNotification:(id)arg1;

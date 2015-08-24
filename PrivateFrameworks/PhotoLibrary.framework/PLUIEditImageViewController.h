@@ -8,11 +8,11 @@
     int _saveOptions;
 }
 
-@property id delegate;
-@property int mode;
+@property (nonatomic) id delegate;
+@property (nonatomic) int mode;
 
-- (unsigned long long)_contentAutoresizingMask;
-- (unsigned long long)_tileAutoresizingMask;
+- (unsigned int)_contentAutoresizingMask;
+- (unsigned int)_tileAutoresizingMask;
 - (void)cropOverlay:(id)arg1 didFinishSaving:(id)arg2;
 - (int)cropOverlayMode;
 - (void)cropOverlayWasCancelled:(id)arg1;

@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@interface DevicePINKeypad : UIKeyboard {
-}
+@interface DevicePINKeypad : UIKeyboard
 
-- (bool)isMinimized;
-- (void)setMinimized:(bool)arg1;
+- (BOOL)isMinimized;
+- (void)setMinimized:(BOOL)arg1;
 
 @end

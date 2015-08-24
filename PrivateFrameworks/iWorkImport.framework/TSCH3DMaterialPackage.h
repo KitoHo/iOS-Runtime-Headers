@@ -2,15 +2,15 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCH3DMaterialPackage : NSObject <NSCopying> {
-}
+@interface TSCH3DMaterialPackage : NSObject <NSCopying>
 
 + (id)package;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (bool)hasCompleteData;
-- (unsigned long long)hash;
+- (void)didInitFromSOS;
+- (BOOL)hasCompleteData;
+- (unsigned int)hash;
 - (id)init;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 
 @end

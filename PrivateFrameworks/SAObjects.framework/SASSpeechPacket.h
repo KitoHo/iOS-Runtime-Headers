@@ -2,28 +2,25 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSString;
+@interface SASSpeechPacket : SABaseCommand <SAServerBoundCommand>
 
-@interface SASSpeechPacket : SABaseCommand <SAServerBoundCommand> {
-}
-
-@property(copy) NSString * aceId;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property long long packetNumber;
-@property(copy) NSArray * packets;
-@property(copy) NSString * refId;
-@property(readonly) Class superclass;
+@property (nonatomic, copy) NSString *aceId;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) int packetNumber;
+@property (nonatomic, copy) NSArray *packets;
+@property (nonatomic, copy) NSString *refId;
+@property (readonly) Class superclass;
 
 + (id)speechPacket;
 + (id)speechPacketWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (long long)packetNumber;
+- (int)packetNumber;
 - (id)packets;
-- (void)setPacketNumber:(long long)arg1;
+- (void)setPacketNumber:(int)arg1;
 - (void)setPackets:(id)arg1;
 
 @end

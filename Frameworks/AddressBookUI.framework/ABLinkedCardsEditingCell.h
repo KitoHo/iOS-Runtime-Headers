@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@interface ABLinkedCardsEditingCell : ABLinkedCardsCell {
-}
+@interface ABLinkedCardsEditingCell : ABLinkedCardsCell
 
-+ (bool)wantsHorizontalLayout;
++ (BOOL)wantsHorizontalLayout;
 
 @end

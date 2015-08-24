@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/TextInput.framework/TextInput
  */
 
-@class TIUserDictionaryEntryValue;
-
 @interface TIUserDictionaryTransaction : NSObject <NSSecureCoding> {
     TIUserDictionaryEntryValue *_valueToDelete;
     TIUserDictionaryEntryValue *_valueToInsert;
 }
 
-@property(retain) TIUserDictionaryEntryValue * valueToDelete;
-@property(retain) TIUserDictionaryEntryValue * valueToInsert;
+@property (nonatomic, retain) TIUserDictionaryEntryValue *valueToDelete;
+@property (nonatomic, retain) TIUserDictionaryEntryValue *valueToInsert;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void)dealloc;
 - (id)description;

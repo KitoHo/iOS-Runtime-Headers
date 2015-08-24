@@ -2,8 +2,6 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSData, NSString;
-
 @interface AWDNFCTSMStartEvent : PBCodable <NSCopying> {
     struct { 
         unsigned int timeDeltaFromReference : 1; 
@@ -23,48 +21,48 @@
     NSData *_uuidReference;
 }
 
-@property bool hasIdxTableAvail;
-@property bool hasPersistentAvail;
-@property bool hasTimeDeltaFromReference;
-@property bool hasTimestamp;
-@property bool hasTransientDeselectAvail;
-@property bool hasTransientResetAvail;
-@property(readonly) bool hasUrl;
-@property(readonly) bool hasUuidReference;
-@property unsigned int idxTableAvail;
-@property unsigned int persistentAvail;
-@property unsigned long long timeDeltaFromReference;
-@property unsigned long long timestamp;
-@property unsigned int transientDeselectAvail;
-@property unsigned int transientResetAvail;
-@property(retain) NSString * url;
-@property(retain) NSData * uuidReference;
+@property (nonatomic) BOOL hasIdxTableAvail;
+@property (nonatomic) BOOL hasPersistentAvail;
+@property (nonatomic) BOOL hasTimeDeltaFromReference;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) BOOL hasTransientDeselectAvail;
+@property (nonatomic) BOOL hasTransientResetAvail;
+@property (nonatomic, readonly) BOOL hasUrl;
+@property (nonatomic, readonly) BOOL hasUuidReference;
+@property (nonatomic) unsigned int idxTableAvail;
+@property (nonatomic) unsigned int persistentAvail;
+@property (nonatomic) unsigned long long timeDeltaFromReference;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) unsigned int transientDeselectAvail;
+@property (nonatomic) unsigned int transientResetAvail;
+@property (nonatomic, retain) NSString *url;
+@property (nonatomic, retain) NSData *uuidReference;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasIdxTableAvail;
-- (bool)hasPersistentAvail;
-- (bool)hasTimeDeltaFromReference;
-- (bool)hasTimestamp;
-- (bool)hasTransientDeselectAvail;
-- (bool)hasTransientResetAvail;
-- (bool)hasUrl;
-- (bool)hasUuidReference;
-- (unsigned long long)hash;
+- (BOOL)hasIdxTableAvail;
+- (BOOL)hasPersistentAvail;
+- (BOOL)hasTimeDeltaFromReference;
+- (BOOL)hasTimestamp;
+- (BOOL)hasTransientDeselectAvail;
+- (BOOL)hasTransientResetAvail;
+- (BOOL)hasUrl;
+- (BOOL)hasUuidReference;
+- (unsigned int)hash;
 - (unsigned int)idxTableAvail;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (unsigned int)persistentAvail;
-- (bool)readFrom:(id)arg1;
-- (void)setHasIdxTableAvail:(bool)arg1;
-- (void)setHasPersistentAvail:(bool)arg1;
-- (void)setHasTimeDeltaFromReference:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
-- (void)setHasTransientDeselectAvail:(bool)arg1;
-- (void)setHasTransientResetAvail:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasIdxTableAvail:(BOOL)arg1;
+- (void)setHasPersistentAvail:(BOOL)arg1;
+- (void)setHasTimeDeltaFromReference:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasTransientDeselectAvail:(BOOL)arg1;
+- (void)setHasTransientResetAvail:(BOOL)arg1;
 - (void)setIdxTableAvail:(unsigned int)arg1;
 - (void)setPersistentAvail:(unsigned int)arg1;
 - (void)setTimeDeltaFromReference:(unsigned long long)arg1;

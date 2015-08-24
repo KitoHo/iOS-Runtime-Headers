@@ -2,30 +2,28 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSString;
-
-@interface NSURLQueryItem : NSObject <NSSecureCoding, NSCopying> {
+@interface NSURLQueryItem : NSObject <NSCopying, NSSecureCoding> {
     NSString *_name;
     NSString *_value;
 }
 
-@property(readonly) NSString * name;
-@property(readonly) NSString * value;
+@property (readonly) NSString *name;
+@property (readonly) NSString *value;
 
-+ (bool)automaticallyNotifiesObserversForKey:(id)arg1;
++ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)queryItemWithName:(id)arg1 value:(id)arg2;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (void)finalize;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithName:(id)arg1 value:(id)arg2;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)name;
 - (id)value;
 

@@ -2,49 +2,47 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@class NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString;
-
 @interface _ML3DatabaseConnectionSubPool : NSObject {
     NSMutableSet *_availableConnections;
     NSMutableSet *_busyConnections;
     NSObject<OS_dispatch_queue> *_checkinQueue;
     NSObject<OS_dispatch_queue> *_checkoutQueue;
-    unsigned long long _connectionsJournalingMode;
+    unsigned int _connectionsJournalingMode;
     int _connectionsProfilingLevel;
     NSString *_databasePath;
     int _homeSharingCachesClearedNotifyToken;
-    unsigned long long _maxConcurrentConnections;
+    unsigned int _maxConcurrentConnections;
     NSObject<OS_dispatch_queue> *_serialQueue;
+    BOOL _useDistantConnections;
+    BOOL _useReadOnlyConnections;
     NSObject<OS_dispatch_semaphore> *_waitingSemaphore;
     int _willDeleteDatabaseNotifyToken;
-    bool_useDistantConnections;
-    bool_useReadOnlyConnections;
 }
 
-@property unsigned long long connectionsJournalingMode;
-@property int connectionsProfilingLevel;
-@property(readonly) NSString * databasePath;
-@property(readonly) unsigned long long maxConcurrentConnections;
-@property bool useDistantConnections;
-@property bool useReadOnlyConnections;
+@property (nonatomic) unsigned int connectionsJournalingMode;
+@property (nonatomic) int connectionsProfilingLevel;
+@property (nonatomic, readonly) NSString *databasePath;
+@property (nonatomic, readonly) unsigned int maxConcurrentConnections;
+@property (nonatomic) BOOL useDistantConnections;
+@property (nonatomic) BOOL useReadOnlyConnections;
 
 - (void).cxx_destruct;
 - (void)_handleDatabaseDeletion;
 - (void)checkInConnection:(id)arg1;
-- (id)checkoutConnection:(bool*)arg1;
-- (void)closeConnectionsAndWaitForBusyConnections:(bool)arg1;
-- (unsigned long long)connectionsJournalingMode;
+- (id)checkoutConnection:(BOOL*)arg1;
+- (void)closeConnectionsAndWaitForBusyConnections:(BOOL)arg1;
+- (unsigned int)connectionsJournalingMode;
 - (int)connectionsProfilingLevel;
 - (id)databasePath;
 - (void)dealloc;
 - (id)init;
-- (id)initWithDatabasePath:(id)arg1 maxConcurrentConnections:(unsigned long long)arg2;
-- (unsigned long long)maxConcurrentConnections;
-- (void)setConnectionsJournalingMode:(unsigned long long)arg1;
+- (id)initWithDatabasePath:(id)arg1 maxConcurrentConnections:(unsigned int)arg2;
+- (unsigned int)maxConcurrentConnections;
+- (void)setConnectionsJournalingMode:(unsigned int)arg1;
 - (void)setConnectionsProfilingLevel:(int)arg1;
-- (void)setUseDistantConnections:(bool)arg1;
-- (void)setUseReadOnlyConnections:(bool)arg1;
-- (bool)useDistantConnections;
-- (bool)useReadOnlyConnections;
+- (void)setUseDistantConnections:(BOOL)arg1;
+- (void)setUseReadOnlyConnections:(BOOL)arg1;
+- (BOOL)useDistantConnections;
+- (BOOL)useReadOnlyConnections;
 
 @end

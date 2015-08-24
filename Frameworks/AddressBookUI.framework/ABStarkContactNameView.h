@@ -2,15 +2,13 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@class UIImageView, UILabel;
-
 @interface ABStarkContactNameView : UIView {
     UILabel *_nameLabel;
     UIImageView *_photoImageView;
 }
 
-@property(retain) UILabel * nameLabel;
-@property(retain) UIImageView * photoImageView;
+@property (nonatomic, retain) UILabel *nameLabel;
+@property (nonatomic, retain) UIImageView *photoImageView;
 
 - (void)dealloc;
 - (id)initWithName:(id)arg1;
@@ -19,6 +17,6 @@
 - (id)photoImageView;
 - (void)setNameLabel:(id)arg1;
 - (void)setPhotoImageView:(id)arg1;
-- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
+- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
 
 @end

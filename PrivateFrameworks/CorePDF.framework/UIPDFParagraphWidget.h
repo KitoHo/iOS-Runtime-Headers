@@ -2,76 +2,74 @@
    Image: /System/Library/PrivateFrameworks/CorePDF.framework/CorePDF
  */
 
-@class CALayer, CAShapeLayer, UIPDFPageView;
-
 @interface UIPDFParagraphWidget : NSObject <UIPDFSelectionWidget> {
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    struct CGPoint { 
-        double x; 
-        double y; 
     CALayer *_bottomGrabber;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _boundsInPDFSpace;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _currentTrackingRect;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _initialRect;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _initialSelectionPointOnPage;
     CALayer *_leftGrabber;
     UIPDFPageView *_pageView;
     CALayer *_rightGrabber;
     CALayer *_selectedGrabber;
     CALayer *_topGrabber;
+    BOOL _tracking;
     CAShapeLayer *_trackingBorder;
-    bool_tracking;
 }
 
-@property(readonly) struct CGPoint { double x1; double x2; } currentSelectionPointOnPage;
-@property(readonly) struct CGPoint { double x1; double x2; } initialSelectionPointOnPage;
-@property UIPDFPageView * pageView;
+@property (nonatomic, readonly) struct CGPoint { float x1; float x2; } currentSelectionPointOnPage;
+@property (nonatomic, readonly) struct CGPoint { float x1; float x2; } initialSelectionPointOnPage;
+@property (nonatomic) UIPDFPageView *pageView;
 
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })adjustRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 toPoint:(struct CGPoint { double x1; double x2; })arg2;
-- (struct CGPoint { double x1; double x2; })currentSelectionPointOnPage;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })adjustRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1 toPoint:(struct CGPoint { float x1; float x2; })arg2;
+- (struct CGPoint { float x1; float x2; })currentSelectionPointOnPage;
 - (void)dealloc;
 - (void)endTracking;
 - (void)hide;
-- (bool)hitTest:(struct CGPoint { double x1; double x2; })arg1 fixedPoint:(struct CGPoint { double x1; double x2; }*)arg2 preceeds:(bool*)arg3;
+- (BOOL)hitTest:(struct CGPoint { float x1; float x2; })arg1 fixedPoint:(struct CGPoint { float x1; float x2; }*)arg2 preceeds:(BOOL*)arg3;
 - (id)init;
-- (struct CGPoint { double x1; double x2; })initialSelectionPointOnPage;
+- (struct CGPoint { float x1; float x2; })initialSelectionPointOnPage;
 - (void)layout;
 - (id)pageView;
 - (void)remove;
-- (struct CGPoint { double x1; double x2; })selectedPointFor:(struct CGPoint { double x1; double x2; })arg1;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })selectionBoundsInEffectsSpace;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })selectionRectangle;
+- (struct CGPoint { float x1; float x2; })selectedPointFor:(struct CGPoint { float x1; float x2; })arg1;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })selectionBoundsInEffectsSpace;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })selectionRectangle;
 - (void)setPageView:(id)arg1;
-- (void)setSelectedGrabber:(unsigned long long)arg1;
-- (void)setSelectedGrabberPosition:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)setSelectedGrabber:(unsigned int)arg1;
+- (void)setSelectedGrabberPosition:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)setSelection:(id)arg1;
-- (void)track:(struct CGPoint { double x1; double x2; })arg1;
-- (struct CGPoint { double x1; double x2; })viewOffset;
+- (void)track:(struct CGPoint { float x1; float x2; })arg1;
+- (struct CGPoint { float x1; float x2; })viewOffset;
 
 @end

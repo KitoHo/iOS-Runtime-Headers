@@ -2,28 +2,26 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSArray;
-
 @interface CKDiscoverUserInfosOperationInfo : CKOperationInfo <NSSecureCoding> {
     NSArray *_emails;
+    BOOL _shouldDiscoverAllContacts;
     NSArray *_userRecordIDs;
-    bool_shouldDiscoverAllContacts;
 }
 
-@property(retain) NSArray * emails;
-@property bool shouldDiscoverAllContacts;
-@property(retain) NSArray * userRecordIDs;
+@property (nonatomic, retain) NSArray *emails;
+@property (nonatomic) BOOL shouldDiscoverAllContacts;
+@property (nonatomic, retain) NSArray *userRecordIDs;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)emails;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)setEmails:(id)arg1;
-- (void)setShouldDiscoverAllContacts:(bool)arg1;
+- (void)setShouldDiscoverAllContacts:(BOOL)arg1;
 - (void)setUserRecordIDs:(id)arg1;
-- (bool)shouldDiscoverAllContacts;
+- (BOOL)shouldDiscoverAllContacts;
 - (id)userRecordIDs;
 
 @end

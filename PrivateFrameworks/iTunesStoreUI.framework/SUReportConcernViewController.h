@@ -3,24 +3,24 @@
  */
 
 @interface SUReportConcernViewController : SUTableViewController {
-    struct UIEdgeInsets { 
-        double top; 
-        double left; 
-        double bottom; 
-        double right; 
+    BOOL _animatingKeyboard;
     unsigned long long _itemIdentifier;
+    struct UIEdgeInsets { 
+        float top; 
+        float left; 
+        float bottom; 
+        float right; 
     } _originalTableInsets;
-    bool_animatingKeyboard;
 }
 
-@property(readonly) unsigned long long itemIdentifier;
+@property (nonatomic, readonly) unsigned long long itemIdentifier;
 
 - (void)_cancel:(id)arg1;
 - (void)_fetchConcerns;
 - (void)_hideKeyboardDidStop:(id)arg1 finished:(id)arg2 context:(void*)arg3;
 - (void)_showKeyboardDidStop:(id)arg1 finished:(id)arg2 context:(void*)arg3;
 - (void)_submit:(id)arg1;
-- (bool)handleSelectionForIndexPath:(id)arg1 tapCount:(long long)arg2;
+- (BOOL)handleSelectionForIndexPath:(id)arg1 tapCount:(int)arg2;
 - (id)initWithItemIdentifier:(unsigned long long)arg1;
 - (unsigned long long)itemIdentifier;
 - (void)keyboardWillHideWithInfo:(id)arg1;
@@ -28,6 +28,6 @@
 - (void)loadView;
 - (void)operation:(id)arg1 failedWithError:(id)arg2;
 - (void)operation:(id)arg1 finishedWithOutput:(id)arg2;
-- (void)viewDidAppear:(bool)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
 
 @end

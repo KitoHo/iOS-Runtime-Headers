@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSKRemovedFromDocumentContext_Moving : TSKRemovedFromDocumentContext {
-}
+@interface TSKRemovedFromDocumentContext_Moving : TSKRemovedFromDocumentContext
 
 - (id)description;
 - (id)undoContext;
-- (bool)wasMoved;
+- (BOOL)wasMoved;
 
 @end

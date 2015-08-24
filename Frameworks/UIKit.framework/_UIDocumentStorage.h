@@ -2,19 +2,17 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString, NSURL;
-
 @interface _UIDocumentStorage : NSObject {
     NSURL *_rootURL;
     NSString *_scope;
 }
 
-@property(readonly) NSURL * rootURL;
-@property(getter=isUbiquitous,readonly) bool ubiquitous;
+@property (readonly) NSURL *rootURL;
+@property (getter=isUbiquitous, readonly) BOOL ubiquitous;
 
 - (void)dealloc;
 - (id)initWithSearchScope:(id)arg1 rootURL:(id)arg2;
-- (bool)isUbiquitous;
+- (BOOL)isUbiquitous;
 - (id)rootURL;
 
 @end

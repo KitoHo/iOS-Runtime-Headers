@@ -2,34 +2,28 @@
    Image: /System/Library/PrivateFrameworks/FrontBoard.framework/FrontBoard
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class FBApplicationProcess, FBProcessExecutionContext, FBProcessManager, FBWaitForProcessDeathTransaction, NSString;
-
-@interface FBApplicationProcessLaunchTransaction : FBTransaction <FBProcessManagerObserver, FBApplicationProcessObserver> {
+@interface FBApplicationProcessLaunchTransaction : FBTransaction <FBApplicationProcessObserver> {
     NSString *_bundleID;
     FBWaitForProcessDeathTransaction *_deathTransaction;
     FBProcessExecutionContext *_executionContext;
-    id _executionContextProvider;
+    id /* block */ _executionContextProvider;
+    BOOL _exited;
+    BOOL _failedLaunch;
     FBApplicationProcess *_process;
+    BOOL _processIsValid;
     FBProcessManager *_processManager;
-    bool_exited;
-    bool_failedLaunch;
-    bool_processIsValid;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) bool exited;
-@property(readonly) bool failedLaunch;
-@property(readonly) unsigned long long hash;
-@property(retain,readonly) FBApplicationProcess * process;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) BOOL exited;
+@property (nonatomic, readonly) BOOL failedLaunch;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly, retain) FBApplicationProcess *process;
+@property (readonly) Class superclass;
 
 - (void)_begin;
-- (bool)_canBeInterrupted;
+- (BOOL)_canBeInterrupted;
 - (void)_childTransactionDidComplete:(id)arg1;
 - (id)_customizedDescriptionProperties;
 - (void)_didComplete;
@@ -40,13 +34,11 @@
 - (void)applicationProcessDidLaunch:(id)arg1;
 - (void)applicationProcessWillLaunch:(id)arg1;
 - (void)dealloc;
-- (bool)exited;
-- (bool)failedLaunch;
-- (id)initWithApplicationBundleID:(id)arg1 executionContextProvider:(id)arg2;
+- (BOOL)exited;
+- (BOOL)failedLaunch;
+- (id)initWithApplicationBundleID:(id)arg1 executionContextProvider:(id /* block */)arg2;
 - (id)initWithApplicationProcess:(id)arg1;
 - (id)process;
-- (void)processManager:(id)arg1 didAddProcess:(id)arg2;
-- (void)processManager:(id)arg1 didRemoveProcess:(id)arg2;
 - (void)removeObserver:(id)arg1;
 
 @end

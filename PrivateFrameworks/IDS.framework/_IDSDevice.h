@@ -2,53 +2,52 @@
    Image: /System/Library/PrivateFrameworks/IDS.framework/IDS
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class CUTWeakReference, NSArray, NSData, NSDictionary, NSInputStream, NSObject<OS_dispatch_queue>, NSOutputStream, NSString, NSUUID;
-
 @interface _IDSDevice : NSObject <IDSDaemonListenerProtocol> {
     CUTWeakReference *_account;
+    BOOL _connected;
     NSDictionary *_info;
     NSInputStream *_inputStreamForSocket;
+    int _lastActivityToken;
+    BOOL _nearby;
     int _nearbyToken;
-    id _openSocketCompletionHandler;
+    id /* block */ _openSocketCompletionHandler;
     NSString *_openSocketCompletionHandlerID;
     NSObject<OS_dispatch_queue> *_openSocketCompletionHandlerQueue;
     NSOutputStream *_outputStreamForSocket;
     NSString *_serviceToken;
     int _socket;
-    bool_nearby;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain,readonly) NSString * deviceColor;
-@property(retain,readonly) NSString * enclosureColor;
-@property(readonly) unsigned long long hash;
-@property(retain,readonly) NSArray * identities;
-@property(readonly) bool isDefaultLocalDevice;
-@property(readonly) bool isDefaultPairedDevice;
-@property(retain,readonly) NSArray * linkedUserURIs;
-@property(readonly) bool locallyPresent;
-@property(retain,readonly) NSString * modelIdentifier;
-@property(retain,readonly) NSString * name;
-@property(getter=isNearby,readonly) bool nearby;
-@property(setter=setNSUUID:,retain) NSUUID * nsuuid;
-@property(readonly) NSString * productBuildVersion;
-@property(readonly) NSString * productName;
-@property(readonly) NSString * productVersion;
-@property(retain,readonly) NSData * pushToken;
-@property(retain,readonly) NSString * service;
-@property(readonly) Class superclass;
-@property(readonly) bool supportsHandoff;
-@property(readonly) bool supportsMMSRelay;
-@property(readonly) bool supportsPhoneCalls;
-@property(readonly) bool supportsSMSRelay;
-@property(readonly) bool supportsTethering;
-@property(readonly) bool supportsiCloudPairing;
-@property(retain,readonly) NSString * uniqueID;
+@property (getter=isConnected, nonatomic, readonly) BOOL connected;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly, retain) NSString *deviceColor;
+@property (nonatomic, readonly, retain) NSString *enclosureColor;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly, retain) NSArray *identities;
+@property (nonatomic, readonly) BOOL isDefaultLocalDevice;
+@property (nonatomic, readonly) BOOL isDefaultPairedDevice;
+@property (nonatomic, readonly, retain) NSDate *lastActivityDate;
+@property (nonatomic, readonly, retain) NSArray *linkedUserURIs;
+@property (nonatomic, readonly) BOOL locallyPresent;
+@property (nonatomic, readonly, retain) NSString *modelIdentifier;
+@property (nonatomic, readonly, retain) NSString *name;
+@property (getter=isNearby, nonatomic, readonly) BOOL nearby;
+@property (setter=setNSUUID:, nonatomic, retain) NSUUID *nsuuid;
+@property (nonatomic, readonly) unsigned int pairingProtocolVersion;
+@property (nonatomic, readonly) NSString *productBuildVersion;
+@property (nonatomic, readonly) NSString *productName;
+@property (nonatomic, readonly) NSString *productVersion;
+@property (nonatomic, readonly, retain) NSData *pushToken;
+@property (nonatomic, readonly, retain) NSString *service;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) BOOL supportsHandoff;
+@property (nonatomic, readonly) BOOL supportsMMSRelay;
+@property (nonatomic, readonly) BOOL supportsPhoneCalls;
+@property (nonatomic, readonly) BOOL supportsSMSRelay;
+@property (nonatomic, readonly) BOOL supportsTethering;
+@property (nonatomic, readonly) BOOL supportsiCloudPairing;
+@property (nonatomic, readonly, retain) NSString *uniqueID;
 
 - (void)_addIdentity:(id)arg1;
 - (void)_connect;
@@ -64,15 +63,18 @@
 - (id)enclosureColor;
 - (id)identities;
 - (id)initWithDictionary:(id)arg1;
-- (bool)isDefaultLocalDevice;
-- (bool)isDefaultPairedDevice;
-- (bool)isNearby;
+- (BOOL)isConnected;
+- (BOOL)isDefaultLocalDevice;
+- (BOOL)isDefaultPairedDevice;
+- (BOOL)isNearby;
+- (id)lastActivityDate;
 - (id)linkedUserURIs;
-- (bool)locallyPresent;
+- (BOOL)locallyPresent;
 - (id)modelIdentifier;
 - (id)name;
 - (id)nsuuid;
-- (void)openSocketWithOptions:(id)arg1 completionHandler:(id)arg2 onQueue:(id)arg3;
+- (void)openSocketWithOptions:(id)arg1 completionHandler:(id /* block */)arg2 onQueue:(id)arg3;
+- (unsigned int)pairingProtocolVersion;
 - (id)productBuildVersion;
 - (id)productName;
 - (id)productVersion;
@@ -81,12 +83,12 @@
 - (void)setNSUUID:(id)arg1;
 - (void)setStreamPairWithInputStream:(id)arg1 outputStream:(id)arg2;
 - (int)socketForDomain:(id)arg1;
-- (bool)supportsHandoff;
-- (bool)supportsMMSRelay;
-- (bool)supportsPhoneCalls;
-- (bool)supportsSMSRelay;
-- (bool)supportsTethering;
-- (bool)supportsiCloudPairing;
+- (BOOL)supportsHandoff;
+- (BOOL)supportsMMSRelay;
+- (BOOL)supportsPhoneCalls;
+- (BOOL)supportsSMSRelay;
+- (BOOL)supportsTethering;
+- (BOOL)supportsiCloudPairing;
 - (id)uniqueID;
 - (void)xpcObject:(id)arg1 objectContext:(id)arg2;
 

@@ -2,46 +2,55 @@
    Image: /System/Library/PrivateFrameworks/TelephonyUtilities.framework/TelephonyUtilities
  */
 
-@interface TUCallCapabilities : NSObject {
-}
+@interface TUCallCapabilities : NSObject
 
-+ (bool)_canEnableRelayCallingDefault;
++ (BOOL)_canEnableRelayCallingDefault;
 + (struct __CTServerConnection { }*)_createServerConnection;
 + (void)_initializeCTCapabilitiesSupport;
 + (void)_initializeState;
-+ (bool)_relayCallingEnabledDefault;
-+ (void)_sendNecessaryNotificationsAfterRunningBlock:(id)arg1;
-+ (void)_setCanEnableRelayCallingDefault:(bool)arg1;
-+ (void)_setRelayCallingEnabledDefault:(bool)arg1;
-+ (void)_setSupportsRelayCallingDefault:(bool)arg1;
++ (BOOL)_relayCallingEnabledDefault;
++ (BOOL)_relayCallingFeaturesEnabledDefault;
++ (void)_sendNecessaryNotificationsAfterRunningBlock:(id /* block */)arg1;
++ (void)_setCTCapability:(struct __CFString { }*)arg1 value:(BOOL)arg2;
++ (void)_setCanEnableRelayCallingDefault:(BOOL)arg1;
++ (void)_setRelayCallingEnabledDefault:(BOOL)arg1;
++ (void)_setRelayCallingFeaturesEnabledDefault:(BOOL)arg1;
++ (void)_setSupportsRelayCallingDefault:(BOOL)arg1;
 + (void)_setUpCTCapabilitiesNotifications;
 + (void)_setUpRelayCallingListeners;
-+ (bool)_supportsRelayCallingDefault;
++ (BOOL)_supportsRelayCallingDefault;
 + (void)_tearDownCTCapabilitiesNotifications;
 + (void)_tearDownRelayCallingListeners;
-+ (bool)canEnableRelayCalling;
-+ (bool)canEnableWiFiCalling;
++ (BOOL)areRelayCallingFeaturesEnabled;
++ (BOOL)canAttemptTelephonyCallsInAirplaneMode;
++ (BOOL)canEnableRelayCalling;
++ (BOOL)canEnableWiFiCalling;
++ (id)debugDescription;
 + (int)faceTimeAudioCallSupport;
 + (int)faceTimeVideoCallSupport;
++ (void)invalidateAndRefreshProvisioningURLs;
 + (void)invalidateCachedValues;
-+ (bool)isRelayCallingEnabled;
-+ (bool)isWiFiCallingCurrentlyAvailable;
-+ (bool)isWiFiCallingEnabled;
-+ (void)setRelayCallingEnabled:(bool)arg1;
++ (BOOL)isProvisioningURLValid:(id)arg1;
++ (BOOL)isRelayCallingEnabled;
++ (BOOL)isWiFiCallingCurrentlyAvailable;
++ (BOOL)isWiFiCallingEnabled;
++ (void)setRelayCallingEnabled:(BOOL)arg1;
 + (void)setWiFiCallingCapabilityInformation:(id)arg1;
-+ (void)setWiFiCallingEnabled:(bool)arg1;
-+ (bool)supportsDisplayingFaceTimeAudioCalls;
-+ (bool)supportsDisplayingFaceTimeVideoCalls;
-+ (bool)supportsDisplayingTelephonyCalls;
-+ (bool)supportsFaceTimeAudioCalls;
-+ (bool)supportsFaceTimeVideoCalls;
-+ (bool)supportsHostingFaceTimeAudioCalls;
-+ (bool)supportsHostingFaceTimeVideoCalls;
-+ (bool)supportsHostingTelephonyCalls;
-+ (bool)supportsRelayCalling;
-+ (bool)supportsSimultaneousVoiceAndData;
-+ (bool)supportsTelephonyCalls;
++ (void)setWiFiCallingEnabled:(BOOL)arg1;
++ (void)setWiFiCallingProvisioningURL:(id)arg1;
++ (BOOL)supportsDisplayingFaceTimeAudioCalls;
++ (BOOL)supportsDisplayingFaceTimeVideoCalls;
++ (BOOL)supportsDisplayingTelephonyCalls;
++ (BOOL)supportsFaceTimeAudioCalls;
++ (BOOL)supportsFaceTimeVideoCalls;
++ (BOOL)supportsHostingFaceTimeAudioCalls;
++ (BOOL)supportsHostingFaceTimeVideoCalls;
++ (BOOL)supportsHostingTelephonyCalls;
++ (BOOL)supportsRelayCalling;
++ (BOOL)supportsSimultaneousVoiceAndData;
++ (BOOL)supportsTelephonyCalls;
 + (int)telephonyCallSupport;
 + (id)wiFiCallingCapabilityInformation;
++ (id)wiFiCallingProvisioningURL;
 
 @end

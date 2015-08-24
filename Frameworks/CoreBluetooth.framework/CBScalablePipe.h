@@ -2,34 +2,33 @@
    Image: /System/Library/Frameworks/CoreBluetooth.framework/CoreBluetooth
  */
 
-@class CBCentral, CBScalablePipeManager, NSInputStream, NSOutputStream, NSString;
-
 @interface CBScalablePipe : NSObject {
     CBCentral *_central;
     NSInputStream *_input;
     NSString *_name;
     NSOutputStream *_output;
     CBScalablePipeManager *_pipeManager;
-    long long _priority;
-    long long _type;
+    int _priority;
+    int _socket;
+    int _type;
 }
 
-@property(retain,readonly) CBCentral * central;
-@property(retain,readonly) NSInputStream * input;
-@property(retain,readonly) NSString * name;
-@property(retain,readonly) NSOutputStream * output;
-@property(readonly) long long priority;
-@property(readonly) long long type;
+@property (nonatomic, readonly) CBCentral *central;
+@property (nonatomic, readonly) NSInputStream *input;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) NSOutputStream *output;
+@property (nonatomic, readonly) int priority;
+@property (nonatomic, readonly) int type;
 
 - (id)central;
 - (void)dealloc;
 - (id)description;
-- (id)initWithPipeManager:(id)arg1 central:(id)arg2 name:(id)arg3 type:(long long)arg4 priority:(long long)arg5 inputStream:(id)arg6 outputStream:(id)arg7;
+- (id)initWithPipeManager:(id)arg1 info:(id)arg2;
 - (id)input;
 - (id)name;
 - (id)output;
-- (long long)priority;
+- (int)priority;
 - (void)setOrphan;
-- (long long)type;
+- (int)type;
 
 @end

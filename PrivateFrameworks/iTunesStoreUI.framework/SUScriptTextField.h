@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSNumber, NSString, SUScriptFunction, WebScriptObject;
-
 @interface SUScriptTextField : SUScriptObject <SUScriptNavigationItem> {
     SUScriptFunction *_shouldFocusFunction;
     NSString *_style;
 }
 
-@property(retain) NSString * autocapitalizationType;
-@property(retain) NSString * autocorrectionType;
-@property(readonly) bool canBecomeFirstResponder;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) NSString * keyboardType;
-@property(retain) NSString * placeholder;
-@property(retain) WebScriptObject * shouldFocusFunction;
-@property(readonly) NSString * style;
-@property(readonly) Class superclass;
-@property(retain) NSString * value;
-@property(retain) NSNumber * width;
+@property (retain) NSString *autocapitalizationType;
+@property (retain) NSString *autocorrectionType;
+@property (nonatomic, readonly) BOOL canBecomeFirstResponder;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (retain) NSString *keyboardType;
+@property (retain) NSString *placeholder;
+@property (retain) WebScriptObject *shouldFocusFunction;
+@property (readonly) NSString *style;
+@property (readonly) Class superclass;
+@property (retain) NSString *value;
+@property (retain) NSNumber *width;
 
 + (void)initialize;
 + (id)webScriptNameForKeyName:(id)arg1;
@@ -33,18 +31,18 @@
 - (id)_className;
 - (id)_copyPlaceholder;
 - (id)_copyValue;
-- (double)_defaultWidth;
+- (float)_defaultWidth;
 - (id)_keyboardType;
 - (id)_newTextField;
-- (bool)_styleIsValid:(id)arg1;
+- (BOOL)_styleIsValid:(id)arg1;
 - (id)attributeKeys;
 - (id)autocapitalizationType;
 - (id)autocorrectionType;
-- (bool)blur;
+- (BOOL)blur;
 - (id)buttonItem;
-- (bool)canBecomeFirstResponder;
+- (BOOL)canBecomeFirstResponder;
 - (void)dealloc;
-- (bool)focus;
+- (BOOL)focus;
 - (id)init;
 - (id)initWithTextFieldStyle:(id)arg1;
 - (id)keyboardType;

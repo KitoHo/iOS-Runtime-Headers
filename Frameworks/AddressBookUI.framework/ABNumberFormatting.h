@@ -2,10 +2,9 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@interface ABNumberFormatting : NSObject {
-}
+@interface ABNumberFormatting : NSObject
 
-+ (id)localizedStringWithInt:(long long)arg1;
-+ (id)newLocalizedStringWithInt:(long long)arg1;
++ (id)localizedStringWithInt:(int)arg1;
++ (id)newLocalizedStringWithInt:(int)arg1;
 
 @end

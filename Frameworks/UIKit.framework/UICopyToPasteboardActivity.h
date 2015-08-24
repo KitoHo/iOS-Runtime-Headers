@@ -2,13 +2,12 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface UICopyToPasteboardActivity : UIActivity {
-}
+@interface UICopyToPasteboardActivity : UIActivity
 
 - (id)_activityImage;
 - (id)activityTitle;
 - (id)activityType;
-- (bool)canPerformWithActivityItems:(id)arg1;
+- (BOOL)canPerformWithActivityItems:(id)arg1;
 - (id)pasteboard;
 - (void)performActivity;
 - (void)prepareWithActivityItems:(id)arg1;

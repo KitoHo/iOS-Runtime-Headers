@@ -2,30 +2,38 @@
    Image: /System/Library/PrivateFrameworks/MusicCarDisplayUI.framework/MusicCarDisplayUI
  */
 
-@class NSArray, NSString, RURadioDataSource;
-
 @interface MCDRadioViewController : MCD_OLD_TableViewController <RURadioDataSourceDelegate> {
+    UIView *_MCD_tableView;
     RURadioDataSource *_dataSource;
     NSString *_featuredStationNamesBrief;
     NSArray *_featuredStations;
     NSArray *_myStations;
+    MCDNoContentView *_placeholderView;
+    RadioRecentStationsController *_recentStationsController;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) RadioRecentStationsController *recentStationsController;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (void)_categorizeStations;
-- (void)_radioDataSourceDidInvalidate:(id)arg1;
+- (BOOL)_isNetworkTypeAllowed:(int)arg1;
+- (void)_networkTypeDidChangeNotification:(id)arg1;
 - (id)_stationFromIndexPath:(id)arg1;
+- (void)_updateViewForNetworkType:(int)arg1;
 - (void)dealloc;
 - (id)initWithPlayer:(id)arg1 serviceProvider:(id)arg2;
 - (void)radioDataSourceDidInvalidate:(id)arg1;
+- (id)recentStationsController;
+- (void)setRecentStationsController:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (id)viewControllerForRowAtIndexPath:(id)arg1;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)arg1;
 
 @end

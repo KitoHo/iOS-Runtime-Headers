@@ -2,18 +2,15 @@
    Image: /System/Library/PrivateFrameworks/CoreThemeDefinition.framework/CoreThemeDefinition
  */
 
-@class NSSet;
+@interface TDPhotoshopAsset : TDAsset
 
-@interface TDPhotoshopAsset : TDAsset {
-}
-
-@property(retain) NSSet * productions;
+@property (nonatomic, retain) NSSet *productions;
 
 - (id)_activeProductionWithRenditionsInProductions:(id)arg1;
 - (id)_productionWithRenditionsInProductions:(id)arg1;
 - (id)copyDataFromAttributes;
-- (bool)hasCursorProduction;
-- (bool)hasProduction;
+- (BOOL)hasCursorProduction;
+- (BOOL)hasProduction;
 - (id)production;
 - (void)setAttributesFromCopyData:(id)arg1;
 

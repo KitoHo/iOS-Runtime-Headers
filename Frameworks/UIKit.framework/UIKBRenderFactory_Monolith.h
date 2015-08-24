@@ -2,19 +2,18 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface UIKBRenderFactory_Monolith : UIKBRenderFactory {
-}
+@interface UIKBRenderFactory_Monolith : UIKBRenderFactory
 
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
 - (id)activeTextColor;
 - (id)backgroundTraitsForKeyplane:(id)arg1;
 - (id)displayContentsForKey:(id)arg1;
-- (double)enabledFontSize;
-- (struct CGPoint { double x1; double x2; })enabledTextOffset;
+- (float)enabledFontSize;
+- (struct CGPoint { float x1; float x2; })enabledTextOffset;
 - (id)fontName;
-- (double)highlightedFontSize;
+- (float)highlightedFontSize;
 - (id)highlightedKeyColor;
-- (struct CGPoint { double x1; double x2; })highlightedTextOffset;
+- (struct CGPoint { float x1; float x2; })highlightedTextOffset;
 - (id)inactiveTextColor;
 
 @end

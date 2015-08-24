@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/MediaPlayerUI.framework/MediaPlayerUI
  */
 
-@class NSString;
-
 @interface MPUAirTrafficMediaDownloadObserver : MPUMediaDownloadObserver {
     NSString *_assetIdentifier;
     double _lastDownloadProgress;
@@ -19,6 +17,6 @@
 - (void)dealloc;
 - (double)downloadProgress;
 - (id)initWithAssetIdentifier:(id)arg1;
-- (bool)isPurchasing;
+- (BOOL)isPurchasing;
 
 @end

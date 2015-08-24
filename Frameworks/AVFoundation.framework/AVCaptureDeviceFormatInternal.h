@@ -2,20 +2,18 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class FigCaptureSourceFormat, NSArray;
-
 @interface AVCaptureDeviceFormatInternal : NSObject {
     struct { 
         long long value; 
         int timescale; 
         unsigned int flags; 
         long long epoch; 
+    } defaultActiveMaxFrameDuration;
     struct { 
         long long value; 
         int timescale; 
         unsigned int flags; 
         long long epoch; 
-    } defaultActiveMaxFrameDuration;
     } defaultActiveMinFrameDuration;
     FigCaptureSourceFormat *sourceFormat;
     NSArray *videoSupportedFrameRateRanges;

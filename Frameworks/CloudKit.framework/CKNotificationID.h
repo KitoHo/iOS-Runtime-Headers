@@ -2,24 +2,22 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSString;
-
 @interface CKNotificationID : NSObject <NSCopying, NSSecureCoding> {
     NSString *_notificationUUID;
 }
 
-@property(copy) NSString * notificationUUID;
+@property (nonatomic, copy) NSString *notificationUUID;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)CKPropertiesDescription;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)notificationUUID;
 - (void)setNotificationUUID:(id)arg1;
 

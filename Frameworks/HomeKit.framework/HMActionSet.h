@@ -2,45 +2,40 @@
    Image: /System/Library/Frameworks/HomeKit.framework/HomeKit
  */
 
-@class HMHome, HMMessageDispatcher, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
-
 @interface HMActionSet : NSObject <HMMessageReceiver, NSSecureCoding> {
     NSMutableArray *_currentActions;
+    BOOL _executing;
     HMHome *_home;
     HMMessageDispatcher *_msgDispatcher;
     NSString *_name;
-    NSMutableArray *_pendingActionTransactions;
-    NSMutableDictionary *_pendingRequests;
     NSUUID *_uuid;
     NSObject<OS_dispatch_queue> *_workQueue;
-    bool_executing;
 }
 
-@property(copy,readonly) NSSet * actions;
-@property(retain) NSMutableArray * currentActions;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(getter=isExecuting,readonly) bool executing;
-@property(readonly) unsigned long long hash;
-@property HMHome * home;
-@property(readonly) NSObject<OS_dispatch_queue> * messageReceiveQueue;
-@property(readonly) NSUUID * messageTargetUUID;
-@property(retain) HMMessageDispatcher * msgDispatcher;
-@property(copy,readonly) NSString * name;
-@property(retain) NSMutableArray * pendingActionTransactions;
-@property(retain) NSMutableDictionary * pendingRequests;
-@property(readonly) Class superclass;
-@property(retain) NSUUID * uuid;
-@property(retain) NSObject<OS_dispatch_queue> * workQueue;
+@property (nonatomic, readonly, copy) NSSet *actions;
+@property (nonatomic, retain) NSMutableArray *currentActions;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (getter=isExecuting, nonatomic, readonly) BOOL executing;
+@property (readonly) unsigned int hash;
+@property (nonatomic) HMHome *home;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property (nonatomic, readonly) NSUUID *messageTargetUUID;
+@property (nonatomic, retain) HMMessageDispatcher *msgDispatcher;
+@property (nonatomic, readonly, copy) NSString *name;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSUUID *uuid;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *workQueue;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)_registerNotificationHandlers;
 - (id)actions;
-- (void)addAction:(id)arg1 completionHandler:(id)arg2;
+- (void)addAction:(id)arg1 completionHandler:(id /* block */)arg2;
 - (void)configure:(id)arg1 uuid:(id)arg2 messageDispatcher:(id)arg3;
 - (id)currentActions;
+- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (void)handleActionAddedNotification:(id)arg1;
 - (void)handleActionRemovedNotification:(id)arg1;
@@ -51,24 +46,21 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithName:(id)arg1;
 - (void)invalidate;
-- (bool)isExecuting;
+- (BOOL)isExecuting;
 - (id)lookupActionWithInfo:(id)arg1;
 - (id)messageReceiveQueue;
 - (id)messageTargetUUID;
 - (id)msgDispatcher;
 - (id)name;
-- (id)pendingActionTransactions;
-- (id)pendingRequests;
-- (void)removeAction:(id)arg1 completionHandler:(id)arg2;
+- (void)removeAction:(id)arg1 completionHandler:(id /* block */)arg2;
 - (void)setCurrentActions:(id)arg1;
 - (void)setHome:(id)arg1;
 - (void)setMsgDispatcher:(id)arg1;
-- (void)setPendingActionTransactions:(id)arg1;
-- (void)setPendingRequests:(id)arg1;
 - (void)setUuid:(id)arg1;
 - (void)setWorkQueue:(id)arg1;
-- (void)updateAction:(id)arg1 changes:(id)arg2 completionHandler:(id)arg3;
-- (void)updateName:(id)arg1 completionHandler:(id)arg2;
+- (void)unconfigure;
+- (void)updateAction:(id)arg1 changes:(id)arg2 completionHandler:(id /* block */)arg3;
+- (void)updateName:(id)arg1 completionHandler:(id /* block */)arg2;
 - (id)uuid;
 - (id)workQueue;
 

@@ -2,39 +2,39 @@
    Image: /System/Library/PrivateFrameworks/MediaPlayerUI.framework/MediaPlayerUI
  */
 
-@class NSDictionary, NSTimer, UILabel;
-
 @interface MPUSkipLimitView : UIView {
-    struct { 
-        long long numberOfAvailableSkips; 
-        long long skipFrequency; 
-        double skipInterval; 
     NSTimer *_hideTimer;
     UILabel *_informationLabel;
+    struct { 
+        int numberOfAvailableSkips; 
+        int skipFrequency; 
+        double skipInterval; 
     } _skipLimit;
     NSDictionary *_textAttributes;
 }
 
-@property long long maximumNumberOfLines;
-@property struct { long long x1; long long x2; double x3; } skipLimit;
-@property(copy) NSDictionary * textAttributes;
+@property (nonatomic, readonly) UILabel *label;
+@property (nonatomic) int maximumNumberOfLines;
+@property (nonatomic) struct { int x1; int x2; double x3; } skipLimit;
+@property (nonatomic, copy) NSDictionary *textAttributes;
 
 - (void).cxx_destruct;
 - (void)_hideSkipInformationForTimer:(id)arg1;
 - (void)_invalidateHideTimer;
 - (void)_updateInformationLabel;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })alignmentRectInsets;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })alignmentRectInsets;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 labelClass:(Class)arg2;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (struct CGSize { double x1; double x2; })intrinsicContentSize;
-- (long long)maximumNumberOfLines;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1 labelClass:(Class)arg2;
+- (struct CGSize { float x1; float x2; })intrinsicContentSize;
+- (id)label;
+- (int)maximumNumberOfLines;
 - (void)revealSkipInformationMomentarily;
-- (void)setMaximumNumberOfLines:(long long)arg1;
-- (void)setSkipLimit:(struct { long long x1; long long x2; double x3; })arg1;
+- (void)setMaximumNumberOfLines:(int)arg1;
+- (void)setSkipLimit:(struct { int x1; int x2; double x3; })arg1;
 - (void)setTextAttributes:(id)arg1;
-- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
-- (struct { long long x1; long long x2; double x3; })skipLimit;
+- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
+- (struct { int x1; int x2; double x3; })skipLimit;
 - (id)textAttributes;
 - (id)viewForBaselineLayout;
 

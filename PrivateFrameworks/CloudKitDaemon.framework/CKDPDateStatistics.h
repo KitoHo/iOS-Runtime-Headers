@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPDate;
-
 @interface CKDPDateStatistics : PBCodable <NSCopying> {
     CKDPDate *_creation;
     CKDPDate *_modification;
 }
 
-@property(retain) CKDPDate * creation;
-@property(readonly) bool hasCreation;
-@property(readonly) bool hasModification;
-@property(retain) CKDPDate * modification;
+@property (nonatomic, retain) CKDPDate *creation;
+@property (nonatomic, readonly) BOOL hasCreation;
+@property (nonatomic, readonly) BOOL hasModification;
+@property (nonatomic, retain) CKDPDate *modification;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
@@ -20,13 +18,13 @@
 - (id)creation;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasCreation;
-- (bool)hasModification;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasCreation;
+- (BOOL)hasModification;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)modification;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setCreation:(id)arg1;
 - (void)setModification:(id)arg1;
 - (void)writeTo:(id)arg1;

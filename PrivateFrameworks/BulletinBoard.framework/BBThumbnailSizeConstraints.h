@@ -3,7 +3,7 @@
  */
 
 @interface BBThumbnailSizeConstraints : NSObject <NSSecureCoding> {
-    long long _constraintType;
+    int _constraintType;
     float _fixedDimension;
     float _fixedHeight;
     float _fixedWidth;
@@ -12,18 +12,18 @@
     float _thumbnailScale;
 }
 
-@property long long constraintType;
-@property float fixedDimension;
-@property float fixedHeight;
-@property float fixedWidth;
-@property float maxAspectRatio;
-@property float minAspectRatio;
-@property float thumbnailScale;
+@property (nonatomic) int constraintType;
+@property (nonatomic) float fixedDimension;
+@property (nonatomic) float fixedHeight;
+@property (nonatomic) float fixedWidth;
+@property (nonatomic) float maxAspectRatio;
+@property (nonatomic) float minAspectRatio;
+@property (nonatomic) float thumbnailScale;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
-- (bool)areReasonable;
-- (long long)constraintType;
+- (BOOL)areReasonable;
+- (int)constraintType;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (float)fixedDimension;
@@ -32,7 +32,7 @@
 - (id)initWithCoder:(id)arg1;
 - (float)maxAspectRatio;
 - (float)minAspectRatio;
-- (void)setConstraintType:(long long)arg1;
+- (void)setConstraintType:(int)arg1;
 - (void)setFixedDimension:(float)arg1;
 - (void)setFixedHeight:(float)arg1;
 - (void)setFixedWidth:(float)arg1;

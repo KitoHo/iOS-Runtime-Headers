@@ -2,42 +2,40 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, NSURL;
-
 @interface SKUIReviewList : NSObject <SKUICacheCoding> {
     NSDictionary *_dictionary;
     NSMutableArray *_reviews;
 }
 
-@property(readonly) NSMutableDictionary * cacheRepresentation;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) long long fiveStarRatingCount;
-@property(readonly) long long fourStarRatingCount;
-@property(readonly) unsigned long long hash;
-@property(readonly) long long numberOfPages;
-@property(readonly) long long oneStarRatingCount;
-@property(readonly) long long ratingCount;
-@property(readonly) NSArray * reviews;
-@property(readonly) Class superclass;
-@property(readonly) long long threeStarRatingCount;
-@property(readonly) long long twoStarRatingCount;
-@property(readonly) float userRating;
-@property(readonly) NSURL * writeReviewURL;
+@property (nonatomic, readonly) NSMutableDictionary *cacheRepresentation;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) int fiveStarRatingCount;
+@property (nonatomic, readonly) int fourStarRatingCount;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) int numberOfPages;
+@property (nonatomic, readonly) int oneStarRatingCount;
+@property (nonatomic, readonly) int ratingCount;
+@property (nonatomic, readonly) NSArray *reviews;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) int threeStarRatingCount;
+@property (nonatomic, readonly) int twoStarRatingCount;
+@property (nonatomic, readonly) float userRating;
+@property (nonatomic, readonly) NSURL *writeReviewURL;
 
 - (void).cxx_destruct;
 - (void)addReviews:(id)arg1;
 - (id)cacheRepresentation;
-- (long long)fiveStarRatingCount;
-- (long long)fourStarRatingCount;
+- (int)fiveStarRatingCount;
+- (int)fourStarRatingCount;
 - (id)initWithCacheRepresentation:(id)arg1;
 - (id)initWithReviewListDictionary:(id)arg1;
-- (long long)numberOfPages;
-- (long long)oneStarRatingCount;
-- (long long)ratingCount;
+- (int)numberOfPages;
+- (int)oneStarRatingCount;
+- (int)ratingCount;
 - (id)reviews;
-- (long long)threeStarRatingCount;
-- (long long)twoStarRatingCount;
+- (int)threeStarRatingCount;
+- (int)twoStarRatingCount;
 - (float)userRating;
 - (id)writeReviewURL;
 

@@ -2,46 +2,40 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSDictionary;
-
 @interface CKPublishAssetsOperation : CKDatabaseOperation {
-    unsigned long long _URLOptions;
-    id _assetPublishedBlock;
+    unsigned int _URLOptions;
+    id /* block */ _assetPublishedBlock;
     NSDictionary *_fileNamesByAssetFieldNames;
-    id _publishAssetCompletionBlock;
+    id /* block */ _publishAssetCompletionBlock;
     NSArray *_recordIDs;
-    unsigned long long _requestedTTL;
+    unsigned int _requestedTTL;
 }
 
-@property unsigned long long URLOptions;
-@property(copy) id assetPublishedBlock;
-@property(retain) NSDictionary * fileNamesByAssetFieldNames;
-@property(copy) id publishAssetCompletionBlock;
-@property(retain) NSArray * recordIDs;
-@property unsigned long long requestedTTL;
+@property (nonatomic) unsigned int URLOptions;
+@property (nonatomic, copy) id /* block */ assetPublishedBlock;
+@property (nonatomic, retain) NSDictionary *fileNamesByAssetFieldNames;
+@property (nonatomic, copy) id /* block */ publishAssetCompletionBlock;
+@property (nonatomic, retain) NSArray *recordIDs;
+@property (nonatomic) unsigned int requestedTTL;
 
 - (void).cxx_destruct;
-- (bool)CKOperationShouldRun:(id*)arg1;
-- (unsigned long long)URLOptions;
+- (BOOL)CKOperationShouldRun:(id*)arg1;
+- (unsigned int)URLOptions;
 - (void)_finishOnCallbackQueueWithError:(id)arg1;
 - (void)_handleProgressCallback:(id)arg1;
-- (id)assetPublishedBlock;
+- (id /* block */)assetPublishedBlock;
 - (id)fileNamesByAssetFieldNames;
 - (void)fillOutOperationInfo:(id)arg1;
 - (id)initWithRecordIDs:(id)arg1;
 - (void)performCKOperation;
-- (id)publishAssetCompletionBlock;
+- (id /* block */)publishAssetCompletionBlock;
 - (id)recordIDs;
-- (unsigned long long)requestedTTL;
-- (void)setAssetPublishedBlock:(id)arg1;
+- (unsigned int)requestedTTL;
+- (void)setAssetPublishedBlock:(id /* block */)arg1;
 - (void)setFileNamesByAssetFieldNames:(id)arg1;
-- (void)setPublishAssetCompletionBlock:(id)arg1;
+- (void)setPublishAssetCompletionBlock:(id /* block */)arg1;
 - (void)setRecordIDs:(id)arg1;
-- (void)setRequestedTTL:(unsigned long long)arg1;
-- (void)setURLOptions:(unsigned long long)arg1;
+- (void)setRequestedTTL:(unsigned int)arg1;
+- (void)setURLOptions:(unsigned int)arg1;
 
 @end

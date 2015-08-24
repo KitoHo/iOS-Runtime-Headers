@@ -2,13 +2,12 @@
    Image: /System/Library/PrivateFrameworks/Search.framework/Search
  */
 
-@interface SPPrivacyViewController : UIViewController {
-}
+@interface SPPrivacyViewController : UIViewController
 
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)loadView;
-- (bool)shouldAutomaticallyForwardAppearanceMethods;
-- (bool)shouldAutomaticallyForwardRotationMethods;
-- (bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (BOOL)shouldAutomaticallyForwardAppearanceMethods;
+- (BOOL)shouldAutomaticallyForwardRotationMethods;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 
 @end

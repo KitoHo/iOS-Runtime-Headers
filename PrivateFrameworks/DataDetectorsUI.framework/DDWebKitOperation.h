@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/DataDetectorsUI.framework/DataDetectorsUI
  */
 
-@class DOMNode, WebFrame;
-
 @interface DDWebKitOperation : DDOperation {
     DOMNode *_endNode;
     int _endOffset;
@@ -11,24 +9,24 @@
     int _startOffset;
 }
 
-@property(retain) WebFrame * container;
-@property(retain) DOMNode * endNode;
+@property (nonatomic, retain) WebFrame *container;
+@property (nonatomic, retain) DOMNode *endNode;
 @property int endOffset;
-@property(retain) DOMNode * startNode;
+@property (nonatomic, retain) DOMNode *startNode;
 @property int startOffset;
 
 - (void)_applyContainerRestrictionsToTypes;
-- (bool)_containerReadyForDetection;
+- (BOOL)_containerReadyForDetection;
 - (struct __DDScanQuery { }*)_createScanQueryForBackend;
-- (bool)_rangeValidForContainer;
+- (BOOL)_rangeValidForContainer;
 - (void)_updateGenerationNumber;
 - (void)cleanup;
-- (bool)containerIsReady;
-- (void)dispatchContainerModificationBlock:(id)arg1;
-- (bool)doURLificationOnDocument;
+- (BOOL)containerIsReady;
+- (void)dispatchContainerModificationBlock:(id /* block */)arg1;
+- (BOOL)doURLificationOnDocument;
 - (id)endNode;
 - (int)endOffset;
-- (bool)needsToStartOver;
+- (BOOL)needsToStartOver;
 - (id)newOperationForContinuation;
 - (id)newOperationForStartingOver;
 - (void)setEndNode:(id)arg1;

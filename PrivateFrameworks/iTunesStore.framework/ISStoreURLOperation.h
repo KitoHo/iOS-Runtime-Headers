@@ -2,30 +2,35 @@
    Image: /System/Library/PrivateFrameworks/iTunesStore.framework/iTunesStore
  */
 
-@class <ISStoreURLOperationDelegate>, NSNumber;
-
 @interface ISStoreURLOperation : ISURLOperation {
+    int _activeMachineDataStyle;
     NSNumber *_authenticatedDSID;
-    bool_canSendGUIDParameter;
-    bool_ignorePreexistingSecureToken;
-    bool_needsAuthentication;
-    bool_needsURLBag;
-    bool_performsMachineDataActions;
-    bool_shouldSendXTokenHeader;
-    bool_urlKnownToBeTrusted;
-    bool_useUserSpecificURLBag;
+    BOOL _canSendGUIDParameter;
+    BOOL _ignorePreexistingSecureToken;
+    BOOL _isURLBagRequest;
+    int _machineDataStyle;
+    BOOL _needsAuthentication;
+    BOOL _needsURLBag;
+    SSVFairPlaySAPSession *_sapSession;
+    BOOL _shouldSendXTokenHeader;
+    BOOL _urlKnownToBeTrusted;
+    BOOL _useUserSpecificURLBag;
 }
 
-@property(retain) NSNumber * authenticatedDSID;
-@property bool canSendGUIDParameter;
-@property <ISStoreURLOperationDelegate> * delegate;
-@property bool ignorePreexistingSecureToken;
-@property bool needsAuthentication;
-@property bool needsURLBag;
-@property bool performsMachineDataActions;
-@property bool shouldSendXTokenHeader;
-@property bool urlKnownToBeTrusted;
-@property bool useUserSpecificURLBag;
+@property (retain) SSVFairPlaySAPSession *SAPSession;
+@property (readonly) SSURLBagContext *URLBagContext;
+@property (getter=isURLBagRequest, nonatomic) BOOL URLBagRequest;
+@property (retain) NSNumber *authenticatedDSID;
+@property BOOL canSendGUIDParameter;
+@property <ISStoreURLOperationDelegate> *delegate;
+@property (nonatomic) BOOL ignorePreexistingSecureToken;
+@property int machineDataStyle;
+@property BOOL needsAuthentication;
+@property BOOL needsURLBag;
+@property BOOL performsMachineDataActions;
+@property BOOL shouldSendXTokenHeader;
+@property BOOL urlKnownToBeTrusted;
+@property BOOL useUserSpecificURLBag;
 
 + (void)_addITunesStoreHeadersToRequest:(id)arg1 withURLBag:(id)arg2 account:(id)arg3;
 + (void)_addITunesStoreHeadersToRequest:(id)arg1 withURLBag:(id)arg2 accountIdentifier:(id)arg3;
@@ -36,43 +41,53 @@
 + (id)pingOperationWithUrl:(id)arg1;
 + (id)propertyListOperationWithURLBagKey:(id)arg1;
 
+- (id)SAPSession;
+- (id)URLBagContext;
 - (id)_account;
 - (void)_addStandardQueryParametersForURL:(id)arg1;
-- (bool)_authenticateWithContext:(id)arg1 error:(id*)arg2;
-- (bool)_canSendTokenToURL:(id)arg1;
+- (BOOL)_authenticateWithContext:(id)arg1 error:(id*)arg2;
+- (BOOL)_canSendTokenToURL:(id)arg1;
 - (id)_copyAuthenticationContext;
-- (id)_copyAuthenticationContextForAttemptNumber:(long long)arg1;
-- (id)_copyURLBagContext;
-- (bool)_isErrorTokenError:(id)arg1;
+- (id)_copyAuthenticationContextForAttemptNumber:(int)arg1;
+- (BOOL)_isErrorTokenError:(id)arg1;
+- (id)_loadURLBagInterpreterWithRequest:(id)arg1 requestProperties:(id)arg2;
+- (BOOL)_performMachineDataRequest:(id)arg1;
+- (BOOL)_processResponseData:(id)arg1 error:(id*)arg2;
 - (id)_resolvedURLInBagContext:(id)arg1 URLBag:(id*)arg2;
 - (void)_runURLOperation;
-- (void)_setStoreFrontIdentifier:(id)arg1 isTransient:(bool)arg2;
+- (void)_setStoreFrontIdentifier:(id)arg1 isTransient:(BOOL)arg2;
 - (id)_urlBagForContext:(id)arg1;
+- (void)_willSendRequest:(id)arg1;
 - (id)authenticatedAccountDSID;
 - (id)authenticatedDSID;
-- (bool)canSendGUIDParameter;
+- (BOOL)canSendGUIDParameter;
 - (void)dealloc;
-- (bool)handleRedirectFromDataProvider:(id)arg1 error:(id*)arg2;
+- (BOOL)handleRedirectFromDataProvider:(id)arg1 error:(id*)arg2;
 - (void)handleResponse:(id)arg1;
-- (bool)ignorePreexistingSecureToken;
+- (BOOL)ignorePreexistingSecureToken;
 - (id)init;
-- (bool)needsAuthentication;
-- (bool)needsURLBag;
+- (BOOL)isURLBagRequest;
+- (int)machineDataStyle;
+- (BOOL)needsAuthentication;
+- (BOOL)needsURLBag;
 - (id)newRequestWithURL:(id)arg1;
-- (bool)performsMachineDataActions;
+- (BOOL)performsMachineDataActions;
 - (void)run;
 - (void)setAuthenticatedDSID:(id)arg1;
-- (void)setCanSendGUIDParameter:(bool)arg1;
-- (void)setIgnorePreexistingSecureToken:(bool)arg1;
-- (void)setNeedsAuthentication:(bool)arg1;
-- (void)setNeedsURLBag:(bool)arg1;
-- (void)setPerformsMachineDataActions:(bool)arg1;
-- (void)setShouldSendXTokenHeader:(bool)arg1;
-- (void)setUrlKnownToBeTrusted:(bool)arg1;
-- (void)setUseUserSpecificURLBag:(bool)arg1;
-- (bool)shouldFollowRedirectWithRequest:(id)arg1 returningError:(id*)arg2;
-- (bool)shouldSendXTokenHeader;
-- (bool)urlKnownToBeTrusted;
-- (bool)useUserSpecificURLBag;
+- (void)setCanSendGUIDParameter:(BOOL)arg1;
+- (void)setIgnorePreexistingSecureToken:(BOOL)arg1;
+- (void)setMachineDataStyle:(int)arg1;
+- (void)setNeedsAuthentication:(BOOL)arg1;
+- (void)setNeedsURLBag:(BOOL)arg1;
+- (void)setPerformsMachineDataActions:(BOOL)arg1;
+- (void)setSAPSession:(id)arg1;
+- (void)setShouldSendXTokenHeader:(BOOL)arg1;
+- (void)setURLBagRequest:(BOOL)arg1;
+- (void)setUrlKnownToBeTrusted:(BOOL)arg1;
+- (void)setUseUserSpecificURLBag:(BOOL)arg1;
+- (BOOL)shouldFollowRedirectWithRequest:(id)arg1 returningError:(id*)arg2;
+- (BOOL)shouldSendXTokenHeader;
+- (BOOL)urlKnownToBeTrusted;
+- (BOOL)useUserSpecificURLBag;
 
 @end

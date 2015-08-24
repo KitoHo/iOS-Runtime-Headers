@@ -2,22 +2,22 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSMutableArray, NSMutableSet, PLCloudPhotoLibraryBatchContainer;
-
 @interface PLCloudPhotoLibraryBatchManager : NSObject {
     NSMutableArray *_batches;
     PLCloudPhotoLibraryBatchContainer *_currentBatch;
     NSMutableSet *_masterHistory;
     unsigned long long _resourceBudget;
-    bool_wasDrained;
+    BOOL _wasDrained;
 }
 
 - (void)addRecord:(id)arg1;
-- (long long)currentBatchCount;
+- (void)addRecord:(id)arg1 ignoreBatchSize:(BOOL)arg2;
+- (int)currentBatchCount;
 - (void)dealloc;
+- (id)description;
 - (id)drainBatches;
 - (id)init;
-- (bool)isAboveMaximumResourceBudget;
+- (BOOL)isAboveMaximumResourceBudget;
 - (void)reset;
 
 @end

@@ -2,20 +2,22 @@
    Image: /System/Library/Frameworks/Photos.framework/Photos
  */
 
-@class NSFetchRequest;
-
-@interface _PHFetchRequestWrapper : NSObject {
+@interface _PHFetchRequestWrapper : NSObject <NSCopying> {
+    NSManagedObjectID *_containerIdentifier;
     NSFetchRequest *_fetchRequest;
-    unsigned long long _hash;
+    unsigned int _hash;
 }
 
-@property(readonly) NSFetchRequest * fetchRequest;
-@property(readonly) unsigned long long hash;
+@property (nonatomic, readonly) NSManagedObjectID *containerIdentifier;
+@property (nonatomic, readonly) NSFetchRequest *fetchRequest;
+@property (nonatomic, readonly) unsigned int hash;
 
 - (void).cxx_destruct;
+- (id)containerIdentifier;
+- (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)fetchRequest;
-- (unsigned long long)hash;
-- (id)initWithFetchRequest:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (id)initWithFetchRequest:(id)arg1 containerIdentifier:(id)arg2;
+- (BOOL)isEqual:(id)arg1;
 
 @end

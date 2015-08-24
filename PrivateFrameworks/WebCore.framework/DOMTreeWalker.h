@@ -2,20 +2,17 @@
    Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
  */
 
-@class <DOMNodeFilter>, DOMNode;
+@interface DOMTreeWalker : DOMObject
 
-@interface DOMTreeWalker : DOMObject {
-}
-
-@property(retain) DOMNode * currentNode;
-@property(readonly) bool expandEntityReferences;
-@property(readonly) <DOMNodeFilter> * filter;
-@property(readonly) DOMNode * root;
-@property(readonly) unsigned int whatToShow;
+@property (retain) DOMNode *currentNode;
+@property (readonly) BOOL expandEntityReferences;
+@property (readonly) <DOMNodeFilter> *filter;
+@property (readonly) DOMNode *root;
+@property (readonly) unsigned int whatToShow;
 
 - (id)currentNode;
 - (void)dealloc;
-- (bool)expandEntityReferences;
+- (BOOL)expandEntityReferences;
 - (id)filter;
 - (void)finalize;
 - (id)firstChild;

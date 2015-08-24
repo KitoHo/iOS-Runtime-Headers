@@ -2,50 +2,48 @@
    Image: /System/Library/PrivateFrameworks/PersistentConnection.framework/PersistentConnection
  */
 
-@class <PCInterfaceUsabilityMonitorProtocol>, NSMapTable, NSString;
-
-@interface PCInterfaceMonitor : NSObject <PCInterfaceUsabilityMonitorDelegate, PCInterfaceMonitorProtocol> {
+@interface PCInterfaceMonitor : NSObject <PCInterfaceMonitorProtocol, PCInterfaceUsabilityMonitorDelegate> {
     NSMapTable *_delegateMap;
     <PCInterfaceUsabilityMonitorProtocol> *_internal;
 }
 
-@property(readonly) struct __CFString { }* currentRAT;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) long long interfaceIdentifier;
-@property(readonly) bool isBadLinkQuality;
-@property(readonly) bool isInterfaceHistoricallyUsable;
-@property(readonly) bool isInterfaceUsable;
-@property(readonly) bool isInternetReachable;
-@property(readonly) bool isLTEWithCDRX;
-@property(readonly) bool isPoorLinkQuality;
-@property(readonly) bool isRadioHot;
-@property(readonly) int linkQuality;
-@property(retain,readonly) NSString * linkQualityString;
-@property(readonly) Class superclass;
-@property(readonly) struct __CFString { }* wwanInterfaceName;
+@property (nonatomic, readonly) struct __CFString { }*currentRAT;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) int interfaceIdentifier;
+@property (nonatomic, readonly) BOOL isBadLinkQuality;
+@property (nonatomic, readonly) BOOL isInterfaceHistoricallyUsable;
+@property (nonatomic, readonly) BOOL isInterfaceUsable;
+@property (nonatomic, readonly) BOOL isInternetReachable;
+@property (nonatomic, readonly) BOOL isLTEWithCDRX;
+@property (nonatomic, readonly) BOOL isPoorLinkQuality;
+@property (nonatomic, readonly) BOOL isRadioHot;
+@property (nonatomic, readonly) int linkQuality;
+@property (nonatomic, readonly, retain) NSString *linkQualityString;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) struct __CFString { }*wwanInterfaceName;
 
-+ (bool)isBadLinkQuality:(int)arg1;
-+ (bool)isPoorLinkQuality:(int)arg1;
-+ (id)sharedInstanceForIdentifier:(long long)arg1;
++ (BOOL)isBadLinkQuality:(int)arg1;
++ (BOOL)isPoorLinkQuality:(int)arg1;
++ (id)sharedInstanceForIdentifier:(int)arg1;
 + (id)stringForLinkQuality:(int)arg1;
 
 - (void)addDelegate:(id)arg1 queue:(id)arg2;
 - (struct __CFString { }*)currentRAT;
 - (void)dealloc;
-- (id)initWithInterfaceIdentifier:(long long)arg1;
-- (long long)interfaceIdentifier;
+- (id)initWithInterfaceIdentifier:(int)arg1;
+- (int)interfaceIdentifier;
 - (void)interfaceLinkQualityChanged:(id)arg1 previousLinkQuality:(int)arg2;
 - (void)interfaceRadioHotnessChanged:(id)arg1;
 - (void)interfaceReachabilityChanged:(id)arg1;
-- (bool)isBadLinkQuality;
-- (bool)isInterfaceHistoricallyUsable;
-- (bool)isInterfaceUsable;
-- (bool)isInternetReachable;
-- (bool)isLTEWithCDRX;
-- (bool)isPoorLinkQuality;
-- (bool)isRadioHot;
+- (BOOL)isBadLinkQuality;
+- (BOOL)isInterfaceHistoricallyUsable;
+- (BOOL)isInterfaceUsable;
+- (BOOL)isInternetReachable;
+- (BOOL)isLTEWithCDRX;
+- (BOOL)isPoorLinkQuality;
+- (BOOL)isRadioHot;
 - (int)linkQuality;
 - (id)linkQualityString;
 - (void)removeDelegate:(id)arg1;

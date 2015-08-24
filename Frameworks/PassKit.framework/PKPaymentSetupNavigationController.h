@@ -2,43 +2,40 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class <PKPaymentSetupDelegate>, NSArray, NSString, PKPassLibrary, PKPaymentWebService;
-
-@interface PKPaymentSetupNavigationController : UINavigationController <PKPaymentSetupViewControllerDelegate> {
-    long long _context;
+@interface PKPaymentSetupNavigationController : PKNavigationController <PKPaymentSetupViewControllerDelegate> {
+    int _context;
     NSArray *_eligibleCardsOnFile;
-    PKPassLibrary *_passLibrary;
+    <PKPassLibraryDataProvider> *_passLibraryProvider;
     NSArray *_prefetchedCredentials;
     <PKPaymentSetupDelegate> *_setupDelegate;
     PKPaymentWebService *_webService;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) NSArray * prefetchedCredentials;
-@property <PKPaymentSetupDelegate> * setupDelegate;
-@property(readonly) Class superclass;
-@property(readonly) PKPaymentWebService * webService;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NSArray *prefetchedCredentials;
+@property (nonatomic) <PKPaymentSetupDelegate> *setupDelegate;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) PKPaymentWebService *webService;
 
 + (id)viewControllerForPresentingPaymentError:(id)arg1;
 
 - (void)cancel:(id)arg1;
 - (void)dealloc;
-- (void)handleDownloadedPasses:(id)arg1 fromViewController:(id)arg2 withCompletion:(id)arg3;
+- (void)handleDownloadedPasses:(id)arg1 fromViewController:(id)arg2 withCompletion:(id /* block */)arg3;
 - (void)handlePassAlreadyProvisionedError;
 - (void)handleProvisioningError:(id)arg1 forApplicationIdentifier:(id)arg2;
-- (id)initWithPaymentWebService:(id)arg1 context:(long long)arg2;
+- (id)initWithPaymentWebService:(id)arg1 context:(int)arg2 libraryDataProvider:(id)arg3;
 - (id)prefetchedCredentials;
-- (void)preflightWithCompletion:(id)arg1;
-- (void)preflightWithRequirements:(long long)arg1 completion:(id)arg2;
+- (void)preflightWithCompletion:(id /* block */)arg1;
+- (void)preflightWithRequirements:(int)arg1 completion:(id /* block */)arg2;
 - (void)setPrefetchedCredentials:(id)arg1;
 - (void)setSetupDelegate:(id)arg1;
 - (id)setupDelegate;
-- (bool)shouldAutorotate;
-- (unsigned long long)supportedInterfaceOrientations;
+- (BOOL)shouldAutorotate;
+- (unsigned int)supportedInterfaceOrientations;
 - (void)viewControllerDidTerminateSetupFlow:(id)arg1;
-- (void)viewWillAppear:(bool)arg1;
 - (id)webService;
 
 @end

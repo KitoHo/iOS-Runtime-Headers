@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class NSDate, NSString;
-
 @interface WBSRecentWebSearchEntry : NSObject {
     NSDate *_date;
     NSString *_searchString;
 }
 
-@property(readonly) NSDate * date;
-@property(readonly) NSString * searchString;
+@property (readonly) NSDate *date;
+@property (readonly) NSString *searchString;
 
 - (void).cxx_destruct;
 - (id)date;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
 - (id)initWithDictionaryRepresentation:(id)arg1;
-- (id)initWithSearchString:(id)arg1 date:(id)arg2;
 - (id)initWithSearchString:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (id)initWithSearchString:(id)arg1 date:(id)arg2;
+- (BOOL)isEqual:(id)arg1;
 - (id)searchString;
 
 @end

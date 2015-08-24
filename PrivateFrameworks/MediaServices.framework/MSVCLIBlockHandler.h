@@ -2,19 +2,15 @@
    Image: /System/Library/PrivateFrameworks/MediaServices.framework/MediaServices
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface MSVCLIBlockHandler : NSObject {
-    id _block;
+    id /* block */ _block;
 }
 
-@property(readonly) id block;
+@property (nonatomic, readonly) id /* block */ block;
 
 - (void).cxx_destruct;
-- (id)block;
-- (id)initWithBlock:(id)arg1;
+- (id /* block */)block;
+- (id)initWithBlock:(id /* block */)arg1;
 - (void)invokeWithCommand:(id)arg1;
 
 @end

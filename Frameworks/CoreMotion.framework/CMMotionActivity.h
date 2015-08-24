@@ -2,14 +2,13 @@
    Image: /System/Library/Frameworks/CoreMotion.framework/CoreMotion
  */
 
-@class NSDate;
-
 @interface CMMotionActivity : CMLogItem {
     struct CLMotionActivity { 
         int type; 
         int confidence; 
         int mountedState; 
         int mountedConfidence; 
+        bool isStanding; 
         float tilt; 
         double timestamp; 
         int exitState; 
@@ -18,28 +17,30 @@
     } fState;
 }
 
-@property(readonly) bool automotive;
-@property(readonly) long long confidence;
-@property(readonly) bool cycling;
-@property(readonly) bool running;
-@property(readonly) NSDate * startDate;
-@property(readonly) bool stationary;
-@property(readonly) bool unknown;
-@property(readonly) bool walking;
+@property (nonatomic, readonly) BOOL automotive;
+@property (nonatomic, readonly) int confidence;
+@property (nonatomic, readonly) BOOL cycling;
+@property (nonatomic, readonly) BOOL running;
+@property (nonatomic, readonly) NSDate *startDate;
+@property (nonatomic, readonly) BOOL stationary;
+@property (nonatomic, readonly) BOOL unknown;
+@property (nonatomic, readonly) BOOL walking;
+
++ (BOOL)supportsSecureCoding;
 
 - (id).cxx_construct;
-- (bool)automotive;
-- (long long)confidence;
+- (BOOL)automotive;
+- (int)confidence;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (bool)cycling;
+- (BOOL)cycling;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithMotionActivity:(struct CLMotionActivity { int x1; int x2; int x3; int x4; float x5; double x6; int x7; double x8; double x9; })arg1;
-- (bool)running;
+- (id)initWithMotionActivity:(struct CLMotionActivity { int x1; int x2; int x3; int x4; bool x5; float x6; double x7; int x8; double x9; double x10; })arg1;
+- (BOOL)running;
 - (id)startDate;
-- (bool)stationary;
-- (bool)unknown;
-- (bool)walking;
+- (BOOL)stationary;
+- (BOOL)unknown;
+- (BOOL)walking;
 
 @end

@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class NSObject<OS_dispatch_queue>;
-
 @interface BWMetadataSourceNode : BWSourceNode {
     struct OpaqueCMClock { } *_clock;
     NSObject<OS_dispatch_queue> *_emitSamplesDispatchQueue;
     struct opaqueCMFormatDescription { } *_formatDescription;
-    bool_running;
+    BOOL _running;
 }
 
-@property(readonly) struct opaqueCMFormatDescription { }* formatDescription;
+@property (nonatomic, readonly) struct opaqueCMFormatDescription { }*formatDescription;
 
 + (void)initialize;
 
@@ -21,7 +19,7 @@
 - (struct opaqueCMFormatDescription { }*)formatDescription;
 - (id)initWithFormatDescription:(struct opaqueCMFormatDescription { }*)arg1 clock:(struct OpaqueCMClock { }*)arg2;
 - (id)nodeSubType;
-- (bool)start:(id*)arg1;
-- (bool)stop:(id*)arg1;
+- (BOOL)start:(id*)arg1;
+- (BOOL)stop:(id*)arg1;
 
 @end

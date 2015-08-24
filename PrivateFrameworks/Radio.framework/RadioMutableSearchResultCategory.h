@@ -2,20 +2,17 @@
    Image: /System/Library/PrivateFrameworks/Radio.framework/Radio
  */
 
-@class NSArray, NSDictionary, NSString;
+@interface RadioMutableSearchResultCategory : RadioSearchResultCategory
 
-@interface RadioMutableSearchResultCategory : RadioSearchResultCategory {
-}
-
-@property long long categoryType;
-@property bool hasMoreResults;
-@property(copy) NSString * name;
-@property(copy) NSDictionary * responseDictionary;
-@property(copy) NSArray * stationResults;
+@property (nonatomic) int categoryType;
+@property (nonatomic) BOOL hasMoreResults;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSDictionary *responseDictionary;
+@property (nonatomic, copy) NSArray *stationResults;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)setCategoryType:(long long)arg1;
-- (void)setHasMoreResults:(bool)arg1;
+- (void)setCategoryType:(int)arg1;
+- (void)setHasMoreResults:(BOOL)arg1;
 - (void)setName:(id)arg1;
 - (void)setResponseDictionary:(id)arg1;
 - (void)setStationResults:(id)arg1;

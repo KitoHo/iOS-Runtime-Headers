@@ -2,13 +2,12 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@interface GKInternalRepresentation : NSObject <NSCoding, NSCopying, NSSecureCoding> {
-}
+@interface GKInternalRepresentation : NSObject <NSCoding, NSCopying, NSSecureCoding>
 
 + (id)codedPropertyKeys;
 + (id)internalRepresentation;
 + (id)secureCodedPropertyKeys;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;

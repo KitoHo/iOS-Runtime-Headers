@@ -2,37 +2,35 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class PUMapViewControllerSpec, PUStackView, UIImageView, UILabel;
-
 @interface PUMapAnnotationView : UIView {
     struct CGSize { 
-        double width; 
-        double height; 
+        float width; 
+        float height; 
     } _badgeImageSize;
-    unsigned long long _count;
+    unsigned int _count;
     UIImageView *_countBadgeImageView;
     UILabel *_countLabel;
     PUMapViewControllerSpec *_spec;
     PUStackView *_stackView;
 }
 
-@property unsigned long long count;
-@property(readonly) double sideCapWidth;
-@property(retain,readonly) PUStackView * stackView;
+@property (nonatomic) unsigned int count;
+@property (nonatomic, readonly) float sideCapWidth;
+@property (nonatomic, readonly, retain) PUStackView *stackView;
 
 - (void).cxx_destruct;
 - (void)cleanUpAnimatedState;
 - (id)compactDescription;
 - (void)configureAnnotationWithSpec:(id)arg1;
-- (unsigned long long)count;
+- (unsigned int)count;
 - (void)layoutSubviews;
-- (void)setAlpha:(double)arg1 nonFrontOnly:(bool)arg2;
-- (void)setCount:(unsigned long long)arg1;
-- (double)sideCapWidth;
+- (void)setAlpha:(float)arg1 nonFrontOnly:(BOOL)arg2;
+- (void)setCount:(unsigned int)arg1;
+- (float)sideCapWidth;
 - (id)stackView;
 - (void)updateLabelForAnnotation:(id)arg1;
 - (void)updateOrder;
 - (void)updateStackViewForAnnotation:(id)arg1;
-- (bool)wouldCoverAnnotationView:(id)arg1;
+- (BOOL)wouldCoverAnnotationView:(id)arg1;
 
 @end

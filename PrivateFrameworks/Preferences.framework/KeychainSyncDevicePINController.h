@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class DevicePINController, NSString, UIKeyboard;
-
 @interface KeychainSyncDevicePINController : KeychainSyncTextEntryController {
     DevicePINController *_devicePINController;
     UIKeyboard *_disabledKeyboard;
     NSString *_enterPasscodeReason;
     NSString *_enterPasscodeTitle;
-    bool_showingBlockedMessage;
+    BOOL _showingBlockedMessage;
 }
 
-@property(retain) UIKeyboard * disabledKeyboard;
-@property(retain) NSString * enterPasscodeReason;
-@property(retain) NSString * enterPasscodeTitle;
+@property (nonatomic, retain) UIKeyboard *disabledKeyboard;
+@property (nonatomic, retain) NSString *enterPasscodeReason;
+@property (nonatomic, retain) NSString *enterPasscodeTitle;
 
 - (void)dealloc;
 - (void)didFinishEnteringText:(id)arg1;
@@ -26,9 +24,9 @@
 - (void)setEnterPasscodeReason:(id)arg1;
 - (void)setEnterPasscodeTitle:(id)arg1;
 - (id)specifiers;
-- (long long)tableView:(id)arg1 titleAlignmentForFooterInSection:(long long)arg2;
+- (int)tableView:(id)arg1 titleAlignmentForFooterInSection:(int)arg2;
 - (void)updateBlockedState:(id)arg1;
-- (void)viewWillAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

@@ -2,8 +2,7 @@
    Image: /System/Library/PrivateFrameworks/CoreSuggestionsInternals.framework/CoreSuggestionsInternals
  */
 
-@interface SGAggregateLogging : NSObject {
-}
+@interface SGAggregateLogging : NSObject
 
 + (id)aggregateKeyForKeySuffix:(id)arg1;
 + (id)anonymousHashForEvent:(id)arg1;
@@ -15,8 +14,8 @@
 + (void)eventConfirmed:(id)arg1;
 + (void)eventRejected:(id)arg1;
 + (void)eventsSuggested:(id)arg1 withElapsedTime:(unsigned long long)arg2;
-+ (void)incrementKeyWithSuffix:(id)arg1 by:(unsigned long long)arg2;
 + (void)incrementKeyWithSuffix:(id)arg1;
++ (void)incrementKeyWithSuffix:(id)arg1 by:(unsigned long long)arg2;
 + (void)messagesAdded:(unsigned long long)arg1;
 + (void)messagesDeleted:(unsigned long long)arg1;
 + (void)messagesFound:(unsigned long long)arg1;

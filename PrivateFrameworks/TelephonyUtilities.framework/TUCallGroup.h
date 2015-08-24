@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/TelephonyUtilities.framework/TelephonyUtilities
  */
 
-@class NSArray;
-
 @interface TUCallGroup : NSObject {
     NSArray *_calls;
 }
 
-@property(retain) NSArray * calls;
+@property (retain) NSArray *calls;
 
 - (id)calls;
 - (void)dealloc;
 - (id)description;
 - (id)displayName;
 - (void)forwardInvocation:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)setCalls:(id)arg1;
 - (int)status;

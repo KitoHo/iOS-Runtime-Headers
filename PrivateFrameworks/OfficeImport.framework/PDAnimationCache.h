@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString, PDAnimateMotionBehavior, PDAnimationTarget, PDBuild;
-
 @interface PDAnimationCache : NSObject {
-    boolmHasDelay;
-    boolmHasDirection;
-    boolmHasDuration;
-    boolmHasPartCount;
-    boolmHasValue;
-    boolmIsHead;
     PDBuild *mBuild;
     double mDelay;
     double mDirection;
     double mDuration;
     NSString *mGroupId;
+    BOOL mHasDelay;
+    BOOL mHasDirection;
+    BOOL mHasDuration;
+    BOOL mHasPartCount;
+    BOOL mHasValue;
+    BOOL mIsHead;
     int mIterateType;
     int mLevel;
     PDAnimateMotionBehavior *mMotionPath;
@@ -28,27 +26,27 @@
     double mValue;
 }
 
-@property(retain) PDBuild * build;
-@property double delay;
-@property double direction;
-@property double duration;
-@property(retain) NSString * groupId;
-@property bool hasDelay;
-@property bool hasDirection;
-@property bool hasDuration;
-@property bool hasPartCount;
-@property bool hasValue;
-@property bool isHead;
-@property int iterateType;
-@property int level;
-@property(retain) PDAnimateMotionBehavior * motionPath;
-@property int nodeType;
-@property int partCount;
-@property int presetClass;
-@property int presetId;
-@property int presetSubType;
-@property(retain) PDAnimationTarget * target;
-@property double value;
+@property (nonatomic, retain) PDBuild *build;
+@property (nonatomic) double delay;
+@property (nonatomic) double direction;
+@property (nonatomic) double duration;
+@property (nonatomic, retain) NSString *groupId;
+@property (nonatomic) BOOL hasDelay;
+@property (nonatomic) BOOL hasDirection;
+@property (nonatomic) BOOL hasDuration;
+@property (nonatomic) BOOL hasPartCount;
+@property (nonatomic) BOOL hasValue;
+@property (nonatomic) BOOL isHead;
+@property (nonatomic) int iterateType;
+@property (nonatomic) int level;
+@property (nonatomic, retain) PDAnimateMotionBehavior *motionPath;
+@property (nonatomic) int nodeType;
+@property (nonatomic) int partCount;
+@property (nonatomic) int presetClass;
+@property (nonatomic) int presetId;
+@property (nonatomic) int presetSubType;
+@property (nonatomic, retain) PDAnimationTarget *target;
+@property (nonatomic) double value;
 
 + (id)createAnimationInfoDataForCacheItem:(id)arg1 order:(unsigned int)arg2;
 + (void)loadAnimationCache:(id)arg1 pdAnimation:(id)arg2 state:(id)arg3;
@@ -61,13 +59,13 @@
 - (double)direction;
 - (double)duration;
 - (id)groupId;
-- (bool)hasDelay;
-- (bool)hasDirection;
-- (bool)hasDuration;
-- (bool)hasPartCount;
-- (bool)hasValue;
+- (BOOL)hasDelay;
+- (BOOL)hasDirection;
+- (BOOL)hasDuration;
+- (BOOL)hasPartCount;
+- (BOOL)hasValue;
 - (id)initWithAnimationInfo:(id)arg1;
-- (bool)isHead;
+- (BOOL)isHead;
 - (int)iterateType;
 - (int)level;
 - (id)motionPath;
@@ -81,12 +79,12 @@
 - (void)setDirection:(double)arg1;
 - (void)setDuration:(double)arg1;
 - (void)setGroupId:(id)arg1;
-- (void)setHasDelay:(bool)arg1;
-- (void)setHasDirection:(bool)arg1;
-- (void)setHasDuration:(bool)arg1;
-- (void)setHasPartCount:(bool)arg1;
-- (void)setHasValue:(bool)arg1;
-- (void)setIsHead:(bool)arg1;
+- (void)setHasDelay:(BOOL)arg1;
+- (void)setHasDirection:(BOOL)arg1;
+- (void)setHasDuration:(BOOL)arg1;
+- (void)setHasPartCount:(BOOL)arg1;
+- (void)setHasValue:(BOOL)arg1;
+- (void)setIsHead:(BOOL)arg1;
 - (void)setIterateType:(int)arg1;
 - (void)setLevel:(int)arg1;
 - (void)setMotionPath:(id)arg1;

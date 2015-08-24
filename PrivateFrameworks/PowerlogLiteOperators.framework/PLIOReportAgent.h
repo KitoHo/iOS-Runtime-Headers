@@ -2,21 +2,17 @@
    Image: /System/Library/PrivateFrameworks/PowerlogLiteOperators.framework/PowerlogLiteOperators
  */
 
-@class NSMutableDictionary, PLEntryNotificationOperatorComposition;
-
 @interface PLIOReportAgent : PLAgent {
     PLEntryNotificationOperatorComposition *_batteryLevelChangedNotifications;
     NSMutableDictionary *_sampleChannelsDaily;
     NSMutableDictionary *_sampleChannelsHalfHour;
     NSMutableDictionary *_sampleChannelsSignificantBattery;
-    PLEntryNotificationOperatorComposition *_wakeEntryNotifications;
 }
 
-@property(retain) PLEntryNotificationOperatorComposition * batteryLevelChangedNotifications;
-@property(retain) NSMutableDictionary * sampleChannelsDaily;
-@property(retain) NSMutableDictionary * sampleChannelsHalfHour;
-@property(retain) NSMutableDictionary * sampleChannelsSignificantBattery;
-@property(retain) PLEntryNotificationOperatorComposition * wakeEntryNotifications;
+@property (retain) PLEntryNotificationOperatorComposition *batteryLevelChangedNotifications;
+@property (nonatomic, retain) NSMutableDictionary *sampleChannelsDaily;
+@property (nonatomic, retain) NSMutableDictionary *sampleChannelsHalfHour;
+@property (nonatomic, retain) NSMutableDictionary *sampleChannelsSignificantBattery;
 
 + (id)entryEventBackwardDefinitionAmcStatsPerfCounters;
 + (id)entryEventBackwardDefinitionAppleEmbeddedPcieLinkStates;
@@ -81,7 +77,7 @@
 - (void)logEventBackwardIOReportWithDelta:(id)arg1 forChannelGroup:(id)arg2;
 - (double)mJtomWinTime:(double)arg1 withmJ:(double)arg2;
 - (void)modelAPSoCPower:(id)arg1;
-- (bool)processNotificationForChannelGroup:(id)arg1;
+- (BOOL)processNotificationForChannelGroup:(id)arg1;
 - (void)pruneAllChannelsWithChannels:(struct __CFDictionary { }*)arg1;
 - (void)pruneChannelsWithChannels:(struct __CFDictionary { }*)arg1 withTargetSet:(id)arg2;
 - (id)sampleChannelsDaily;
@@ -92,7 +88,5 @@
 - (void)setSampleChannelsDaily:(id)arg1;
 - (void)setSampleChannelsHalfHour:(id)arg1;
 - (void)setSampleChannelsSignificantBattery:(id)arg1;
-- (void)setWakeEntryNotifications:(id)arg1;
-- (id)wakeEntryNotifications;
 
 @end

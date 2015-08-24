@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardFoundation.framework/SpringBoardFoundation
  */
 
-@class SBFPasscodeLockAssertionTracker;
-
 @interface SBFPasscodeLockAssertionManager : NSObject {
     SBFPasscodeLockAssertionTracker *_lockScreenCameraTracker;
     SBFPasscodeLockAssertionTracker *_preventLockTracker;
@@ -14,7 +12,7 @@
 - (void)addAssertion:(id)arg1;
 - (void)dealloc;
 - (id)description;
-- (bool)hasActiveAssertions;
+- (BOOL)hasActiveAssertions;
 - (id)init;
 - (void)removeAssertion:(id)arg1;
 

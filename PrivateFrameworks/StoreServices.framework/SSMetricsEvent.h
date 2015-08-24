@@ -2,16 +2,15 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@interface SSMetricsEvent : NSObject {
-}
+@interface SSMetricsEvent : NSObject
 
 - (id)_dictionaryRepresentationOfBody;
-- (id)allTableEntityPropertiesPermittedByConfiguration:(id)arg1 externalValues:(id)arg2;
 - (id)allTableEntityPropertiesPermittedByConfiguration:(id)arg1;
+- (id)allTableEntityPropertiesPermittedByConfiguration:(id)arg1 externalValues:(id)arg2;
 - (void)appendPropertiesToBody:(id)arg1;
 - (id)decorateReportingURL:(id)arg1;
-- (bool)isBlacklistedByConfiguration:(id)arg1;
-- (bool)isFieldBlacklistEnabled;
+- (BOOL)isBlacklistedByConfiguration:(id)arg1;
+- (BOOL)isFieldBlacklistEnabled;
 - (id)millisecondsFromTimeInterval:(double)arg1;
 - (double)timeIntervalFromMilliseconds:(id)arg1;
 

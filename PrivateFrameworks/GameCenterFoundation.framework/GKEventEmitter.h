@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class NSHashTable, NSMutableArray;
-
 @interface GKEventEmitter : NSObject {
     NSHashTable *_listeners;
     NSMutableArray *_queuedEvents;
+    BOOL _shouldQueue;
     NSMutableArray *_supportedProtocols;
-    bool_shouldQueue;
 }
 
-@property(retain) NSHashTable * listeners;
-@property(retain) NSMutableArray * queuedEvents;
-@property bool shouldQueue;
-@property(retain) NSMutableArray * supportedProtocols;
+@property (nonatomic, retain) NSHashTable *listeners;
+@property (nonatomic, retain) NSMutableArray *queuedEvents;
+@property (nonatomic) BOOL shouldQueue;
+@property (nonatomic, retain) NSMutableArray *supportedProtocols;
 
-+ (id)eventEmitterForProtocols:(id)arg1 shouldQueue:(bool)arg2;
 + (id)eventEmitterForProtocols:(id)arg1;
++ (id)eventEmitterForProtocols:(id)arg1 shouldQueue:(BOOL)arg2;
 
 - (void)dealloc;
 - (void)dispatchQueuedEventsToListener:(id)arg1;
 - (void)forwardInvocation:(id)arg1;
-- (id)initWithSupportedProtocols:(id)arg1 shouldQueue:(bool)arg2;
+- (id)initWithSupportedProtocols:(id)arg1 shouldQueue:(BOOL)arg2;
 - (id)invocationForProtocol:(id)arg1 selector:(SEL)arg2;
-- (bool)listenerRegisteredForSelector:(SEL)arg1;
+- (BOOL)listenerRegisteredForSelector:(SEL)arg1;
 - (id)listeners;
 - (id)methodSignatureForProtocol:(id)arg1 selector:(SEL)arg2;
 - (id)methodSignatureForSelector:(SEL)arg1;
@@ -32,9 +30,9 @@
 - (void)registerListener:(id)arg1;
 - (void)setListeners:(id)arg1;
 - (void)setQueuedEvents:(id)arg1;
-- (void)setShouldQueue:(bool)arg1;
+- (void)setShouldQueue:(BOOL)arg1;
 - (void)setSupportedProtocols:(id)arg1;
-- (bool)shouldQueue;
+- (BOOL)shouldQueue;
 - (id)supportedProtocols;
 - (void)unregisterAllListeners;
 - (void)unregisterListener:(id)arg1;

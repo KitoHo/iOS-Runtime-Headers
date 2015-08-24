@@ -2,30 +2,28 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-@class NSString;
-
 @interface WKReloadFrameErrorRecoveryAttempter : NSObject <_WKErrorRecoveryAttempting> {
-    struct WeakObjCPtr<WKWebView> { 
-        id m_weakReference; 
     struct RetainPtr<_WKFrameHandle> { 
         void *m_ptr; 
+    } _frameHandle;
     struct String { 
         struct RefPtr<WTF::StringImpl> { 
             struct StringImpl {} *m_ptr; 
         } m_impl; 
-    } _frameHandle;
     } _urlString;
+    /* Warning: unhandled struct encoding: '{WeakObjCPtr<WKWebView>="m_weakReference"@}' */ struct WeakObjCPtr<WKWebView> { 
+        id m_weakReference; 
     } _webView;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (bool)attemptRecovery;
+- (BOOL)attemptRecovery;
 - (id)initWithWebView:(id)arg1 frameHandle:(id)arg2 urlString:(const struct String { struct RefPtr<WTF::StringImpl> { struct StringImpl {} *x_1_1_1; } x1; }*)arg3;
 
 @end

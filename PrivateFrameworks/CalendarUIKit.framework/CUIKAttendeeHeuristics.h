@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/CalendarUIKit.framework/CalendarUIKit
  */
 
-@interface CUIKAttendeeHeuristics : NSObject {
-}
+@interface CUIKAttendeeHeuristics : NSObject
 
 + (id)_participantRoleSortPriority;
 + (id)_participantStatusSortPriority;
-+ (id)sortedHumanAttendeesForEvent:(id)arg1 includeResources:(bool)arg2;
-+ (id)sortedHumanAttendeesToDisplayForEvent:(id)arg1 options:(unsigned long long)arg2;
++ (id)sortedHumanAttendeesForEvent:(id)arg1 includeResources:(BOOL)arg2;
++ (id)sortedHumanAttendeesToDisplayForEvent:(id)arg1 options:(unsigned int)arg2;
 
 @end

@@ -2,36 +2,34 @@
    Image: /System/Library/PrivateFrameworks/Stocks.framework/Stocks
  */
 
-@class NSString;
-
 @interface ChartLabelInfo : NSObject {
+    BOOL _immutable;
+    float _position;
     struct CGSize { 
-        double width; 
-        double height; 
-    double _position;
+        float width; 
+        float height; 
     } _size;
     NSString *_string;
-    bool_immutable;
 }
 
-@property(readonly) bool immutable;
-@property double position;
-@property struct CGSize { double x1; double x2; } size;
-@property(retain) NSString * string;
+@property (nonatomic, readonly) BOOL immutable;
+@property (nonatomic) float position;
+@property (nonatomic) struct CGSize { float x1; float x2; } size;
+@property (nonatomic, retain) NSString *string;
 
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
-- (bool)immutable;
-- (double)position;
+- (BOOL)immutable;
+- (float)position;
 - (void)retainStringAndSizeFromLabelInfo:(id)arg1;
-- (void)setImmutable:(bool)arg1;
-- (void)setPosition:(double)arg1;
-- (void)setSize:(struct CGSize { double x1; double x2; })arg1;
+- (void)setImmutable:(BOOL)arg1;
+- (void)setPosition:(float)arg1;
+- (void)setSize:(struct CGSize { float x1; float x2; })arg1;
 - (void)setString:(id)arg1;
 - (void)setStringToMonthAndDayWithDate:(id)arg1 timeZone:(id)arg2;
 - (void)setStringToYearWithDate:(id)arg1 timeZone:(id)arg2;
-- (struct CGSize { double x1; double x2; })size;
+- (struct CGSize { float x1; float x2; })size;
 - (id)string;
 
 @end

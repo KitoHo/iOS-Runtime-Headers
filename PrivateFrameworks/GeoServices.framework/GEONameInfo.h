@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSString;
-
 @interface GEONameInfo : PBCodable <NSCopying> {
     struct { 
         unsigned int phoneticType : 1; 
@@ -19,44 +17,44 @@
     int _signType;
 }
 
-@property(readonly) bool hasLocale;
-@property(readonly) bool hasName;
-@property(readonly) bool hasPhoneticName;
-@property bool hasPhoneticType;
-@property(readonly) bool hasShield;
-@property bool hasShieldType;
-@property bool hasSignType;
-@property(retain) NSString * locale;
-@property(retain) NSString * name;
-@property(retain) NSString * phoneticName;
-@property int phoneticType;
-@property(retain) NSString * shield;
-@property int shieldType;
-@property int signType;
+@property (nonatomic, readonly) BOOL hasLocale;
+@property (nonatomic, readonly) BOOL hasName;
+@property (nonatomic, readonly) BOOL hasPhoneticName;
+@property (nonatomic) BOOL hasPhoneticType;
+@property (nonatomic, readonly) BOOL hasShield;
+@property (nonatomic) BOOL hasShieldType;
+@property (nonatomic) BOOL hasSignType;
+@property (nonatomic, retain) NSString *locale;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *phoneticName;
+@property (nonatomic) int phoneticType;
+@property (nonatomic, retain) NSString *shield;
+@property (nonatomic) int shieldType;
+@property (nonatomic) int signType;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasLocale;
-- (bool)hasName;
-- (bool)hasPhoneticName;
-- (bool)hasPhoneticType;
-- (bool)hasShield;
-- (bool)hasShieldType;
-- (bool)hasSignType;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasLocale;
+- (BOOL)hasName;
+- (BOOL)hasPhoneticName;
+- (BOOL)hasPhoneticType;
+- (BOOL)hasShield;
+- (BOOL)hasShieldType;
+- (BOOL)hasSignType;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)locale;
 - (void)mergeFrom:(id)arg1;
 - (id)name;
 - (id)phoneticName;
 - (int)phoneticType;
-- (bool)readFrom:(id)arg1;
-- (void)setHasPhoneticType:(bool)arg1;
-- (void)setHasShieldType:(bool)arg1;
-- (void)setHasSignType:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasPhoneticType:(BOOL)arg1;
+- (void)setHasShieldType:(BOOL)arg1;
+- (void)setHasSignType:(BOOL)arg1;
 - (void)setLocale:(id)arg1;
 - (void)setName:(id)arg1;
 - (void)setPhoneticName:(id)arg1;

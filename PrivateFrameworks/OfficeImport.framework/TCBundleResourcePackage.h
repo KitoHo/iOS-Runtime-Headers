@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableDictionary, OISFUZipArchive;
-
 @interface TCBundleResourcePackage : NSObject {
     NSMutableDictionary *mEntryMap;
     OISFUZipArchive *mZipArchive;
 }
 
 - (void)dealloc;
-- (id)entryWithName:(id)arg1 cacheResult:(bool)arg2;
+- (id)entryWithName:(id)arg1 cacheResult:(BOOL)arg2;
 - (id)initWithZipArchive:(id)arg1;
 
 @end

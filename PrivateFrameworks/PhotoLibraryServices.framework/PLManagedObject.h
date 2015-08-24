@@ -2,17 +2,14 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSString, PLPhotoLibrary;
+@interface PLManagedObject : NSManagedObject
 
-@interface PLManagedObject : NSManagedObject {
-}
+@property (nonatomic, readonly) BOOL isRegisteredWithUserInterfaceContext;
+@property (nonatomic, readonly, retain) PLPhotoLibrary *photoLibrary;
+@property (nonatomic, readonly, copy) NSString *pl_shortDescription;
+@property (nonatomic, readonly, copy) NSString *shortObjectIDURI;
 
-@property(readonly) bool isRegisteredWithUserInterfaceContext;
-@property(retain,readonly) PLPhotoLibrary * photoLibrary;
-@property(copy,readonly) NSString * pl_shortDescription;
-@property(copy,readonly) NSString * shortObjectIDURI;
-
-- (bool)isRegisteredWithUserInterfaceContext;
+- (BOOL)isRegisteredWithUserInterfaceContext;
 - (id)photoLibrary;
 - (id)pl_shortDescription;
 - (id)shortObjectIDURI;

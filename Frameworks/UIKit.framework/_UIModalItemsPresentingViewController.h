@@ -2,95 +2,89 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSMutableArray, UIView, UIWindow, _UIModalItem;
-
 @interface _UIModalItemsPresentingViewController : UIViewController {
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
     UIView *_backgroundView;
     _UIModalItem *_currentItem;
     UIView *_currentItemView;
     UIView *_dimmingView;
+    BOOL _isInTransition;
     _UIModalItem *_itemBeingDismissed;
     _UIModalItem *_itemBeingPresented;
     NSMutableArray *_items;
-    id _itemsTransitionCompletion;
+    id /* block */ _itemsTransitionCompletion;
     NSMutableArray *_itemsViews;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _keyboardFrame;
-    double _keyboardHeight;
+    float _keyboardHeight;
     NSMutableArray *_occludedWindows;
     UIWindow *_rotationDelegate;
-    bool_isInTransition;
 }
 
-@property(retain) _UIModalItem * currentItem;
-@property bool isInTransition;
-@property(retain) _UIModalItem * itemBeingDismissed;
-@property(retain) _UIModalItem * itemBeingPresented;
-@property(copy) id itemsTransitionCompletion;
-@property(retain) UIWindow * rotationDelegate;
+@property (nonatomic, retain) _UIModalItem *currentItem;
+@property (nonatomic) BOOL isInTransition;
+@property (nonatomic, retain) _UIModalItem *itemBeingDismissed;
+@property (nonatomic, retain) _UIModalItem *itemBeingPresented;
+@property (copy) id /* block */ itemsTransitionCompletion;
+@property (nonatomic, retain) UIWindow *rotationDelegate;
 
-- (void)_applyDismissingAnimationEndingStateForModalItem:(id)arg1 view:(id)arg2 forceCenter:(bool)arg3;
 - (void)_applyDismissingAnimationEndingStateForModalItem:(id)arg1 view:(id)arg2;
-- (void)_applyPresentingAnimationEndingStateForModalItem:(id)arg1 view:(id)arg2 forceCenter:(bool)arg3;
+- (void)_applyDismissingAnimationEndingStateForModalItem:(id)arg1 view:(id)arg2 forceCenter:(BOOL)arg3;
 - (void)_applyPresentingAnimationEndingStateForModalItem:(id)arg1 view:(id)arg2;
+- (void)_applyPresentingAnimationEndingStateForModalItem:(id)arg1 view:(id)arg2 forceCenter:(BOOL)arg3;
 - (void)_applyPresentingAnimationStartingStateForModalItem:(id)arg1 view:(id)arg2;
 - (void)_applyPresentingViewMetricsStateForModalItem:(id)arg1;
 - (id)_createViewForItem:(id)arg1;
 - (void)_desaturateUI;
-- (void)_dismissItem:(id)arg1 andPresentItem:(id)arg2 animated:(bool)arg3 completion:(id)arg4 keepDimmingView:(bool)arg5;
-- (void)_dismissItem:(id)arg1 andPresentItem:(id)arg2 animated:(bool)arg3 completion:(id)arg4;
-- (void)_dismissMe:(id)arg1 animated:(bool)arg2;
-- (void)_enqueueAdditionalTransitionCompletion:(id)arg1;
+- (void)_dismissItem:(id)arg1 andPresentItem:(id)arg2 animated:(BOOL)arg3 completion:(id /* block */)arg4;
+- (void)_dismissItem:(id)arg1 andPresentItem:(id)arg2 animated:(BOOL)arg3 completion:(id /* block */)arg4 keepDimmingView:(BOOL)arg5;
+- (void)_dismissMe:(id)arg1 animated:(BOOL)arg2;
+- (void)_enqueueAdditionalTransitionCompletion:(id /* block */)arg1;
 - (void)_hide;
-- (void)_hideAnimated:(bool)arg1 dimmSpotlight:(bool)arg2;
-- (void)_hideDimmingViewAnimated:(bool)arg1;
-- (void)_hideItem:(id)arg1 animated:(bool)arg2;
+- (void)_hideAnimated:(BOOL)arg1 dimmSpotlight:(BOOL)arg2;
+- (void)_hideDimmingViewAnimated:(BOOL)arg1;
+- (void)_hideItem:(id)arg1 animated:(BOOL)arg2;
 - (void)_resaturateUI;
-- (void)_showDimmingView:(bool)arg1 animated:(bool)arg2;
-- (void)_showDimmingViewAnimated:(bool)arg1;
-- (void)_showItem:(id)arg1 animated:(bool)arg2 undimmSpotlight:(bool)arg3;
-- (void)_updateItem:(id)arg1 animated:(bool)arg2;
+- (void)_showDimmingView:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)_showDimmingViewAnimated:(BOOL)arg1;
+- (void)_showItem:(id)arg1 animated:(BOOL)arg2 undimmSpotlight:(BOOL)arg3;
+- (void)_updateItem:(id)arg1 animated:(BOOL)arg2;
 - (id)currentItem;
 - (void)dealloc;
 - (void)didReceiveMemoryWarning;
-- (void)didRotateFromInterfaceOrientation:(long long)arg1;
-- (void)displayModalItem:(id)arg1 animated:(bool)arg2;
-- (void)hideModalItem:(id)arg1 animated:(bool)arg2;
-- (id)initWithModalItemType:(long long)arg1;
+- (void)didRotateFromInterfaceOrientation:(int)arg1;
+- (void)displayModalItem:(id)arg1 animated:(BOOL)arg2;
+- (void)hideModalItem:(id)arg1 animated:(BOOL)arg2;
+- (id)initWithModalItemType:(int)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (bool)isInTransition;
+- (BOOL)isInTransition;
 - (id)itemBeingDismissed;
 - (id)itemBeingPresented;
-- (id)itemsTransitionCompletion;
+- (id /* block */)itemsTransitionCompletion;
 - (void)keyboardChanged:(id)arg1;
 - (void)keyfirstResponderChanged:(id)arg1;
-- (long long)preferredInterfaceOrientationForPresentation;
+- (int)preferredInterfaceOrientationForPresentation;
 - (id)rotationDelegate;
 - (void)setCurrentItem:(id)arg1;
-- (void)setIsInTransition:(bool)arg1;
+- (void)setIsInTransition:(BOOL)arg1;
 - (void)setItemBeingDismissed:(id)arg1;
 - (void)setItemBeingPresented:(id)arg1;
-- (void)setItemsTransitionCompletion:(id)arg1;
+- (void)setItemsTransitionCompletion:(id /* block */)arg1;
 - (void)setRotationDelegate:(id)arg1;
-- (bool)shouldAutorotate;
-- (bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
-- (unsigned long long)supportedInterfaceOrientations;
+- (BOOL)shouldAutorotate;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (unsigned int)supportedInterfaceOrientations;
 - (void)viewDidLoad;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillLayoutSubviews;
-- (bool)wantsFullScreenLayout;
-- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (BOOL)wantsFullScreenLayout;
+- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 
 @end

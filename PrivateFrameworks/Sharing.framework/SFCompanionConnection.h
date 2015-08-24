@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Sharing.framework/Sharing
  */
 
-@class <SFCompanionConnectionDelegate>, <SFCompanionConnectionManagerProtocol>, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection, SFCompanionDevice, SFCompanionInterface, SFCompanionService;
-
 @interface SFCompanionConnection : NSObject <SFCompanionConnectionManagerClient, SFCompanionXPCManagerObserver> {
     SFCompanionDevice *_connectedDevice;
     NSString *_connectionID;
@@ -11,32 +9,32 @@
     <SFCompanionConnectionDelegate> *_delegate;
     SFCompanionInterface *_exportedInterface;
     id _exportedObject;
+    BOOL _invalid;
     SFCompanionInterface *_remoteObjectInterface;
     SFCompanionService *_service;
-    unsigned long long _status;
+    unsigned int _status;
     NSXPCConnection *_userConnection;
+    BOOL _waitForAccept;
     NSObject<OS_dispatch_queue> *_workQueue;
-    bool_invalid;
-    bool_waitForAccept;
 }
 
-@property(retain) SFCompanionDevice * connectedDevice;
-@property(copy,readonly) NSString * connectionID;
-@property(retain) <SFCompanionConnectionManagerProtocol> * connectionProxy;
-@property(copy,readonly) NSString * debugDescription;
-@property <SFCompanionConnectionDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(retain) SFCompanionInterface * exportedInterface;
-@property(retain) id exportedObject;
-@property(readonly) unsigned long long hash;
-@property bool invalid;
-@property(retain) SFCompanionInterface * remoteObjectInterface;
-@property(retain) SFCompanionService * service;
-@property unsigned long long status;
-@property(readonly) Class superclass;
-@property(retain) NSXPCConnection * userConnection;
-@property bool waitForAccept;
-@property NSObject<OS_dispatch_queue> * workQueue;
+@property (nonatomic, retain) SFCompanionDevice *connectedDevice;
+@property (nonatomic, readonly, copy) NSString *connectionID;
+@property (retain) <SFCompanionConnectionManagerProtocol> *connectionProxy;
+@property (readonly, copy) NSString *debugDescription;
+@property <SFCompanionConnectionDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (retain) SFCompanionInterface *exportedInterface;
+@property (retain) id exportedObject;
+@property (readonly) unsigned int hash;
+@property BOOL invalid;
+@property (retain) SFCompanionInterface *remoteObjectInterface;
+@property (retain) SFCompanionService *service;
+@property unsigned int status;
+@property (readonly) Class superclass;
+@property (retain) NSXPCConnection *userConnection;
+@property BOOL waitForAccept;
+@property NSObject<OS_dispatch_queue> *workQueue;
 
 - (void)connect;
 - (id)connectedDevice;
@@ -51,7 +49,7 @@
 - (id)initWithDevice:(id)arg1 connectionID:(id)arg2 serviceType:(id)arg3 delegate:(id)arg4;
 - (id)initWithDevice:(id)arg1 serviceType:(id)arg2 delegate:(id)arg3;
 - (id)initWithService:(id)arg1;
-- (bool)invalid;
+- (BOOL)invalid;
 - (void)invalidate;
 - (void)invalidationCallback;
 - (void)onqueue_invalidate;
@@ -62,28 +60,28 @@
 - (void)onqueue_userInvalidated;
 - (id)remoteObjectInterface;
 - (id)remoteObjectProxy;
-- (id)remoteObjectProxyWithErrorHandler:(id)arg1;
+- (id)remoteObjectProxyWithErrorHandler:(id /* block */)arg1;
 - (void)resume;
-- (bool)sendData:(id)arg1 withErrorHandler:(id)arg2;
-- (void)sendData:(id)arg1 withReply:(id)arg2;
+- (BOOL)sendData:(id)arg1 withErrorHandler:(id /* block */)arg2;
+- (void)sendData:(id)arg1 withReply:(id /* block */)arg2;
 - (id)service;
 - (void)setConnectedDevice:(id)arg1;
 - (void)setConnectionProxy:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setExportedInterface:(id)arg1;
 - (void)setExportedObject:(id)arg1;
-- (void)setInvalid:(bool)arg1;
+- (void)setInvalid:(BOOL)arg1;
 - (void)setRemoteObjectInterface:(id)arg1;
 - (void)setService:(id)arg1;
-- (void)setStatus:(unsigned long long)arg1;
+- (void)setStatus:(unsigned int)arg1;
 - (void)setUserConnection:(id)arg1;
-- (void)setWaitForAccept:(bool)arg1;
+- (void)setWaitForAccept:(BOOL)arg1;
 - (void)setWorkQueue:(id)arg1;
 - (void)setupWorkQueue;
-- (unsigned long long)status;
+- (unsigned int)status;
 - (void)suspend;
 - (id)userConnection;
-- (bool)waitForAccept;
+- (BOOL)waitForAccept;
 - (id)workQueue;
 - (void)xpcManagerConnectionInterrupted;
 

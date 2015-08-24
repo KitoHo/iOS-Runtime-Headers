@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSMutableArray;
-
 @interface TSAFunctionBrowserState : TSPObject {
     NSMutableArray *mBackFunctions;
     int mCurrentFunction;
@@ -14,13 +12,13 @@
 - (id)allBackFunctions;
 - (id)allForwardFunctions;
 - (int)back;
-- (int)backByAmount:(unsigned long long)arg1;
-- (bool)canGoBack;
-- (bool)canGoForward;
+- (int)backByAmount:(unsigned int)arg1;
+- (BOOL)canGoBack;
+- (BOOL)canGoForward;
 - (int)currentFunction;
 - (void)dealloc;
 - (int)forward;
-- (int)forwardByAmount:(unsigned long long)arg1;
+- (int)forwardByAmount:(unsigned int)arg1;
 - (id)initFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1;
 - (void)p_filterOutUnknownFunctions:(id)arg1;

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class GQDSStyle, GQDWPLayoutStorage;
-
 @interface GQDWPLayoutFrame : NSObject {
     GQDWPLayoutStorage *mStorage;
     GQDSStyle *mStyle;
@@ -12,7 +10,7 @@
 }
 
 - (void)dealloc;
-- (bool)isBlank;
+- (BOOL)isBlank;
 - (id)layoutStyle;
 - (int)readAttributesFromReader:(struct _xmlTextReader { }*)arg1;
 - (void)resolveStyleRef;

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-@class BRCLocalContainer, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSMutableSet;
-
 @interface BRCSyncUpEnumerator : NSEnumerator {
     unsigned int _batchSize;
     NSMutableSet *_blacklist;
@@ -18,11 +16,11 @@
     NSMutableSet *_whitelist;
 }
 
-@property(readonly) unsigned int batchSize;
-@property(readonly) unsigned long long retryAfter;
+@property (nonatomic, readonly) unsigned int batchSize;
+@property (nonatomic, readonly) unsigned long long retryAfter;
 
 - (void).cxx_destruct;
-- (bool)_blackListStackIfItemThrottled:(id)arg1 now:(unsigned long long)arg2;
+- (BOOL)_blackListStackIfItemThrottled:(id)arg1 now:(unsigned long long)arg2;
 - (struct PQLResultSet { Class x1; }*)_documentsOrAliasesNeedingSyncUpEnumerator;
 - (struct PQLResultSet { Class x1; }*)_liveOrNewDirectoriesNeedingSyncUpEnumerator;
 - (id)_nextLiveItem;

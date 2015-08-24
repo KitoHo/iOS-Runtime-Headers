@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@interface OABReaderClient : NSObject {
-}
+@interface OABReaderClient : NSObject
 
-+ (bool)sourceDrawableIsTopLevel:(id)arg1;
++ (BOOL)sourceDrawableIsTopLevel:(id)arg1;
 
 @end

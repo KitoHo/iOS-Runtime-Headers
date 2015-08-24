@@ -2,53 +2,53 @@
    Image: /System/Library/PrivateFrameworks/MediaPlayerUI.framework/MediaPlayerUI
  */
 
-@class <MPUCompletionQueryDataSourceDelegate>, NSMutableDictionary, NSMutableSet;
-
 @interface MPUCompletionQueryDataSource : MPUQueryDataSource {
     <MPUCompletionQueryDataSourceDelegate> *_completionDelegate;
     NSMutableDictionary *_completions;
+    BOOL _hasAutomaticallyLoadedCompletions;
     NSMutableSet *_overlayedSectionEntityPIDs;
+    BOOL _shouldAutomaticallyLoadCompletions;
+    BOOL _shouldShowCompletions;
     NSMutableDictionary *_statuses;
     NSMutableDictionary *_tokens;
     NSMutableDictionary *_variants;
-    bool_shouldAutomaticallyLoadCompletions;
-    bool_shouldShowCompletions;
 }
 
-@property <MPUCompletionQueryDataSourceDelegate> * completionDelegate;
-@property bool shouldAutomaticallyLoadCompletions;
-@property(readonly) bool shouldLoadCompletionArtwork;
-@property bool shouldShowCompletions;
+@property (nonatomic) <MPUCompletionQueryDataSourceDelegate> *completionDelegate;
+@property (nonatomic) BOOL shouldAutomaticallyLoadCompletions;
+@property (nonatomic, readonly) BOOL shouldLoadCompletionArtwork;
+@property (nonatomic) BOOL shouldShowCompletions;
 
 - (void).cxx_destruct;
-- (long long)_pidForSectionAtIndex:(long long)arg1;
-- (void)_setCompletion:(id)arg1 forSectionAtIndex:(long long)arg2;
-- (void)_setToken:(unsigned long long)arg1 forSectionAtIndex:(long long)arg2;
-- (long long)_tokenForSectionAtIndex:(long long)arg1;
-- (void)cancelCompletionOfferingWithToken:(unsigned long long)arg1;
+- (void)_didInvalidateWithContext:(id)arg1;
+- (long long)_pidForSectionAtIndex:(int)arg1;
+- (void)_setCompletion:(id)arg1 forSectionAtIndex:(int)arg2;
+- (void)_setToken:(unsigned int)arg1 forSectionAtIndex:(int)arg2;
+- (int)_tokenForSectionAtIndex:(int)arg1;
+- (void)_willInvalidateWithContext:(id)arg1;
+- (void)cancelCompletionOfferingWithToken:(unsigned int)arg1;
 - (id)completionDelegate;
-- (long long)completionOfferStatusForSectionAtIndex:(long long)arg1;
-- (id)completionOfferingForSectionAtIndex:(unsigned long long)arg1;
-- (bool)hasCompletionOfferForSectionAtIndex:(unsigned long long)arg1;
-- (bool)hasVariantsForSectionAtIndex:(long long)arg1;
-- (unsigned long long)indexOfSectionForCompletionOffering:(id)arg1;
-- (void)invalidate;
-- (bool)isShowingCompletionOverlayForSectionAtIndex:(unsigned long long)arg1;
-- (void)loadCompletionOfferingForSectionAtIndex:(unsigned long long)arg1;
+- (int)completionOfferStatusForSectionAtIndex:(int)arg1;
+- (id)completionOfferingForSectionAtIndex:(unsigned int)arg1;
+- (BOOL)hasCompletionOfferForSectionAtIndex:(unsigned int)arg1;
+- (BOOL)hasVariantsForSectionAtIndex:(int)arg1;
+- (unsigned int)indexOfSectionForCompletionOffering:(id)arg1;
+- (BOOL)isShowingCompletionOverlayForSectionAtIndex:(unsigned int)arg1;
+- (void)loadCompletionOfferingForSectionAtIndex:(unsigned int)arg1;
 - (void)loadCompletionOfferings;
-- (void)overlayCompletionForSectionAtIndex:(unsigned long long)arg1;
+- (void)overlayCompletionForSectionAtIndex:(unsigned int)arg1;
 - (void)removeAllCompletionOverlays;
-- (void)removeOverlayCompletionForSectionAtIndex:(unsigned long long)arg1;
-- (id)sectionEntityAtIndex:(unsigned long long)arg1;
-- (id)sectionEntityWithoutOverlayAtIndex:(unsigned long long)arg1;
+- (void)removeOverlayCompletionForSectionAtIndex:(unsigned int)arg1;
+- (id)sectionEntityAtIndex:(unsigned int)arg1;
+- (id)sectionEntityWithoutOverlayAtIndex:(unsigned int)arg1;
 - (void)setCompletionDelegate:(id)arg1;
-- (void)setCompletionOfferStatus:(long long)arg1 forSectionAtIndex:(long long)arg2;
-- (void)setShouldAutomaticallyLoadCompletions:(bool)arg1;
-- (void)setShouldShowCompletions:(bool)arg1;
-- (void)setVariant:(long long)arg1 forSectionAtIndex:(long long)arg2;
-- (bool)shouldAutomaticallyLoadCompletions;
-- (bool)shouldLoadCompletionArtwork;
-- (bool)shouldShowCompletions;
-- (long long)variantForSectionAtIndex:(long long)arg1;
+- (void)setCompletionOfferStatus:(int)arg1 forSectionAtIndex:(int)arg2;
+- (void)setShouldAutomaticallyLoadCompletions:(BOOL)arg1;
+- (void)setShouldShowCompletions:(BOOL)arg1;
+- (void)setVariant:(int)arg1 forSectionAtIndex:(int)arg2;
+- (BOOL)shouldAutomaticallyLoadCompletions;
+- (BOOL)shouldLoadCompletionArtwork;
+- (BOOL)shouldShowCompletions;
+- (int)variantForSectionAtIndex:(int)arg1;
 
 @end

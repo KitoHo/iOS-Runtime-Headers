@@ -2,11 +2,9 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSSimpleAttributeDictionary;
-
 @interface NSSimpleAttributeDictionaryEnumerator : NSEnumerator {
     NSSimpleAttributeDictionary *dictionary;
-    unsigned long long nextElement;
+    unsigned int nextElement;
 }
 
 - (void)dealloc;

@@ -2,38 +2,42 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class IMHandle, NSDate;
-
 @interface CKBalloonChatItem : CKChatItem {
+    BOOL _isFirstChatItem;
 }
 
-@property(readonly) unsigned long long balloonCorners;
-@property(readonly) BOOL balloonOrientation;
-@property(readonly) Class balloonViewClass;
-@property(readonly) bool failed;
-@property(getter=isFromMe,readonly) bool fromMe;
-@property(retain,readonly) IMHandle * sender;
-@property(retain,readonly) NSDate * time;
+@property (nonatomic, readonly) unsigned int balloonCorners;
+@property (nonatomic, readonly) BOOL balloonOrientation;
+@property (nonatomic, readonly) Class balloonViewClass;
+@property (nonatomic, readonly) BOOL failed;
+@property (getter=isFromMe, nonatomic, readonly) BOOL fromMe;
+@property (nonatomic) BOOL isFirstChatItem;
+@property (nonatomic, readonly, retain) IMHandle *sender;
+@property (nonatomic, readonly, retain) NSDate *time;
 
-- (unsigned long long)balloonCorners;
+- (unsigned int)balloonCorners;
 - (BOOL)balloonOrientation;
 - (Class)balloonViewClass;
 - (Class)cellClass;
 - (id)cellIdentifier;
 - (void)configureBalloonView:(id)arg1;
 - (id)contactImage;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })contentInsets;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })contentInsets;
 - (id)description;
-- (bool)displayDuringSend;
-- (bool)failed;
-- (bool)isEditable;
-- (bool)isFromMe;
-- (struct CGSize { double x1; double x2; })loadSizeThatFits:(struct CGSize { double x1; double x2; })arg1 textAlignmentInsets:(out struct UIEdgeInsets { double x1; double x2; double x3; double x4; }*)arg2;
+- (BOOL)displayDuringSend;
+- (BOOL)failed;
+- (BOOL)isEditable;
+- (BOOL)isFirstChatItem;
+- (BOOL)isFromMe;
+- (struct CGSize { float x1; float x2; })loadSizeThatFits:(struct CGSize { float x1; float x2; })arg1 textAlignmentInsets:(out struct UIEdgeInsets { float x1; float x2; float x3; float x4; }*)arg2;
 - (id)loadTranscriptDrawerText;
+- (BOOL)needsAdjustedTextAlignmentInsets;
+- (BOOL)needsPreservedAspectRatio;
 - (id)sender;
+- (void)setIsFirstChatItem:(BOOL)arg1;
 - (id)time;
 - (BOOL)transcriptOrientation;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })transcriptTextAlignmentInsets;
-- (bool)wantsDrawerLayout;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })transcriptTextAlignmentInsets;
+- (BOOL)wantsDrawerLayout;
 
 @end

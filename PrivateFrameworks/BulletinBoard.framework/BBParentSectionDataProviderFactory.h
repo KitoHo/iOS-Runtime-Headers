@@ -2,20 +2,20 @@
    Image: /System/Library/PrivateFrameworks/BulletinBoard.framework/BulletinBoard
  */
 
-@class BBSectionInfo, NSString;
-
 @interface BBParentSectionDataProviderFactory : NSObject <BBSectionIdentity, NSSecureCoding> {
     BBSectionInfo *_sectionInfo;
+    NSString *_universalSectionIdentifier;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy) BBSectionInfo * sectionInfo;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) BBSectionInfo *sectionInfo;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSString *universalSectionIdentifier;
 
 + (id)factoryFromSectionInfo:(id)arg1;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)dataProviders;
 - (void)dealloc;
@@ -27,5 +27,7 @@
 - (id)sectionIdentifier;
 - (id)sectionInfo;
 - (void)setSectionInfo:(id)arg1;
+- (void)setUniversalSectionIdentifier:(id)arg1;
+- (id)universalSectionIdentifier;
 
 @end

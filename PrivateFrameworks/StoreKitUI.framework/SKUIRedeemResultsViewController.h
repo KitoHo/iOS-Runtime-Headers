@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSOperationQueue, NSString, SKUIGiftItemView, SKUIItemStateCenter, SKUIRedeem, SKUIRedeemITunesPassLockup, SKUIRedeemResultMessageView, SKUITextBoxView, SKUITextLayout, UIButton, UIImage, UIImageView;
-
 @interface SKUIRedeemResultsViewController : SKUIRedeemStepViewController <SKUIItemStateCenterObserver, SKUIRedeemResultsViewDelegate> {
     UIButton *_anotherButton;
+    BOOL _extendedMessageIsExpanded;
     SKUITextLayout *_extendedMessageTextLayout;
     SKUITextBoxView *_extendedMessageView;
     UIImageView *_headerImageView;
@@ -16,16 +15,15 @@
     NSOperationQueue *_operationQueue;
     SKUIRedeemITunesPassLockup *_passbookLockup;
     SKUIRedeem *_redeem;
-    long long _redeemCategory;
-    bool_extendedMessageIsExpanded;
+    int _redeemCategory;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) SKUIRedeem * redeem;
-@property long long redeemCategory;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) SKUIRedeem *redeem;
+@property (nonatomic) int redeemCategory;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)_anotherButtonSection;
@@ -48,14 +46,15 @@
 - (id)_resultImageViewSection;
 - (void)_setHeaderImage:(id)arg1;
 - (void)_setItemImage:(id)arg1;
+- (float)_tableWidth;
 - (void)dealloc;
 - (id)initWithRedeem:(id)arg1;
 - (void)itemStateCenter:(id)arg1 itemStatesChanged:(id)arg2;
 - (void)loadView;
 - (id)redeem;
-- (long long)redeemCategory;
+- (int)redeemCategory;
 - (void)redeemResultsView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (void)setRedeemCategory:(long long)arg1;
-- (void)viewWillAppear:(bool)arg1;
+- (void)setRedeemCategory:(int)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 
 @end

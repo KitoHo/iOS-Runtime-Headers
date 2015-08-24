@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount
  */
 
-@class NSDictionary, NSString;
-
 @interface AAPaymentSummaryResponse : AAResponse {
     NSDictionary *_responseParameters;
 }
 
-@property(readonly) NSString * description;
-@property(readonly) unsigned long long numberOfCards;
+@property (nonatomic, readonly) NSString *description;
+@property (nonatomic, readonly) unsigned int numberOfCards;
 
 - (void).cxx_destruct;
 - (id)description;
 - (id)initWithHTTPResponse:(id)arg1 data:(id)arg2;
-- (unsigned long long)numberOfCards;
+- (unsigned int)numberOfCards;
 
 @end

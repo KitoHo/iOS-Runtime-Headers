@@ -2,29 +2,28 @@
    Image: /System/Library/Frameworks/iAd.framework/iAd
  */
 
-@class <ADPlayerDelegate>, ADBannerView, AVPlayer, AVPlayerItem, NSString;
-
 @interface ADPlayer : NSObject <ADBannerViewInternalDelegate> {
     AVPlayer *_avPlayer;
     AVPlayerItem *_avPlayerItem;
     <ADPlayerDelegate> *_delegate;
-    unsigned long long _playbackState;
+    BOOL _playbackHasBegun;
+    unsigned int _playbackState;
     id _timeObserver;
     ADBannerView *_videoAd;
-    bool_playbackHasBegun;
 }
 
-@property(retain) AVPlayer * avPlayer;
-@property(retain) AVPlayerItem * avPlayerItem;
-@property(copy,readonly) NSString * debugDescription;
-@property <ADPlayerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property bool playbackHasBegun;
-@property unsigned long long playbackState;
-@property(readonly) Class superclass;
-@property(retain) id timeObserver;
-@property(retain) ADBannerView * videoAd;
+@property (nonatomic, retain) AVPlayer *avPlayer;
+@property (nonatomic, retain) AVPlayerItem *avPlayerItem;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <ADPlayerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) BOOL playbackHasBegun;
+@property (nonatomic, readonly) float playbackRate;
+@property (nonatomic) unsigned int playbackState;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) id timeObserver;
+@property (nonatomic, retain) ADBannerView *videoAd;
 
 - (id)_networkOptimalVideoURLForAd:(id)arg1;
 - (void)applicationDidBecomeActive;
@@ -33,7 +32,7 @@
 - (id)avPlayerItem;
 - (void)bannerView:(id)arg1 didFailToReceiveAdWithError:(id)arg2;
 - (void)bannerViewActionDidFinish:(id)arg1;
-- (bool)bannerViewActionShouldBegin:(id)arg1 willLeaveApplication:(bool)arg2;
+- (BOOL)bannerViewActionShouldBegin:(id)arg1 willLeaveApplication:(BOOL)arg2;
 - (void)bannerViewDidLoadAd:(id)arg1;
 - (void)bannerViewShouldPauseMedia:(id)arg1;
 - (void)bannerViewShouldResumeMedia:(id)arg1;
@@ -45,17 +44,20 @@
 - (void)pause;
 - (void)performAction;
 - (void)play;
-- (bool)playbackHasBegun;
-- (unsigned long long)playbackState;
+- (BOOL)playbackHasBegun;
+- (float)playbackRate;
+- (unsigned int)playbackState;
+- (void)playerDidPause;
+- (void)playerDidStart;
 - (void)playerItemDidFailedToPlayToEnd:(id)arg1;
 - (void)playerItemDidPlayToEnd:(id)arg1;
 - (void)playerItemEncounteredPlaybackStall:(id)arg1;
-- (bool)prepareForPlayback;
+- (BOOL)prepareForPlayback;
 - (void)setAvPlayer:(id)arg1;
 - (void)setAvPlayerItem:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setPlaybackHasBegun:(bool)arg1;
-- (void)setPlaybackState:(unsigned long long)arg1;
+- (void)setPlaybackHasBegun:(BOOL)arg1;
+- (void)setPlaybackState:(unsigned int)arg1;
 - (void)setTimeObserver:(id)arg1;
 - (void)setVideoAd:(id)arg1;
 - (void)shutdown;

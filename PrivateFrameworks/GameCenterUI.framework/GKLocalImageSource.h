@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-@class NSMapTable;
-
 @interface GKLocalImageSource : GKImageSource {
     NSMapTable *_keysForSizes;
 }
 
-@property(retain) NSMapTable * keysForSizes;
+@property (nonatomic, retain) NSMapTable *keysForSizes;
 
 - (void)dealloc;
-- (id)imageForImageSize:(struct CGSize { double x1; double x2; })arg1;
-- (id)keyForImageSize:(struct CGSize { double x1; double x2; })arg1;
+- (id)imageForImageSize:(struct CGSize { float x1; float x2; })arg1;
+- (id)keyForImageSize:(struct CGSize { float x1; float x2; })arg1;
 - (id)keysForSizes;
 - (void)setKeysForSizes:(id)arg1;
 

@@ -2,20 +2,21 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCHChartFeatureScatter : TSCHChartFeature {
-}
+@interface TSCHChartFeatureScatter : TSCHChartFeature
 
 - (id)defaultDataFileName;
 - (id)genericToSpecificPropertyMap;
+- (unsigned int)gridOffsetToSeriesForScatterFormat:(int)arg1;
 - (void)p_initializeAxisIDs;
 - (Class)presetImagerClass;
-- (unsigned long long)styleIndexForAxisID:(id)arg1;
+- (int)representativeGridValueAxisType;
+- (unsigned int)styleIndexForAxisID:(id)arg1;
 - (id)supportedAxisScales;
 - (id)supportedSeriesTypes;
-- (bool)supportsCategoryLabelsInChartRangeEditor;
-- (bool)supportsConnectingLines;
-- (bool)supportsSharedAndSeparateX;
-- (bool)supportsSymbolOverhang;
+- (BOOL)supportsCategoryLabelsInChartRangeEditor;
+- (BOOL)supportsConnectingLines;
+- (BOOL)supportsSharedAndSeparateX;
+- (BOOL)supportsSymbolOverhang;
 - (void)updateTitlesForExportingModel:(id)arg1 info:(id)arg2;
 - (id)userInterfaceName;
 - (Class)valueAxisClassForID:(id)arg1 scale:(int)arg2;

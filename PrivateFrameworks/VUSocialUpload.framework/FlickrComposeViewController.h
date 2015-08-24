@@ -2,14 +2,13 @@
    Image: /System/Library/PrivateFrameworks/VUSocialUpload.framework/VUSocialUpload
  */
 
-@class ACAccount, ACAccountStore, FlickrAudienceController, FlickrPhotoSetController, FlickrPhotoSetManager, FlickrUploadSession, NSString, SLComposeSheetConfigurationItem, UIImageView;
-
 @interface FlickrComposeViewController : SLComposeServiceViewController <FlickrComposeOptionViewDelegate> {
     ACAccountStore *_accountStore;
     int _audience;
     SLComposeSheetConfigurationItem *_audienceConfigurationItem;
     FlickrAudienceController *_audienceController;
     ACAccount *_flickrAccount;
+    BOOL _hasFlickrAccount;
     UIImageView *_logoView;
     FlickrPhotoSetManager *_manager;
     SLComposeSheetConfigurationItem *_photoSetConfigurationItem;
@@ -17,15 +16,14 @@
     long long _photoSetID;
     NSString *_photoSetTitle;
     FlickrUploadSession *_session;
-    bool_hasFlickrAccount;
 }
 
-@property(retain) ACAccountStore * accountStore;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) ACAccount * flickrAccount;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) ACAccountStore *accountStore;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) ACAccount *flickrAccount;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)accountStore;
@@ -37,6 +35,6 @@
 - (unsigned int)postVisibility;
 - (void)setAccountStore:(id)arg1;
 - (void)setFlickrAccount:(id)arg1;
-- (void)viewDidAppear:(bool)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
 
 @end

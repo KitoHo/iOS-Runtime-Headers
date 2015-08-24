@@ -2,20 +2,21 @@
    Image: /System/Library/Frameworks/JavaScriptCore.framework/JavaScriptCore
  */
 
-@class JSValue, NSMapTable;
-
 @interface JSManagedValue : NSObject {
     struct Weak<JSC::JSGlobalObject> { 
         struct WeakImpl {} *m_impl; 
+    } m_globalObject;
     struct RefPtr<JSC::JSLock> { 
         struct JSLock {} *m_ptr; 
+    } m_lock;
+    NSMapTable *m_owners;
     struct WeakValueRef { 
         int m_tag; 
         union WeakValueUnion { 
             struct JSValue { 
                 union EncodedValueDescriptor { 
                     long long asInt64; 
-                    struct JSCell {} *ptr; 
+                    double asDouble; 
                     struct { 
                         int payload; 
                         int tag; 
@@ -29,16 +30,13 @@
                 struct WeakImpl {} *m_impl; 
             } m_string; 
         } u; 
-    } m_globalObject;
-    } m_lock;
-    NSMapTable *m_owners;
     } m_weakValue;
 }
 
-@property(readonly) JSValue * value;
+@property (readonly) JSValue *value;
 
-+ (id)managedValueWithValue:(id)arg1 andOwner:(id)arg2;
 + (id)managedValueWithValue:(id)arg1;
++ (id)managedValueWithValue:(id)arg1 andOwner:(id)arg2;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;

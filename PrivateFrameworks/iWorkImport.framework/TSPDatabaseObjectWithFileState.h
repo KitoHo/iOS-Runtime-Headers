@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString, NSURL;
-
 @interface TSPDatabaseObjectWithFileState : TSPDatabaseObject {
     NSString *_fileState;
     NSURL *_packageURL;
@@ -13,8 +11,8 @@
 - (long long)dataState;
 - (id)fileState;
 - (id)fileURL;
-- (bool)hasDataState;
-- (bool)hasFileState;
+- (BOOL)hasDataState;
+- (BOOL)hasFileState;
 - (id)initWithIdentifier:(long long)arg1 classType:(int)arg2 fileState:(id)arg3 packageURL:(id)arg4;
 
 @end

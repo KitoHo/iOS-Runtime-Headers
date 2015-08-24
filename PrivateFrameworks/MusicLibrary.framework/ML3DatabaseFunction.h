@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@class NSString;
-
 @interface ML3DatabaseFunction : NSObject {
     int _argumentCount;
     NSString *_name;
 }
 
-@property int argumentCount;
-@property(copy) NSString * name;
+@property (nonatomic) int argumentCount;
+@property (nonatomic, copy) NSString *name;
 
 - (void).cxx_destruct;
 - (int)argumentCount;
 - (id)initWithName:(id)arg1 argumentCount:(int)arg2;
 - (id)name;
-- (bool)registerWithConnection:(id)arg1;
+- (BOOL)registerWithConnection:(id)arg1;
 - (void)setArgumentCount:(int)arg1;
 - (void)setName:(id)arg1;
 

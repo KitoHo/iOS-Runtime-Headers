@@ -2,11 +2,10 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface UIInputViewSetPlacementOnScreen : UIInputViewSetPlacement {
-}
+@interface UIInputViewSetPlacementOnScreen : UIInputViewSetPlacement
 
-- (bool)inputViewWillAppear;
-- (bool)showsInputViews;
-- (bool)showsKeyboard;
+- (BOOL)inputViewWillAppear;
+- (BOOL)showsInputViews;
+- (BOOL)showsKeyboard;
 
 @end

@@ -3,6 +3,8 @@
  */
 
 @interface GEOAltitudeManifestReserved : NSObject {
+    unsigned int _reservedCurrentRegion;
+    unsigned char _reservedTourServerType;
     struct map<unsigned int, _GEOAltitudeTriggerData, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, _GEOAltitudeTriggerData> > > { 
         struct __tree<std::__1::__value_type<unsigned int, _GEOAltitudeTriggerData>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, _GEOAltitudeTriggerData>, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, _GEOAltitudeTriggerData> > > { 
             struct __tree_node<std::__1::__value_type<unsigned int, _GEOAltitudeTriggerData>, void *> {} *__begin_node_; 
@@ -12,11 +14,9 @@
                 } __first_; 
             } __pair1_; 
             struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, _GEOAltitudeTriggerData>, std::__1::less<unsigned int>, true> > { 
-                unsigned long long __first_; 
+                unsigned long __first_; 
             } __pair3_; 
         } __tree_; 
-    unsigned int _reservedCurrentRegion;
-    unsigned char _reservedTourServerType;
     } _reservedTriggerData;
 }
 

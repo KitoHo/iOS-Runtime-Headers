@@ -3,10 +3,10 @@
  */
 
 @interface _NSTextStorageSideData : NSObject {
-    struct _NSRange { 
-        unsigned long long location; 
-        unsigned long long length; 
     id _delegate;
+    struct _NSRange { 
+        unsigned int location; 
+        unsigned int length; 
     } _lazyFixRange;
 }
 

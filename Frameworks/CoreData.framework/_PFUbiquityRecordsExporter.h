@@ -2,34 +2,32 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSDate, NSLock, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, PFUbiquityLocation;
-
 @interface _PFUbiquityRecordsExporter : NSObject {
+    BOOL _allowTempLogStorage;
     NSDate *_lastTransactionDate;
     NSString *_localPeerID;
     PFUbiquityLocation *_localRootLocation;
+    BOOL _pendingTempLogMove;
     NSMutableDictionary *_pendingTransactionsToStoreNameAndTransactionNumber;
     NSObject<OS_dispatch_queue> *_processingQueue;
     NSString *_storeName;
+    BOOL _throwOptimisticLockingException;
     NSLock *_transactionLock;
     PFUbiquityLocation *_ubiquityRootLocation;
-    bool_allowTempLogStorage;
-    bool_pendingTempLogMove;
-    bool_throwOptimisticLockingException;
-    bool_useLocalStorage;
+    BOOL _useLocalStorage;
 }
 
-@property bool allowTempLogStorage;
-@property(readonly) PFUbiquityLocation * currentRootLocation;
-@property(retain) NSDate * lastTransactionDate;
-@property(readonly) NSString * localPeerID;
-@property(readonly) PFUbiquityLocation * localRootLocation;
-@property(readonly) bool pendingTempLogMove;
-@property bool throwOptimisticLockingException;
-@property(retain) PFUbiquityLocation * ubiquityRootLocation;
-@property bool useLocalStorage;
+@property (nonatomic) BOOL allowTempLogStorage;
+@property (nonatomic, readonly) PFUbiquityLocation *currentRootLocation;
+@property (retain) NSDate *lastTransactionDate;
+@property (nonatomic, readonly) NSString *localPeerID;
+@property (nonatomic, readonly) PFUbiquityLocation *localRootLocation;
+@property (nonatomic, readonly) BOOL pendingTempLogMove;
+@property (nonatomic) BOOL throwOptimisticLockingException;
+@property (nonatomic, retain) PFUbiquityLocation *ubiquityRootLocation;
+@property (nonatomic) BOOL useLocalStorage;
 
-- (bool)allowTempLogStorage;
+- (BOOL)allowTempLogStorage;
 - (void)beginWatchingForChangesFromStore:(id)arg1;
 - (void)cleanUpFromRolledbackPendingTransaction:(id)arg1 withNotification:(id)arg2;
 - (id)createDictionaryForObjectsInSaveNotification:(id)arg1 forTransactionOfType:(int)arg2 withExportContext:(id)arg3 andSaveSnapshot:(id)arg4;
@@ -43,17 +41,17 @@
 - (id)localRootLocation;
 - (void)managedObjectContextDidSave:(id)arg1;
 - (void)moveLogsFromTempDirectory;
-- (bool)pendingTempLogMove;
+- (BOOL)pendingTempLogMove;
 - (void)scheduleTempLogMove;
-- (void)setAllowTempLogStorage:(bool)arg1;
+- (void)setAllowTempLogStorage:(BOOL)arg1;
 - (void)setLastTransactionDate:(id)arg1;
-- (void)setThrowOptimisticLockingException:(bool)arg1;
+- (void)setThrowOptimisticLockingException:(BOOL)arg1;
 - (void)setUbiquityRootLocation:(id)arg1;
-- (void)setUseLocalStorage:(bool)arg1;
-- (bool)shouldRespondToSaveNotification:(id)arg1;
+- (void)setUseLocalStorage:(BOOL)arg1;
+- (BOOL)shouldRespondToSaveNotification:(id)arg1;
 - (void)stopWatchingForChanges;
-- (bool)throwOptimisticLockingException;
+- (BOOL)throwOptimisticLockingException;
 - (id)ubiquityRootLocation;
-- (bool)useLocalStorage;
+- (BOOL)useLocalStorage;
 
 @end

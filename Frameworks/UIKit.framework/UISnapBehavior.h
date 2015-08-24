@@ -2,39 +2,37 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSMutableArray, PKPhysicsBody;
-
 @interface UISnapBehavior : UIDynamicBehavior {
+    PKPhysicsBody *_anchorBody;
     struct CGPoint { 
-        double x; 
-        double y; 
+        float x; 
+        float y; 
+    } _anchorPoint;
+    float _damping;
+    float _distance;
+    float _frequency;
+    NSMutableArray *_joints;
     struct { 
         unsigned int attachedToView : 1; 
         unsigned int dampingSet : 1; 
         unsigned int frequencySet : 1; 
         unsigned int lengthSet : 1; 
-    PKPhysicsBody *_anchorBody;
-    } _anchorPoint;
-    double _damping;
-    double _distance;
-    double _frequency;
-    NSMutableArray *_joints;
     } _stateFlags;
 }
 
-@property double damping;
+@property (nonatomic) float damping;
 
 - (void)_associate;
 - (void)_dissociate;
-- (double)_distance;
-- (double)_frequency;
-- (void)_setDistance:(double)arg1;
-- (void)_setFrequency:(double)arg1;
-- (double)damping;
+- (float)_distance;
+- (float)_frequency;
+- (void)_setDistance:(float)arg1;
+- (void)_setFrequency:(float)arg1;
+- (float)damping;
 - (void)dealloc;
 - (id)description;
 - (id)init;
-- (id)initWithItem:(id)arg1 snapToPoint:(struct CGPoint { double x1; double x2; })arg2;
-- (void)setDamping:(double)arg1;
+- (id)initWithItem:(id)arg1 snapToPoint:(struct CGPoint { float x1; float x2; })arg2;
+- (void)setDamping:(float)arg1;
 
 @end

@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/PrototypeTools.framework/PrototypeTools
  */
 
-@class NSString, _UISettings;
-
 @interface PTSButton : UIButton <PTSHUDControl, _UISettingsKeyPathObserver> {
     int _alignment;
     _UISettings *_settings;
     NSString *_valueKeyPath;
 }
 
-@property int alignment;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property bool enabled;
-@property(readonly) unsigned long long hash;
-@property _UISettings * settings;
-@property(readonly) Class superclass;
-@property(copy) NSString * valueKeyPath;
+@property (nonatomic) int alignment;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) BOOL enabled;
+@property (readonly) unsigned int hash;
+@property (nonatomic) _UISettings *settings;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSString *valueKeyPath;
 
 + (id)addSettingsButton;
 + (id)button;
-+ (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })defaultFrame;
++ (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })defaultFrame;
 + (id)editSavedModeTableButton;
 + (id)hideHUDButton;
 + (id)restoreDefaultValuesButton;
@@ -36,8 +34,8 @@
 - (void)setAlignment:(int)arg1;
 - (void)setSettings:(id)arg1;
 - (void)setValueKeyPath:(id)arg1;
-- (void)settings:(id)arg1 changedValueForKeyPath:(id)arg2;
 - (id)settings;
+- (void)settings:(id)arg1 changedValueForKeyPath:(id)arg2;
 - (id)valueKeyPath;
 
 @end

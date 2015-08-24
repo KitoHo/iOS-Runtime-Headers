@@ -2,26 +2,29 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class MFProtectedSQLiteConnection;
-
 @interface _MFLibrarySQLiteConnectionWrapper : NSObject {
     MFProtectedSQLiteConnection *_connection;
-    unsigned long long _refcount;
-    bool_writer;
+    BOOL _invalid;
+    unsigned int _refcount;
+    NSArray *_stack;
+    BOOL _writer;
 }
 
-@property(readonly) MFProtectedSQLiteConnection * connection;
-@property(readonly) unsigned long long refcount;
-@property(readonly) bool writer;
+@property (nonatomic, readonly) MFProtectedSQLiteConnection *connection;
+@property (nonatomic) BOOL invalid;
+@property (nonatomic, readonly) unsigned int refcount;
+@property (nonatomic, readonly) BOOL writer;
 
-+ (id)wrapperWithConnection:(id)arg1 forWriting:(bool)arg2;
++ (id)wrapperWithConnection:(id)arg1 forWriting:(BOOL)arg2;
 
 - (id)connection;
 - (void)dealloc;
-- (unsigned long long)decrementRefcount;
-- (unsigned long long)incrementRefcount;
-- (id)initWithConnection:(id)arg1 forWriting:(bool)arg2;
-- (unsigned long long)refcount;
-- (bool)writer;
+- (unsigned int)decrementRefcount;
+- (unsigned int)incrementRefcount;
+- (id)initWithConnection:(id)arg1 forWriting:(BOOL)arg2;
+- (BOOL)invalid;
+- (unsigned int)refcount;
+- (void)setInvalid:(BOOL)arg1;
+- (BOOL)writer;
 
 @end

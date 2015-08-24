@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableArray;
-
 @interface OADTableGrid : NSObject {
     NSMutableArray *mColumns;
 }
 
 - (id)addColumn;
-- (id)columnAtIndex:(unsigned long long)arg1;
-- (unsigned long long)columnCount;
+- (id)columnAtIndex:(unsigned int)arg1;
+- (unsigned int)columnCount;
 - (void)dealloc;
 - (id)init;
 

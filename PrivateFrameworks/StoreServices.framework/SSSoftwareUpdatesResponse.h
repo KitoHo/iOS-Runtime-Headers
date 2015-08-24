@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSArray, NSError;
-
 @interface SSSoftwareUpdatesResponse : NSObject {
     NSError *_error;
+    BOOL _failed;
     NSArray *_updateItems;
-    bool_failed;
 }
 
-@property(readonly) NSError * error;
-@property(getter=isFailed,readonly) bool failed;
-@property(readonly) NSArray * updateItems;
+@property (readonly) NSError *error;
+@property (getter=isFailed, readonly) BOOL failed;
+@property (readonly) NSArray *updateItems;
 
 - (id)copyUpdateItemDictionaries;
 - (id)copyXPCEncoding;
@@ -21,7 +19,7 @@
 - (id)error;
 - (id)initWithError:(id)arg1;
 - (id)initWithXPCEncoding:(id)arg1;
-- (bool)isFailed;
+- (BOOL)isFailed;
 - (void)setUpdateItemsWithItemDictionaries:(id)arg1;
 - (id)updateItems;
 

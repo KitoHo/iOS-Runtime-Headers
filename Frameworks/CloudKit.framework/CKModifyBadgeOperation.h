@@ -2,27 +2,23 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface CKModifyBadgeOperation : CKOperation {
-    unsigned long long _badgeValue;
-    id _modifyBadgeCompletionBlock;
+    unsigned int _badgeValue;
+    id /* block */ _modifyBadgeCompletionBlock;
 }
 
-@property unsigned long long badgeValue;
-@property(copy) id modifyBadgeCompletionBlock;
+@property (nonatomic) unsigned int badgeValue;
+@property (nonatomic, copy) id /* block */ modifyBadgeCompletionBlock;
 
 - (void).cxx_destruct;
 - (void)_finishOnCallbackQueueWithError:(id)arg1;
-- (unsigned long long)badgeValue;
+- (unsigned int)badgeValue;
 - (void)fillOutOperationInfo:(id)arg1;
 - (id)init;
-- (id)initWithBadgeValue:(unsigned long long)arg1;
-- (id)modifyBadgeCompletionBlock;
+- (id)initWithBadgeValue:(unsigned int)arg1;
+- (id /* block */)modifyBadgeCompletionBlock;
 - (void)performCKOperation;
-- (void)setBadgeValue:(unsigned long long)arg1;
-- (void)setModifyBadgeCompletionBlock:(id)arg1;
+- (void)setBadgeValue:(unsigned int)arg1;
+- (void)setModifyBadgeCompletionBlock:(id /* block */)arg1;
 
 @end

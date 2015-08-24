@@ -2,88 +2,82 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class EKUIInviteeAlternativeTimeSearcher, NSArray, NSDate, NSMutableSet, NSString;
-
 @interface EKUIInviteesViewOriginalConflictSection : NSObject <EKUIInviteesViewConflictResolutionSection> {
     EKUIInviteeAlternativeTimeSearcher *_availabilitySearcher;
     NSArray *_busyParticipants;
     NSString *_cachedCellReuseIdentifier;
+    BOOL _checked;
+    BOOL _conflictFound;
     NSDate *_endDate;
-    id _newTimeChosen;
-    unsigned long long _reuseIdentifierVersion;
+    id /* block */ _newTimeChosen;
+    unsigned int _reuseIdentifierVersion;
     NSMutableSet *_rowsShowingAllParticipants;
-    id _showPreviewOfEventAtTime;
+    id /* block */ _showPreviewOfEventAtTime;
     NSDate *_startDate;
-    id _tableViewCellHook;
-    bool_checked;
-    bool_conflictFound;
+    id /* block */ _tableViewCellHook;
 }
 
-@property(retain) EKUIInviteeAlternativeTimeSearcher * availabilitySearcher;
-@property(retain) NSArray * busyParticipants;
-@property(retain) NSString * cachedCellReuseIdentifier;
-@property bool checked;
-@property bool conflictFound;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) NSDate * endDate;
-@property(readonly) unsigned long long hash;
-@property(copy) id newTimeChosen;
-@property unsigned long long reuseIdentifierVersion;
-@property(retain) NSMutableSet * rowsShowingAllParticipants;
-@property(copy) id showPreviewOfEventAtTime;
-@property(retain) NSDate * startDate;
-@property(readonly) Class superclass;
-@property(copy) id tableViewCellHook;
+@property (nonatomic, retain) EKUIInviteeAlternativeTimeSearcher *availabilitySearcher;
+@property (nonatomic, retain) NSArray *busyParticipants;
+@property (nonatomic, retain) NSString *cachedCellReuseIdentifier;
+@property (nonatomic) BOOL checked;
+@property (nonatomic) BOOL conflictFound;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSDate *endDate;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) id /* block */ newTimeChosen;
+@property (nonatomic) unsigned int reuseIdentifierVersion;
+@property (nonatomic, retain) NSMutableSet *rowsShowingAllParticipants;
+@property (nonatomic, copy) id /* block */ showPreviewOfEventAtTime;
+@property (nonatomic, retain) NSDate *startDate;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) id /* block */ tableViewCellHook;
 
 - (void).cxx_destruct;
-- (bool)_isValidRow:(long long)arg1;
+- (BOOL)_isValidRow:(int)arg1;
 - (id)availabilitySearcher;
-- (void)availabilitySearcherChangedState:(long long)arg1;
+- (void)availabilitySearcherChangedState:(int)arg1;
 - (id)busyParticipants;
 - (id)cachedCellReuseIdentifier;
-- (bool)canEditRow:(id)arg1;
-- (bool)canSelectRow:(id)arg1;
+- (BOOL)canEditRow:(id)arg1;
+- (BOOL)canSelectRow:(id)arg1;
 - (void)cancelOutstandingOperations;
 - (id)cellForIndexPath:(id)arg1 inTableView:(id)arg2;
-- (bool)checked;
+- (BOOL)checked;
 - (void)clearCheckmark;
-- (void)commitEditingStyle:(long long)arg1 forRow:(id)arg2;
-- (bool)conflictFound;
+- (void)commitEditingStyle:(int)arg1 forRow:(id)arg2;
+- (BOOL)conflictFound;
 - (id)debugTitle;
-- (long long)editingStyleForRow:(id)arg1;
+- (int)editingStyleForRow:(id)arg1;
 - (id)endDate;
-- (double)estimatedHeightForRow:(id)arg1;
+- (float)estimatedHeightForRow:(id)arg1;
 - (id)headerTitle;
 - (id)init;
-- (bool)injectNewRowsBeforeLastExistingRow;
-- (id)newTimeChosen;
-- (unsigned long long)numberOfRows;
+- (BOOL)injectNewRowsBeforeLastExistingRow;
+- (id /* block */)newTimeChosen;
+- (unsigned int)numberOfRows;
 - (void)refreshCellsAfterStateChange;
 - (void)reloadAndRegisterReusableCellsWithTableView:(id)arg1;
-- (unsigned long long)reuseIdentifierVersion;
+- (unsigned int)reuseIdentifierVersion;
 - (id)rowsShowingAllParticipants;
-- (bool)sectionShouldBeShown;
+- (BOOL)sectionShouldBeShown;
 - (void)selectRow:(id)arg1;
 - (void)setAvailabilitySearcher:(id)arg1;
 - (void)setBusyParticipants:(id)arg1;
 - (void)setCachedCellReuseIdentifier:(id)arg1;
-- (void)setChecked:(bool)arg1;
-- (void)setConflictFound:(bool)arg1;
+- (void)setChecked:(BOOL)arg1;
+- (void)setConflictFound:(BOOL)arg1;
 - (void)setEndDate:(id)arg1;
-- (void)setNewTimeChosen:(id)arg1;
-- (void)setReuseIdentifierVersion:(unsigned long long)arg1;
+- (void)setNewTimeChosen:(id /* block */)arg1;
+- (void)setReuseIdentifierVersion:(unsigned int)arg1;
 - (void)setRowsShowingAllParticipants:(id)arg1;
-- (void)setShowPreviewOfEventAtTime:(id)arg1;
+- (void)setShowPreviewOfEventAtTime:(id /* block */)arg1;
 - (void)setStartDate:(id)arg1;
-- (void)setTableViewCellHook:(id)arg1;
-- (id)showPreviewOfEventAtTime;
+- (void)setTableViewCellHook:(id /* block */)arg1;
+- (id /* block */)showPreviewOfEventAtTime;
 - (id)startDate;
-- (id)tableViewCellHook;
+- (id /* block */)tableViewCellHook;
 - (id)titleForDeleteConfirmationButtonForRow:(id)arg1;
 
 @end

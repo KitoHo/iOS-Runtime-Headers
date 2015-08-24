@@ -2,27 +2,25 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSObject<OS_dispatch_queue>, NSOperation;
-
 @interface __NSOperationQueueInternal : NSObject {
-    struct _opaque_pthread_mutex_t { 
-        long long __sig; 
-        BOOL __opaque[56]; 
     int __actualMaxNumOps;
     NSObject<OS_dispatch_queue> *__dispatch_queue;
     NSOperation *__firstOperation;
-    NSOperation *__firstPriOperation[5];
+    NSOperation *__firstPriOperation;
     NSOperation *__lastOperation;
-    NSOperation *__lastPriOperation[5];
+    NSOperation *__lastPriOperation;
     unsigned char __mainQ;
-    long long __maxNumOps;
-    BOOL __nameBuffer[160];
+    int __maxNumOps;
+    BOOL __nameBuffer;
     int __numExecOps;
     unsigned char __overcommit;
     NSOperation *__pendingFirstOperation;
     NSOperation *__pendingLastOperation;
     NSObject<OS_dispatch_queue> *__pending_barrier;
     BOOL __propertyQOS;
+    struct _opaque_pthread_mutex_t { 
+        long __sig; 
+        BOOL __opaque[40]; 
     } __queueLock;
     unsigned char __suspended;
     unsigned int __unused2;

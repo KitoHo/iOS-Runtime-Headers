@@ -2,35 +2,34 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIAlertControllerDescriptor;
-
 @interface UIAlertControllerVisualStyleActionSheet : UIAlertControllerVisualStyle {
     UIAlertControllerDescriptor *_descriptor;
 }
 
-@property(retain) UIAlertControllerDescriptor * descriptor;
+@property (nonatomic, retain) UIAlertControllerDescriptor *descriptor;
 
-- (double)_systemFontSize;
-- (double)backgroundCornerRadius;
+- (float)_systemFontSize;
+- (float)backgroundCornerRadius;
 - (void)dealloc;
 - (id)defaultActionBackgroundColorWhenSeparate;
 - (id)defaultActionFont;
 - (id)descriptor;
-- (double)horizontalContentMargin;
-- (double)marginAboveMessageLabelFirstBaseline;
-- (double)marginAboveTitleLabelFirstBaseline;
-- (double)marginBelowLastLabelLastBaseline;
-- (double)marginBelowMessageLabelLastBaseline;
-- (double)marginBelowTitleLabelLastBaseline;
-- (double)maximumWidth;
+- (float)horizontalContentMargin;
+- (float)marginAboveMessageLabelFirstBaseline;
+- (float)marginAboveTitleLabelFirstBaseline;
+- (float)marginBelowLastLabelLastBaseline;
+- (float)marginBelowMessageLabelLastBaseline;
+- (float)marginBelowTitleLabelLastBaseline;
+- (float)maximumWidth;
 - (id)messageLabelColor;
 - (id)messageLabelFont;
-- (double)minimumActionHeight;
+- (float)minimumActionHeight;
 - (id)regularActionFont;
+- (float)sectionDelimitingSeparatorDimension;
 - (void)setDescriptor:(id)arg1;
 - (id)titleLabelColor;
 - (id)titleLabelFont;
-- (double)verticalContentMargin;
-- (double)visualAltitude;
+- (float)verticalContentMargin;
+- (float)visualAltitude;
 
 @end

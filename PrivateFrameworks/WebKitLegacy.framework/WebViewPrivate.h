@@ -2,44 +2,46 @@
    Image: /System/Library/PrivateFrameworks/WebKitLegacy.framework/WebKitLegacy
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class <WebCaretChangeListener>, <WebDeviceOrientationProvider>, <WebFormDelegate>, <WebGeolocationProvider>, <WebNotificationProvider>, NSMutableSet, NSString, NSURL, WAKWindow, WebFixedPositionContent, WebIndicateLayer, WebInspector, WebNodeHighlight, WebPreferences, WebVideoFullscreenController;
-
 @interface WebViewPrivate : NSObject {
-    struct RefPtr<WebViewGroup> { 
-        struct WebViewGroup {} *m_ptr; 
-    struct String { 
-        struct RefPtr<WTF::StringImpl> { 
-            struct StringImpl {} *m_ptr; 
-        } m_impl; 
-    struct WebResourceDelegateImplementationCache { 
-        int (*didCancelAuthenticationChallengeFunc)(); 
-        int (*didReceiveAuthenticationChallengeFunc)(); 
-        int (*canAuthenticateAgainstProtectionSpaceFunc)(); 
-        int (*connectionPropertiesFunc)(); 
-        int (*webThreadDidFinishLoadingFromDataSourceFunc)(); 
-        int (*webThreadDidFailLoadingWithErrorFromDataSourceFunc)(); 
-        int (*webThreadIdentifierForRequestFunc)(); 
-        int (*webThreadDidLoadResourceFromMemoryCacheFunc)(); 
-        int (*webThreadWillSendRequestFunc)(); 
-        int (*webThreadDidReceiveResponseFunc)(); 
-        int (*webThreadDidReceiveContentLengthFunc)(); 
-        int (*webThreadWillCacheResponseFunc)(); 
-        int (*identifierForRequestFunc)(); 
-        int (*willSendRequestFunc)(); 
-        int (*didReceiveResponseFunc)(); 
-        int (*didReceiveContentLengthFunc)(); 
-        int (*didFinishLoadingFromDataSourceFunc)(); 
-        int (*didFailLoadingWithErrorFromDataSourceFunc)(); 
-        int (*didLoadResourceFromMemoryCacheFunc)(); 
-        int (*willCacheResponseFunc)(); 
-        int (*plugInFailedWithErrorFunc)(); 
-        int (*shouldUseCredentialStorageFunc)(); 
-        int (*shouldPaintBrokenImageForURLFunc)(); 
+    id UIDelegate;
+    id UIDelegateForwarder;
+    id UIKitDelegate;
+    id UIKitDelegateForwarder;
+    id WebMailDelegate;
+    <WebCaretChangeListener> *_caretChangeListener;
+    NSMutableSet *_caretChangeListeners;
+    BOOL _didPerformFirstNavigation;
+    WebFixedPositionContent *_fixedPositionContent;
+    <WebGeolocationProvider> *_geolocationProvider;
+    struct RefPtr<WebCore::HistoryItem> { 
+        struct HistoryItem {} *m_ptr; 
+    } _globalHistoryItem;
+    int _keyboardUIMode;
+    BOOL _keyboardUIModeAccessed;
+    <WebNotificationProvider> *_notificationProvider;
+    BOOL allowsMessaging;
+    BOOL allowsUndo;
+    NSString *applicationNameForUserAgent;
+    struct CGColor { } *backgroundColor;
+    BOOL becomingFirstResponder;
+    BOOL becomingFirstResponderFromOutside;
+    BOOL closed;
+    BOOL closing;
+    WebNodeHighlight *currentNodeHighlight;
+    float customDeviceScaleFactor;
+    int didDrawTiles;
+    id downloadDelegate;
+    BOOL drawsBackground;
+    id editingDelegate;
+    id editingDelegateForwarder;
+    struct CGSize { 
+        float width; 
+        float height; 
+    } fixedLayoutSize;
+    <WebFormDelegate> *formDelegate;
+    id formDelegateForwarder;
+    id frameLoadDelegate;
+    id frameLoadDelegateForwarder;
     struct WebFrameLoadDelegateImplementationCache { 
         int (*didCreateJavaScriptContextForFrameFunc)(); 
         int (*didClearWindowObjectForFrameFunc)(); 
@@ -71,12 +73,13 @@
         int (*didDetectXSSFunc)(); 
         int (*didRemoveFrameFromHierarchyFunc)(); 
         int (*webThreadDidLayoutFunc)(); 
-    struct WebScriptDebugDelegateImplementationCache { 
-        booldidParseSourceExpectsBaseLineNumber; 
-        boolexceptionWasRaisedExpectsHasHandlerFlag; 
-        int (*didParseSourceFunc)(); 
-        int (*failedToParseSourceFunc)(); 
-        int (*exceptionWasRaisedFunc)(); 
+    } frameLoadDelegateImplementations;
+    WebVideoFullscreenController *fullscreenController;
+    struct RefPtr<WebViewGroup> { 
+        struct WebViewGroup {} *m_ptr; 
+    } group;
+    BOOL hasSpellCheckerDocumentTag;
+    id historyDelegate;
     struct WebHistoryDelegateImplementationCache { 
         int (*navigatedFunc)(); 
         int (*clientRedirectFunc)(); 
@@ -84,23 +87,8 @@
         int (*deprecatedSetTitleFunc)(); 
         int (*setTitleFunc)(); 
         int (*populateVisitedLinksFunc)(); 
-    struct CGSize { 
-        double width; 
-        double height; 
-    struct Mutex { 
-        struct _opaque_pthread_mutex_t { 
-            long long __sig; 
-            BOOL __opaque[56]; 
-        } m_mutex; 
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
+    } historyDelegateImplementations;
+    WAKWindow *hostWindow;
     struct HashMap<unsigned long, WTF::RetainPtr<id>, WTF::IntHash<unsigned long>, WTF::HashTraits<unsigned long>, WTF::HashTraits<WTF::RetainPtr<id> > > { 
         struct HashTable<unsigned long, WTF::KeyValuePair<unsigned long, WTF::RetainPtr<id> >, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<unsigned long, WTF::RetainPtr<id> > >, WTF::IntHash<unsigned long>, WTF::HashMap<unsigned long, WTF::RetainPtr<id>, WTF::IntHash<unsigned long>, WTF::HashTraits<unsigned long>, WTF::HashTraits<WTF::RetainPtr<id> > >::KeyValuePairTraits, WTF::HashTraits<unsigned long> > { 
             struct KeyValuePair<unsigned long, WTF::RetainPtr<id> > {} *m_table; 
@@ -109,96 +97,101 @@
             int m_keyCount; 
             int m_deletedCount; 
         } m_impl; 
-    struct RefPtr<LayerFlushController> { 
-        struct LayerFlushController {} *m_ptr; 
-    struct CGSize { 
-        double width; 
-        double height; 
-    struct RefPtr<WebCore::HistoryItem> { 
-        struct HistoryItem {} *m_ptr; 
-    struct RetainPtr<NSData> { 
-        void *m_ptr; 
-    id UIDelegate;
-    id UIDelegateForwarder;
-    id UIKitDelegate;
-    id UIKitDelegateForwarder;
-    id WebMailDelegate;
-    <WebCaretChangeListener> *_caretChangeListener;
-    NSMutableSet *_caretChangeListeners;
-    WebFixedPositionContent *_fixedPositionContent;
-    <WebGeolocationProvider> *_geolocationProvider;
-    } _globalHistoryItem;
-    int _keyboardUIMode;
-    <WebNotificationProvider> *_notificationProvider;
-    NSString *applicationNameForUserAgent;
-    struct CGColor { } *backgroundColor;
-    bool_didPerformFirstNavigation;
-    bool_keyboardUIModeAccessed;
-    boolallowsMessaging;
-    boolallowsUndo;
-    boolbecomingFirstResponder;
-    boolbecomingFirstResponderFromOutside;
-    boolclosed;
-    boolclosing;
-    booldrawsBackground;
-    boolhasSpellCheckerDocumentTag;
-    boolincludesFlattenedCompositingLayersWhenDrawingToBitmap;
-    boolinteractiveFormValidationEnabled;
-    boolisStopping;
-    boolmainFrameDocumentReady;
-    boolmainViewIsScrollingOrZooming;
-    boolneedsOneShotDrawingSynchronization;
-    boolpostsAcceleratedCompositingNotifications;
-    boolshouldCloseWithWindow;
-    boolshouldUpdateWhileOffscreen;
-    booltabKeyCyclesThroughElementsChanged;
-    booluseSiteSpecificSpoofing;
-    booluserAgentOverridden;
-    boolusesPageCache;
-    boolzoomsTextOnly;
-    WebNodeHighlight *currentNodeHighlight;
-    float customDeviceScaleFactor;
-    int didDrawTiles;
-    id downloadDelegate;
-    id editingDelegate;
-    id editingDelegateForwarder;
-    } fixedLayoutSize;
-    <WebFormDelegate> *formDelegate;
-    id formDelegateForwarder;
-    id frameLoadDelegate;
-    id frameLoadDelegateForwarder;
-    } frameLoadDelegateImplementations;
-    WebVideoFullscreenController *fullscreenController;
-    } group;
-    id historyDelegate;
-    } historyDelegateImplementations;
-    WAKWindow *hostWindow;
     } identifierMap;
+    BOOL includesFlattenedCompositingLayersWhenDrawingToBitmap;
     WebIndicateLayer *indicateLayer;
     WebInspector *inspector;
+    BOOL interactiveFormValidationEnabled;
+    BOOL isStopping;
+    struct CGSize { 
+        float width; 
+        float height; 
     } lastLayoutSize;
+    struct RefPtr<LayerFlushController> { 
+        struct LayerFlushController {} *m_ptr; 
     } layerFlushController;
     <WebDeviceOrientationProvider> *m_deviceOrientationProvider;
+    BOOL mainFrameDocumentReady;
+    BOOL mainViewIsScrollingOrZooming;
     NSString *mediaStyle;
+    BOOL needsOneShotDrawingSynchronization;
     void *observationInfo;
     struct Page { } *page;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } pendingFixedPositionLayoutRect;
+    struct Mutex { 
+        struct _opaque_pthread_mutex_t { 
+            long __sig; 
+            BOOL __opaque[40]; 
+        } m_mutex; 
     } pendingFixedPositionLayoutRectMutex;
     id policyDelegate;
     id policyDelegateForwarder;
+    BOOL postsAcceleratedCompositingNotifications;
     WebPreferences *preferences;
     int programmaticFocusCount;
+    struct WebResourceDelegateImplementationCache { 
+        int (*didCancelAuthenticationChallengeFunc)(); 
+        int (*didReceiveAuthenticationChallengeFunc)(); 
+        int (*canAuthenticateAgainstProtectionSpaceFunc)(); 
+        int (*connectionPropertiesFunc)(); 
+        int (*webThreadDidFinishLoadingFromDataSourceFunc)(); 
+        int (*webThreadDidFailLoadingWithErrorFromDataSourceFunc)(); 
+        int (*webThreadIdentifierForRequestFunc)(); 
+        int (*webThreadDidLoadResourceFromMemoryCacheFunc)(); 
+        int (*webThreadWillSendRequestFunc)(); 
+        int (*webThreadDidReceiveResponseFunc)(); 
+        int (*webThreadDidReceiveContentLengthFunc)(); 
+        int (*webThreadWillCacheResponseFunc)(); 
+        int (*identifierForRequestFunc)(); 
+        int (*willSendRequestFunc)(); 
+        int (*didReceiveResponseFunc)(); 
+        int (*didReceiveContentLengthFunc)(); 
+        int (*didFinishLoadingFromDataSourceFunc)(); 
+        int (*didFailLoadingWithErrorFromDataSourceFunc)(); 
+        int (*didLoadResourceFromMemoryCacheFunc)(); 
+        int (*willCacheResponseFunc)(); 
+        int (*plugInFailedWithErrorFunc)(); 
+        int (*shouldUseCredentialStorageFunc)(); 
+        int (*shouldPaintBrokenImageForURLFunc)(); 
     } resourceLoadDelegateImplementations;
     id resourceProgressDelegate;
     id resourceProgressDelegateForwarder;
     id scriptDebugDelegate;
+    struct WebScriptDebugDelegateImplementationCache { 
+        BOOL didParseSourceExpectsBaseLineNumber; 
+        BOOL exceptionWasRaisedExpectsHasHandlerFlag; 
+        int (*didParseSourceFunc)(); 
+        int (*failedToParseSourceFunc)(); 
+        int (*exceptionWasRaisedFunc)(); 
     } scriptDebugDelegateImplementations;
+    BOOL shouldCloseWithWindow;
+    BOOL shouldUpdateWhileOffscreen;
+    struct RetainPtr<NSData> { 
+        void *m_ptr; 
     } sourceApplicationAuditData;
-    long long spellCheckerDocumentTag;
+    int spellCheckerDocumentTag;
+    BOOL tabKeyCyclesThroughElementsChanged;
+    BOOL useSiteSpecificSpoofing;
+    struct String { 
+        struct RefPtr<WTF::StringImpl> { 
+            struct StringImpl {} *m_ptr; 
+        } m_impl; 
     } userAgent;
+    BOOL userAgentOverridden;
     NSURL *userStyleSheetLocation;
+    BOOL usesPageCache;
     int validationMessageTimerMagnification;
     float zoomMultiplier;
+    BOOL zoomsTextOnly;
 }
 
 + (void)initialize;

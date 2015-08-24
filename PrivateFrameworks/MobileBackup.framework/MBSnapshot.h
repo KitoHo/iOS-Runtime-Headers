@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/MobileBackup.framework/MobileBackup
  */
 
-@class NSDate, NSString;
-
-@interface MBSnapshot : NSObject <NSCopying, NSCoding> {
+@interface MBSnapshot : NSObject <NSCoding, NSCopying> {
     NSDate *_date;
     NSString *_deviceName;
+    BOOL _isCompatible;
     unsigned long long _quotaReserved;
-    unsigned long long _snapshotID;
+    unsigned int _snapshotID;
     int _state;
     NSString *_systemVersion;
-    bool_isCompatible;
 }
 
-@property(readonly) NSDate * date;
-@property(readonly) NSString * deviceName;
-@property(readonly) bool isCompatible;
-@property(readonly) unsigned long long quotaReserved;
-@property(readonly) unsigned long long snapshotID;
-@property(readonly) int state;
-@property(readonly) NSString * systemVersion;
+@property (nonatomic, readonly) NSDate *date;
+@property (nonatomic, readonly) NSString *deviceName;
+@property (nonatomic, readonly) BOOL isCompatible;
+@property (nonatomic, readonly) unsigned long long quotaReserved;
+@property (nonatomic, readonly) unsigned int snapshotID;
+@property (nonatomic, readonly) int state;
+@property (nonatomic, readonly) NSString *systemVersion;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)date;
@@ -29,10 +27,10 @@
 - (id)deviceName;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithSnapshotID:(unsigned long long)arg1 deviceName:(id)arg2 date:(id)arg3 state:(int)arg4 isCompatible:(bool)arg5 systemVersion:(id)arg6 quotaReserved:(unsigned long long)arg7;
-- (bool)isCompatible;
+- (id)initWithSnapshotID:(unsigned int)arg1 deviceName:(id)arg2 date:(id)arg3 state:(int)arg4 isCompatible:(BOOL)arg5 systemVersion:(id)arg6 quotaReserved:(unsigned long long)arg7;
+- (BOOL)isCompatible;
 - (unsigned long long)quotaReserved;
-- (unsigned long long)snapshotID;
+- (unsigned int)snapshotID;
 - (int)state;
 - (id)systemVersion;
 

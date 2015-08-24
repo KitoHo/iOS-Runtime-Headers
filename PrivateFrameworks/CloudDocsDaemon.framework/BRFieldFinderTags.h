@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-@class NSMutableArray;
-
 @interface BRFieldFinderTags : PBCodable <NSCopying> {
     NSMutableArray *_tags;
 }
 
-@property(retain) NSMutableArray * tags;
+@property (nonatomic, retain) NSMutableArray *tags;
 
 - (void).cxx_destruct;
 - (void)addTags:(id)arg1;
 - (void)clearTags;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)mergeFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setTags:(id)arg1;
 - (id)tags;
-- (id)tagsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)tagsCount;
+- (id)tagsAtIndex:(unsigned int)arg1;
+- (unsigned int)tagsCount;
 - (void)writeTo:(id)arg1;
 
 @end

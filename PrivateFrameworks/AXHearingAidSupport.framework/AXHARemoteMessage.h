@@ -2,35 +2,21 @@
    Image: /System/Library/PrivateFrameworks/AXHearingAidSupport.framework/AXHearingAidSupport
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSString;
-
 @interface AXHARemoteMessage : AXHAMessage {
     NSString *_UUID;
-    id _ackCompletion;
-    id _sendCompletion;
-    bool_isACK;
+    id /* block */ _sendCompletion;
 }
 
-@property(retain) NSString * UUID;
-@property(copy) id ackCompletion;
-@property bool isACK;
-@property(copy) id sendCompletion;
+@property (nonatomic, retain) NSString *UUID;
+@property (nonatomic, copy) id /* block */ sendCompletion;
 
-+ (id)messageWithPayload:(id)arg1 sendCompletion:(id)arg2 andAckCompletion:(id)arg3;
++ (id)messageWithPayload:(id)arg1 andSendCompletion:(id /* block */)arg2;
 
 - (id)UUID;
-- (id)ackCompletion;
 - (void)dealloc;
 - (id)initWithPayload:(id)arg1;
-- (bool)isACK;
-- (id)sendCompletion;
-- (void)setAckCompletion:(id)arg1;
-- (void)setIsACK:(bool)arg1;
-- (void)setSendCompletion:(id)arg1;
+- (id /* block */)sendCompletion;
+- (void)setSendCompletion:(id /* block */)arg1;
 - (void)setUUID:(id)arg1;
 - (id)transportPayload;
 

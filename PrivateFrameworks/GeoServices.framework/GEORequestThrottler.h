@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMapTable;
-
 @interface GEORequestThrottler : NSObject {
     NSMapTable *_throttleMap;
 }
@@ -11,7 +9,7 @@
 + (id)sharedThrottler;
 
 - (void)_countryProvidersDidChange:(id)arg1;
-- (bool)allowRequest:(unsigned int)arg1 toURL:(id)arg2;
+- (BOOL)allowRequest:(unsigned int)arg1 toURL:(id)arg2;
 - (void)clear;
 - (void)dealloc;
 - (id)init;

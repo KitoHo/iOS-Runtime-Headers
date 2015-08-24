@@ -2,27 +2,29 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSString;
+@interface SASRecognition : AceObject <SAAceSerializable>
 
-@interface SASRecognition : AceObject <SAAceSerializable> {
-}
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSArray *phrases;
+@property (nonatomic) int sentenceConfidence;
+@property (readonly) Class superclass;
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy) NSArray * phrases;
-@property long long sentenceConfidence;
-@property(readonly) Class superclass;
+// Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
 
 + (id)recognition;
 + (id)recognitionWithDictionary:(id)arg1 context:(id)arg2;
 
-- (id)af_speechPhrases;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)phrases;
-- (long long)sentenceConfidence;
+- (int)sentenceConfidence;
 - (void)setPhrases:(id)arg1;
-- (void)setSentenceConfidence:(long long)arg1;
+- (void)setSentenceConfidence:(int)arg1;
+
+// Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
+
+- (id)af_speechPhrases;
 
 @end

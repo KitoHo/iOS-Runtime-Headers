@@ -2,9 +2,9 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDHomeKitConfiguration : PBCodable <NSCopying> {
+    unsigned int _databaseSize;
+    NSString *_guid;
     struct { 
         unsigned int timestamp : 1; 
         unsigned int databaseSize : 1; 
@@ -17,8 +17,6 @@
         unsigned int numServices : 1; 
         unsigned int numTriggers : 1; 
         unsigned int numUsers : 1; 
-    unsigned int _databaseSize;
-    NSString *_guid;
     } _has;
     unsigned int _numAccessories;
     unsigned int _numAccessoryServiceGroups;
@@ -32,30 +30,30 @@
     unsigned long long _timestamp;
 }
 
-@property unsigned int databaseSize;
-@property(retain) NSString * guid;
-@property bool hasDatabaseSize;
-@property(readonly) bool hasGuid;
-@property bool hasNumAccessories;
-@property bool hasNumAccessoryServiceGroups;
-@property bool hasNumHomes;
-@property bool hasNumLocationGroups;
-@property bool hasNumLocations;
-@property bool hasNumScenes;
-@property bool hasNumServices;
-@property bool hasNumTriggers;
-@property bool hasNumUsers;
-@property bool hasTimestamp;
-@property unsigned int numAccessories;
-@property unsigned int numAccessoryServiceGroups;
-@property unsigned int numHomes;
-@property unsigned int numLocationGroups;
-@property unsigned int numLocations;
-@property unsigned int numScenes;
-@property unsigned int numServices;
-@property unsigned int numTriggers;
-@property unsigned int numUsers;
-@property unsigned long long timestamp;
+@property (nonatomic) unsigned int databaseSize;
+@property (nonatomic, retain) NSString *guid;
+@property (nonatomic) BOOL hasDatabaseSize;
+@property (nonatomic, readonly) BOOL hasGuid;
+@property (nonatomic) BOOL hasNumAccessories;
+@property (nonatomic) BOOL hasNumAccessoryServiceGroups;
+@property (nonatomic) BOOL hasNumHomes;
+@property (nonatomic) BOOL hasNumLocationGroups;
+@property (nonatomic) BOOL hasNumLocations;
+@property (nonatomic) BOOL hasNumScenes;
+@property (nonatomic) BOOL hasNumServices;
+@property (nonatomic) BOOL hasNumTriggers;
+@property (nonatomic) BOOL hasNumUsers;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) unsigned int numAccessories;
+@property (nonatomic) unsigned int numAccessoryServiceGroups;
+@property (nonatomic) unsigned int numHomes;
+@property (nonatomic) unsigned int numLocationGroups;
+@property (nonatomic) unsigned int numLocations;
+@property (nonatomic) unsigned int numScenes;
+@property (nonatomic) unsigned int numServices;
+@property (nonatomic) unsigned int numTriggers;
+@property (nonatomic) unsigned int numUsers;
+@property (nonatomic) unsigned long long timestamp;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -64,20 +62,20 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)guid;
-- (bool)hasDatabaseSize;
-- (bool)hasGuid;
-- (bool)hasNumAccessories;
-- (bool)hasNumAccessoryServiceGroups;
-- (bool)hasNumHomes;
-- (bool)hasNumLocationGroups;
-- (bool)hasNumLocations;
-- (bool)hasNumScenes;
-- (bool)hasNumServices;
-- (bool)hasNumTriggers;
-- (bool)hasNumUsers;
-- (bool)hasTimestamp;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasDatabaseSize;
+- (BOOL)hasGuid;
+- (BOOL)hasNumAccessories;
+- (BOOL)hasNumAccessoryServiceGroups;
+- (BOOL)hasNumHomes;
+- (BOOL)hasNumLocationGroups;
+- (BOOL)hasNumLocations;
+- (BOOL)hasNumScenes;
+- (BOOL)hasNumServices;
+- (BOOL)hasNumTriggers;
+- (BOOL)hasNumUsers;
+- (BOOL)hasTimestamp;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (unsigned int)numAccessories;
 - (unsigned int)numAccessoryServiceGroups;
@@ -88,20 +86,20 @@
 - (unsigned int)numServices;
 - (unsigned int)numTriggers;
 - (unsigned int)numUsers;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setDatabaseSize:(unsigned int)arg1;
 - (void)setGuid:(id)arg1;
-- (void)setHasDatabaseSize:(bool)arg1;
-- (void)setHasNumAccessories:(bool)arg1;
-- (void)setHasNumAccessoryServiceGroups:(bool)arg1;
-- (void)setHasNumHomes:(bool)arg1;
-- (void)setHasNumLocationGroups:(bool)arg1;
-- (void)setHasNumLocations:(bool)arg1;
-- (void)setHasNumScenes:(bool)arg1;
-- (void)setHasNumServices:(bool)arg1;
-- (void)setHasNumTriggers:(bool)arg1;
-- (void)setHasNumUsers:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
+- (void)setHasDatabaseSize:(BOOL)arg1;
+- (void)setHasNumAccessories:(BOOL)arg1;
+- (void)setHasNumAccessoryServiceGroups:(BOOL)arg1;
+- (void)setHasNumHomes:(BOOL)arg1;
+- (void)setHasNumLocationGroups:(BOOL)arg1;
+- (void)setHasNumLocations:(BOOL)arg1;
+- (void)setHasNumScenes:(BOOL)arg1;
+- (void)setHasNumServices:(BOOL)arg1;
+- (void)setHasNumTriggers:(BOOL)arg1;
+- (void)setHasNumUsers:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
 - (void)setNumAccessories:(unsigned int)arg1;
 - (void)setNumAccessoryServiceGroups:(unsigned int)arg1;
 - (void)setNumHomes:(unsigned int)arg1;

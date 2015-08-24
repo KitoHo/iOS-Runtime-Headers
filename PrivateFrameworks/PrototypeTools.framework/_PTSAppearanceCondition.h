@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/PrototypeTools.framework/PrototypeTools
  */
 
-@class NSPredicate, NSString;
-
 @interface _PTSAppearanceCondition : NSObject {
     NSString *_conditionKeyPath;
     NSPredicate *_conditionPredicate;
 }
 
-@property(retain) NSString * conditionKeyPath;
-@property(retain) NSPredicate * conditionPredicate;
+@property (nonatomic, retain) NSString *conditionKeyPath;
+@property (nonatomic, retain) NSPredicate *conditionPredicate;
 
 + (id)appearanceConditionWithPredicate:(id)arg1;
 
@@ -18,7 +16,7 @@
 - (void)addKeyPathPrefix:(id)arg1;
 - (id)conditionKeyPath;
 - (id)conditionPredicate;
-- (bool)evaluateWithSettings:(id)arg1;
+- (BOOL)evaluateWithSettings:(id)arg1;
 - (void)setConditionKeyPath:(id)arg1;
 - (void)setConditionPredicate:(id)arg1;
 

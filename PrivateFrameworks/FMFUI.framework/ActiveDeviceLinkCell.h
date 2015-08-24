@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/FMFUI.framework/FMFUI
  */
 
-@interface ActiveDeviceLinkCell : PSTableCell {
-}
+@interface ActiveDeviceLinkCell : PSTableCell
 
-+ (long long)cellStyle;
++ (int)cellStyle;
 
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
 

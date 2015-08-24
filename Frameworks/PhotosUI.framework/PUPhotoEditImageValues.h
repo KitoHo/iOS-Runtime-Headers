@@ -2,36 +2,34 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSDictionary;
-
 @interface PUPhotoEditImageValues : NSObject {
+    BOOL _complete;
     NSDictionary *_smartBlackAndWhiteStatistics;
-    double _smartColorAutoSuggestion;
+    float _smartColorAutoSuggestion;
     NSDictionary *_smartColorStatistics;
-    double _smartToneAutoSuggestion;
+    float _smartToneAutoSuggestion;
     NSDictionary *_smartToneStatistics;
-    bool_complete;
 }
 
-@property(getter=isComplete) bool complete;
-@property(copy) NSDictionary * smartBlackAndWhiteStatistics;
-@property double smartColorAutoSuggestion;
-@property(copy) NSDictionary * smartColorStatistics;
-@property double smartToneAutoSuggestion;
-@property(copy) NSDictionary * smartToneStatistics;
+@property (getter=isComplete) BOOL complete;
+@property (copy) NSDictionary *smartBlackAndWhiteStatistics;
+@property float smartColorAutoSuggestion;
+@property (copy) NSDictionary *smartColorStatistics;
+@property float smartToneAutoSuggestion;
+@property (copy) NSDictionary *smartToneStatistics;
 
 - (void).cxx_destruct;
-- (bool)isComplete;
-- (void)setComplete:(bool)arg1;
+- (BOOL)isComplete;
+- (void)setComplete:(BOOL)arg1;
 - (void)setSmartBlackAndWhiteStatistics:(id)arg1;
-- (void)setSmartColorAutoSuggestion:(double)arg1;
+- (void)setSmartColorAutoSuggestion:(float)arg1;
 - (void)setSmartColorStatistics:(id)arg1;
-- (void)setSmartToneAutoSuggestion:(double)arg1;
+- (void)setSmartToneAutoSuggestion:(float)arg1;
 - (void)setSmartToneStatistics:(id)arg1;
 - (id)smartBlackAndWhiteStatistics;
-- (double)smartColorAutoSuggestion;
+- (float)smartColorAutoSuggestion;
 - (id)smartColorStatistics;
-- (double)smartToneAutoSuggestion;
+- (float)smartToneAutoSuggestion;
 - (id)smartToneStatistics;
 
 @end

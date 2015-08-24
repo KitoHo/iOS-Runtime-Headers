@@ -2,14 +2,9 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSObject<OS_dispatch_queue>, NSString, VKResourceManager;
-
 @interface VKGGLTextureManager : NSObject <GEOResourceManifestTileGroupObserver> {
+    struct Device { int (**x1)(); int x2; } *_device;
+    VKResourceManager *_resourceManager;
     struct map<std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D>, std::__1::less<std::__1::basic_string<char> >, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D> > > > { 
         struct __tree<std::__1::__value_type<std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D> >, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D> >, std::__1::less<std::__1::basic_string<char> >, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D> > > > { 
             struct __tree_node<std::__1::__value_type<std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D> >, void *> {} *__begin_node_; 
@@ -19,20 +14,22 @@
                 } __first_; 
             } __pair1_; 
             struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D> >, std::__1::less<std::__1::basic_string<char> >, true> > { 
-                unsigned long long __first_; 
+                unsigned long __first_; 
             } __pair3_; 
         } __tree_; 
-    struct Device { int (**x1)(); int x2; } *_device;
-    VKResourceManager *_resourceManager;
     } _textureDictionary;
     NSObject<OS_dispatch_queue> *_textureQueue;
     unsigned int _tileGroupIdentifier;
+    struct shared_ptr<ggl::Texture2D> { 
+        struct Texture2D {} *__ptr_; 
+        struct __shared_weak_count {} *__cntrl_; 
+    } _whiteTexture;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
@@ -42,9 +39,10 @@
 - (void)purge;
 - (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
-- (struct shared_ptr<ggl::Texture2D> { struct Texture2D {} *x1; struct __shared_weak_count {} *x2; })textureWithName:(id)arg1 forScale:(float)arg2 mipmap:(bool)arg3 repeatWrap:(bool)arg4;
-- (struct shared_ptr<ggl::Texture2D> { struct Texture2D {} *x1; struct __shared_weak_count {} *x2; })textureWithName:(id)arg1 forScale:(float)arg2;
-- (struct shared_ptr<ggl::Texture2D> { struct Texture2D {} *x1; struct __shared_weak_count {} *x2; })textureWithName:(id)arg1 mipmap:(bool)arg2 repeatWrap:(bool)arg3;
 - (struct shared_ptr<ggl::Texture2D> { struct Texture2D {} *x1; struct __shared_weak_count {} *x2; })textureWithName:(id)arg1;
+- (struct shared_ptr<ggl::Texture2D> { struct Texture2D {} *x1; struct __shared_weak_count {} *x2; })textureWithName:(id)arg1 forScale:(float)arg2;
+- (struct shared_ptr<ggl::Texture2D> { struct Texture2D {} *x1; struct __shared_weak_count {} *x2; })textureWithName:(id)arg1 forScale:(float)arg2 mipmap:(BOOL)arg3 repeatWrap:(BOOL)arg4;
+- (struct shared_ptr<ggl::Texture2D> { struct Texture2D {} *x1; struct __shared_weak_count {} *x2; })textureWithName:(id)arg1 mipmap:(BOOL)arg2 repeatWrap:(BOOL)arg3;
+- (struct Texture2D { int (**x1)(); struct ResourceManager {} *x2; struct RenderResource {} *x3; int x4; int x5; unsigned int x6; int x7; int x8; int x9; float x10; struct TextureDataAbstract {} *x11; bool x12; bool x13; bool x14; unsigned int x15; unsigned int x16; int x17; int x18; }*)whiteTexture;
 
 @end

@@ -2,25 +2,19 @@
    Image: /usr/lib/system/libdispatch.dylib
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@interface OS_dispatch_data : _NSDispatchData <OS_dispatch_data> {
-}
+@interface OS_dispatch_data : _NSDispatchData <OS_dispatch_data>
 
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
 
-- (bool)_bytesAreVM;
+- (BOOL)_bytesAreVM;
 - (void*)_getContext;
 - (void)_setContext:(void*)arg1;
-- (void)_setFinalizer:(int (*)())arg1;
+- (void)_setFinalizer:(int (*)arg1;
 - (void)_setTargetQueue:(id)arg1;
 - (void)dealloc;
 - (id)debugDescription;
 - (void)finalize;
 - (id)init;
-- (id)initWithBytes:(void*)arg1 length:(unsigned long long)arg2 copy:(bool)arg3 freeWhenDone:(bool)arg4 bytesAreVM:(bool)arg5;
+- (id)initWithBytes:(void*)arg1 length:(unsigned int)arg2 copy:(BOOL)arg3 freeWhenDone:(BOOL)arg4 bytesAreVM:(BOOL)arg5;
 
 @end

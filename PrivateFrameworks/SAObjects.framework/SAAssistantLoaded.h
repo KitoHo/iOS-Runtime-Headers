@@ -2,15 +2,12 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSNumber, NSString;
+@interface SAAssistantLoaded : SABaseClientBoundCommand
 
-@interface SAAssistantLoaded : SABaseClientBoundCommand {
-}
-
-@property(copy) NSString * dataAnchor;
-@property(copy) NSNumber * requestSync;
-@property(copy) NSArray * syncAnchors;
-@property(copy) NSString * version;
+@property (nonatomic, copy) NSString *dataAnchor;
+@property (nonatomic, copy) NSNumber *requestSync;
+@property (nonatomic, copy) NSArray *syncAnchors;
+@property (nonatomic, copy) NSString *version;
 
 + (id)assistantLoaded;
 + (id)assistantLoadedWithDictionary:(id)arg1 context:(id)arg2;
@@ -19,7 +16,7 @@
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)requestSync;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setDataAnchor:(id)arg1;
 - (void)setRequestSync:(id)arg1;
 - (void)setSyncAnchors:(id)arg1;

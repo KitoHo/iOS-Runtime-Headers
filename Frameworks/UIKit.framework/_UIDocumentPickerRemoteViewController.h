@@ -2,23 +2,21 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class <NSCopying><NSObject>, <_UIDocumentPickerRemoteViewControllerContaining>, NSExtension, NSString;
-
-@interface _UIDocumentPickerRemoteViewController : _UIRemoteViewController <_UIDocumentPickerViewControllerHost, _UIDocumentPickerServiceInvalidating> {
+@interface _UIDocumentPickerRemoteViewController : _UIRemoteViewController <_UIDocumentPickerServiceInvalidating, _UIDocumentPickerViewControllerHost> {
     NSExtension *_extension;
     <NSCopying><NSObject> *_extensionRequestIdentifier;
     NSString *_identifier;
-    <_UIDocumentPickerRemoteViewControllerContaining> *_publicController;
+    UIViewController<_UIDocumentPickerRemoteViewControllerContaining> *_publicController;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) NSExtension * extension;
-@property(copy) <NSCopying><NSObject> * extensionRequestIdentifier;
-@property(readonly) unsigned long long hash;
-@property(retain) NSString * identifier;
-@property <_UIDocumentPickerRemoteViewControllerContaining> * publicController;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSExtension *extension;
+@property (nonatomic, copy) <NSCopying><NSObject> *extensionRequestIdentifier;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NSString *identifier;
+@property (nonatomic) UIViewController<_UIDocumentPickerRemoteViewControllerContaining> *publicController;
+@property (readonly) Class superclass;
 
 + (id)exportedInterface;
 + (id)serviceViewControllerInterface;
@@ -27,8 +25,8 @@
 - (void)_didSelectURLWrapper:(id)arg1;
 - (void)_dismissViewController;
 - (void)_dismissWithOption:(id)arg1;
-- (void)_preferredContentSizeChanged:(struct CGSize { double x1; double x2; })arg1;
 - (void)_stitchFileCreationAtURL:(id)arg1;
+- (void)_tintColorDidChangeToColor:(id)arg1;
 - (id)extension;
 - (id)extensionRequestIdentifier;
 - (id)identifier;
@@ -37,7 +35,9 @@
 - (void)setExtension:(id)arg1;
 - (void)setExtensionRequestIdentifier:(id)arg1;
 - (void)setIdentifier:(id)arg1;
+- (void)setPreferredContentSize:(struct CGSize { float x1; float x2; })arg1;
 - (void)setPublicController:(id)arg1;
+- (void)viewDidLoad;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 
 @end

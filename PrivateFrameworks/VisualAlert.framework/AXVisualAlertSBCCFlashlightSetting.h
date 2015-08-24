@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/VisualAlert.framework/VisualAlert
  */
 
-@interface AXVisualAlertSBCCFlashlightSetting : __AXVisualAlertSBCCFlashlightSetting_super {
-}
+@interface AXVisualAlertSBCCFlashlightSetting : __AXVisualAlertSBCCFlashlightSetting_super
 
 + (Class)safeCategoryTargetClass;
 + (id)safeCategoryTargetClassName;
 
-- (void)setFlashlightOn:(bool)arg1;
+- (void)setFlashlightOn:(BOOL)arg1;
 
 @end

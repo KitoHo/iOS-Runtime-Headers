@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSString;
-
 @interface _PUKeyValuePair : NSObject {
     NSString *_key;
     NSString *_value;
 }
 
-@property(copy,readonly) NSString * key;
-@property(copy,readonly) NSString * value;
+@property (nonatomic, readonly, copy) NSString *key;
+@property (nonatomic, readonly, copy) NSString *value;
 
 - (void).cxx_destruct;
-- (long long)compare:(id)arg1;
-- (unsigned long long)hash;
+- (int)compare:(id)arg1;
+- (unsigned int)hash;
 - (id)initWithKey:(id)arg1 value:(id)arg2;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)key;
 - (id)value;
 

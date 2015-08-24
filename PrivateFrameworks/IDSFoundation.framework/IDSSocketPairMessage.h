@@ -2,21 +2,22 @@
    Image: /System/Library/PrivateFrameworks/IDSFoundation.framework/IDSFoundation
  */
 
-@class <NSObject>, NSData;
-
 @interface IDSSocketPairMessage : NSObject {
     unsigned char _command;
     <NSObject> *_context;
+    NSString *_topic;
     NSData *_underlyingData;
 }
 
-@property(readonly) unsigned char command;
-@property(retain) <NSObject> * context;
-@property(retain,readonly) NSData * underlyingData;
-@property(readonly) unsigned long long underlyingDataLength;
+@property (nonatomic, readonly) unsigned char command;
+@property (nonatomic, retain) <NSObject> *context;
+@property (nonatomic, retain) NSString *topic;
+@property (nonatomic, readonly, retain) NSData *underlyingData;
+@property (nonatomic, readonly) unsigned int underlyingDataLength;
 
 + (unsigned int)dataLengthFromHeaderData:(id)arg1;
 + (unsigned int)headerDataSize;
++ (id)messageWithCommand:(unsigned char)arg1 data:(id)arg2;
 + (id)messageWithData:(id)arg1;
 + (id)messageWithHeaderData:(id)arg1 data:(id)arg2;
 
@@ -27,7 +28,9 @@
 - (void)dealloc;
 - (id)initWithCommand:(unsigned char)arg1 underlyingData:(id)arg2;
 - (void)setContext:(id)arg1;
+- (void)setTopic:(id)arg1;
+- (id)topic;
 - (id)underlyingData;
-- (unsigned long long)underlyingDataLength;
+- (unsigned int)underlyingDataLength;
 
 @end

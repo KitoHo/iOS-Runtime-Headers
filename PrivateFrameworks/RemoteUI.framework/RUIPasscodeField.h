@@ -2,50 +2,55 @@
    Image: /System/Library/PrivateFrameworks/RemoteUI.framework/RemoteUI
  */
 
-@class <RUIPasscodeFieldDelegate>, NSMutableArray, NSMutableString, NSString;
-
 @interface RUIPasscodeField : UIView <UIKeyInput> {
     NSMutableArray *_dashViews;
     <RUIPasscodeFieldDelegate> *_delegate;
     NSMutableArray *_digitViews;
     NSMutableArray *_dotViews;
-    unsigned long long _numberOfEntryFields;
+    UIColor *_foregroundColor;
+    int _keyboardAppearance;
+    unsigned int _numberOfEntryFields;
+    BOOL _securePasscodeEntry;
     NSMutableString *_stringValue;
-    bool_securePasscodeEntry;
 }
 
-@property long long autocapitalizationType;
-@property long long autocorrectionType;
-@property(copy,readonly) NSString * debugDescription;
-@property <RUIPasscodeFieldDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property bool enablesReturnKeyAutomatically;
-@property(readonly) unsigned long long hash;
-@property long long keyboardAppearance;
-@property long long keyboardType;
-@property(readonly) unsigned long long numberOfEntryFields;
-@property long long returnKeyType;
-@property bool securePasscodeEntry;
-@property(getter=isSecureTextEntry) bool secureTextEntry;
-@property long long spellCheckingType;
-@property(readonly) Class superclass;
+@property (nonatomic) int autocapitalizationType;
+@property (nonatomic) int autocorrectionType;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <RUIPasscodeFieldDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) BOOL enablesReturnKeyAutomatically;
+@property (nonatomic, retain) UIColor *foregroundColor;
+@property (readonly) unsigned int hash;
+@property (nonatomic) int keyboardAppearance;
+@property (nonatomic) int keyboardType;
+@property (nonatomic, readonly) unsigned int numberOfEntryFields;
+@property (nonatomic) int returnKeyType;
+@property (nonatomic) BOOL securePasscodeEntry;
+@property (getter=isSecureTextEntry, nonatomic) BOOL secureTextEntry;
+@property (nonatomic) int spellCheckingType;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (bool)becomeFirstResponder;
-- (bool)canBecomeFirstResponder;
+- (BOOL)becomeFirstResponder;
+- (BOOL)canBecomeFirstResponder;
 - (id)delegate;
 - (void)deleteBackward;
-- (bool)hasText;
-- (id)initWithNumberOfEntryFields:(unsigned long long)arg1;
+- (id)foregroundColor;
+- (BOOL)hasText;
+- (id)initWithNumberOfEntryFields:(unsigned int)arg1;
 - (void)insertText:(id)arg1;
-- (bool)isSecureTextEntry;
-- (long long)keyboardType;
+- (BOOL)isSecureTextEntry;
+- (int)keyboardAppearance;
+- (int)keyboardType;
 - (void)layoutSubviews;
-- (unsigned long long)numberOfEntryFields;
-- (bool)securePasscodeEntry;
+- (unsigned int)numberOfEntryFields;
+- (BOOL)securePasscodeEntry;
 - (void)setDelegate:(id)arg1;
-- (void)setSecurePasscodeEntry:(bool)arg1;
-- (void)setSecureTextEntry:(bool)arg1;
+- (void)setForegroundColor:(id)arg1;
+- (void)setKeyboardAppearance:(int)arg1;
+- (void)setSecurePasscodeEntry:(BOOL)arg1;
+- (void)setSecureTextEntry:(BOOL)arg1;
 - (void)setStringValue:(id)arg1;
 - (id)stringValue;
 

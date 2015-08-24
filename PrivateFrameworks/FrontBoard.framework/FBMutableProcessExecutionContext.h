@@ -2,20 +2,17 @@
    Image: /System/Library/PrivateFrameworks/FrontBoard.framework/FrontBoard
  */
 
-@class NSArray, NSDictionary, NSURL;
+@interface FBMutableProcessExecutionContext : FBProcessExecutionContext
 
-@interface FBMutableProcessExecutionContext : FBProcessExecutionContext {
-}
-
-@property(retain) NSArray * arguments;
-@property bool checkForLeaks;
-@property bool disableASLR;
-@property(retain) NSDictionary * environment;
-@property unsigned int launchAssertionFlags;
-@property long long launchIntent;
-@property(retain) NSURL * standardErrorURL;
-@property(retain) NSURL * standardOutputURL;
-@property bool waitForDebugger;
-@property double watchdogExtension;
+@property (nonatomic, retain) NSArray *arguments;
+@property (nonatomic) BOOL checkForLeaks;
+@property (nonatomic) BOOL disableASLR;
+@property (nonatomic, retain) NSDictionary *environment;
+@property (nonatomic) unsigned int launchAssertionFlags;
+@property (nonatomic) int launchIntent;
+@property (nonatomic, retain) NSURL *standardErrorURL;
+@property (nonatomic, retain) NSURL *standardOutputURL;
+@property (nonatomic) BOOL waitForDebugger;
+@property (nonatomic) double watchdogExtension;
 
 @end

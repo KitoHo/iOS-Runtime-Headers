@@ -2,54 +2,52 @@
    Image: /System/Library/PrivateFrameworks/MPUFoundation.framework/MPUFoundation
  */
 
-@class UIColor;
-
 @interface MPUBorderConfiguration : NSObject <NSCopying> {
-    double _borderAlpha;
+    float _borderAlpha;
     UIColor *_borderColor;
-    double _borderWidth;
-    double _dropShadowAlpha;
+    float _borderWidth;
+    float _dropShadowAlpha;
     UIColor *_dropShadowColor;
-    unsigned long long _dropShadowEdges;
-    double _dropShadowWidth;
-    double _fillAlpha;
+    unsigned int _dropShadowEdges;
+    float _dropShadowWidth;
+    float _fillAlpha;
     UIColor *_fillColor;
 }
 
-@property double borderAlpha;
-@property(retain) UIColor * borderColor;
-@property double borderWidth;
-@property double dropShadowAlpha;
-@property(retain) UIColor * dropShadowColor;
-@property unsigned long long dropShadowEdges;
-@property double dropShadowWidth;
-@property double fillAlpha;
-@property(retain) UIColor * fillColor;
-@property(getter=isFullyTransparent,readonly) bool fullyTransparent;
+@property (nonatomic) float borderAlpha;
+@property (nonatomic, retain) UIColor *borderColor;
+@property (nonatomic) float borderWidth;
+@property (nonatomic) float dropShadowAlpha;
+@property (nonatomic, retain) UIColor *dropShadowColor;
+@property (nonatomic) unsigned int dropShadowEdges;
+@property (nonatomic) float dropShadowWidth;
+@property (nonatomic) float fillAlpha;
+@property (nonatomic, retain) UIColor *fillColor;
+@property (getter=isFullyTransparent, nonatomic, readonly) BOOL fullyTransparent;
 
 - (void).cxx_destruct;
-- (double)borderAlpha;
+- (float)borderAlpha;
 - (id)borderColor;
-- (double)borderWidth;
+- (float)borderWidth;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (double)dropShadowAlpha;
+- (float)dropShadowAlpha;
 - (id)dropShadowColor;
-- (unsigned long long)dropShadowEdges;
-- (double)dropShadowWidth;
-- (double)fillAlpha;
+- (unsigned int)dropShadowEdges;
+- (float)dropShadowWidth;
+- (float)fillAlpha;
 - (id)fillColor;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
-- (bool)isEqual:(id)arg1;
-- (bool)isFullyTransparent;
-- (void)setBorderAlpha:(double)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isFullyTransparent;
+- (void)setBorderAlpha:(float)arg1;
 - (void)setBorderColor:(id)arg1;
-- (void)setBorderWidth:(double)arg1;
-- (void)setDropShadowAlpha:(double)arg1;
+- (void)setBorderWidth:(float)arg1;
+- (void)setDropShadowAlpha:(float)arg1;
 - (void)setDropShadowColor:(id)arg1;
-- (void)setDropShadowEdges:(unsigned long long)arg1;
-- (void)setDropShadowWidth:(double)arg1;
-- (void)setFillAlpha:(double)arg1;
+- (void)setDropShadowEdges:(unsigned int)arg1;
+- (void)setDropShadowWidth:(float)arg1;
+- (void)setFillAlpha:(float)arg1;
 - (void)setFillColor:(id)arg1;
 
 @end

@@ -2,37 +2,36 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
 @interface TSCHChartUIState : NSObject <NSCopying> {
-    unsigned long long _lastColCountInCDE;
-    unsigned long long _lastColSelectedInCDE;
-    unsigned long long _lastRowCountInCDE;
-    unsigned long long _lastRowSelectedInCDE;
-    bool_useFullKeyboard;
+    unsigned int _lastColCountInCDE;
+    unsigned int _lastColSelectedInCDE;
+    unsigned int _lastRowCountInCDE;
+    unsigned int _lastRowSelectedInCDE;
+    unsigned int _multiDataSetIndex;
+    BOOL _useFullKeyboard;
 }
 
-@property(readonly) unsigned long long lastColCountInCDE;
-@property(readonly) unsigned long long lastColSelectedInCDE;
-@property(readonly) unsigned long long lastRowCountInCDE;
-@property(readonly) unsigned long long lastRowSelectedInCDE;
-@property(readonly) bool useFullKeyboard;
+@property (nonatomic, readonly) unsigned int lastColCountInCDE;
+@property (nonatomic, readonly) unsigned int lastColSelectedInCDE;
+@property (nonatomic, readonly) unsigned int lastRowCountInCDE;
+@property (nonatomic, readonly) unsigned int lastRowSelectedInCDE;
+@property (nonatomic, readonly) unsigned int multiDataSetIndex;
+@property (nonatomic, readonly) BOOL useFullKeyboard;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
-- (id)initWithArchive:(const struct ChartUIState { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; struct Reference {} *x3; int x4; int x5; int x6; int x7; boolx8; int x9; unsigned int x10[1]; }*)arg1;
-- (id)initWithRowRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1 colRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg2 useFullKeyboard:(bool)arg3;
-- (bool)isEqual:(id)arg1;
-- (unsigned long long)lastColCountInCDE;
-- (unsigned long long)lastColSelectedInCDE;
-- (unsigned long long)lastRowCountInCDE;
-- (unsigned long long)lastRowSelectedInCDE;
-- (void)saveToArchive:(struct ChartUIState { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; struct Reference {} *x3; int x4; int x5; int x6; int x7; boolx8; int x9; unsigned int x10[1]; }*)arg1;
-- (bool)useFullKeyboard;
+- (id)initWithArchive:(const struct ChartUIState { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct Reference {} *x5; int x6; int x7; int x8; int x9; bool x10; int x11; }*)arg1;
+- (id)initWithRowRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1 colRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg2 useFullKeyboard:(BOOL)arg3;
+- (id)initWithRowRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1 colRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg2 useFullKeyboard:(BOOL)arg3 multiDataSetIndex:(unsigned int)arg4;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)lastColCountInCDE;
+- (unsigned int)lastColSelectedInCDE;
+- (unsigned int)lastRowCountInCDE;
+- (unsigned int)lastRowSelectedInCDE;
+- (unsigned int)multiDataSetIndex;
+- (void)saveToArchive:(struct ChartUIState { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct Reference {} *x5; int x6; int x7; int x8; int x9; bool x10; int x11; }*)arg1;
+- (BOOL)useFullKeyboard;
 
 @end

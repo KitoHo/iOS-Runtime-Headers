@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSArray, NSLocale, NSString;
-
 @interface UILocalizedIndexedCollation : NSObject {
     NSString *_firstSectionStartString;
     NSString *_lastSectionStartString;
@@ -16,16 +14,16 @@
     NSString *_transform;
 }
 
-@property(readonly) NSArray * sectionIndexTitles;
-@property(readonly) NSArray * sectionTitles;
+@property (nonatomic, readonly) NSArray *sectionIndexTitles;
+@property (nonatomic, readonly) NSArray *sectionTitles;
 
 + (id)collationWithDictionary:(id)arg1;
 + (id)currentCollation;
 
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1;
-- (long long)sectionForObject:(id)arg1 collationStringSelector:(SEL)arg2;
-- (long long)sectionForSectionIndexTitleAtIndex:(long long)arg1;
+- (int)sectionForObject:(id)arg1 collationStringSelector:(SEL)arg2;
+- (int)sectionForSectionIndexTitleAtIndex:(int)arg1;
 - (id)sectionIndexTitles;
 - (id)sectionTitles;
 - (id)sortedArrayFromArray:(id)arg1 collationStringSelector:(SEL)arg2;

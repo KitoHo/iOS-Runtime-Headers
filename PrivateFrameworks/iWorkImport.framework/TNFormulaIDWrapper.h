@@ -9,16 +9,16 @@
     } mID;
 }
 
-@property(readonly) struct { unsigned int x1 : 24; unsigned int x2 : 8; } formulaID;
+@property (readonly) struct { unsigned int x1 : 24; unsigned int x2 : 8; } formulaID;
 
 - (id).cxx_construct;
 - (struct { unsigned int x1 : 24; unsigned int x2 : 8; })chartFormulaID;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (struct { unsigned int x1 : 24; unsigned int x2 : 8; })formulaID;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithTNChartFormulaID:(struct { unsigned int x1 : 24; unsigned int x2 : 8; })arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)isEqualToTNFormulaIDWrapper:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToTNFormulaIDWrapper:(id)arg1;
 
 @end

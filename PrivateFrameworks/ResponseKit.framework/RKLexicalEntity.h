@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/ResponseKit.framework/ResponseKit
  */
 
-@class NSString;
-
 @interface RKLexicalEntity : NSObject {
-    struct _NSRange { 
-        unsigned long long location; 
-        unsigned long long length; 
     NSString *_language;
     NSString *_lemma;
     NSString *_partOfSpeech;
     NSString *_string;
+    struct _NSRange { 
+        unsigned int location; 
+        unsigned int length; 
     } _tokenRange;
     NSString *_tokenType;
 }
 
-@property(retain) NSString * language;
-@property(retain) NSString * lemma;
-@property(retain) NSString * partOfSpeech;
-@property(retain) NSString * string;
-@property struct _NSRange { unsigned long long x1; unsigned long long x2; } tokenRange;
-@property(retain) NSString * tokenType;
-@property(readonly) NSString * word;
+@property (retain) NSString *language;
+@property (retain) NSString *lemma;
+@property (retain) NSString *partOfSpeech;
+@property (retain) NSString *string;
+@property struct _NSRange { unsigned int x1; unsigned int x2; } tokenRange;
+@property (retain) NSString *tokenType;
+@property (readonly) NSString *word;
 
 - (void).cxx_destruct;
 - (id)description;
@@ -33,10 +31,10 @@
 - (void)setLemma:(id)arg1;
 - (void)setPartOfSpeech:(id)arg1;
 - (void)setString:(id)arg1;
-- (void)setTokenRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1;
+- (void)setTokenRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1;
 - (void)setTokenType:(id)arg1;
 - (id)string;
-- (struct _NSRange { unsigned long long x1; unsigned long long x2; })tokenRange;
+- (struct _NSRange { unsigned int x1; unsigned int x2; })tokenRange;
 - (id)tokenType;
 - (id)word;
 

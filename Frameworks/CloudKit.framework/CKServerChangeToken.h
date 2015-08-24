@@ -2,15 +2,13 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSData;
-
 @interface CKServerChangeToken : NSObject <NSCopying, NSSecureCoding> {
     NSData *_data;
 }
 
-@property(retain) NSData * data;
+@property (nonatomic, retain) NSData *data;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)CKPropertiesDescription;
@@ -18,9 +16,11 @@
 - (id)data;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
+- (unsigned int)hash;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithData:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)setData:(id)arg1;
 
 @end

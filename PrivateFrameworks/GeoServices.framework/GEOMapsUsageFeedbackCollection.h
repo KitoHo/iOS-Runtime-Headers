@@ -2,45 +2,46 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOCarInfo, GEOMapRegion, GEOPlaceActionDetails;
-
 @interface GEOMapsUsageFeedbackCollection : PBCodable <NSCopying> {
-    struct { 
-        unsigned long long _high; 
-        unsigned long long _low; 
+    int _actionType;
+    GEOCarInfo *_carInfo;
     struct { 
         unsigned int sessionID : 1; 
         unsigned int sessionRelativeTimestamp : 1; 
         unsigned int zoomLevel : 1; 
         unsigned int actionType : 1; 
         unsigned int sequenceNumber : 1; 
-    int _actionType;
-    GEOCarInfo *_carInfo;
     } _has;
     GEOMapRegion *_mapRegion;
     GEOPlaceActionDetails *_placeActionDetails;
+    NSString *_providerId;
     int _sequenceNumber;
+    struct { 
+        unsigned long long _high; 
+        unsigned long long _low; 
     } _sessionID;
     double _sessionRelativeTimestamp;
     double _zoomLevel;
 }
 
-@property int actionType;
-@property(retain) GEOCarInfo * carInfo;
-@property bool hasActionType;
-@property(readonly) bool hasCarInfo;
-@property(readonly) bool hasMapRegion;
-@property(readonly) bool hasPlaceActionDetails;
-@property bool hasSequenceNumber;
-@property bool hasSessionID;
-@property bool hasSessionRelativeTimestamp;
-@property bool hasZoomLevel;
-@property(retain) GEOMapRegion * mapRegion;
-@property(retain) GEOPlaceActionDetails * placeActionDetails;
-@property int sequenceNumber;
-@property struct { unsigned long long x1; unsigned long long x2; } sessionID;
-@property double sessionRelativeTimestamp;
-@property double zoomLevel;
+@property (nonatomic) int actionType;
+@property (nonatomic, retain) GEOCarInfo *carInfo;
+@property (nonatomic) BOOL hasActionType;
+@property (nonatomic, readonly) BOOL hasCarInfo;
+@property (nonatomic, readonly) BOOL hasMapRegion;
+@property (nonatomic, readonly) BOOL hasPlaceActionDetails;
+@property (nonatomic, readonly) BOOL hasProviderId;
+@property (nonatomic) BOOL hasSequenceNumber;
+@property (nonatomic) BOOL hasSessionID;
+@property (nonatomic) BOOL hasSessionRelativeTimestamp;
+@property (nonatomic) BOOL hasZoomLevel;
+@property (nonatomic, retain) GEOMapRegion *mapRegion;
+@property (nonatomic, retain) GEOPlaceActionDetails *placeActionDetails;
+@property (nonatomic, retain) NSString *providerId;
+@property (nonatomic) int sequenceNumber;
+@property (nonatomic) struct { unsigned long long x1; unsigned long long x2; } sessionID;
+@property (nonatomic) double sessionRelativeTimestamp;
+@property (nonatomic) double zoomLevel;
 
 + (id)feedbackCollectionWithTraits:(id)arg1 flyoverAnimationID:(unsigned long long)arg2 timestamp:(double)arg3 resultIndex:(int)arg4;
 + (id)feedbackCollectionWithTraits:(id)arg1 mapItem:(id)arg2 timestamp:(double)arg3 resultIndex:(int)arg4;
@@ -52,34 +53,37 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasActionType;
-- (bool)hasCarInfo;
-- (bool)hasMapRegion;
-- (bool)hasPlaceActionDetails;
-- (bool)hasSequenceNumber;
-- (bool)hasSessionID;
-- (bool)hasSessionRelativeTimestamp;
-- (bool)hasZoomLevel;
-- (unsigned long long)hash;
+- (BOOL)hasActionType;
+- (BOOL)hasCarInfo;
+- (BOOL)hasMapRegion;
+- (BOOL)hasPlaceActionDetails;
+- (BOOL)hasProviderId;
+- (BOOL)hasSequenceNumber;
+- (BOOL)hasSessionID;
+- (BOOL)hasSessionRelativeTimestamp;
+- (BOOL)hasZoomLevel;
+- (unsigned int)hash;
 - (id)initWithTraits:(id)arg1 flyoverAnimationID:(unsigned long long)arg2 timestamp:(double)arg3 resultIndex:(int)arg4;
 - (id)initWithTraits:(id)arg1 mapItem:(id)arg2 timestamp:(double)arg3 resultIndex:(int)arg4;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)mapRegion;
 - (void)mergeFrom:(id)arg1;
 - (id)placeActionDetails;
-- (bool)readFrom:(id)arg1;
+- (id)providerId;
+- (BOOL)readFrom:(id)arg1;
 - (int)sequenceNumber;
 - (struct { unsigned long long x1; unsigned long long x2; })sessionID;
 - (double)sessionRelativeTimestamp;
 - (void)setActionType:(int)arg1;
 - (void)setCarInfo:(id)arg1;
-- (void)setHasActionType:(bool)arg1;
-- (void)setHasSequenceNumber:(bool)arg1;
-- (void)setHasSessionID:(bool)arg1;
-- (void)setHasSessionRelativeTimestamp:(bool)arg1;
-- (void)setHasZoomLevel:(bool)arg1;
+- (void)setHasActionType:(BOOL)arg1;
+- (void)setHasSequenceNumber:(BOOL)arg1;
+- (void)setHasSessionID:(BOOL)arg1;
+- (void)setHasSessionRelativeTimestamp:(BOOL)arg1;
+- (void)setHasZoomLevel:(BOOL)arg1;
 - (void)setMapRegion:(id)arg1;
 - (void)setPlaceActionDetails:(id)arg1;
+- (void)setProviderId:(id)arg1;
 - (void)setSequenceNumber:(int)arg1;
 - (void)setSessionID:(struct { unsigned long long x1; unsigned long long x2; })arg1;
 - (void)setSessionRelativeTimestamp:(double)arg1;

@@ -2,65 +2,67 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, NSString, SKUIShelfLayoutData, SKUIShelfPageComponent, SKUIShelfViewElement, SKUIViewElementLayoutContext, SKUIViewElementSlideshowController, UICollectionView;
-
-@interface SKUIShelfPageSection : SKUIStorePageSection <SKUIArtworkRequestDelegate, SKUIViewElementSlideshowDelegate, UICollectionViewDataSource, UICollectionViewDelegate> {
+@interface SKUIShelfPageSection : SKUIStorePageSection <SKUIArtworkRequestDelegate, SKUIObservableScrollViewDelegate, SKUIShelfPageSection, SKUIShelfPageSectionConfigurationDataSource, SKUIViewElementSlideshowDelegate, UICollectionViewDataSource, UICollectionViewDelegate> {
     SKUIViewElementLayoutContext *_cellLayoutContext;
-    long long _lastNeedsMoreCount;
-    long long _lockupType;
-    UICollectionView *_shelfCollectionView;
-    SKUIShelfLayoutData *_shelfLayoutData;
+    SKUIShelfPageSectionConfiguration *_configuration;
+    int _lastNeedsMoreCount;
+    <SKUIScrollViewDelegateObserver> *_scrollViewDelegateObserver;
     SKUIShelfViewElement *_shelfViewElement;
     SKUIViewElementSlideshowController *_slideshowController;
     NSArray *_viewElements;
-    bool_needsLayout;
-    bool_needsReload;
-    bool_rendersWithPerspective;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) SKUIShelfPageComponent * pageComponent;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) SKUIShelfPageSectionConfiguration *configuration;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) SKUIShelfPageComponent *pageComponent;
+@property (nonatomic) <SKUIScrollViewDelegateObserver> *scrollViewDelegateObserver;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (Class)_cellClassForLockup:(id)arg1;
-- (Class)_cellClassForViewElement:(id)arg1;
-- (double)_columnSpacingForViewElements:(id)arg1;
-- (id)_dequeueCellForLockup:(id)arg1 collectionView:(id)arg2 indexPath:(id)arg3;
-- (long long)_lockupTypeForLockup:(id)arg1;
-- (void)_performDefaultSelectActionForViewElement:(id)arg1;
-- (double)_perspectiveHeightForContentSize:(double)arg1;
-- (void)_reloadShelfLayoutData;
+- (id)_normalizedShelfItemIndexPathFromActualIndexPath:(id)arg1;
+- (void)_performDefaultSelectActionForEffectiveViewElement:(id)arg1;
 - (void)_reloadViewElementProperties;
-- (id)_shelfCollectionView;
+- (void)_setContext:(id)arg1;
 - (void)addImpressionsForIndexPath:(id)arg1 toSession:(id)arg2;
-- (long long)applyUpdateType:(long long)arg1;
+- (int)applyUpdateType:(int)arg1;
 - (void)artworkRequest:(id)arg1 didLoadImage:(id)arg2;
 - (id)backgroundColorForIndexPath:(id)arg1;
 - (id)cellForIndexPath:(id)arg1;
-- (struct CGSize { double x1; double x2; })cellSizeForIndexPath:(id)arg1;
+- (struct CGSize { float x1; float x2; })cellSizeForIndexPath:(id)arg1;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didConfirmButtonElement:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (void)collectionView:(id)arg1 didEndDisplayingCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 layout:(id)arg2 willApplyLayoutAttributes:(id)arg3;
-- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
-- (bool)collectionView:(id)arg1 shouldHighlightItemAtIndexPath:(id)arg2;
+- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
+- (BOOL)collectionView:(id)arg1 shouldHighlightItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 willDisplayCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (void)collectionViewDidEndDisplayingCellForItemAtIndexPath:(id)arg1;
+- (void)collectionViewWillApplyLayoutAttributes:(id)arg1;
 - (void)collectionViewWillDisplayCellForItemAtIndexPath:(id)arg1;
+- (id)configuration;
 - (void)dealloc;
-- (void)deselectItemsAnimated:(bool)arg1;
-- (void)getModalSourceViewForViewElement:(id)arg1 completionBlock:(id)arg2;
+- (void)deselectItemsAnimated:(BOOL)arg1;
+- (void)entityProvider:(id)arg1 didInvalidateWithContext:(id)arg2;
+- (void)getModalSourceViewForViewElement:(id)arg1 completionBlock:(id /* block */)arg2;
 - (id)initWithPageComponent:(id)arg1;
+- (id)initWithPageComponent:(id)arg1 configuration:(id)arg2;
 - (void)invalidateCachedLayoutInformation;
-- (long long)numberOfCells;
-- (void)prefetchResourcesWithReason:(long long)arg1;
+- (int)numberOfCells;
+- (void)prefetchResourcesWithReason:(int)arg1;
+- (id)scrollViewDelegateObserver;
+- (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })sectionContentInset;
-- (bool)updateCellWithIndexPath:(id)arg1 itemState:(id)arg2 animated:(bool)arg3;
+- (void)scrollViewWillBeginDecelerating:(id)arg1;
+- (void)scrollViewWillBeginDragging:(id)arg1;
+- (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint { float x1; float x2; })arg2 targetContentOffset:(inout struct CGPoint { float x1; float x2; }*)arg3;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })sectionContentInset;
+- (void)setScrollViewDelegateObserver:(id)arg1;
+- (void)setTopSection:(BOOL)arg1;
+- (id)shelfPageSectionConfiguration:(id)arg1 viewElementAtIndex:(int)arg2;
+- (BOOL)updateCellWithIndexPath:(id)arg1 itemState:(id)arg2 animated:(BOOL)arg3;
 - (void)viewElementSlideshowWillDismiss:(id)arg1;
 - (void)willAppearInContext:(id)arg1;
 

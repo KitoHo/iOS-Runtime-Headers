@@ -2,43 +2,40 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString;
+@interface UIApplicationSceneClientSettings : FBSSceneClientSettings <UIApplicationSceneClientSettings>
 
-@interface UIApplicationSceneClientSettings : FBSSceneClientSettings <UIApplicationSceneClientSettings> {
-}
+@property (nonatomic, readonly) int compatibilityMode;
+@property (nonatomic, readonly) int controlCenterRevealMode;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic, readonly) double defaultPNGExpirationTime;
+@property (nonatomic, readonly, copy) NSString *defaultPNGName;
+@property (nonatomic, readonly) BOOL defaultStatusBarHidden;
+@property (nonatomic, readonly) int defaultStatusBarStyle;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) BOOL idleTimerDisabled;
+@property (nonatomic, readonly) int notificationCenterRevealMode;
+@property (nonatomic, readonly) BOOL orientationEnabled;
+@property (nonatomic, readonly) unsigned int proximityDetectionModes;
+@property (nonatomic, readonly) BOOL statusBarHidden;
+@property (nonatomic, readonly) int statusBarStyle;
+@property (readonly) Class superclass;
 
-@property(readonly) long long compatibilityMode;
-@property(readonly) long long controlCenterRevealMode;
-@property(copy,readonly) NSString * debugDescription;
-@property(readonly) double defaultPNGExpirationTime;
-@property(copy,readonly) NSString * defaultPNGName;
-@property(readonly) bool defaultStatusBarHidden;
-@property(readonly) long long defaultStatusBarStyle;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) bool idleTimerDisabled;
-@property(readonly) long long notificationCenterRevealMode;
-@property(readonly) bool orientationEnabled;
-@property(readonly) unsigned long long proximityDetectionModes;
-@property(readonly) bool statusBarHidden;
-@property(readonly) long long statusBarStyle;
-@property(readonly) Class superclass;
-
-- (long long)compatibilityMode;
-- (long long)controlCenterRevealMode;
+- (int)compatibilityMode;
+- (int)controlCenterRevealMode;
 - (double)defaultPNGExpirationTime;
 - (id)defaultPNGName;
-- (bool)defaultStatusBarHidden;
-- (long long)defaultStatusBarStyle;
-- (bool)idleTimerDisabled;
-- (bool)isUISubclass;
-- (id)keyDescriptionForSetting:(unsigned long long)arg1;
+- (BOOL)defaultStatusBarHidden;
+- (int)defaultStatusBarStyle;
+- (BOOL)idleTimerDisabled;
+- (BOOL)isUISubclass;
+- (id)keyDescriptionForSetting:(unsigned int)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone { }*)arg1;
-- (long long)notificationCenterRevealMode;
-- (bool)orientationEnabled;
-- (unsigned long long)proximityDetectionModes;
-- (bool)statusBarHidden;
-- (long long)statusBarStyle;
-- (id)valueDescriptionForFlag:(long long)arg1 object:(id)arg2 ofSetting:(unsigned long long)arg3;
+- (int)notificationCenterRevealMode;
+- (BOOL)orientationEnabled;
+- (unsigned int)proximityDetectionModes;
+- (BOOL)statusBarHidden;
+- (int)statusBarStyle;
+- (id)valueDescriptionForFlag:(int)arg1 object:(id)arg2 ofSetting:(unsigned int)arg3;
 
 @end

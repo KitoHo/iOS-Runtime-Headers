@@ -2,9 +2,17 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class <GEOCompletionItem>, CLLocation, NSArray, NSString, _MKLocalSearchMerchantParameters;
-
 @interface MKLocalSearchRequest : NSObject <NSCopying> {
+    BOOL _allowPhoneNumberLookupUsingCellular;
+    NSString *_canonicalSearchString;
+    NSString *_contactsDataString;
+    CLLocation *_deviceLocation;
+    <GEOCompletionItem> *_geoCompletionItem;
+    BOOL _hasRegion;
+    _MKLocalSearchMerchantParameters *_merchantParameters;
+    NSArray *_muids;
+    NSString *_naturalLanguageQuery;
+    NSArray *_phoneNumbers;
     struct { 
         struct { 
             double latitude; 
@@ -14,47 +22,37 @@
             double latitudeDelta; 
             double longitudeDelta; 
         } span; 
-    NSString *_canonicalSearchString;
-    NSString *_contactsDataString;
-    CLLocation *_deviceLocation;
-    <GEOCompletionItem> *_geoCompletionItem;
-    _MKLocalSearchMerchantParameters *_merchantParameters;
-    NSArray *_muids;
-    NSString *_naturalLanguageQuery;
-    NSArray *_phoneNumbers;
     } _region;
     int _resultProviderID;
-    bool_allowPhoneNumberLookupUsingCellular;
-    bool_hasRegion;
 }
 
-@property(readonly) bool _hasRegion;
-@property(getter=_allowPhoneNumberLookupUsingCellular,setter=_setAllowPhoneNumberLookupUsingCellular:) bool allowPhoneNumberLookupUsingCellular;
-@property(getter=_canonicalSearchString,setter=_setCanonicalSearchString:,retain) NSString * canonicalSearchString;
-@property(getter=_contactsDataString,setter=_setContactsDataString:,retain) NSString * contactsDataString;
-@property(getter=_deviceLocation,setter=_setDeviceLocation:,retain) CLLocation * deviceLocation;
-@property(readonly) <GEOCompletionItem> * geoCompletionItem;
-@property(getter=_merchantParameters,setter=_setMerchantParameters:,retain) _MKLocalSearchMerchantParameters * merchantParameters;
-@property(getter=_muids,setter=_setMuids:,retain) NSArray * muids;
-@property(copy) NSString * naturalLanguageQuery;
-@property(getter=_phoneNumbers,setter=_setPhoneNumbers:,retain) NSArray * phoneNumbers;
-@property struct { struct { double x_1_1_1; double x_1_1_2; } x1; struct { double x_2_1_1; double x_2_1_2; } x2; } region;
-@property(getter=_resultProviderID,setter=_setResultProviderID:) int resultProviderID;
+@property (nonatomic, readonly) BOOL _hasRegion;
+@property (getter=_allowPhoneNumberLookupUsingCellular, setter=_setAllowPhoneNumberLookupUsingCellular:, nonatomic) BOOL allowPhoneNumberLookupUsingCellular;
+@property (getter=_canonicalSearchString, setter=_setCanonicalSearchString:, nonatomic, retain) NSString *canonicalSearchString;
+@property (getter=_contactsDataString, setter=_setContactsDataString:, nonatomic, retain) NSString *contactsDataString;
+@property (getter=_deviceLocation, setter=_setDeviceLocation:, nonatomic, retain) CLLocation *deviceLocation;
+@property (nonatomic, readonly) <GEOCompletionItem> *geoCompletionItem;
+@property (getter=_merchantParameters, setter=_setMerchantParameters:, nonatomic, retain) _MKLocalSearchMerchantParameters *merchantParameters;
+@property (getter=_muids, setter=_setMuids:, nonatomic, retain) NSArray *muids;
+@property (nonatomic, copy) NSString *naturalLanguageQuery;
+@property (getter=_phoneNumbers, setter=_setPhoneNumbers:, nonatomic, retain) NSArray *phoneNumbers;
+@property (nonatomic) struct { struct { double x_1_1_1; double x_1_1_2; } x1; struct { double x_2_1_1; double x_2_1_2; } x2; } region;
+@property (getter=_resultProviderID, setter=_setResultProviderID:, nonatomic) int resultProviderID;
 
 + (id)searchRequestWithCompletion:(id)arg1;
 
 - (void).cxx_destruct;
-- (bool)_allowPhoneNumberLookupUsingCellular;
+- (BOOL)_allowPhoneNumberLookupUsingCellular;
 - (id)_canonicalSearchString;
 - (id)_contactsDataString;
 - (id)_deviceLocation;
 - (id)_dictionaryRepresentation;
-- (bool)_hasRegion;
+- (BOOL)_hasRegion;
 - (id)_merchantParameters;
 - (id)_muids;
 - (id)_phoneNumbers;
 - (int)_resultProviderID;
-- (void)_setAllowPhoneNumberLookupUsingCellular:(bool)arg1;
+- (void)_setAllowPhoneNumberLookupUsingCellular:(BOOL)arg1;
 - (void)_setCanonicalSearchString:(id)arg1;
 - (void)_setContactsDataString:(id)arg1;
 - (void)_setDeviceLocation:(id)arg1;

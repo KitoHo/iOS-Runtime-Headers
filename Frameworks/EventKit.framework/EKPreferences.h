@@ -2,20 +2,18 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@class CalPreferences;
-
 @interface EKPreferences : NSObject {
     CalPreferences *_preferences;
 }
 
-@property bool enableTravelAdvisoriesForAutomaticBehavior;
-@property double travelEngineThrottlePeriod;
+@property (nonatomic) BOOL enableTravelAdvisoriesForAutomaticBehavior;
+@property (nonatomic) double travelEngineThrottlePeriod;
 
 + (id)shared;
 
-- (bool)enableTravelAdvisoriesForAutomaticBehavior;
+- (BOOL)enableTravelAdvisoriesForAutomaticBehavior;
 - (id)init;
-- (void)setEnableTravelAdvisoriesForAutomaticBehavior:(bool)arg1;
+- (void)setEnableTravelAdvisoriesForAutomaticBehavior:(BOOL)arg1;
 - (void)setTravelEngineThrottlePeriod:(double)arg1;
 - (double)travelEngineThrottlePeriod;
 

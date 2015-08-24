@@ -2,12 +2,9 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString;
+@interface SAAssistantNotReady : SABaseClientBoundCommand
 
-@interface SAAssistantNotReady : SABaseClientBoundCommand {
-}
-
-@property(copy) NSString * language;
+@property (nonatomic, copy) NSString *language;
 
 + (id)assistantNotReady;
 + (id)assistantNotReadyWithDictionary:(id)arg1 context:(id)arg2;
@@ -15,7 +12,7 @@
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)language;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setLanguage:(id)arg1;
 
 @end

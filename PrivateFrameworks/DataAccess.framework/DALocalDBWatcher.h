@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/DataAccess.framework/DataAccess
  */
 
-@class NSMapTable, NoteContext;
-
 @interface DALocalDBWatcher : NSObject {
     void *_abWatcher;
     struct CalDatabase { } *_calWatcher;
@@ -14,11 +12,11 @@
     int _lastSavedABSequenceNumber;
     int _lastSavedCalSequenceNumber;
     NoteContext *_noteWatcher;
-    bool_watchingBookmarks;
+    BOOL _watchingBookmarks;
 }
 
-@property int lastSavedABSequenceNumber;
-@property int lastSavedCalSequenceNumber;
+@property (nonatomic) int lastSavedABSequenceNumber;
+@property (nonatomic) int lastSavedCalSequenceNumber;
 
 + (id)sharedDBWatcher;
 
@@ -33,10 +31,10 @@
 - (int)lastSavedCalSequenceNumber;
 - (void)noteABDBDirChanged;
 - (void)noteCalDBDirChanged;
-- (void)registerConcernedABParty:(id)arg1 withChangedBlock:(id)arg2;
-- (void)registerConcernedBookmarkParty:(id)arg1 withChangedBlock:(id)arg2;
-- (void)registerConcernedCalParty:(id)arg1 withChangedBlock:(id)arg2;
-- (void)registerConcernedNoteParty:(id)arg1 withChangedBlock:(id)arg2;
+- (void)registerConcernedABParty:(id)arg1 withChangedBlock:(id /* block */)arg2;
+- (void)registerConcernedBookmarkParty:(id)arg1 withChangedBlock:(id /* block */)arg2;
+- (void)registerConcernedCalParty:(id)arg1 withChangedBlock:(id /* block */)arg2;
+- (void)registerConcernedNoteParty:(id)arg1 withChangedBlock:(id /* block */)arg2;
 - (void)removeConcernedABParty:(id)arg1;
 - (void)removeConcernedBookmarkParty:(id)arg1;
 - (void)removeConcernedCalParty:(id)arg1;

@@ -2,41 +2,39 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class NSArray;
-
 @interface AVPlayerMediaSelectionCriteriaInternal : NSObject {
+    BOOL _precludeMultichannelAudio;
     NSArray *_precludedMediaCharacteristics;
     NSArray *_precludedMediaSubTypes;
+    BOOL _preferMultichannelAudio;
     NSArray *_preferredLanguages;
     NSArray *_preferredMediaCharacteristics;
     NSArray *_preferredMediaSubTypes;
     NSArray *_requiredMediaCharacteristics;
-    bool_precludeMultichannelAudio;
-    bool_preferMultichannelAudio;
 }
 
-@property bool precludeMultichannelAudio;
-@property(retain) NSArray * precludedMediaCharacteristics;
-@property(retain) NSArray * precludedMediaSubTypes;
-@property bool preferMultichannelAudio;
-@property(retain) NSArray * preferredLanguages;
-@property(retain) NSArray * preferredMediaCharacteristics;
-@property(retain) NSArray * preferredMediaSubTypes;
-@property(retain) NSArray * requiredMediaCharacteristics;
+@property (nonatomic) BOOL precludeMultichannelAudio;
+@property (nonatomic, retain) NSArray *precludedMediaCharacteristics;
+@property (nonatomic, retain) NSArray *precludedMediaSubTypes;
+@property (nonatomic) BOOL preferMultichannelAudio;
+@property (nonatomic, retain) NSArray *preferredLanguages;
+@property (nonatomic, retain) NSArray *preferredMediaCharacteristics;
+@property (nonatomic, retain) NSArray *preferredMediaSubTypes;
+@property (nonatomic, retain) NSArray *requiredMediaCharacteristics;
 
 - (void)dealloc;
-- (bool)precludeMultichannelAudio;
+- (BOOL)precludeMultichannelAudio;
 - (id)precludedMediaCharacteristics;
 - (id)precludedMediaSubTypes;
-- (bool)preferMultichannelAudio;
+- (BOOL)preferMultichannelAudio;
 - (id)preferredLanguages;
 - (id)preferredMediaCharacteristics;
 - (id)preferredMediaSubTypes;
 - (id)requiredMediaCharacteristics;
-- (void)setPrecludeMultichannelAudio:(bool)arg1;
+- (void)setPrecludeMultichannelAudio:(BOOL)arg1;
 - (void)setPrecludedMediaCharacteristics:(id)arg1;
 - (void)setPrecludedMediaSubTypes:(id)arg1;
-- (void)setPreferMultichannelAudio:(bool)arg1;
+- (void)setPreferMultichannelAudio:(BOOL)arg1;
 - (void)setPreferredLanguages:(id)arg1;
 - (void)setPreferredMediaCharacteristics:(id)arg1;
 - (void)setPreferredMediaSubTypes:(id)arg1;

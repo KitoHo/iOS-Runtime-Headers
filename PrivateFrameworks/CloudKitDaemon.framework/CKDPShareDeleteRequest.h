@@ -2,14 +2,18 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPShareIdentifier;
-
 @interface CKDPShareDeleteRequest : PBRequest <NSCopying> {
+    NSString *_etag;
+    CKDPProtectionInfo *_selfAddedPcs;
     CKDPShareIdentifier *_shareId;
 }
 
-@property(readonly) bool hasShareId;
-@property(retain) CKDPShareIdentifier * shareId;
+@property (nonatomic, retain) NSString *etag;
+@property (nonatomic, readonly) BOOL hasEtag;
+@property (nonatomic, readonly) BOOL hasSelfAddedPcs;
+@property (nonatomic, readonly) BOOL hasShareId;
+@property (nonatomic, retain) CKDPProtectionInfo *selfAddedPcs;
+@property (nonatomic, retain) CKDPShareIdentifier *shareId;
 
 + (id)options;
 
@@ -18,13 +22,19 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasShareId;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (id)etag;
+- (BOOL)hasEtag;
+- (BOOL)hasSelfAddedPcs;
+- (BOOL)hasShareId;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (unsigned int)requestTypeCode;
 - (Class)responseClass;
+- (id)selfAddedPcs;
+- (void)setEtag:(id)arg1;
+- (void)setSelfAddedPcs:(id)arg1;
 - (void)setShareId:(id)arg1;
 - (id)shareId;
 - (void)writeTo:(id)arg1;

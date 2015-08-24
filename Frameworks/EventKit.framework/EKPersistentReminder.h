@@ -2,19 +2,17 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@class EKObjectID, NSDate, NSTimeZone;
-
 @interface EKPersistentReminder : EKPersistentCalendarItem {
     EKObjectID *_parentID;
 }
 
-@property(getter=isCompleted) bool completed;
-@property(copy) NSDate * completionDate;
-@property unsigned long long displayOrder;
-@property(copy) NSDate * dueDate;
-@property bool dueDateAllDay;
-@property(copy) NSTimeZone * dueDateTimeZone;
-@property(copy) EKObjectID * parentID;
+@property (getter=isCompleted, nonatomic) BOOL completed;
+@property (nonatomic, copy) NSDate *completionDate;
+@property (nonatomic) unsigned int displayOrder;
+@property (nonatomic, copy) NSDate *dueDate;
+@property (nonatomic) BOOL dueDateAllDay;
+@property (nonatomic, copy) NSTimeZone *dueDateTimeZone;
+@property (nonatomic, copy) EKObjectID *parentID;
 
 + (id)generateUniqueIDWithReminder:(id)arg1 calendar:(id)arg2;
 
@@ -23,21 +21,21 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
-- (unsigned long long)displayOrder;
+- (unsigned int)displayOrder;
 - (id)dueDate;
-- (bool)dueDateAllDay;
+- (BOOL)dueDateAllDay;
 - (id)dueDateTimeZone;
 - (int)entityType;
 - (id)externalURI;
-- (bool)isCompleted;
+- (BOOL)isCompleted;
 - (id)parentID;
-- (void)setCompleted:(bool)arg1;
+- (void)setCompleted:(BOOL)arg1;
 - (void)setCompletionDate:(id)arg1;
-- (void)setDisplayOrder:(unsigned long long)arg1;
+- (void)setDisplayOrder:(unsigned int)arg1;
 - (void)setDueDate:(id)arg1;
-- (void)setDueDateAllDay:(bool)arg1;
+- (void)setDueDateAllDay:(BOOL)arg1;
 - (void)setDueDateTimeZone:(id)arg1;
 - (void)setParentID:(id)arg1;
-- (bool)validate:(id*)arg1;
+- (BOOL)validate:(id*)arg1;
 
 @end

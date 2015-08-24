@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class NSString;
-
 @interface _VKNamedIconKey : NSObject {
     NSString *_name;
-    long long _size;
+    int _size;
 }
 
 - (void)dealloc;
-- (unsigned long long)hash;
-- (id)initWithName:(id)arg1 size:(long long)arg2;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (id)initWithName:(id)arg1 size:(int)arg2;
+- (BOOL)isEqual:(id)arg1;
 
 @end

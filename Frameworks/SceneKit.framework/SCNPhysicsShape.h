@@ -2,13 +2,6 @@
    Image: /System/Library/Frameworks/SceneKit.framework/SceneKit
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSArray, NSDictionary;
-
 @interface SCNPhysicsShape : NSObject <NSCopying, NSSecureCoding> {
     void *_cachedObject;
     struct btCollisionShape { int (**x1)(); int x2; void *x3; } *_collisionShape;
@@ -23,7 +16,7 @@
 + (id)shapeWithGeometry:(id)arg1 options:(id)arg2;
 + (id)shapeWithNode:(id)arg1 options:(id)arg2;
 + (id)shapeWithShapes:(id)arg1 transforms:(id)arg2;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (struct btCollisionShape { int (**x1)(); int x2; void *x3; }*)_handle;
 - (void)_setTransforms:(id)arg1;

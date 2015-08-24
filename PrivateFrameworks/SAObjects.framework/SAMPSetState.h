@@ -2,17 +2,16 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@interface SAMPSetState : SADomainCommand {
-}
+@interface SAMPSetState : SADomainCommand
 
-@property int state;
+@property (nonatomic) int state;
 
 + (id)setState;
 + (id)setStateWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setState:(int)arg1;
 - (int)state;
 

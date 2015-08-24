@@ -2,20 +2,21 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@class MIPArtist, MIPSeries, NSString;
-
 @interface MIPPodcast : PBCodable <NSCopying> {
     MIPArtist *_artist;
     NSString *_externalGuid;
+    NSString *_feedUrl;
     MIPSeries *_series;
 }
 
-@property(retain) MIPArtist * artist;
-@property(retain) NSString * externalGuid;
-@property(readonly) bool hasArtist;
-@property(readonly) bool hasExternalGuid;
-@property(readonly) bool hasSeries;
-@property(retain) MIPSeries * series;
+@property (nonatomic, retain) MIPArtist *artist;
+@property (nonatomic, retain) NSString *externalGuid;
+@property (nonatomic, retain) NSString *feedUrl;
+@property (nonatomic, readonly) BOOL hasArtist;
+@property (nonatomic, readonly) BOOL hasExternalGuid;
+@property (nonatomic, readonly) BOOL hasFeedUrl;
+@property (nonatomic, readonly) BOOL hasSeries;
+@property (nonatomic, retain) MIPSeries *series;
 
 - (void).cxx_destruct;
 - (id)artist;
@@ -24,15 +25,19 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)externalGuid;
-- (bool)hasArtist;
-- (bool)hasExternalGuid;
-- (bool)hasSeries;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (id)feedUrl;
+- (BOOL)hasArtist;
+- (BOOL)hasExternalGuid;
+- (BOOL)hasFeedUrl;
+- (BOOL)hasSeries;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)mergeFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)series;
 - (void)setArtist:(id)arg1;
 - (void)setExternalGuid:(id)arg1;
+- (void)setFeedUrl:(id)arg1;
 - (void)setSeries:(id)arg1;
 - (void)writeTo:(id)arg1;
 

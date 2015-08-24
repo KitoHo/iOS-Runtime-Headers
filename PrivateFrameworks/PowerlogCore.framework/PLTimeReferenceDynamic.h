@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/PowerlogCore.framework/PowerlogCore
  */
 
-@class NSDate, NSMutableArray, NSMutableDictionary;
-
 @interface PLTimeReferenceDynamic : PLTimeReference {
     double _accumulatedError;
     NSDate *_lastQueryTime;
@@ -14,9 +12,9 @@
 }
 
 @property double accumulatedError;
-@property(retain) NSDate * lastQueryTime;
-@property(retain) NSMutableArray * offsetHistory;
-@property(retain) NSMutableDictionary * timeChangeBlocks;
+@property (retain) NSDate *lastQueryTime;
+@property (retain) NSMutableArray *offsetHistory;
+@property (retain) NSMutableDictionary *timeChangeBlocks;
 @property double tooFarInFutureDistance;
 @property double tooFarInPastDistance;
 
@@ -26,13 +24,13 @@
 - (double)accumulatedError;
 - (void)checkForTimeChangeWithCurrentTime:(id)arg1;
 - (void)cleanupOffsetHistory;
-- (id)initWithTimeManager:(id)arg1 entryDefinitionKey:(id)arg2 timeReferenceType:(long long)arg3;
+- (id)initWithTimeManager:(id)arg1 entryDefinitionKey:(id)arg2 timeReferenceType:(int)arg3;
 - (void)initializeOffsetWithEntry:(id)arg1;
 - (id)lastQueryTime;
 - (id)newOffsetEntry;
 - (void)notifyTimeChange:(double)arg1;
 - (id)offsetHistory;
-- (void)registerForTimeChangedCallbackWithIdentifier:(id)arg1 usingBlock:(id)arg2;
+- (void)registerForTimeChangedCallbackWithIdentifier:(id)arg1 usingBlock:(id /* block */)arg2;
 - (void)registerForTimeChangedNotification;
 - (id)removeTimeOffsetFromReferenceTime:(id)arg1;
 - (void)setAccumulatedError:(double)arg1;
@@ -42,7 +40,7 @@
 - (void)setTimeChangeBlocks:(id)arg1;
 - (void)setTooFarInFutureDistance:(double)arg1;
 - (void)setTooFarInPastDistance:(double)arg1;
-- (bool)shouldQueryCurrentTime;
+- (BOOL)shouldQueryCurrentTime;
 - (id)timeChangeBlocks;
 - (double)tooFarInFutureDistance;
 - (double)tooFarInPastDistance;

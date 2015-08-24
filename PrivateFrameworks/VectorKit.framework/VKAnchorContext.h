@@ -6,10 +6,10 @@
     struct shared_ptr<vk::AnchorContext> { 
         struct AnchorContext {} *__ptr_; 
         struct __shared_weak_count {} *__cntrl_; 
+    } _anchorContext;
     struct shared_ptr<vk::AnchorFactory> { 
         struct AnchorFactory {} *__ptr_; 
         struct __shared_weak_count {} *__cntrl_; 
-    } _anchorContext;
     } _anchorFactory;
 }
 
@@ -20,9 +20,9 @@
 - (id)init;
 - (id)initGeocentricWithCache:(id)arg1;
 - (id)initMercator;
-- (id)initWithAnchorContext:(struct AnchorContext { boolx1; id x2; id x3; }*)arg1;
-- (bool)isMercator;
-- (id)newAnchorAtCoordinate:(struct { double x1; double x2; })arg1 followsTerrain:(bool)arg2;
+- (id)initWithAnchorContext:(struct AnchorContext { bool x1; id x2; }*)arg1;
+- (BOOL)isMercator;
+- (id)newAnchorAtCoordinate:(struct { double x1; double x2; })arg1 followsTerrain:(BOOL)arg2;
 - (void)setMercatorTerrainHeightCache:(id)arg1;
 
 @end

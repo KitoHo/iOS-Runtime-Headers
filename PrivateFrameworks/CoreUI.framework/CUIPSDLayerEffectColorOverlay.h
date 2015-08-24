@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/CoreUI.framework/CoreUI
  */
 
-@class CUIColor;
-
 @interface CUIPSDLayerEffectColorOverlay : CUIPSDLayerEffectComponent {
     int _blendMode;
     CUIColor *_color;
-    double _opacity;
+    float _opacity;
 }
 
 @property int blendMode;
-@property(retain) CUIColor * color;
-@property double opacity;
+@property (retain) CUIColor *color;
+@property float opacity;
 
 - (int)blendMode;
 - (id)color;
@@ -20,10 +18,10 @@
 - (unsigned int)effectType;
 - (id)init;
 - (id)initWithEffectFromPreset:(id)arg1 atIndex:(unsigned int)arg2;
-- (double)opacity;
+- (float)opacity;
 - (void)setBlendMode:(int)arg1;
 - (void)setColor:(id)arg1;
-- (void)setOpacity:(double)arg1;
-- (bool)updateLayerEffectPreset:(id)arg1 error:(id*)arg2;
+- (void)setOpacity:(float)arg1;
+- (BOOL)updateLayerEffectPreset:(id)arg1 error:(id*)arg2;
 
 @end

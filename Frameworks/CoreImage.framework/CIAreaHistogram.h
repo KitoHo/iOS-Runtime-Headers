@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIContext, CIImage, CIVector, NSNumber;
-
 @interface CIAreaHistogram : CIFilter {
     CIContext *_context;
     NSNumber *inputCount;
@@ -12,14 +10,14 @@
     NSNumber *inputScale;
 }
 
-@property(retain) NSNumber * inputCount;
-@property(retain) CIVector * inputExtent;
-@property(retain) CIImage * inputImage;
-@property(retain) NSNumber * inputScale;
+@property (nonatomic, retain) NSNumber *inputCount;
+@property (nonatomic, retain) CIVector *inputExtent;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, retain) NSNumber *inputScale;
 
 + (id)customAttributes;
 
-- (id)_outputData:(bool)arg1;
+- (id)_outputData:(BOOL)arg1;
 - (void)dealloc;
 - (id)inputCount;
 - (id)inputExtent;

@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/MobileTimer.framework/MobileTimer
  */
 
-@class NSDateFormatter, NSString;
-
 @interface MTDateFormatting : NSObject {
     NSString *_amString;
     NSDateFormatter *_dateOnlyFormatter;
     NSString *_pmString;
+    BOOL _timeDesignatorAppearsBeforeTime;
     NSDateFormatter *_timeOnlyFormatter;
-    bool_timeDesignatorAppearsBeforeTime;
-    bool_use24HourTime;
+    BOOL _use24HourTime;
 }
 
-@property(readonly) NSString * amString;
-@property(readonly) NSString * pmString;
-@property(readonly) bool timeDesignatorAppearsBeforeTime;
-@property(readonly) bool use24HourTime;
+@property (nonatomic, readonly) NSString *amString;
+@property (nonatomic, readonly) NSString *pmString;
+@property (nonatomic, readonly) BOOL timeDesignatorAppearsBeforeTime;
+@property (nonatomic, readonly) BOOL use24HourTime;
 
 + (void)load;
 + (id)sharedInstance;
@@ -31,9 +29,9 @@
 - (id)localizedTimeStringFromDate:(id)arg1 forTimeZone:(id)arg2 timeDesignator:(out id*)arg3;
 - (id)localizedTimeStringFromDate:(id)arg1 timeDesignator:(out id*)arg2;
 - (id)pmString;
-- (bool)timeDesignatorAppearsBeforeTime;
-- (id)timeDesignatorForDate:(id)arg1 timeZone:(id)arg2;
+- (BOOL)timeDesignatorAppearsBeforeTime;
 - (id)timeDesignatorForDate:(id)arg1;
-- (bool)use24HourTime;
+- (id)timeDesignatorForDate:(id)arg1 timeZone:(id)arg2;
+- (BOOL)use24HourTime;
 
 @end

@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/WebKitLegacy.framework/WebKitLegacy
  */
 
-@class NSString, NSURLRequest, NSURLResponse;
-
 @interface WebNavigationDataPrivate : NSObject {
-    boolhasSubstituteData;
     NSString *clientRedirectSource;
+    BOOL hasSubstituteData;
     NSURLRequest *originalRequest;
     NSURLResponse *response;
     NSString *title;

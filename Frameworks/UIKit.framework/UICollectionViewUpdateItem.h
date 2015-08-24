@@ -2,40 +2,38 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSIndexPath;
-
 @interface UICollectionViewUpdateItem : NSObject {
     NSIndexPath *_finalIndexPath;
     id _gap;
     NSIndexPath *_initialIndexPath;
-    long long _updateAction;
+    int _updateAction;
 }
 
-@property(getter=_action,readonly) long long action;
-@property(getter=_gap,setter=_setGap:) id gap;
-@property(getter=_indexPath,readonly) NSIndexPath * indexPath;
-@property(readonly) NSIndexPath * indexPathAfterUpdate;
-@property(readonly) NSIndexPath * indexPathBeforeUpdate;
-@property(getter=_isSectionOperation,readonly) bool isSectionOperation;
-@property(getter=_newIndexPath,setter=_setNewIndexPath:,retain) NSIndexPath * newIndexPath;
-@property(readonly) long long updateAction;
+@property (getter=_action, nonatomic, readonly) int action;
+@property (getter=_gap, setter=_setGap:, nonatomic) id gap;
+@property (getter=_indexPath, nonatomic, readonly) NSIndexPath *indexPath;
+@property (nonatomic, readonly) NSIndexPath *indexPathAfterUpdate;
+@property (nonatomic, readonly) NSIndexPath *indexPathBeforeUpdate;
+@property (getter=_isSectionOperation, nonatomic, readonly) BOOL isSectionOperation;
+@property (getter=_newIndexPath, setter=_setNewIndexPath:, nonatomic, retain) NSIndexPath *newIndexPath;
+@property (nonatomic, readonly) int updateAction;
 
-- (long long)_action;
+- (int)_action;
 - (id)_gap;
 - (id)_indexPath;
-- (bool)_isSectionOperation;
+- (BOOL)_isSectionOperation;
 - (id)_newIndexPath;
 - (void)_setGap:(id)arg1;
 - (void)_setNewIndexPath:(id)arg1;
-- (long long)compareIndexPaths:(id)arg1;
+- (int)compareIndexPaths:(id)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)indexPathAfterUpdate;
 - (id)indexPathBeforeUpdate;
-- (id)initWithAction:(long long)arg1 forIndexPath:(id)arg2;
-- (id)initWithInitialIndexPath:(id)arg1 finalIndexPath:(id)arg2 updateAction:(long long)arg3;
+- (id)initWithAction:(int)arg1 forIndexPath:(id)arg2;
+- (id)initWithInitialIndexPath:(id)arg1 finalIndexPath:(id)arg2 updateAction:(int)arg3;
 - (id)initWithOldIndexPath:(id)arg1 newIndexPath:(id)arg2;
-- (long long)inverseCompareIndexPaths:(id)arg1;
-- (long long)updateAction;
+- (int)inverseCompareIndexPaths:(id)arg1;
+- (int)updateAction;
 
 @end

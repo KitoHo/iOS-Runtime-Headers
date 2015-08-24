@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/CalendarFoundation.framework/CalendarFoundation
  */
 
-@class NSMutableDictionary;
-
 @interface CalStopwatch : NSObject {
     unsigned long long _elapsedTime;
     NSMutableDictionary *_events;
+    BOOL _hasValidElapsedTime;
+    BOOL _isRunning;
     unsigned long long _lastStartTime;
-    bool_hasValidElapsedTime;
-    bool_isRunning;
 }
 
 - (void).cxx_destruct;

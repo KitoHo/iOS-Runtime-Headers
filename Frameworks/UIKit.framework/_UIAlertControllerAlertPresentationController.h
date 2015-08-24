@@ -2,10 +2,9 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface _UIAlertControllerAlertPresentationController : _UIAlertControllerPresentationController {
-}
+@interface _UIAlertControllerAlertPresentationController : _UIAlertControllerPresentationController
 
-- (id)_presentationControllerForSizeClassPair:(struct { long long x1; long long x2; })arg1;
-- (long long)attributeToAlignAlertControllerViewBy;
+- (id)_presentationControllerForTraitCollection:(id)arg1;
+- (int)attributeToAlignAlertControllerViewBy;
 
 @end

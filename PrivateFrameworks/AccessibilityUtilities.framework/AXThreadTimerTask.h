@@ -2,32 +2,28 @@
    Image: /System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface AXThreadTimerTask : NSObject {
-    id _block;
-    boolactive;
-    boolcancel;
-    boolfinished;
+    id /* block */ _block;
+    BOOL active;
+    BOOL cancel;
+    BOOL finished;
 }
 
-@property(getter=isActive) bool active;
-@property(copy) id block;
-@property(getter=isCancelled) bool cancel;
-@property(getter=isFinished) bool finished;
+@property (getter=isActive, nonatomic) BOOL active;
+@property (nonatomic, copy) id /* block */ block;
+@property (getter=isCancelled, nonatomic) BOOL cancel;
+@property (getter=isFinished, nonatomic) BOOL finished;
 
-- (id)block;
+- (id /* block */)block;
 - (void)dealloc;
-- (bool)isActive;
-- (bool)isCancelled;
-- (bool)isFinished;
+- (BOOL)isActive;
+- (BOOL)isCancelled;
+- (BOOL)isFinished;
 - (void)run;
 - (void)runAfterDelay:(float)arg1;
-- (void)setActive:(bool)arg1;
-- (void)setBlock:(id)arg1;
-- (void)setCancel:(bool)arg1;
-- (void)setFinished:(bool)arg1;
+- (void)setActive:(BOOL)arg1;
+- (void)setBlock:(id /* block */)arg1;
+- (void)setCancel:(BOOL)arg1;
+- (void)setFinished:(BOOL)arg1;
 
 @end

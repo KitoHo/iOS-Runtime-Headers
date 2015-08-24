@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/AccountsUI.framework/AccountsUI
  */
 
-@class SKUIItemOfferButton, UIImageView, UILabel;
-
 @interface ACUIAppInstallCell : PSTableCell {
     UIImageView *_iconView;
     SKUIItemOfferButton *_installButton;
@@ -12,7 +10,7 @@
     UILabel *_publisherLabel;
 }
 
-@property int installState;
+@property (nonatomic) int installState;
 
 + (id)specifierForAppWithDescription:(id)arg1 target:(id)arg2 action:(SEL)arg3;
 
@@ -22,7 +20,7 @@
 - (id)_createLabelForPublisher:(id)arg1;
 - (void)_updateInstallButtonWithState:(int)arg1;
 - (void)_updateSubviewsWithInstallState:(int)arg1;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 - (int)installState;
 - (void)layoutSubviews;
 - (void)setInstallState:(int)arg1;

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/FrontBoard.framework/FrontBoard
  */
 
-@class BSWatchdog, FBProcess, FBProcessManager, NSString;
-
 @interface FBWaitForProcessDeathTransaction : FBTransaction <FBProcessObserver> {
     FBProcessManager *_manager;
     FBProcess *_process;
@@ -11,19 +9,19 @@
     BSWatchdog *_watchdog;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain,readonly) FBProcess * process;
-@property(readonly) Class superclass;
-@property(readonly) double timeout;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly, retain) FBProcess *process;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) double timeout;
 
 - (void)_begin;
 - (id)_customizedDescriptionProperties;
 - (void)_didComplete;
 - (void)dealloc;
-- (id)initWithProcess:(id)arg1 timeout:(double)arg2;
 - (id)initWithProcess:(id)arg1;
+- (id)initWithProcess:(id)arg1 timeout:(double)arg2;
 - (id)process;
 - (void)processDidExit:(id)arg1;
 - (double)timeout;

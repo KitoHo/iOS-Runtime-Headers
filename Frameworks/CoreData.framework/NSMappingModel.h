@@ -2,22 +2,20 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary;
-
 @interface NSMappingModel : NSObject {
+    NSMutableArray *_entityMappings;
+    NSMutableDictionary *_entityMappingsByName;
     struct __modelMappingFlags { 
         unsigned int _isInUse : 1; 
         unsigned int _reservedModelMapping : 31; 
-    NSMutableArray *_entityMappings;
-    NSMutableDictionary *_entityMappingsByName;
     } _modelMappingFlags;
+    void *_reserved;
     void *_reserved1;
     void *_reserved2;
-    void *_reserved;
 }
 
-@property(retain) NSArray * entityMappings;
-@property(copy,readonly) NSDictionary * entityMappingsByName;
+@property (retain) NSArray *entityMappings;
+@property (readonly, copy) NSDictionary *entityMappingsByName;
 
 + (id)_modelPathsFromBundles:(id)arg1;
 + (id)_newMappingModelFromPaths:(id)arg1 forSourceHashes:(id)arg2 destinationHashes:(id)arg3;
@@ -30,10 +28,10 @@
 - (void)_addEntityMapping:(id)arg1;
 - (void)_createCachesAndOptimizeState;
 - (id)_destinationEntityVersionHashesByName;
-- (bool)_hasInferredMappingNeedingValidation;
+- (BOOL)_hasInferredMappingNeedingValidation;
 - (id)_initWithEntityMappings:(id)arg1;
-- (bool)_isInferredMappingModel;
-- (void)_setIsEditable:(bool)arg1;
+- (BOOL)_isInferredMappingModel;
+- (void)_setIsEditable:(BOOL)arg1;
 - (id)_sourceEntityVersionHashesByName;
 - (void)_throwIfNotEditable;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -45,8 +43,8 @@
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithContentsOfURL:(id)arg1;
-- (bool)isEditable;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEditable;
+- (BOOL)isEqual:(id)arg1;
 - (void)setEntityMappings:(id)arg1;
 
 @end

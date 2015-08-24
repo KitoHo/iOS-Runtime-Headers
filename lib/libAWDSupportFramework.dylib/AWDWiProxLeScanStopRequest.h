@@ -2,8 +2,6 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDWiProxLeScanStopRequest : PBRequest <NSCopying> {
     struct { 
         unsigned int timestamp : 1; 
@@ -14,28 +12,28 @@
     int _type;
 }
 
-@property(readonly) bool hasSessionId;
-@property bool hasTimestamp;
-@property bool hasType;
-@property(retain) NSString * sessionId;
-@property unsigned long long timestamp;
-@property int type;
+@property (nonatomic, readonly) BOOL hasSessionId;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) BOOL hasType;
+@property (nonatomic, retain) NSString *sessionId;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) int type;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasSessionId;
-- (bool)hasTimestamp;
-- (bool)hasType;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasSessionId;
+- (BOOL)hasTimestamp;
+- (BOOL)hasType;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)sessionId;
-- (void)setHasTimestamp:(bool)arg1;
-- (void)setHasType:(bool)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasType:(BOOL)arg1;
 - (void)setSessionId:(id)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;
 - (void)setType:(int)arg1;

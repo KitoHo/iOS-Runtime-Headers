@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/WebKitLegacy.framework/WebKitLegacy
  */
 
-@class <WebPluginManualLoader>, WAKView, WebDataSource;
-
 @interface WebHTMLRepresentationPrivate : NSObject {
-    boolhasSentResponseToPlugin;
-    boolincludedInWebKitStatistics;
     WebDataSource *dataSource;
+    BOOL hasSentResponseToPlugin;
+    BOOL includedInWebKitStatistics;
     <WebPluginManualLoader> *manualLoader;
     WAKView *pluginView;
 }

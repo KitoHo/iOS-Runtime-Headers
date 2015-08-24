@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/PowerlogLiteOperators.framework/PowerlogLiteOperators
  */
 
-@class NSMutableDictionary, NSMutableString;
-
 @interface PLBBEurekaEventMsg : PLBasebandMessage {
     NSMutableDictionary *_commonInfo;
     unsigned char _inited;
@@ -13,12 +11,12 @@
     NSMutableString *_sdState;
 }
 
-@property(retain) NSMutableDictionary * commonInfo;
-@property unsigned char inited;
-@property(retain) NSMutableDictionary * kvPairs;
-@property(retain) NSMutableString * sdAct;
-@property(retain) NSMutableString * sdEvent;
-@property(retain) NSMutableString * sdState;
+@property (nonatomic, retain) NSMutableDictionary *commonInfo;
+@property (nonatomic) unsigned char inited;
+@property (nonatomic, retain) NSMutableDictionary *kvPairs;
+@property (nonatomic, retain) NSMutableString *sdAct;
+@property (nonatomic, retain) NSMutableString *sdEvent;
+@property (nonatomic, retain) NSMutableString *sdState;
 
 + (id)bbEuEvMsgEventNotProcessed;
 + (id)bbEuEvMsgNameBBEurekaMsgLite;
@@ -43,18 +41,18 @@
 - (id)init;
 - (unsigned char)inited;
 - (id)kvPairs;
+- (void)logEventCMCallEventConnWithId:(id)arg1 andCallType:(id)arg2 andSysMode:(id)arg3;
+- (void)logEventCMCallEventConnWithId:(id)arg1 andCallType:(id)arg2 andSysMode:(id)arg3 andClientId:(id)arg4;
+- (void)logEventCMCallEventEndWithId:(id)arg1 andNumCalls:(id)arg2;
+- (void)logEventCMCallEventEndWithId:(id)arg1 andNumCalls:(id)arg2 andClientId:(id)arg3;
+- (void)logEventCMCallEventOrigWithId:(id)arg1 andCallType:(id)arg2 andSrvType:(id)arg3;
+- (void)logEventCMCallEventOrigWithId:(id)arg1 andCallType:(id)arg2 andSrvType:(id)arg3 andClientId:(id)arg4;
 - (void)logEventForwardBBEurekaEventMsgLite;
 - (void)logEventForwardGSML1StateWith:(id)arg1;
 - (void)logEventForwardLTERRCStateAs:(id)arg1;
 - (void)logEventForwardSDEventActionCode;
 - (void)logEventForwardUTRANRRCNextStateAs:(id)arg1 andCurrStateAs:(id)arg2 andRateAs:(id)arg3;
 - (void)logEventForwardWCDMARRCPrevStateAs:(id)arg1 andCurrState:(id)arg2 andRate:(id)arg3;
-- (void)logEventIntervalCMCallEventConnWithId:(id)arg1 andCallType:(id)arg2 andSysMode:(id)arg3 andClientId:(id)arg4;
-- (void)logEventIntervalCMCallEventConnWithId:(id)arg1 andCallType:(id)arg2 andSysMode:(id)arg3;
-- (void)logEventIntervalCMCallEventEndWithId:(id)arg1 andNumCalls:(id)arg2 andClientId:(id)arg3;
-- (void)logEventIntervalCMCallEventEndWithId:(id)arg1 andNumCalls:(id)arg2;
-- (void)logEventIntervalCMCallEventOrigWithId:(id)arg1 andCallType:(id)arg2 andSrvType:(id)arg3 andClientId:(id)arg4;
-- (void)logEventIntervalCMCallEventOrigWithId:(id)arg1 andCallType:(id)arg2 andSrvType:(id)arg3;
 - (void)logEventNoneEventNotProcessed;
 - (void)logEventPointCMExitCodeWithState:(id)arg1;
 - (void)refreshBBEurekaEventMsgLite;

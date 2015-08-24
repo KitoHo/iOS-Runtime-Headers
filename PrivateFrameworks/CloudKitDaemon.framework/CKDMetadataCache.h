@@ -2,14 +2,13 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSObject<OS_dispatch_queue>;
-
 @interface CKDMetadataCache : CKSQLite {
     NSObject<OS_dispatch_queue> *_cacheQueue;
 }
 
-@property(retain) NSObject<OS_dispatch_queue> * cacheQueue;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *cacheQueue;
 
++ (id)dbFileName;
 + (id)sharedCache;
 
 - (void).cxx_destruct;
@@ -18,7 +17,7 @@
 - (id)cacheQueue;
 - (id)containerInfoForContainerID:(id)arg1;
 - (id)dateOfLastTokenUpdate;
-- (void)expungeWithCurrentAccountIdentifier:(id)arg1 forceRemove:(bool)arg2;
+- (void)expungeWithCurrentAccountIdentifier:(id)arg1 forceRemove:(BOOL)arg2;
 - (id)globalConfiguration;
 - (id)init;
 - (id)inlock_applicationMetadataForApplicationBundleID:(id)arg1;

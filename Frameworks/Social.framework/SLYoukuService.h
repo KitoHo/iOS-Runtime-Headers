@@ -2,12 +2,11 @@
    Image: /System/Library/Frameworks/Social.framework/Social
  */
 
-@interface SLYoukuService : SLService {
-}
+@interface SLYoukuService : SLService
 
 - (id)accountTypeIdentifier;
-- (long long)authenticationStyle;
-- (bool)isFirstClassService;
+- (int)authenticationStyle;
+- (BOOL)isFirstClassService;
 - (id)serviceType;
 
 @end

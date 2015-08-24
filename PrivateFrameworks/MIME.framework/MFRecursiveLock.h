@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/MIME.framework/MIME
  */
 
-@class NSString;
-
 @interface MFRecursiveLock : NSRecursiveLock <MFLockObject> {
     id _delegate;
     NSString *_name;
@@ -15,10 +13,10 @@
 - (id)description;
 - (id)init;
 - (id)initWithName:(id)arg1 andDelegate:(id)arg2;
-- (bool)isLockedByMe;
+- (BOOL)isLockedByMe;
 - (void)lock;
-- (bool)lockBeforeDate:(id)arg1;
-- (bool)tryLock;
+- (BOOL)lockBeforeDate:(id)arg1;
+- (BOOL)tryLock;
 - (void)unlock;
 
 @end

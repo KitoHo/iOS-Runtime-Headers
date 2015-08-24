@@ -2,30 +2,31 @@
    Image: /System/Library/PrivateFrameworks/RadioUI.framework/RadioUI
  */
 
-@class NSObject<OS_dispatch_queue>, RadioStation;
-
-@interface RURadioAVPlayer : MPAVController {
-    RadioStation *_lastPlayedStation;
+@interface RURadioAVPlayer : MPUAVPlayer {
+    BOOL _banningCurrentItemShouldSkipToNextItem;
+    BOOL _checkedDefaultsForLastPlayedStation;
+    RURadioStationPlaybackMetadata *_lastPlayedStationMetadata;
     NSObject<OS_dispatch_queue> *_lastPlayedStationSaveQueue;
-    RadioStation *_playbackCoordinatorCurrentStation;
     NSObject<OS_dispatch_queue> *_radioUIAccessQueue;
-    bool_checkedDefaultsForLastPlayedStation;
 }
 
-@property(readonly) RadioStation * currentStation;
-@property(retain) RadioStation * lastPlayedStation;
+@property (nonatomic) BOOL banningCurrentItemShouldSkipToNextItem;
+@property (nonatomic, readonly) RadioStation *currentStation;
+@property (nonatomic, retain) RURadioStationPlaybackMetadata *lastPlayedStationMetadata;
 
 - (void).cxx_destruct;
-- (void)_currentStationDidChangeNotification:(id)arg1;
+- (void)_feederContentsDidChangeNotification:(id)arg1;
+- (void)_itemLikedStateDidChangeNotification:(id)arg1;
 - (void)_previewSessionDidStopNotification:(id)arg1;
-- (void)_updateLastPlayedStation;
-- (bool)beginOrTogglePlaybackWithCoordinator:(id)arg1;
-- (bool)beginPlaybackWithCoordinator:(id)arg1;
+- (void)_updateLastPlayedStationMetadata;
+- (BOOL)banningCurrentItemShouldSkipToNextItem;
+- (BOOL)beginOrTogglePlaybackWithCoordinator:(id)arg1;
+- (BOOL)beginPlaybackWithCoordinator:(id)arg1;
 - (id)currentStation;
 - (void)dealloc;
-- (void)feederChangedContents:(id)arg1;
 - (id)init;
-- (id)lastPlayedStation;
-- (void)setLastPlayedStation:(id)arg1;
+- (id)lastPlayedStationMetadata;
+- (void)setBanningCurrentItemShouldSkipToNextItem:(BOOL)arg1;
+- (void)setLastPlayedStationMetadata:(id)arg1;
 
 @end

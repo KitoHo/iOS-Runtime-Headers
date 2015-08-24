@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class EDCollection;
-
 @interface EDPivotField : NSObject {
-    boolmCompact;
-    boolmDataField;
-    boolmInsertBlankRow;
-    boolmOutlineItems;
-    boolmShowAllItems;
-    boolmShowDefaultSubTotal;
-    boolmSubtotalTop;
     int mAxis;
-    unsigned long long mNumFmtId;
+    bool mCompact;
+    bool mDataField;
+    bool mInsertBlankRow;
+    unsigned long mNumFmtId;
+    bool mOutlineItems;
     EDCollection *mPivotFieldItems;
+    bool mShowAllItems;
+    bool mShowDefaultSubTotal;
+    bool mSubtotalTop;
 }
 
 + (id)pivotField;
@@ -25,14 +23,14 @@
 - (void)dealloc;
 - (id)init;
 - (bool)insertBlankRow;
-- (unsigned long long)numFmtId;
+- (unsigned long)numFmtId;
 - (bool)outlineItems;
 - (id)pivotFieldItems;
 - (void)setAxis:(int)arg1;
 - (void)setCompact:(bool)arg1;
 - (void)setDataField:(bool)arg1;
 - (void)setInsertBlankRow:(bool)arg1;
-- (void)setNumFmtId:(unsigned long long)arg1;
+- (void)setNumFmtId:(unsigned long)arg1;
 - (void)setOutlineItems:(bool)arg1;
 - (void)setShowAllItems:(bool)arg1;
 - (void)setShowDefaultSubTotal:(bool)arg1;

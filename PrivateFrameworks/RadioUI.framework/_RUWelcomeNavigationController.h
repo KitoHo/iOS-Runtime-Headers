@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/RadioUI.framework/RadioUI
  */
 
-@interface _RUWelcomeNavigationController : UINavigationController {
-}
+@interface _RUWelcomeNavigationController : UINavigationController
 
-- (unsigned long long)supportedInterfaceOrientations;
+- (unsigned int)supportedInterfaceOrientations;
 
 @end

@@ -2,49 +2,51 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIKBTree, UITouch;
-
 @interface UIKeyboardTouchInfo : NSObject {
+    BOOL _dragged;
     struct CGPoint { 
-        double x; 
-        double y; 
-    struct CGPoint { 
-        double x; 
-        double y; 
+        float x; 
+        float y; 
     } _initialDragPoint;
+    int _initialKeyState;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _initialPoint;
     UIKBTree *_key;
     UIKBTree *_keyplane;
+    BOOL _maySuppressUpAction;
     UIKBTree *_slidOffKey;
     int _stage;
     UITouch *_touch;
-    bool_dragged;
-    bool_maySuppressUpAction;
 }
 
-@property bool dragged;
-@property struct CGPoint { double x1; double x2; } initialDragPoint;
-@property struct CGPoint { double x1; double x2; } initialPoint;
-@property(retain) UIKBTree * key;
-@property(retain) UIKBTree * keyplane;
-@property bool maySuppressUpAction;
-@property(retain) UIKBTree * slidOffKey;
-@property int stage;
-@property(retain) UITouch * touch;
+@property (nonatomic) BOOL dragged;
+@property (nonatomic) struct CGPoint { float x1; float x2; } initialDragPoint;
+@property (nonatomic) int initialKeyState;
+@property (nonatomic) struct CGPoint { float x1; float x2; } initialPoint;
+@property (nonatomic, retain) UIKBTree *key;
+@property (nonatomic, retain) UIKBTree *keyplane;
+@property (nonatomic) BOOL maySuppressUpAction;
+@property (nonatomic, retain) UIKBTree *slidOffKey;
+@property (nonatomic) int stage;
+@property (nonatomic, retain) UITouch *touch;
 
 - (void)dealloc;
-- (bool)dragged;
-- (struct CGPoint { double x1; double x2; })initialDragPoint;
-- (struct CGPoint { double x1; double x2; })initialPoint;
+- (BOOL)dragged;
+- (struct CGPoint { float x1; float x2; })initialDragPoint;
+- (int)initialKeyState;
+- (struct CGPoint { float x1; float x2; })initialPoint;
 - (id)key;
 - (id)keyplane;
-- (bool)maySuppressUpAction;
-- (void)setDragged:(bool)arg1;
-- (void)setInitialDragPoint:(struct CGPoint { double x1; double x2; })arg1;
-- (void)setInitialPoint:(struct CGPoint { double x1; double x2; })arg1;
+- (BOOL)maySuppressUpAction;
+- (void)setDragged:(BOOL)arg1;
+- (void)setInitialDragPoint:(struct CGPoint { float x1; float x2; })arg1;
+- (void)setInitialKeyState:(int)arg1;
+- (void)setInitialPoint:(struct CGPoint { float x1; float x2; })arg1;
 - (void)setKey:(id)arg1;
 - (void)setKeyplane:(id)arg1;
-- (void)setMaySuppressUpAction:(bool)arg1;
+- (void)setMaySuppressUpAction:(BOOL)arg1;
 - (void)setSlidOffKey:(id)arg1;
 - (void)setStage:(int)arg1;
 - (void)setTouch:(id)arg1;

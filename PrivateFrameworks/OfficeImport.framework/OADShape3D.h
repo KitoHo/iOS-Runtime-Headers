@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADBevel, OADColor;
-
 @interface OADShape3D : NSObject <NSCopying> {
     OADBevel *mBottomBevel;
     OADColor *mContourColor;
@@ -25,9 +23,9 @@
 - (id)description;
 - (id)extrusionColor;
 - (float)extrusionHeight;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (int)material;
 - (void)setBottomBevel:(id)arg1;
 - (void)setContourColor:(id)arg1;

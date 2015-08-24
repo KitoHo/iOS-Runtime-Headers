@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/PowerlogCore.framework/PowerlogCore
  */
 
-@class NSObject<OS_dispatch_source>, PLCoreAccountingGroup, PLCoreAgent, PLCoreRail, PLCoreService, PLCoreStorage;
-
 @interface PowerlogCore : NSObject {
     PLCoreAccountingGroup *_accountingGroups;
     PLCoreAgent *_agents;
@@ -13,14 +11,14 @@
     PLCoreStorage *_storage;
 }
 
-@property(readonly) PLCoreAccountingGroup * accountingGroups;
-@property(readonly) PLCoreAgent * agents;
-@property(readonly) PLCoreRail * rails;
-@property(readonly) PLCoreService * services;
-@property(readonly) PLCoreStorage * storage;
+@property (readonly) PLCoreAccountingGroup *accountingGroups;
+@property (readonly) PLCoreAgent *agents;
+@property (readonly) PLCoreRail *rails;
+@property (readonly) PLCoreService *services;
+@property (readonly) PLCoreStorage *storage;
 
-+ (bool)allowRun;
-+ (bool)isDebugEnabled;
++ (BOOL)allowRun;
++ (BOOL)isDebugEnabled;
 + (id)sharedCore;
 
 - (void).cxx_destruct;

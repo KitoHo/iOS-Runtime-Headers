@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/TelephonyUI.framework/TelephonyUI
  */
 
-@interface TPPortraitOnlyNavigationController : UINavigationController {
-}
+@interface TPPortraitOnlyNavigationController : UINavigationController
 
-- (bool)shouldAutorotate;
-- (bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
-- (unsigned long long)supportedInterfaceOrientations;
+- (BOOL)shouldAutorotate;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (unsigned int)supportedInterfaceOrientations;
 
 @end

@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/PowerlogCore.framework/PowerlogCore
  */
 
-@class NSMutableArray, NSMutableDictionary;
-
 @interface PLQLAccountingBucket : NSObject {
-    struct _PLTimeIntervalRange { 
-        double location; 
-        double length; 
     NSMutableDictionary *_accountedEnergy;
     NSMutableArray *_accountingEvents;
     double _energy;
+    struct _PLTimeIntervalRange { 
+        double location; 
+        double length; 
     } _range;
 }
 
-@property(readonly) NSMutableDictionary * accountedEnergy;
-@property(retain,readonly) NSMutableArray * accountingEvents;
+@property (readonly) NSMutableDictionary *accountedEnergy;
+@property (readonly, retain) NSMutableArray *accountingEvents;
 @property double energy;
-@property(readonly) struct _PLTimeIntervalRange { double x1; double x2; } range;
+@property (readonly) struct _PLTimeIntervalRange { double x1; double x2; } range;
 
 - (void).cxx_destruct;
 - (id)accountedEnergy;
@@ -29,7 +27,7 @@
 - (double)energyForAccountingIdentifier:(id)arg1;
 - (double)getEnergy;
 - (id)initWithRange:(struct _PLTimeIntervalRange { double x1; double x2; })arg1;
-- (unsigned long long)numberOfAccountingEvents;
+- (unsigned int)numberOfAccountingEvents;
 - (void)performBucketEnergyAccounting:(double)arg1;
 - (struct _PLTimeIntervalRange { double x1; double x2; })range;
 - (void)setEnergy:(double)arg1;

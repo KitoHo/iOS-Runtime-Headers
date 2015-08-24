@@ -2,17 +2,14 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString, TSARenderingExporter;
-
 @interface TSAPdfRenderingExporterDelegate : NSObject <TSARenderingExporterDelegate> {
-    boolmRequireCopyPassword;
-    boolmRequireOpenPassword;
-    boolmRequirePrintPassword;
-    double mMaxPixels;
     NSString *mPassphraseOpen;
     NSString *mPassphrasePrintCopy;
     TSARenderingExporter *mRenderingExporter;
     int mRenderingQuality;
+    BOOL mRequireCopyPassword;
+    BOOL mRequireOpenPassword;
+    BOOL mRequirePrintPassword;
 }
 
 - (void)dealloc;
@@ -21,14 +18,13 @@
 - (void)releaseCGContext:(struct CGContext { }*)arg1;
 - (int)renderingQuality;
 - (void)setCopyPassphrase:(id)arg1 hint:(id)arg2;
-- (void)setMaxPixels:(double)arg1;
 - (void)setPassphrase:(id)arg1 hint:(id)arg2;
 - (void)setPrintPassphrase:(id)arg1 hint:(id)arg2;
 - (void)setRenderingQuality:(int)arg1;
 - (void)setup;
-- (bool)supportsPaging;
-- (bool)supportsRenderingQuality;
+- (BOOL)supportsPaging;
+- (BOOL)supportsRenderingQuality;
 - (void)teardown;
-- (double)viewScale;
+- (float)viewScale;
 
 @end

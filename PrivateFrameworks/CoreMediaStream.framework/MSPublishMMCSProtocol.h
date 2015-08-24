@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/CoreMediaStream.framework/CoreMediaStream
  */
 
-@class <MSPublishStorageProtocolDelegate>, NSMutableDictionary, NSString;
-
 @interface MSPublishMMCSProtocol : MSMMCSProtocol <MSPublishStorageProtocol> {
     char **_authTokens;
     <MSPublishStorageProtocolDelegate> *_delegate;
     unsigned int *_itemFlags;
     NSMutableDictionary *_itemIDToAssetDict;
     unsigned long long *_itemIDs;
-    long long _itemsInFlight;
+    int _itemsInFlight;
     const char **_signatures;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <MSPublishStorageProtocolDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <MSPublishStorageProtocolDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (int)_getFileDescriptorFromItem:(unsigned long long)arg1;

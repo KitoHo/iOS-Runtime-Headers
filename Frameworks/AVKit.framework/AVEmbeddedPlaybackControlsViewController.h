@@ -2,18 +2,9 @@
    Image: /System/Library/Frameworks/AVKit.framework/AVKit
  */
 
-@class AVLoadingIndicatorView, AVScrubber, NSArray, NSLayoutConstraint, NSMutableArray, NSString, UIButton, UILabel, UIView;
-
 @interface AVEmbeddedPlaybackControlsViewController : AVPlaybackControlsViewController {
-    unsigned int _showsLoadingIndicator : 1;
-    unsigned int _playing : 1;
-    unsigned int _scrubberEnabled : 1;
-    unsigned int _playPauseButtonEnabled : 1;
-    unsigned int _showsStreamingControls : 1;
-    unsigned int _showsMediaSelectionButton : 1;
-    unsigned int _showsScrubInstructions : 1;
-    unsigned int _controlsVisibilityHasBeenManagedBefore : 1;
     NSLayoutConstraint *_controlsContainerViewHeightLayoutConstraint;
+    unsigned int _controlsVisibilityHasBeenManagedBefore;
     UILabel *_elapsedTimeLabel;
     NSString *_elapsedTimeLabelText;
     UIButton *_fullScreenButton;
@@ -23,15 +14,22 @@
     UIView *_lowerControlsSubContainerView;
     UIButton *_mediaSelectionButton;
     UIButton *_playPauseButton;
+    unsigned int _playPauseButtonEnabled;
+    unsigned int _playing;
     UILabel *_remainingTimeLabel;
     NSString *_remainingTimeLabelText;
     UILabel *_scrubInstructionsSubtitleLabel;
     UILabel *_scrubInstructionsTitleLabel;
     AVScrubber *_scrubber;
+    unsigned int _scrubberEnabled;
     NSArray *_scrubberLoadedTimeRanges;
     float _scrubberMaximumValue;
     float _scrubberMinimumValue;
     float _scrubberValue;
+    unsigned int _showsLoadingIndicator;
+    unsigned int _showsMediaSelectionButton;
+    unsigned int _showsScrubInstructions;
+    unsigned int _showsStreamingControls;
 }
 
 - (void).cxx_destruct;
@@ -42,23 +40,23 @@
 - (void)_showScrubInstructions;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (bool)isPlayPauseButtonEnabled;
-- (bool)isPlaying;
-- (bool)isScrubberEnabled;
+- (BOOL)isPlayPauseButtonEnabled;
+- (BOOL)isPlaying;
+- (BOOL)isScrubberEnabled;
 - (void)loadView;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4;
 - (id)scrubberLoadedTimeRanges;
-- (double)scrubberWidth;
-- (void)setPlayPauseButtonEnabled:(bool)arg1;
-- (void)setPlaying:(bool)arg1;
-- (void)setScrubberEnabled:(bool)arg1;
+- (float)scrubberWidth;
+- (void)setPlayPauseButtonEnabled:(BOOL)arg1;
+- (void)setPlaying:(BOOL)arg1;
+- (void)setScrubberEnabled:(BOOL)arg1;
 - (void)setScrubberLoadedTimeRanges:(id)arg1;
-- (void)setShowsLoadingIndicator:(bool)arg1;
-- (void)setShowsMediaSelectionButton:(bool)arg1;
-- (void)setShowsStreamingControls:(bool)arg1;
-- (bool)showsLoadingIndicator;
-- (bool)showsMediaSelectionButton;
-- (bool)showsStreamingControls;
+- (void)setShowsLoadingIndicator:(BOOL)arg1;
+- (void)setShowsMediaSelectionButton:(BOOL)arg1;
+- (void)setShowsStreamingControls:(BOOL)arg1;
+- (BOOL)showsLoadingIndicator;
+- (BOOL)showsMediaSelectionButton;
+- (BOOL)showsStreamingControls;
 - (void)updateElapsedTimeLabel:(id)arg1;
 - (void)updateRemainingTimeLabel:(id)arg1;
 - (void)updateScrubberMaximumValue:(float)arg1;

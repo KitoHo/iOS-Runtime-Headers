@@ -2,10 +2,9 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface _UIAlertControllerActionSheetCompactPresentationController : _UIAlertControllerPresentationController {
-}
+@interface _UIAlertControllerActionSheetCompactPresentationController : _UIAlertControllerPresentationController
 
-- (long long)attributeToAlignAlertControllerViewBy;
-- (double)constantForAligningAlertControllerToAvailableSpace;
+- (int)attributeToAlignAlertControllerViewBy;
+- (float)constantForAligningAlertControllerToAvailableSpace;
 
 @end

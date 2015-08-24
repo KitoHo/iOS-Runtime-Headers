@@ -2,76 +2,78 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <MPArtworkDataSource>, NSCache, NSString;
-
 @interface MPArtworkCatalog : NSObject {
-    struct CGSize { 
-        double width; 
-        double height; 
     NSString *_cacheIdentifier;
-    id _configurationBlock;
+    id /* block */ _configurationBlock;
     <MPArtworkDataSource> *_dataSource;
     id _destination;
-    double _destinationScale;
+    float _destinationScale;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _fittingSize;
+    BOOL _loadingRepresentation;
     id _requestingContext;
     id _token;
-    bool_loadingRepresentation;
 }
 
-@property(readonly) NSCache * cache;
-@property(copy) NSString * cacheIdentifier;
-@property(copy) id configurationBlock;
-@property <MPArtworkDataSource> * dataSource;
-@property id destination;
-@property double destinationScale;
-@property struct CGSize { double x1; double x2; } fittingSize;
-@property(getter=isLoadingRepresentation) bool loadingRepresentation;
-@property id requestingContext;
-@property(readonly) struct CGSize { double x1; double x2; } scaledFittingSize;
-@property(retain) id token;
+@property (nonatomic, readonly) int MP_artworkType;
+@property (nonatomic, readonly) NSCache *cache;
+@property (nonatomic, copy) NSString *cacheIdentifier;
+@property (nonatomic, copy) id /* block */ configurationBlock;
+@property (nonatomic) <MPArtworkDataSource> *dataSource;
+@property (nonatomic) id destination;
+@property (nonatomic) float destinationScale;
+@property (nonatomic) struct CGSize { float x1; float x2; } fittingSize;
+@property (getter=isLoadingRepresentation) BOOL loadingRepresentation;
+@property (nonatomic) id requestingContext;
+@property (nonatomic, readonly) struct CGSize { float x1; float x2; } scaledFittingSize;
+@property (nonatomic, retain) id token;
+@property (nonatomic, readonly) <NSCopying> *visualIdenticalityIdentifier;
 
 + (id)_artworkCacheForIdentifier:(id)arg1 requestingContext:(id)arg2;
-+ (void)setCacheLimit:(unsigned long long)arg1 forCacheIdentifier:(id)arg2 requestingContext:(id)arg3;
-+ (void)setCachePurgesWhenEnteringBackground:(bool)arg1 forCacheIdentifier:(id)arg2 requestingContext:(id)arg3;
++ (id)_artworkLoadQueue;
++ (void)setCacheLimit:(unsigned int)arg1 forCacheIdentifier:(id)arg2 requestingContext:(id)arg3;
++ (void)setCachePurgesWhenEnteringBackground:(BOOL)arg1 forCacheIdentifier:(id)arg2 requestingContext:(id)arg3;
++ (id)staticArtworkCatalogWithImage:(id)arg1;
 
 - (void).cxx_destruct;
+- (int)MP_artworkType;
 - (void)_loadBestRepresentationIfNeeded;
 - (void)_updateRepresentation;
 - (void)_updateWithRepresentation:(id)arg1;
 - (id)bestImageFromDisk;
 - (id)cache;
 - (id)cacheIdentifier;
-- (id)configurationBlock;
+- (id /* block */)configurationBlock;
 - (id)dataSource;
 - (void)dealloc;
 - (id)description;
 - (id)destination;
-- (double)destinationScale;
-- (struct CGSize { double x1; double x2; })fittingSize;
-- (unsigned long long)hash;
+- (float)destinationScale;
+- (struct CGSize { float x1; float x2; })fittingSize;
+- (unsigned int)hash;
 - (id)initWithToken:(id)arg1 dataSource:(id)arg2;
-- (bool)isArtworkVisuallyIdenticalToCatalog:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)isLoadingRepresentation;
-- (void)requestImageWithCompletionHandler:(id)arg1;
+- (BOOL)isArtworkVisuallyIdenticalToCatalog:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isLoadingRepresentation;
+- (void)requestColorAnalysisWithAlgorithm:(int)arg1 completionHandler:(id /* block */)arg2;
+- (void)requestFocusRegionsWithCompletionHandler:(id /* block */)arg1;
+- (void)requestImageWithCompletionHandler:(id /* block */)arg1;
 - (id)requestingContext;
-- (struct CGSize { double x1; double x2; })scaledFittingSize;
-- (void)setCacheIdentifier:(id)arg1 forRequestingContext:(id)arg2;
+- (struct CGSize { float x1; float x2; })scaledFittingSize;
 - (void)setCacheIdentifier:(id)arg1;
-- (void)setConfigurationBlock:(id)arg1;
+- (void)setCacheIdentifier:(id)arg1 forRequestingContext:(id)arg2;
+- (void)setConfigurationBlock:(id /* block */)arg1;
 - (void)setDataSource:(id)arg1;
-- (void)setDestination:(id)arg1 configurationBlock:(id)arg2;
 - (void)setDestination:(id)arg1;
-- (void)setDestinationScale:(double)arg1;
-- (void)setFittingSize:(struct CGSize { double x1; double x2; })arg1;
-- (void)setLoadingRepresentation:(bool)arg1;
+- (void)setDestination:(id)arg1 configurationBlock:(id /* block */)arg2;
+- (void)setDestinationScale:(float)arg1;
+- (void)setFittingSize:(struct CGSize { float x1; float x2; })arg1;
+- (void)setLoadingRepresentation:(BOOL)arg1;
 - (void)setRequestingContext:(id)arg1;
 - (void)setToken:(id)arg1;
 - (id)token;
+- (id)visualIdenticalityIdentifier;
 
 @end

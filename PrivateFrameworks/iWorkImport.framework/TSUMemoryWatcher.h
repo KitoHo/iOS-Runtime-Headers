@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSUFlushingManager;
-
 @interface TSUMemoryWatcher : NSObject {
     TSUFlushingManager *_flushingManager;
-    bool_going;
-    bool_stop;
+    BOOL _going;
+    BOOL _stop;
 }
 
 - (void)_periodicallySimulateMemoryWarning:(id)arg1;

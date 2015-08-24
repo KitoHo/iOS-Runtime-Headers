@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSMutableArray;
-
 @interface CKDPQuery : PBCodable <NSCopying> {
+    BOOL _distinct;
+    NSMutableArray *_filters;
     struct { 
         unsigned int queryOperator : 1; 
         unsigned int distinct : 1; 
-    NSMutableArray *_filters;
     } _has;
     int _queryOperator;
     NSMutableArray *_sorts;
     NSMutableArray *_types;
-    bool_distinct;
 }
 
-@property bool distinct;
-@property(retain) NSMutableArray * filters;
-@property bool hasDistinct;
-@property bool hasQueryOperator;
-@property int queryOperator;
-@property(retain) NSMutableArray * sorts;
-@property(retain) NSMutableArray * types;
+@property (nonatomic) BOOL distinct;
+@property (nonatomic, retain) NSMutableArray *filters;
+@property (nonatomic) BOOL hasDistinct;
+@property (nonatomic) BOOL hasQueryOperator;
+@property (nonatomic) int queryOperator;
+@property (nonatomic, retain) NSMutableArray *sorts;
+@property (nonatomic, retain) NSMutableArray *types;
 
 - (void).cxx_destruct;
 - (void)addFilters:(id)arg1;
@@ -35,30 +33,30 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)distinct;
+- (BOOL)distinct;
 - (id)filters;
-- (id)filtersAtIndex:(unsigned long long)arg1;
-- (unsigned long long)filtersCount;
-- (bool)hasDistinct;
-- (bool)hasQueryOperator;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (id)filtersAtIndex:(unsigned int)arg1;
+- (unsigned int)filtersCount;
+- (BOOL)hasDistinct;
+- (BOOL)hasQueryOperator;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (int)queryOperator;
-- (bool)readFrom:(id)arg1;
-- (void)setDistinct:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setDistinct:(BOOL)arg1;
 - (void)setFilters:(id)arg1;
-- (void)setHasDistinct:(bool)arg1;
-- (void)setHasQueryOperator:(bool)arg1;
+- (void)setHasDistinct:(BOOL)arg1;
+- (void)setHasQueryOperator:(BOOL)arg1;
 - (void)setQueryOperator:(int)arg1;
 - (void)setSorts:(id)arg1;
 - (void)setTypes:(id)arg1;
 - (id)sorts;
-- (id)sortsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)sortsCount;
+- (id)sortsAtIndex:(unsigned int)arg1;
+- (unsigned int)sortsCount;
 - (id)types;
-- (id)typesAtIndex:(unsigned long long)arg1;
-- (unsigned long long)typesCount;
+- (id)typesAtIndex:(unsigned int)arg1;
+- (unsigned int)typesCount;
 - (void)writeTo:(id)arg1;
 
 @end

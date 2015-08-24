@@ -2,9 +2,10 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDAppRRCConnectionStats : PBCodable <NSCopying> {
+    unsigned int _bundleBGDuration;
+    unsigned int _bundleFGDuration;
+    NSString *_bundleName;
     struct { 
         unsigned int bundleBGDuration : 1; 
         unsigned int bundleFGDuration : 1; 
@@ -12,9 +13,6 @@
         unsigned int numMTConnectionTriggered : 1; 
         unsigned int rAT : 1; 
         unsigned int totalBytesTransferred : 1; 
-    unsigned int _bundleBGDuration;
-    unsigned int _bundleFGDuration;
-    NSString *_bundleName;
     } _has;
     unsigned int _numMOConnectionTriggered;
     unsigned int _numMTConnectionTriggered;
@@ -22,20 +20,20 @@
     unsigned int _totalBytesTransferred;
 }
 
-@property unsigned int bundleBGDuration;
-@property unsigned int bundleFGDuration;
-@property(retain) NSString * bundleName;
-@property bool hasBundleBGDuration;
-@property bool hasBundleFGDuration;
-@property(readonly) bool hasBundleName;
-@property bool hasNumMOConnectionTriggered;
-@property bool hasNumMTConnectionTriggered;
-@property bool hasRAT;
-@property bool hasTotalBytesTransferred;
-@property unsigned int numMOConnectionTriggered;
-@property unsigned int numMTConnectionTriggered;
-@property int rAT;
-@property unsigned int totalBytesTransferred;
+@property (nonatomic) unsigned int bundleBGDuration;
+@property (nonatomic) unsigned int bundleFGDuration;
+@property (nonatomic, retain) NSString *bundleName;
+@property (nonatomic) BOOL hasBundleBGDuration;
+@property (nonatomic) BOOL hasBundleFGDuration;
+@property (nonatomic, readonly) BOOL hasBundleName;
+@property (nonatomic) BOOL hasNumMOConnectionTriggered;
+@property (nonatomic) BOOL hasNumMTConnectionTriggered;
+@property (nonatomic) BOOL hasRAT;
+@property (nonatomic) BOOL hasTotalBytesTransferred;
+@property (nonatomic) unsigned int numMOConnectionTriggered;
+@property (nonatomic) unsigned int numMTConnectionTriggered;
+@property (nonatomic) int rAT;
+@property (nonatomic) unsigned int totalBytesTransferred;
 
 - (unsigned int)bundleBGDuration;
 - (unsigned int)bundleFGDuration;
@@ -45,29 +43,29 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasBundleBGDuration;
-- (bool)hasBundleFGDuration;
-- (bool)hasBundleName;
-- (bool)hasNumMOConnectionTriggered;
-- (bool)hasNumMTConnectionTriggered;
-- (bool)hasRAT;
-- (bool)hasTotalBytesTransferred;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasBundleBGDuration;
+- (BOOL)hasBundleFGDuration;
+- (BOOL)hasBundleName;
+- (BOOL)hasNumMOConnectionTriggered;
+- (BOOL)hasNumMTConnectionTriggered;
+- (BOOL)hasRAT;
+- (BOOL)hasTotalBytesTransferred;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (unsigned int)numMOConnectionTriggered;
 - (unsigned int)numMTConnectionTriggered;
 - (int)rAT;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setBundleBGDuration:(unsigned int)arg1;
 - (void)setBundleFGDuration:(unsigned int)arg1;
 - (void)setBundleName:(id)arg1;
-- (void)setHasBundleBGDuration:(bool)arg1;
-- (void)setHasBundleFGDuration:(bool)arg1;
-- (void)setHasNumMOConnectionTriggered:(bool)arg1;
-- (void)setHasNumMTConnectionTriggered:(bool)arg1;
-- (void)setHasRAT:(bool)arg1;
-- (void)setHasTotalBytesTransferred:(bool)arg1;
+- (void)setHasBundleBGDuration:(BOOL)arg1;
+- (void)setHasBundleFGDuration:(BOOL)arg1;
+- (void)setHasNumMOConnectionTriggered:(BOOL)arg1;
+- (void)setHasNumMTConnectionTriggered:(BOOL)arg1;
+- (void)setHasRAT:(BOOL)arg1;
+- (void)setHasTotalBytesTransferred:(BOOL)arg1;
 - (void)setNumMOConnectionTriggered:(unsigned int)arg1;
 - (void)setNumMTConnectionTriggered:(unsigned int)arg1;
 - (void)setRAT:(int)arg1;

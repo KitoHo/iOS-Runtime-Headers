@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/CommunicationsSetupUI.framework/CommunicationsSetupUI
  */
 
-@class CNFRegSigninLearnMoreView;
-
 @interface CNFRegSplashSignInController : CNFRegSignInController {
     CNFRegSigninLearnMoreView *_signInView;
 }
 
-- (id)_existingLearnMoreViewForSection:(long long)arg1;
+- (id)_existingLearnMoreViewForSection:(int)arg1;
 - (id)_existingLearnMoreViewForSpecifier:(id)arg1;
-- (void)_setFieldsEnabled:(bool)arg1 animated:(bool)arg2;
-- (bool)passwordIsEmpty;
+- (void)_setFieldsEnabled:(BOOL)arg1 animated:(BOOL)arg2;
+- (BOOL)passwordIsEmpty;
 - (id)passwordTextField;
 - (void)setPasswordText:(id)arg1;
 - (void)setUsernameText:(id)arg1;
 - (id)specifierList;
-- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
-- (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
-- (bool)usernameIsEmpty;
+- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
+- (BOOL)usernameIsEmpty;
 - (id)usernameTextField;
 - (void)viewDidLoad;
-- (void)viewWillAppear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 
 @end

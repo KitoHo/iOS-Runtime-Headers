@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/VoiceMemos.framework/VoiceMemos
  */
 
-@class NSString, NSURL;
-
-@interface RCCompositionFragment : NSObject <NSMutableCopying, NSCopying, RCDictionaryPListRepresentationCoding> {
-    struct { 
-        double beginTime; 
-        double endTime; 
-    struct { 
-        double beginTime; 
-        double endTime; 
+@interface RCCompositionFragment : NSObject <NSCopying, NSMutableCopying, RCDictionaryPListRepresentationCoding> {
     NSURL *_AVOutputURL;
     double _contentDuration;
+    struct { 
+        double beginTime; 
+        double endTime; 
     } _timeRangeInComposition;
+    struct { 
+        double beginTime; 
+        double endTime; 
     } _timeRangeInContentToUse;
 }
 
-@property(retain) NSURL * AVOutputURL;
-@property double contentDuration;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
-@property struct { double x1; double x2; } timeRangeInComposition;
-@property struct { double x1; double x2; } timeRangeInContentToUse;
-@property(readonly) NSURL * waveformURL;
+@property (nonatomic, retain) NSURL *AVOutputURL;
+@property (nonatomic) double contentDuration;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
+@property (nonatomic) struct { double x1; double x2; } timeRangeInComposition;
+@property (nonatomic) struct { double x1; double x2; } timeRangeInContentToUse;
+@property (nonatomic, readonly) NSURL *waveformURL;
 
 - (void).cxx_destruct;
 - (id)AVOutputURL;
@@ -34,7 +32,7 @@
 - (void)deleteFromFilesystem;
 - (id)description;
 - (id)dictionaryPListRepresentation;
-- (unsigned long long)fileSizeOfAssetsIncludingRelatedResources:(bool)arg1;
+- (unsigned long long)fileSizeOfAssetsIncludingRelatedResources:(BOOL)arg1;
 - (id)fragmentByIntersectingTimeRangeInCompositionWithTimeRange:(struct { double x1; double x2; })arg1;
 - (id)initWithAVOutputURL:(id)arg1 contentDuration:(double)arg2 timeRangeInContentToUse:(struct { double x1; double x2; })arg3 timeRangeInComposition:(struct { double x1; double x2; })arg4;
 - (id)initWithDictionaryPListRepresentation:(id)arg1;

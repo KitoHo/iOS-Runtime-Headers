@@ -2,38 +2,36 @@
    Image: /System/Library/PrivateFrameworks/CommunicationsSetupUI.framework/CommunicationsSetupUI
  */
 
-@class IMAccount, NSString;
-
 @interface CNFRegAlias : NSObject {
     IMAccount *_account;
     NSString *_alias;
     NSString *_displayName;
 }
 
-@property(retain) IMAccount * account;
-@property(copy) NSString * alias;
-@property(copy,readonly) NSString * displayName;
-@property(retain,readonly) NSString * identifier;
-@property(readonly) long long type;
+@property (nonatomic, retain) IMAccount *account;
+@property (nonatomic, copy) NSString *alias;
+@property (nonatomic, readonly, copy) NSString *displayName;
+@property (nonatomic, readonly, retain) NSString *identifier;
+@property (nonatomic, readonly) int type;
 
 - (id)account;
 - (id)alias;
 - (void)dealloc;
 - (id)description;
 - (id)displayName;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)identifier;
 - (id)initWithAccount:(id)arg1 alias:(id)arg2;
-- (bool)isEqual:(id)arg1;
-- (bool)isLocalPhoneNumberAlias;
-- (bool)isPhoneNumberAliasOnPhoneNumberAccount;
-- (long long)localizedCaseInsensitiveCompare:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isLocalPhoneNumberAlias;
+- (BOOL)isPhoneNumberAliasOnPhoneNumberAccount;
+- (int)localizedCaseInsensitiveCompare:(id)arg1;
 - (void)setAccount:(id)arg1;
 - (void)setAlias:(id)arg1;
 - (void)setDisplayName:(id)arg1;
-- (long long)type;
-- (bool)validate;
-- (long long)validationErrorReason;
-- (long long)validationStatus;
+- (int)type;
+- (BOOL)validate;
+- (int)validationErrorReason;
+- (int)validationStatus;
 
 @end

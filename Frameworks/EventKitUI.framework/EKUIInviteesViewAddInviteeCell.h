@@ -2,30 +2,28 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class NSArray, NSLayoutConstraint, NSString, UILabel;
-
 @interface EKUIInviteesViewAddInviteeCell : UITableViewCell {
-    double _leftInset;
+    float _leftInset;
     NSLayoutConstraint *_leftInsetConstraint;
     NSArray *_persistentConstraints;
     NSString *_simpleText;
     UILabel *_simpleTextLabel;
 }
 
-@property double leftInset;
-@property(retain) NSLayoutConstraint * leftInsetConstraint;
-@property(retain) NSArray * persistentConstraints;
-@property(retain) NSString * simpleText;
-@property(retain) UILabel * simpleTextLabel;
+@property (nonatomic) float leftInset;
+@property (nonatomic, retain) NSLayoutConstraint *leftInsetConstraint;
+@property (nonatomic, retain) NSArray *persistentConstraints;
+@property (nonatomic, retain) NSString *simpleText;
+@property (nonatomic, retain) UILabel *simpleTextLabel;
 
 + (id)_simpleTextLabelFont;
 
 - (void).cxx_destruct;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
-- (double)leftInset;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (float)leftInset;
 - (id)leftInsetConstraint;
 - (id)persistentConstraints;
-- (void)setLeftInset:(double)arg1;
+- (void)setLeftInset:(float)arg1;
 - (void)setLeftInsetConstraint:(id)arg1;
 - (void)setPersistentConstraints:(id)arg1;
 - (void)setSimpleText:(id)arg1;

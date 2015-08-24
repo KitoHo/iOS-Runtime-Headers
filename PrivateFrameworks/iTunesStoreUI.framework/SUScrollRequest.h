@@ -2,31 +2,25 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSValue;
-
 @interface SUScrollRequest : NSObject {
-    id _completionHandler;
+    BOOL _animated;
+    id /* block */ _completionHandler;
     NSValue *_contentOffsetValue;
     NSValue *_frameValue;
-    bool_animated;
 }
 
-@property(getter=isAnimated) bool animated;
-@property(copy) id completionHandler;
-@property(retain) NSValue * contentOffsetValue;
-@property(retain) NSValue * frameValue;
+@property (getter=isAnimated, nonatomic) BOOL animated;
+@property (nonatomic, copy) id /* block */ completionHandler;
+@property (retain) NSValue *contentOffsetValue;
+@property (retain) NSValue *frameValue;
 
-- (id)completionHandler;
+- (id /* block */)completionHandler;
 - (id)contentOffsetValue;
 - (void)dealloc;
 - (id)frameValue;
-- (bool)isAnimated;
-- (void)setAnimated:(bool)arg1;
-- (void)setCompletionHandler:(id)arg1;
+- (BOOL)isAnimated;
+- (void)setAnimated:(BOOL)arg1;
+- (void)setCompletionHandler:(id /* block */)arg1;
 - (void)setContentOffsetValue:(id)arg1;
 - (void)setFrameValue:(id)arg1;
 

@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPRecord, CKDPRecordIdentifier, CKDPRecordType, NSString;
-
 @interface CKDPRecordRetrieveChangesResponseRecordChange : PBCodable <NSCopying> {
+    NSString *_etag;
     struct { 
         unsigned int type : 1; 
-    NSString *_etag;
     } _has;
     CKDPRecord *_record;
     CKDPRecordIdentifier *_recordIdentifier;
@@ -15,16 +13,16 @@
     int _type;
 }
 
-@property(retain) NSString * etag;
-@property(readonly) bool hasEtag;
-@property(readonly) bool hasRecord;
-@property(readonly) bool hasRecordIdentifier;
-@property(readonly) bool hasRecordType;
-@property bool hasType;
-@property(retain) CKDPRecord * record;
-@property(retain) CKDPRecordIdentifier * recordIdentifier;
-@property(retain) CKDPRecordType * recordType;
-@property int type;
+@property (nonatomic, retain) NSString *etag;
+@property (nonatomic, readonly) BOOL hasEtag;
+@property (nonatomic, readonly) BOOL hasRecord;
+@property (nonatomic, readonly) BOOL hasRecordIdentifier;
+@property (nonatomic, readonly) BOOL hasRecordType;
+@property (nonatomic) BOOL hasType;
+@property (nonatomic, retain) CKDPRecord *record;
+@property (nonatomic, retain) CKDPRecordIdentifier *recordIdentifier;
+@property (nonatomic, retain) CKDPRecordType *recordType;
+@property (nonatomic) int type;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
@@ -32,20 +30,20 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)etag;
-- (bool)hasEtag;
-- (bool)hasRecord;
-- (bool)hasRecordIdentifier;
-- (bool)hasRecordType;
-- (bool)hasType;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasEtag;
+- (BOOL)hasRecord;
+- (BOOL)hasRecordIdentifier;
+- (BOOL)hasRecordType;
+- (BOOL)hasType;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)record;
 - (id)recordIdentifier;
 - (id)recordType;
 - (void)setEtag:(id)arg1;
-- (void)setHasType:(bool)arg1;
+- (void)setHasType:(BOOL)arg1;
 - (void)setRecord:(id)arg1;
 - (void)setRecordIdentifier:(id)arg1;
 - (void)setRecordType:(id)arg1;

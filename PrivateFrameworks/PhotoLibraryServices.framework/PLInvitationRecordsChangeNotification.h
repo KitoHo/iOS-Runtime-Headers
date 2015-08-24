@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSDictionary, PLGenericAlbum;
-
 @interface PLInvitationRecordsChangeNotification : PLContainerChangeNotification {
+    BOOL _invitationRecordsDidChange;
     NSDictionary *_userInfo;
-    bool_invitationRecordsDidChange;
 }
 
-@property(retain,readonly) PLGenericAlbum * album;
-@property(readonly) bool invitationRecordsDidChange;
+@property (nonatomic, readonly, retain) PLGenericAlbum *album;
+@property (nonatomic, readonly) BOOL invitationRecordsDidChange;
 
 + (id)notificationWithAlbum:(id)arg1 snapshot:(id)arg2;
 
 - (void)_calculateDiffs;
 - (struct NSObject { Class x1; }*)album;
-- (bool)invitationRecordsDidChange;
+- (BOOL)invitationRecordsDidChange;
 - (id)name;
 - (id)userInfo;
 

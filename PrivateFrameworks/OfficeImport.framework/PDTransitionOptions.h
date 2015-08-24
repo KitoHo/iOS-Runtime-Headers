@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface PDTransitionOptions : NSObject {
-    boolmHasSound;
-    boolmIsStartSoundAction;
+    BOOL mHasSound;
+    BOOL mIsStartSoundAction;
     NSString *mSoundFile;
 }
 

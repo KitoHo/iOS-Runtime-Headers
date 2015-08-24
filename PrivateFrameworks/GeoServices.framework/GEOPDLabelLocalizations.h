@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray;
-
 @interface GEOPDLabelLocalizations : PBCodable <NSCopying> {
     NSMutableArray *_localizedStrings;
 }
 
-@property(retain) NSMutableArray * localizedStrings;
+@property (nonatomic, retain) NSMutableArray *localizedStrings;
 
 - (void)addLocalizedString:(id)arg1;
 - (void)clearLocalizedStrings;
@@ -17,13 +15,13 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
-- (id)localizedStringAtIndex:(unsigned long long)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)localizedStringAtIndex:(unsigned int)arg1;
 - (id)localizedStrings;
-- (unsigned long long)localizedStringsCount;
+- (unsigned int)localizedStringsCount;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setLocalizedStrings:(id)arg1;
 - (void)writeTo:(id)arg1;
 

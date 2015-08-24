@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/RadioUI.framework/RadioUI
  */
 
-@class <RUHistoryDataSourceDelegate>, NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_source>, NSString, RadioGetHistoryRequest;
-
 @interface RUHistoryDataSource : NSObject <ADBannerViewDelegate> {
     NSMutableDictionary *_adIdentifierToAdTrack;
     NSMutableDictionary *_adIdentifierToPendingBannerView;
@@ -16,13 +14,13 @@
     NSArray *_pendingHistoryCategories;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <RUHistoryDataSourceDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy,readonly) NSArray * historyCategories;
-@property(getter=isRefreshing,readonly) bool refreshing;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <RUHistoryDataSourceDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly, copy) NSArray *historyCategories;
+@property (getter=isRefreshing, nonatomic, readonly) BOOL refreshing;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)_adIdentifierForHistoryItem:(id)arg1;
@@ -40,7 +38,7 @@
 - (id)delegate;
 - (id)historyCategories;
 - (id)init;
-- (bool)isRefreshing;
+- (BOOL)isRefreshing;
 - (void)refreshHistory;
 - (void)setDelegate:(id)arg1;
 - (id)viewControllerForStoryboardPresentationFromBannerView:(id)arg1;

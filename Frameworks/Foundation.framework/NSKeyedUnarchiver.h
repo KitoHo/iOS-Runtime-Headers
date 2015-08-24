@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class <NSKeyedUnarchiverDelegate>;
-
 @interface NSKeyedUnarchiver : NSCoder {
     const char *_bytes;
     id _containers;
@@ -23,26 +21,13 @@
     id _tmpRefObjMap;
 }
 
-@property <NSKeyedUnarchiverDelegate> * delegate;
+@property <NSKeyedUnarchiverDelegate> *delegate;
 
-+ (id)MSSafeUnarchiveObjectWithData:(id)arg1 outError:(id*)arg2;
-+ (id)MSSafeUnarchiveObjectWithData:(id)arg1;
-+ (id)MSSafeUnarchiveObjectWithFile:(id)arg1 outError:(id*)arg2;
-+ (id)MSSafeUnarchiveObjectWithFile:(id)arg1;
-+ (id)_mapkit_safeUnarchiveObjectWithData:(id)arg1;
-+ (id)_sp_secureUnarchiveObjectWithData:(id)arg1;
+// Image: /System/Library/Frameworks/Foundation.framework/Foundation
+
 + (Class)classForClassName:(id)arg1;
-+ (id)cpl_safeUnarchiveObjectWithData:(id)arg1;
-+ (id)cpl_safeUnarchiveObjectWithFile:(id)arg1;
-+ (id)deserializeObjectWithData:(id)arg1 allowedClasses:(id)arg2;
-+ (id)deserializeObjectWithData:(id)arg1 allowedClasses:(id)arg2;
-+ (id)deserializeObjectWithData:(id)arg1 allowedClasses:(id)arg2;
 + (void)initialize;
-+ (id)pl_safeUnarchiveObjectWithData:(id)arg1;
-+ (id)pl_safeUnarchiveObjectWithFile:(id)arg1;
-+ (id)secureUnarchiveData:(id)arg1 withExpectedClass:(Class)arg2 otherAllowedClasses:(id)arg3;
 + (void)setClass:(Class)arg1 forClassName:(id)arg2;
-+ (id)unarchiveObjectWithData:(id)arg1 allowedClasses:(id)arg2;
 + (id)unarchiveObjectWithData:(id)arg1;
 + (id)unarchiveObjectWithFile:(id)arg1;
 
@@ -56,15 +41,14 @@
 - (void)_setAllowedClassNames:(id)arg1;
 - (void)_temporaryMapReplaceObject:(id)arg1 withObject:(id)arg2;
 - (id)allowedClasses;
-- (bool)allowsKeyedCoding;
+- (BOOL)allowsKeyedCoding;
 - (Class)classForClassName:(id)arg1;
-- (bool)containsValueForKey:(id)arg1;
-- (id)cpl_safeInitForReadingWithData:(id)arg1;
+- (BOOL)containsValueForKey:(id)arg1;
 - (void)dealloc;
-- (void)decodeArrayOfObjCType:(const char *)arg1 count:(unsigned long long)arg2 at:(void*)arg3;
-- (bool)decodeBoolForKey:(id)arg1;
-- (const char *)decodeBytesForKey:(id)arg1 returnedLength:(unsigned long long*)arg2;
-- (void*)decodeBytesWithReturnedLength:(unsigned long long*)arg1;
+- (void)decodeArrayOfObjCType:(const char *)arg1 count:(unsigned int)arg2 at:(void*)arg3;
+- (BOOL)decodeBoolForKey:(id)arg1;
+- (const char *)decodeBytesForKey:(id)arg1 returnedLength:(unsigned int*)arg2;
+- (void*)decodeBytesWithReturnedLength:(unsigned int*)arg1;
 - (id)decodeDataObject;
 - (double)decodeDoubleForKey:(id)arg1;
 - (float)decodeFloatForKey:(id)arg1;
@@ -84,15 +68,63 @@
 - (id)init;
 - (id)initForReadingWithData:(id)arg1;
 - (id)initWithStream:(id)arg1;
-- (id)moments_safeInitForReadingWithData:(id)arg1;
-- (id)pl_safeInitForReadingWithData:(id)arg1;
 - (void)replaceObject:(id)arg1 withObject:(id)arg2;
-- (bool)requiresSecureCoding;
+- (BOOL)requiresSecureCoding;
 - (void)setAllowedClasses:(id)arg1;
 - (void)setClass:(Class)arg1 forClassName:(id)arg2;
 - (void)setDelegate:(id)arg1;
-- (void)setRequiresSecureCoding:(bool)arg1;
+- (void)setRequiresSecureCoding:(BOOL)arg1;
 - (unsigned int)systemVersion;
-- (long long)versionForClassName:(id)arg1;
+- (int)versionForClassName:(id)arg1;
+
+// Image: /System/Library/Frameworks/HomeKit.framework/HomeKit
+
++ (id)deserializeObjectWithData:(id)arg1 allowedClasses:(id)arg2;
+
+// Image: /System/Library/Frameworks/MapKit.framework/MapKit
+
++ (id)_mapkit_safeUnarchiveObjectWithData:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities
+
++ (id)secureUnarchiveData:(id)arg1 withExpectedClass:(Class)arg2 otherAllowedClasses:(id)arg3;
+
+// Image: /System/Library/PrivateFrameworks/CloudPhotoLibrary.framework/CloudPhotoLibrary
+
++ (id)cpl_safeUnarchiveObjectWithData:(id)arg1;
++ (id)cpl_safeUnarchiveObjectWithFile:(id)arg1;
+
+- (id)cpl_safeInitForReadingWithData:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/CoreHAP.framework/CoreHAP
+
++ (id)deserializeObjectWithData:(id)arg1 allowedClasses:(id)arg2;
+
+// Image: /System/Library/PrivateFrameworks/CoreMediaStream.framework/CoreMediaStream
+
++ (id)MSSafeUnarchiveObjectWithData:(id)arg1;
++ (id)MSSafeUnarchiveObjectWithData:(id)arg1 outError:(id*)arg2;
++ (id)MSSafeUnarchiveObjectWithFile:(id)arg1;
++ (id)MSSafeUnarchiveObjectWithFile:(id)arg1 outError:(id*)arg2;
+
+// Image: /System/Library/PrivateFrameworks/NanoMailKitServer.framework/NanoMailKitServer
+
++ (id)unarchiveObjectOfClass:(Class)arg1 withData:(id)arg2;
++ (id)unarchiveObjectOfClasses:(id)arg1 withData:(id)arg2;
+
+// Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
+
++ (id)pl_safeUnarchiveObjectWithData:(id)arg1;
++ (id)pl_safeUnarchiveObjectWithFile:(id)arg1;
+
+- (id)pl_safeInitForReadingWithData:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/Search.framework/Search
+
++ (id)_sp_secureUnarchiveObjectWithData:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/XPCObjects.framework/XPCObjects
+
++ (id)unarchiveObjectWithData:(id)arg1 allowedClasses:(id)arg2;
 
 @end

@@ -2,20 +2,17 @@
    Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
  */
 
-@class NSString;
+@interface DOMHTMLHRElement : DOMHTMLElement
 
-@interface DOMHTMLHRElement : DOMHTMLElement {
-}
-
-@property(copy) NSString * align;
-@property bool noShade;
-@property(copy) NSString * size;
-@property(copy) NSString * width;
+@property (copy) NSString *align;
+@property BOOL noShade;
+@property (copy) NSString *size;
+@property (copy) NSString *width;
 
 - (id)align;
-- (bool)noShade;
+- (BOOL)noShade;
 - (void)setAlign:(id)arg1;
-- (void)setNoShade:(bool)arg1;
+- (void)setNoShade:(BOOL)arg1;
 - (void)setSize:(id)arg1;
 - (void)setWidth:(id)arg1;
 - (id)size;

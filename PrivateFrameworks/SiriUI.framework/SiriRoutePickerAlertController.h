@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/SiriUI.framework/SiriUI
  */
 
-@interface SiriRoutePickerAlertController : UIAlertController {
-}
+@interface SiriRoutePickerAlertController : UIAlertController
 
-- (bool)shouldAutorotate;
-- (unsigned long long)supportedInterfaceOrientations;
+- (BOOL)shouldAutorotate;
+- (unsigned int)supportedInterfaceOrientations;
 
 @end

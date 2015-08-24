@@ -2,9 +2,9 @@
    Image: /System/Library/Frameworks/SceneKit.framework/SceneKit
  */
 
-@class <SCNSceneRenderer>, NSMutableArray, SCNManipulator;
-
 @interface SCNAuthoringEnvironment : NSObject {
+    unsigned short _arrowIndicesCount;
+    const void *_arrowIndicesOffset;
     struct { 
         struct __C3DFXGLSLProgram {} *weakProgram; 
         struct { 
@@ -19,159 +19,169 @@
         unsigned int textureID; 
         unsigned int vao; 
         unsigned int drawMode; 
-        boolorthographic; 
-        boolclearDepthBuffer; 
-        boolenableDepthTest; 
-        boolenableCulling; 
-        boolisDynamic; 
-    struct { 
-        struct __C3DFXGLSLProgram {} *weakProgram; 
-        struct { 
-            unsigned int vbo; 
-            unsigned int ibo; 
-            unsigned int baseIndex; 
-            unsigned int baseVertex; 
-            unsigned int vertexSize; 
-            unsigned int allocatedVerticesSize; 
-            unsigned int allocatedIndicesSize; 
-        } dynamicVBOInfo; 
-        unsigned int textureID; 
-        unsigned int vao; 
-        unsigned int drawMode; 
-        boolorthographic; 
-        boolclearDepthBuffer; 
-        boolenableDepthTest; 
-        boolenableCulling; 
-        boolisDynamic; 
-    struct { 
-        struct __C3DFXGLSLProgram {} *weakProgram; 
-        struct { 
-            unsigned int vbo; 
-            unsigned int ibo; 
-            unsigned int baseIndex; 
-            unsigned int baseVertex; 
-            unsigned int vertexSize; 
-            unsigned int allocatedVerticesSize; 
-            unsigned int allocatedIndicesSize; 
-        } dynamicVBOInfo; 
-        unsigned int textureID; 
-        unsigned int vao; 
-        unsigned int drawMode; 
-        boolorthographic; 
-        boolclearDepthBuffer; 
-        boolenableDepthTest; 
-        boolenableCulling; 
-        boolisDynamic; 
-    struct { 
-        struct __C3DFXGLSLProgram {} *weakProgram; 
-        struct { 
-            unsigned int vbo; 
-            unsigned int ibo; 
-            unsigned int baseIndex; 
-            unsigned int baseVertex; 
-            unsigned int vertexSize; 
-            unsigned int allocatedVerticesSize; 
-            unsigned int allocatedIndicesSize; 
-        } dynamicVBOInfo; 
-        unsigned int textureID; 
-        unsigned int vao; 
-        unsigned int drawMode; 
-        boolorthographic; 
-        boolclearDepthBuffer; 
-        boolenableDepthTest; 
-        boolenableCulling; 
-        boolisDynamic; 
-    struct { 
-        struct __C3DFXGLSLProgram {} *weakProgram; 
-        struct { 
-            unsigned int vbo; 
-            unsigned int ibo; 
-            unsigned int baseIndex; 
-            unsigned int baseVertex; 
-            unsigned int vertexSize; 
-            unsigned int allocatedVerticesSize; 
-            unsigned int allocatedIndicesSize; 
-        } dynamicVBOInfo; 
-        unsigned int textureID; 
-        unsigned int vao; 
-        unsigned int drawMode; 
-        boolorthographic; 
-        boolclearDepthBuffer; 
-        boolenableDepthTest; 
-        boolenableCulling; 
-        boolisDynamic; 
-    struct { 
-        struct __C3DFXGLSLProgram {} *weakProgram; 
-        struct { 
-            unsigned int vbo; 
-            unsigned int ibo; 
-            unsigned int baseIndex; 
-            unsigned int baseVertex; 
-            unsigned int vertexSize; 
-            unsigned int allocatedVerticesSize; 
-            unsigned int allocatedIndicesSize; 
-        } dynamicVBOInfo; 
-        unsigned int textureID; 
-        unsigned int vao; 
-        unsigned int drawMode; 
-        boolorthographic; 
-        boolclearDepthBuffer; 
-        boolenableDepthTest; 
-        boolenableCulling; 
-        boolisDynamic; 
-    struct { 
-        struct __C3DFXGLSLProgram {} *weakProgram; 
-        struct { 
-            unsigned int vbo; 
-            unsigned int ibo; 
-            unsigned int baseIndex; 
-            unsigned int baseVertex; 
-            unsigned int vertexSize; 
-            unsigned int allocatedVerticesSize; 
-            unsigned int allocatedIndicesSize; 
-        } dynamicVBOInfo; 
-        unsigned int textureID; 
-        unsigned int vao; 
-        unsigned int drawMode; 
-        boolorthographic; 
-        boolclearDepthBuffer; 
-        boolenableDepthTest; 
-        boolenableCulling; 
-        boolisDynamic; 
+        bool orthographic; 
+        bool clearDepthBuffer; 
+        bool enableDepthTest; 
+        bool enableCulling; 
+        bool isDynamic; 
+    } _boldLogsInfo;
     struct { 
         struct { 
             unsigned int textureID; 
             struct CGSize { 
-                double width; 
-                double height; 
+                float width; 
+                float height; 
             } textureSize; 
-            boolisRetina; 
+            bool isRetina; 
         } textureInfo; 
-        double lineHeight; 
+        float lineHeight; 
         short characterWidth_texture; 
-        double characterWidth_typography; 
+        float characterWidth_typography; 
         short characterHeight_texture; 
         struct { /* ? */ } *symbolRects; 
+    } _boldTextInfo;
+    struct __C3DFXGLSLProgram { } *_colorAndTextureProgram;
+    struct __C3DFXGLSLProgram { } *_colorOnlyProgram;
+    float _drawScale;
+    struct { 
+        struct __C3DFXGLSLProgram {} *weakProgram; 
+        struct { 
+            unsigned int vbo; 
+            unsigned int ibo; 
+            unsigned int baseIndex; 
+            unsigned int baseVertex; 
+            unsigned int vertexSize; 
+            unsigned int allocatedVerticesSize; 
+            unsigned int allocatedIndicesSize; 
+        } dynamicVBOInfo; 
+        unsigned int textureID; 
+        unsigned int vao; 
+        unsigned int drawMode; 
+        bool orthographic; 
+        bool clearDepthBuffer; 
+        bool enableDepthTest; 
+        bool enableCulling; 
+        bool isDynamic; 
+    } _dynamicLinesInfo;
+    struct { 
+        struct __C3DFXGLSLProgram {} *weakProgram; 
+        struct { 
+            unsigned int vbo; 
+            unsigned int ibo; 
+            unsigned int baseIndex; 
+            unsigned int baseVertex; 
+            unsigned int vertexSize; 
+            unsigned int allocatedVerticesSize; 
+            unsigned int allocatedIndicesSize; 
+        } dynamicVBOInfo; 
+        unsigned int textureID; 
+        unsigned int vao; 
+        unsigned int drawMode; 
+        bool orthographic; 
+        bool clearDepthBuffer; 
+        bool enableDepthTest; 
+        bool enableCulling; 
+        bool isDynamic; 
+    } _dynamicTrianglesInfo;
+    struct __C3DEngineContext { } *_engineContext;
+    BOOL _hasLighting;
+    NSMutableArray *_individualNodesWantingBoundingBox;
+    NSMutableArray *_individualNodesWantingCameraAttributes;
+    NSMutableArray *_individualNodesWantingLightAttributes;
+    struct { 
+        struct __C3DFXGLSLProgram {} *weakProgram; 
+        struct { 
+            unsigned int vbo; 
+            unsigned int ibo; 
+            unsigned int baseIndex; 
+            unsigned int baseVertex; 
+            unsigned int vertexSize; 
+            unsigned int allocatedVerticesSize; 
+            unsigned int allocatedIndicesSize; 
+        } dynamicVBOInfo; 
+        unsigned int textureID; 
+        unsigned int vao; 
+        unsigned int drawMode; 
+        bool orthographic; 
+        bool clearDepthBuffer; 
+        bool enableDepthTest; 
+        bool enableCulling; 
+        bool isDynamic; 
+    } _logsInfo;
+    SCNManipulator *_manipulator;
+    struct { 
+        struct __C3DFXGLSLProgram {} *weakProgram; 
+        struct { 
+            unsigned int vbo; 
+            unsigned int ibo; 
+            unsigned int baseIndex; 
+            unsigned int baseVertex; 
+            unsigned int vertexSize; 
+            unsigned int allocatedVerticesSize; 
+            unsigned int allocatedIndicesSize; 
+        } dynamicVBOInfo; 
+        unsigned int textureID; 
+        unsigned int vao; 
+        unsigned int drawMode; 
+        bool orthographic; 
+        bool clearDepthBuffer; 
+        bool enableDepthTest; 
+        bool enableCulling; 
+        bool isDynamic; 
+    } _manipulatorsInfo;
+    struct __C3DFXGLSLProgram { } *_noColorProgram;
     struct { 
         struct { 
             unsigned int textureID; 
             struct CGSize { 
-                double width; 
-                double height; 
+                float width; 
+                float height; 
             } textureSize; 
-            boolisRetina; 
+            bool isRetina; 
         } textureInfo; 
-        double lineHeight; 
+        float lineHeight; 
         short characterWidth_texture; 
-        double characterWidth_typography; 
+        float characterWidth_typography; 
         short characterHeight_texture; 
         struct { /* ? */ } *symbolRects; 
+    } _normalTextInfo;
     struct { 
-        boolinitialized; 
-        boolshowFullStatistics; 
+        struct __C3DFXGLSLProgram {} *weakProgram; 
+        struct { 
+            unsigned int vbo; 
+            unsigned int ibo; 
+            unsigned int baseIndex; 
+            unsigned int baseVertex; 
+            unsigned int vertexSize; 
+            unsigned int allocatedVerticesSize; 
+            unsigned int allocatedIndicesSize; 
+        } dynamicVBOInfo; 
+        unsigned int textureID; 
+        unsigned int vao; 
+        unsigned int drawMode; 
+        bool orthographic; 
+        bool clearDepthBuffer; 
+        bool enableDepthTest; 
+        bool enableCulling; 
+        bool isDynamic; 
+    } _overlayDynamicLinesInfo;
+    unsigned short _quadrantIndicesCount;
+    const void *_quadrantIndicesOffset;
+    unsigned short _quadrantRingIndicesCount;
+    const void *_quadrantRingIndicesOffset;
+    <SCNSceneRenderer> *_sceneRenderer;
+    BOOL _showsAllBoundingBoxes;
+    BOOL _showsAllBoundingSpheres;
+    BOOL _showsAttributesOfAllCameras;
+    BOOL _showsAttributesOfAllLights;
+    BOOL _showsLighting;
+    BOOL _showsPhysics;
+    struct { 
+        bool initialized; 
+        bool showFullStatistics; 
         float fps; 
         float waitDisplayLinkTime; 
-        long long pressedButtonIndex; 
+        int pressedButtonIndex; 
         struct __CFString {} *fpsString; 
         struct __CFString {} *shortString; 
         unsigned int lightingStatistics[9]; 
@@ -236,48 +246,36 @@
             double startTime; 
             double lastFrameTime; 
         } stats; 
-    unsigned short _arrowIndicesCount;
-    const void *_arrowIndicesOffset;
-    } _boldLogsInfo;
-    } _boldTextInfo;
-    struct __C3DFXGLSLProgram { } *_colorAndTextureProgram;
-    struct __C3DFXGLSLProgram { } *_colorOnlyProgram;
-    float _drawScale;
-    } _dynamicLinesInfo;
-    } _dynamicTrianglesInfo;
-    struct __C3DEngineContext { } *_engineContext;
-    NSMutableArray *_individualNodesWantingBoundingBox;
-    NSMutableArray *_individualNodesWantingCameraAttributes;
-    NSMutableArray *_individualNodesWantingLightAttributes;
-    } _logsInfo;
-    SCNManipulator *_manipulator;
-    } _manipulatorsInfo;
-    struct __C3DFXGLSLProgram { } *_noColorProgram;
-    } _normalTextInfo;
-    } _overlayDynamicLinesInfo;
-    unsigned short _quadrantIndicesCount;
-    const void *_quadrantIndicesOffset;
-    unsigned short _quadrantRingIndicesCount;
-    const void *_quadrantRingIndicesOffset;
-    <SCNSceneRenderer> *_sceneRenderer;
     } _statisticsInfo;
+    struct { 
+        struct __C3DFXGLSLProgram {} *weakProgram; 
+        struct { 
+            unsigned int vbo; 
+            unsigned int ibo; 
+            unsigned int baseIndex; 
+            unsigned int baseVertex; 
+            unsigned int vertexSize; 
+            unsigned int allocatedVerticesSize; 
+            unsigned int allocatedIndicesSize; 
+        } dynamicVBOInfo; 
+        unsigned int textureID; 
+        unsigned int vao; 
+        unsigned int drawMode; 
+        bool orthographic; 
+        bool clearDepthBuffer; 
+        bool enableDepthTest; 
+        bool enableCulling; 
+        bool isDynamic; 
     } _textInfo;
-    bool_hasLighting;
-    bool_showsAllBoundingBoxes;
-    bool_showsAllBoundingSpheres;
-    bool_showsAttributesOfAllCameras;
-    bool_showsAttributesOfAllLights;
-    bool_showsLighting;
-    bool_showsPhysics;
 }
 
-@property(readonly) <SCNSceneRenderer> * sceneRenderer;
-@property bool showsAllBoundingBoxes;
-@property bool showsAllBoundingSpheres;
-@property bool showsAttributesOfAllCameras;
-@property bool showsAttributesOfAllLights;
-@property bool showsLighting;
-@property bool showsPhysics;
+@property (readonly) <SCNSceneRenderer> *sceneRenderer;
+@property (nonatomic) BOOL showsAllBoundingBoxes;
+@property (nonatomic) BOOL showsAllBoundingSpheres;
+@property (nonatomic) BOOL showsAttributesOfAllCameras;
+@property (nonatomic) BOOL showsAttributesOfAllLights;
+@property (nonatomic) BOOL showsLighting;
+@property (nonatomic) BOOL showsPhysics;
 
 + (id)authoringEnvironmentForSceneRenderer:(id)arg1;
 
@@ -285,9 +283,9 @@
 - (void)beginEditingNode:(id)arg1;
 - (void)cancelEdition;
 - (void)dealloc;
-- (bool)didTapAtPoint:(struct CGPoint { double x1; double x2; })arg1;
+- (BOOL)didTapAtPoint:(struct CGPoint { float x1; float x2; })arg1;
 - (void)drawLineFromPoint:(struct SCNVector3 { float x1; float x2; float x3; })arg1 toPoint:(struct SCNVector3 { float x1; float x2; float x3; })arg2 color:(id)arg3;
-- (void)drawString:(id)arg1 atPoint:(struct CGPoint { double x1; double x2; })arg2 color:(id)arg3;
+- (void)drawString:(id)arg1 atPoint:(struct CGPoint { float x1; float x2; })arg2 color:(id)arg3;
 - (void)hideAllIndividualBoundingBoxes;
 - (void)hideAttributesOfAllIndividualCameras;
 - (void)hideAttributesOfAllIndividualLights;
@@ -296,20 +294,20 @@
 - (void)hideLightAttributesForNode:(id)arg1;
 - (id)init;
 - (id)sceneRenderer;
-- (void)setShowsAllBoundingBoxes:(bool)arg1;
-- (void)setShowsAllBoundingSpheres:(bool)arg1;
-- (void)setShowsAttributesOfAllCameras:(bool)arg1;
-- (void)setShowsAttributesOfAllLights:(bool)arg1;
-- (void)setShowsLighting:(bool)arg1;
-- (void)setShowsPhysics:(bool)arg1;
+- (void)setShowsAllBoundingBoxes:(BOOL)arg1;
+- (void)setShowsAllBoundingSpheres:(BOOL)arg1;
+- (void)setShowsAttributesOfAllCameras:(BOOL)arg1;
+- (void)setShowsAttributesOfAllLights:(BOOL)arg1;
+- (void)setShowsLighting:(BOOL)arg1;
+- (void)setShowsPhysics:(BOOL)arg1;
 - (void)showBoundingBoxForNode:(id)arg1;
 - (void)showCameraAttributesForNode:(id)arg1;
 - (void)showLightAttributesForNode:(id)arg1;
-- (bool)showsAllBoundingBoxes;
-- (bool)showsAllBoundingSpheres;
-- (bool)showsAttributesOfAllCameras;
-- (bool)showsAttributesOfAllLights;
-- (bool)showsLighting;
-- (bool)showsPhysics;
+- (BOOL)showsAllBoundingBoxes;
+- (BOOL)showsAllBoundingSpheres;
+- (BOOL)showsAttributesOfAllCameras;
+- (BOOL)showsAttributesOfAllLights;
+- (BOOL)showsLighting;
+- (BOOL)showsPhysics;
 
 @end

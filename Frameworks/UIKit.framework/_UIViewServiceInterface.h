@@ -2,53 +2,47 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class BKSProcessAssertion, NSError, NSString, NSXPCConnection, _UIAsyncInvocation, _UIRemoteViewService;
-
 @interface _UIViewServiceInterface : NSObject <NSXPCConnectionDelegate> {
+    BOOL __automatic_invalidation_invalidated;
     int __automatic_invalidation_retainCount;
+    bool _isTerminated;
     _UIRemoteViewService *_service;
     NSString *_serviceBundleIdentifier;
     NSXPCConnection *_serviceConnection;
     BKSProcessAssertion *_serviceProcessAssertion;
     _UIAsyncInvocation *_terminateInvocation;
     NSError *_terminationError;
-    id _terminationHandler;
+    id /* block */ _terminationHandler;
     int _terminationStateLock;
-    bool__automatic_invalidation_invalidated;
-    bool_isTerminated;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) struct { unsigned int x1[8]; } serviceAuditToken;
-@property(readonly) int servicePID;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) struct { unsigned int x1[8]; } serviceAuditToken;
+@property (nonatomic, readonly) int servicePID;
+@property (readonly) Class superclass;
 
-+ (id)connectToViewService:(id)arg1 deputyInterfaces:(id)arg2 connectionHandler:(id)arg3;
-+ (id)connectToViewServiceWithBundleIdentifier:(id)arg1 deputyInterfaces:(id)arg2 connectionHandler:(id)arg3;
++ (id)connectToViewService:(id)arg1 deputyInterfaces:(id)arg2 connectionHandler:(id /* block */)arg3;
++ (id)connectToViewServiceWithBundleIdentifier:(id)arg1 deputyInterfaces:(id)arg2 connectionHandler:(id /* block */)arg3;
 
 - (int)__automatic_invalidation_logic;
-- (id)_initWithConnectionInfo:(struct { id x1; id x2; })arg1 service:(id)arg2 deputyInterfaces:(id)arg3;
-- (id)_initWithConnectionInfo:(struct { id x1; id x2; })arg1 serviceBundleIdentifier:(id)arg2 deputyInterfaces:(id)arg3;
-- (id)_initWithConnectionInfo:(struct { id x1; id x2; })arg1 serviceBundleIdentifier:(id)arg2 service:(id)arg3 deputyInterfaces:(id)arg4;
-- (bool)_isDeallocating;
-- (void)_terminateUnconditionallyThen:(id)arg1;
+- (id)_initWithConnectionInfo:(struct { id x1; })arg1 service:(id)arg2 deputyInterfaces:(id)arg3;
+- (id)_initWithConnectionInfo:(struct { id x1; })arg1 serviceBundleIdentifier:(id)arg2 deputyInterfaces:(id)arg3;
+- (id)_initWithConnectionInfo:(struct { id x1; })arg1 serviceBundleIdentifier:(id)arg2 service:(id)arg3 deputyInterfaces:(id)arg4;
+- (BOOL)_isDeallocating;
+- (void)_terminateUnconditionallyThen:(id /* block */)arg1;
 - (id)_terminateWithError:(id)arg1;
-- (bool)_tryRetain;
-- (id)connectToDeputyWithInterface:(id)arg1 fromExportedHostingObject:(id)arg2 connectionHandler:(id)arg3;
-- (void)connection:(id)arg1 handleInvocation:(id)arg2 isReply:(bool)arg3;
+- (BOOL)_tryRetain;
+- (id)connectToDeputyWithInterface:(id)arg1 fromExportedHostingObject:(id)arg2 connectionHandler:(id /* block */)arg3;
+- (void)connection:(id)arg1 handleInvocation:(id)arg2 isReply:(BOOL)arg3;
 - (void)dealloc;
 - (id)disconnect;
 - (oneway void)release;
 - (id)retain;
-- (unsigned long long)retainCount;
+- (unsigned int)retainCount;
 - (struct { unsigned int x1[8]; })serviceAuditToken;
 - (int)servicePID;
-- (void)setTerminationHandler:(id)arg1;
+- (void)setTerminationHandler:(id /* block */)arg1;
 
 @end

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Search.framework/Search
  */
 
-@class NSMutableString, NSNumber, NSString;
-
 @interface SPPhoneticEncoder : NSObject {
     NSMutableString *_alternate;
     int _idx;
@@ -15,8 +13,8 @@
 - (void)add:(id)arg1;
 - (void)addPrimary:(id)arg1 alternate:(id)arg2;
 - (id)codesForString:(id)arg1;
-- (bool)isAnyString:(id)arg1 atIndex:(int)arg2;
-- (bool)isSlavoGermanic;
-- (bool)isVowelAtIndex:(int)arg1;
+- (BOOL)isAnyString:(id)arg1 atIndex:(int)arg2;
+- (BOOL)isSlavoGermanic;
+- (BOOL)isVowelAtIndex:(int)arg1;
 
 @end

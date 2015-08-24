@@ -2,10 +2,10 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class <PKPaymentVerificationPresentationDelegate>, NSNumber, NSString, PKPassView, PKPaymentPass, PKVerificationRequestRecord;
-
 @interface PKPaymentVerificationPresentationController : NSObject <SKStoreProductViewControllerDelegate> {
+    BOOL _bankAppNotFound;
     <PKPaymentVerificationPresentationDelegate> *_delegate;
+    <PKPaymentVerificationEntryDelegate> *_entryDelegate;
     NSNumber *_inStoreBankAppStoreID;
     NSString *_inStoreBankAppTitle;
     NSString *_installedBankAppBundleID;
@@ -13,27 +13,30 @@
     PKPaymentPass *_pass;
     PKPassView *_passView;
     PKVerificationRequestRecord *_requestRecord;
-    bool_bankAppNotFound;
+    int _setupContext;
+    PKPaymentWebService *_webService;
 }
 
-@property(readonly) NSString * alternateMethodButtonTitle;
-@property(readonly) NSString * completeVerificationButtonTitle;
-@property(copy,readonly) NSString * debugDescription;
-@property <PKPaymentVerificationPresentationDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
-@property(readonly) NSString * verificationBodyString;
-@property(readonly) NSString * verificationTitleString;
+@property (readonly) NSString *alternateMethodButtonTitle;
+@property (readonly) NSString *completeVerificationButtonTitle;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <PKPaymentVerificationPresentationDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) <PKPaymentVerificationEntryDelegate> *entryDelegate;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
+@property (readonly) NSString *verificationBodyString;
+@property (readonly) PKVerificationRequestRecord *verificationRecord;
+@property (readonly) NSString *verificationTitleString;
 
 - (id)_bankAppName;
 - (id)_bankAppStoreIDs;
-- (unsigned long long)_channelType;
+- (unsigned int)_channelType;
 - (void)_completeVerificationUsingBankApp;
 - (void)_completeVerificationUsingCodeEntry;
 - (void)_completeVerificationUsingOutboundCall;
 - (void)_didChangePresentation;
-- (bool)_isBankAppInstalled;
+- (BOOL)_isBankAppInstalled;
 - (void)_launchBankApp;
 - (id)_outboundCallPhoneNumber;
 - (void)_performStoreLookupForBankApp;
@@ -45,13 +48,15 @@
 - (id)completeVerificationButtonTitle;
 - (void)dealloc;
 - (id)delegate;
-- (id)initWithPaymentPass:(id)arg1 passView:(id)arg2 delegate:(id)arg3;
-- (void)productViewControllerDidFinish:(id)arg1;
+- (id)entryDelegate;
+- (id)initWithPaymentPass:(id)arg1 passView:(id)arg2 webService:(id)arg3 context:(int)arg4 delegate:(id)arg5;
 - (void)selectOtherVerificationMethod:(id)arg1;
 - (void)setDelegate:(id)arg1;
+- (void)setEntryDelegate:(id)arg1;
 - (void)setRequestRecord:(id)arg1;
 - (void)sharedPaymentServiceChanged:(id)arg1;
 - (id)verificationBodyString;
+- (id)verificationRecord;
 - (id)verificationTitleString;
 
 @end

@@ -2,43 +2,42 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class <WBSCloudHistorySyncThrottlerDataStore>, NSArray, NSMutableArray;
-
 @interface WBSCloudHistorySyncThrottler : NSObject {
     <WBSCloudHistorySyncThrottlerDataStore> *_dataStore;
-    unsigned long long _maximumNumberOfOperationWithinMonitoredPeriod;
+    unsigned int _maximumNumberOfOperationWithinMonitoredPeriod;
     double _numberOfSecondsToMonitor;
     NSMutableArray *_syncOperationsWithinMonitoredPeriod;
     NSArray *_throttlingDistribution;
 }
 
-@property(retain) <WBSCloudHistorySyncThrottlerDataStore> * dataStore;
+@property (nonatomic, retain) <WBSCloudHistorySyncThrottlerDataStore> *dataStore;
 
 + (id)_distributionBucketsFromConfiguration:(id)arg1;
-+ (bool)policyStringRepresentsValidPolicy:(id)arg1;
++ (BOOL)policyStringRepresentsValidPolicy:(id)arg1;
 
 - (void).cxx_destruct;
 - (void)_addSyncOperationAtDate:(id)arg1;
 - (double)_currentMinimumTimeIntervalBetweenSyncOperations;
 - (id)_dateOfNextPermittedSyncAttemptWithNormalPriority;
-- (bool)_loadDistributionConfiguration:(id)arg1;
+- (BOOL)_loadDistributionConfiguration:(id)arg1;
 - (void)_loadRecordOfPastSyncOperations;
 - (double)_minimumTimeBetweenSyncOperationsForSyncOperations:(id)arg1;
 - (void)_pruneExpiredOrInvalidSyncEntries;
 - (void)_saveRecordOfPastSyncOperations;
-- (unsigned long long)_test_maximumNumberOfOperationWithinMonitoredPeriod;
+- (unsigned int)_test_maximumNumberOfOperationWithinMonitoredPeriod;
 - (double)_test_numberOfSecondsToMonitor;
-- (bool)_throttlerIsActive;
+- (BOOL)_throttlerIsActive;
 - (double)_timeIntervalUntilNextPermittedSyncAttemptWithNormalPriority;
 - (double)_timeIntervalUntilSyncOperationShouldBePruned:(id)arg1;
 - (id)dataStore;
-- (id)dateOfNextPermittedSyncAttemptWithPriority:(long long)arg1;
+- (id)dateOfNextPermittedOperationWithPriority:(int)arg1;
 - (id)description;
 - (id)init;
 - (id)initWithPolicyString:(id)arg1;
+- (void)operationWithPriority:(int)arg1 didCompleteWithResult:(int)arg2;
+- (BOOL)permitsOperationWithPriority:(int)arg1;
+- (void)reloadRecordOfPastOperations;
 - (void)setDataStore:(id)arg1;
 - (void)setPolicyString:(id)arg1;
-- (void)syncAttemptWithPriority:(long long)arg1 didCompleteWithResult:(long long)arg2;
-- (bool)throttlingPolicyPermitsSyncAttemptWithPriority:(long long)arg1;
 
 @end

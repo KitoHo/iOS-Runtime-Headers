@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSWPTOCEntryStyle;
-
 @interface TSWPTOCMapEntry : NSObject {
+    BOOL _showInTOC;
     TSWPTOCEntryStyle *_tocEntryStyle;
-    bool_showInTOC;
 }
 
-@property bool showInTOC;
-@property(retain) TSWPTOCEntryStyle * tocEntryStyle;
+@property (nonatomic) BOOL showInTOC;
+@property (nonatomic, retain) TSWPTOCEntryStyle *tocEntryStyle;
 
-- (id)initWithTOCEntryStyle:(id)arg1 showInTOC:(bool)arg2;
-- (void)setShowInTOC:(bool)arg1;
+- (id)initWithTOCEntryStyle:(id)arg1 showInTOC:(BOOL)arg2;
+- (void)setShowInTOC:(BOOL)arg1;
 - (void)setTocEntryStyle:(id)arg1;
-- (bool)showInTOC;
+- (BOOL)showInTOC;
 - (id)tocEntryStyle;
 
 @end

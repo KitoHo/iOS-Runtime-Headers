@@ -2,46 +2,46 @@
    Image: /System/Library/PrivateFrameworks/VoiceTrigger.framework/VoiceTrigger
  */
 
-@interface VTPreferences : NSObject {
-}
+@interface VTPreferences : NSObject
 
 + (void)initialize;
 + (id)sharedPreferences;
 
-- (bool)_storeModeEnabled;
+- (id)_languageCode;
+- (BOOL)_storeModeEnabled;
 - (id)consoleLoggingLevel;
 - (id)earlyDetectThresholdOffset;
-- (bool)facedownGestureEnabled;
-- (bool)fileLoggingIsEnabled;
+- (BOOL)facedownGestureEnabled;
+- (BOOL)fileLoggingIsEnabled;
 - (id)fileLoggingLevel;
-- (bool)hasExplicitlySetVoiceTriggerEnabled;
-- (id)languageCode;
+- (BOOL)hasExplicitlySetVoiceTriggerEnabled;
 - (id)localizedTriggerPhrase;
 - (id)localizedTriggerPhraseForLanguageCode:(id)arg1;
 - (id)loggingThresholdOffset;
-- (bool)onetimeRemoteAssetQueryRanSuccessfully;
+- (BOOL)onetimeRemoteAssetQueryRanSuccessfully;
+- (BOOL)phraseSpotterEnabled;
 - (void)setConsoleLoggingLevel:(id)arg1;
 - (void)setEarlyDetectThresholdOffset:(id)arg1;
-- (void)setFacedownGestureEnabled:(bool)arg1;
-- (void)setFileLoggingIsEnabled:(bool)arg1;
+- (void)setFacedownGestureEnabled:(BOOL)arg1;
+- (void)setFileLoggingIsEnabled:(BOOL)arg1;
 - (void)setFileLoggingLevel:(id)arg1;
 - (void)setLanguageCode:(id)arg1;
-- (void)setLanguageCodeWithoutUpdate:(id)arg1;
 - (void)setLoggingThresholdOffset:(id)arg1;
-- (void)setOnetimeRemoteAssetQueryRanSuccessfully:(bool)arg1;
-- (void)setSpeakerAdaptationEnabled:(bool)arg1;
+- (void)setOnetimeRemoteAssetQueryRanSuccessfully:(BOOL)arg1;
+- (void)setPhraseSpotterEnabled:(BOOL)arg1;
+- (void)setSpeakerAdaptationEnabled:(BOOL)arg1;
 - (void)setThresholdOffset:(id)arg1;
 - (void)setThresholdOverride:(id)arg1;
-- (void)setVoiceTriggerEnabled:(bool)arg1;
-- (void)setVoiceTriggerEnabledWhenChargerConnected:(bool)arg1;
-- (void)setVoiceTriggerEnabledWhenChargerDisconnected:(bool)arg1;
+- (void)setVoiceTriggerEnabled:(BOOL)arg1;
+- (void)setVoiceTriggerEnabledWhenChargerConnected:(BOOL)arg1;
+- (void)setVoiceTriggerEnabledWhenChargerDisconnected:(BOOL)arg1;
 - (double)siriLastUseInactiveInterval;
-- (bool)speakerAdaptationEnabled;
+- (BOOL)speakerAdaptationEnabled;
 - (void)synchronize;
 - (id)thresholdOffset;
 - (id)thresholdOverride;
-- (bool)voiceTriggerEnabled;
-- (bool)voiceTriggerEnabledWhenChargerConnected;
-- (bool)voiceTriggerEnabledWhenChargerDisconnected;
+- (BOOL)voiceTriggerEnabled;
+- (BOOL)voiceTriggerEnabledWhenChargerConnected;
+- (BOOL)voiceTriggerEnabledWhenChargerDisconnected;
 
 @end

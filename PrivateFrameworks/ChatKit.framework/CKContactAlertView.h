@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class NSString, UIImage, UIImageView, UILabel;
-
 @interface CKContactAlertView : UIView {
     NSString *_contactDescription;
     UIImageView *_contactImageView;
@@ -11,17 +9,17 @@
     UIImage *_image;
 }
 
-@property(retain) NSString * contactDescription;
-@property(retain) UIImageView * contactImageView;
-@property(retain) UILabel * contactLabel;
-@property(retain) UIImage * image;
+@property (nonatomic, retain) NSString *contactDescription;
+@property (nonatomic, retain) UIImageView *contactImageView;
+@property (nonatomic, retain) UILabel *contactLabel;
+@property (nonatomic, retain) UIImage *image;
 
 - (id)contactDescription;
 - (id)contactImageView;
 - (id)contactLabel;
 - (void)dealloc;
 - (id)image;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)layoutSubviews;
 - (void)setContactDescription:(id)arg1;
 - (void)setContactImageView:(id)arg1;

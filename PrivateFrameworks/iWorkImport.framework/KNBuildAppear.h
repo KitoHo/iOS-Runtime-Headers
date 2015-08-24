@@ -2,24 +2,21 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString;
+@interface KNBuildAppear : KNAnimationEffect <KNChunkableBuildAnimator>
 
-@interface KNBuildAppear : KNAnimationEffect <KNChunkableBuildAnimator> {
-}
-
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (int)animationCategory;
 + (id)animationFilter;
 + (id)animationName;
 + (id)defaultAttributes;
-+ (unsigned long long)directionType;
++ (unsigned int)directionType;
 + (void)fillLocalizedDirectionMenu:(id)arg1 forType:(int)arg2;
 + (id)localizedMenuString:(int)arg1;
-+ (unsigned long long)maxChunkCountToAnimate;
++ (unsigned int)maxChunkCountToAnimate;
 + (id)supportedTypes;
 + (id)thumbnailImageNameForType:(int)arg1;
 

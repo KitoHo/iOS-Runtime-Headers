@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSKAnimatedGIFController;
-
 @interface TSKAnimatedGIFLayer : CALayer {
     TSKAnimatedGIFController *mController;
 }
 
-@property TSKAnimatedGIFController * controller;
+@property (nonatomic) TSKAnimatedGIFController *controller;
 
 + (id)defaultActionForKey:(id)arg1;
 
@@ -16,5 +14,6 @@
 - (void)dealloc;
 - (void)display;
 - (void)setController:(id)arg1;
+- (void)teardown;
 
 @end

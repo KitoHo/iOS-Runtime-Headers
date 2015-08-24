@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@interface PSLanguageTableViewCell : PSTableCell {
-}
+@interface PSLanguageTableViewCell : PSTableCell
 
-+ (long long)cellStyle;
++ (int)cellStyle;
 
 @end

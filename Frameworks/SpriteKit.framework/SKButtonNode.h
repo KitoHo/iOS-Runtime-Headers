@@ -2,25 +2,19 @@
    Image: /System/Library/Frameworks/SpriteKit.framework/SpriteKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSObject<SKButtonNodeDelegate>, SKAction;
-
 @interface SKButtonNode : SKLabelNode {
     NSObject<SKButtonNodeDelegate> *_delegate;
     SKAction *_downAction;
-    id _downBlock;
+    id /* block */ _downBlock;
     int _touches;
     SKAction *_upAction;
-    id _upBlock;
-    id _upInsideBlock;
+    id /* block */ _upBlock;
+    id /* block */ _upInsideBlock;
 }
 
-@property NSObject<SKButtonNodeDelegate> * delegate;
-@property(retain) SKAction * downAction;
-@property(retain) SKAction * upAction;
+@property (nonatomic) NSObject<SKButtonNodeDelegate> *delegate;
+@property (nonatomic, retain) SKAction *downAction;
+@property (nonatomic, retain) SKAction *upAction;
 
 + (id)buttonWithFontNamed:(id)arg1;
 
@@ -31,15 +25,15 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (void)onTouchDownInside:(id)arg1;
-- (void)onTouchUp:(id)arg1;
-- (void)onTouchUpInside:(id)arg1;
+- (void)onTouchDownInside:(id /* block */)arg1;
+- (void)onTouchUp:(id /* block */)arg1;
+- (void)onTouchUpInside:(id /* block */)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setDownAction:(id)arg1;
 - (void)setUpAction:(id)arg1;
-- (void)touchBegan:(unsigned long long)arg1 location:(struct CGPoint { double x1; double x2; })arg2;
-- (void)touchEnded:(unsigned long long)arg1 location:(struct CGPoint { double x1; double x2; })arg2;
-- (void)touchMoved:(unsigned long long)arg1 location:(struct CGPoint { double x1; double x2; })arg2;
+- (void)touchBegan:(unsigned int)arg1 location:(struct CGPoint { float x1; float x2; })arg2;
+- (void)touchEnded:(unsigned int)arg1 location:(struct CGPoint { float x1; float x2; })arg2;
+- (void)touchMoved:(unsigned int)arg1 location:(struct CGPoint { float x1; float x2; })arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (id)upAction;

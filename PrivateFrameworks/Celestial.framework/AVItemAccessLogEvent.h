@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class AVItemAccessLogEventInternal, NSDate, NSString;
-
 @interface AVItemAccessLogEvent : NSObject <NSCopying> {
     AVItemAccessLogEventInternal *_playerItemAccessLogEvent;
 }
 
-@property(readonly) NSString * URI;
-@property(readonly) double durationWatched;
-@property(readonly) double indicatedBitrate;
-@property(readonly) long long numberOfBytesTransferred;
-@property(readonly) long long numberOfDroppedVideoFrames;
-@property(readonly) long long numberOfSegmentsDownloaded;
-@property(readonly) long long numberOfServerAddressChanges;
-@property(readonly) long long numberOfStalls;
-@property(readonly) double observedBitrate;
-@property(readonly) NSString * playbackSessionID;
-@property(readonly) NSDate * playbackStartDate;
-@property(readonly) double playbackStartOffset;
-@property(readonly) double segmentsDownloadedDuration;
-@property(readonly) NSString * serverAddress;
+@property (nonatomic, readonly) NSString *URI;
+@property (nonatomic, readonly) double durationWatched;
+@property (nonatomic, readonly) double indicatedBitrate;
+@property (nonatomic, readonly) long long numberOfBytesTransferred;
+@property (nonatomic, readonly) int numberOfDroppedVideoFrames;
+@property (nonatomic, readonly) int numberOfSegmentsDownloaded;
+@property (nonatomic, readonly) int numberOfServerAddressChanges;
+@property (nonatomic, readonly) int numberOfStalls;
+@property (nonatomic, readonly) double observedBitrate;
+@property (nonatomic, readonly) NSString *playbackSessionID;
+@property (nonatomic, readonly) NSDate *playbackStartDate;
+@property (nonatomic, readonly) double playbackStartOffset;
+@property (nonatomic, readonly) double segmentsDownloadedDuration;
+@property (nonatomic, readonly) NSString *serverAddress;
 
 - (id)URI;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -32,10 +30,10 @@
 - (id)init;
 - (id)initWithDictionary:(id)arg1;
 - (long long)numberOfBytesTransferred;
-- (long long)numberOfDroppedVideoFrames;
-- (long long)numberOfSegmentsDownloaded;
-- (long long)numberOfServerAddressChanges;
-- (long long)numberOfStalls;
+- (int)numberOfDroppedVideoFrames;
+- (int)numberOfSegmentsDownloaded;
+- (int)numberOfServerAddressChanges;
+- (int)numberOfStalls;
 - (double)observedBitrate;
 - (id)playbackSessionID;
 - (id)playbackStartDate;

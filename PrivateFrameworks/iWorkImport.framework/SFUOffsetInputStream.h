@@ -2,28 +2,26 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class <SFUInputStream>, NSString;
-
 @interface SFUOffsetInputStream : NSObject <SFUInputStream> {
     long long mInitialOffset;
     <SFUInputStream> *mInputStream;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-- (bool)canSeek;
+- (BOOL)canSeek;
 - (void)close;
 - (id)closeLocalStream;
 - (void)dealloc;
 - (void)disableSystemCaching;
 - (void)enableSystemCaching;
-- (id)initWithInputStream:(id)arg1 initialOffset:(long long)arg2;
 - (id)initWithInputStream:(id)arg1;
+- (id)initWithInputStream:(id)arg1 initialOffset:(long long)arg2;
 - (long long)offset;
-- (unsigned long long)readToBuffer:(char *)arg1 size:(unsigned long long)arg2;
+- (unsigned long)readToBuffer:(char *)arg1 size:(unsigned long)arg2;
 - (void)seekToOffset:(long long)arg1;
 
 @end

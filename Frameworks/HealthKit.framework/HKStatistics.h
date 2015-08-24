@@ -2,12 +2,11 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-@class HKQuantity, HKQuantityType, NSArray, NSDate, NSDictionary;
-
-@interface HKStatistics : NSObject <NSSecureCoding, NSCopying> {
+@interface HKStatistics : NSObject <NSCopying, NSSecureCoding> {
     HKQuantity *_averageQuantity;
     NSDictionary *_averageQuantityBySource;
-    unsigned long long _dataCount;
+    unsigned int _dataCount;
+    NSDictionary *_dataCountBySource;
     NSDate *_endDate;
     HKQuantity *_maximumQuantity;
     NSDictionary *_maximumQuantityBySource;
@@ -20,22 +19,23 @@
     NSDictionary *_sumQuantityBySource;
 }
 
-@property(retain) HKQuantity * averageQuantity;
-@property(retain) NSDictionary * averageQuantityBySource;
-@property unsigned long long dataCount;
-@property(readonly) NSDate * endDate;
-@property(retain) HKQuantity * maximumQuantity;
-@property(retain) NSDictionary * maximumQuantityBySource;
-@property(retain) HKQuantity * minimumQuantity;
-@property(retain) NSDictionary * minimumQuantityBySource;
-@property(readonly) HKQuantityType * quantityType;
-@property(readonly) NSArray * sources;
-@property(readonly) NSDate * startDate;
-@property(retain) HKQuantity * sumQuantity;
-@property(retain) NSDictionary * sumQuantityBySource;
+@property (nonatomic, retain) HKQuantity *averageQuantity;
+@property (nonatomic, retain) NSDictionary *averageQuantityBySource;
+@property (nonatomic) unsigned int dataCount;
+@property (nonatomic, retain) NSDictionary *dataCountBySource;
+@property (readonly) NSDate *endDate;
+@property (nonatomic, retain) HKQuantity *maximumQuantity;
+@property (nonatomic, retain) NSDictionary *maximumQuantityBySource;
+@property (nonatomic, retain) HKQuantity *minimumQuantity;
+@property (nonatomic, retain) NSDictionary *minimumQuantityBySource;
+@property (readonly) HKQuantityType *quantityType;
+@property (readonly) NSArray *sources;
+@property (readonly) NSDate *startDate;
+@property (nonatomic, retain) HKQuantity *sumQuantity;
+@property (nonatomic, retain) NSDictionary *sumQuantityBySource;
 
-+ (void)_validateOptions:(unsigned long long)arg1 forDataType:(id)arg2;
-+ (bool)supportsSecureCoding;
++ (void)_validateOptions:(unsigned int)arg1 forDataType:(id)arg2;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)_initAsCopyOf:(id)arg1;
@@ -47,7 +47,8 @@
 - (id)averageQuantityBySource;
 - (id)averageQuantityForSource:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (unsigned long long)dataCount;
+- (unsigned int)dataCount;
+- (id)dataCountBySource;
 - (void)encodeWithCoder:(id)arg1;
 - (id)endDate;
 - (id)init;
@@ -61,7 +62,8 @@
 - (id)quantityType;
 - (void)setAverageQuantity:(id)arg1;
 - (void)setAverageQuantityBySource:(id)arg1;
-- (void)setDataCount:(unsigned long long)arg1;
+- (void)setDataCount:(unsigned int)arg1;
+- (void)setDataCountBySource:(id)arg1;
 - (void)setMaximumQuantity:(id)arg1;
 - (void)setMaximumQuantityBySource:(id)arg1;
 - (void)setMinimumQuantity:(id)arg1;

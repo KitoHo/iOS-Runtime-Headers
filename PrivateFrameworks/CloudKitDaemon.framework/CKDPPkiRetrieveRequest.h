@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSMutableArray;
-
 @interface CKDPPkiRetrieveRequest : PBRequest <NSCopying> {
     NSMutableArray *_userIds;
 }
 
-@property(retain) NSMutableArray * userIds;
+@property (nonatomic, retain) NSMutableArray *userIds;
 
 + (id)options;
 
@@ -19,14 +17,14 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setUserIds:(id)arg1;
-- (id)userIdAtIndex:(unsigned long long)arg1;
+- (id)userIdAtIndex:(unsigned int)arg1;
 - (id)userIds;
-- (unsigned long long)userIdsCount;
+- (unsigned int)userIdsCount;
 - (void)writeTo:(id)arg1;
 
 @end

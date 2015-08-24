@@ -2,54 +2,52 @@
    Image: /System/Library/PrivateFrameworks/Stocks.framework/Stocks
  */
 
-@class <GraphRenderOperationDelegate>, NSArray, StockChartDisplayMode, StockGraphImageSet;
-
 @interface GraphRenderOperation : NSObject {
-    struct CGSize { 
-        double width; 
-        double height; 
-    struct CGSize { 
-        double width; 
-        double height; 
-    struct UIEdgeInsets { 
-        double top; 
-        double left; 
-        double bottom; 
-        double right; 
+    BOOL _cancelled;
     <GraphRenderOperationDelegate> *_delegate;
     StockChartDisplayMode *_displayMode;
     NSArray *_dottedLinePositions;
     NSArray *_dottedLinePositionsForStyleOnly;
     StockGraphImageSet *_graphImageSet;
+    struct UIEdgeInsets { 
+        float top; 
+        float left; 
+        float bottom; 
+        float right; 
     } _graphInsets;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _graphSize;
     NSArray *_linePointCounts;
     unsigned long long _maxVolume;
-    struct CGPoint { double x1; double x2; } *_points;
-    double _volumeBarWidth;
-    struct { double x1; unsigned long long x2; } *_volumeBars;
+    struct CGPoint { float x1; float x2; } *_points;
+    BOOL _roundLineCaps;
+    float _volumeBarWidth;
+    struct { float x1; unsigned long long x2; } *_volumeBars;
     unsigned int _volumeCount;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _volumeGraphSize;
-    bool_cancelled;
-    bool_roundLineCaps;
 }
 
-@property(getter=isCancelled,readonly) bool cancelled;
-@property <GraphRenderOperationDelegate> * delegate;
-@property(retain) StockChartDisplayMode * displayMode;
-@property(retain) NSArray * dottedLinePositions;
-@property(retain) NSArray * dottedLinePositionsForStyleOnly;
-@property(retain) StockGraphImageSet * graphImageSet;
-@property struct UIEdgeInsets { double x1; double x2; double x3; double x4; } graphInsets;
-@property struct CGSize { double x1; double x2; } graphSize;
-@property(retain) NSArray * linePointCounts;
-@property unsigned long long maxVolume;
-@property struct CGPoint { double x1; double x2; }* points;
-@property bool roundLineCaps;
-@property double volumeBarWidth;
-@property struct { double x1; unsigned long long x2; }* volumeBars;
-@property unsigned int volumeCount;
-@property struct CGSize { double x1; double x2; } volumeGraphSize;
+@property (getter=isCancelled, nonatomic, readonly) BOOL cancelled;
+@property (nonatomic) <GraphRenderOperationDelegate> *delegate;
+@property (nonatomic, retain) StockChartDisplayMode *displayMode;
+@property (nonatomic, retain) NSArray *dottedLinePositions;
+@property (nonatomic, retain) NSArray *dottedLinePositionsForStyleOnly;
+@property (nonatomic, retain) StockGraphImageSet *graphImageSet;
+@property (nonatomic) struct UIEdgeInsets { float x1; float x2; float x3; float x4; } graphInsets;
+@property (nonatomic) struct CGSize { float x1; float x2; } graphSize;
+@property (nonatomic, retain) NSArray *linePointCounts;
+@property (nonatomic) unsigned long long maxVolume;
+@property (nonatomic) struct CGPoint { float x1; float x2; }*points;
+@property (nonatomic) BOOL roundLineCaps;
+@property (nonatomic) float volumeBarWidth;
+@property (nonatomic) struct { float x1; unsigned long long x2; }*volumeBars;
+@property (nonatomic) unsigned int volumeCount;
+@property (nonatomic) struct CGSize { float x1; float x2; } volumeGraphSize;
 
 - (void).cxx_destruct;
 - (void)cancel;
@@ -58,36 +56,36 @@
 - (id)dottedLinePositions;
 - (id)dottedLinePositionsForStyleOnly;
 - (id)graphImageSet;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })graphInsets;
-- (struct CGSize { double x1; double x2; })graphSize;
-- (bool)isCancelled;
-- (struct CGSize { double x1; double x2; })lineGraphSize;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })graphInsets;
+- (struct CGSize { float x1; float x2; })graphSize;
+- (BOOL)isCancelled;
+- (struct CGSize { float x1; float x2; })lineGraphSize;
 - (id)linePointCounts;
 - (unsigned long long)maxVolume;
-- (struct CGPoint { double x1; double x2; }*)points;
+- (struct CGPoint { float x1; float x2; }*)points;
 - (void)render;
-- (void)renderGraphLineInContext:(struct CGContext { }*)arg1 withColor:(id)arg2 offset:(struct CGPoint { double x1; double x2; })arg3;
+- (void)renderGraphLineInContext:(struct CGContext { }*)arg1 withColor:(id)arg2 offset:(struct CGPoint { float x1; float x2; })arg3;
 - (void)renderLineGraph;
 - (void)renderVolumeGraph;
-- (bool)roundLineCaps;
+- (BOOL)roundLineCaps;
 - (void)setDelegate:(id)arg1;
 - (void)setDisplayMode:(id)arg1;
 - (void)setDottedLinePositions:(id)arg1;
 - (void)setDottedLinePositionsForStyleOnly:(id)arg1;
 - (void)setGraphImageSet:(id)arg1;
-- (void)setGraphInsets:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; })arg1;
-- (void)setGraphSize:(struct CGSize { double x1; double x2; })arg1;
+- (void)setGraphInsets:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg1;
+- (void)setGraphSize:(struct CGSize { float x1; float x2; })arg1;
 - (void)setLinePointCounts:(id)arg1;
 - (void)setMaxVolume:(unsigned long long)arg1;
-- (void)setPoints:(struct CGPoint { double x1; double x2; }*)arg1;
-- (void)setRoundLineCaps:(bool)arg1;
-- (void)setVolumeBarWidth:(double)arg1;
-- (void)setVolumeBars:(struct { double x1; unsigned long long x2; }*)arg1;
+- (void)setPoints:(struct CGPoint { float x1; float x2; }*)arg1;
+- (void)setRoundLineCaps:(BOOL)arg1;
+- (void)setVolumeBarWidth:(float)arg1;
+- (void)setVolumeBars:(struct { float x1; unsigned long long x2; }*)arg1;
 - (void)setVolumeCount:(unsigned int)arg1;
-- (void)setVolumeGraphSize:(struct CGSize { double x1; double x2; })arg1;
-- (double)volumeBarWidth;
-- (struct { double x1; unsigned long long x2; }*)volumeBars;
+- (void)setVolumeGraphSize:(struct CGSize { float x1; float x2; })arg1;
+- (float)volumeBarWidth;
+- (struct { float x1; unsigned long long x2; }*)volumeBars;
 - (unsigned int)volumeCount;
-- (struct CGSize { double x1; double x2; })volumeGraphSize;
+- (struct CGSize { float x1; float x2; })volumeGraphSize;
 
 @end

@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class NSString;
-
 @interface WBURecentWebSearchesController : WBSRecentWebSearchesController {
     NSString *_pathToLegacySearchesFile;
     NSString *_preferencesDomain;
 }
 
-+ (unsigned long long)_maximumNumberOfSearchesToTrack;
++ (unsigned int)_maximumNumberOfSearchesToTrack;
 
 - (void).cxx_destruct;
 - (void)_migrateLegacyData;

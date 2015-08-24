@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSString;
-
 @interface NSSQLColumn : NSSQLProperty {
     unsigned int _allowAliasing;
     NSString *_columnName;
@@ -18,7 +16,7 @@
 - (void)_setFetchIndex:(unsigned int)arg1;
 - (void)_setSQLType:(unsigned int)arg1;
 - (void)_setSlotIfDefault:(unsigned int)arg1;
-- (bool)allowAliasing;
+- (BOOL)allowAliasing;
 - (id)cloneForReadOnlyFetching;
 - (id)columnName;
 - (void)copyValuesForReadOnlyFetch:(id)arg1;
@@ -31,7 +29,7 @@
 - (unsigned int)precision;
 - (unsigned int)roughSizeEstimate;
 - (int)scale;
-- (void)setAllowAliasing:(bool)arg1;
+- (void)setAllowAliasing:(BOOL)arg1;
 - (void)setPrecision:(unsigned int)arg1;
 - (void)setScale:(int)arg1;
 - (unsigned int)slot;

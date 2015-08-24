@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CoreMediaStream.framework/CoreMediaStream
  */
 
-@class NSArray, NSDate, NSString;
-
 @interface MSASSharingRelationship : NSObject <NSCopying> {
     NSString *_GUID;
     NSString *_albumGUID;
@@ -11,29 +9,29 @@
     NSArray *_emails;
     NSString *_firstName;
     NSString *_fullName;
+    BOOL _isMine;
     NSString *_lastName;
     NSString *_personID;
     NSArray *_phones;
     int _state;
     NSDate *_subscriptionDate;
-    bool_isMine;
 }
 
-@property(retain) NSString * GUID;
-@property(retain) NSString * albumGUID;
-@property(retain) NSString * email;
-@property(retain) NSArray * emails;
-@property(retain) NSString * firstName;
-@property(retain) NSString * fullName;
-@property bool isMine;
-@property(retain) NSString * lastName;
-@property(retain) NSString * personID;
-@property(retain) NSArray * phones;
-@property int state;
-@property(retain) NSDate * subscriptionDate;
+@property (nonatomic, retain) NSString *GUID;
+@property (nonatomic, retain) NSString *albumGUID;
+@property (nonatomic, retain) NSString *email;
+@property (nonatomic, retain) NSArray *emails;
+@property (nonatomic, retain) NSString *firstName;
+@property (nonatomic, retain) NSString *fullName;
+@property (nonatomic) BOOL isMine;
+@property (nonatomic, retain) NSString *lastName;
+@property (nonatomic, retain) NSString *personID;
+@property (nonatomic, retain) NSArray *phones;
+@property (nonatomic) int state;
+@property (nonatomic, retain) NSDate *subscriptionDate;
 
 + (id)MSASPSharingRelationshipFromProtocolDictionary:(id)arg1;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)GUID;
@@ -46,12 +44,12 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)firstName;
 - (id)fullName;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)isEqualToSharingRelationship:(id)arg1;
-- (bool)isMine;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToSharingRelationship:(id)arg1;
+- (BOOL)isMine;
 - (id)lastName;
 - (id)personID;
 - (id)phones;
@@ -61,7 +59,7 @@
 - (void)setFirstName:(id)arg1;
 - (void)setFullName:(id)arg1;
 - (void)setGUID:(id)arg1;
-- (void)setIsMine:(bool)arg1;
+- (void)setIsMine:(BOOL)arg1;
 - (void)setLastName:(id)arg1;
 - (void)setPersonID:(id)arg1;
 - (void)setPhones:(id)arg1;

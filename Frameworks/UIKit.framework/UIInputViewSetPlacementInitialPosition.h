@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface UIInputViewSetPlacementInitialPosition : UIInputViewSetPlacementOffScreenDown {
-}
+@interface UIInputViewSetPlacementInitialPosition : UIInputViewSetPlacementOffScreenDown
 
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 
 @end

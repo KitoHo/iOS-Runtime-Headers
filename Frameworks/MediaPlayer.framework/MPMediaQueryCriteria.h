@@ -2,51 +2,57 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class NSArray, NSDictionary, NSMutableSet, NSSet;
-
 @interface MPMediaQueryCriteria : NSObject <NSCopying> {
     NSSet *_collectionPropertiesToFetch;
-    unsigned long long _entityOrder;
+    unsigned int _entityLimit;
+    unsigned int _entityOrder;
     NSMutableSet *_filterPredicates;
-    long long _groupingType;
+    int _groupingType;
+    BOOL _ignoreSystemFilterPredicates;
+    BOOL _includeEntitiesWithBlankNames;
+    BOOL _includeNonLibraryEntities;
     NSSet *_itemPropertiesToFetch;
     NSDictionary *_orderingDirectionMappings;
     NSArray *_orderingProperties;
-    bool_ignoreSystemFilterPredicates;
-    bool_useSections;
+    BOOL _useSections;
 }
 
-@property(copy) NSSet * collectionPropertiesToFetch;
-@property unsigned long long entityOrder;
-@property(readonly) bool excludesEntitiesWithBlankNames;
-@property(copy) NSSet * filterPredicates;
-@property long long groupingType;
-@property bool ignoreSystemFilterPredicates;
-@property(copy) NSSet * itemPropertiesToFetch;
-@property(copy) NSDictionary * orderingDirectionMappings;
-@property(copy) NSArray * orderingProperties;
-@property(readonly) bool specifiesPlaylistItems;
+@property (nonatomic, copy) NSSet *collectionPropertiesToFetch;
+@property (nonatomic) unsigned int entityLimit;
+@property (nonatomic) unsigned int entityOrder;
+@property (nonatomic, readonly) BOOL excludesEntitiesWithBlankNames;
+@property (nonatomic, copy) NSSet *filterPredicates;
+@property (nonatomic) int groupingType;
+@property (nonatomic) BOOL ignoreSystemFilterPredicates;
+@property (nonatomic) BOOL includeEntitiesWithBlankNames;
+@property (nonatomic) BOOL includeNonLibraryEntities;
+@property (nonatomic, copy) NSSet *itemPropertiesToFetch;
+@property (nonatomic, copy) NSDictionary *orderingDirectionMappings;
+@property (nonatomic, copy) NSArray *orderingProperties;
+@property (nonatomic, readonly) BOOL specifiesPlaylistItems;
 
 - (void).cxx_destruct;
 - (id)ML3CollectionsQueryInLibrary:(id)arg1;
-- (id)ML3ItemsQueryInLibrary:(id)arg1 orderingTerms:(id)arg2 nameBlankProperty:(id)arg3;
 - (id)ML3ItemsQueryInLibrary:(id)arg1;
-- (id)ML3OrderingTermForMPOrderingProperty:(id)arg1;
-- (id)ML3OrderingTermsForGroupingType:(long long)arg1;
-- (id)ML3OrderingTermsForMPOrderingProperties:(id)arg1;
+- (id)ML3ItemsQueryInLibrary:(id)arg1 orderingTerms:(id)arg2 nameBlankProperty:(id)arg3;
+- (id)ML3OrderingTermsForGroupingType:(int)arg1;
+- (id)ML3OrderingTermsForMPOrderingProperties:(id)arg1 directionalityMapping:(id)arg2 entityClass:(Class)arg3;
 - (void)addFilterPredicate:(id)arg1;
 - (void)addFilterPredicates:(id)arg1;
 - (id)collectionPropertiesToFetch;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
-- (unsigned long long)entityOrder;
-- (bool)excludesEntitiesWithBlankNames;
+- (unsigned int)entityLimit;
+- (unsigned int)entityOrder;
+- (BOOL)excludesEntitiesWithBlankNames;
 - (id)filterPredicates;
-- (long long)groupingType;
-- (unsigned long long)hash;
-- (bool)ignoreSystemFilterPredicates;
+- (int)groupingType;
+- (unsigned int)hash;
+- (BOOL)ignoreSystemFilterPredicates;
+- (BOOL)includeEntitiesWithBlankNames;
+- (BOOL)includeNonLibraryEntities;
 - (id)init;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)itemPropertiesToFetch;
 - (id)orderingDirectionMappings;
 - (id)orderingProperties;
@@ -54,13 +60,16 @@
 - (void)removeFilterPredicate:(id)arg1;
 - (void)removePredicatesForProperty:(id)arg1;
 - (void)setCollectionPropertiesToFetch:(id)arg1;
-- (void)setEntityOrder:(unsigned long long)arg1;
+- (void)setEntityLimit:(unsigned int)arg1;
+- (void)setEntityOrder:(unsigned int)arg1;
 - (void)setFilterPredicates:(id)arg1;
-- (void)setGroupingType:(long long)arg1;
-- (void)setIgnoreSystemFilterPredicates:(bool)arg1;
+- (void)setGroupingType:(int)arg1;
+- (void)setIgnoreSystemFilterPredicates:(BOOL)arg1;
+- (void)setIncludeEntitiesWithBlankNames:(BOOL)arg1;
+- (void)setIncludeNonLibraryEntities:(BOOL)arg1;
 - (void)setItemPropertiesToFetch:(id)arg1;
 - (void)setOrderingDirectionMappings:(id)arg1;
 - (void)setOrderingProperties:(id)arg1;
-- (bool)specifiesPlaylistItems;
+- (BOOL)specifiesPlaylistItems;
 
 @end

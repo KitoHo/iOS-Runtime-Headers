@@ -2,32 +2,30 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class <GEOCompletionItem>, MKMapItem, NSArray, NSString;
-
 @interface MKSearchCompletion : NSObject {
     <GEOCompletionItem> *_item;
     NSString *_localizedSectionHeader;
     NSString *_sourceID;
 }
 
-@property(readonly) NSArray * displayLines;
-@property(readonly) <GEOCompletionItem> * geoCompletionItem;
-@property(copy) NSString * localizedSectionHeader;
-@property(readonly) MKMapItem * mapItem;
-@property(copy) NSString * sourceID;
+@property (nonatomic, readonly) NSArray *displayLines;
+@property (nonatomic, readonly) <GEOCompletionItem> *geoCompletionItem;
+@property (nonatomic, copy) NSString *localizedSectionHeader;
+@property (nonatomic, readonly) MKMapItem *mapItem;
+@property (nonatomic, copy) NSString *sourceID;
 
 - (void).cxx_destruct;
-- (void)applyToLegacySearch:(id)arg1;
 - (id)calloutTitle;
+- (id)copyStorage;
 - (id)description;
 - (id)displayLines;
 - (id)geoCompletionItem;
-- (bool)getCoordinate:(struct { double x1; double x2; }*)arg1;
-- (unsigned long long)hash;
-- (id)highlightsForLine:(unsigned long long)arg1;
-- (id)iconWithScale:(double)arg1;
+- (BOOL)getCoordinate:(struct { double x1; double x2; }*)arg1;
+- (unsigned int)hash;
+- (id)highlightsForLine:(unsigned int)arg1;
+- (id)iconWithScale:(float)arg1;
 - (id)initWithGeoCompletionItem:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)localizedSectionHeader;
 - (id)mapItem;
 - (id)queryLine;

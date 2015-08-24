@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSTPopUpMenuModel;
-
 @interface TSTTableDataMultipleChoiceList : TSTTableDataObject {
     TSTPopUpMenuModel *mPopUpMenuModel;
 }
 
 - (void)dealloc;
 - (id)description;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initObjectWithPopUpMenuModel:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 
 @end

@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@interface SKUIAccountButtonsViewElement : SKUIViewElement {
-}
+@interface SKUIAccountButtonsViewElement : SKUIViewElement
 
-- (long long)pageComponentType;
+- (int)pageComponentType;
 
 @end

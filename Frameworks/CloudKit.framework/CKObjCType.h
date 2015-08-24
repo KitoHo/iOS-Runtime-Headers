@@ -2,44 +2,42 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSString;
-
 @interface CKObjCType : NSObject {
     NSString *_className;
-    long long _code;
+    int _code;
     NSString *_encoding;
-    unsigned long long _flags;
+    unsigned int _flags;
     NSString *_name;
-    unsigned long long _size;
+    unsigned int _size;
 }
 
-@property(readonly) NSString * className;
-@property(readonly) long long code;
-@property(readonly) NSString * encoding;
-@property(readonly) unsigned long long flags;
-@property(getter=isFloatingPointNumber,readonly) bool floatingPointNumber;
-@property(getter=isIntegerNumber,readonly) bool integerNumber;
-@property(readonly) NSString * name;
-@property(getter=isNumber,readonly) bool number;
-@property(getter=isObject,readonly) bool object;
-@property(readonly) unsigned long long size;
+@property (nonatomic, readonly) NSString *className;
+@property (nonatomic, readonly) int code;
+@property (nonatomic, readonly) NSString *encoding;
+@property (nonatomic, readonly) unsigned int flags;
+@property (getter=isFloatingPointNumber, nonatomic, readonly) BOOL floatingPointNumber;
+@property (getter=isIntegerNumber, nonatomic, readonly) BOOL integerNumber;
+@property (nonatomic, readonly) NSString *name;
+@property (getter=isNumber, nonatomic, readonly) BOOL number;
+@property (getter=isObject, nonatomic, readonly) BOOL object;
+@property (nonatomic, readonly) unsigned int size;
 
 + (id)typeForEncoding:(const char *)arg1;
 + (id)typeForValue:(id)arg1;
 
 - (void).cxx_destruct;
 - (id)className;
-- (long long)code;
+- (int)code;
 - (id)encoding;
-- (unsigned long long)flags;
+- (unsigned int)flags;
 - (void)getBytes:(void*)arg1 forObject:(id)arg2;
-- (id)initWithCode:(long long)arg1 encoding:(id)arg2 name:(id)arg3 className:(id)arg4 size:(unsigned long long)arg5 flags:(unsigned long long)arg6;
-- (bool)isFloatingPointNumber;
-- (bool)isIntegerNumber;
-- (bool)isNumber;
-- (bool)isObject;
+- (id)initWithCode:(int)arg1 encoding:(id)arg2 name:(id)arg3 className:(id)arg4 size:(unsigned int)arg5 flags:(unsigned int)arg6;
+- (BOOL)isFloatingPointNumber;
+- (BOOL)isIntegerNumber;
+- (BOOL)isNumber;
+- (BOOL)isObject;
 - (id)name;
 - (id)objectWithBytes:(const void*)arg1;
-- (unsigned long long)size;
+- (unsigned int)size;
 
 @end

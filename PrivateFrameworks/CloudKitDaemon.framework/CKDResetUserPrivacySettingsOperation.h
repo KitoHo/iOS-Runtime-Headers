@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@interface CKDResetUserPrivacySettingsOperation : CKDOperation {
-}
+@interface CKDResetUserPrivacySettingsOperation : CKDOperation
 
 - (void)main;
-- (bool)shouldCheckAppVersion;
+- (BOOL)shouldCheckAppVersion;
 
 @end

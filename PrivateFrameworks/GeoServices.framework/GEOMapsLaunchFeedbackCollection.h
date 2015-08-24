@@ -2,41 +2,39 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSString;
-
 @interface GEOMapsLaunchFeedbackCollection : PBCodable <NSCopying> {
-    struct { 
-        unsigned long long _high; 
-        unsigned long long _low; 
     struct { 
         unsigned int sessionId : 1; 
     } _has;
+    struct { 
+        unsigned long long _high; 
+        unsigned long long _low; 
     } _sessionId;
     NSString *_sourceAppBundleId;
     NSString *_uriScheme;
 }
 
-@property bool hasSessionId;
-@property(readonly) bool hasSourceAppBundleId;
-@property(readonly) bool hasUriScheme;
-@property struct { unsigned long long x1; unsigned long long x2; } sessionId;
-@property(retain) NSString * sourceAppBundleId;
-@property(retain) NSString * uriScheme;
+@property (nonatomic) BOOL hasSessionId;
+@property (nonatomic, readonly) BOOL hasSourceAppBundleId;
+@property (nonatomic, readonly) BOOL hasUriScheme;
+@property (nonatomic) struct { unsigned long long x1; unsigned long long x2; } sessionId;
+@property (nonatomic, retain) NSString *sourceAppBundleId;
+@property (nonatomic, retain) NSString *uriScheme;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasSessionId;
-- (bool)hasSourceAppBundleId;
-- (bool)hasUriScheme;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasSessionId;
+- (BOOL)hasSourceAppBundleId;
+- (BOOL)hasUriScheme;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (struct { unsigned long long x1; unsigned long long x2; })sessionId;
-- (void)setHasSessionId:(bool)arg1;
+- (void)setHasSessionId:(BOOL)arg1;
 - (void)setSessionId:(struct { unsigned long long x1; unsigned long long x2; })arg1;
 - (void)setSourceAppBundleId:(id)arg1;
 - (void)setUriScheme:(id)arg1;

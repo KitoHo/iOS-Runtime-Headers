@@ -2,18 +2,16 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVRunLoopCondition, AVWeakReference, NSArray;
-
 @interface AVAssetReaderOutputInternal : NSObject {
-    boolalwaysCopiesSampleData;
-    boolcurrentConfigurationIsFinal;
-    boolextractionCompleteForCurrentConfiguration;
-    boolsupportsRandomAccess;
+    BOOL alwaysCopiesSampleData;
+    BOOL currentConfigurationIsFinal;
     NSArray *currentTimeRanges;
+    BOOL extractionCompleteForCurrentConfiguration;
     int extractionID;
     struct OpaqueFigAssetReader { } *figAssetReader;
     int finished;
     AVRunLoopCondition *sampleBufferAvailabilityCondition;
+    BOOL supportsRandomAccess;
     AVWeakReference *weakReference;
     AVWeakReference *weakReferenceToAssetReader;
 }

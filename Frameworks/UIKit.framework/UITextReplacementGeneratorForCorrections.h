@@ -2,27 +2,25 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class TIKeyboardCandidate, UITextChecker;
-
 @interface UITextReplacementGeneratorForCorrections : UITextReplacementGenerator {
     TIKeyboardCandidate *_autocorrectionRecord;
-    unsigned long long _maxCountAfterAutocorrectionGuesses;
-    unsigned long long _maxCountAfterSpellingGuesses;
-    unsigned long long _maxEditDistance;
+    BOOL _forceAutocorrectionGuesses;
+    BOOL _forceHistoryReplacement;
+    BOOL _forceSpellingGuesses;
+    unsigned int _maxCountAfterAutocorrectionGuesses;
+    unsigned int _maxCountAfterSpellingGuesses;
+    unsigned int _maxEditDistance;
     UITextChecker *_textChecker;
-    bool_forceAutocorrectionGuesses;
-    bool_forceHistoryReplacement;
-    bool_forceSpellingGuesses;
 }
 
-@property(retain) TIKeyboardCandidate * autocorrectionRecord;
-@property bool forceAutocorrectionGuesses;
-@property bool forceHistoryReplacement;
-@property bool forceSpellingGuesses;
-@property unsigned long long maxCountAfterAutocorrectionGuesses;
-@property unsigned long long maxCountAfterSpellingGuesses;
-@property unsigned long long maxEditDistance;
-@property(retain) UITextChecker * textChecker;
+@property (nonatomic, retain) TIKeyboardCandidate *autocorrectionRecord;
+@property (nonatomic) BOOL forceAutocorrectionGuesses;
+@property (nonatomic) BOOL forceHistoryReplacement;
+@property (nonatomic) BOOL forceSpellingGuesses;
+@property (nonatomic) unsigned int maxCountAfterAutocorrectionGuesses;
+@property (nonatomic) unsigned int maxCountAfterSpellingGuesses;
+@property (nonatomic) unsigned int maxEditDistance;
+@property (nonatomic, retain) UITextChecker *textChecker;
 
 - (void)addAutocorrectionGuessesToReplacements:(id)arg1;
 - (void)addPreviouslySuggestedAutocorrectionToReplacements:(id)arg1;
@@ -30,22 +28,22 @@
 - (void)addSpellingGuessesForString:(id)arg1 ToReplacements:(id)arg2;
 - (id)autocorrectionRecord;
 - (void)dealloc;
-- (bool)forceAutocorrectionGuesses;
-- (bool)forceHistoryReplacement;
-- (bool)forceSpellingGuesses;
+- (BOOL)forceAutocorrectionGuesses;
+- (BOOL)forceHistoryReplacement;
+- (BOOL)forceSpellingGuesses;
 - (id)init;
-- (bool)isStringMisspelled:(id)arg1;
-- (unsigned long long)maxCountAfterAutocorrectionGuesses;
-- (unsigned long long)maxCountAfterSpellingGuesses;
-- (unsigned long long)maxEditDistance;
+- (BOOL)isStringMisspelled:(id)arg1;
+- (unsigned int)maxCountAfterAutocorrectionGuesses;
+- (unsigned int)maxCountAfterSpellingGuesses;
+- (unsigned int)maxEditDistance;
 - (id)replacements;
 - (void)setAutocorrectionRecord:(id)arg1;
-- (void)setForceAutocorrectionGuesses:(bool)arg1;
-- (void)setForceHistoryReplacement:(bool)arg1;
-- (void)setForceSpellingGuesses:(bool)arg1;
-- (void)setMaxCountAfterAutocorrectionGuesses:(unsigned long long)arg1;
-- (void)setMaxCountAfterSpellingGuesses:(unsigned long long)arg1;
-- (void)setMaxEditDistance:(unsigned long long)arg1;
+- (void)setForceAutocorrectionGuesses:(BOOL)arg1;
+- (void)setForceHistoryReplacement:(BOOL)arg1;
+- (void)setForceSpellingGuesses:(BOOL)arg1;
+- (void)setMaxCountAfterAutocorrectionGuesses:(unsigned int)arg1;
+- (void)setMaxCountAfterSpellingGuesses:(unsigned int)arg1;
+- (void)setMaxEditDistance:(unsigned int)arg1;
 - (void)setTextChecker:(id)arg1;
 - (id)textChecker;
 

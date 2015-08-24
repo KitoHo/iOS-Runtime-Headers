@@ -2,17 +2,13 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@class MIPArtist, MIPSeries, NSString;
-
 @interface MIPTVShow : PBCodable <NSCopying> {
+    MIPArtist *_artist;
+    NSString *_episodeId;
+    NSString *_episodeSortId;
     struct { 
-        unsigned int episodeNumber : 1; 
-        unsigned int episodeSortId : 1; 
         unsigned int seasonNumber : 1; 
         unsigned int videoQuality : 1; 
-    MIPArtist *_artist;
-    int _episodeNumber;
-    int _episodeSortId;
     } _has;
     NSString *_networkName;
     int _seasonNumber;
@@ -20,20 +16,20 @@
     int _videoQuality;
 }
 
-@property(retain) MIPArtist * artist;
-@property int episodeNumber;
-@property int episodeSortId;
-@property(readonly) bool hasArtist;
-@property bool hasEpisodeNumber;
-@property bool hasEpisodeSortId;
-@property(readonly) bool hasNetworkName;
-@property bool hasSeasonNumber;
-@property(readonly) bool hasSeries;
-@property bool hasVideoQuality;
-@property(retain) NSString * networkName;
-@property int seasonNumber;
-@property(retain) MIPSeries * series;
-@property int videoQuality;
+@property (nonatomic, retain) MIPArtist *artist;
+@property (nonatomic, retain) NSString *episodeId;
+@property (nonatomic, retain) NSString *episodeSortId;
+@property (nonatomic, readonly) BOOL hasArtist;
+@property (nonatomic, readonly) BOOL hasEpisodeId;
+@property (nonatomic, readonly) BOOL hasEpisodeSortId;
+@property (nonatomic, readonly) BOOL hasNetworkName;
+@property (nonatomic) BOOL hasSeasonNumber;
+@property (nonatomic, readonly) BOOL hasSeries;
+@property (nonatomic) BOOL hasVideoQuality;
+@property (nonatomic, retain) NSString *networkName;
+@property (nonatomic) int seasonNumber;
+@property (nonatomic, retain) MIPSeries *series;
+@property (nonatomic) int videoQuality;
 
 - (void).cxx_destruct;
 - (id)artist;
@@ -41,28 +37,27 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (int)episodeNumber;
-- (int)episodeSortId;
-- (bool)hasArtist;
-- (bool)hasEpisodeNumber;
-- (bool)hasEpisodeSortId;
-- (bool)hasNetworkName;
-- (bool)hasSeasonNumber;
-- (bool)hasSeries;
-- (bool)hasVideoQuality;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (id)episodeId;
+- (id)episodeSortId;
+- (BOOL)hasArtist;
+- (BOOL)hasEpisodeId;
+- (BOOL)hasEpisodeSortId;
+- (BOOL)hasNetworkName;
+- (BOOL)hasSeasonNumber;
+- (BOOL)hasSeries;
+- (BOOL)hasVideoQuality;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)mergeFrom:(id)arg1;
 - (id)networkName;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (int)seasonNumber;
 - (id)series;
 - (void)setArtist:(id)arg1;
-- (void)setEpisodeNumber:(int)arg1;
-- (void)setEpisodeSortId:(int)arg1;
-- (void)setHasEpisodeNumber:(bool)arg1;
-- (void)setHasEpisodeSortId:(bool)arg1;
-- (void)setHasSeasonNumber:(bool)arg1;
-- (void)setHasVideoQuality:(bool)arg1;
+- (void)setEpisodeId:(id)arg1;
+- (void)setEpisodeSortId:(id)arg1;
+- (void)setHasSeasonNumber:(BOOL)arg1;
+- (void)setHasVideoQuality:(BOOL)arg1;
 - (void)setNetworkName:(id)arg1;
 - (void)setSeasonNumber:(int)arg1;
 - (void)setSeries:(id)arg1;

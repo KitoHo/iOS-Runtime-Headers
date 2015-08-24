@@ -2,47 +2,45 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class GKLabel, NSString;
-
 @interface GKRemoteUIFooterView : UIView <RemoteUITableFooter> {
-    double _bottomMargin;
+    float _bottomMargin;
     int _layoutStyle;
-    double _leftMargin;
-    double _paragraphMargin;
-    double _rightMargin;
+    float _leftMargin;
+    float _paragraphMargin;
+    float _rightMargin;
+    BOOL _shouldApplyGameCenterTheme;
     GKLabel *_textLabel;
-    bool_shouldApplyGameCenterTheme;
 }
 
-@property double bottomMargin;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property int layoutStyle;
-@property double leftMargin;
-@property double paragraphMargin;
-@property double rightMargin;
-@property bool shouldApplyGameCenterTheme;
-@property(readonly) Class superclass;
-@property(retain) GKLabel * textLabel;
+@property (nonatomic) float bottomMargin;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) int layoutStyle;
+@property (nonatomic) float leftMargin;
+@property (nonatomic) float paragraphMargin;
+@property (nonatomic) float rightMargin;
+@property (nonatomic) BOOL shouldApplyGameCenterTheme;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) GKLabel *textLabel;
 
 - (id)attributedStringForString:(id)arg1 withStyle:(id)arg2;
-- (double)bottomMargin;
+- (float)bottomMargin;
 - (void)dealloc;
-- (double)footerHeightForWidth:(double)arg1 inTableView:(id)arg2;
+- (float)footerHeightForWidth:(float)arg1 inTableView:(id)arg2;
 - (id)initWithAttributes:(id)arg1;
 - (int)layoutStyle;
-- (double)leftMargin;
-- (double)paragraphMargin;
-- (double)rightMargin;
-- (void)setBottomMargin:(double)arg1;
+- (float)leftMargin;
+- (float)paragraphMargin;
+- (float)rightMargin;
+- (void)setBottomMargin:(float)arg1;
 - (void)setLayoutStyle:(int)arg1;
-- (void)setLeftMargin:(double)arg1;
-- (void)setParagraphMargin:(double)arg1;
-- (void)setRightMargin:(double)arg1;
-- (void)setShouldApplyGameCenterTheme:(bool)arg1;
+- (void)setLeftMargin:(float)arg1;
+- (void)setParagraphMargin:(float)arg1;
+- (void)setRightMargin:(float)arg1;
+- (void)setShouldApplyGameCenterTheme:(BOOL)arg1;
 - (void)setTextLabel:(id)arg1;
-- (bool)shouldApplyGameCenterTheme;
+- (BOOL)shouldApplyGameCenterTheme;
 - (id)textLabel;
 
 @end

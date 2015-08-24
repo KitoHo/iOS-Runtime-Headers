@@ -2,54 +2,48 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSDictionary, NSMutableDictionary, NSOperation;
-
 @interface CKDPublishAssetsOperation : CKDDatabaseOperation {
-    unsigned long long _URLOptions;
-    id _assetPublishedBlock;
+    unsigned int _URLOptions;
+    id /* block */ _assetPublishedBlock;
     NSOperation *_fetchRecordsOperation;
     NSMutableDictionary *_fetchedRecordsByID;
     NSDictionary *_fileNamesByAssetFieldNames;
     NSArray *_recordIDs;
-    unsigned long long _requestedTTL;
+    unsigned int _requestedTTL;
 }
 
-@property unsigned long long URLOptions;
-@property(copy) id assetPublishedBlock;
-@property(retain) NSOperation * fetchRecordsOperation;
-@property(retain) NSMutableDictionary * fetchedRecordsByID;
-@property(retain) NSDictionary * fileNamesByAssetFieldNames;
-@property(retain) NSArray * recordIDs;
-@property unsigned long long requestedTTL;
+@property (nonatomic) unsigned int URLOptions;
+@property (nonatomic, copy) id /* block */ assetPublishedBlock;
+@property (retain) NSOperation *fetchRecordsOperation;
+@property (nonatomic, retain) NSMutableDictionary *fetchedRecordsByID;
+@property (nonatomic, retain) NSDictionary *fileNamesByAssetFieldNames;
+@property (nonatomic, retain) NSArray *recordIDs;
+@property (nonatomic) unsigned int requestedTTL;
 
 - (void).cxx_destruct;
-- (unsigned long long)URLOptions;
+- (unsigned int)URLOptions;
 - (void)_dispatchAssetURLsForRecord:(id)arg1 recordID:(id)arg2 pcs:(struct _OpaquePCSShareProtection { }*)arg3 error:(id)arg4;
 - (id)_expandTemplateURL:(id)arg1 fieldValues:(id)arg2;
 - (void)_fetchPCSForRecords;
 - (void)_fetchRecords;
 - (void)_finishOnCallbackQueueWithError:(id)arg1;
-- (id)assetPublishedBlock;
+- (id /* block */)assetPublishedBlock;
 - (void)cancel;
 - (id)fetchRecordsOperation;
 - (id)fetchedRecordsByID;
 - (id)fileNamesByAssetFieldNames;
 - (id)initWithOperationInfo:(id)arg1 clientContext:(id)arg2;
 - (void)main;
-- (bool)makeStateTransition;
-- (id)nameForState:(unsigned long long)arg1;
+- (BOOL)makeStateTransition;
+- (id)nameForState:(unsigned int)arg1;
 - (id)recordIDs;
-- (unsigned long long)requestedTTL;
-- (void)setAssetPublishedBlock:(id)arg1;
+- (unsigned int)requestedTTL;
+- (void)setAssetPublishedBlock:(id /* block */)arg1;
 - (void)setFetchRecordsOperation:(id)arg1;
 - (void)setFetchedRecordsByID:(id)arg1;
 - (void)setFileNamesByAssetFieldNames:(id)arg1;
 - (void)setRecordIDs:(id)arg1;
-- (void)setRequestedTTL:(unsigned long long)arg1;
-- (void)setURLOptions:(unsigned long long)arg1;
+- (void)setRequestedTTL:(unsigned int)arg1;
+- (void)setURLOptions:(unsigned int)arg1;
 
 @end

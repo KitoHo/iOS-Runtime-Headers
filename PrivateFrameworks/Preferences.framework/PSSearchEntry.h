@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class NSMutableArray, NSMutableSet, NSString, PSSearchEntry, PSSpecifier, PSSpecifierAction;
-
 @interface PSSearchEntry : NSObject {
     PSSpecifierAction *_action;
     NSString *_bundleName;
@@ -16,19 +14,19 @@
     PSSpecifier *_specifier;
 }
 
-@property(retain) PSSpecifierAction * action;
-@property(copy) NSString * bundleName;
-@property(retain,readonly) NSMutableSet * childEntries;
-@property(retain) PSSpecifier * groupSpecifier;
-@property(copy,readonly) NSString * identifier;
-@property(retain,readonly) NSMutableArray * keywords;
-@property(copy) NSString * manifestBundleName;
-@property(copy,readonly) NSString * name;
-@property PSSearchEntry * parentEntry;
-@property(copy) NSString * plistName;
-@property(retain,readonly) PSSpecifier * specifier;
+@property (nonatomic, retain) PSSpecifierAction *action;
+@property (nonatomic, copy) NSString *bundleName;
+@property (nonatomic, readonly, retain) NSMutableSet *childEntries;
+@property (nonatomic, retain) PSSpecifier *groupSpecifier;
+@property (nonatomic, readonly, copy) NSString *identifier;
+@property (nonatomic, readonly, retain) NSMutableArray *keywords;
+@property (nonatomic, copy) NSString *manifestBundleName;
+@property (nonatomic, readonly, copy) NSString *name;
+@property (nonatomic) PSSearchEntry *parentEntry;
+@property (nonatomic, copy) NSString *plistName;
+@property (nonatomic, readonly, retain) PSSpecifier *specifier;
 
-- (bool)_hasDetailController:(bool)arg1;
+- (BOOL)_hasDetailController:(BOOL)arg1;
 - (id)action;
 - (id)ancestorEntries;
 - (id)bundleName;
@@ -37,13 +35,13 @@
 - (id)debugDescription;
 - (id)description;
 - (id)groupSpecifier;
-- (bool)hasDetailController;
-- (bool)hasListController;
+- (BOOL)hasDetailController;
+- (BOOL)hasListController;
 - (id)hierarchyDescription;
 - (id)identifier;
 - (id)initWithSpecifier:(id)arg1 parent:(id)arg2;
-- (bool)isRootEntry;
-- (bool)isSectionEntry;
+- (BOOL)isRootEntry;
+- (BOOL)isSectionEntry;
 - (id)keywords;
 - (id)manifestBundleName;
 - (id)name;
@@ -58,6 +56,6 @@
 - (void)setParentEntry:(id)arg1;
 - (void)setPlistName:(id)arg1;
 - (id)specifier;
-- (bool)treeContainsPropertyForKey:(id)arg1;
+- (BOOL)treeContainsPropertyForKey:(id)arg1;
 
 @end

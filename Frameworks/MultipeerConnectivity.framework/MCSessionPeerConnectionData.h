@@ -2,29 +2,27 @@
    Image: /System/Library/Frameworks/MultipeerConnectivity.framework/MultipeerConnectivity
  */
 
-@class NSData;
-
 @interface MCSessionPeerConnectionData : NSObject {
-    long long _encryptionPreference;
+    int _encryptionPreference;
     NSData *_gckSessionConnectionData;
-    bool_hasIdentitySet;
+    BOOL _hasIdentitySet;
 }
 
-@property long long encryptionPreference;
-@property(retain) NSData * gckSessionConnectionData;
-@property bool hasIdentitySet;
+@property (nonatomic) int encryptionPreference;
+@property (nonatomic, retain) NSData *gckSessionConnectionData;
+@property (nonatomic) BOOL hasIdentitySet;
 
-+ (id)connectionDataSegmentWithEncryptionPreference:(long long)arg1 identitySet:(bool)arg2 gckSessionConnectionDataBytes:(void*)arg3 gckSessionConnectionDataLength:(unsigned long long)arg4;
++ (id)connectionDataSegmentWithEncryptionPreference:(int)arg1 identitySet:(BOOL)arg2 gckSessionConnectionDataBytes:(void*)arg3 gckSessionConnectionDataLength:(unsigned long)arg4;
 
 - (void)dealloc;
-- (long long)encryptionPreference;
+- (int)encryptionPreference;
 - (id)gckSessionConnectionData;
-- (bool)hasIdentitySet;
+- (BOOL)hasIdentitySet;
 - (id)initWithConnectionDataBlob:(id)arg1;
-- (bool)parseConnectionDataBlob:(id)arg1;
-- (void)parseConnectionDataSegmentWithBytes:(char *)arg1 withLength:(unsigned long long)arg2;
-- (void)setEncryptionPreference:(long long)arg1;
+- (BOOL)parseConnectionDataBlob:(id)arg1;
+- (void)parseConnectionDataSegmentWithBytes:(char *)arg1 withLength:(unsigned long)arg2;
+- (void)setEncryptionPreference:(int)arg1;
 - (void)setGckSessionConnectionData:(id)arg1;
-- (void)setHasIdentitySet:(bool)arg1;
+- (void)setHasIdentitySet:(BOOL)arg1;
 
 @end

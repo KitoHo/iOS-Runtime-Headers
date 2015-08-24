@@ -6,10 +6,10 @@
     long long _rowid;
 }
 
-@property long long rowid;
+@property (nonatomic) long long rowid;
 
 - (void)encodeWithCoder:(id)arg1;
-- (bool)hasRowid;
+- (BOOL)hasRowid;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (long long)rowid;

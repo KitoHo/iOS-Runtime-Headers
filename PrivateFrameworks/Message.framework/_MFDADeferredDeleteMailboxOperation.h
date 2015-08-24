@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class NSString;
-
 @interface _MFDADeferredDeleteMailboxOperation : MFOfflineCacheOperation <MFDADeferredFolderChangeOperation> {
     NSString *_folderID;
 }
@@ -15,6 +13,6 @@
 - (id)folderChangeResult;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFolderID:(id)arg1;
-- (bool)performWithAccount:(id)arg1 offlineCache:(id)arg2;
+- (BOOL)performWithAccount:(id)arg1 offlineCache:(id)arg2;
 
 @end

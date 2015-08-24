@@ -2,34 +2,32 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class <PUCollectionViewLayoutProvider>, NSMutableDictionary;
-
 @interface PUCollectionViewLayoutCache : UICollectionViewLayout {
-    struct { 
-        unsigned int hasSupplementaryLayoutAttributes : 1; 
-        unsigned int hasDecorationLayoutAttributes : 1; 
+    BOOL _cachesResults;
     NSMutableDictionary *_decorationViewLayoutAttributesByKind;
     NSMutableDictionary *_itemLayoutAttributesByIndexPath;
     <PUCollectionViewLayoutProvider> *_layoutProvider;
+    struct { 
+        unsigned int hasSupplementaryLayoutAttributes : 1; 
+        unsigned int hasDecorationLayoutAttributes : 1; 
     } _layoutProviderFlags;
     NSMutableDictionary *_supplementaryViewLayoutAttributesByKind;
-    bool_cachesResults;
 }
 
-@property bool cachesResults;
-@property(readonly) <PUCollectionViewLayoutProvider> * layoutProvider;
+@property (nonatomic) BOOL cachesResults;
+@property (nonatomic, readonly) <PUCollectionViewLayoutProvider> *layoutProvider;
 
 - (void).cxx_destruct;
-- (bool)cachesResults;
-- (struct CGSize { double x1; double x2; })collectionViewContentSize;
+- (BOOL)cachesResults;
+- (struct CGSize { float x1; float x2; })collectionViewContentSize;
 - (id)init;
 - (id)initWithProvider:(id)arg1;
 - (void)invalidateLayoutCache;
 - (id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(id)arg2;
-- (id)layoutAttributesForElementsInRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)layoutAttributesForElementsInRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;
 - (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutProvider;
-- (void)setCachesResults:(bool)arg1;
+- (void)setCachesResults:(BOOL)arg1;
 
 @end

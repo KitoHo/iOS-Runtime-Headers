@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/AirPortAssistant.framework/AirPortAssistant
  */
 
-@class NSLock, NSString;
-
 @interface KeychainWrapper : NSObject {
     NSString *_accountName;
     NSLock *_lock;
     NSString *_serviceName;
 }
 
-@property(copy) NSString * accountName;
-@property(retain) NSLock * lock;
-@property(copy) NSString * serviceName;
+@property (nonatomic, copy) NSString *accountName;
+@property (nonatomic, retain) NSLock *lock;
+@property (nonatomic, copy) NSString *serviceName;
 
 + (id)keychainPasswordForMACAddress:(id)arg1;
 + (id)keychainWrapperWithMACAddress:(id)arg1;
 + (void)removeKeychainPasswordForMACAddress:(id)arg1;
 
 - (id)accountName;
-- (int)addGenericPassword:(id)arg1 withLabel:(id)arg2 andDescription:(id)arg3;
+- (long)addGenericPassword:(id)arg1 withLabel:(id)arg2 andDescription:(id)arg3;
 - (void)dealloc;
 - (id)genericPassword;
 - (id)genericPasswordQuery;

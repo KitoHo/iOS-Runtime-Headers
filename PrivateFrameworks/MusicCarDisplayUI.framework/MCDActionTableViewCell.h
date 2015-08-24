@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/MusicCarDisplayUI.framework/MusicCarDisplayUI
  */
 
-@interface MCDActionTableViewCell : MCDTableViewCell {
-}
+@interface MCDActionTableViewCell : MCDTableViewCell
 
-- (void)setSectionLocation:(int)arg1 animated:(bool)arg2;
+- (void)setSectionLocation:(int)arg1 animated:(BOOL)arg2;
 
 @end

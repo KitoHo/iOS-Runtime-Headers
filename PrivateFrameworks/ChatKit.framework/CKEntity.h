@@ -2,28 +2,26 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class IMHandle, NSString, UIImage;
-
 @interface CKEntity : NSObject {
     IMHandle *_handle;
 }
 
-@property(copy,readonly) NSString * IDSCanonicalAddress;
-@property(readonly) void* abRecord;
-@property(retain,readonly) IMHandle * defaultIMHandle;
-@property(copy,readonly) NSString * fullName;
-@property(retain) IMHandle * handle;
-@property(readonly) int identifier;
-@property(retain,readonly) UIImage * locationMapViewContactImage;
-@property(retain,readonly) UIImage * locationShareBalloonContactImage;
-@property(copy,readonly) NSString * name;
-@property(copy,readonly) NSString * originalAddress;
-@property(readonly) int propertyType;
-@property(copy,readonly) NSString * rawAddress;
-@property(copy,readonly) NSString * textToneIdentifier;
-@property(copy,readonly) NSString * textVibrationIdentifier;
-@property(retain,readonly) UIImage * transcriptContactImage;
-@property(retain,readonly) UIImage * transcriptDrawerContactImage;
+@property (nonatomic, readonly, copy) NSString *IDSCanonicalAddress;
+@property (nonatomic, readonly) void*abRecord;
+@property (nonatomic, readonly, retain) IMHandle *defaultIMHandle;
+@property (nonatomic, readonly, copy) NSString *fullName;
+@property (nonatomic, retain) IMHandle *handle;
+@property (nonatomic, readonly) int identifier;
+@property (nonatomic, readonly, retain) UIImage *locationMapViewContactImage;
+@property (nonatomic, readonly, retain) UIImage *locationShareBalloonContactImage;
+@property (nonatomic, readonly, copy) NSString *name;
+@property (nonatomic, readonly, copy) NSString *originalAddress;
+@property (nonatomic, readonly) int propertyType;
+@property (nonatomic, readonly, copy) NSString *rawAddress;
+@property (nonatomic, readonly, copy) NSString *textToneIdentifier;
+@property (nonatomic, readonly, copy) NSString *textVibrationIdentifier;
+@property (nonatomic, readonly, retain) UIImage *transcriptContactImage;
+@property (nonatomic, readonly, retain) UIImage *transcriptDrawerContactImage;
 
 + (id)_copyEntityForAddressString:(id)arg1 onAccount:(id)arg2;
 + (id)copyEntityForAddressString:(id)arg1;
@@ -35,10 +33,10 @@
 - (id)description;
 - (id)fullName;
 - (id)handle;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (int)identifier;
 - (id)initWithIMHandle:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)locationMapViewContactImage;
 - (id)locationShareBalloonContactImage;
 - (id)name;

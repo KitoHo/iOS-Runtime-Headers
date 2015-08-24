@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSObject<OS_dispatch_queue>, PLLoadRequestKey;
-
 @interface PLImageCacheList : NSObject {
-    PLLoadRequestKey *_dummy[1];
+    PLLoadRequestKey *_dummy;
     id *_images;
     NSObject<OS_dispatch_queue> *_isolation;
-    unsigned long long *_keyHashes;
+    unsigned int *_keyHashes;
     id *_keys;
     unsigned int _lastFailLocation;
     unsigned int _length;

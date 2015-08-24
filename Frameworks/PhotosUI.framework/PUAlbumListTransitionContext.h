@@ -2,23 +2,21 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class <PLAssetContainer>, NSIndexPath, PHCollection, PUPhotoDecoration, UICollectionViewTransitionLayout;
-
 @interface PUAlbumListTransitionContext : NSObject {
     <PLAssetContainer> *_collection;
     NSIndexPath *_keyItemIndexPath;
     PHCollection *_phCollection;
     PUPhotoDecoration *_photoDecoration;
     UICollectionViewTransitionLayout *_transitionLayout;
-    bool_usesContentOffsetAutoAdjust;
+    BOOL _usesContentOffsetAutoAdjust;
 }
 
-@property(retain) <PLAssetContainer> * collection;
-@property(retain) NSIndexPath * keyItemIndexPath;
-@property(retain) PHCollection * phCollection;
-@property(retain) PUPhotoDecoration * photoDecoration;
-@property(retain) UICollectionViewTransitionLayout * transitionLayout;
-@property bool usesContentOffsetAutoAdjust;
+@property (nonatomic, retain) <PLAssetContainer> *collection;
+@property (nonatomic, retain) NSIndexPath *keyItemIndexPath;
+@property (nonatomic, retain) PHCollection *phCollection;
+@property (nonatomic, retain) PUPhotoDecoration *photoDecoration;
+@property (nonatomic, retain) UICollectionViewTransitionLayout *transitionLayout;
+@property (nonatomic) BOOL usesContentOffsetAutoAdjust;
 
 - (void).cxx_destruct;
 - (id)collection;
@@ -30,8 +28,8 @@
 - (void)setPhCollection:(id)arg1;
 - (void)setPhotoDecoration:(id)arg1;
 - (void)setTransitionLayout:(id)arg1;
-- (void)setUsesContentOffsetAutoAdjust:(bool)arg1;
+- (void)setUsesContentOffsetAutoAdjust:(BOOL)arg1;
 - (id)transitionLayout;
-- (bool)usesContentOffsetAutoAdjust;
+- (BOOL)usesContentOffsetAutoAdjust;
 
 @end

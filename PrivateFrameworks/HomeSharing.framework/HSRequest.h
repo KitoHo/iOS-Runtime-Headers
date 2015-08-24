@@ -2,47 +2,51 @@
    Image: /System/Library/PrivateFrameworks/HomeSharing.framework/HomeSharing
  */
 
-@class NSData, NSDictionary, NSMutableArray, NSString;
-
 @interface HSRequest : NSObject {
+    BOOL _acceptsGzipEncoding;
     NSString *_action;
     NSDictionary *_arguments;
     NSData *_bodyData;
-    NSMutableArray *_cachedBodyDataBlocks;
-    long long _method;
-    bool_concurrent;
-    bool_excludeSessionIDFromURL;
+    BOOL _concurrent;
+    BOOL _excludeSessionIDFromURL;
+    int _method;
+    NSURL *_responseDataDestinationFileURL;
+    BOOL _shouldPromptForAuthentication;
 }
 
-@property(readonly) NSString * action;
-@property(copy) NSData * bodyData;
-@property(getter=isConcurrent,readonly) bool concurrent;
-@property bool excludeSessionIDFromURL;
-@property long long method;
-@property(readonly) double timeoutInterval;
+@property (nonatomic) BOOL acceptsGzipEncoding;
+@property (nonatomic, readonly) NSString *action;
+@property (nonatomic, copy) NSData *bodyData;
+@property (getter=isConcurrent, nonatomic, readonly) BOOL concurrent;
+@property (nonatomic) BOOL excludeSessionIDFromURL;
+@property (nonatomic) int method;
+@property (nonatomic, copy) NSURL *responseDataDestinationFileURL;
+@property (nonatomic) BOOL shouldPromptForAuthentication;
+@property (nonatomic, readonly) double timeoutInterval;
 
 + (id)request;
 
 - (void).cxx_destruct;
 - (id)URLRequestForBaseURL:(id)arg1 sessionID:(unsigned int)arg2;
-- (id)_methodStringForMethod:(long long)arg1;
-- (bool)acceptsGzipEncoding;
+- (BOOL)acceptsGzipEncoding;
 - (id)action;
-- (void)appendCachedBodyDataBlocksIntoData:(id)arg1 clearCache:(bool)arg2;
 - (id)bodyData;
-- (void)cacheBodyDataBlock:(id)arg1;
-- (unsigned int)cachedBodyDataBlocksLength;
 - (id)canonicalResponseForResponse:(id)arg1;
 - (id)description;
-- (bool)excludeSessionIDFromURL;
+- (BOOL)excludeSessionIDFromURL;
 - (id)initWithAction:(id)arg1;
-- (bool)isConcurrent;
-- (long long)method;
+- (BOOL)isConcurrent;
+- (int)method;
 - (id)requestURLForBaseURL:(id)arg1 sessionID:(unsigned int)arg2;
+- (id)responseDataDestinationFileURL;
+- (void)setAcceptsGzipEncoding:(BOOL)arg1;
 - (void)setBodyData:(id)arg1;
-- (void)setExcludeSessionIDFromURL:(bool)arg1;
-- (void)setMethod:(long long)arg1;
+- (void)setExcludeSessionIDFromURL:(BOOL)arg1;
+- (void)setMethod:(int)arg1;
+- (void)setResponseDataDestinationFileURL:(id)arg1;
+- (void)setShouldPromptForAuthentication:(BOOL)arg1;
 - (void)setValue:(id)arg1 forArgument:(id)arg2;
+- (BOOL)shouldPromptForAuthentication;
 - (double)timeoutInterval;
 
 @end

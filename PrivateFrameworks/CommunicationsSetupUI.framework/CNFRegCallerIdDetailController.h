@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/CommunicationsSetupUI.framework/CommunicationsSetupUI
  */
 
-@class CNFRegController;
-
 @interface CNFRegCallerIdDetailController : PSListItemsController {
     CNFRegController *_regController;
 }
 
-@property(retain,readonly) CNFRegController * regController;
+@property (nonatomic, readonly, retain) CNFRegController *regController;
 
 - (void)_setupAccountHandlers;
 - (void)dealloc;
 - (id)initWithRegController:(id)arg1;
 - (id)regController;
 - (void)reloadCallerIdValues;
-- (void)viewDidAppear:(bool)arg1;
-- (void)viewDidDisappear:(bool)arg1;
-- (void)viewWillAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

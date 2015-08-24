@@ -6,17 +6,17 @@
     int _fontStyle;
 }
 
-@property(readonly) int fontStyle;
+@property (nonatomic, readonly) int fontStyle;
 
-- (bool)_isPrime;
-- (bool)canFormWordStartingWithExpression:(id)arg1;
+- (BOOL)_isPrime;
+- (BOOL)canFormWordStartingWithExpression:(id)arg1;
 - (id)description;
 - (int)fontStyle;
 - (id)initWithDictionary:(id)arg1;
-- (bool)isNaturalSuperscript;
-- (bool)isNumber;
+- (BOOL)isNaturalSuperscript;
+- (BOOL)isNumber;
 - (id)mathMLString;
-- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(bool)arg2 isPartOfWord:(bool)arg3;
-- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(bool)arg2;
+- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(BOOL)arg2;
+- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(BOOL)arg2 isPartOfWord:(BOOL)arg3;
 
 @end

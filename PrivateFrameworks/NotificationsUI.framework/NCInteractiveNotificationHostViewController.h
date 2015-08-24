@@ -2,62 +2,61 @@
    Image: /System/Library/PrivateFrameworks/NotificationsUI.framework/NotificationsUI
  */
 
-@class <NCInteractiveNotificationHostDelegate>, NCViewServiceDescriptor, NSString;
-
-@interface NCInteractiveNotificationHostViewController : _UIRemoteViewController <NCInteractiveNotificationHostInterface, NCInteractiveNotificationHostDelegate> {
+@interface NCInteractiveNotificationHostViewController : _UIRemoteViewController <NCInteractiveNotificationHostDelegate, NCInteractiveNotificationHostInterface> {
     NCViewServiceDescriptor *_accessoryViewService;
-    double _bottomOverhangHeight;
+    float _bottomOverhangHeight;
     <NCInteractiveNotificationHostDelegate> *_delegate;
     NCViewServiceDescriptor *_inlayViewService;
-    double _maximumHeight;
-    bool_modal;
-    bool_proximityMonitoringEnabled;
-    bool_showsKeyboard;
+    float _maximumHeight;
+    BOOL _modal;
+    BOOL _proximityMonitoringEnabled;
+    BOOL _showsKeyboard;
 }
 
-@property(retain) NCViewServiceDescriptor * accessoryViewService;
-@property double bottomOverhangHeight;
-@property(copy,readonly) NSString * debugDescription;
-@property <NCInteractiveNotificationHostDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) NCViewServiceDescriptor * inlayViewService;
-@property double maximumHeight;
-@property(getter=isModal) bool modal;
-@property bool showsKeyboard;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) NCViewServiceDescriptor *accessoryViewService;
+@property (nonatomic) float bottomOverhangHeight;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <NCInteractiveNotificationHostDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NCViewServiceDescriptor *inlayViewService;
+@property (nonatomic) float maximumHeight;
+@property (getter=isModal, nonatomic) BOOL modal;
+@property (nonatomic) BOOL showsKeyboard;
+@property (readonly) Class superclass;
 
 + (id)exportedInterface;
 + (void)initialize;
-+ (void)requestInteractiveNotificationControllerWithName:(id)arg1 bundleIdentifier:(id)arg2 context:(id)arg3 completion:(id)arg4;
++ (void)requestInteractiveNotificationControllerWithName:(id)arg1 bundleIdentifier:(id)arg2 context:(id)arg3 completion:(id /* block */)arg4;
 + (id)serviceViewControllerInterface;
 
 - (void)_dismissWithContext:(id)arg1;
 - (void)_proximityStateChanged:(id)arg1;
-- (void)_requestPreferredContentHeight:(double)arg1;
-- (void)_requestProximityMonitoringEnabled:(bool)arg1;
-- (void)_setActionEnabled:(bool)arg1 atIndex:(unsigned long long)arg2;
-- (void)_setProximityMonitoringEnabled:(bool)arg1;
+- (void)_requestDismissalEnabled:(BOOL)arg1;
+- (void)_requestPreferredContentHeight:(float)arg1;
+- (void)_requestProximityMonitoringEnabled:(BOOL)arg1;
+- (void)_setActionEnabled:(BOOL)arg1 atIndex:(unsigned int)arg2;
+- (void)_setProximityMonitoringEnabled:(BOOL)arg1;
 - (id)accessoryViewService;
-- (double)bottomOverhangHeight;
+- (float)bottomOverhangHeight;
 - (void)dealloc;
 - (id)delegate;
-- (void)didChangeRevealPercent:(double)arg1;
-- (void)getActionContextWithCompletion:(id)arg1;
-- (void)handleActionAtIndex:(long long)arg1;
+- (void)didChangeRevealPercent:(float)arg1;
+- (void)getActionContextWithCompletion:(id /* block */)arg1;
+- (void)handleActionAtIndex:(int)arg1;
 - (void)handleActionIdentifier:(id)arg1;
 - (id)inlayViewService;
 - (void)interactiveNotificationDidAppear;
-- (bool)isModal;
-- (double)maximumHeight;
+- (BOOL)isModal;
+- (float)maximumHeight;
 - (void)setAccessoryViewService:(id)arg1;
-- (void)setBottomOverhangHeight:(double)arg1;
+- (void)setBottomOverhangHeight:(float)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setInlayViewService:(id)arg1;
-- (void)setMaximumHeight:(double)arg1;
-- (void)setModal:(bool)arg1;
-- (void)setShowsKeyboard:(bool)arg1;
-- (bool)showsKeyboard;
+- (void)setMaximumHeight:(float)arg1;
+- (void)setModal:(BOOL)arg1;
+- (void)setShowsKeyboard:(BOOL)arg1;
+- (BOOL)showsKeyboard;
 - (void)willPresentFromActionIdentifier:(id)arg1;
 
 @end

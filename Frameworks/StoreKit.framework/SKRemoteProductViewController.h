@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/StoreKit.framework/StoreKit
  */
 
-@class NSString, SKStoreProductViewController;
-
 @interface SKRemoteProductViewController : _UIRemoteViewController <SKUIClientProductPageViewController> {
     SKStoreProductViewController *_productViewController;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property SKStoreProductViewController * productViewController;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) SKStoreProductViewController *productViewController;
+@property (readonly) Class superclass;
 
 + (id)exportedInterface;
 + (id)serviceViewControllerInterface;
@@ -27,7 +25,7 @@
 - (void)setProductViewController:(id)arg1;
 - (void)setStatusBarHidden:(id)arg1 withAnimation:(id)arg2;
 - (void)setStatusBarStyle:(id)arg1 animated:(id)arg2;
-- (bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 
 @end

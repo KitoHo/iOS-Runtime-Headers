@@ -2,8 +2,7 @@
    Image: /System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
  */
 
-@interface __NSPlaceholderFileSecurity : NSFileSecurity <NSCopying, NSCoding> {
-}
+@interface __NSPlaceholderFileSecurity : NSFileSecurity <NSCoding, NSCopying>
 
 + (id)immutablePlaceholder;
 + (void)initialize;
@@ -16,6 +15,6 @@
 - (id)initWithFileSec:(struct _filesec { }*)arg1;
 - (oneway void)release;
 - (id)retain;
-- (unsigned long long)retainCount;
+- (unsigned int)retainCount;
 
 @end

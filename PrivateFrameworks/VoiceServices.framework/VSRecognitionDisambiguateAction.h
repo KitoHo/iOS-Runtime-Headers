@@ -2,13 +2,6 @@
    Image: /System/Library/PrivateFrameworks/VoiceServices.framework/VoiceServices
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSMutableDictionary, NSString;
-
 @interface VSRecognitionDisambiguateAction : VSRecognitionRecognizeAction {
     NSMutableDictionary *_ambiguousPhoneticValues;
     NSMutableDictionary *_ambiguousValues;
@@ -22,7 +15,7 @@
 - (id)_actionForEmptyResults;
 - (struct __VSRecognition { }*)_createRecognitionInstanceWithCallbacks:(struct { int (*x1)(); int (*x2)(); int (*x3)(); }*)arg1 info:(void*)arg2;
 - (struct __VSRecognitionDisambiguationContext { }*)_disambiguationContext;
-- (bool)_keywordIndexChanged;
+- (BOOL)_keywordIndexChanged;
 - (id)_keywords;
 - (id)ambiguousValuesForClassIdentifier:(id)arg1;
 - (int)completionType;

@@ -2,26 +2,23 @@
    Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
  */
 
-@class NSString;
+@interface DOMHTMLTableCellElement : DOMHTMLElement
 
-@interface DOMHTMLTableCellElement : DOMHTMLElement {
-}
-
-@property(copy) NSString * abbr;
-@property(copy) NSString * align;
-@property(copy) NSString * axis;
-@property(copy) NSString * bgColor;
-@property(readonly) int cellIndex;
-@property(copy) NSString * ch;
-@property(copy) NSString * chOff;
+@property (copy) NSString *abbr;
+@property (copy) NSString *align;
+@property (copy) NSString *axis;
+@property (copy) NSString *bgColor;
+@property (readonly) int cellIndex;
+@property (copy) NSString *ch;
+@property (copy) NSString *chOff;
 @property int colSpan;
-@property(copy) NSString * headers;
-@property(copy) NSString * height;
-@property bool noWrap;
+@property (copy) NSString *headers;
+@property (copy) NSString *height;
+@property BOOL noWrap;
 @property int rowSpan;
-@property(copy) NSString * scope;
-@property(copy) NSString * vAlign;
-@property(copy) NSString * width;
+@property (copy) NSString *scope;
+@property (copy) NSString *vAlign;
+@property (copy) NSString *width;
 
 - (id)_cellAbove;
 - (id)abbr;
@@ -34,7 +31,7 @@
 - (int)colSpan;
 - (id)headers;
 - (id)height;
-- (bool)noWrap;
+- (BOOL)noWrap;
 - (int)rowSpan;
 - (id)scope;
 - (void)setAbbr:(id)arg1;
@@ -46,7 +43,7 @@
 - (void)setColSpan:(int)arg1;
 - (void)setHeaders:(id)arg1;
 - (void)setHeight:(id)arg1;
-- (void)setNoWrap:(bool)arg1;
+- (void)setNoWrap:(BOOL)arg1;
 - (void)setRowSpan:(int)arg1;
 - (void)setScope:(id)arg1;
 - (void)setVAlign:(id)arg1;

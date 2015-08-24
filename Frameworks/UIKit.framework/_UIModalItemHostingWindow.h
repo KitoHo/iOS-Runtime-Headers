@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface _UIModalItemHostingWindow : UIWindow {
-}
+@interface _UIModalItemHostingWindow : UIWindow
 
-+ (bool)_isSystemWindow;
++ (BOOL)_isSystemWindow;
 
 @end

@@ -6,24 +6,26 @@
     unsigned long long _persistentID;
 }
 
-+ (bool)canFilterByProperty:(id)arg1;
++ (BOOL)canFilterByProperty:(id)arg1;
 + (id)defaultPropertyValues;
 
-- (bool)didSkipWithPlayedToTime:(double)arg1;
+- (BOOL)didSkipWithPlayedToTime:(double)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (void)enumerateValuesForProperties:(id)arg1 usingBlock:(id)arg2;
-- (bool)existsInLibrary;
+- (void)enumerateValuesForProperties:(id)arg1 usingBlock:(id /* block */)arg2;
+- (BOOL)existsInLibrary;
 - (void)incrementPlayCountForPlayingToEnd;
-- (bool)incrementPlayCountForStopTime:(double)arg1;
+- (BOOL)incrementPlayCountForStopTime:(double)arg1;
 - (void)incrementSkipCount;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithPersistentID:(unsigned long long)arg1;
-- (bool)isUsableAsRepresentativeItem;
+- (BOOL)isUsableAsRepresentativeItem;
 - (void)markNominalAmountHasBeenPlayed;
-- (void)noteWasPlayedToTime:(double)arg1 skipped:(bool)arg2;
+- (id)mediaLibrary;
+- (double)nominalHasBeenPlayedThreshold;
+- (void)noteWasPlayedToTime:(double)arg1 skipped:(BOOL)arg2;
 - (unsigned long long)persistentID;
 - (void)setValue:(id)arg1 forKey:(id)arg2;
-- (void)updateDateAccessedToCurrentDateWithWriteCompletionBlock:(id)arg1;
+- (void)updateDateAccessedToCurrentDateWithWriteCompletionBlock:(id /* block */)arg1;
 - (id)valueForProperty:(id)arg1;
 - (id)valuesForProperties:(id)arg1;
 

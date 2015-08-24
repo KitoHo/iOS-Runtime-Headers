@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/CoreSuggestionsInternals.framework/CoreSuggestionsInternals
  */
 
-@class NSCache, NSString;
-
 @interface SGSqliteDatabase : NSObject {
-    struct _opaque_pthread_mutex_t { 
-        long long __sig; 
-        BOOL __opaque[56]; 
     struct sqlite3 { } *_db;
+    BOOL _enabled;
     NSString *_filename;
+    struct _opaque_pthread_mutex_t { 
+        long __sig; 
+        BOOL __opaque[40]; 
     } _lock;
     NSCache *_queryCache;
     int _transactionDepth;
-    bool_enabled;
 }
 
-@property(readonly) struct sqlite3 { }* handle;
+@property (nonatomic, readonly) struct sqlite3 { }*handle;
 
 + (id)sqliteDatabaseInMemoryWithError:(id*)arg1;
 + (id)sqliteDatabaseWithFilename:(id)arg1 error:(id*)arg2;
@@ -29,11 +27,11 @@
 - (id)errorMessage:(int)arg1;
 - (struct sqlite3 { }*)handle;
 - (id)initWithFilename:(id)arg1 error:(id*)arg2;
-- (bool)isEnabled;
-- (bool)prepAndRunQuery:(id)arg1 onPrep:(id)arg2 onRow:(id)arg3 onError:(id)arg4;
-- (void)prepQuery:(id)arg1 onPrep:(id)arg2 onError:(id)arg3;
-- (bool)runQuery:(struct sqlite3_stmt { }*)arg1 onRow:(id)arg2 onError:(id)arg3;
-- (bool)runQuery:(struct sqlite3_stmt { }*)arg1 onRow:(id)arg2;
-- (void)transaction:(id)arg1;
+- (BOOL)isEnabled;
+- (BOOL)prepAndRunQuery:(id)arg1 onPrep:(id /* block */)arg2 onRow:(id /* block */)arg3 onError:(id /* block */)arg4;
+- (void)prepQuery:(id)arg1 onPrep:(id /* block */)arg2 onError:(id /* block */)arg3;
+- (BOOL)runQuery:(struct sqlite3_stmt { }*)arg1 onRow:(id /* block */)arg2;
+- (BOOL)runQuery:(struct sqlite3_stmt { }*)arg1 onRow:(id /* block */)arg2 onError:(id /* block */)arg3;
+- (void)transaction:(id /* block */)arg1;
 
 @end

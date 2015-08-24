@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardUIServices.framework/SpringBoardUIServices
  */
 
-@class NSMutableDictionary;
-
 @interface SBLockOverlayStylePropertiesFactory : NSObject {
     NSMutableDictionary *_deviceQualityToProperties;
-    unsigned long long _style;
+    unsigned int _style;
 }
 
-@property(readonly) unsigned long long style;
+@property (nonatomic, readonly) unsigned int style;
 
-+ (id)overlayPropertiesFactoryWithStyle:(unsigned long long)arg1;
++ (id)overlayPropertiesFactoryWithStyle:(unsigned int)arg1;
 
-- (id)_fetchAndCachePropsForDeviceQuality:(long long)arg1;
+- (id)_fetchAndCachePropsForDeviceQuality:(int)arg1;
 - (void)dealloc;
-- (id)initWithStyle:(unsigned long long)arg1;
+- (id)initWithStyle:(unsigned int)arg1;
 - (id)propertiesWithDeviceDefaultGraphicsQuality;
-- (id)propertiesWithGraphicsQuality:(long long)arg1;
-- (unsigned long long)style;
+- (id)propertiesWithGraphicsQuality:(int)arg1;
+- (unsigned int)style;
 
 @end

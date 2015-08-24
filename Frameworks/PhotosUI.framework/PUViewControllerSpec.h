@@ -2,21 +2,13 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class UITraitCollection;
-
 @interface PUViewControllerSpec : NSObject {
-    long long _currentLayoutStyle;
-    UITraitCollection *_traitCollection;
+    int _currentLayoutStyle;
 }
 
-@property(readonly) long long currentLayoutStyle;
-@property(copy) UITraitCollection * traitCollection;
+@property (nonatomic, readonly) int currentLayoutStyle;
 
-- (void).cxx_destruct;
-- (long long)_actualStyleForAssumedStyle:(long long)arg1;
-- (void)_updateLayoutStyle;
-- (long long)currentLayoutStyle;
-- (void)setTraitCollection:(id)arg1;
-- (id)traitCollection;
+- (int)currentLayoutStyle;
+- (BOOL)updateWithTraitCollection:(id)arg1 layoutReferenceSize:(struct CGSize { float x1; float x2; })arg2;
 
 @end

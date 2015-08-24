@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/WirelessProximity.framework/WirelessProximity
  */
 
-@class <WPAirPlaySoloDelegate>, NSString, XPCClient;
-
 @interface WPAirPlaySolo : NSObject <XPCClientDelegate> {
     XPCClient *_connection;
     <WPAirPlaySoloDelegate> *_delegate;
-    long long _state;
+    int _state;
 }
 
-@property(retain) XPCClient * connection;
-@property(copy,readonly) NSString * debugDescription;
-@property <WPAirPlaySoloDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property long long state;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) XPCClient *connection;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <WPAirPlaySoloDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property int state;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)connection;
@@ -29,12 +27,14 @@
 - (void)messageArrived:(id)arg1;
 - (void)setConnection:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setState:(long long)arg1;
+- (void)setState:(int)arg1;
 - (void)startConnectionlessAdvertisingWithData:(id)arg1;
 - (void)startConnectionlessScanningWithData:(id)arg1;
-- (long long)state;
+- (void)startTrackingPeer:(id)arg1 withData:(id)arg2;
+- (int)state;
 - (void)stopConnectionlessAdvertising;
 - (void)stopConnectionlessScanningWithData:(id)arg1;
-- (void)updateState:(long long)arg1;
+- (void)stopTrackingPeer:(id)arg1 withData:(id)arg2;
+- (void)updateState:(int)arg1;
 
 @end

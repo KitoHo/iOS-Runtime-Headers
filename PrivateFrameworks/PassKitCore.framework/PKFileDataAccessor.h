@@ -2,34 +2,32 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSObject<OS_dispatch_queue>, NSURL, PKRemoteAssetManager;
-
 @interface PKFileDataAccessor : PKDataAccessor {
     NSURL *_fileURL;
     NSObject<OS_dispatch_queue> *_processingQueue;
     PKRemoteAssetManager *_remoteAssetManager;
 }
 
-@property(retain,readonly) NSURL * fileURL;
-@property(readonly) NSObject<OS_dispatch_queue> * processingQueue;
+@property (nonatomic, readonly, retain) NSURL *fileURL;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *processingQueue;
 
 - (id)archiveData;
 - (id)bundle;
-- (void)contentWithCompletion:(id)arg1;
+- (void)contentWithCompletion:(id /* block */)arg1;
 - (void)dealloc;
-- (void)dictionaryWithCompletion:(id)arg1;
-- (id)displayProfileOfType:(long long)arg1;
-- (void)downloadRemoteAssetsWithScreenScale:(double)arg1 suffix:(id)arg2 completion:(id)arg3;
+- (void)dictionaryWithCompletion:(id /* block */)arg1;
+- (id)displayProfileOfType:(int)arg1;
+- (void)downloadRemoteAssetsWithScreenScale:(float)arg1 suffix:(id)arg2 completion:(id /* block */)arg3;
 - (id)fileURL;
-- (void)imageSetForType:(long long)arg1 screenScale:(double)arg2 suffix:(id)arg3 displayProfile:(id)arg4 preheat:(bool)arg5 withCompletion:(id)arg6;
-- (id)initWithFileURL:(id)arg1 error:(id*)arg2 processingQueue:(id)arg3;
+- (void)imageSetForType:(int)arg1 screenScale:(float)arg2 suffix:(id)arg3 displayProfile:(id)arg4 preheat:(BOOL)arg5 withCompletion:(id /* block */)arg6;
 - (id)initWithFileURL:(id)arg1 error:(id*)arg2;
+- (id)initWithFileURL:(id)arg1 error:(id*)arg2 processingQueue:(id)arg3;
 - (id)manifestHash;
 - (id)processingQueue;
 - (id)remoteAssetManager;
-- (bool)remoteAssetsDownloaded;
+- (BOOL)remoteAssetsDownloaded;
 - (id)resourceValueForKey:(id)arg1;
-- (void)revocationStatusWithCompletion:(id)arg1;
+- (void)revocationStatusWithCompletion:(id /* block */)arg1;
 - (id)serializedFileWrapper;
 
 @end

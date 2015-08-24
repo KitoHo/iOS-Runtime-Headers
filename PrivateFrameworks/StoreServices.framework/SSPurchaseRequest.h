@@ -2,58 +2,52 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <SSPurchaseRequestDelegate>, NSArray, NSMutableSet, NSString, SSPurchaseManager;
-
 @interface SSPurchaseRequest : SSRequest <SSPurchaseManagerDelegate, SSXPCCoding> {
-    id _completionBlock;
+    id /* block */ _completionBlock;
+    BOOL _createsDownloads;
+    BOOL _isBackgroundRequest;
+    BOOL _needsAuthentication;
     NSMutableSet *_openPurchaseIdentifiers;
-    id _purchaseBlock;
+    id /* block */ _purchaseBlock;
     SSPurchaseManager *_purchaseManager;
-    id _purchaseResponseBlock;
+    id /* block */ _purchaseResponseBlock;
     NSArray *_purchases;
-    bool_createsDownloads;
-    bool_isBackgroundRequest;
-    bool_needsAuthentication;
-    bool_shouldValidatePurchases;
+    BOOL _shouldValidatePurchases;
 }
 
-@property(getter=isBackgroundRequest) bool backgroundRequest;
-@property bool createsDownloads;
-@property(copy,readonly) NSString * debugDescription;
-@property <SSPurchaseRequestDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property bool needsAuthentication;
-@property(readonly) NSArray * purchases;
-@property bool shouldValidatePurchases;
-@property(readonly) Class superclass;
+@property (getter=isBackgroundRequest, nonatomic) BOOL backgroundRequest;
+@property (nonatomic) BOOL createsDownloads;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <SSPurchaseRequestDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) BOOL needsAuthentication;
+@property (readonly) NSArray *purchases;
+@property (nonatomic) BOOL shouldValidatePurchases;
+@property (readonly) Class superclass;
 
 - (void)_addPurchasesToManager;
 - (void)_finishPurchasesWithResponses:(id)arg1;
 - (id)_purchaseForUniqueIdentifier:(long long)arg1;
 - (void)cancel;
 - (id)copyXPCEncoding;
-- (bool)createsDownloads;
+- (BOOL)createsDownloads;
 - (void)dealloc;
 - (id)init;
 - (id)initWithPurchases:(id)arg1;
 - (id)initWithXPCEncoding:(id)arg1;
-- (bool)isBackgroundRequest;
-- (bool)needsAuthentication;
+- (BOOL)isBackgroundRequest;
+- (BOOL)needsAuthentication;
 - (void)purchaseManager:(id)arg1 didFinishPurchasesWithResponses:(id)arg2;
 - (id)purchases;
-- (void)setBackgroundRequest:(bool)arg1;
-- (void)setCreatesDownloads:(bool)arg1;
-- (void)setNeedsAuthentication:(bool)arg1;
-- (void)setShouldValidatePurchases:(bool)arg1;
-- (bool)shouldValidatePurchases;
-- (bool)start;
-- (void)startWithCompletionBlock:(id)arg1;
-- (void)startWithPurchaseBlock:(id)arg1 completionBlock:(id)arg2;
-- (void)startWithPurchaseResponseBlock:(id)arg1 completionBlock:(id)arg2;
+- (void)setBackgroundRequest:(BOOL)arg1;
+- (void)setCreatesDownloads:(BOOL)arg1;
+- (void)setNeedsAuthentication:(BOOL)arg1;
+- (void)setShouldValidatePurchases:(BOOL)arg1;
+- (BOOL)shouldValidatePurchases;
+- (BOOL)start;
+- (void)startWithCompletionBlock:(id /* block */)arg1;
+- (void)startWithPurchaseBlock:(id /* block */)arg1 completionBlock:(id /* block */)arg2;
+- (void)startWithPurchaseResponseBlock:(id /* block */)arg1 completionBlock:(id /* block */)arg2;
 
 @end

@@ -2,22 +2,20 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVMutableVideoCompositionInternal, AVVideoCompositionCoreAnimationTool, NSArray;
-
 @interface AVMutableVideoComposition : AVVideoComposition {
     AVMutableVideoCompositionInternal *_mutableVideoComposition;
 }
 
-@property(retain) AVVideoCompositionCoreAnimationTool * animationTool;
-@property(retain) Class customVideoCompositorClass;
-@property struct { long long x1; int x2; unsigned int x3; long long x4; } frameDuration;
-@property(copy) NSArray * instructions;
-@property float renderScale;
-@property struct CGSize { double x1; double x2; } renderSize;
+@property (nonatomic, retain) AVVideoCompositionCoreAnimationTool *animationTool;
+@property (nonatomic, retain) Class customVideoCompositorClass;
+@property (nonatomic) struct { long long x1; int x2; unsigned int x3; long long x4; } frameDuration;
+@property (nonatomic, copy) NSArray *instructions;
+@property (nonatomic) float renderScale;
+@property (nonatomic) struct CGSize { float x1; float x2; } renderSize;
 
 + (id)videoComposition;
-+ (id)videoCompositionWithPropertiesOfAsset:(id)arg1 videoGravity:(id)arg2;
 + (id)videoCompositionWithPropertiesOfAsset:(id)arg1;
++ (id)videoCompositionWithPropertiesOfAsset:(id)arg1 videoGravity:(id)arg2;
 
 - (id)animationTool;
 - (id)builtInCompositorName;
@@ -25,13 +23,13 @@
 - (struct { long long x1; int x2; unsigned int x3; long long x4; })frameDuration;
 - (id)instructions;
 - (float)renderScale;
-- (struct CGSize { double x1; double x2; })renderSize;
+- (struct CGSize { float x1; float x2; })renderSize;
 - (void)setAnimationTool:(id)arg1;
 - (void)setBuiltInCompositorName:(id)arg1;
 - (void)setCustomVideoCompositorClass:(Class)arg1;
 - (void)setFrameDuration:(struct { long long x1; int x2; unsigned int x3; long long x4; })arg1;
 - (void)setInstructions:(id)arg1;
 - (void)setRenderScale:(float)arg1;
-- (void)setRenderSize:(struct CGSize { double x1; double x2; })arg1;
+- (void)setRenderSize:(struct CGSize { float x1; float x2; })arg1;
 
 @end

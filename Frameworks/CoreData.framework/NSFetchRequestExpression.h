@@ -2,13 +2,11 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSExpression;
-
 @interface NSFetchRequestExpression : NSExpression {
+    NSExpression *_fetchRequest;
     struct _fetchExpressionFlags { 
         unsigned int isCountOnly : 1; 
         unsigned int _RESERVED : 31; 
-    NSExpression *_fetchRequest;
     } _flags;
     NSExpression *_managedObjectContext;
     void *_reserved1;
@@ -17,26 +15,26 @@
     void *_reserved4;
 }
 
-@property(readonly) NSExpression * contextExpression;
-@property(getter=isCountOnlyRequest,readonly) bool countOnlyRequest;
-@property(readonly) NSExpression * requestExpression;
+@property (readonly) NSExpression *contextExpression;
+@property (getter=isCountOnlyRequest, readonly) BOOL countOnlyRequest;
+@property (readonly) NSExpression *requestExpression;
 
-+ (id)expressionForFetch:(id)arg1 context:(id)arg2 countOnly:(bool)arg3;
++ (id)expressionForFetch:(id)arg1 context:(id)arg2 countOnly:(BOOL)arg3;
 
 - (id)_expressionWithSubstitutionVariables:(id)arg1;
-- (void)acceptVisitor:(id)arg1 flags:(unsigned long long)arg2;
+- (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
 - (id)contextExpression;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned long long)expressionType;
+- (unsigned int)expressionType;
 - (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
-- (unsigned long long)hash;
-- (id)initForFetch:(id)arg1 context:(id)arg2 countOnly:(bool)arg3;
+- (unsigned int)hash;
+- (id)initForFetch:(id)arg1 context:(id)arg2 countOnly:(BOOL)arg3;
 - (id)initWithCoder:(id)arg1;
-- (bool)isCountOnlyRequest;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isCountOnlyRequest;
+- (BOOL)isEqual:(id)arg1;
 - (id)predicateFormat;
 - (id)requestExpression;
 

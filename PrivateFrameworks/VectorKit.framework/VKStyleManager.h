@@ -2,9 +2,15 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class NSString, VKGenericShieldDrawStyle, VKPGlobalProperties, VKSharedResources, VKStylesheet;
-
 @interface VKStyleManager : NSObject {
+    float _blendingFactor;
+    BOOL _canSelectIcons;
+    unsigned int _connectedVariant;
+    VKGenericShieldDrawStyle *_defaultGenericShieldStyle;
+    unsigned int _mapDisplayStyle;
+    unsigned int _mapDisplayStyleVariant;
+    int _mapMode;
+    VKSharedResources *_sharedResources;
     struct unordered_map<StyleKey, std::__1::weak_ptr<md::StyleQuery>, std::__1::hash<StyleKey>, std::__1::equal_to<StyleKey>, std::__1::allocator<std::__1::pair<const StyleKey, std::__1::weak_ptr<md::StyleQuery> > > > { 
         struct __hash_table<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery> >, std::__1::__unordered_map_hasher<StyleKey, std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery> >, std::__1::hash<StyleKey>, true>, std::__1::__unordered_map_equal<StyleKey, std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery> >, std::__1::equal_to<StyleKey>, true>, std::__1::allocator<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery> > > > { 
             struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery> >, void *> *[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery> >, void *> *> > > { 
@@ -12,7 +18,7 @@
                     struct __hash_node<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery> >, void *> {} **__first_; 
                     struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery> >, void *> *> > { 
                         struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery> >, void *> *> > { 
-                            unsigned long long __first_; 
+                            unsigned long __first_; 
                         } __data_; 
                     } __second_; 
                 } __ptr_; 
@@ -23,78 +29,73 @@
                 } __first_; 
             } __p1_; 
             struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<StyleKey, std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery> >, std::__1::hash<StyleKey>, true> > { 
-                unsigned long long __first_; 
+                unsigned long __first_; 
             } __p2_; 
             struct __compressed_pair<float, std::__1::__unordered_map_equal<StyleKey, std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery> >, std::__1::equal_to<StyleKey>, true> > { 
                 float __first_; 
             } __p3_; 
         } __table_; 
-    struct _opaque_pthread_rwlock_t { 
-        long long __sig; 
-        BOOL __opaque[192]; 
-    float _blendingFactor;
-    unsigned long long _connectedVariant;
-    VKGenericShieldDrawStyle *_defaultGenericShieldStyle;
-    unsigned long long _mapDisplayStyle;
-    unsigned long long _mapDisplayStyleVariant;
-    long long _mapMode;
-    VKSharedResources *_sharedResources;
     } _styleQueries;
+    struct _opaque_pthread_rwlock_t { 
+        long __sig; 
+        BOOL __opaque[124]; 
     } _styleQueryCreationLock;
     VKStylesheet *_stylesheet;
-    long long _targetDisplay;
+    int _targetDisplay;
     unsigned int _updateStamp;
-    bool_canSelectIcons;
 }
 
-@property(readonly) unsigned long long activeMapDisplayStyle;
-@property float blendingFactor;
-@property bool canSelectIcons;
-@property(readonly) VKGenericShieldDrawStyle * defaultGenericShieldStyle;
-@property(readonly) bool isDevResource;
-@property unsigned long long mapDisplayStyle;
-@property unsigned long long mapDisplayStyleVariant;
-@property long long mapMode;
-@property(readonly) NSString * sheetName;
-@property(readonly) VKPGlobalProperties * styleGlobalProperties;
-@property(readonly) bool supportsNightMode;
-@property(readonly) long long targetDisplay;
-@property(readonly) unsigned int updateStamp;
+@property (nonatomic, readonly) unsigned int activeMapDisplayStyle;
+@property (nonatomic) float blendingFactor;
+@property (nonatomic) BOOL canSelectIcons;
+@property (nonatomic, readonly) VKGenericShieldDrawStyle *defaultGenericShieldStyle;
+@property (getter=isFinishedDecoding, nonatomic, readonly) BOOL finishedDecoding;
+@property (nonatomic, readonly) BOOL isDevResource;
+@property (nonatomic) unsigned int mapDisplayStyle;
+@property (nonatomic) unsigned int mapDisplayStyleVariant;
+@property (nonatomic) int mapMode;
+@property (nonatomic, readonly) NSString *sheetName;
+@property (nonatomic, readonly) VKPGlobalProperties *styleGlobalProperties;
+@property (nonatomic, readonly) BOOL supportsNightMode;
+@property (nonatomic, readonly) int targetDisplay;
+@property (readonly) unsigned int updateStamp;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (float)_nightShieldBrightnessForVectorType:(long long)arg1;
-- (unsigned long long)activeMapDisplayStyle;
+- (float)_nightShieldBrightnessForVectorType:(int)arg1;
+- (unsigned int)activeMapDisplayStyle;
+- (void)addFinishedDecodingCallback:(id /* block */)arg1;
 - (float)blendingFactor;
 - (float*)blendingFactorPointer;
-- (bool)canSelectIcons;
+- (BOOL)canSelectIcons;
 - (void)clearCaches;
 - (void)dealloc;
 - (id)defaultGenericShieldStyle;
 - (id)init;
-- (id)initWithName:(id)arg1 scale:(float)arg2 ppi:(float)arg3 targetDisplay:(long long)arg4 sharedResources:(id)arg5;
-- (bool)isDevResource;
-- (unsigned long long)mapDisplayStyle;
-- (unsigned long long)mapDisplayStyleVariant;
-- (long long)mapMode;
-- (void)prepareStyleVariantsForMapDisplayStyle:(unsigned long long)arg1;
-- (long long)rasterPolygonChangeoverZ;
+- (id)initWithName:(id)arg1 scale:(float)arg2 ppi:(float)arg3 targetDisplay:(int)arg4 sharedResources:(id)arg5;
+- (BOOL)isDevResource;
+- (BOOL)isFinishedDecoding;
+- (unsigned int)mapDisplayStyle;
+- (unsigned int)mapDisplayStyleVariant;
+- (int)mapMode;
+- (void)prepareStyleVariantsForMapDisplayStyle:(unsigned int)arg1;
+- (int)rasterPolygonChangeoverZ;
 - (void)setBlendingFactor:(float)arg1;
-- (void)setCanSelectIcons:(bool)arg1;
-- (void)setMapDisplayStyle:(unsigned long long)arg1;
-- (void)setMapDisplayStyleVariant:(unsigned long long)arg1;
-- (void)setMapMode:(long long)arg1;
+- (void)setCanSelectIcons:(BOOL)arg1;
+- (void)setMapDisplayStyle:(unsigned int)arg1;
+- (void)setMapDisplayStyleVariant:(unsigned int)arg1;
+- (void)setMapMode:(int)arg1;
 - (id)sheetName;
-- (float)shieldBrightnessForDisplayStyle:(unsigned long long)arg1;
-- (float)shieldBrightnessForVectorType:(long long)arg1;
+- (float)shieldBrightnessForDisplayStyle:(unsigned int)arg1;
+- (float)shieldBrightnessForVectorType:(int)arg1;
 - (id)styleGlobalProperties;
-- (struct shared_ptr<md::StyleQuery> { struct StyleQuery {} *x1; struct __shared_weak_count {} *x2; })styleQueryForFeatureAttributes:(id)arg1 vectorType:(const long long*)arg2 locale:(id)arg3 selectionState:(bool)arg4;
-- (struct shared_ptr<md::StyleQuery> { struct StyleQuery {} *x1; struct __shared_weak_count {} *x2; })styleQueryForFeatureAttributes:(id)arg1 vectorType:(long long)arg2;
 - (struct shared_ptr<md::StyleQuery> { struct StyleQuery {} *x1; struct __shared_weak_count {} *x2; })styleQueryForFeatureAttributes:(id)arg1;
+- (struct shared_ptr<md::StyleQuery> { struct StyleQuery {} *x1; struct __shared_weak_count {} *x2; })styleQueryForFeatureAttributes:(id)arg1 vectorType:(int)arg2;
+- (struct shared_ptr<md::StyleQuery> { struct StyleQuery {} *x1; struct __shared_weak_count {} *x2; })styleQueryForFeatureAttributes:(id)arg1 vectorType:(const int*)arg2 locale:(id)arg3 selectionState:(BOOL)arg4;
 - (id)stylesheet;
-- (bool)supportsMapDisplayStyle:(unsigned long long)arg1;
-- (bool)supportsNightMode;
-- (long long)targetDisplay;
+- (BOOL)supportsMapDisplayStyle:(unsigned int)arg1;
+- (BOOL)supportsNightMode;
+- (int)targetDisplay;
 - (unsigned int)updateStamp;
 
 @end

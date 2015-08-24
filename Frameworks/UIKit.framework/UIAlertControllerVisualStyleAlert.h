@@ -2,33 +2,32 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIAlertControllerDescriptor;
-
 @interface UIAlertControllerVisualStyleAlert : UIAlertControllerVisualStyle {
     UIAlertControllerDescriptor *_descriptor;
 }
 
-@property(retain) UIAlertControllerDescriptor * descriptor;
+@property (nonatomic, retain) UIAlertControllerDescriptor *descriptor;
 
-- (double)backgroundCornerRadius;
+- (float)backgroundCornerRadius;
 - (void)dealloc;
 - (id)defaultActionFont;
 - (id)descriptor;
-- (double)horizontalContentMargin;
-- (double)marginAboveMessageLabelFirstBaseline;
-- (double)marginAboveTitleLabelFirstBaseline;
-- (double)marginBelowLastLabelLastBaseline;
-- (double)marginBelowMessageLabelLastBaseline;
-- (double)marginBelowTitleLabelLastBaseline;
-- (double)maximumWidth;
+- (float)horizontalContentMargin;
+- (float)marginAboveMessageLabelFirstBaseline;
+- (float)marginAboveTitleLabelFirstBaseline;
+- (float)marginBelowLastLabelLastBaseline;
+- (float)marginBelowMessageLabelLastBaseline;
+- (float)marginBelowTitleLabelLastBaseline;
+- (float)maximumWidth;
 - (id)messageLabelColor;
 - (id)messageLabelFont;
-- (double)minimumActionHeight;
+- (float)minimumActionHeight;
+- (struct CGAffineTransform { float x1; float x2; float x3; float x4; float x5; float x6; })presentationAnimationStartTransform;
 - (id)regularActionFont;
 - (void)setDescriptor:(id)arg1;
 - (id)titleLabelColor;
 - (id)titleLabelFont;
-- (double)verticalContentMargin;
-- (double)visualAltitude;
+- (float)verticalContentMargin;
+- (float)visualAltitude;
 
 @end

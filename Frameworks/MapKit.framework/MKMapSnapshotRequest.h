@@ -2,34 +2,32 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class MKMapSnapshotCreator, NSString, UIImage, VKMapSnapshotCreator;
-
 @interface MKMapSnapshotRequest : NSObject {
+    NSString *_attributionString;
+    id _context;
     struct { 
         double latitude; 
         double longitude; 
-    struct CGSize { 
-        double width; 
-        double height; 
-    NSString *_attributionString;
-    id _context;
     } _coordinate;
     MKMapSnapshotCreator *_delegate;
     UIImage *_image;
     id _requester;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _size;
     VKMapSnapshotCreator *_snapshotCreator;
-    unsigned long long _zoomLevel;
+    unsigned int _zoomLevel;
 }
 
-@property(retain) NSString * attributionString;
-@property(retain) id context;
-@property struct { double x1; double x2; } coordinate;
-@property MKMapSnapshotCreator * delegate;
-@property(readonly) UIImage * image;
-@property(retain) id requester;
-@property struct CGSize { double x1; double x2; } size;
-@property unsigned long long zoomLevel;
+@property (nonatomic, retain) NSString *attributionString;
+@property (nonatomic, retain) id context;
+@property (nonatomic) struct { double x1; double x2; } coordinate;
+@property (nonatomic) MKMapSnapshotCreator *delegate;
+@property (nonatomic, readonly) UIImage *image;
+@property (nonatomic, retain) id requester;
+@property (nonatomic) struct CGSize { float x1; float x2; } size;
+@property (nonatomic) unsigned int zoomLevel;
 
 - (void).cxx_destruct;
 - (id)attributionString;
@@ -45,10 +43,10 @@
 - (void)setCoordinate:(struct { double x1; double x2; })arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setRequester:(id)arg1;
-- (void)setSize:(struct CGSize { double x1; double x2; })arg1;
-- (void)setZoomLevel:(unsigned long long)arg1;
-- (struct CGSize { double x1; double x2; })size;
+- (void)setSize:(struct CGSize { float x1; float x2; })arg1;
+- (void)setZoomLevel:(unsigned int)arg1;
+- (struct CGSize { float x1; float x2; })size;
 - (void)start;
-- (unsigned long long)zoomLevel;
+- (unsigned int)zoomLevel;
 
 @end

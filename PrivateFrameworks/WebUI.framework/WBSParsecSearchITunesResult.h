@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class NSArray, NSString, WBSParsecImageRepresentation;
-
 @interface WBSParsecSearchITunesResult : WBSParsecSearchResult {
     NSString *_descriptionFirstLine;
     NSString *_descriptionSecondLine;
@@ -13,16 +11,16 @@
     double _rating;
     NSString *_ratingText;
     WBSParsecImageRepresentation *_rottenTomatoesGlyph;
+    BOOL _rottenTomatoesInformationOnSecondLine;
     NSString *_rottenTomatoesText;
-    bool_rottenTomatoesInformationOnSecondLine;
 }
 
-@property(readonly) NSString * descriptionFirstLine;
-@property(readonly) NSString * descriptionSecondLine;
-@property(readonly) double rating;
-@property(readonly) NSString * ratingText;
-@property(readonly) bool rottenTomatoesInformationOnSecondLine;
-@property(readonly) NSString * rottenTomatoesText;
+@property (nonatomic, readonly) NSString *descriptionFirstLine;
+@property (nonatomic, readonly) NSString *descriptionSecondLine;
+@property (nonatomic, readonly) double rating;
+@property (nonatomic, readonly) NSString *ratingText;
+@property (nonatomic, readonly) BOOL rottenTomatoesInformationOnSecondLine;
+@property (nonatomic, readonly) NSString *rottenTomatoesText;
 
 - (void).cxx_destruct;
 - (id)descriptionFirstLine;
@@ -34,7 +32,7 @@
 - (double)rating;
 - (id)ratingText;
 - (id)rottenTomatoesGlyphWithSession:(id)arg1;
-- (bool)rottenTomatoesInformationOnSecondLine;
+- (BOOL)rottenTomatoesInformationOnSecondLine;
 - (id)rottenTomatoesText;
 
 @end

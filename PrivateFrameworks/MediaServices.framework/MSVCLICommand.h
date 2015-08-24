@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/MediaServices.framework/MediaServices
  */
 
-@class NSArray, NSDictionary, NSString;
-
 @interface MSVCLICommand : NSObject {
     NSDictionary *_cachedOptionsDictionary;
     NSString *_name;
     NSArray *_options;
 }
 
-@property(readonly) NSString * name;
-@property(readonly) NSArray * options;
-@property(readonly) NSDictionary * optionsDictionary;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) NSArray *options;
+@property (nonatomic, readonly) NSDictionary *optionsDictionary;
 
 - (void).cxx_destruct;
-- (bool)containsOption:(id)arg1;
+- (BOOL)containsOption:(id)arg1;
 - (id)description;
 - (id)init;
 - (id)initWithName:(id)arg1 options:(id)arg2;

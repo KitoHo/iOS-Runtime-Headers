@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class <FigCameraViewfinderSessionRemoteObject>, FigStateMachine;
-
 @interface FigCameraViewfinderSessionRemote : FigCameraViewfinderSession {
     <FigCameraViewfinderSessionRemoteObject> *_remoteViewfinderSession;
     unsigned int _state;
@@ -12,7 +10,7 @@
 
 - (void)_clientDisconnectedFromServer;
 - (id)_initWithRemoteViewfinderSession:(id)arg1 delegateStorage:(id)arg2;
-- (void)_previewStreamDidCloseWithStatus:(int)arg1;
+- (void)_previewStreamDidCloseWithStatus:(long)arg1;
 - (void)_previewStreamDidOpen;
 - (void)_serverDied;
 - (void)_setupStateMachine;

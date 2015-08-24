@@ -2,26 +2,23 @@
    Image: /System/Library/PrivateFrameworks/ApplePushService.framework/ApplePushService
  */
 
-@class NSData, NSDate;
+@interface APSIncomingMessage : APSMessage
 
-@interface APSIncomingMessage : APSMessage {
-}
+@property (getter=wasFromStorage, nonatomic) BOOL fromStorage;
+@property (getter=wasLastMessageFromStorage, nonatomic) BOOL lastMessageFromStorage;
+@property (nonatomic) int priority;
+@property (nonatomic, copy) NSDate *timestamp;
+@property (nonatomic, copy) NSData *token;
 
-@property(getter=wasFromStorage) bool fromStorage;
-@property(getter=wasLastMessageFromStorage) bool lastMessageFromStorage;
-@property long long priority;
-@property(copy) NSDate * timestamp;
-@property(copy) NSData * token;
-
-- (long long)priority;
-- (void)setFromStorage:(bool)arg1;
-- (void)setLastMessageFromStorage:(bool)arg1;
-- (void)setPriority:(long long)arg1;
+- (int)priority;
+- (void)setFromStorage:(BOOL)arg1;
+- (void)setLastMessageFromStorage:(BOOL)arg1;
+- (void)setPriority:(int)arg1;
 - (void)setTimestamp:(id)arg1;
 - (void)setToken:(id)arg1;
 - (id)timestamp;
 - (id)token;
-- (bool)wasFromStorage;
-- (bool)wasLastMessageFromStorage;
+- (BOOL)wasFromStorage;
+- (BOOL)wasLastMessageFromStorage;
 
 @end

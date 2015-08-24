@@ -2,22 +2,20 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString;
-
 @interface UILexiconEntry : NSObject <NSCopying> {
     NSString *_documentText;
     NSString *_userInput;
 }
 
-@property(readonly) NSString * documentText;
-@property(readonly) NSString * userInput;
+@property (nonatomic, readonly) NSString *documentText;
+@property (nonatomic, readonly) NSString *userInput;
 
 + (id)_entryWithTILexiconEntry:(id)arg1;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)documentText;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)userInput;
 
 @end

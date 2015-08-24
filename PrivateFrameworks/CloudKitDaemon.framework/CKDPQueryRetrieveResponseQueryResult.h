@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPRecord, CKDPRecordIdentifier, NSString;
-
 @interface CKDPQueryRetrieveResponseQueryResult : PBCodable <NSCopying> {
+    NSString *_etag;
     struct { 
         unsigned int type : 1; 
-    NSString *_etag;
     } _has;
     CKDPRecordIdentifier *_identifier;
     CKDPRecord *_record;
     int _type;
 }
 
-@property(retain) NSString * etag;
-@property(readonly) bool hasEtag;
-@property(readonly) bool hasIdentifier;
-@property(readonly) bool hasRecord;
-@property bool hasType;
-@property(retain) CKDPRecordIdentifier * identifier;
-@property(retain) CKDPRecord * record;
-@property int type;
+@property (nonatomic, retain) NSString *etag;
+@property (nonatomic, readonly) BOOL hasEtag;
+@property (nonatomic, readonly) BOOL hasIdentifier;
+@property (nonatomic, readonly) BOOL hasRecord;
+@property (nonatomic) BOOL hasType;
+@property (nonatomic, retain) CKDPRecordIdentifier *identifier;
+@property (nonatomic, retain) CKDPRecord *record;
+@property (nonatomic) int type;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
@@ -29,18 +27,18 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)etag;
-- (bool)hasEtag;
-- (bool)hasIdentifier;
-- (bool)hasRecord;
-- (bool)hasType;
-- (unsigned long long)hash;
+- (BOOL)hasEtag;
+- (BOOL)hasIdentifier;
+- (BOOL)hasRecord;
+- (BOOL)hasType;
+- (unsigned int)hash;
 - (id)identifier;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)record;
 - (void)setEtag:(id)arg1;
-- (void)setHasType:(bool)arg1;
+- (void)setHasType:(BOOL)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setRecord:(id)arg1;
 - (void)setType:(int)arg1;

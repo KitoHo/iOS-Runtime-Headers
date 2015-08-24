@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class GKLabel, GKTextStyle, NSAttributedString, NSString;
-
 @interface GKTextView : UITextView {
     GKTextStyle *__baseStyle;
     GKTextStyle *_appliedStyle;
     GKLabel *_placeholderLabel;
 }
 
-@property(retain) GKTextStyle * _baseStyle;
-@property(retain) GKTextStyle * appliedStyle;
-@property(retain) NSAttributedString * attributedPlaceholderText;
-@property GKLabel * placeholderLabel;
-@property(retain) NSString * placeholderText;
+@property (nonatomic, retain) GKTextStyle *_baseStyle;
+@property (nonatomic, retain) GKTextStyle *appliedStyle;
+@property (nonatomic, retain) NSAttributedString *attributedPlaceholderText;
+@property (nonatomic) GKLabel *placeholderLabel;
+@property (nonatomic, retain) NSString *placeholderText;
 
 + (void)initialize;
 
@@ -23,12 +21,12 @@
 - (void)applyTextStyle:(id)arg1;
 - (id)attributedPlaceholderText;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (id)insertDictationResultPlaceholder;
 - (void)layoutSubviews;
 - (id)placeholderLabel;
 - (id)placeholderText;
-- (void)removeDictationResultPlaceholder:(id)arg1 willInsertResult:(bool)arg2;
+- (void)removeDictationResultPlaceholder:(id)arg1 willInsertResult:(BOOL)arg2;
 - (void)replayAndApplyStyle;
 - (void)setAppliedStyle:(id)arg1;
 - (void)setAttributedPlaceholderText:(id)arg1;

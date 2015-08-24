@@ -2,13 +2,12 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@interface MFNTLMAuthScheme : MFAuthScheme {
-}
+@interface MFNTLMAuthScheme : MFAuthScheme
 
 - (Class)authenticatorClass;
-- (bool)hasEncryption;
+- (BOOL)hasEncryption;
 - (id)humanReadableName;
 - (id)name;
-- (bool)sendsPlainTextPasswords;
+- (BOOL)sendsPlainTextPasswords;
 
 @end

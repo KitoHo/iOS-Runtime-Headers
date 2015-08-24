@@ -2,34 +2,32 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSObject<OS_dispatch_queue>;
-
 @interface PLThrottleTimer : NSObject {
     SEL _action;
+    BOOL _isInvalid;
+    BOOL _isPaused;
+    BOOL _isPingedSinceLastFire;
     double _maxTimeout;
-    unsigned long long _maxTimeoutId;
+    unsigned int _maxTimeoutId;
     NSObject<OS_dispatch_queue> *_queue;
     id _target;
     double _timeout;
-    unsigned long long _timeoutId;
-    bool_isInvalid;
-    bool_isPaused;
-    bool_isPingedSinceLastFire;
+    unsigned int _timeoutId;
 }
 
-@property(readonly) SEL action;
-@property(readonly) double maxTimeout;
-@property(readonly) id target;
-@property(readonly) double timeout;
+@property (nonatomic, readonly) SEL action;
+@property (nonatomic, readonly) double maxTimeout;
+@property (nonatomic, readonly) id target;
+@property (nonatomic, readonly) double timeout;
 
-- (void)_inqFireWithTimeout:(bool)arg1 timeoutId:(unsigned long long)arg2 maxTimeout:(bool)arg3 maxTimeoutId:(unsigned long long)arg4;
-- (void)_inqScheduleTimeout:(bool)arg1 maxTimeout:(bool)arg2;
+- (void)_inqFireWithTimeout:(BOOL)arg1 timeoutId:(unsigned int)arg2 maxTimeout:(BOOL)arg3 maxTimeoutId:(unsigned int)arg4;
+- (void)_inqScheduleTimeout:(BOOL)arg1 maxTimeout:(BOOL)arg2;
 - (SEL)action;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2 timeout:(double)arg3 maxTimeout:(double)arg4;
 - (void)invalidate;
 - (double)maxTimeout;
 - (void)ping;
-- (void)setPaused:(bool)arg1;
+- (void)setPaused:(BOOL)arg1;
 - (id)target;
 - (double)timeout;
 

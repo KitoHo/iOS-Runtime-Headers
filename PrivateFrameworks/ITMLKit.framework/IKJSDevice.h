@@ -2,21 +2,20 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@class <IKAppDeviceConfig>, NSNumber, NSString;
-
 @interface IKJSDevice : IKJSObject <IKJSDevice> {
     <IKAppDeviceConfig> *_deviceConfig;
+    id _isNetworkTypeChangedToken;
 }
 
-@property(readonly) NSString * appIdentifier;
-@property(readonly) NSString * appVersion;
-@property <IKAppDeviceConfig> * deviceConfig;
-@property(readonly) bool isInRetailDemoMode;
-@property(readonly) NSString * model;
-@property(readonly) NSNumber * pixelRatio;
-@property(readonly) NSString * productType;
-@property(readonly) NSString * systemVersion;
-@property(readonly) NSString * vendorID;
+@property (nonatomic, readonly) NSString *appIdentifier;
+@property (nonatomic, readonly) NSString *appVersion;
+@property (nonatomic) <IKAppDeviceConfig> *deviceConfig;
+@property (nonatomic, readonly) BOOL isInRetailDemoMode;
+@property (nonatomic, readonly) NSString *model;
+@property (nonatomic, readonly) NSNumber *pixelRatio;
+@property (nonatomic, readonly) NSString *productType;
+@property (nonatomic, readonly) NSString *systemVersion;
+@property (nonatomic, readonly) NSString *vendorID;
 
 + (id)getMobileGestaltString:(struct __CFString { }*)arg1;
 
@@ -28,7 +27,7 @@
 - (void)dealloc;
 - (id)deviceConfig;
 - (id)initWithAppContext:(id)arg1 deviceConfig:(id)arg2;
-- (bool)isInRetailDemoMode;
+- (BOOL)isInRetailDemoMode;
 - (id)model;
 - (id)pixelRatio;
 - (id)productType;

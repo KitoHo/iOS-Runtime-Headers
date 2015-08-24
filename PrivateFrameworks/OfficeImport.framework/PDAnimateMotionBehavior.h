@@ -2,40 +2,38 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface PDAnimateMotionBehavior : PDAnimateScaleBehavior {
-    struct CGPoint { 
-        double x; 
-        double y; 
-    boolmHasAngle;
-    boolmHasOriginType;
-    boolmHasPointType;
-    boolmHasRotationCenter;
     double mAngle;
+    BOOL mHasAngle;
+    BOOL mHasOriginType;
+    BOOL mHasPointType;
+    BOOL mHasRotationCenter;
     int mOriginType;
     NSString *mPath;
     int mPointType;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } mRotationCenter;
 }
 
 - (id).cxx_construct;
 - (double)angle;
 - (void)dealloc;
-- (bool)hasAngle;
-- (bool)hasOriginType;
-- (bool)hasPath;
-- (bool)hasPointType;
-- (bool)hasRotationCenter;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasAngle;
+- (BOOL)hasOriginType;
+- (BOOL)hasPath;
+- (BOOL)hasPointType;
+- (BOOL)hasRotationCenter;
+- (BOOL)isEqual:(id)arg1;
 - (int)originType;
 - (id)path;
 - (int)pointType;
-- (struct CGPoint { double x1; double x2; })rotationCenter;
+- (struct CGPoint { float x1; float x2; })rotationCenter;
 - (void)setAngle:(double)arg1;
 - (void)setOriginType:(int)arg1;
 - (void)setPath:(id)arg1;
 - (void)setPointType:(int)arg1;
-- (void)setRotationCenter:(struct CGPoint { double x1; double x2; })arg1;
+- (void)setRotationCenter:(struct CGPoint { float x1; float x2; })arg1;
 
 @end

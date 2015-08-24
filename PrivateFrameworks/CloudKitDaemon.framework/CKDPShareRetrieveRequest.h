@@ -2,14 +2,15 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPShareIdentifier;
-
 @interface CKDPShareRetrieveRequest : PBRequest <NSCopying> {
     CKDPShareIdentifier *_shareId;
+    CKDPRecordZoneIdentifier *_zoneId;
 }
 
-@property(readonly) bool hasShareId;
-@property(retain) CKDPShareIdentifier * shareId;
+@property (nonatomic, readonly) BOOL hasShareId;
+@property (nonatomic, readonly) BOOL hasZoneId;
+@property (nonatomic, retain) CKDPShareIdentifier *shareId;
+@property (nonatomic, retain) CKDPRecordZoneIdentifier *zoneId;
 
 + (id)options;
 
@@ -18,15 +19,18 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasShareId;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasShareId;
+- (BOOL)hasZoneId;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (unsigned int)requestTypeCode;
 - (Class)responseClass;
 - (void)setShareId:(id)arg1;
+- (void)setZoneId:(id)arg1;
 - (id)shareId;
 - (void)writeTo:(id)arg1;
+- (id)zoneId;
 
 @end

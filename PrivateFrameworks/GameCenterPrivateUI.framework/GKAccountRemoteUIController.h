@@ -2,36 +2,34 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class NSArray;
-
 @interface GKAccountRemoteUIController : GKRemoteUIController {
+    BOOL _authenticatePlayerOnCompletion;
     NSArray *_availableExternalServices;
-    long long _mode;
-    bool_authenticatePlayerOnCompletion;
+    int _mode;
 }
 
-@property bool authenticatePlayerOnCompletion;
-@property(retain) NSArray * availableExternalServices;
-@property long long mode;
+@property (nonatomic) BOOL authenticatePlayerOnCompletion;
+@property (nonatomic, retain) NSArray *availableExternalServices;
+@property (nonatomic) int mode;
 
-+ (void)accountRemoteUIControllerForMode:(long long)arg1 completionHandler:(id)arg2;
++ (void)accountRemoteUIControllerForMode:(int)arg1 completionHandler:(id /* block */)arg2;
 
-- (bool)authenticatePlayerOnCompletion;
+- (BOOL)authenticatePlayerOnCompletion;
 - (id)availableExternalServices;
 - (id)bagKey;
 - (void)dealloc;
 - (id)fallbackURL;
-- (void)fetchAvailableExternalServicesWithCompletionHandler:(id)arg1;
-- (void)fetchFacebookAuthTokenWithHandler:(id)arg1;
-- (void)fetchICloudAuthTokenWithHandler:(id)arg1;
+- (void)fetchAvailableExternalServicesWithCompletionHandler:(id /* block */)arg1;
+- (void)fetchFacebookAuthTokenWithHandler:(id /* block */)arg1;
+- (void)fetchICloudAuthTokenWithHandler:(id /* block */)arg1;
 - (void)fireCompletionHandler;
-- (id)initWithMode:(long long)arg1;
-- (long long)mode;
+- (id)initWithMode:(int)arg1;
+- (int)mode;
 - (id)postBodyForInitialLoad;
-- (void)setAuthenticatePlayerOnCompletion:(bool)arg1;
+- (void)setAuthenticatePlayerOnCompletion:(BOOL)arg1;
 - (void)setAvailableExternalServices:(id)arg1;
-- (void)setMode:(long long)arg1;
-- (void)takeValuesFromClientInfo:(id)arg1 withCompletionHandler:(id)arg2;
-- (void)updatePostbackDictionary:(id)arg1 withHandler:(id)arg2;
+- (void)setMode:(int)arg1;
+- (void)takeValuesFromClientInfo:(id)arg1 withCompletionHandler:(id /* block */)arg2;
+- (void)updatePostbackDictionary:(id)arg1 withHandler:(id /* block */)arg2;
 
 @end

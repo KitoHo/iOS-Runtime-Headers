@@ -2,35 +2,29 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class BRCAccountSession, BRCItemID, BRCLocalContainer, NSMutableIndexSet, NSObject<OS_dispatch_group>;
-
 @interface BRCTreeEnumerator : NSObject {
     BRCLocalContainer *_container;
     NSObject<OS_dispatch_group> *_group;
-    id _handler;
+    id /* block */ _handler;
     BRCItemID *_parentID;
-    unsigned long long _rowID;
+    unsigned int _rowID;
     NSMutableIndexSet *_seen;
     BRCAccountSession *_session;
     NSMutableIndexSet *_toVisit;
-    id _whenDone;
+    id /* block */ _whenDone;
 }
 
-@property(copy) id whenDone;
+@property (nonatomic, copy) id /* block */ whenDone;
 
 - (void).cxx_destruct;
-- (void)_iterate:(unsigned long long)arg1;
-- (void)_iterateWithoutParent:(unsigned long long)arg1;
+- (void)_iterate:(unsigned int)arg1;
+- (void)_iterateWithoutParent:(unsigned int)arg1;
 - (void)_scheduleAsync;
-- (void)_visitNewParent:(unsigned long long)arg1;
+- (void)_visitNewParent:(unsigned int)arg1;
 - (void)done;
 - (void)enumerateBelow:(id)arg1 group:(id)arg2;
-- (id)initWithContainer:(id)arg1 handler:(id)arg2;
-- (void)setWhenDone:(id)arg1;
-- (id)whenDone;
+- (id)initWithContainer:(id)arg1 handler:(id /* block */)arg2;
+- (void)setWhenDone:(id /* block */)arg1;
+- (id /* block */)whenDone;
 
 @end

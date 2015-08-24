@@ -2,9 +2,7 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class KeychainSyncCountryInfo, KeychainSyncDevicePINController, KeychainSyncPhoneSettingsFragment, NSArray, NSString, PSKeychainSyncManager, PSSetupController, PSSpecifier, UIAlertView;
-
-@interface PSAccountSecurityController : PSListController <KeychainSyncViewControllerDelegate, KeychainSyncPhoneSettingsFragmentDelegate, UIAlertViewDelegate> {
+@interface PSAccountSecurityController : PSListController <KeychainSyncPhoneSettingsFragmentDelegate, KeychainSyncViewControllerDelegate, UIAlertViewDelegate> {
     NSString *_SMSTarget;
     KeychainSyncCountryInfo *_SMSTargetCountryInfo;
     UIAlertView *_changeDevicePasscodeAlert;
@@ -16,21 +14,21 @@
     NSArray *_passcodeSpecifiers;
     KeychainSyncPhoneSettingsFragment *_phoneSettingsFragment;
     PSSpecifier *_recoverySwitch;
+    BOOL _secureBackupEnabled;
     NSString *_securityCode;
     int _securityCodeType;
-    bool_secureBackupEnabled;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) NSString * securityCode;
-@property int securityCodeType;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NSString *securityCode;
+@property (nonatomic) int securityCodeType;
+@property (readonly) Class superclass;
 
-- (void)_setShowsDoneButton:(bool)arg1;
+- (void)_setShowsDoneButton:(BOOL)arg1;
 - (void)_showSecurityCodeChangeSheetOnSpecifier:(id)arg1;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)cancelPressed;
 - (void)changeSecurityCode:(id)arg1;
 - (void)dealloc;
@@ -51,7 +49,7 @@
 - (void)setUseRecovery:(id)arg1 specifier:(id)arg2;
 - (id)specifiers;
 - (id)useRecoveryForSepecifier:(id)arg1;
-- (void)viewDidAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

@@ -2,23 +2,19 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <BRItemNotificationReceiving>, BRCItemID, BRCNotificationGatherer, BRCNotificationManager, BRCRelativePath, BRCXPCClient, BRNotificationQueue, NSMutableSet, NSNumber, NSObject<OS_dispatch_queue>, NSSet, NSString;
-
 @interface BRCNotificationPipe : NSObject <BRItemNotificationSending> {
-    id _boostReply;
+    id /* block */ _boostReply;
     BRCXPCClient *_client;
     NSMutableSet *_externalContainers;
     BRCNotificationGatherer *_gatherer;
+    BOOL _hasUpdatesInFlight;
     BRCNotificationManager *_manager;
     BRNotificationQueue *_notifs;
     BRCItemID *_oldWatchedAncestorItemID;
     NSObject<OS_dispatch_queue> *_queue;
     <BRItemNotificationReceiving> *_receiver;
     BRCRelativePath *_root;
+    BOOL _volumeIsCaseSensitive;
     NSString *_watchForBundleID;
     unsigned short _watchItemOptions;
     int _watchKind;
@@ -28,15 +24,13 @@
     BRCItemID *_watchedAncestorItemID;
     NSSet *_watchedContainerIDs;
     NSSet *_watchedContainers;
-    unsigned long long _watchedContainersFlags;
-    bool_hasUpdatesInFlight;
-    bool_volumeIsCaseSensitive;
+    unsigned int _watchedContainersFlags;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (void)_addIntraContainerUpdatesFromInterContainerUpdate:(id)arg1 toArray:(id)arg2;
@@ -44,9 +38,9 @@
 - (id)_initWithRoot:(id)arg1 manager:(id)arg2;
 - (int)_isInterestingUpdate:(id)arg1;
 - (void)_stopWatchingItems;
-- (void)addDequeueCallback:(id)arg1;
-- (void)addNotification:(id)arg1 asDead:(bool)arg2;
-- (void)boostPriority:(id)arg1;
+- (void)addDequeueCallback:(id /* block */)arg1;
+- (void)addNotification:(id)arg1 asDead:(BOOL)arg2;
+- (void)boostPriority:(id /* block */)arg1;
 - (void)close;
 - (void)dealloc;
 - (id)description;
@@ -55,12 +49,12 @@
 - (oneway void)invalidate;
 - (void)invalidateReceiverIfWatchingContainerID:(id)arg1;
 - (void)processUpdates:(id)arg1;
-- (void)watchItemAtURL:(id)arg1 container:(id)arg2 lookup:(id)arg3 options:(unsigned short)arg4 reply:(id)arg5;
-- (void)watchItemAtURL:(id)arg1 options:(unsigned short)arg2 reply:(id)arg3;
-- (void)watchItemInProcessAtURL:(id)arg1 options:(unsigned short)arg2 reply:(id)arg3;
-- (void)watchItemsNamesPrefixedBy:(id)arg1 inScopes:(unsigned short)arg2 containerIDs:(id)arg3 gatheringDone:(id)arg4;
-- (void)watchScopes:(unsigned short)arg1 containerIDs:(id)arg2 gatheringDone:(id)arg3;
-- (void)watchScopes:(unsigned short)arg1 gatheringDone:(id)arg2;
-- (void)watchScopes:(unsigned short)arg1 trustedContainerIDs:(id)arg2 gatheringDone:(id)arg3;
+- (void)watchItemAtURL:(id)arg1 container:(id)arg2 lookup:(id)arg3 options:(unsigned short)arg4 reply:(id /* block */)arg5;
+- (void)watchItemAtURL:(id)arg1 options:(unsigned short)arg2 reply:(id /* block */)arg3;
+- (void)watchItemInProcessAtURL:(id)arg1 options:(unsigned short)arg2 reply:(id /* block */)arg3;
+- (void)watchItemsNamesPrefixedBy:(id)arg1 inScopes:(unsigned short)arg2 containerIDs:(id)arg3 gatheringDone:(id /* block */)arg4;
+- (void)watchScopes:(unsigned short)arg1 containerIDs:(id)arg2 gatheringDone:(id /* block */)arg3;
+- (void)watchScopes:(unsigned short)arg1 gatheringDone:(id /* block */)arg2;
+- (void)watchScopes:(unsigned short)arg1 trustedContainerIDs:(id)arg2 gatheringDone:(id /* block */)arg3;
 
 @end

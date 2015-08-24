@@ -2,32 +2,24 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSString;
-
-@interface HKSourceQuery : HKQuery <HKSourceQueryClient> {
-    id _completionHandler;
+@interface HKSourceQuery : HKQuery {
+    id /* block */ _completionHandler;
+    id /* block */ _updateHandler;
 }
 
-@property(readonly) id completionHandler;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
-
-+ (id)_clientInterfaceProtocol;
-+ (void)_configureClientInterface:(id)arg1;
+@property (nonatomic, readonly) id /* block */ completionHandler;
+@property (nonatomic, copy) id /* block */ updateHandler;
 
 - (void).cxx_destruct;
 - (void)_queue_cleanupAfterDeactivation;
-- (id)_queue_errorHandler;
-- (void)_queue_requestServerProxyWithUUID:(id)arg1 connection:(id)arg2 handler:(id)arg3;
+- (id /* block */)_queue_errorHandler;
+- (BOOL)_queue_shouldStayAliveAfterInitialResults;
 - (void)_queue_validate;
-- (id)completionHandler;
-- (void)deliverSources:(id)arg1 queryUUID:(id)arg2;
-- (id)initWithSampleType:(id)arg1 samplePredicate:(id)arg2 completionHandler:(id)arg3;
+- (id /* block */)completionHandler;
+- (void)deliverSources:(id)arg1 forQuery:(id)arg2;
+- (void)deliverUpdatedSources:(id)arg1 added:(id)arg2 forQuery:(id)arg3;
+- (id)initWithSampleType:(id)arg1 samplePredicate:(id)arg2 completionHandler:(id /* block */)arg3;
+- (void)setUpdateHandler:(id /* block */)arg1;
+- (id /* block */)updateHandler;
 
 @end

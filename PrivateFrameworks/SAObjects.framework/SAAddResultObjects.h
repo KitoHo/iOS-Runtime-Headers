@@ -2,12 +2,9 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray;
+@interface SAAddResultObjects : SABaseClientBoundCommand
 
-@interface SAAddResultObjects : SABaseClientBoundCommand {
-}
-
-@property(copy) NSArray * objects;
+@property (nonatomic, copy) NSArray *objects;
 
 + (id)addResultObjects;
 + (id)addResultObjectsWithDictionary:(id)arg1 context:(id)arg2;
@@ -15,7 +12,7 @@
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)objects;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setObjects:(id)arg1;
 
 @end

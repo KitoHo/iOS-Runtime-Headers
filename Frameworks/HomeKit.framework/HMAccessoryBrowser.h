@@ -2,34 +2,32 @@
    Image: /System/Library/Frameworks/HomeKit.framework/HomeKit
  */
 
-@class <HMAccessoryBrowserDelegate>, HMMessageDispatcher, HMXpcClient, NSArray, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSUUID;
-
 @interface HMAccessoryBrowser : NSObject <HMMessageReceiver> {
     NSMutableArray *_accessories;
+    BOOL _browsing;
     <HMAccessoryBrowserDelegate> *_delegate;
-    unsigned long long _generationCounter;
+    unsigned int _generationCounter;
     HMMessageDispatcher *_msgDispatcher;
     NSUUID *_uuid;
     NSObject<OS_dispatch_queue> *_workQueue;
     HMXpcClient *_xpcClient;
-    bool_browsing;
 }
 
-@property(retain) NSMutableArray * accessories;
-@property(getter=isBrowsing) bool browsing;
-@property(copy,readonly) NSString * debugDescription;
-@property <HMAccessoryBrowserDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(copy,readonly) NSArray * discoveredAccessories;
-@property unsigned long long generationCounter;
-@property(readonly) unsigned long long hash;
-@property(readonly) NSObject<OS_dispatch_queue> * messageReceiveQueue;
-@property(readonly) NSUUID * messageTargetUUID;
-@property(retain) HMMessageDispatcher * msgDispatcher;
-@property(readonly) Class superclass;
-@property(retain) NSUUID * uuid;
-@property(retain) NSObject<OS_dispatch_queue> * workQueue;
-@property(retain) HMXpcClient * xpcClient;
+@property (nonatomic, retain) NSMutableArray *accessories;
+@property (getter=isBrowsing, nonatomic) BOOL browsing;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <HMAccessoryBrowserDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly, copy) NSArray *discoveredAccessories;
+@property (nonatomic) unsigned int generationCounter;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property (nonatomic, readonly) NSUUID *messageTargetUUID;
+@property (nonatomic, retain) HMMessageDispatcher *msgDispatcher;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSUUID *uuid;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *workQueue;
+@property (nonatomic, retain) HMXpcClient *xpcClient;
 
 - (void).cxx_destruct;
 - (void)_fetchNewAccessories;
@@ -40,18 +38,19 @@
 - (void)_start;
 - (void)_updateNewAccessories:(id)arg1;
 - (id)accessories;
+- (void)dealloc;
 - (id)delegate;
 - (id)discoveredAccessories;
-- (unsigned long long)generationCounter;
+- (unsigned int)generationCounter;
 - (id)init;
-- (bool)isBrowsing;
+- (BOOL)isBrowsing;
 - (id)messageReceiveQueue;
 - (id)messageTargetUUID;
 - (id)msgDispatcher;
 - (void)setAccessories:(id)arg1;
-- (void)setBrowsing:(bool)arg1;
+- (void)setBrowsing:(BOOL)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setGenerationCounter:(unsigned long long)arg1;
+- (void)setGenerationCounter:(unsigned int)arg1;
 - (void)setMsgDispatcher:(id)arg1;
 - (void)setUuid:(id)arg1;
 - (void)setWorkQueue:(id)arg1;

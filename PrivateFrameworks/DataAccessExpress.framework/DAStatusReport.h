@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/DataAccessExpress.framework/DataAccessExpress
  */
 
-@class NSDate, NSNumber, NSString;
-
 @interface DAStatusReport : NSObject {
     NSString *_accountType;
     NSNumber *_averageHBI;
@@ -17,28 +15,28 @@
     NSString *_persistentUUID;
     NSString *_protocolVersion;
     NSNumber *_successfulRequests;
+    BOOL _syncingAllowed;
     NSNumber *_timeInNetworking;
     NSNumber *_timeSpan;
     NSNumber *_uploadedElements;
-    bool_syncingAllowed;
 }
 
-@property(retain) NSString * accountType;
-@property(retain) NSNumber * averageHBI;
-@property(retain) NSDate * creationDate;
-@property(retain) NSString * displayName;
-@property(retain) NSNumber * downloadedElements;
-@property(retain) NSNumber * failedNetworkRequests;
-@property(retain) NSNumber * failedProtocolRequests;
-@property(retain) NSNumber * falseMoreAvailableCount;
-@property int numHBIDataPoints;
-@property(retain) NSString * persistentUUID;
-@property(retain) NSString * protocolVersion;
-@property(retain) NSNumber * successfulRequests;
-@property bool syncingAllowed;
-@property(retain) NSNumber * timeInNetworking;
-@property(retain) NSNumber * timeSpan;
-@property(retain) NSNumber * uploadedElements;
+@property (nonatomic, retain) NSString *accountType;
+@property (nonatomic, retain) NSNumber *averageHBI;
+@property (nonatomic, retain) NSDate *creationDate;
+@property (nonatomic, retain) NSString *displayName;
+@property (nonatomic, retain) NSNumber *downloadedElements;
+@property (nonatomic, retain) NSNumber *failedNetworkRequests;
+@property (nonatomic, retain) NSNumber *failedProtocolRequests;
+@property (nonatomic, retain) NSNumber *falseMoreAvailableCount;
+@property (nonatomic) int numHBIDataPoints;
+@property (nonatomic, retain) NSString *persistentUUID;
+@property (nonatomic, retain) NSString *protocolVersion;
+@property (nonatomic, retain) NSNumber *successfulRequests;
+@property (nonatomic) BOOL syncingAllowed;
+@property (nonatomic, retain) NSNumber *timeInNetworking;
+@property (nonatomic, retain) NSNumber *timeSpan;
+@property (nonatomic, retain) NSNumber *uploadedElements;
 
 - (void).cxx_destruct;
 - (id)accountType;
@@ -58,8 +56,8 @@
 - (void)noteFailedProtocolRequest;
 - (void)noteFalseMoreAvailableResponse;
 - (void)noteNewHBIDataPoint:(int)arg1;
-- (void)noteSuccessfulRequestWithNumDownloadedElements:(int)arg1 numUploadedElements:(int)arg2;
 - (void)noteSuccessfulRequestWithNumDownloadedElements:(int)arg1;
+- (void)noteSuccessfulRequestWithNumDownloadedElements:(int)arg1 numUploadedElements:(int)arg2;
 - (void)noteTimeSpentInNetworking:(double)arg1;
 - (int)numHBIDataPoints;
 - (id)persistentUUID;
@@ -76,12 +74,12 @@
 - (void)setPersistentUUID:(id)arg1;
 - (void)setProtocolVersion:(id)arg1;
 - (void)setSuccessfulRequests:(id)arg1;
-- (void)setSyncingAllowed:(bool)arg1;
+- (void)setSyncingAllowed:(BOOL)arg1;
 - (void)setTimeInNetworking:(id)arg1;
 - (void)setTimeSpan:(id)arg1;
 - (void)setUploadedElements:(id)arg1;
 - (id)successfulRequests;
-- (bool)syncingAllowed;
+- (BOOL)syncingAllowed;
 - (id)timeInNetworking;
 - (id)timeSpan;
 - (id)uploadedElements;

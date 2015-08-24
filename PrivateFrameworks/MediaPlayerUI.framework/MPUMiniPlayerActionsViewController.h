@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/MediaPlayerUI.framework/MediaPlayerUI
  */
 
-@class <MPUMiniPlayerActionsViewControllerDelegate>, MPAVItem, NSArray;
-
 @interface MPUMiniPlayerActionsViewController : UITableViewController {
     NSArray *_actions;
     <MPUMiniPlayerActionsViewControllerDelegate> *_delegate;
     MPAVItem *_item;
 }
 
-@property <MPUMiniPlayerActionsViewControllerDelegate> * delegate;
-@property(readonly) MPAVItem * item;
+@property (nonatomic) <MPUMiniPlayerActionsViewControllerDelegate> *delegate;
+@property (nonatomic, readonly) MPAVItem *item;
 
 + (id)_actionsForItem:(id)arg1;
-+ (id)_imageForAction:(long long)arg1;
-+ (id)_titleForAction:(long long)arg1;
-+ (bool)hasActionsForItem:(id)arg1;
++ (id)_imageForAction:(int)arg1;
++ (id)_titleForAction:(int)arg1;
++ (BOOL)hasActionsForItem:(id)arg1;
 
 - (void).cxx_destruct;
 - (void)_updateActions;
@@ -26,7 +24,7 @@
 - (void)setDelegate:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)viewDidLoad;
 

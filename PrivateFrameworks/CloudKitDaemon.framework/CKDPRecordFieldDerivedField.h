@@ -2,32 +2,30 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPRecordFieldIdentifier, NSMutableArray;
-
 @interface CKDPRecordFieldDerivedField : PBCodable <NSCopying> {
-    struct { 
-        unsigned int aggregationFunction : 1; 
     CKDPRecordFieldIdentifier *_aggregatedField;
     NSMutableArray *_aggregatedTypes;
     int _aggregationFunction;
     NSMutableArray *_filters;
     CKDPRecordFieldIdentifier *_groupByField;
+    struct { 
+        unsigned int aggregationFunction : 1; 
     } _has;
     CKDPRecordFieldIdentifier *_identifier;
     NSMutableArray *_targetTypes;
 }
 
-@property(retain) CKDPRecordFieldIdentifier * aggregatedField;
-@property(retain) NSMutableArray * aggregatedTypes;
-@property int aggregationFunction;
-@property(retain) NSMutableArray * filters;
-@property(retain) CKDPRecordFieldIdentifier * groupByField;
-@property(readonly) bool hasAggregatedField;
-@property bool hasAggregationFunction;
-@property(readonly) bool hasGroupByField;
-@property(readonly) bool hasIdentifier;
-@property(retain) CKDPRecordFieldIdentifier * identifier;
-@property(retain) NSMutableArray * targetTypes;
+@property (nonatomic, retain) CKDPRecordFieldIdentifier *aggregatedField;
+@property (nonatomic, retain) NSMutableArray *aggregatedTypes;
+@property (nonatomic) int aggregationFunction;
+@property (nonatomic, retain) NSMutableArray *filters;
+@property (nonatomic, retain) CKDPRecordFieldIdentifier *groupByField;
+@property (nonatomic, readonly) BOOL hasAggregatedField;
+@property (nonatomic) BOOL hasAggregationFunction;
+@property (nonatomic, readonly) BOOL hasGroupByField;
+@property (nonatomic, readonly) BOOL hasIdentifier;
+@property (nonatomic, retain) CKDPRecordFieldIdentifier *identifier;
+@property (nonatomic, retain) NSMutableArray *targetTypes;
 
 - (void).cxx_destruct;
 - (void)addAggregatedTypes:(id)arg1;
@@ -35,8 +33,8 @@
 - (void)addTargetTypes:(id)arg1;
 - (id)aggregatedField;
 - (id)aggregatedTypes;
-- (id)aggregatedTypesAtIndex:(unsigned long long)arg1;
-- (unsigned long long)aggregatedTypesCount;
+- (id)aggregatedTypesAtIndex:(unsigned int)arg1;
+- (unsigned int)aggregatedTypesCount;
 - (int)aggregationFunction;
 - (void)clearAggregatedTypes;
 - (void)clearFilters;
@@ -46,29 +44,29 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)filters;
-- (id)filtersAtIndex:(unsigned long long)arg1;
-- (unsigned long long)filtersCount;
+- (id)filtersAtIndex:(unsigned int)arg1;
+- (unsigned int)filtersCount;
 - (id)groupByField;
-- (bool)hasAggregatedField;
-- (bool)hasAggregationFunction;
-- (bool)hasGroupByField;
-- (bool)hasIdentifier;
-- (unsigned long long)hash;
+- (BOOL)hasAggregatedField;
+- (BOOL)hasAggregationFunction;
+- (BOOL)hasGroupByField;
+- (BOOL)hasIdentifier;
+- (unsigned int)hash;
 - (id)identifier;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setAggregatedField:(id)arg1;
 - (void)setAggregatedTypes:(id)arg1;
 - (void)setAggregationFunction:(int)arg1;
 - (void)setFilters:(id)arg1;
 - (void)setGroupByField:(id)arg1;
-- (void)setHasAggregationFunction:(bool)arg1;
+- (void)setHasAggregationFunction:(BOOL)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setTargetTypes:(id)arg1;
 - (id)targetTypes;
-- (id)targetTypesAtIndex:(unsigned long long)arg1;
-- (unsigned long long)targetTypesCount;
+- (id)targetTypesAtIndex:(unsigned int)arg1;
+- (unsigned int)targetTypesCount;
 - (void)writeTo:(id)arg1;
 
 @end

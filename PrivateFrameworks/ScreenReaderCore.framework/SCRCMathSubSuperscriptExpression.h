@@ -2,35 +2,33 @@
    Image: /System/Library/PrivateFrameworks/ScreenReaderCore.framework/ScreenReaderCore
  */
 
-@class SCRCMathExpression;
-
 @interface SCRCMathSubSuperscriptExpression : SCRCMathExpression {
     SCRCMathExpression *_base;
     SCRCMathExpression *_subscript;
     SCRCMathExpression *_superscript;
 }
 
-@property(retain) SCRCMathExpression * base;
-@property(retain) SCRCMathExpression * subscript;
-@property(retain) SCRCMathExpression * superscript;
+@property (nonatomic, retain) SCRCMathExpression *base;
+@property (nonatomic, retain) SCRCMathExpression *subscript;
+@property (nonatomic, retain) SCRCMathExpression *superscript;
 
 - (id)_stringToAddForSuperscript:(id)arg1 withPriorDescription:(id)arg2 updatedDescription:(id*)arg3;
 - (id)base;
 - (void)dealloc;
 - (id)description;
-- (id)dollarCodeDescriptionWithNumberOfOuterRadicals:(unsigned long long)arg1 treePosition:(id)arg2;
-- (unsigned long long)fractionLevel;
+- (id)dollarCodeDescriptionWithNumberOfOuterRadicals:(unsigned int)arg1 treePosition:(id)arg2;
+- (unsigned int)fractionLevel;
 - (id)initWithDictionary:(id)arg1;
-- (bool)isBaseSubSuperscript;
-- (bool)isNumber;
-- (bool)isRangeSubSuperscript;
+- (BOOL)isBaseSubSuperscript;
+- (BOOL)isNumber;
+- (BOOL)isRangeSubSuperscript;
 - (id)latexMathModeDescription;
 - (id)mathMLString;
 - (void)setBase:(id)arg1;
 - (void)setSubscript:(id)arg1;
 - (void)setSuperscript:(id)arg1;
-- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(bool)arg2;
-- (id)speakableSegmentsWithSpeakingStyle:(int)arg1 upToDepth:(unsigned long long)arg2 treePosition:(id)arg3;
+- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(BOOL)arg2;
+- (id)speakableSegmentsWithSpeakingStyle:(int)arg1 upToDepth:(unsigned int)arg2 treePosition:(id)arg3;
 - (id)subExpressions;
 - (id)subscript;
 - (id)superscript;

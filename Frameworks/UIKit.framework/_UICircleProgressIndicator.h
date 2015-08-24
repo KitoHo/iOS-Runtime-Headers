@@ -2,66 +2,64 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class CADisplayLink, UIColor, UIImage, UIImageView;
-
 @interface _UICircleProgressIndicator : UIView {
-    struct UIEdgeInsets { 
-        double top; 
-        double left; 
-        double bottom; 
-        double right; 
-    double _animatedValue;
+    float _animatedValue;
     double _animationEndTime;
     double _animationStartTime;
-    double _animationStartValue;
+    float _animationStartValue;
     UIImage *_borderImage;
     UIImage *_centerImage;
+    struct UIEdgeInsets { 
+        float top; 
+        float left; 
+        float bottom; 
+        float right; 
     } _centerImageInsets;
     CADisplayLink *_displayLink;
     UIImage *_fillImage;
+    BOOL _highlighted;
     UIImageView *_indeterminateView;
-    double _progress;
+    BOOL _isAnimating;
+    float _progress;
     UIColor *_unhighlightedBackgroundColor;
-    bool_highlighted;
-    bool_isAnimating;
 }
 
-@property(retain) UIImage * borderImage;
-@property(retain) UIImage * fillImage;
-@property(getter=isHighlighted) bool highlighted;
-@property(retain) UIImage * image;
-@property struct UIEdgeInsets { double x1; double x2; double x3; double x4; } imageInsets;
-@property(getter=isIndeterminate) bool indeterminate;
-@property double progress;
+@property (nonatomic, retain) UIImage *borderImage;
+@property (nonatomic, retain) UIImage *fillImage;
+@property (getter=isHighlighted, nonatomic) BOOL highlighted;
+@property (nonatomic, retain) UIImage *image;
+@property (nonatomic) struct UIEdgeInsets { float x1; float x2; float x3; float x4; } imageInsets;
+@property (getter=isIndeterminate, nonatomic) BOOL indeterminate;
+@property (nonatomic) float progress;
 
 + (id)_borderImage;
 + (id)_fillImage;
 + (id)_indeterminateImage;
 
 - (void)_animateValueOnDisplayLink:(id)arg1;
-- (void)_setHidesBorderView:(bool)arg1;
+- (void)_setHidesBorderView:(BOOL)arg1;
 - (void)_startIndeterminateAnimation;
 - (id)borderImage;
 - (void)dealloc;
 - (void)didMoveToWindow;
-- (void)drawRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)drawRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (id)fillImage;
 - (id)image;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })imageInsets;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (bool)isHighlighted;
-- (bool)isIndeterminate;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })imageInsets;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (BOOL)isHighlighted;
+- (BOOL)isIndeterminate;
 - (void)layoutSubviews;
-- (double)progress;
+- (float)progress;
 - (void)setBorderImage:(id)arg1;
 - (void)setFillImage:(id)arg1;
-- (void)setHighlighted:(bool)arg1;
+- (void)setHighlighted:(BOOL)arg1;
 - (void)setImage:(id)arg1;
-- (void)setImageInsets:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; })arg1;
-- (void)setIndeterminate:(bool)arg1;
-- (void)setProgress:(double)arg1 animated:(bool)arg2;
-- (void)setProgress:(double)arg1;
-- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
+- (void)setImageInsets:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg1;
+- (void)setIndeterminate:(BOOL)arg1;
+- (void)setProgress:(float)arg1;
+- (void)setProgress:(float)arg1 animated:(BOOL)arg2;
+- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
 - (void)tintColorDidChange;
 
 @end

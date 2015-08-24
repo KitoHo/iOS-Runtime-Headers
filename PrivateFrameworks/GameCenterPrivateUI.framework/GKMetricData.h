@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class GKGridLayoutMetrics, GKSectionMetrics, NSMutableArray, NSString;
-
 @interface GKMetricData : NSObject {
-    unsigned long long _currentMaxVisibleItemCount;
-    unsigned long long _filteredTotalItemCount;
+    unsigned int _currentMaxVisibleItemCount;
+    unsigned int _filteredTotalItemCount;
     NSMutableArray *_footerPinnableAttributes;
     NSMutableArray *_headerPinnableAttributes;
     GKGridLayoutMetrics *_metrics;
 }
 
-@property unsigned long long currentMaxVisibleItemCount;
-@property unsigned long long filteredTotalItemCount;
-@property(retain) NSMutableArray * footerPinnableAttributes;
-@property(retain) NSMutableArray * headerPinnableAttributes;
-@property(readonly) NSString * layoutKey;
-@property(retain) GKGridLayoutMetrics * metrics;
-@property(readonly) GKSectionMetrics * sectionMetrics;
+@property (nonatomic) unsigned int currentMaxVisibleItemCount;
+@property (nonatomic) unsigned int filteredTotalItemCount;
+@property (nonatomic, retain) NSMutableArray *footerPinnableAttributes;
+@property (nonatomic, retain) NSMutableArray *headerPinnableAttributes;
+@property (nonatomic, readonly) NSString *layoutKey;
+@property (nonatomic, retain) GKGridLayoutMetrics *metrics;
+@property (nonatomic, readonly) GKSectionMetrics *sectionMetrics;
 
 - (id)_gkDescriptionWithChildren:(int)arg1;
-- (void)addAttributes:(id)arg1 forLocation:(unsigned long long)arg2;
-- (unsigned long long)currentMaxVisibleItemCount;
+- (void)addAttributes:(id)arg1 forLocation:(unsigned int)arg2;
+- (unsigned int)currentMaxVisibleItemCount;
 - (void)dealloc;
 - (id)description;
-- (unsigned long long)filteredTotalItemCount;
+- (unsigned int)filteredTotalItemCount;
 - (id)footerPinnableAttributes;
 - (id)headerPinnableAttributes;
 - (id)init;
@@ -33,8 +31,8 @@
 - (id)localDescription;
 - (id)metrics;
 - (id)sectionMetrics;
-- (void)setCurrentMaxVisibleItemCount:(unsigned long long)arg1;
-- (void)setFilteredTotalItemCount:(unsigned long long)arg1;
+- (void)setCurrentMaxVisibleItemCount:(unsigned int)arg1;
+- (void)setFilteredTotalItemCount:(unsigned int)arg1;
 - (void)setFooterPinnableAttributes:(id)arg1;
 - (void)setHeaderPinnableAttributes:(id)arg1;
 - (void)setMetrics:(id)arg1;

@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class IMHandle;
-
 @interface CKIMComposeRecipient : MFComposeRecipient {
     IMHandle *_handle;
 }
 
-@property(retain,readonly) IMHandle * handle;
+@property (nonatomic, readonly, retain) IMHandle *handle;
 
 - (id)address;
 - (id)commentedAddress;
@@ -17,12 +15,12 @@
 - (void)dealloc;
 - (id)displayString;
 - (id)handle;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (int)identifier;
 - (id)initWithHandle:(id)arg1;
 - (id)initWithRecord:(void*)arg1 recordID:(int)arg2 property:(int)arg3 identifier:(int)arg4 address:(id)arg5;
-- (bool)isEqual:(id)arg1;
-- (bool)isRemovableFromSearchResults;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isRemovableFromSearchResults;
 - (id)label;
 - (id)objectForDragType:(id)arg1;
 - (int)property;

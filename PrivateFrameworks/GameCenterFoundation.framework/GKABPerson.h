@@ -2,16 +2,13 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class GKABMultiValue;
+@interface GKABPerson : GKABRecord
 
-@interface GKABPerson : GKABRecord {
-}
-
-@property(retain) GKABMultiValue * socialProfile;
+@property (nonatomic, retain) GKABMultiValue *socialProfile;
 
 - (id)emails;
 - (void)setSocialProfile:(id)arg1;
 - (id)socialProfile;
-- (bool)updateSocialProfileWithPlayer:(id)arg1;
+- (BOOL)updateSocialProfileWithPlayer:(id)arg1;
 
 @end

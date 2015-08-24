@@ -2,17 +2,16 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@interface SAUIDelayedConfirmationView : SAUIConfirmationView {
-}
+@interface SAUIDelayedConfirmationView : SAUIConfirmationView
 
-@property long long autoConfirmDelay;
+@property (nonatomic) int autoConfirmDelay;
 
 + (id)delayedConfirmationView;
 + (id)delayedConfirmationViewWithDictionary:(id)arg1 context:(id)arg2;
 
-- (long long)autoConfirmDelay;
+- (int)autoConfirmDelay;
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (void)setAutoConfirmDelay:(long long)arg1;
+- (void)setAutoConfirmDelay:(int)arg1;
 
 @end

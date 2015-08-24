@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableArray, OITSUNoCopyDictionary;
-
 @interface OADGraphicFeatureCache : NSObject {
     OITSUNoCopyDictionary *mFeatureMap;
     NSMutableArray *mFeatureUsageArray;
 }
 
-- (unsigned long long)cacheFeature:(id)arg1;
-- (id)countedFeatureAtIndex:(unsigned long long)arg1;
+- (unsigned int)cacheFeature:(id)arg1;
+- (id)countedFeatureAtIndex:(unsigned int)arg1;
 - (void)dealloc;
 - (id)featuresSortedByUsageCount;
 - (id)init;

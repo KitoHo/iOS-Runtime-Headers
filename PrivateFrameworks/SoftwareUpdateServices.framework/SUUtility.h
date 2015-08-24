@@ -2,40 +2,46 @@
    Image: /System/Library/PrivateFrameworks/SoftwareUpdateServices.framework/SoftwareUpdateServices
  */
 
-@interface SUUtility : NSObject {
-}
+@interface SUUtility : NSObject
 
 + (id)URLIfFileExists:(id)arg1;
-+ (id)addToDate:(id)arg1 numberOfDays:(long long)arg2;
-+ (void)assignError:(id*)arg1 withCode:(long long)arg2;
-+ (void)assignError:(id*)arg1 withError:(id)arg2 translate:(bool)arg3;
-+ (bool)cellularDataIsEnabled;
-+ (bool)createInstallationKeybag:(id)arg1;
++ (id)addToDate:(id)arg1 numberOfDays:(int)arg2;
++ (void)assignError:(id*)arg1 withCode:(int)arg2;
++ (void)assignError:(id*)arg1 withError:(id)arg2 translate:(BOOL)arg3;
++ (unsigned long long)cacheDelete:(id)arg1;
++ (BOOL)cellularDataIsEnabled;
++ (BOOL)createInstallationKeybag:(id)arg1;
 + (id)currentProductBuild;
 + (id)currentProductCategory;
 + (id)currentProductType;
 + (id)currentProductVersion;
 + (id)currentReleaseType;
-+ (id)errorWithCode:(long long)arg1 originalError:(id)arg2;
-+ (id)errorWithCode:(long long)arg1;
-+ (bool)freeCachedSpaceSynchronous:(unsigned long long)arg1 timeout:(double)arg2;
++ (id)errorWithCode:(int)arg1;
++ (id)errorWithCode:(int)arg1 originalError:(id)arg2;
++ (BOOL)freeCachedSpaceSynchronous:(unsigned long long)arg1 timeout:(double)arg2;
++ (BOOL)freeCachedSpaceSynchronous:(unsigned long long)arg1 timeout:(double)arg2 isAutoDownload:(BOOL)arg3;
++ (BOOL)freeCachedSpaceSynchronous:(unsigned long long)arg1 timeout:(double)arg2 isAutoDownload:(BOOL)arg3 disableCDLevelFour:(BOOL)arg4 disableSiriDeletion:(BOOL)arg5;
 + (id)gregorianCalendar;
-+ (bool)hasCellularRadio;
-+ (bool)hasEnoughDiskSpace:(unsigned long long)arg1 deltaSpaceNeeded:(unsigned long long*)arg2;
-+ (bool)hasEnoughDiskSpace:(unsigned long long)arg1;
++ (BOOL)hasCellularRadio;
++ (BOOL)hasEnoughDiskSpace:(unsigned long long)arg1;
++ (BOOL)hasEnoughDiskSpace:(unsigned long long)arg1 deltaSpaceNeeded:(unsigned long long*)arg2;
++ (BOOL)hasEnoughDiskSpace:(unsigned long long)arg1 deltaSpaceNeeded:(unsigned long long*)arg2 isAutoDownload:(BOOL)arg3;
++ (BOOL)hasEnoughDiskSpace:(unsigned long long)arg1 deltaSpaceNeeded:(unsigned long long*)arg2 isAutoDownload:(BOOL)arg3 disableCDLevelFour:(BOOL)arg4 disableSiriDeletion:(BOOL)arg5;
++ (BOOL)hasEnoughDiskSpace:(unsigned long long)arg1 deltaSpaceNeeded:(unsigned long long*)arg2 isAutoDownload:(BOOL)arg3 includePurging:(BOOL)arg4;
 + (int)installationKeybagState;
-+ (bool)isCellularDataCapable;
-+ (bool)isDaemon;
-+ (bool)isPasscodeLocked;
-+ (bool)isPasswordProtected;
-+ (bool)isRestoringFromCloud;
-+ (bool)isWiFiCapable;
++ (BOOL)isCellularDataCapable;
++ (BOOL)isDaemon;
++ (BOOL)isPasscodeLocked;
++ (BOOL)isPasswordProtected;
++ (BOOL)isRestoringFromCloud;
++ (BOOL)isWiFiCapable;
 + (id)prettyPrintDate:(id)arg1;
 + (id)serialNumber;
-+ (void)setIsDaemon:(bool)arg1;
++ (void)setIsDaemon:(BOOL)arg1;
 + (id)taskQueue;
-+ (id)translateError:(id)arg1 withAddedUserInfo:(id)arg2;
++ (unsigned long long)totalPurgeableSpace:(id)arg1;
 + (id)translateError:(id)arg1;
-+ (long long)translateErrorCodeFromError:(id)arg1;
++ (id)translateError:(id)arg1 withAddedUserInfo:(id)arg2;
++ (int)translateErrorCodeFromError:(id)arg1;
 
 @end

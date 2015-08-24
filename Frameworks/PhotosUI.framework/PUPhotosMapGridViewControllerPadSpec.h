@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@interface PUPhotosMapGridViewControllerPadSpec : PUPhotosGridViewControllerPadSpec {
-}
+@interface PUPhotosMapGridViewControllerPadSpec : PUPhotosGridViewControllerPadSpec
 
-- (bool)usesStackPopTransition;
+- (BOOL)usesStackPopTransition;
 
 @end

@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/Conference.framework/Conference
  */
 
-@class FTRegConnectionHandler, IMServiceImpl;
-
 @interface CNFInternalAccountListViewController : PSListController {
     FTRegConnectionHandler *_connectionHandler;
     IMServiceImpl *_service;
 }
 
-@property(retain) IMServiceImpl * service;
+@property (nonatomic, retain) IMServiceImpl *service;
 
 - (void)_handleAccountNotification:(id)arg1;
 - (void)_handleDaemonConnected:(id)arg1;
@@ -19,11 +17,11 @@
 - (id)accountNameForSpecifier:(id)arg1;
 - (void)accountTappedWithSpecifier:(id)arg1;
 - (void)dealloc;
-- (id)initWithServiceType:(long long)arg1;
+- (id)initWithServiceType:(int)arg1;
 - (id)service;
 - (void)setService:(id)arg1;
 - (id)specifiers;
-- (void)viewDidAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

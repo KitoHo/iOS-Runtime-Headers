@@ -2,40 +2,42 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSArray, NSString;
-
 @interface CKDMMCSRequestOptions : NSObject {
+    BOOL _allowsCellularAccess;
+    BOOL _allowsPowerNapScheduling;
     NSString *_applicationBundleID;
     NSString *_applicationSecondaryID;
     NSString *_containerID;
+    BOOL _usesBackgroundSession;
     NSArray *_zoneNames;
-    bool_allowsCellularAccess;
-    bool_usesBackgroundSession;
 }
 
-@property bool allowsCellularAccess;
-@property(retain) NSString * applicationBundleID;
-@property(retain) NSString * applicationSecondaryID;
-@property(retain) NSString * containerID;
-@property bool usesBackgroundSession;
-@property(retain) NSArray * zoneNames;
+@property (nonatomic) BOOL allowsCellularAccess;
+@property (nonatomic) BOOL allowsPowerNapScheduling;
+@property (nonatomic, retain) NSString *applicationBundleID;
+@property (nonatomic, retain) NSString *applicationSecondaryID;
+@property (nonatomic, retain) NSString *containerID;
+@property (nonatomic) BOOL usesBackgroundSession;
+@property (nonatomic, retain) NSArray *zoneNames;
 
 - (void).cxx_destruct;
 - (id)CKPropertiesDescription;
 - (id)MMCSOptions;
-- (bool)allowsCellularAccess;
+- (BOOL)allowsCellularAccess;
+- (BOOL)allowsPowerNapScheduling;
 - (id)applicationBundleID;
 - (id)applicationSecondaryID;
 - (id)containerID;
 - (id)description;
 - (id)initWithOperation:(id)arg1;
-- (void)setAllowsCellularAccess:(bool)arg1;
+- (void)setAllowsCellularAccess:(BOOL)arg1;
+- (void)setAllowsPowerNapScheduling:(BOOL)arg1;
 - (void)setApplicationBundleID:(id)arg1;
 - (void)setApplicationSecondaryID:(id)arg1;
 - (void)setContainerID:(id)arg1;
-- (void)setUsesBackgroundSession:(bool)arg1;
+- (void)setUsesBackgroundSession:(BOOL)arg1;
 - (void)setZoneNames:(id)arg1;
-- (bool)usesBackgroundSession;
+- (BOOL)usesBackgroundSession;
 - (id)zoneNames;
 
 @end

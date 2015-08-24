@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/CoreRoutine.framework/CoreRoutine
  */
 
-@class NSDate;
-
 @interface RTLocationOfInterestVisit : NSObject <NSCopying, NSSecureCoding> {
     NSDate *_entryTime;
     NSDate *_exitTime;
 }
 
-@property(readonly) NSDate * entryTime;
-@property(readonly) NSDate * exitTime;
+@property (nonatomic, readonly) NSDate *entryTime;
+@property (nonatomic, readonly) NSDate *exitTime;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (bool)_enteredAndExitedOnSameDay;
+- (BOOL)_enteredAndExitedOnSameDay;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)entryTime;

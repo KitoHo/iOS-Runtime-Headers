@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class <MFDAStreamingContentConsumer>, MFError, NSData, NSString;
-
-@interface _MFDAMessageBodyFetchConsumer : NSObject <MFRequestQueueResponseConsumer, DAMailAccountStreamConsumerFactory> {
+@interface _MFDAMessageBodyFetchConsumer : NSObject <DAMailAccountStreamConsumerFactory, MFRequestQueueResponseConsumer> {
     NSData *_data;
     MFError *_error;
     <MFDAStreamingContentConsumer> *_streamConsumer;
-    bool_succeeded;
+    BOOL _succeeded;
 }
 
-@property(retain) NSData * data;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) MFError * error;
-@property(readonly) unsigned long long hash;
-@property(retain) <MFDAStreamingContentConsumer> * streamConsumer;
-@property(readonly) bool succeeded;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) NSData *data;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) MFError *error;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) <MFDAStreamingContentConsumer> *streamConsumer;
+@property (nonatomic, readonly) BOOL succeeded;
+@property (readonly) Class superclass;
 
 - (id)data;
 - (void)dealloc;
@@ -29,7 +27,7 @@
 - (void)setStreamConsumer:(id)arg1;
 - (id)streamConsumer;
 - (id)streamingContentConsumer;
-- (bool)succeeded;
-- (bool)wantsData;
+- (BOOL)succeeded;
+- (BOOL)wantsData;
 
 @end

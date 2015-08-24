@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/DataAccess.framework/DataAccess
  */
 
-@interface DAiCalendarLogger : NSObject <ICSLoggingDelegate> {
-}
+@interface DAiCalendarLogger : NSObject <ICSLoggingDelegate>
 
 + (id)sharedLogger;
 
-- (void)logICSMessage:(id)arg1 atLevel:(long long)arg2;
+- (void)logICSMessage:(id)arg1 atLevel:(int)arg2;
 - (void)registerWithiCalendar;
 
 @end

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/HomeKitDaemon.framework/HomeKitDaemon
  */
 
-@class HMDHome, HMMessageDispatcher, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSUUID;
-
 @interface HMDZone : NSObject <HMMessageReceiver, NSSecureCoding> {
     NSMutableArray *_currentRooms;
     HMDHome *_home;
@@ -13,20 +11,20 @@
     NSObject<OS_dispatch_queue> *_workQueue;
 }
 
-@property(retain) NSMutableArray * currentRooms;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property HMDHome * home;
-@property(readonly) NSObject<OS_dispatch_queue> * messageReceiveQueue;
-@property(readonly) NSUUID * messageTargetUUID;
-@property(retain) HMMessageDispatcher * msgDispatcher;
-@property(retain) NSString * name;
-@property(readonly) Class superclass;
-@property(readonly) NSUUID * uuid;
-@property(retain) NSObject<OS_dispatch_queue> * workQueue;
+@property (nonatomic, retain) NSMutableArray *currentRooms;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) HMDHome *home;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property (nonatomic, readonly) NSUUID *messageTargetUUID;
+@property (nonatomic, retain) HMMessageDispatcher *msgDispatcher;
+@property (nonatomic, retain) NSString *name;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) NSUUID *uuid;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *workQueue;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)_handleAddRoom:(id)arg1;
@@ -35,6 +33,7 @@
 - (void)_registerForMessages;
 - (void)configure:(id)arg1 queue:(id)arg2;
 - (id)currentRooms;
+- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)home;
 - (id)initWithCoder:(id)arg1;

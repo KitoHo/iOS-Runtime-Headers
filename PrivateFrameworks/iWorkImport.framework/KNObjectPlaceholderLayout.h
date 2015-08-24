@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface KNObjectPlaceholderLayout : KNPlaceholderLayout {
-}
+@interface KNObjectPlaceholderLayout : KNPlaceholderLayout
 
-- (bool)canFlip;
+- (BOOL)canFlip;
 - (id)instructionalStorageForContainedStorage:(id)arg1 storageKind:(int)arg2;
-- (bool)supportsRotation;
+- (BOOL)supportsRotation;
 
 @end

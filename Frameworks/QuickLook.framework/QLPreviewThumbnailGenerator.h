@@ -2,34 +2,32 @@
    Image: /System/Library/Frameworks/QuickLook.framework/QuickLook
  */
 
-@class <QLPreviewItem>, NSString, UIImage;
-
 @interface QLPreviewThumbnailGenerator : NSObject {
-    struct CGSize { 
-        double width; 
-        double height; 
     NSString *_contentType;
     <QLPreviewItem> *_item;
-    double _scale;
+    float _scale;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _size;
     int _status;
     UIImage *_thumbnailImage;
 }
 
-@property(readonly) UIImage * thumbnailImage;
+@property (readonly) UIImage *thumbnailImage;
 
-+ (bool)canGenerateThumbnailForPreviewItem:(id)arg1;
-+ (id)generatorForPreviewItem:(id)arg1 size:(struct CGSize { double x1; double x2; })arg2;
++ (BOOL)canGenerateThumbnailForPreviewItem:(id)arg1;
++ (id)generatorForPreviewItem:(id)arg1 size:(struct CGSize { float x1; float x2; })arg2;
 
 - (struct CGContext { }*)_beginContext;
-- (id)_endContextWithContentFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (struct CGSize { double x1; double x2; })_pixelSize;
+- (id)_endContextWithContentFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (struct CGSize { float x1; float x2; })_pixelSize;
 - (id)_thumbnailForImage;
 - (id)_thumbnailForMovie;
 - (id)_thumbnailForPDF;
 - (void)cancel;
 - (void)dealloc;
-- (void)generateWithCompletionBlock:(id)arg1;
+- (void)generateWithCompletionBlock:(id /* block */)arg1;
 - (id)thumbnailImage;
 
 @end

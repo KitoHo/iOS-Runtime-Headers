@@ -2,30 +2,31 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString;
+@interface TSDAnnotationController : NSObject
 
-@interface TSDAnnotationController : NSObject {
-}
+@property (nonatomic, readonly) unsigned int annotationCount;
+@property (nonatomic, readonly) NSString *annotationNavigationString;
+@property (nonatomic, readonly) BOOL hasAnnotations;
+@property (nonatomic) BOOL textSelectionChangeShouldDismissAnnotations;
 
-@property(readonly) NSString * annotationNavigationString;
-@property(readonly) unsigned long long documentAnnotationCount;
-@property(readonly) bool hasAnnotations;
-@property bool textSelectionChangeShouldDismissAnnotations;
++ (float)commentFontSize;
 
-+ (double)commentFontSize;
-
+- (unsigned int)annotationCount;
+- (id)annotationMenuItemTextShowNext;
+- (id)annotationMenuItemTextShowPrevious;
 - (id)annotationNavigationString;
-- (id)annotationNavigationTypeStringUsedForNavigating:(bool)arg1;
+- (id)annotationToolTipTextGoToNext;
+- (id)annotationToolTipTextGoToPrevious;
 - (void)commitCommentText:(id)arg1 forAnnotation:(id)arg2;
 - (void)didShowAnnotation:(id)arg1;
-- (unsigned long long)documentAnnotationCount;
-- (bool)hasAnnotations;
+- (BOOL)hasAnnotations;
+- (void)invalidateAnnotationAuthors;
 - (void)nextAnnotation:(id)arg1;
 - (void)previousAnnotation:(id)arg1;
 - (void)registerDelegate:(id)arg1;
 - (void)setFilteredAuthors:(id)arg1;
-- (void)setTextSelectionChangeShouldDismissAnnotations:(bool)arg1;
-- (bool)textSelectionChangeShouldDismissAnnotations;
+- (void)setTextSelectionChangeShouldDismissAnnotations:(BOOL)arg1;
+- (BOOL)textSelectionChangeShouldDismissAnnotations;
 - (void)unregisterDelegate:(id)arg1;
 - (void)updateCurrentAnnotation:(id)arg1;
 - (void)willShowAnnotation:(id)arg1;

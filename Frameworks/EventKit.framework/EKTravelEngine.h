@@ -2,38 +2,32 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class EKTravelAdvisor, EKTravelEngineThrottle, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, PCPersistentTimer;
-
 @interface EKTravelEngine : NSObject {
-    id _adviceBlock;
+    id /* block */ _adviceBlock;
+    BOOL _databaseIsEncryptedAndUnreadable;
     NSMutableDictionary *_eventExternalURLsToAgendaEntries;
+    BOOL _needsRefresh;
     PCPersistentTimer *_periodicRefreshTimer;
+    BOOL _running;
     NSObject<OS_dispatch_source> *_syncYieldTimer;
     EKTravelEngineThrottle *_throttle;
     EKTravelAdvisor *_travelAdvisor;
     NSObject<OS_dispatch_queue> *_travelEngineQueue;
-    bool_databaseIsEncryptedAndUnreadable;
-    bool_needsRefresh;
-    bool_running;
-    bool_yieldingToSync;
+    BOOL _yieldingToSync;
 }
 
-@property(copy) id adviceBlock;
+@property (nonatomic, copy) id /* block */ adviceBlock;
 
 + (id)_engineIdentifier;
-+ (int)_geoTransportTypeForCalLocationRoutingMode:(long long)arg1;
-+ (bool)hasTravelEligibleEvents:(id)arg1;
++ (int)_geoTransportTypeForCalLocationRoutingMode:(int)arg1;
++ (BOOL)hasTravelEligibleEvents:(id)arg1;
 
 - (void)_calDatabaseChangedNotificationReceived;
 - (void)_calSyncClientBeginningMultiSaveNotificationReceived;
 - (void)_calSyncClientFinishedMultiSaveNotificationReceived;
 - (void)_installPeriodicRefreshTimer;
 - (void)_installSyncYieldTimer;
-- (bool)_isProtectedDataAvailable;
+- (BOOL)_isProtectedDataAvailable;
 - (void)_locationAuthorizationChanged:(int)arg1;
 - (void)_mobileKeyBagLockStatusNotificationReceived;
 - (void)_periodicRefreshTimerFired:(id)arg1;
@@ -46,11 +40,11 @@
 - (void)_uninstallSyncYieldTimer;
 - (void)_unregisterAllAgendaItems;
 - (void)_unregisterForNotificationObservation;
-- (id)adviceBlock;
+- (id /* block */)adviceBlock;
 - (void)ceaseMonitoringAgendaItemForEventWithExternalURL:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (void)setAdviceBlock:(id)arg1;
+- (void)setAdviceBlock:(id /* block */)arg1;
 - (void)start;
 - (void)stop;
 

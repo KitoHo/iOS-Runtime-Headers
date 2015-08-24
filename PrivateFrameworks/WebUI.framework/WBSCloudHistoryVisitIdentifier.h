@@ -2,32 +2,29 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class NSString, WBSHistoryItem, WBSHistoryVisit;
-
 @interface WBSCloudHistoryVisitIdentifier : NSObject <NSCopying> {
     WBSHistoryItem *_associatedHistoryItem;
     WBSHistoryVisit *_associatedHistoryVisit;
+    unsigned int _hash;
     NSString *_urlString;
     double _visitTime;
 }
 
-@property(retain) WBSHistoryItem * associatedHistoryItem;
-@property(retain) WBSHistoryVisit * associatedHistoryVisit;
-@property(copy) NSString * urlString;
-@property double visitTime;
+@property (nonatomic, retain) WBSHistoryItem *associatedHistoryItem;
+@property (nonatomic, retain) WBSHistoryVisit *associatedHistoryVisit;
+@property (nonatomic, readonly, copy) NSString *urlString;
+@property (nonatomic, readonly) double visitTime;
 
 - (void).cxx_destruct;
 - (id)associatedHistoryItem;
 - (id)associatedHistoryVisit;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithURLString:(id)arg1 visitTime:(double)arg2;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)setAssociatedHistoryItem:(id)arg1;
 - (void)setAssociatedHistoryVisit:(id)arg1;
-- (void)setUrlString:(id)arg1;
-- (void)setVisitTime:(double)arg1;
 - (id)urlString;
 - (double)visitTime;
 

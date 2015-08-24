@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/TextToSpeech.framework/TextToSpeech
  */
 
-@class TTSSpeechVoice;
-
 @interface TTSSpeechChannel : NSObject {
     TTSSpeechVoice *_voice;
 }
 
-@property(retain) TTSSpeechVoice * voice;
+@property (nonatomic, retain) TTSSpeechVoice *voice;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;

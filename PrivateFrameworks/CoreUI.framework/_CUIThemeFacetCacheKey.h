@@ -3,18 +3,18 @@
  */
 
 @interface _CUIThemeFacetCacheKey : NSObject {
+    unsigned long long hashPrecalc;
     struct _renditionkeytoken { 
         unsigned short identifier; 
         unsigned short value; 
-    unsigned long long hashPrecalc;
-    } keyList[16];
-    long long themeIndex;
+    } keyList;
+    int themeIndex;
 }
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
+- (unsigned int)hash;
 - (unsigned long long)hash64;
-- (unsigned long long)hash;
-- (id)initWithKeyList:(const struct _renditionkeytoken { unsigned short x1; unsigned short x2; }*)arg1 themeIndex:(long long)arg2;
-- (bool)isEqual:(id)arg1;
+- (id)initWithKeyList:(const struct _renditionkeytoken { unsigned short x1; unsigned short x2; }*)arg1 themeIndex:(int)arg2;
+- (BOOL)isEqual:(id)arg1;
 
 @end

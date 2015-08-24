@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TPOffscreenLayoutController : TSDLayoutController {
-}
+@interface TPOffscreenLayoutController : TSDLayoutController
 
-- (bool)isLayoutOffscreen;
+- (BOOL)isLayoutOffscreen;
 
 @end

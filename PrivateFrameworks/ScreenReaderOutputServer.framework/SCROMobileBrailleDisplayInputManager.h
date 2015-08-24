@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/ScreenReaderOutputServer.framework/ScreenReaderOutputServer
  */
 
-@class NSArray, NSBundle, NSMutableDictionary, NSSet, NSString;
-
 @interface SCROMobileBrailleDisplayInputManager : NSObject <SCROBrailleDisplayInputManagerProtocol> {
     NSSet *_brailleKeys;
     NSBundle *_bundle;
@@ -12,10 +10,10 @@
     NSArray *_sixDotCommands;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
 + (void)initialize;
@@ -26,20 +24,20 @@
 - (id)_eightDotCommands;
 - (id)_sixDotCommands;
 - (id)autorelease;
-- (id)buttonNamesAtIndex:(unsigned long long)arg1 forDisplayWithToken:(int)arg2;
-- (id)buttonNamesForInputIdentifier:(id)arg1 forDisplayWithToken:(int)arg2;
-- (id)commandAtIndex:(unsigned long long)arg1 forDisplayWithToken:(int)arg2;
+- (id)buttonNamesAtIndex:(unsigned int)arg1 forDisplayWithToken:(long)arg2;
+- (id)buttonNamesForInputIdentifier:(id)arg1 forDisplayWithToken:(long)arg2;
+- (id)commandAtIndex:(unsigned int)arg1 forDisplayWithToken:(long)arg2;
 - (id)commandForBrailleKey:(id)arg1;
 - (void)configureWithDriverConfiguration:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (unsigned long long)countForDisplayWithToken:(int)arg1;
+- (unsigned int)countForDisplayWithToken:(long)arg1;
 - (void)dealloc;
-- (id)driverIdentifierForDisplayWithToken:(int)arg1;
+- (id)driverIdentifierForDisplayWithToken:(long)arg1;
 - (id)init;
-- (id)inputIdentifierAtIndex:(unsigned long long)arg1 forDisplayWithToken:(int)arg2;
-- (id)modelIdentifierForDisplayWithToken:(int)arg1;
+- (id)inputIdentifierAtIndex:(unsigned int)arg1 forDisplayWithToken:(long)arg2;
+- (id)modelIdentifierForDisplayWithToken:(long)arg1;
 - (oneway void)release;
 - (id)retain;
-- (unsigned long long)retainCount;
+- (unsigned int)retainCount;
 
 @end

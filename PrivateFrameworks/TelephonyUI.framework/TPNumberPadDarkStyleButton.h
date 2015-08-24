@@ -2,19 +2,18 @@
    Image: /System/Library/PrivateFrameworks/TelephonyUI.framework/TelephonyUI
  */
 
-@interface TPNumberPadDarkStyleButton : TPNumberPadButton {
-}
+@interface TPNumberPadDarkStyleButton : TPNumberPadButton
 
-+ (double)highlightCrossfadeHighlightBeginTime;
-+ (double)highlightCrossfadeHighlightFadeDuration;
-+ (double)highlightCrossfadeNormalBeginTime;
-+ (double)highlightCrossfadeNormalFadeDuration;
-+ (id)imageForCharacter:(unsigned int)arg1 highlighted:(bool)arg2;
++ (float)highlightCrossfadeHighlightBeginTime;
++ (float)highlightCrossfadeHighlightFadeDuration;
++ (float)highlightCrossfadeNormalBeginTime;
++ (float)highlightCrossfadeNormalFadeDuration;
 + (id)imageForCharacter:(unsigned int)arg1;
-+ (double)unhighlightCrossfadeHighlightBeginTime;
-+ (double)unhighlightCrossfadeHighlightFadeDuration;
-+ (double)unhighlightCrossfadeNormalBeginTime;
-+ (double)unhighlightCrossfadeNormalFadeDuration;
++ (id)imageForCharacter:(unsigned int)arg1 highlighted:(BOOL)arg2;
++ (float)unhighlightCrossfadeHighlightBeginTime;
++ (float)unhighlightCrossfadeHighlightFadeDuration;
++ (float)unhighlightCrossfadeNormalBeginTime;
++ (float)unhighlightCrossfadeNormalFadeDuration;
 
 - (id)defaultColor;
 

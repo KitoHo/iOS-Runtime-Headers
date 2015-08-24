@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/TextInput.framework/TextInput
  */
 
-@class NSArray, NSString;
-
 @interface TICompositeMecabraCandidate : TIMecabraCandidate {
     NSArray *_autoconvertedCandidatePointerValues;
     NSString *_remainderCandidateString;
 }
 
-@property(copy) NSArray * autoconvertedCandidatePointerValues;
-@property(copy) NSString * remainderCandidateString;
+@property (nonatomic, copy) NSArray *autoconvertedCandidatePointerValues;
+@property (nonatomic, copy) NSString *remainderCandidateString;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 + (int)type;
 
 - (id)autoconvertedCandidatePointerValues;

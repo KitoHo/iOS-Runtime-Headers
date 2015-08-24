@@ -2,29 +2,45 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class MKMapItem, NSArray, NSData, NSString, WBSParsecSearchMapsResultExtraCompletionItem;
-
-@interface WBSParsecSearchMapsResult : WBSParsecSearchResult {
+@interface WBSParsecSearchMapsResult : WBSParsecSearchResult <WBSParsecMapsResultFeedbackDelegate, WBSParsecSearchResultPresentedInCard> {
     NSArray *_additionalMapItems;
     WBSParsecSearchMapsResultExtraCompletionItem *_extraCompletionItem;
+    WBSParsecSearchResult *_hiddenParsecResult;
     MKMapItem *_mapItem;
     NSData *_mapsData;
     NSString *_mapsDataType;
     NSString *_mapsResultType;
+    NSURL *_moreURL;
+    WBSParsecSearchSession *_parsecSearchSession;
 }
 
-@property(readonly) NSArray * additionalMapItems;
-@property(readonly) WBSParsecSearchMapsResultExtraCompletionItem * extraCompletionItem;
-@property(readonly) MKMapItem * mapItem;
-@property(readonly) NSData * mapsData;
-@property(readonly) NSString * mapsResultType;
+@property (nonatomic, readonly) NSArray *additionalMapItems;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) WBSParsecSearchMapsResultExtraCompletionItem *extraCompletionItem;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) WBSParsecSearchResult *hiddenParsecResult;
+@property (nonatomic, readonly) MKMapItem *mapItem;
+@property (nonatomic, readonly) NSData *mapsData;
+@property (nonatomic, readonly) NSString *mapsResultType;
+@property (nonatomic, readonly) NSURL *moreURL;
+@property (nonatomic, retain) WBSParsecSearchSession *parsecSearchSession;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)additionalMapItems;
 - (id)extraCompletionItem;
+- (id)hiddenParsecResult;
 - (id)initWithDictionary:(id)arg1;
 - (id)mapItem;
 - (id)mapsData;
 - (id)mapsResultType;
+- (id)moreURL;
+- (id)parsecSearchSession;
+- (void)placeViewController:(id)arg1 shouldLogFeedbackOfType:(int)arg2;
+- (void)placeViewControllerShouldLogFeedbackForDismissal:(id)arg1;
+- (void)setHiddenParsecResult:(id)arg1;
+- (void)setParsecSearchSession:(id)arg1;
+- (id)supportedStyleOverrides;
 
 @end

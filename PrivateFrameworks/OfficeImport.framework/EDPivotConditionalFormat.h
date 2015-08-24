@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class EDCollection;
-
 @interface EDPivotConditionalFormat : NSObject {
     EDCollection *mPivotAreas;
-    unsigned long long mPriority;
+    unsigned long mPriority;
     int mScope;
     int mType;
 }
@@ -16,9 +14,9 @@
 - (void)dealloc;
 - (id)init;
 - (id)pivotAreas;
-- (unsigned long long)priority;
+- (unsigned long)priority;
 - (int)scope;
-- (void)setPriority:(unsigned long long)arg1;
+- (void)setPriority:(unsigned long)arg1;
 - (void)setScope:(int)arg1;
 - (void)setType:(int)arg1;
 - (int)type;

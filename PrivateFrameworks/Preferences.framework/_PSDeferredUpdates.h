@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class NSMutableSet, PSSpecifierUpdates;
-
 @interface _PSDeferredUpdates : NSObject {
+    BOOL _invalidatedSpecifiers;
     NSMutableSet *_searchEntries;
     PSSpecifierUpdates *_specifierUpdates;
-    bool_invalidatedSpecifiers;
 }
 
-@property bool invalidatedSpecifiers;
-@property(retain) NSMutableSet * searchEntries;
-@property(retain) PSSpecifierUpdates * specifierUpdates;
+@property (nonatomic) BOOL invalidatedSpecifiers;
+@property (nonatomic, retain) NSMutableSet *searchEntries;
+@property (nonatomic, retain) PSSpecifierUpdates *specifierUpdates;
 
 + (id)deferredInvalidationUpdatesWithEntries:(id)arg1;
 + (id)deferredUpdatesWithEntries:(id)arg1 specifierUpdates:(id)arg2;
 
 - (void)dealloc;
-- (id)initWithSearchEntries:(id)arg1 specifierUpdates:(id)arg2 invalidatedSpecifiers:(bool)arg3;
-- (bool)invalidatedSpecifiers;
+- (id)initWithSearchEntries:(id)arg1 specifierUpdates:(id)arg2 invalidatedSpecifiers:(BOOL)arg3;
+- (BOOL)invalidatedSpecifiers;
 - (id)searchEntries;
-- (void)setInvalidatedSpecifiers:(bool)arg1;
+- (void)setInvalidatedSpecifiers:(BOOL)arg1;
 - (void)setSearchEntries:(id)arg1;
 - (void)setSpecifierUpdates:(id)arg1;
 - (id)specifierUpdates;

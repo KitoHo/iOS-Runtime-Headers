@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CorePDF.framework/CorePDF
  */
 
-@class CALayer, NSMutableArray, NSString, UIPDFAnnotationController, UIPDFAnnotationView, UIPDFPage, UIPDFPopupAnnotation, UIPDFSelection;
-
 @interface UIPDFAnnotation : NSObject {
     UIPDFAnnotationController *_annotationController;
     NSString *_annotationID;
@@ -14,44 +12,44 @@
     NSString *_contents;
     struct CGPDFDictionary { } *_dictionary;
     CALayer *_drawingLayer;
-    long long _index;
+    BOOL _hidden;
+    int _index;
     UIPDFPage *_page;
     struct CGPDFString { } *_pdfContents;
     UIPDFPopupAnnotation *_popup;
     NSMutableArray *_quadPoints;
     UIPDFSelection *_selection;
-    unsigned long long _tag;
-    bool_hidden;
-    booleditable;
+    unsigned int _tag;
     id data;
+    BOOL editable;
 }
 
-@property UIPDFAnnotationController * annotationController;
-@property(retain) UIPDFAnnotationView * annotationView;
-@property(retain) NSString * associatedAnnotationID;
-@property(retain) NSString * contents;
-@property(retain) id data;
-@property(retain) CALayer * drawingLayer;
-@property bool editable;
-@property long long index;
-@property UIPDFPage * page;
-@property UIPDFPopupAnnotation * popup;
-@property(readonly) bool recognizeGestures;
-@property UIPDFSelection * selection;
-@property unsigned long long tag;
+@property (nonatomic) UIPDFAnnotationController *annotationController;
+@property (nonatomic, retain) UIPDFAnnotationView *annotationView;
+@property (nonatomic, retain) NSString *associatedAnnotationID;
+@property (nonatomic, retain) NSString *contents;
+@property (nonatomic, retain) id data;
+@property (nonatomic, retain) CALayer *drawingLayer;
+@property (nonatomic) BOOL editable;
+@property (nonatomic) int index;
+@property (nonatomic) UIPDFPage *page;
+@property (nonatomic) UIPDFPopupAnnotation *popup;
+@property (nonatomic, readonly) BOOL recognizeGestures;
+@property (nonatomic) UIPDFSelection *selection;
+@property (nonatomic) unsigned int tag;
 
 + (id)newAnnotationWithPage:(id)arg1 fromArchive:(id)arg2;
 
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })Rect;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })Rect;
 - (id)annotationController;
 - (id)annotationID;
 - (int)annotationType;
 - (id)annotationView;
 - (id)archive;
 - (id)associatedAnnotationID;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })bounds;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })bounds;
 - (struct CGColor { }*)color;
-- (bool)containsPoint:(struct CGPoint { double x1; double x2; })arg1;
+- (BOOL)containsPoint:(struct CGPoint { float x1; float x2; })arg1;
 - (id)contents;
 - (id)data;
 - (void)dealloc;
@@ -59,12 +57,12 @@
 - (void)drawInContext:(struct CGContext { }*)arg1;
 - (void)drawLayer:(id)arg1 inContext:(struct CGContext { }*)arg2;
 - (id)drawingLayer;
-- (bool)editable;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })frame;
+- (BOOL)editable;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })frame;
 - (id)getImageNamed:(id)arg1 ofType:(id)arg2;
-- (bool)hasPopUp;
-- (bool)hidden;
-- (long long)index;
+- (BOOL)hasPopUp;
+- (BOOL)hidden;
+- (int)index;
 - (id)init;
 - (id)initWithAnnotationDictionary:(struct CGPDFDictionary { }*)arg1;
 - (void)makeQuadpointsFrom:(id)arg1;
@@ -72,10 +70,10 @@
 - (id)newSelection;
 - (id)page;
 - (const char *)pdfContents;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })popUpAnnotationRect;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })popUpAnnotationRect;
 - (id)popup;
-- (bool)recognizeGestures;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })rectIn:(struct CGPDFArray { }*)arg1;
+- (BOOL)recognizeGestures;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })rectIn:(struct CGPDFArray { }*)arg1;
 - (id)selection;
 - (void)setAnnotationController:(id)arg1;
 - (void)setAnnotationID:(id)arg1;
@@ -85,14 +83,14 @@
 - (void)setContents:(id)arg1;
 - (void)setData:(id)arg1;
 - (void)setDrawingLayer:(id)arg1;
-- (void)setEditable:(bool)arg1;
-- (void)setIndex:(long long)arg1;
+- (void)setEditable:(BOOL)arg1;
+- (void)setIndex:(int)arg1;
 - (void)setPage:(id)arg1;
 - (void)setPageView:(id)arg1;
 - (void)setPopup:(id)arg1;
 - (void)setSelection:(id)arg1;
-- (void)setTag:(unsigned long long)arg1;
-- (unsigned long long)tag;
+- (void)setTag:(unsigned int)arg1;
+- (unsigned int)tag;
 - (Class)viewClass;
 
 @end

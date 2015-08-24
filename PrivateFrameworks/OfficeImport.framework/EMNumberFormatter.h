@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface EMNumberFormatter : NSObject {
     NSString *_baseICUFormatString;
     struct __CFNumberFormatter { } *_bigNumberFormatter;
@@ -14,9 +12,9 @@
     NSString *_excelFormatString;
     int _formatType;
     struct __CFNumberFormatter { } *_genericFormatter;
+    bool _isNegativeRed;
     struct __CFNumberFormatter { } *_percentFormatter;
     struct __CFNumberFormatter { } *_smallNumberFormatter;
-    bool_isNegativeRed;
 }
 
 + (id)formatterForFormat:(id)arg1;
@@ -42,6 +40,7 @@
 - (id)formatPercent:(double)arg1;
 - (id)formatPhoneNumber:(double)arg1;
 - (int)formatType;
+- (id)formatValue:(double)arg1 inWorkbook:(id)arg2;
 - (id)initWithDefaultFormatString;
 - (id)initWithExcelFormatString:(id)arg1;
 - (bool)isNegativeRed;

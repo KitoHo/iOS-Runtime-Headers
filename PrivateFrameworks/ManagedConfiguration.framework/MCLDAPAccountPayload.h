@@ -2,25 +2,25 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@class NSArray, NSString;
-
 @interface MCLDAPAccountPayload : MCPayload {
     NSString *_accountDescription;
     NSString *_accountPersistentUUID;
     NSString *_hostname;
     NSString *_password;
     NSArray *_searchSettings;
+    BOOL _useSSL;
+    NSNumber *_useSSLNum;
     NSString *_username;
-    bool_useSSL;
 }
 
-@property(retain,readonly) NSString * accountDescription;
-@property(copy) NSString * accountPersistentUUID;
-@property(retain,readonly) NSString * hostname;
-@property(retain) NSString * password;
-@property(retain,readonly) NSArray * searchSettings;
-@property(readonly) bool useSSL;
-@property(retain) NSString * username;
+@property (nonatomic, readonly, retain) NSString *accountDescription;
+@property (nonatomic, copy) NSString *accountPersistentUUID;
+@property (nonatomic, readonly, retain) NSString *hostname;
+@property (nonatomic, retain) NSString *password;
+@property (nonatomic, readonly, retain) NSArray *searchSettings;
+@property (nonatomic, readonly) BOOL useSSL;
+@property (nonatomic, readonly) NSNumber *useSSLNum;
+@property (nonatomic, retain) NSString *username;
 
 + (id)localizedPluralForm;
 + (id)localizedSingularForm;
@@ -44,7 +44,8 @@
 - (id)subtitle2Description;
 - (id)subtitle2Label;
 - (id)title;
-- (bool)useSSL;
+- (BOOL)useSSL;
+- (id)useSSLNum;
 - (id)username;
 
 @end

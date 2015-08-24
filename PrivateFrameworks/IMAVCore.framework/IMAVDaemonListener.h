@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/IMAVCore.framework/IMAVCore
  */
 
-@class NSArray, NSMutableArray, NSProtocolChecker;
-
 @interface IMAVDaemonListener : NSObject {
     NSMutableArray *_handlers;
+    BOOL _postedSetupComplete;
     NSProtocolChecker *_protocol;
-    bool_postedSetupComplete;
-    bool_setupComplete;
+    BOOL _setupComplete;
 }
 
-@property(readonly) NSArray * handlers;
-@property(readonly) bool isSetupComplete;
+@property (nonatomic, readonly) NSArray *handlers;
+@property (nonatomic, readonly) BOOL isSetupComplete;
 
 - (void)_noteDisconnected;
 - (void)addHandler:(id)arg1;
@@ -20,9 +18,9 @@
 - (void)forwardInvocation:(id)arg1;
 - (id)handlers;
 - (id)init;
-- (bool)isSetupComplete;
+- (BOOL)isSetupComplete;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)removeHandler:(id)arg1;
-- (void)setupComplete:(bool)arg1 info:(id)arg2;
+- (void)setupComplete:(BOOL)arg1 info:(id)arg2;
 
 @end

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSArray, NSDate, NSDictionary, NSMutableArray, NSNumber, NSString, NSURL, SSItemImageCollection, SSItemOffer, SSURLConnectionRequest;
-
 @interface SSItem : NSObject <SSURLConnectionRequestDelegate> {
     NSDate *_expirationDate;
     NSArray *_offers;
@@ -15,25 +13,25 @@
     NSString *_tellAFriendSubject;
 }
 
-@property(readonly) NSNumber * ITunesStoreIdentifier;
-@property(readonly) NSArray * allItemOffers;
-@property(readonly) NSString * artistName;
-@property(readonly) float averageUserRating;
-@property(copy,readonly) NSString * debugDescription;
-@property(readonly) SSItemOffer * defaultItemOffer;
-@property(copy,readonly) NSString * description;
-@property(readonly) NSDate * expirationDate;
-@property(getter=isGameCenterEnabled,readonly) bool gameCenterEnabled;
-@property(readonly) unsigned long long hash;
-@property(getter=isHighDefinition,readonly) bool highDefinition;
-@property(readonly) SSItemImageCollection * imageCollection;
-@property(readonly) NSString * itemKind;
-@property(readonly) NSString * itemTitle;
-@property(readonly) long long numberOfUserRatings;
-@property(getter=isRestricted,readonly) bool restricted;
-@property(readonly) Class superclass;
-@property(readonly) NSArray * thumbnailImages;
-@property(readonly) NSURL * viewItemURL;
+@property (nonatomic, readonly) NSNumber *ITunesStoreIdentifier;
+@property (nonatomic, readonly) NSArray *allItemOffers;
+@property (nonatomic, readonly) NSString *artistName;
+@property (nonatomic, readonly) float averageUserRating;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic, readonly) SSItemOffer *defaultItemOffer;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) NSDate *expirationDate;
+@property (getter=isGameCenterEnabled, nonatomic, readonly) BOOL gameCenterEnabled;
+@property (readonly) unsigned int hash;
+@property (getter=isHighDefinition, nonatomic, readonly) BOOL highDefinition;
+@property (nonatomic, readonly) SSItemImageCollection *imageCollection;
+@property (nonatomic, readonly) NSString *itemKind;
+@property (nonatomic, readonly) NSString *itemTitle;
+@property (nonatomic, readonly) int numberOfUserRatings;
+@property (getter=isRestricted, nonatomic, readonly) BOOL restricted;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) NSArray *thumbnailImages;
+@property (nonatomic, readonly) NSURL *viewItemURL;
 
 - (id)ITunesStoreIdentifier;
 - (void)_finishTellAFriendLoadWithError:(id)arg1;
@@ -64,21 +62,21 @@
 - (id)imageCollection;
 - (id)indexInCollection;
 - (id)initWithItemDictionary:(id)arg1;
-- (bool)isCompilation;
-- (bool)isGameCenterEnabled;
-- (bool)isHighDefinition;
-- (bool)isRestricted;
+- (BOOL)isCompilation;
+- (BOOL)isGameCenterEnabled;
+- (BOOL)isHighDefinition;
+- (BOOL)isRestricted;
 - (id)itemKind;
 - (id)itemOfferForIdentifier:(id)arg1;
 - (id)itemTitle;
-- (void)loadTellAFriendMessageWithCompletionHandler:(id)arg1;
+- (void)loadTellAFriendMessageWithCompletionHandler:(id /* block */)arg1;
 - (id)longDescription;
 - (id)mediaKind;
 - (id)networkName;
 - (id)numberOfCollectionsInCollectionGroup;
 - (id)numberOfItemsInCollection;
-- (long long)numberOfPrintedPages;
-- (long long)numberOfUserRatings;
+- (int)numberOfPrintedPages;
+- (int)numberOfUserRatings;
 - (id)playableMedia;
 - (id)podcastEpisodeGUID;
 - (id)podcastFeedURL;

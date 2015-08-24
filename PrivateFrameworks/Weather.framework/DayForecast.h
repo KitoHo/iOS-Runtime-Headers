@@ -2,34 +2,32 @@
    Image: /System/Library/PrivateFrameworks/Weather.framework/Weather
  */
 
-@class NSString;
-
 @interface DayForecast : NSObject {
-    unsigned long long _dayNumber;
-    unsigned long long _dayOfWeek;
+    unsigned int _dayNumber;
+    unsigned int _dayOfWeek;
     NSString *_high;
-    unsigned long long _icon;
+    unsigned int _icon;
     NSString *_low;
 }
 
-@property unsigned long long dayNumber;
-@property unsigned long long dayOfWeek;
-@property(copy) NSString * high;
-@property unsigned long long icon;
-@property(copy) NSString * low;
+@property (nonatomic) unsigned int dayNumber;
+@property (nonatomic) unsigned int dayOfWeek;
+@property (nonatomic, copy) NSString *high;
+@property (nonatomic) unsigned int icon;
+@property (nonatomic, copy) NSString *low;
 
-- (long long)compareDayNumberToDayForecast:(id)arg1;
-- (unsigned long long)dayNumber;
-- (unsigned long long)dayOfWeek;
+- (int)compareDayNumberToDayForecast:(id)arg1;
+- (unsigned int)dayNumber;
+- (unsigned int)dayOfWeek;
 - (void)dealloc;
 - (id)description;
 - (id)high;
-- (unsigned long long)icon;
+- (unsigned int)icon;
 - (id)low;
-- (void)setDayNumber:(unsigned long long)arg1;
-- (void)setDayOfWeek:(unsigned long long)arg1;
+- (void)setDayNumber:(unsigned int)arg1;
+- (void)setDayOfWeek:(unsigned int)arg1;
 - (void)setHigh:(id)arg1;
-- (void)setIcon:(unsigned long long)arg1;
+- (void)setIcon:(unsigned int)arg1;
 - (void)setLow:(id)arg1;
 
 @end

@@ -2,54 +2,43 @@
    Image: /System/Library/PrivateFrameworks/CameraKit.framework/CameraKit
  */
 
-@interface CAMCameraSpec : NSObject {
-}
+@interface CAMCameraSpec : NSObject
 
-@property(readonly) long long bottomBarOrientation;
-@property(readonly) long long modeDialOrientation;
-@property(readonly) bool shouldCreateAvalancheIndicator;
-@property(readonly) bool shouldCreateBottomBar;
-@property(readonly) bool shouldCreateElapsedTimeView;
-@property(readonly) bool shouldCreateFiltersButton;
-@property(readonly) bool shouldCreateFlashButton;
-@property(readonly) bool shouldCreateFlipButton;
-@property(readonly) bool shouldCreateHDRButton;
-@property(readonly) bool shouldCreateImageWell;
-@property(readonly) bool shouldCreateModeDial;
-@property(readonly) bool shouldCreatePanoramaView;
-@property(readonly) bool shouldCreateShutterButton;
-@property(readonly) bool shouldCreateSlalomIndicator;
-@property(readonly) bool shouldCreateStillDuringVideo;
-@property(readonly) bool shouldCreateTimerButton;
-@property(readonly) bool shouldCreateTopBar;
-@property(readonly) bool shouldCreateZoomSlider;
+@property (nonatomic, readonly) BOOL shouldCreateAvalancheIndicator;
+@property (nonatomic, readonly) BOOL shouldCreateElapsedTimeView;
+@property (nonatomic, readonly) BOOL shouldCreateFiltersButton;
+@property (nonatomic, readonly) BOOL shouldCreateFlashButton;
+@property (nonatomic, readonly) BOOL shouldCreateFlipButton;
+@property (nonatomic, readonly) BOOL shouldCreateHDRButton;
+@property (nonatomic, readonly) BOOL shouldCreateImageWell;
+@property (nonatomic, readonly) BOOL shouldCreateModeDial;
+@property (nonatomic, readonly) BOOL shouldCreatePanoramaView;
+@property (nonatomic, readonly) BOOL shouldCreateShutterButton;
+@property (nonatomic, readonly) BOOL shouldCreateSlalomIndicator;
+@property (nonatomic, readonly) BOOL shouldCreateStillDuringVideo;
+@property (nonatomic, readonly) BOOL shouldCreateTimerButton;
+@property (nonatomic, readonly) BOOL shouldCreateZoomSlider;
 
 + (id)specForCurrentPlatform;
 + (id)specForPad;
 + (id)specForPhone;
 
-- (long long)bottomBarOrientation;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })initialFrameForOrientation:(long long)arg1;
-- (bool)isCameraApp;
-- (bool)isPad;
-- (bool)isPhone;
-- (long long)modeDialOrientation;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })initialFrameForOrientation:(int)arg1;
+- (BOOL)isCameraApp;
 - (int)rotationStyle;
-- (bool)shouldCreateAvalancheIndicator;
-- (bool)shouldCreateBottomBar;
-- (bool)shouldCreateElapsedTimeView;
-- (bool)shouldCreateFiltersButton;
-- (bool)shouldCreateFlashButton;
-- (bool)shouldCreateFlipButton;
-- (bool)shouldCreateHDRButton;
-- (bool)shouldCreateImageWell;
-- (bool)shouldCreateModeDial;
-- (bool)shouldCreatePanoramaView;
-- (bool)shouldCreateShutterButton;
-- (bool)shouldCreateSlalomIndicator;
-- (bool)shouldCreateStillDuringVideo;
-- (bool)shouldCreateTimerButton;
-- (bool)shouldCreateTopBar;
-- (bool)shouldCreateZoomSlider;
+- (BOOL)shouldCreateAvalancheIndicator;
+- (BOOL)shouldCreateElapsedTimeView;
+- (BOOL)shouldCreateFiltersButton;
+- (BOOL)shouldCreateFlashButton;
+- (BOOL)shouldCreateFlipButton;
+- (BOOL)shouldCreateHDRButton;
+- (BOOL)shouldCreateImageWell;
+- (BOOL)shouldCreateModeDial;
+- (BOOL)shouldCreatePanoramaView;
+- (BOOL)shouldCreateShutterButton;
+- (BOOL)shouldCreateSlalomIndicator;
+- (BOOL)shouldCreateStillDuringVideo;
+- (BOOL)shouldCreateTimerButton;
+- (BOOL)shouldCreateZoomSlider;
 
 @end

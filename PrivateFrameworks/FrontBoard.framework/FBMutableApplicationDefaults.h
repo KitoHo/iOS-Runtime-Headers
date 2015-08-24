@@ -2,13 +2,12 @@
    Image: /System/Library/PrivateFrameworks/FrontBoard.framework/FrontBoard
  */
 
-@interface FBMutableApplicationDefaults : FBApplicationDefaults {
-}
+@interface FBMutableApplicationDefaults : FBApplicationDefaults
 
-@property long long backgroundStyle;
-@property long long interfaceOrientation;
-@property bool statusBarHidden;
-@property bool statusBarHiddenWhenVerticallyCompact;
-@property long long statusBarStyle;
+@property (nonatomic) int backgroundStyle;
+@property (nonatomic) int interfaceOrientation;
+@property (nonatomic) BOOL statusBarHidden;
+@property (nonatomic) BOOL statusBarHiddenWhenVerticallyCompact;
+@property (nonatomic) int statusBarStyle;
 
 @end

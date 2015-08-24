@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class LSApplicationProxy, NSBundle, NSDate, NSDictionary, NSNumber, NSString;
-
 @interface GKApplicationProxy : NSObject {
     LSApplicationProxy *_lsProxy;
     NSDictionary *_metadata;
 }
 
-@property(retain,readonly) NSNumber * adamID;
-@property(retain,readonly) NSBundle * bundle;
-@property(retain,readonly) NSString * bundleID;
-@property(retain,readonly) NSString * bundleVersion;
-@property(retain,readonly) NSNumber * externalVersion;
-@property(getter=isGameCenterEnabled,readonly) bool gameCenterEnabled;
-@property(getter=isInstalled,readonly) bool installed;
-@property(retain) LSApplicationProxy * lsProxy;
-@property(retain) NSDictionary * metadata;
-@property(retain,readonly) NSDate * purchaseDate;
-@property(getter=isRestricted,readonly) bool restricted;
+@property (nonatomic, readonly, retain) NSNumber *adamID;
+@property (nonatomic, readonly, retain) NSBundle *bundle;
+@property (nonatomic, readonly, retain) NSString *bundleID;
+@property (nonatomic, readonly, retain) NSString *bundleVersion;
+@property (nonatomic, readonly, retain) NSNumber *externalVersion;
+@property (getter=isGameCenterEnabled, nonatomic, readonly) BOOL gameCenterEnabled;
+@property (getter=isInstalled, nonatomic, readonly) BOOL installed;
+@property (nonatomic, retain) LSApplicationProxy *lsProxy;
+@property (nonatomic, retain) NSDictionary *metadata;
+@property (nonatomic, readonly, retain) NSDate *purchaseDate;
+@property (getter=isRestricted, nonatomic, readonly) BOOL restricted;
 
 + (id)metadataForBundleURL:(id)arg1;
 
@@ -32,9 +30,9 @@
 - (id)externalVersion;
 - (id)initWithBundleID:(id)arg1;
 - (id)initWithProxy:(id)arg1;
-- (bool)isGameCenterEnabled;
-- (bool)isInstalled;
-- (bool)isRestricted;
+- (BOOL)isGameCenterEnabled;
+- (BOOL)isInstalled;
+- (BOOL)isRestricted;
 - (id)lsProxy;
 - (id)metadata;
 - (id)purchaseDate;

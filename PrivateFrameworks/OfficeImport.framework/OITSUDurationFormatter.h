@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface OITSUDurationFormatter : NSFormatter {
     int mCompactStyleStartUnit;
     NSString *mFormat;
 }
 
-@property int compactStyleStartUnit;
-@property(copy) NSString * format;
+@property (nonatomic) int compactStyleStartUnit;
+@property (nonatomic, copy) NSString *format;
 
 - (int)compactStyleStartUnit;
 - (void)dealloc;
 - (id)format;
-- (bool)getObjectValue:(out id*)arg1 forString:(id)arg2 errorDescription:(out id*)arg3;
+- (BOOL)getObjectValue:(out id*)arg1 forString:(id)arg2 errorDescription:(out id*)arg3;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (void)p_commonInit;

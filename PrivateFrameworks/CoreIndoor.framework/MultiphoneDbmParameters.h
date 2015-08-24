@@ -11,24 +11,24 @@
     float _variancePerSecond;
 }
 
-@property bool hasSearchWidth;
-@property bool hasVariancePerSecond;
-@property float searchWidth;
-@property float variancePerSecond;
+@property (nonatomic) BOOL hasSearchWidth;
+@property (nonatomic) BOOL hasVariancePerSecond;
+@property (nonatomic) float searchWidth;
+@property (nonatomic) float variancePerSecond;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasSearchWidth;
-- (bool)hasVariancePerSecond;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasSearchWidth;
+- (BOOL)hasVariancePerSecond;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (float)searchWidth;
-- (void)setHasSearchWidth:(bool)arg1;
-- (void)setHasVariancePerSecond:(bool)arg1;
+- (void)setHasSearchWidth:(BOOL)arg1;
+- (void)setHasVariancePerSecond:(BOOL)arg1;
 - (void)setSearchWidth:(float)arg1;
 - (void)setVariancePerSecond:(float)arg1;
 - (float)variancePerSecond;

@@ -3,12 +3,14 @@
  */
 
 @interface ACUISetupViewController : PSSetupController {
-    bool_didAttemptDataclassSetup;
-    bool_shouldForceMailSetup;
+    BOOL _didAttemptDataclassSetup;
+    BOOL _shouldForceMailSetup;
 }
 
++ (id)_specifierForDataclassEditControllerClass:(Class)arg1 withName:(id)arg2 account:(id)arg3;
++ (void)showDataclassConfigurationControllerForAccount:(id)arg1 name:(id)arg2 fromViewController:(id)arg3 specifier:(id)arg4 completion:(id /* block */)arg5;
+
 - (void)_dismissAndNotifyParent;
-- (id)_specifierForDataclassEditControllerClass:(Class)arg1 withName:(id)arg2 account:(id)arg3;
 - (void)controller:(id)arg1 didFinishSettingUpAccount:(id)arg2;
 - (void)finishedAccountSetup;
 

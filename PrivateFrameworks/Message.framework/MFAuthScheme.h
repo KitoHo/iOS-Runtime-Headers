@@ -2,8 +2,7 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@interface MFAuthScheme : NSObject {
-}
+@interface MFAuthScheme : NSObject
 
 + (id)authSchemesForAccount:(id)arg1 connection:(id)arg2;
 + (void)initialize;
@@ -13,12 +12,12 @@
 
 - (Class)authenticatorClass;
 - (id)authenticatorForAccount:(id)arg1 connection:(id)arg2;
-- (bool)canAuthenticateAccountClass:(Class)arg1 connection:(id)arg2;
+- (BOOL)canAuthenticateAccountClass:(Class)arg1 connection:(id)arg2;
 - (Class)connectionClassForAccountClass:(Class)arg1;
 - (unsigned int)defaultPortForAccount:(id)arg1;
-- (bool)hasEncryption;
+- (BOOL)hasEncryption;
 - (id)humanReadableName;
 - (id)name;
-- (bool)requiresPassword;
+- (BOOL)requiresPassword;
 
 @end

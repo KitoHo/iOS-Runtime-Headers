@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class NSString, PKPaymentSetupAboutView;
-
 @interface PKPaymentSetupAboutViewController : UIViewController {
     NSString *_aboutText;
     NSString *_privacyText;
@@ -13,9 +11,7 @@
 - (void)_showPrivacyView:(id)arg1;
 - (void)dealloc;
 - (void)done:(id)arg1;
-- (unsigned long long)edgesForExtendedLayout;
-- (id)initWithAboutText:(id)arg1 privacyText:(id)arg2 presentedInModal:(bool)arg3;
+- (id)initWithAboutText:(id)arg1 privacyText:(id)arg2 presentedInModal:(BOOL)arg3;
 - (void)loadView;
-- (void)viewWillAppear:(bool)arg1;
 
 @end

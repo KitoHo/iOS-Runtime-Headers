@@ -3,43 +3,43 @@
  */
 
 @interface GEOTimeRange : PBCodable <NSCopying> {
+    BOOL _allDay;
+    unsigned int _from;
     struct { 
         unsigned int from : 1; 
         unsigned int to : 1; 
         unsigned int allDay : 1; 
-    unsigned int _from;
     } _has;
     unsigned int _to;
-    bool_allDay;
 }
 
-@property bool allDay;
-@property unsigned int from;
-@property bool hasAllDay;
-@property bool hasFrom;
-@property bool hasTo;
-@property unsigned int to;
+@property (nonatomic) BOOL allDay;
+@property (nonatomic) unsigned int from;
+@property (nonatomic) BOOL hasAllDay;
+@property (nonatomic) BOOL hasFrom;
+@property (nonatomic) BOOL hasTo;
+@property (nonatomic) unsigned int to;
 
-- (bool)allDay;
+- (BOOL)allDay;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (unsigned int)from;
-- (bool)hasAllDay;
-- (bool)hasFrom;
-- (bool)hasTo;
-- (unsigned long long)hash;
-- (id)initWithPlaceDataTimeRange:(struct { unsigned int x1; unsigned int x2; boolx3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; }*)arg1;
-- (bool)isAdjacentToTimeRange:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasAllDay;
+- (BOOL)hasFrom;
+- (BOOL)hasTo;
+- (unsigned int)hash;
+- (id)initWithPlaceDataTimeRange:(struct { unsigned int x1; unsigned int x2; BOOL x3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; }*)arg1;
+- (BOOL)isAdjacentToTimeRange:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
-- (void)setAllDay:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setAllDay:(BOOL)arg1;
 - (void)setFrom:(unsigned int)arg1;
-- (void)setHasAllDay:(bool)arg1;
-- (void)setHasFrom:(bool)arg1;
-- (void)setHasTo:(bool)arg1;
+- (void)setHasAllDay:(BOOL)arg1;
+- (void)setHasFrom:(BOOL)arg1;
+- (void)setHasTo:(BOOL)arg1;
 - (void)setTo:(unsigned int)arg1;
 - (unsigned int)to;
 - (void)writeTo:(id)arg1;

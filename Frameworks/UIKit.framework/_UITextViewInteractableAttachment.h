@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSTextAttachment;
-
 @interface _UITextViewInteractableAttachment : _UITextViewInteractableItem {
     NSTextAttachment *_attachment;
 }
 
-@property(retain) NSTextAttachment * attachment;
+@property (nonatomic, retain) NSTextAttachment *attachment;
 
-+ (id)interactableLinkWithAttachment:(id)arg1 range:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg2;
++ (id)interactableLinkWithAttachment:(id)arg1 range:(struct _NSRange { unsigned int x1; unsigned int x2; })arg2;
 
 - (void)_copyImage;
 - (id)_image;
 - (void)_saveToCameraRoll;
 - (id)actions;
-- (bool)allowInteraction;
+- (BOOL)allowInteraction;
 - (id)attachment;
 - (void)dealloc;
 - (id)defaultAction;

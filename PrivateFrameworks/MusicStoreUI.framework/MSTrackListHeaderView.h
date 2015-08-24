@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/MusicStoreUI.framework/MusicStoreUI
  */
 
-@class <MSTrackListHeaderDelegate>, SUItem, SUItemOfferButton, SUReflectionImageView, SUTouchCaptureView, UIImage, UILabel;
-
 @interface MSTrackListHeaderView : UIView {
     UILabel *_albumLabel;
     UILabel *_artistLabel;
@@ -18,9 +16,9 @@
     SUTouchCaptureView *_touchCaptureView;
 }
 
-@property(retain) UIImage * artworkImage;
-@property <MSTrackListHeaderDelegate> * delegate;
-@property(retain) SUItem * item;
+@property (nonatomic, retain) UIImage *artworkImage;
+@property (nonatomic) <MSTrackListHeaderDelegate> *delegate;
+@property (nonatomic, retain) SUItem *item;
 
 - (void)_hidePurchaseConfirmation;
 - (id)_newGenericSmallFontLabel;
@@ -34,14 +32,14 @@
 - (void)_reloadItemCountLabel;
 - (void)_reloadOfferButton;
 - (void)_reloadReleaseDateLabel;
-- (void)_setShowingPurchaseConfirmation:(bool)arg1;
+- (void)_setShowingPurchaseConfirmation:(BOOL)arg1;
 - (void)_showPurchaseConfirmation;
-- (struct CGSize { double x1; double x2; })_sizeThatFitsLabel:(id)arg1 size:(struct CGSize { double x1; double x2; })arg2 numberOfLines:(long long)arg3;
+- (struct CGSize { float x1; float x2; })_sizeThatFitsLabel:(id)arg1 size:(struct CGSize { float x1; float x2; })arg2 numberOfLines:(int)arg3;
 - (void)_touchCaptureAction:(id)arg1;
 - (id)artworkImage;
 - (void)dealloc;
 - (id)delegate;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (id)item;
 - (void)layoutSubviews;
 - (void)reloadView;

@@ -2,27 +2,7 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, UICollectionView, UICollectionViewData;
-
 @interface UICollectionViewUpdate : NSObject {
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
     id *_animatedFooters;
     id *_animatedHeaders;
     id *_animatedItems;
@@ -36,13 +16,31 @@
     NSMutableDictionary *_insertedSupplementaryTopLevelIndexesDict;
     NSMutableIndexSet *_movedItems;
     NSMutableIndexSet *_movedSections;
-    long long *_newGlobalItemMap;
+    int *_newGlobalItemMap;
     UICollectionViewData *_newModel;
-    long long *_newSectionMap;
+    int *_newSectionMap;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _newVisibleBounds;
-    long long *_oldGlobalItemMap;
+    int *_oldGlobalItemMap;
     UICollectionViewData *_oldModel;
-    long long *_oldSectionMap;
+    int *_oldSectionMap;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _oldVisibleBounds;
     NSArray *_updateItems;
     NSMutableArray *_viewAnimations;
@@ -53,7 +51,7 @@
 - (void)_computeSectionUpdates;
 - (void)_computeSupplementaryUpdates;
 - (void)dealloc;
-- (id)initWithCollectionView:(id)arg1 updateItems:(id)arg2 oldModel:(id)arg3 newModel:(id)arg4 oldVisibleBounds:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg5 newVisibleBounds:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg6;
+- (id)initWithCollectionView:(id)arg1 updateItems:(id)arg2 oldModel:(id)arg3 newModel:(id)arg4 oldVisibleBounds:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg5 newVisibleBounds:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg6;
 - (id)newIndexPathForSupplementaryElementOfKind:(id)arg1 oldIndexPath:(id)arg2;
 - (id)oldIndexPathForSupplementaryElementOfKind:(id)arg1 newIndexPath:(id)arg2;
 

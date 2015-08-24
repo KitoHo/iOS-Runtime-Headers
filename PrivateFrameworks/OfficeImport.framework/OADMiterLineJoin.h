@@ -3,7 +3,7 @@
  */
 
 @interface OADMiterLineJoin : OADLineJoin {
-    unsigned int mIsLimitOverridden : 1;
+    unsigned int mIsLimitOverridden;
     float mLimit;
 }
 
@@ -11,8 +11,8 @@
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)initWithDefaults;
-- (bool)isEqual:(id)arg1;
-- (bool)isLimitOverridden;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isLimitOverridden;
 - (float)limit;
 - (void)setLimit:(float)arg1;
 

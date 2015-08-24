@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSDictionary, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, SSMetricsConfiguration;
-
 @interface SSMetricsConfiguration : NSObject {
     NSSet *_blacklistedEvents;
     SSMetricsConfiguration *_childConfiguration;
     NSDictionary *_config;
     NSMutableSet *_cookieFieldsUnion;
+    BOOL _disableEventDecoration;
+    BOOL _disabled;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSMutableDictionary *_eventFieldsUnion;
     NSDictionary *_fields;
     int _internalSettingsToken;
     id _reportingFrequencyOverride;
-    bool_disableEventDecoration;
-    bool_disabled;
-    bool_sendDisabled;
+    BOOL _sendDisabled;
 }
 
-@property(retain) SSMetricsConfiguration * childConfiguration;
-@property bool disableEventDecoration;
-@property(readonly) NSDictionary * fieldsMap;
+@property (nonatomic, retain) SSMetricsConfiguration *childConfiguration;
+@property (nonatomic) BOOL disableEventDecoration;
+@property (nonatomic, readonly) NSDictionary *fieldsMap;
 
 + (id)_reportingFrequencyOverride;
-+ (void)getReportingFrequencyOverrideWithCompletionBlock:(id)arg1;
++ (void)getReportingFrequencyOverrideWithCompletionBlock:(id /* block */)arg1;
 + (void)setReportingFrequencyOverride:(id)arg1;
 
-- (bool)_configBooleanForKey:(id)arg1 defaultValue:(bool)arg2;
-- (bool)_decorateITMLEvents;
+- (BOOL)_configBooleanForKey:(id)arg1 defaultValue:(BOOL)arg2;
+- (BOOL)_decorateITMLEvents;
 - (id)_initSSMetricsEventConfiguration;
 - (void)_setReportingFrequencyOverride:(id)arg1;
 - (id)blacklistedEventFields;
@@ -36,19 +34,19 @@
 - (id)compoundStringWithElements:(id)arg1;
 - (id)cookieFields;
 - (void)dealloc;
-- (bool)disableEventDecoration;
+- (BOOL)disableEventDecoration;
 - (id)eventFields;
 - (id)fieldsMap;
 - (id)initWithGlobalConfiguration:(id)arg1;
 - (id)initWithStorePlatformData:(id)arg1;
-- (bool)isDisabled;
-- (bool)isEventTypeBlacklisted:(id)arg1;
-- (bool)isSendDisabled;
+- (BOOL)isDisabled;
+- (BOOL)isEventTypeBlacklisted:(id)arg1;
+- (BOOL)isSendDisabled;
 - (id)pingURLs;
 - (double)reportingFrequency;
 - (id)reportingURLString;
 - (void)setChildConfiguration:(id)arg1;
-- (void)setDisableEventDecoration:(bool)arg1;
+- (void)setDisableEventDecoration:(BOOL)arg1;
 - (id)tokenStringWithElements:(id)arg1;
 - (id)valueForConfigurationKey:(id)arg1;
 

@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-@class NSArray, NSURL;
-
 @interface _WKProcessPoolConfiguration : NSObject <NSCopying> {
-    struct RetainPtr<NSURL> { 
-        void *m_ptr; 
     struct RetainPtr<NSArray> { 
         void *m_ptr; 
     } _cachePartitionedURLSchemes;
+    struct RetainPtr<NSURL> { 
+        void *m_ptr; 
     } _injectedBundleURL;
-    unsigned long long _maximumProcessCount;
+    unsigned int _maximumProcessCount;
 }
 
-@property(copy) NSArray * cachePartitionedURLSchemes;
-@property(copy) NSURL * injectedBundleURL;
-@property unsigned long long maximumProcessCount;
+@property (nonatomic, copy) NSArray *cachePartitionedURLSchemes;
+@property (nonatomic, copy) NSURL *injectedBundleURL;
+@property (nonatomic) unsigned int maximumProcessCount;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
@@ -24,9 +22,9 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)injectedBundleURL;
-- (unsigned long long)maximumProcessCount;
+- (unsigned int)maximumProcessCount;
 - (void)setCachePartitionedURLSchemes:(id)arg1;
 - (void)setInjectedBundleURL:(id)arg1;
-- (void)setMaximumProcessCount:(unsigned long long)arg1;
+- (void)setMaximumProcessCount:(unsigned int)arg1;
 
 @end

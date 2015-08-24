@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/ProofReader.framework/ProofReader
  */
 
-@interface PRAutocorrectionContext : NSObject {
-}
+@interface PRAutocorrectionContext : NSObject
 
-+ (id)autocorrectionContextOfType:(unsigned long long)arg1;
++ (id)autocorrectionContextOfType:(unsigned int)arg1;
 
 - (void)addInputCharacter:(unsigned short)arg1 geometryData:(id)arg2;
 - (void)addInputCharacter:(unsigned short)arg1 geometryModel:(void*)arg2 geometryData:(id)arg3;

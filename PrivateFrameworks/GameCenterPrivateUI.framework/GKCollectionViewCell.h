@@ -2,49 +2,47 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class CALayer, GKEditActionsView, GKHairlineView, GKStaticRenderContentView, NSArray, NSLayoutConstraint, UIView;
-
 @interface GKCollectionViewCell : UICollectionViewCell {
     GKHairlineView *_bottomHairline;
     NSLayoutConstraint *_contentLeftConstraint;
-    double _contentOriginX;
+    float _contentOriginX;
     GKStaticRenderContentView *_contentRenderView;
+    BOOL _doesAbutLeftEdge;
     NSArray *_editActions;
     NSArray *_editActionsConstraints;
     GKEditActionsView *_editActionsView;
     NSArray *_hairlineConstraints;
-    double _leadingMargin;
+    float _leadingMargin;
     CALayer *_leftGradientMask;
     id _representedItem;
+    BOOL _shouldDisplaySwipeToEditAccessories;
     UIView *_staticContentView;
     GKHairlineView *_topHairline;
-    double _trailingMargin;
-    bool_doesAbutLeftEdge;
-    bool_shouldDisplaySwipeToEditAccessories;
+    float _trailingMargin;
 }
 
-@property(readonly) struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } alignmentRectForText;
-@property(retain) GKHairlineView * bottomHairline;
-@property(retain) NSLayoutConstraint * contentLeftConstraint;
-@property(retain) GKStaticRenderContentView * contentRenderView;
-@property bool doesAbutLeftEdge;
-@property(retain) NSArray * editActions;
-@property(retain) NSArray * editActionsConstraints;
-@property(readonly) GKEditActionsView * editActionsView;
-@property double editingContentOriginX;
-@property(retain) NSArray * hairlineConstraints;
-@property(readonly) UIView * interactiveContentView;
-@property double leadingMargin;
-@property(retain) CALayer * leftGradientMask;
-@property(retain) id representedItem;
-@property(readonly) UIView * staticContentView;
-@property(retain) GKHairlineView * topHairline;
-@property double trailingMargin;
+@property (nonatomic, readonly) struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } alignmentRectForText;
+@property (nonatomic, retain) GKHairlineView *bottomHairline;
+@property (nonatomic, retain) NSLayoutConstraint *contentLeftConstraint;
+@property (nonatomic, retain) GKStaticRenderContentView *contentRenderView;
+@property (nonatomic) BOOL doesAbutLeftEdge;
+@property (nonatomic, retain) NSArray *editActions;
+@property (nonatomic, retain) NSArray *editActionsConstraints;
+@property (nonatomic, readonly) GKEditActionsView *editActionsView;
+@property (nonatomic) float editingContentOriginX;
+@property (nonatomic, retain) NSArray *hairlineConstraints;
+@property (nonatomic, readonly) UIView *interactiveContentView;
+@property (nonatomic) float leadingMargin;
+@property (nonatomic, retain) CALayer *leftGradientMask;
+@property (nonatomic, retain) id representedItem;
+@property (nonatomic, readonly) UIView *staticContentView;
+@property (nonatomic, retain) GKHairlineView *topHairline;
+@property (nonatomic) float trailingMargin;
 
 + (void)registerCellClassesWithCollectionView:(id)arg1;
 
-- (void)_gkEnumerateSubviewsUsingBlock:(id)arg1;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })alignmentRectForText;
+- (void)_gkEnumerateSubviewsUsingBlock:(id /* block */)arg1;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })alignmentRectForText;
 - (void)animateOutSwipeToEditAccessories;
 - (void)applyGradientMaskIfNeeded;
 - (void)applyLayoutAttributes:(id)arg1;
@@ -53,21 +51,21 @@
 - (void)closeForDelete;
 - (id)contentLeftConstraint;
 - (id)contentRenderView;
-- (double)contentViewOriginXWhileEditing;
+- (float)contentViewOriginXWhileEditing;
 - (void)dealloc;
 - (void)didUpdateModel;
-- (bool)doesAbutLeftEdge;
+- (BOOL)doesAbutLeftEdge;
 - (id)editActions;
 - (id)editActionsConstraints;
 - (id)editActionsView;
-- (double)editActionsVisibleWidth;
-- (double)editingContentOriginX;
+- (float)editActionsVisibleWidth;
+- (float)editingContentOriginX;
 - (void)finishEditing;
 - (id)hairlineConstraints;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (id)interactiveContentView;
 - (void)layoutSubviews;
-- (double)leadingMargin;
+- (float)leadingMargin;
 - (id)leftGradientMask;
 - (void)prepareEditActionsConstraintsIfNeeded;
 - (void)prepareForReuse;
@@ -77,26 +75,26 @@
 - (void)setBottomHairline:(id)arg1;
 - (void)setContentLeftConstraint:(id)arg1;
 - (void)setContentRenderView:(id)arg1;
-- (void)setDoesAbutLeftEdge:(bool)arg1;
+- (void)setDoesAbutLeftEdge:(BOOL)arg1;
 - (void)setEditActions:(id)arg1;
 - (void)setEditActionsConstraints:(id)arg1;
-- (void)setEditActionsVisibleWidth:(double)arg1;
-- (void)setEditingContentOriginX:(double)arg1;
+- (void)setEditActionsVisibleWidth:(float)arg1;
+- (void)setEditingContentOriginX:(float)arg1;
 - (void)setHairlineConstraints:(id)arg1;
-- (void)setLeadingMargin:(double)arg1;
+- (void)setLeadingMargin:(float)arg1;
 - (void)setLeftGradientMask:(id)arg1;
 - (void)setNeedsDisplay;
 - (void)setRepresentedItem:(id)arg1;
-- (void)setShouldDisplaySwipeToEditAccessories:(bool)arg1;
+- (void)setShouldDisplaySwipeToEditAccessories:(BOOL)arg1;
 - (void)setTopHairline:(id)arg1;
-- (void)setTrailingMargin:(double)arg1;
-- (void)setUserInteractionEnabledForEditing:(bool)arg1;
-- (void)shutActionPaneAnimated:(bool)arg1 completion:(id)arg2;
+- (void)setTrailingMargin:(float)arg1;
+- (void)setUserInteractionEnabledForEditing:(BOOL)arg1;
+- (void)shutActionPaneAnimated:(BOOL)arg1 completion:(id /* block */)arg2;
 - (id)staticContentView;
 - (id)topHairline;
-- (bool)touchWithinEditActions:(id)arg1;
-- (double)trailingMargin;
+- (BOOL)touchWithinEditActions:(id)arg1;
+- (float)trailingMargin;
 - (void)updateConstraints;
-- (bool)userInteractionEnabledForEditing;
+- (BOOL)userInteractionEnabledForEditing;
 
 @end

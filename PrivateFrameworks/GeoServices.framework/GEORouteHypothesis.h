@@ -2,47 +2,45 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOLocation, NSDate, NSString;
-
 @interface GEORouteHypothesis : NSObject {
-    unsigned long long _currentTrafficDensity;
+    unsigned int _currentTrafficDensity;
     NSDate *_estimatedArrivalDate;
-    unsigned long long _historicTrafficDensity;
+    BOOL _hasTrafficIncidentOnRoute;
+    unsigned int _historicTrafficDensity;
     GEOLocation *_lastLocation;
     int _routeIncidentSignificance;
     NSString *_routeIncidentStreetName;
     int _routeIncidentType;
     NSDate *_suggestedDepartureDate;
-    unsigned long long _travelState;
+    unsigned int _travelState;
     double _travelStateScore;
-    bool_hasTrafficIncidentOnRoute;
 }
 
-@property(readonly) unsigned long long currentTrafficDensity;
-@property(readonly) NSDate * estimatedArrivalDate;
-@property(readonly) bool hasTrafficIncidentOnRoute;
-@property(readonly) unsigned long long historicTrafficDensity;
-@property(retain) GEOLocation * lastLocation;
-@property(readonly) int routeIncidentSignificance;
-@property(readonly) NSString * routeIncidentStreetName;
-@property(readonly) int routeIncidentType;
-@property(readonly) NSDate * suggestedDepartureDate;
-@property(readonly) unsigned long long travelState;
-@property(readonly) double travelStateScore;
+@property (nonatomic, readonly) unsigned int currentTrafficDensity;
+@property (nonatomic, readonly) NSDate *estimatedArrivalDate;
+@property (nonatomic, readonly) BOOL hasTrafficIncidentOnRoute;
+@property (nonatomic, readonly) unsigned int historicTrafficDensity;
+@property (nonatomic, retain) GEOLocation *lastLocation;
+@property (nonatomic, readonly) int routeIncidentSignificance;
+@property (nonatomic, readonly) NSString *routeIncidentStreetName;
+@property (nonatomic, readonly) int routeIncidentType;
+@property (nonatomic, readonly) NSDate *suggestedDepartureDate;
+@property (nonatomic, readonly) unsigned int travelState;
+@property (nonatomic, readonly) double travelStateScore;
 
-- (unsigned long long)currentTrafficDensity;
+- (unsigned int)currentTrafficDensity;
 - (void)dealloc;
 - (id)description;
 - (id)estimatedArrivalDate;
-- (bool)hasTrafficIncidentOnRoute;
-- (unsigned long long)historicTrafficDensity;
+- (BOOL)hasTrafficIncidentOnRoute;
+- (unsigned int)historicTrafficDensity;
 - (id)lastLocation;
 - (int)routeIncidentSignificance;
 - (id)routeIncidentStreetName;
 - (int)routeIncidentType;
 - (void)setLastLocation:(id)arg1;
 - (id)suggestedDepartureDate;
-- (unsigned long long)travelState;
+- (unsigned int)travelState;
 - (double)travelStateScore;
 - (void)updateCurrentTrafficDensity:(double)arg1 staticTravelTime:(double)arg2;
 - (void)updateDepartureAndArrivalSuggestions:(id)arg1 arrivalDate:(id)arg2 travelTimeWithTraffic:(double)arg3;

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class NSData, NSDictionary, NSMutableSet, NSSet, NSString;
-
 @interface CoreDAVBulkChangeTask : CoreDAVTask {
     NSString *_appSpecificDataProp;
     NSString *_appSpecificNamespace;
@@ -13,16 +11,16 @@
     NSString *_nextCTag;
     NSData *_pushedData;
     NSString *_requestDataContentType;
+    BOOL _returnChangedData;
+    BOOL _simple;
     NSDictionary *_uuidsToAddActions;
-    bool_returnChangedData;
-    bool_simple;
-    bool_validCTag;
+    BOOL _validCTag;
 }
 
-@property(readonly) NSSet * bulkChangeResponses;
-@property(readonly) NSDictionary * hrefsToModDeleteActions;
-@property(readonly) NSString * nextCTag;
-@property(readonly) NSDictionary * uuidsToAddActions;
+@property (nonatomic, readonly) NSSet *bulkChangeResponses;
+@property (nonatomic, readonly) NSDictionary *hrefsToModDeleteActions;
+@property (nonatomic, readonly) NSString *nextCTag;
+@property (nonatomic, readonly) NSDictionary *uuidsToAddActions;
 
 - (id)additionalHeaderValues;
 - (id)bulkChangeResponses;
@@ -32,7 +30,7 @@
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)hrefsToModDeleteActions;
 - (id)httpMethod;
-- (id)initWithURL:(id)arg1 checkCTag:(id)arg2 simple:(bool)arg3 returnChangedData:(bool)arg4 uuidsToAddActions:(id)arg5 hrefsToModDeleteActions:(id)arg6;
+- (id)initWithURL:(id)arg1 checkCTag:(id)arg2 simple:(BOOL)arg3 returnChangedData:(BOOL)arg4 uuidsToAddActions:(id)arg5 hrefsToModDeleteActions:(id)arg6;
 - (id)nextCTag;
 - (id)requestBody;
 - (id)uuidsToAddActions;

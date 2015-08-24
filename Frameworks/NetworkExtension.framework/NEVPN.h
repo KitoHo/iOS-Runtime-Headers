@@ -2,24 +2,22 @@
    Image: /System/Library/Frameworks/NetworkExtension.framework/NetworkExtension
  */
 
-@class NEVPNProtocol, NSArray;
-
-@interface NEVPN : NSObject <NEConfigurationValidating, NEPrettyDescription, NEConfigurationLegacySupport, NSSecureCoding, NSCopying> {
+@interface NEVPN : NSObject <NEConfigurationLegacySupport, NEConfigurationValidating, NEPrettyDescription, NSCopying, NSSecureCoding> {
+    BOOL _enabled;
+    BOOL _onDemandEnabled;
     NSArray *_onDemandRules;
     NEVPNProtocol *_protocol;
-    bool_enabled;
-    bool_onDemandEnabled;
 }
 
-@property(getter=isEnabled) bool enabled;
-@property(getter=isOnDemandEnabled) bool onDemandEnabled;
-@property(copy) NSArray * onDemandRules;
-@property(copy) NEVPNProtocol * protocol;
+@property (getter=isEnabled) BOOL enabled;
+@property (getter=isOnDemandEnabled) BOOL onDemandEnabled;
+@property (copy) NSArray *onDemandRules;
+@property (copy) NEVPNProtocol *protocol;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (bool)checkValidityAndCollectErrors:(id)arg1;
+- (BOOL)checkValidityAndCollectErrors:(id)arg1;
 - (id)copyLegacyDictionary;
 - (id)copyProfileDictionaryWithCertificateUUID:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -29,12 +27,12 @@
 - (id)init;
 - (id)initFromLegacyDictionary:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEnabled;
-- (bool)isOnDemandEnabled;
+- (BOOL)isEnabled;
+- (BOOL)isOnDemandEnabled;
 - (id)onDemandRules;
 - (id)protocol;
-- (void)setEnabled:(bool)arg1;
-- (void)setOnDemandEnabled:(bool)arg1;
+- (void)setEnabled:(BOOL)arg1;
+- (void)setOnDemandEnabled:(BOOL)arg1;
 - (void)setOnDemandRules:(id)arg1;
 - (void)setProtocol:(id)arg1;
 

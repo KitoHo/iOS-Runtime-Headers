@@ -2,13 +2,9 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDMPTCPConnectionInterfaceReport : PBCodable <NSCopying> {
-    struct { 
-        int *list; 
-        unsigned long long count; 
-        unsigned long long size; 
+    long long _dataInKB;
+    long long _dataOutKB;
     struct { 
         unsigned int dataInKB : 1; 
         unsigned int dataOutKB : 1; 
@@ -16,33 +12,35 @@
         unsigned int secondaryFlowFailureCount : 1; 
         unsigned int secondaryFlowSuccessCount : 1; 
         unsigned int postConnectTcpFallbackCount : 1; 
-    long long _dataInKB;
-    long long _dataOutKB;
     } _has;
     NSString *_interfaceName;
+    struct { 
+        int *list; 
+        unsigned int count; 
+        unsigned int size; 
     } _postConnectSubflowFailureErrors;
+    BOOL _postConnectTcpFallbackCount;
     int _secondaryFlowFailureCount;
     int _secondaryFlowSuccessCount;
     unsigned long long _timestamp;
-    bool_postConnectTcpFallbackCount;
 }
 
-@property long long dataInKB;
-@property long long dataOutKB;
-@property bool hasDataInKB;
-@property bool hasDataOutKB;
-@property(readonly) bool hasInterfaceName;
-@property bool hasPostConnectTcpFallbackCount;
-@property bool hasSecondaryFlowFailureCount;
-@property bool hasSecondaryFlowSuccessCount;
-@property bool hasTimestamp;
-@property(retain) NSString * interfaceName;
-@property(readonly) int* postConnectSubflowFailureErrors;
-@property(readonly) unsigned long long postConnectSubflowFailureErrorsCount;
-@property bool postConnectTcpFallbackCount;
-@property int secondaryFlowFailureCount;
-@property int secondaryFlowSuccessCount;
-@property unsigned long long timestamp;
+@property (nonatomic) long long dataInKB;
+@property (nonatomic) long long dataOutKB;
+@property (nonatomic) BOOL hasDataInKB;
+@property (nonatomic) BOOL hasDataOutKB;
+@property (nonatomic, readonly) BOOL hasInterfaceName;
+@property (nonatomic) BOOL hasPostConnectTcpFallbackCount;
+@property (nonatomic) BOOL hasSecondaryFlowFailureCount;
+@property (nonatomic) BOOL hasSecondaryFlowSuccessCount;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic, retain) NSString *interfaceName;
+@property (nonatomic, readonly) int*postConnectSubflowFailureErrors;
+@property (nonatomic, readonly) unsigned int postConnectSubflowFailureErrorsCount;
+@property (nonatomic) BOOL postConnectTcpFallbackCount;
+@property (nonatomic) int secondaryFlowFailureCount;
+@property (nonatomic) int secondaryFlowSuccessCount;
+@property (nonatomic) unsigned long long timestamp;
 
 - (void)addPostConnectSubflowFailureErrors:(int)arg1;
 - (void)clearPostConnectSubflowFailureErrors;
@@ -53,35 +51,35 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasDataInKB;
-- (bool)hasDataOutKB;
-- (bool)hasInterfaceName;
-- (bool)hasPostConnectTcpFallbackCount;
-- (bool)hasSecondaryFlowFailureCount;
-- (bool)hasSecondaryFlowSuccessCount;
-- (bool)hasTimestamp;
-- (unsigned long long)hash;
+- (BOOL)hasDataInKB;
+- (BOOL)hasDataOutKB;
+- (BOOL)hasInterfaceName;
+- (BOOL)hasPostConnectTcpFallbackCount;
+- (BOOL)hasSecondaryFlowFailureCount;
+- (BOOL)hasSecondaryFlowSuccessCount;
+- (BOOL)hasTimestamp;
+- (unsigned int)hash;
 - (id)interfaceName;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (int*)postConnectSubflowFailureErrors;
-- (int)postConnectSubflowFailureErrorsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)postConnectSubflowFailureErrorsCount;
-- (bool)postConnectTcpFallbackCount;
-- (bool)readFrom:(id)arg1;
+- (int)postConnectSubflowFailureErrorsAtIndex:(unsigned int)arg1;
+- (unsigned int)postConnectSubflowFailureErrorsCount;
+- (BOOL)postConnectTcpFallbackCount;
+- (BOOL)readFrom:(id)arg1;
 - (int)secondaryFlowFailureCount;
 - (int)secondaryFlowSuccessCount;
 - (void)setDataInKB:(long long)arg1;
 - (void)setDataOutKB:(long long)arg1;
-- (void)setHasDataInKB:(bool)arg1;
-- (void)setHasDataOutKB:(bool)arg1;
-- (void)setHasPostConnectTcpFallbackCount:(bool)arg1;
-- (void)setHasSecondaryFlowFailureCount:(bool)arg1;
-- (void)setHasSecondaryFlowSuccessCount:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
+- (void)setHasDataInKB:(BOOL)arg1;
+- (void)setHasDataOutKB:(BOOL)arg1;
+- (void)setHasPostConnectTcpFallbackCount:(BOOL)arg1;
+- (void)setHasSecondaryFlowFailureCount:(BOOL)arg1;
+- (void)setHasSecondaryFlowSuccessCount:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
 - (void)setInterfaceName:(id)arg1;
-- (void)setPostConnectSubflowFailureErrors:(int*)arg1 count:(unsigned long long)arg2;
-- (void)setPostConnectTcpFallbackCount:(bool)arg1;
+- (void)setPostConnectSubflowFailureErrors:(int*)arg1 count:(unsigned int)arg2;
+- (void)setPostConnectTcpFallbackCount:(BOOL)arg1;
 - (void)setSecondaryFlowFailureCount:(int)arg1;
 - (void)setSecondaryFlowSuccessCount:(int)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;

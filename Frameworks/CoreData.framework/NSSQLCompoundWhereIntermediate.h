@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSMutableArray;
-
 @interface NSSQLCompoundWhereIntermediate : NSSQLWhereIntermediate {
     NSMutableArray *_subclauses;
 }
@@ -12,6 +10,6 @@
 - (void)dealloc;
 - (id)generateSQLStringInContext:(id)arg1;
 - (id)initWithPredicate:(id)arg1 inScope:(id)arg2 inContext:(id)arg3;
-- (bool)isOrScoped;
+- (BOOL)isOrScoped;
 
 @end

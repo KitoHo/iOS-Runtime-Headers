@@ -2,18 +2,17 @@
    Image: /System/Library/PrivateFrameworks/VoiceMemos.framework/VoiceMemos
  */
 
-@interface RCEntityRevision : NSManagedObject {
-}
+@interface RCEntityRevision : NSManagedObject
 
-@property(readonly) long long recordingID;
-@property(readonly) long long revisionID;
-@property(readonly) long long revisionType;
+@property (nonatomic, readonly) long long recordingID;
+@property (nonatomic, readonly) long long revisionID;
+@property (nonatomic, readonly) int revisionType;
 
 - (long long)recordingID;
 - (long long)revisionID;
-- (long long)revisionType;
+- (int)revisionType;
 - (void)setRecordingID:(long long)arg1;
 - (void)setRevisionID:(long long)arg1;
-- (void)setRevisionType:(long long)arg1;
+- (void)setRevisionType:(int)arg1;
 
 @end

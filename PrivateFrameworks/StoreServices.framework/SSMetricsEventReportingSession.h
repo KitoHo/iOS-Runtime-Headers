@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSArray, NSMutableArray, NSURL, SSMetricsEventController;
-
 @interface SSMetricsEventReportingSession : NSObject {
     SSMetricsEventController *_eventController;
     long long _insertTimestamp;
@@ -14,10 +12,10 @@
 
 - (id)_unreportedEvents;
 - (void)_writeString:(id)arg1 toData:(id)arg2;
-- (bool)anyUnreportedEvents;
+- (BOOL)anyUnreportedEvents;
 - (void)dealloc;
 - (id)initWithReportingURL:(id)arg1 insertTimestamp:(long long)arg2 eventController:(id)arg3;
-- (bool)markEventsAsReported;
+- (BOOL)markEventsAsReported;
 - (void)writeEventsToStream:(id)arg1;
 
 @end

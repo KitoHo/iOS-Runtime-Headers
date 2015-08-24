@@ -2,45 +2,43 @@
    Image: /System/Library/PrivateFrameworks/CorePDF.framework/CorePDF
  */
 
-@class CPChunk<CPGraphicUser>, CPParagraph, CPTextLine;
-
 @interface CPGraphicObject : CPChunk {
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
     CPParagraph *anchoringParagraph;
     CPTextLine *anchoringTextLine;
-    boolisInZoneBorder;
     unsigned int clipIndex;
+    BOOL isInZoneBorder;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } renderedBounds;
     CPChunk<CPGraphicUser> *user;
     int zoneGraphicType;
 }
 
-@property(retain) CPParagraph * anchoringParagraph;
-@property unsigned int clipIndex;
+@property (nonatomic, retain) CPParagraph *anchoringParagraph;
+@property (nonatomic) unsigned int clipIndex;
 
 - (id)anchoringParagraph;
 - (id)anchoringTextLine;
-- (bool)canBeContainer;
+- (BOOL)canBeContainer;
 - (unsigned int)clipIndex;
 - (void)dealloc;
 - (id)init;
-- (bool)isInZoneBorder;
-- (bool)isIndivisible;
-- (bool)isNarrow;
-- (bool)isVisible;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })renderedBounds;
+- (BOOL)isInZoneBorder;
+- (BOOL)isIndivisible;
+- (BOOL)isNarrow;
+- (BOOL)isVisible;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })renderedBounds;
 - (void)setAnchoringParagraph:(id)arg1;
 - (void)setAnchoringTextLine:(id)arg1;
 - (void)setClipIndex:(unsigned int)arg1;
-- (void)setIsInZoneBorder:(bool)arg1;
+- (void)setIsInZoneBorder:(BOOL)arg1;
 - (void)setUser:(id)arg1;
 - (void)setZoneGraphicType:(int)arg1;
 - (unsigned short)unicode;

@@ -2,23 +2,16 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class TSPDatabase;
-
 @interface TSPDatabaseDataRepresentation : SFUDataRepresentation {
     TSPDatabase *_database;
     long long _identifier;
 }
 
-- (struct ZeroCopyInputStream { int (**x1)(); }*)createProtobufInputStream;
 - (void).cxx_destruct;
 - (struct sqlite3_blob { }*)_openBlob;
+- (struct ZeroCopyInputStream { int (**x1)(); }*)createProtobufInputStream;
 - (long long)dataLength;
-- (bool)hasSameLocationAs:(id)arg1;
+- (BOOL)hasSameLocationAs:(id)arg1;
 - (id)initWithDatabase:(id)arg1 identifier:(long long)arg2;
 - (id)inputStream;
 

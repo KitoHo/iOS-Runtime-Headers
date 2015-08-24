@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface _UIViewServiceDummyPopoverView : _UIPopoverView {
-}
+@interface _UIViewServiceDummyPopoverView : _UIPopoverView
 
-- (void)setUseToolbarShine:(bool)arg1;
+- (void)setUseToolbarShine:(BOOL)arg1;
 
 @end

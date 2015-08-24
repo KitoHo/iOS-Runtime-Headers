@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/ATFoundation.framework/ATFoundation
  */
 
-@class NSString;
-
 @interface ATPRequest : PBRequest <NSCopying> {
     NSString *_command;
     NSString *_dataClass;
 }
 
-@property(retain) NSString * command;
-@property(retain) NSString * dataClass;
-@property(readonly) bool hasCommand;
-@property(readonly) bool hasDataClass;
+@property (nonatomic, retain) NSString *command;
+@property (nonatomic, retain) NSString *dataClass;
+@property (nonatomic, readonly) BOOL hasCommand;
+@property (nonatomic, readonly) BOOL hasDataClass;
 
 - (void).cxx_destruct;
 - (id)command;
@@ -21,11 +19,11 @@
 - (id)dataClass;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasCommand;
-- (bool)hasDataClass;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)hasCommand;
+- (BOOL)hasDataClass;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setCommand:(id)arg1;
 - (void)setDataClass:(id)arg1;
 - (void)writeTo:(id)arg1;

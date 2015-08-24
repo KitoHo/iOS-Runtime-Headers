@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class WDIterator;
-
 @interface WDTestIterator : WDIterator {
     WDIterator *mIterator;
     id mNext;
 }
 
 - (void)dealloc;
-- (bool)hasNext;
+- (BOOL)hasNext;
 - (id)initWithIterator:(id)arg1;
 - (id)next;
-- (bool)test:(id)arg1;
+- (BOOL)test:(id)arg1;
 
 @end

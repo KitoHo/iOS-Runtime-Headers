@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@interface PUFeedViewControllerPopoverSpec : PUFeedViewControllerPhoneSpec {
-}
+@interface PUFeedViewControllerPopoverSpec : PUFeedViewControllerPhoneSpec
 
-- (bool)shouldUseFullscreenLayout;
+- (BOOL)shouldUseFullscreenLayout;
 
 @end

@@ -2,22 +2,20 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSMutableArray, NSString;
-
 @interface AWDMMCSError : PBCodable <NSCopying> {
-    struct { 
-        unsigned int code : 1; 
     int _code;
     NSString *_domain;
+    struct { 
+        unsigned int code : 1; 
     } _has;
     NSMutableArray *_underlyingErrors;
 }
 
-@property int code;
-@property(retain) NSString * domain;
-@property bool hasCode;
-@property(readonly) bool hasDomain;
-@property(retain) NSMutableArray * underlyingErrors;
+@property (nonatomic) int code;
+@property (nonatomic, retain) NSString *domain;
+@property (nonatomic) BOOL hasCode;
+@property (nonatomic, readonly) BOOL hasDomain;
+@property (nonatomic, retain) NSMutableArray *underlyingErrors;
 
 - (void)addUnderlyingErrors:(id)arg1;
 - (void)clearUnderlyingErrors;
@@ -28,19 +26,19 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)domain;
-- (bool)hasCode;
-- (bool)hasDomain;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasCode;
+- (BOOL)hasDomain;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setCode:(int)arg1;
 - (void)setDomain:(id)arg1;
-- (void)setHasCode:(bool)arg1;
+- (void)setHasCode:(BOOL)arg1;
 - (void)setUnderlyingErrors:(id)arg1;
 - (id)underlyingErrors;
-- (id)underlyingErrorsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)underlyingErrorsCount;
+- (id)underlyingErrorsAtIndex:(unsigned int)arg1;
+- (unsigned int)underlyingErrorsCount;
 - (void)writeTo:(id)arg1;
 
 @end

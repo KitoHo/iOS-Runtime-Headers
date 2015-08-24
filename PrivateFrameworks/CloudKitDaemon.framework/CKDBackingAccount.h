@@ -2,48 +2,45 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSString, NSURL;
+@interface CKDBackingAccount : NSObject
 
-@interface CKDBackingAccount : NSObject {
-}
-
-@property(readonly) bool allowsCellularAccess;
-@property(readonly) NSString * cloudKitAuthToken;
-@property(readonly) bool cloudKitIsEnabled;
-@property(readonly) bool cloudPhotosIsEnabled;
-@property(readonly) NSString * dsid;
-@property(readonly) NSString * iCloudAuthToken;
-@property(readonly) NSString * identifier;
-@property(readonly) bool isFakeAccount;
-@property(readonly) NSString * primaryEmail;
-@property(readonly) NSURL * privateCloudDBURL;
-@property(readonly) NSURL * privateDeviceServiceURL;
-@property(readonly) NSURL * privateShareServiceURL;
-@property(readonly) NSString * serverPreferredPushEnvironment;
+@property (nonatomic, readonly) BOOL allowsCellularAccess;
+@property (nonatomic, readonly) NSString *cloudKitAuthToken;
+@property (nonatomic, readonly) BOOL cloudKitIsEnabled;
+@property (nonatomic, readonly) BOOL cloudPhotosIsEnabled;
+@property (nonatomic, readonly) NSString *dsid;
+@property (nonatomic, readonly) NSString *iCloudAuthToken;
+@property (nonatomic, readonly) NSString *identifier;
+@property (nonatomic, readonly) BOOL isFakeAccount;
+@property (nonatomic, readonly) NSString *primaryEmail;
+@property (nonatomic, readonly) NSURL *privateCloudDBURL;
+@property (nonatomic, readonly) NSURL *privateDeviceServiceURL;
+@property (nonatomic, readonly) NSURL *privateShareServiceURL;
+@property (nonatomic, readonly) NSString *serverPreferredPushEnvironment;
 
 + (Class)_platformBackingAccountClass;
 + (id)accountWithIdentifier:(id)arg1 inStore:(id)arg2;
-+ (bool)ensureCloudKitChildAccountOnParentAccount:(id)arg1 inStore:(id)arg2;
++ (BOOL)ensureCloudKitChildAccountOnParentAccount:(id)arg1 inStore:(id)arg2;
 + (id)fakeAccountWithEmail:(id)arg1 password:(id)arg2;
 + (id)primaryAccountInStore:(id)arg1;
 
 - (id)_init;
 - (id)accountPropertiesForDataclass:(id)arg1;
-- (bool)allowsCellularAccess;
+- (BOOL)allowsCellularAccess;
 - (id)ckAccount;
 - (id)cloudKitAuthToken;
-- (bool)cloudKitIsEnabled;
-- (bool)cloudPhotosIsEnabled;
+- (BOOL)cloudKitIsEnabled;
+- (BOOL)cloudPhotosIsEnabled;
 - (id)dsid;
 - (id)iCloudAuthToken;
 - (id)identifier;
 - (id)init;
-- (bool)isFakeAccount;
+- (BOOL)isFakeAccount;
 - (id)primaryEmail;
 - (id)privateCloudDBURL;
 - (id)privateDeviceServiceURL;
 - (id)privateShareServiceURL;
-- (void)renewAuthTokenInStore:(id)arg1 withCompletionHandler:(id)arg2;
+- (void)renewAuthTokenInStore:(id)arg1 withCompletionHandler:(id /* block */)arg2;
 - (id)serverPreferredPushEnvironment;
 
 @end

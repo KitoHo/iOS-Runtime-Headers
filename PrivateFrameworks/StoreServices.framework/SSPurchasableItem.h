@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSDictionary, NSString, SSSQLiteDatabase;
-
 @interface SSPurchasableItem : NSObject {
     SSSQLiteDatabase *_database;
     NSDictionary *_propertyValues;
@@ -19,7 +17,7 @@
 - (void)dealloc;
 - (id)description;
 - (id)initWithPropertyValues:(id)arg1;
-- (bool)isHidden;
+- (BOOL)isHidden;
 - (long long)pid;
 - (id)propertyValues;
 - (long long)storeID;

@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class UIImageView, UIView;
-
 @interface _MKCalloutBackgroundMaskView : UIView {
     UIView *_baseView;
     UIImageView *_bottomArrow;
@@ -13,12 +11,12 @@
     UIImageView *_topArrow;
 }
 
-@property(readonly) UIView * baseView;
-@property(readonly) UIImageView * bottomArrow;
-@property(readonly) UIView * currentArrowContainer;
-@property(readonly) UIImageView * leftArrow;
-@property(readonly) UIImageView * rightArrow;
-@property(readonly) UIImageView * topArrow;
+@property (nonatomic, readonly) UIView *baseView;
+@property (nonatomic, readonly) UIImageView *bottomArrow;
+@property (nonatomic, readonly) UIView *currentArrowContainer;
+@property (nonatomic, readonly) UIImageView *leftArrow;
+@property (nonatomic, readonly) UIImageView *rightArrow;
+@property (nonatomic, readonly) UIImageView *topArrow;
 
 - (void).cxx_destruct;
 - (void)_removeArrows;
@@ -26,7 +24,7 @@
 - (id)baseView;
 - (id)bottomArrow;
 - (id)currentArrowContainer;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (id)leftArrow;
 - (id)rightArrow;
 - (id)topArrow;

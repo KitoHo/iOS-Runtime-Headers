@@ -2,14 +2,13 @@
    Image: /System/Library/PrivateFrameworks/AirPortAssistant.framework/AirPortAssistant
  */
 
-@interface StepByStepUIViewController_CreateExtendOrReplace : StepByStepUIViewController <TableViewManagerDelegate> {
-}
+@interface StepByStepUIViewController_CreateExtendOrReplace : StepByStepUIViewController <TableViewManagerDelegate>
 
-- (void)handleSelectorChoiceWithTag:(unsigned long long)arg1;
+- (void)handleSelectorChoiceWithTag:(unsigned int)arg1;
 - (void)loadView;
 - (void)setupInitialTableHeaderConfiguration;
 - (void)setupTable;
 - (void)touchInCellAtIndexPath:(id)arg1;
-- (void)viewWillAppear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 
 @end

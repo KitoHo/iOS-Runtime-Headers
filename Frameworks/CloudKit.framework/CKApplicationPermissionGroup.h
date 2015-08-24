@@ -2,30 +2,28 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSArray;
-
 @interface CKApplicationPermissionGroup : NSObject <NSSecureCoding> {
     NSArray *_applicationBundleIDs;
     NSArray *_containerIDs;
-    unsigned long long _enabledPermissions;
+    unsigned int _enabledPermissions;
 }
 
-@property(retain) NSArray * applicationBundleIDs;
-@property(retain) NSArray * containerIDs;
-@property unsigned long long enabledPermissions;
+@property (nonatomic, retain) NSArray *applicationBundleIDs;
+@property (nonatomic, retain) NSArray *containerIDs;
+@property (nonatomic) unsigned int enabledPermissions;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)CKPropertiesDescription;
 - (id)applicationBundleIDs;
 - (id)containerIDs;
 - (id)description;
-- (unsigned long long)enabledPermissions;
+- (unsigned int)enabledPermissions;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)setApplicationBundleIDs:(id)arg1;
 - (void)setContainerIDs:(id)arg1;
-- (void)setEnabledPermissions:(unsigned long long)arg1;
+- (void)setEnabledPermissions:(unsigned int)arg1;
 
 @end

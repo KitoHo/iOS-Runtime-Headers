@@ -2,59 +2,57 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSString;
-
 @interface GEOLocalizedName : PBCodable <NSCopying> {
     struct { 
         unsigned int nameRank : 1; 
         unsigned int isDefault : 1; 
     } _has;
+    BOOL _isDefault;
     NSString *_languageCode;
     NSString *_name;
     unsigned int _nameRank;
     NSString *_nameType;
     NSString *_phoneticName;
-    bool_isDefault;
 }
 
-@property bool hasIsDefault;
-@property(readonly) bool hasLanguageCode;
-@property(readonly) bool hasName;
-@property bool hasNameRank;
-@property(readonly) bool hasNameType;
-@property(readonly) bool hasPhoneticName;
-@property bool isDefault;
-@property(retain) NSString * languageCode;
-@property(retain) NSString * name;
-@property unsigned int nameRank;
-@property(retain) NSString * nameType;
-@property(retain) NSString * phoneticName;
+@property (nonatomic) BOOL hasIsDefault;
+@property (nonatomic, readonly) BOOL hasLanguageCode;
+@property (nonatomic, readonly) BOOL hasName;
+@property (nonatomic) BOOL hasNameRank;
+@property (nonatomic, readonly) BOOL hasNameType;
+@property (nonatomic, readonly) BOOL hasPhoneticName;
+@property (nonatomic) BOOL isDefault;
+@property (nonatomic, retain) NSString *languageCode;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic) unsigned int nameRank;
+@property (nonatomic, retain) NSString *nameType;
+@property (nonatomic, retain) NSString *phoneticName;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasIsDefault;
-- (bool)hasLanguageCode;
-- (bool)hasName;
-- (bool)hasNameRank;
-- (bool)hasNameType;
-- (bool)hasPhoneticName;
-- (unsigned long long)hash;
+- (BOOL)hasIsDefault;
+- (BOOL)hasLanguageCode;
+- (BOOL)hasName;
+- (BOOL)hasNameRank;
+- (BOOL)hasNameType;
+- (BOOL)hasPhoneticName;
+- (unsigned int)hash;
 - (id)initWithPlaceDataLocalizedString:(id)arg1;
-- (bool)isDefault;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isDefault;
+- (BOOL)isEqual:(id)arg1;
 - (id)languageCode;
 - (void)mergeFrom:(id)arg1;
 - (id)name;
 - (unsigned int)nameRank;
 - (id)nameType;
 - (id)phoneticName;
-- (bool)readFrom:(id)arg1;
-- (void)setHasIsDefault:(bool)arg1;
-- (void)setHasNameRank:(bool)arg1;
-- (void)setIsDefault:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasIsDefault:(BOOL)arg1;
+- (void)setHasNameRank:(BOOL)arg1;
+- (void)setIsDefault:(BOOL)arg1;
 - (void)setLanguageCode:(id)arg1;
 - (void)setName:(id)arg1;
 - (void)setNameRank:(unsigned int)arg1;

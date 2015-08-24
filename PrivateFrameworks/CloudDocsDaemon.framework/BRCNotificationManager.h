@@ -2,47 +2,43 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class BRCAccountSession, BRCClientRanksPersistedState, BRCXPCClient, BRNotificationQueue, NSHashTable, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, PQLConnection;
-
 @interface BRCNotificationManager : NSObject <BRCModule> {
+    unsigned int _activeAliasQueries;
     NSObject<OS_dispatch_queue> *_cacheQueue;
     BRCXPCClient *_client;
+    BOOL _isCancelled;
     BRNotificationQueue *_notifs;
     NSHashTable *_pipes;
     NSObject<OS_dispatch_queue> *_queue;
     BRCAccountSession *_session;
     BRCClientRanksPersistedState *_state;
     NSMutableDictionary *_transferCache;
-    /* Warning: Unrecognized filer type: 'A' using 'void*' */ void*_activeAliasQueries;
 }
 
-@property(readonly) BRCAccountSession * accountSession;
-@property(readonly) PQLConnection * clientTruthConnection;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) bool hasActiveAliasWatchers;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) BOOL hasActiveAliasWatchers;
+@property (readonly) unsigned int hash;
+@property (nonatomic) BOOL isCancelled;
+@property (nonatomic, readonly) BRCAccountSession *session;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (id)accountSession;
-- (id)clientTruthConnection;
+- (void)cancel;
 - (void)close;
 - (void)flushUpdates;
-- (bool)hasActiveAliasWatchers;
+- (void)getPipeWithXPCReceiver:(id)arg1 client:(id)arg2 root:(id)arg3 reply:(id /* block */)arg4;
+- (BOOL)hasActiveAliasWatchers;
 - (id)initWithAccountSession:(id)arg1;
-- (void)invalidatePipesWatchingContainerID:(id)arg1;
-- (id)notificationGatheredFromItem:(id)arg1;
+- (void)invalidatePipesWatchingContainerID:(id)arg1 completionBlock:(id /* block */)arg2;
+- (BOOL)isCancelled;
 - (id)pipeWithReceiver:(id)arg1 root:(id)arg2;
-- (id)pipeWithXPCReceiver:(id)arg1 client:(id)arg2 root:(id)arg3;
 - (void)queueUpdate:(id)arg1;
-- (void)registerContainers:(id)arg1 forFlags:(unsigned long long)arg2;
+- (void)registerContainers:(id)arg1 forFlags:(unsigned int)arg2;
 - (void)resume;
+- (id)session;
+- (void)setIsCancelled:(BOOL)arg1;
 - (void)suspend;
-- (void)unregisterContainers:(id)arg1 forFlags:(unsigned long long)arg2;
+- (void)unregisterContainers:(id)arg1 forFlags:(unsigned int)arg2;
 
 @end

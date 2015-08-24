@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSMutableArray, NSMutableDictionary, NSString, PFUbiquityLocation;
-
 @interface PFUbiquityMigrationAssistant : NSObject {
     NSMutableDictionary *_baselineLocationsByVersionHash;
     NSString *_currentModelVersionHash;
@@ -16,15 +14,15 @@
     PFUbiquityLocation *_ubiquityRootLocation;
 }
 
-@property(readonly) NSString * currentModelVersionHash;
-@property(readonly) NSString * previousModelVersionHash;
+@property (nonatomic, readonly) NSString *currentModelVersionHash;
+@property (nonatomic, readonly) NSString *previousModelVersionHash;
 
 - (void)_populateBaselineAndTransactionLogLocations;
 - (id)baselineLocationsByModelVersionHash;
-- (bool)canUseReceipts;
+- (BOOL)canUseReceipts;
 - (id)currentModelVersionHash;
 - (void)dealloc;
-- (bool)electPreviousModelVersionHashFromTransactionLogsError:(id*)arg1;
+- (BOOL)electPreviousModelVersionHashFromTransactionLogsError:(id*)arg1;
 - (id)initWithUbiquityRootLocation:(id)arg1 peerID:(id)arg2 ubiquityName:(id)arg3 modelVersionHash:(id)arg4;
 - (id)latestBaselineLocationSkipModelVersionHash:(id)arg1;
 - (id)latestTransactionLogForModelVersionHash:(id)arg1;

@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSArray;
-
 @interface CKModifySubscriptionsOperationInfo : CKDatabaseOperationInfo <NSSecureCoding> {
     NSArray *_subscriptionIDsToDelete;
     NSArray *_subscriptionsToSave;
 }
 
-@property(retain) NSArray * subscriptionIDsToDelete;
-@property(retain) NSArray * subscriptionsToSave;
+@property (nonatomic, retain) NSArray *subscriptionIDsToDelete;
+@property (nonatomic, retain) NSArray *subscriptionsToSave;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

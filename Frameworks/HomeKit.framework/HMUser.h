@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/HomeKit.framework/HomeKit
  */
 
-@class NSString, NSUUID;
-
 @interface HMUser : NSObject <NSSecureCoding> {
     NSString *_name;
     NSUUID *_uuid;
 }
 
-@property(copy,readonly) NSString * name;
-@property(retain) NSUUID * uuid;
+@property (nonatomic, readonly, copy) NSString *name;
+@property (nonatomic, retain) NSUUID *uuid;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)configure:(id)arg1;

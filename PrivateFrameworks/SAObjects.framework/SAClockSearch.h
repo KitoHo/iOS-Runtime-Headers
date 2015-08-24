@@ -2,16 +2,13 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSNumber, NSString, NSURL;
+@interface SAClockSearch : SADomainCommand
 
-@interface SAClockSearch : SADomainCommand {
-}
-
-@property(copy) NSNumber * alCityId;
-@property(copy) NSString * countryCode;
-@property(copy) NSURL * identifier;
-@property(copy) NSString * unlocalizedCityName;
-@property(copy) NSString * unlocalizedCountryName;
+@property (nonatomic, copy) NSNumber *alCityId;
+@property (nonatomic, copy) NSString *countryCode;
+@property (nonatomic, copy) NSURL *identifier;
+@property (nonatomic, copy) NSString *unlocalizedCityName;
+@property (nonatomic, copy) NSString *unlocalizedCountryName;
 
 + (id)search;
 + (id)searchWithDictionary:(id)arg1 context:(id)arg2;
@@ -21,7 +18,7 @@
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)identifier;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setAlCityId:(id)arg1;
 - (void)setCountryCode:(id)arg1;
 - (void)setIdentifier:(id)arg1;

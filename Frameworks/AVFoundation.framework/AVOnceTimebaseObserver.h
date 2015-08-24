@@ -2,30 +2,26 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface AVOnceTimebaseObserver : AVTimebaseObserver {
+    id /* block */ _block;
+    BOOL _didFire;
     struct { 
         long long value; 
         int timescale; 
         unsigned int flags; 
         long long epoch; 
-    id _block;
     } _fireTime;
-    bool_didFire;
 }
 
-@property(readonly) bool didFire;
+@property (nonatomic, readonly) BOOL didFire;
 
 - (void)_effectiveRateChanged;
 - (void)_fireBlock;
 - (void)_handleTimeDiscontinuity;
 - (void)_resetNextFireTime;
 - (void)dealloc;
-- (bool)didFire;
-- (id)initWithTimebase:(struct OpaqueCMTimebase { }*)arg1 fireTime:(struct { long long x1; int x2; unsigned int x3; long long x4; })arg2 queue:(id)arg3 block:(id)arg4;
+- (BOOL)didFire;
+- (id)initWithTimebase:(struct OpaqueCMTimebase { }*)arg1 fireTime:(struct { long long x1; int x2; unsigned int x3; long long x4; })arg2 queue:(id)arg3 block:(id /* block */)arg4;
 - (void)invalidate;
 
 @end

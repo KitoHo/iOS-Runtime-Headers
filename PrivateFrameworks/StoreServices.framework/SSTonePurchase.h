@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSArray, NSNumber, NSString;
-
-@interface SSTonePurchase : SSPurchase <SSXPCCoding, NSCoding, NSCopying> {
+@interface SSTonePurchase : SSPurchase <NSCoding, NSCopying, SSXPCCoding> {
     NSArray *_allowedToneStyles;
     NSNumber *_assigneeIdentifier;
     NSString *_assigneeToneStyle;
-    bool_shouldMakeDefaultRingtone;
-    bool_shouldMakeDefaultTextTone;
+    BOOL _shouldMakeDefaultRingtone;
+    BOOL _shouldMakeDefaultTextTone;
 }
 
-@property(copy) NSArray * allowedToneStyles;
-@property(retain) NSNumber * assigneeIdentifier;
-@property(copy) NSString * assigneeToneStyle;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property bool shouldMakeDefaultRingtone;
-@property bool shouldMakeDefaultTextTone;
-@property(readonly) Class superclass;
+@property (copy) NSArray *allowedToneStyles;
+@property (retain) NSNumber *assigneeIdentifier;
+@property (copy) NSString *assigneeToneStyle;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property BOOL shouldMakeDefaultRingtone;
+@property BOOL shouldMakeDefaultTextTone;
+@property (readonly) Class superclass;
 
 - (void)_addEntriesToDatabaseEncoding:(id)arg1;
 - (void)_setValuesUsingDatabaseEncoding:(id)arg1;
@@ -37,9 +35,9 @@
 - (void)setAllowedToneStyles:(id)arg1;
 - (void)setAssigneeIdentifier:(id)arg1;
 - (void)setAssigneeToneStyle:(id)arg1;
-- (void)setShouldMakeDefaultRingtone:(bool)arg1;
-- (void)setShouldMakeDefaultTextTone:(bool)arg1;
-- (bool)shouldMakeDefaultRingtone;
-- (bool)shouldMakeDefaultTextTone;
+- (void)setShouldMakeDefaultRingtone:(BOOL)arg1;
+- (void)setShouldMakeDefaultTextTone:(BOOL)arg1;
+- (BOOL)shouldMakeDefaultRingtone;
+- (BOOL)shouldMakeDefaultTextTone;
 
 @end

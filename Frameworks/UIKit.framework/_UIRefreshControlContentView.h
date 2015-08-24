@@ -2,32 +2,30 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSAttributedString, UIColor, UIRefreshControl;
-
 @interface _UIRefreshControlContentView : UIView {
     UIRefreshControl *_refreshControl;
     UIColor *_tintColor;
 }
 
-@property(retain) NSAttributedString * attributedTitle;
-@property(readonly) double maximumSnappingHeight;
-@property(readonly) double minimumSnappingHeight;
-@property UIRefreshControl * refreshControl;
-@property(readonly) long long style;
-@property(retain) UIColor * tintColor;
+@property (nonatomic, retain) NSAttributedString *attributedTitle;
+@property (nonatomic, readonly) float maximumSnappingHeight;
+@property (nonatomic, readonly) float minimumSnappingHeight;
+@property (nonatomic) UIRefreshControl *refreshControl;
+@property (nonatomic, readonly) int style;
+@property (nonatomic, retain) UIColor *tintColor;
 
-- (double)_heightAtWhichNoneOfTheInterfaceElementsAreVisibleEvenIfTheControlIsStillPartiallyOnScreen;
+- (float)_heightAtWhichNoneOfTheInterfaceElementsAreVisibleEvenIfTheControlIsStillPartiallyOnScreen;
 - (id)attributedTitle;
 - (void)dealloc;
 - (void)didTransitionFromState:(int)arg1 toState:(int)arg2;
-- (double)maximumSnappingHeight;
-- (double)minimumSnappingHeight;
+- (float)maximumSnappingHeight;
+- (float)minimumSnappingHeight;
 - (id)refreshControl;
 - (void)refreshControlInvalidatedSnappingHeight;
 - (void)setAttributedTitle:(id)arg1;
 - (void)setRefreshControl:(id)arg1;
 - (void)setTintColor:(id)arg1;
-- (long long)style;
+- (int)style;
 - (id)tintColor;
 - (void)willTransitionFromState:(int)arg1 toState:(int)arg2;
 

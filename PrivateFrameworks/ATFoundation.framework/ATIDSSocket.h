@@ -2,24 +2,29 @@
    Image: /System/Library/PrivateFrameworks/ATFoundation.framework/ATFoundation
  */
 
-@class IDSDevice, IDSDeviceConnection;
-
 @interface ATIDSSocket : ATSocket {
+    unsigned int _btWriteBufferSize;
     IDSDevice *_device;
     IDSDeviceConnection *_deviceConnection;
-    long long _priority;
+    int _priority;
+    ATIDSService *_service;
+    unsigned int _wifiWriteBufferSize;
 }
 
-@property(readonly) IDSDevice * device;
-@property(readonly) long long priority;
+@property (nonatomic, readonly) IDSDevice *device;
+@property (nonatomic, readonly) int priority;
+@property (nonatomic, readonly) ATIDSService *service;
 
 - (void).cxx_destruct;
+- (void)addTransportUpgradeException;
 - (void)closeDescriptor;
-- (void)connectWithCompletion:(id)arg1;
+- (void)connectWithCompletion:(id /* block */)arg1;
 - (void)dealloc;
 - (id)device;
-- (id)initWithDevice:(id)arg1 priority:(long long)arg2;
-- (bool)open;
-- (long long)priority;
+- (id)initWithDevice:(id)arg1 service:(id)arg2 priority:(int)arg3;
+- (BOOL)open;
+- (int)priority;
+- (void)removeTransportUpgradeException;
+- (id)service;
 
 @end

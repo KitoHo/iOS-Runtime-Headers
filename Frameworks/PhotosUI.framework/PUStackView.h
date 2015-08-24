@@ -2,90 +2,88 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSArray, NSPointerArray, PUPhotoDecoration, UIColor, UIImage, UIImageView, UIView;
-
 @interface PUStackView : UIView {
-    struct CGAffineTransform { 
-        double a; 
-        double b; 
-        double c; 
-        double d; 
-        double tx; 
-        double ty; 
-    struct CGSize { 
-        double width; 
-        double height; 
-    struct UIOffset { 
-        double horizontal; 
-        double vertical; 
-    struct UIOffset { 
-        double horizontal; 
-        double vertical; 
-    struct CGPoint { 
-        double x; 
-        double y; 
-    struct UIEdgeInsets { 
-        double top; 
-        double left; 
-        double bottom; 
-        double right; 
     UIView *__backgroundView;
     NSPointerArray *__imageSizes;
-    long long __numberOfViews;
+    int __numberOfViews;
     NSArray *__photoDecorationVariants;
     NSArray *__photoViews;
     UIImageView *_combinedPhotoDecorationImageView;
+    BOOL _combinesPhotoDecorations;
     UIImage *_emptyPlaceholderImage;
     UIColor *_gridBackgroundColor;
-    double _gridBackgroundCornerRadius;
-    double _gridItemSpacing;
-    double _gridMargin;
-    long long _numberOfVisibleItems;
+    float _gridBackgroundCornerRadius;
+    float _gridItemSpacing;
+    float _gridMargin;
+    BOOL _imageHidden;
+    BOOL _needsDynamicLayout;
+    int _numberOfVisibleItems;
     PUPhotoDecoration *_photoDecoration;
+    struct UIOffset { 
+        float horizontal; 
+        float vertical; 
     } _stackOffset;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _stackPerspectiveFactor;
+    struct UIEdgeInsets { 
+        float top; 
+        float left; 
+        float bottom; 
+        float right; 
     } _stackPerspectiveInsets;
+    struct UIOffset { 
+        float horizontal; 
+        float vertical; 
     } _stackPerspectiveOffset;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _stackSize;
-    unsigned long long _style;
-    } _transforms[9];
-    bool_combinesPhotoDecorations;
-    bool_imageHidden[9];
-    bool_needsDynamicLayout;
+    unsigned int _style;
+    struct CGAffineTransform { 
+        float a; 
+        float b; 
+        float c; 
+        float d; 
+        float tx; 
+        float ty; 
+    } _transforms;
 }
 
-@property(setter=_setBackgroundView:,retain) UIView * _backgroundView;
-@property(readonly) NSPointerArray * _imageSizes;
-@property(readonly) long long _numberOfViews;
-@property(setter=_setPhotoDecorationVariants:,copy) NSArray * _photoDecorationVariants;
-@property(readonly) NSArray * _photoViews;
-@property bool combinesPhotoDecorations;
-@property(retain) UIImage * emptyPlaceholderImage;
-@property(retain) UIColor * gridBackgroundColor;
-@property double gridBackgroundCornerRadius;
-@property double gridItemSpacing;
-@property double gridMargin;
-@property long long numberOfVisibleItems;
-@property(retain) PUPhotoDecoration * photoDecoration;
-@property(readonly) NSArray * stackItemViews;
-@property struct UIOffset { double x1; double x2; } stackOffset;
-@property struct CGPoint { double x1; double x2; } stackPerspectiveFactor;
-@property struct UIEdgeInsets { double x1; double x2; double x3; double x4; } stackPerspectiveInsets;
-@property struct UIOffset { double x1; double x2; } stackPerspectiveOffset;
-@property struct CGSize { double x1; double x2; } stackSize;
-@property unsigned long long style;
-@property(readonly) struct CGPoint { double x1; double x2; } topLeftCornerOfFrontStackItem;
+@property (setter=_setBackgroundView:, nonatomic, retain) UIView *_backgroundView;
+@property (nonatomic, readonly) NSPointerArray *_imageSizes;
+@property (nonatomic, readonly) int _numberOfViews;
+@property (setter=_setPhotoDecorationVariants:, nonatomic, copy) NSArray *_photoDecorationVariants;
+@property (nonatomic, readonly) NSArray *_photoViews;
+@property (nonatomic) BOOL combinesPhotoDecorations;
+@property (nonatomic, retain) UIImage *emptyPlaceholderImage;
+@property (nonatomic, retain) UIColor *gridBackgroundColor;
+@property (nonatomic) float gridBackgroundCornerRadius;
+@property (nonatomic) float gridItemSpacing;
+@property (nonatomic) float gridMargin;
+@property (nonatomic) int numberOfVisibleItems;
+@property (nonatomic, retain) PUPhotoDecoration *photoDecoration;
+@property (nonatomic, readonly) NSArray *stackItemViews;
+@property (nonatomic) struct UIOffset { float x1; float x2; } stackOffset;
+@property (nonatomic) struct CGPoint { float x1; float x2; } stackPerspectiveFactor;
+@property (nonatomic) struct UIEdgeInsets { float x1; float x2; float x3; float x4; } stackPerspectiveInsets;
+@property (nonatomic) struct UIOffset { float x1; float x2; } stackPerspectiveOffset;
+@property (nonatomic) struct CGSize { float x1; float x2; } stackSize;
+@property (nonatomic) unsigned int style;
+@property (nonatomic, readonly) struct CGPoint { float x1; float x2; } topLeftCornerOfFrontStackItem;
 
-+ (long long)maximumNumberOfVisibleImagesForStyle:(unsigned long long)arg1;
-+ (long long)maximumNumberOfVisibleItemsForStyle:(unsigned long long)arg1;
++ (int)maximumNumberOfVisibleImagesForStyle:(unsigned int)arg1;
++ (int)maximumNumberOfVisibleItemsForStyle:(unsigned int)arg1;
 
 - (void).cxx_destruct;
 - (id)_backgroundView;
 - (id)_combinedPhotoDecorationsImage;
-- (void)_getCenter:(struct CGPoint { double x1; double x2; }*)arg1 bounds:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; }*)arg2 forPhotoViewAtIndex:(long long)arg3;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })_getStackFrame;
+- (void)_getCenter:(struct CGPoint { float x1; float x2; }*)arg1 bounds:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; }*)arg2 forPhotoViewAtIndex:(int)arg3;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })_getStackFrame;
 - (id)_imageSizes;
-- (long long)_numberOfViews;
+- (int)_numberOfViews;
 - (id)_photoDecorationVariants;
 - (id)_photoViews;
 - (void)_rebuildDecorationVariants;
@@ -97,48 +95,49 @@
 - (void)_updateNumberOfViews;
 - (void)_updatePhotoViews;
 - (void)_updateSubviewsOrdering;
-- (bool)combinesPhotoDecorations;
+- (BOOL)combinesPhotoDecorations;
 - (id)emptyPlaceholderImage;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })frameOfFrontStackItemRelativeToView:(id)arg1;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })frameOfFrontStackItemRelativeToView:(id)arg1;
 - (id)gridBackgroundColor;
-- (double)gridBackgroundCornerRadius;
-- (double)gridItemSpacing;
-- (double)gridMargin;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (bool)isImageHiddenForItemAtIndex:(long long)arg1;
+- (float)gridBackgroundCornerRadius;
+- (float)gridItemSpacing;
+- (float)gridMargin;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (BOOL)isImageHiddenForItemAtIndex:(int)arg1;
 - (void)layoutSubviews;
-- (id)newLayoutAttributesForItemAtIndex:(long long)arg1 relativeToView:(id)arg2;
-- (id)newLayoutAttributesForVisbleItemsRelativeToView:(id)arg1 maxCount:(long long)arg2;
-- (long long)numberOfVisibleItems;
+- (id)newLayoutAttributesForItemAtIndex:(int)arg1 relativeToView:(id)arg2;
+- (id)newLayoutAttributesForVisbleItemsRelativeToView:(id)arg1 maxCount:(int)arg2;
+- (int)numberOfVisibleItems;
 - (id)photoDecoration;
 - (void)prepareForReuse;
-- (void)setAlpha:(double)arg1 forItemAtIndex:(long long)arg2;
-- (void)setCombinesPhotoDecorations:(bool)arg1;
+- (void)setAlpha:(float)arg1 forItemAtIndex:(int)arg2;
+- (void)setBadgeType:(int)arg1 forItemAtIndex:(int)arg2;
+- (void)setBadgeType:(int)arg1 videoDuration:(double)arg2 forItemAtIndex:(int)arg3;
+- (void)setCombinesPhotoDecorations:(BOOL)arg1;
 - (void)setEmptyPlaceholderImage:(id)arg1;
 - (void)setGridBackgroundColor:(id)arg1;
-- (void)setGridBackgroundCornerRadius:(double)arg1;
-- (void)setGridItemSpacing:(double)arg1;
-- (void)setGridMargin:(double)arg1;
-- (void)setImage:(id)arg1 forItemAtIndex:(long long)arg2;
-- (void)setImageHidden:(bool)arg1 forItemAtIndex:(long long)arg2;
-- (void)setImageSize:(struct CGSize { double x1; double x2; })arg1 forItemAtIndex:(long long)arg2;
-- (void)setNumberOfVisibleItems:(long long)arg1;
+- (void)setGridBackgroundCornerRadius:(float)arg1;
+- (void)setGridItemSpacing:(float)arg1;
+- (void)setGridMargin:(float)arg1;
+- (void)setImage:(id)arg1 forItemAtIndex:(int)arg2;
+- (void)setImageHidden:(BOOL)arg1 forItemAtIndex:(int)arg2;
+- (void)setImageSize:(struct CGSize { float x1; float x2; })arg1 forItemAtIndex:(int)arg2;
+- (void)setNumberOfVisibleItems:(int)arg1;
 - (void)setPhotoDecoration:(id)arg1;
-- (void)setStackOffset:(struct UIOffset { double x1; double x2; })arg1;
-- (void)setStackPerspectiveFactor:(struct CGPoint { double x1; double x2; })arg1;
-- (void)setStackPerspectiveInsets:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; })arg1;
-- (void)setStackPerspectiveOffset:(struct UIOffset { double x1; double x2; })arg1;
-- (void)setStackSize:(struct CGSize { double x1; double x2; })arg1;
-- (void)setStyle:(unsigned long long)arg1;
-- (void)setVideoBannerVisible:(bool)arg1 duration:(double)arg2 videoSubtype:(short)arg3 forItemAtIndex:(long long)arg4;
+- (void)setStackOffset:(struct UIOffset { float x1; float x2; })arg1;
+- (void)setStackPerspectiveFactor:(struct CGPoint { float x1; float x2; })arg1;
+- (void)setStackPerspectiveInsets:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg1;
+- (void)setStackPerspectiveOffset:(struct UIOffset { float x1; float x2; })arg1;
+- (void)setStackSize:(struct CGSize { float x1; float x2; })arg1;
+- (void)setStyle:(unsigned int)arg1;
 - (id)stackItemViews;
-- (struct UIOffset { double x1; double x2; })stackOffset;
-- (struct CGPoint { double x1; double x2; })stackPerspectiveFactor;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })stackPerspectiveInsets;
-- (struct UIOffset { double x1; double x2; })stackPerspectiveOffset;
-- (struct CGSize { double x1; double x2; })stackSize;
-- (unsigned long long)style;
-- (struct CGPoint { double x1; double x2; })topLeftCornerOfFrontStackItem;
-- (bool)wouldCoverAllItemsInStackView:(id)arg1;
+- (struct UIOffset { float x1; float x2; })stackOffset;
+- (struct CGPoint { float x1; float x2; })stackPerspectiveFactor;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })stackPerspectiveInsets;
+- (struct UIOffset { float x1; float x2; })stackPerspectiveOffset;
+- (struct CGSize { float x1; float x2; })stackSize;
+- (unsigned int)style;
+- (struct CGPoint { float x1; float x2; })topLeftCornerOfFrontStackItem;
+- (BOOL)wouldCoverAllItemsInStackView:(id)arg1;
 
 @end

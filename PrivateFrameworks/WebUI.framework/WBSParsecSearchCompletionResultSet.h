@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class NSArray, NSString;
-
 @interface WBSParsecSearchCompletionResultSet : NSObject {
     double _completionScore;
     NSString *_completionString;
@@ -12,17 +10,17 @@
     double _maxAge;
     NSString *_prefix;
     NSArray *_results;
-    long long _status;
+    int _status;
 }
 
-@property(readonly) double completionScore;
-@property(readonly) NSString * completionString;
-@property(readonly) NSString * errorCodeString;
-@property(readonly) NSString * feedbackQueryIdentifier;
-@property(readonly) double maxAge;
-@property(readonly) NSString * prefix;
-@property(readonly) NSArray * results;
-@property(readonly) long long status;
+@property (nonatomic, readonly) double completionScore;
+@property (nonatomic, readonly) NSString *completionString;
+@property (nonatomic, readonly) NSString *errorCodeString;
+@property (nonatomic, readonly) NSString *feedbackQueryIdentifier;
+@property (nonatomic, readonly) double maxAge;
+@property (nonatomic, readonly) NSString *prefix;
+@property (nonatomic, readonly) NSArray *results;
+@property (nonatomic, readonly) int status;
 
 + (id)resultSetWithDictionary:(id)arg1 cache:(id)arg2;
 
@@ -35,6 +33,6 @@
 - (double)maxAge;
 - (id)prefix;
 - (id)results;
-- (long long)status;
+- (int)status;
 
 @end

@@ -2,25 +2,22 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString;
+@interface TPPreviewExporter : TPRenderingExporter <TSKImageExporter>
 
-@interface TPPreviewExporter : TPRenderingExporter <TSKImageExporter> {
-}
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) unsigned int height;
+@property (nonatomic) BOOL scaleToFit;
+@property (readonly) Class superclass;
+@property (nonatomic) unsigned int width;
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property unsigned long long height;
-@property bool scaleToFit;
-@property(readonly) Class superclass;
-@property unsigned long long width;
-
-- (unsigned long long)height;
+- (unsigned int)height;
 - (id)p_renderingExporterDelegate;
-- (bool)scaleToFit;
-- (void)setHeight:(unsigned long long)arg1;
-- (void)setScaleToFit:(bool)arg1;
-- (void)setWidth:(unsigned long long)arg1;
-- (unsigned long long)width;
+- (BOOL)scaleToFit;
+- (void)setHeight:(unsigned int)arg1;
+- (void)setScaleToFit:(BOOL)arg1;
+- (void)setWidth:(unsigned int)arg1;
+- (unsigned int)width;
 
 @end

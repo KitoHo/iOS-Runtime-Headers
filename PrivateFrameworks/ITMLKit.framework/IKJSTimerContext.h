@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@class IKJSManagedArray, JSManagedValue, NSTimer;
-
 @interface IKJSTimerContext : NSObject {
+    BOOL _isRepeating;
     IKJSManagedArray *_managedArgs;
     JSManagedValue *_managedCallback;
     id _ownerObject;
     NSTimer *_timer;
-    bool_isRepeating;
 }
 
-@property(readonly) bool isRepeating;
-@property(retain,readonly) IKJSManagedArray * managedArgs;
-@property(retain,readonly) JSManagedValue * managedCallback;
-@property(retain,readonly) id ownerObject;
-@property(retain) NSTimer * timer;
+@property (nonatomic, readonly) BOOL isRepeating;
+@property (nonatomic, readonly, retain) IKJSManagedArray *managedArgs;
+@property (nonatomic, readonly, retain) JSManagedValue *managedCallback;
+@property (nonatomic, readonly, retain) id ownerObject;
+@property (nonatomic, retain) NSTimer *timer;
 
 - (void).cxx_destruct;
 - (void)dealloc;
 - (id)description;
-- (id)initWithCallback:(id)arg1 callbackArgs:(id)arg2 repeating:(bool)arg3 ownerObject:(id)arg4 timer:(id)arg5;
-- (bool)isRepeating;
+- (id)initWithCallback:(id)arg1 callbackArgs:(id)arg2 repeating:(BOOL)arg3 ownerObject:(id)arg4 timer:(id)arg5;
+- (BOOL)isRepeating;
 - (id)managedArgs;
 - (id)managedCallback;
 - (id)ownerObject;

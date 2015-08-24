@@ -2,40 +2,41 @@
    Image: /System/Library/PrivateFrameworks/IMAVCore.framework/IMAVCore
  */
 
-@class IMHandle, NSArray, NSDate, NSDictionary, NSNumber, NSString;
-
 @interface IMAVChatProxy : NSObject {
     NSDictionary *_info;
 }
 
-@property(retain,readonly) NSString * GUID;
-@property(readonly) long long callID;
-@property(retain,readonly) NSString * conferenceID;
-@property double connectionTimeoutTime;
-@property(retain,readonly) NSNumber * dataDownloaded;
-@property(retain,readonly) NSNumber * dataUploaded;
-@property(retain,readonly) NSDate * dateConnected;
-@property(retain,readonly) NSDate * dateEnded;
-@property(readonly) int endedError;
-@property(readonly) unsigned int endedReason;
-@property(retain,readonly) IMHandle * initiatorIMHandle;
-@property double invitationTimeoutTime;
-@property(readonly) bool isActive;
-@property(readonly) bool isCaller;
-@property(setter=setMute:) bool isMute;
-@property(readonly) bool isSendingAudio;
-@property(readonly) bool isStateFinal;
-@property(readonly) bool isVideo;
-@property(retain,readonly) IMHandle * otherIMHandle;
-@property(retain,readonly) NSArray * remoteParticipants;
-@property(readonly) unsigned int sessionID;
-@property(readonly) unsigned int state;
+@property (nonatomic, readonly, retain) NSString *GUID;
+@property (nonatomic, readonly) int callID;
+@property (nonatomic, readonly, retain) NSString *conferenceID;
+@property (nonatomic) double connectionTimeoutTime;
+@property (nonatomic, readonly, retain) NSNumber *dataDownloaded;
+@property (nonatomic, readonly, retain) NSNumber *dataUploaded;
+@property (nonatomic, readonly, retain) NSDate *dateConnected;
+@property (nonatomic, readonly, retain) NSDate *dateEnded;
+@property (nonatomic, readonly) int endedError;
+@property (nonatomic, readonly) unsigned int endedReason;
+@property (nonatomic, readonly) BOOL hasAudioInterruption;
+@property (nonatomic, readonly) BOOL hasReceivedFirstFrame;
+@property (nonatomic, readonly, retain) IMHandle *initiatorIMHandle;
+@property (nonatomic) double invitationTimeoutTime;
+@property (nonatomic, readonly) BOOL isActive;
+@property (nonatomic, readonly) BOOL isCaller;
+@property (setter=setMute:, nonatomic) BOOL isMute;
+@property (nonatomic) BOOL isSendingAudio;
+@property (nonatomic, readonly) BOOL isStateFinal;
+@property (nonatomic, readonly) BOOL isVideo;
+@property (nonatomic, readonly, retain) IMHandle *otherIMHandle;
+@property (nonatomic, readonly, retain) NSArray *remoteParticipants;
+@property (nonatomic, readonly) unsigned int sessionID;
+@property (nonatomic, readonly) unsigned int state;
 
 - (id)GUID;
-- (bool)_isProxy;
+- (BOOL)_isProxy;
 - (void)acceptInvitation;
+- (void)acceptInvitationWithHoldMusic;
 - (id)account;
-- (long long)callID;
+- (int)callID;
 - (void)cancelInvitation;
 - (id)conferenceID;
 - (double)connectionTimeoutTime;
@@ -51,23 +52,26 @@
 - (unsigned int)endedReason;
 - (void)finalUpdate;
 - (void)forwardInvocation:(id)arg1;
+- (BOOL)hasAudioInterruption;
+- (BOOL)hasReceivedFirstFrame;
 - (id)initiatorIMHandle;
 - (double)invitationTimeoutTime;
 - (void)invite:(id)arg1 additionalPeers:(id)arg2;
 - (void)inviteAll;
-- (bool)isActive;
-- (bool)isCaller;
-- (bool)isMute;
-- (bool)isSendingAudio;
-- (bool)isStateFinal;
-- (bool)isVideo;
+- (BOOL)isActive;
+- (BOOL)isCaller;
+- (BOOL)isMute;
+- (BOOL)isSendingAudio;
+- (BOOL)isStateFinal;
+- (BOOL)isVideo;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (id)otherIMHandle;
 - (id)remoteParticipants;
 - (unsigned int)sessionID;
 - (void)setConnectionTimeoutTime:(double)arg1;
 - (void)setInvitationTimeoutTime:(double)arg1;
-- (void)setMute:(bool)arg1;
+- (void)setIsSendingAudio:(BOOL)arg1;
+- (void)setMute:(BOOL)arg1;
 - (unsigned int)state;
 - (void)updateWithInfo:(id)arg1;
 

@@ -2,59 +2,77 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOComposedRoute, GEOLocation, GEONavigationDetails, GEORouteMatch, NSObject<OS_xpc_object>, NSString;
-
 @interface GEONavigation : NSObject {
-    NSObject<OS_xpc_object> *_connection;
+    NSLock *_connectionLock;
+    <GEONavigationDelegate> *_delegate;
     GEONavigationDetails *_details;
+    NSObject<OS_xpc_object> *_geodConnection;
+    BOOL _hasNavigationStartedToken;
+    NSData *_lastSentRouteContext;
+    NSXPCConnection *_nanomapscdConnection;
     int _navigationStartedToken;
-    bool_hasNavigationStartedToken;
+    BOOL _shouldSendRouteWithStatus;
 }
 
-@property unsigned long long announcementStage;
-@property(readonly) NSString * destinationName;
-@property(readonly) double distanceRemainingOnRoute;
-@property(readonly) double distanceToManeuverEnd;
-@property(readonly) double distanceToManeuverStart;
-@property(readonly) double distanceToRoute;
-@property(readonly) bool isNavigating;
-@property(readonly) GEOLocation * location;
-@property(readonly) bool locationUnreliable;
-@property int navigationState;
-@property int navigationTransportType;
-@property(readonly) double remainingTime;
-@property(readonly) GEOComposedRoute * route;
-@property(readonly) GEORouteMatch * routeMatch;
+@property (nonatomic) unsigned int announcementStage;
+@property (nonatomic) <GEONavigationDelegate> *delegate;
+@property (nonatomic, readonly) NSString *destinationName;
+@property (nonatomic, readonly) double distanceRemainingOnRoute;
+@property (nonatomic, readonly) double distanceToManeuverEnd;
+@property (nonatomic, readonly) double distanceToManeuverStart;
+@property (nonatomic, readonly) double distanceToRoute;
+@property (nonatomic, readonly) BOOL isNavigating;
+@property (nonatomic, readonly) GEOLocation *location;
+@property (nonatomic, readonly) BOOL locationUnreliable;
+@property (nonatomic) int navigationState;
+@property (nonatomic) int navigationTransportType;
+@property (nonatomic, readonly) unsigned int nextAnnouncementStage;
+@property (nonatomic, readonly) double remainingTime;
+@property (nonatomic, readonly) GEOComposedRoute *route;
+@property (nonatomic, readonly) GEORouteMatch *routeMatch;
+@property (nonatomic, readonly) double timeUntilNextAnnouncement;
 
 + (id)sharedInstance;
 
-- (void)_closeConnection;
-- (void)_createConnection;
+- (void)_closeGeodConnection;
+- (void)_closeNanomapscdConnection;
+- (void)_createGeodConnection;
+- (void)_createNanomapscdConnection;
+- (void)_invalidateNavigationSessionWithRouteContext:(id)arg1;
 - (void)_sendMessage:(id)arg1 data:(id)arg2;
-- (unsigned long long)announcementStage;
+- (void)_setNeedsNavigationStatusUpdate;
+- (void)_updateNavigationRouteDetails:(id)arg1 routeStatus:(id)arg2 routeContext:(id)arg3;
+- (void)_updateNavigationRouteStatus;
+- (unsigned int)announcementStage;
 - (void)clearRoute;
 - (void)dealloc;
+- (id)delegate;
 - (id)destinationName;
 - (double)distanceRemainingOnRoute;
 - (double)distanceToManeuverEnd;
 - (double)distanceToManeuverStart;
 - (double)distanceToRoute;
 - (void)endNavigation;
-- (bool)isNavigating;
+- (id)init;
+- (BOOL)isNavigating;
 - (id)location;
-- (bool)locationUnreliable;
+- (BOOL)locationUnreliable;
 - (int)navigationState;
 - (int)navigationTransportType;
+- (unsigned int)nextAnnouncementStage;
 - (void)recalculatedToRoute:(id)arg1 location:(id)arg2 routeMatch:(id)arg3;
 - (double)remainingTime;
 - (id)route;
 - (id)routeMatch;
-- (void)setAnnouncementStage:(unsigned long long)arg1;
+- (void)setAnnouncementStage:(unsigned int)arg1;
+- (void)setDelegate:(id)arg1;
 - (void)setNavigationState:(int)arg1;
 - (void)setNavigationTransportType:(int)arg1;
+- (void)setNextAnnouncementStage:(unsigned int)arg1 andTime:(double)arg2;
 - (void)setRoute:(id)arg1 toDestinationName:(id)arg2;
 - (void)startNavigationForTransportType:(int)arg1 state:(int)arg2;
-- (void)updateLocation:(id)arg1 routeMatch:(id)arg2 etaRoute:(id)arg3 locationUnreliable:(bool)arg4;
+- (double)timeUntilNextAnnouncement;
+- (void)updateLocation:(id)arg1 routeMatch:(id)arg2 etaRoute:(id)arg3 locationUnreliable:(BOOL)arg4;
 - (void)updatedETA:(id)arg1;
 
 @end

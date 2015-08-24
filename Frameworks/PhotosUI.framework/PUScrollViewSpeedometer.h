@@ -2,87 +2,85 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class <PUScrollViewSpeedometerDelegate>, NSTimer, UIScrollView;
-
 @interface PUScrollViewSpeedometer : NSObject {
     struct CGPoint { 
-        double x; 
-        double y; 
-    struct CGSize { 
-        double width; 
-        double height; 
-    struct CGPoint { 
-        double x; 
-        double y; 
+        float x; 
+        float y; 
     } __lastContentOffset;
+    struct CGSize { 
+        float width; 
+        float height; 
     } __lastContentSize;
     UIScrollView *__lastScrollView;
     double __lastTime;
-    long long __nextRegime;
-    long long __nextRegimeCount;
+    int __nextRegime;
+    int __nextRegimeCount;
     NSTimer *__timeoutTimer;
     <PUScrollViewSpeedometerDelegate> *_delegate;
-    double _fastLowerThreshold;
-    double _fastUpperThreshold;
-    double _mediumLowerThreshold;
-    double _mediumUpperThreshold;
-    long long _regime;
+    BOOL _delegateSupportsRegimeChange;
+    float _fastLowerThreshold;
+    float _fastUpperThreshold;
+    float _mediumLowerThreshold;
+    float _mediumUpperThreshold;
+    int _regime;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _scrollSpeed;
-    bool_delegateSupportsRegimeChange;
 }
 
-@property(setter=_setLastContentOffset:) struct CGPoint { double x1; double x2; } _lastContentOffset;
-@property(setter=_setLastContentSize:) struct CGSize { double x1; double x2; } _lastContentSize;
-@property(setter=_setLastScrollView:) UIScrollView * _lastScrollView;
-@property(setter=_setLastTime:) double _lastTime;
-@property(setter=_setNextRegime:) long long _nextRegime;
-@property(setter=_setNextRegimeCount:) long long _nextRegimeCount;
-@property(setter=_setTimeoutTimer:,retain) NSTimer * _timeoutTimer;
-@property <PUScrollViewSpeedometerDelegate> * delegate;
-@property double fastLowerThreshold;
-@property double fastUpperThreshold;
-@property double mediumLowerThreshold;
-@property double mediumUpperThreshold;
-@property long long regime;
-@property struct CGPoint { double x1; double x2; } scrollSpeed;
+@property (setter=_setLastContentOffset:, nonatomic) struct CGPoint { float x1; float x2; } _lastContentOffset;
+@property (setter=_setLastContentSize:, nonatomic) struct CGSize { float x1; float x2; } _lastContentSize;
+@property (setter=_setLastScrollView:, nonatomic) UIScrollView *_lastScrollView;
+@property (setter=_setLastTime:, nonatomic) double _lastTime;
+@property (setter=_setNextRegime:, nonatomic) int _nextRegime;
+@property (setter=_setNextRegimeCount:, nonatomic) int _nextRegimeCount;
+@property (setter=_setTimeoutTimer:, nonatomic, retain) NSTimer *_timeoutTimer;
+@property (nonatomic) <PUScrollViewSpeedometerDelegate> *delegate;
+@property (nonatomic) float fastLowerThreshold;
+@property (nonatomic) float fastUpperThreshold;
+@property (nonatomic) float mediumLowerThreshold;
+@property (nonatomic) float mediumUpperThreshold;
+@property (nonatomic) int regime;
+@property (nonatomic) struct CGPoint { float x1; float x2; } scrollSpeed;
 
 - (void).cxx_destruct;
 - (void)_handleTimeoutTimer:(id)arg1;
-- (struct CGPoint { double x1; double x2; })_lastContentOffset;
-- (struct CGSize { double x1; double x2; })_lastContentSize;
+- (struct CGPoint { float x1; float x2; })_lastContentOffset;
+- (struct CGSize { float x1; float x2; })_lastContentSize;
 - (id)_lastScrollView;
 - (double)_lastTime;
-- (long long)_newRegimeForScrollSpeed:(struct CGPoint { double x1; double x2; })arg1;
-- (long long)_nextRegime;
-- (long long)_nextRegimeCount;
+- (int)_newRegimeForScrollSpeed:(struct CGPoint { float x1; float x2; })arg1;
+- (int)_nextRegime;
+- (int)_nextRegimeCount;
 - (void)_rescheduleTimeout;
-- (void)_setLastContentOffset:(struct CGPoint { double x1; double x2; })arg1;
-- (void)_setLastContentSize:(struct CGSize { double x1; double x2; })arg1;
+- (void)_setLastContentOffset:(struct CGPoint { float x1; float x2; })arg1;
+- (void)_setLastContentSize:(struct CGSize { float x1; float x2; })arg1;
 - (void)_setLastScrollView:(id)arg1;
 - (void)_setLastTime:(double)arg1;
-- (void)_setNextRegime:(long long)arg1;
-- (void)_setNextRegimeCount:(long long)arg1;
-- (void)_setRegime:(long long)arg1;
-- (void)_setScrollSpeed:(struct CGPoint { double x1; double x2; })arg1;
+- (void)_setNextRegime:(int)arg1;
+- (void)_setNextRegimeCount:(int)arg1;
+- (void)_setRegime:(int)arg1;
+- (void)_setScrollSpeed:(struct CGPoint { float x1; float x2; })arg1;
 - (void)_setTimeoutTimer:(id)arg1;
 - (id)_timeoutTimer;
 - (id)delegate;
-- (double)fastLowerThreshold;
-- (double)fastUpperThreshold;
-- (double)mediumLowerThreshold;
-- (double)mediumUpperThreshold;
-- (long long)regime;
-- (struct CGPoint { double x1; double x2; })scrollSpeed;
+- (float)fastLowerThreshold;
+- (float)fastUpperThreshold;
+- (float)mediumLowerThreshold;
+- (float)mediumUpperThreshold;
+- (int)regime;
+- (struct CGPoint { float x1; float x2; })scrollSpeed;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
-- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(bool)arg2;
+- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(BOOL)arg2;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)scrollViewDidScrollToTop:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)scrollViewWillScrollToTop:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setFastLowerThreshold:(double)arg1;
-- (void)setFastUpperThreshold:(double)arg1;
-- (void)setMediumLowerThreshold:(double)arg1;
-- (void)setMediumUpperThreshold:(double)arg1;
+- (void)setFastLowerThreshold:(float)arg1;
+- (void)setFastUpperThreshold:(float)arg1;
+- (void)setMediumLowerThreshold:(float)arg1;
+- (void)setMediumUpperThreshold:(float)arg1;
 
 @end

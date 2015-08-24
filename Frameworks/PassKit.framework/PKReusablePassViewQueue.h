@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class NSMutableSet;
-
 @interface PKReusablePassViewQueue : NSObject {
     NSMutableSet *_passViews;
 }
@@ -11,6 +9,6 @@
 - (void)dealloc;
 - (id)dequeueReusablePassView;
 - (void)enqueueReusablePassView:(id)arg1;
-- (id)initWithCount:(unsigned long long)arg1;
+- (id)initWithCount:(unsigned int)arg1;
 
 @end

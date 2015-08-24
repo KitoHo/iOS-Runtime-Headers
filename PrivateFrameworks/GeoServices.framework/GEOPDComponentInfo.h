@@ -2,36 +2,34 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOPDComponentFilter;
-
 @interface GEOPDComponentInfo : PBCodable <NSCopying> {
+    unsigned int _count;
+    GEOPDComponentFilter *_filter;
     struct { 
         unsigned int count : 1; 
         unsigned int startIndex : 1; 
         unsigned int type : 1; 
         unsigned int urgency : 1; 
         unsigned int includeSource : 1; 
-    unsigned int _count;
-    GEOPDComponentFilter *_filter;
     } _has;
+    BOOL _includeSource;
     unsigned int _startIndex;
     int _type;
     int _urgency;
-    bool_includeSource;
 }
 
-@property unsigned int count;
-@property(retain) GEOPDComponentFilter * filter;
-@property bool hasCount;
-@property(readonly) bool hasFilter;
-@property bool hasIncludeSource;
-@property bool hasStartIndex;
-@property bool hasType;
-@property bool hasUrgency;
-@property bool includeSource;
-@property unsigned int startIndex;
-@property int type;
-@property int urgency;
+@property (nonatomic) unsigned int count;
+@property (nonatomic, retain) GEOPDComponentFilter *filter;
+@property (nonatomic) BOOL hasCount;
+@property (nonatomic, readonly) BOOL hasFilter;
+@property (nonatomic) BOOL hasIncludeSource;
+@property (nonatomic) BOOL hasStartIndex;
+@property (nonatomic) BOOL hasType;
+@property (nonatomic) BOOL hasUrgency;
+@property (nonatomic) BOOL includeSource;
+@property (nonatomic) unsigned int startIndex;
+@property (nonatomic) int type;
+@property (nonatomic) int urgency;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -40,26 +38,26 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)filter;
-- (bool)hasCount;
-- (bool)hasFilter;
-- (bool)hasIncludeSource;
-- (bool)hasStartIndex;
-- (bool)hasType;
-- (bool)hasUrgency;
-- (unsigned long long)hash;
-- (bool)includeSource;
+- (BOOL)hasCount;
+- (BOOL)hasFilter;
+- (BOOL)hasIncludeSource;
+- (BOOL)hasStartIndex;
+- (BOOL)hasType;
+- (BOOL)hasUrgency;
+- (unsigned int)hash;
+- (BOOL)includeSource;
 - (id)initWithType:(int)arg1 count:(unsigned int)arg2;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setCount:(unsigned int)arg1;
 - (void)setFilter:(id)arg1;
-- (void)setHasCount:(bool)arg1;
-- (void)setHasIncludeSource:(bool)arg1;
-- (void)setHasStartIndex:(bool)arg1;
-- (void)setHasType:(bool)arg1;
-- (void)setHasUrgency:(bool)arg1;
-- (void)setIncludeSource:(bool)arg1;
+- (void)setHasCount:(BOOL)arg1;
+- (void)setHasIncludeSource:(BOOL)arg1;
+- (void)setHasStartIndex:(BOOL)arg1;
+- (void)setHasType:(BOOL)arg1;
+- (void)setHasUrgency:(BOOL)arg1;
+- (void)setIncludeSource:(BOOL)arg1;
 - (void)setStartIndex:(unsigned int)arg1;
 - (void)setType:(int)arg1;
 - (void)setUrgency:(int)arg1;

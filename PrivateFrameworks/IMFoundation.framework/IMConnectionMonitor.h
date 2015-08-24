@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/IMFoundation.framework/IMFoundation
  */
 
-@class <IMConnectionMonitorDelegate>, NSString;
-
 @interface IMConnectionMonitor : NSObject {
     <IMConnectionMonitorDelegate> *_delegate;
     NSString *_remoteHost;
 }
 
-@property <IMConnectionMonitorDelegate> * delegate;
-@property(setter=setDataConnectionActive:) bool isDataConnectionActive;
-@property(readonly) bool isImmediatelyReachable;
-@property(readonly) NSString * remoteHost;
-@property(readonly) bool requiresDataConnectionActivation;
+@property (nonatomic) <IMConnectionMonitorDelegate> *delegate;
+@property (setter=setDataConnectionActive:, nonatomic) BOOL isDataConnectionActive;
+@property (nonatomic, readonly) BOOL isImmediatelyReachable;
+@property (nonatomic, readonly) NSString *remoteHost;
+@property (nonatomic, readonly) BOOL requiresDataConnectionActivation;
 
 + (id)alloc;
 
@@ -24,11 +22,11 @@
 - (void)goConnectedWithLocalSocketAddress:(id)arg1 remoteSocketAddress:(id)arg2;
 - (void)goDisconnected;
 - (id)initWithRemoteHost:(id)arg1 delegate:(id)arg2;
-- (bool)isDataConnectionActive;
-- (bool)isImmediatelyReachable;
+- (BOOL)isDataConnectionActive;
+- (BOOL)isImmediatelyReachable;
 - (id)remoteHost;
-- (bool)requiresDataConnectionActivation;
-- (void)setDataConnectionActive:(bool)arg1;
+- (BOOL)requiresDataConnectionActivation;
+- (void)setDataConnectionActive:(BOOL)arg1;
 - (void)setDelegate:(id)arg1;
 
 @end

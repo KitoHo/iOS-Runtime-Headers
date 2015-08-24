@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class NSMutableSet;
-
 @interface CoreDAVSupportedReportSetItem : CoreDAVItem {
     NSMutableSet *_supportedReports;
 }
 
-@property(retain) NSMutableSet * supportedReports;
+@property (nonatomic, retain) NSMutableSet *supportedReports;
 
 + (id)copyParseRules;
 
@@ -18,6 +16,6 @@
 - (id)init;
 - (void)setSupportedReports:(id)arg1;
 - (id)supportedReports;
-- (bool)supportsReportWithNameSpace:(id)arg1 andName:(id)arg2;
+- (BOOL)supportsReportWithNameSpace:(id)arg1 andName:(id)arg2;
 
 @end

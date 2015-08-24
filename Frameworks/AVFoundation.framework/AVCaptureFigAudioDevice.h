@@ -2,16 +2,14 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVWeakReference, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
-
 @interface AVCaptureFigAudioDevice : AVCaptureDevice {
     NSDictionary *_attributes;
     struct OpaqueFigCaptureSource { } *_fcs;
     NSObject<OS_dispatch_queue> *_fcsQueue;
+    BOOL _isConnected;
+    BOOL _levelMeteringEnabled;
     NSString *_localizedName;
     AVWeakReference *_weakReference;
-    bool_isConnected;
-    bool_levelMeteringEnabled;
 }
 
 + (id)_devices;
@@ -27,15 +25,15 @@
 - (void)dealloc;
 - (struct OpaqueCMClock { }*)deviceClock;
 - (struct OpaqueFigCaptureSource { }*)figCaptureSource;
-- (bool)hasMediaType:(id)arg1;
+- (BOOL)hasMediaType:(id)arg1;
 - (id)init;
-- (bool)isConnected;
-- (bool)isInUseByAnotherApplication;
+- (BOOL)isConnected;
+- (BOOL)isInUseByAnotherApplication;
 - (id)localizedName;
 - (id)modelID;
-- (bool)startUsingDevice:(id*)arg1;
+- (BOOL)startUsingDevice:(id*)arg1;
 - (void)stopUsingDevice;
-- (bool)supportsAVCaptureSessionPreset:(id)arg1;
+- (BOOL)supportsAVCaptureSessionPreset:(id)arg1;
 - (id)uniqueID;
 
 @end

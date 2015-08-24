@@ -2,19 +2,17 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSArray;
-
 @interface CKModifyWebSharingOperationInfo : CKDatabaseOperationInfo <NSSecureCoding> {
     NSArray *_recordIDsToShare;
     NSArray *_recordIDsToShareReadWrite;
     NSArray *_recordIDsToUnshare;
 }
 
-@property(retain) NSArray * recordIDsToShare;
-@property(retain) NSArray * recordIDsToShareReadWrite;
-@property(retain) NSArray * recordIDsToUnshare;
+@property (nonatomic, retain) NSArray *recordIDsToShare;
+@property (nonatomic, retain) NSArray *recordIDsToShareReadWrite;
+@property (nonatomic, retain) NSArray *recordIDsToUnshare;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

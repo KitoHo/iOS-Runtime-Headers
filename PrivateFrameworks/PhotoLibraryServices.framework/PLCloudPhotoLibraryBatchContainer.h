@@ -2,34 +2,34 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class CPLChangeBatch;
-
 @interface PLCloudPhotoLibraryBatchContainer : NSObject {
     CPLChangeBatch *_batch;
-    unsigned long long _retryCount;
-    bool_reachedMinSplit;
-    bool_wasSplit;
+    BOOL _reachedMinSplit;
+    unsigned int _retryCount;
+    BOOL _wasSplit;
 }
 
-@property(retain) CPLChangeBatch * batch;
-@property bool reachedMinSplit;
-@property unsigned long long retryCount;
-@property bool wasSplit;
+@property (nonatomic, retain) CPLChangeBatch *batch;
+@property (nonatomic) BOOL reachedMinSplit;
+@property (nonatomic) unsigned int retryCount;
+@property (nonatomic) BOOL wasSplit;
 
 - (void)addRecord:(id)arg1;
 - (id)batch;
 - (id)batchesSplitForError;
-- (unsigned long long)count;
+- (unsigned int)count;
 - (void)dealloc;
+- (id)description;
 - (void)incrementRetryCount;
 - (id)init;
 - (id)lastAddedRecord;
-- (bool)reachedMinSplit;
-- (unsigned long long)retryCount;
+- (BOOL)reachedMinSplit;
+- (unsigned int)retryCount;
 - (void)setBatch:(id)arg1;
-- (void)setReachedMinSplit:(bool)arg1;
-- (void)setRetryCount:(unsigned long long)arg1;
-- (void)setWasSplit:(bool)arg1;
-- (bool)wasSplit;
+- (void)setReachedMinSplit:(BOOL)arg1;
+- (void)setRetryCount:(unsigned int)arg1;
+- (void)setWasSplit:(BOOL)arg1;
+- (void)validateResourcesAvailability;
+- (BOOL)wasSplit;
 
 @end

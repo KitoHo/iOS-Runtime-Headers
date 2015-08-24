@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/AirPortAssistant.framework/AirPortAssistant
  */
 
-@class AssistantUIViewController, NSDictionary, NSMutableDictionary;
-
 @interface AssistantSubUIViewController : AUUITableViewController {
     NSDictionary *_inParamDict;
     NSMutableDictionary *_outResultsDict;
     AssistantUIViewController *_parentController;
 }
 
-@property(retain) NSDictionary * inParamDict;
-@property(readonly) NSDictionary * outResultsDict;
-@property AssistantUIViewController * parentController;
+@property (nonatomic, retain) NSDictionary *inParamDict;
+@property (nonatomic, readonly) NSDictionary *outResultsDict;
+@property (nonatomic) AssistantUIViewController *parentController;
 
-+ (id)containerViewWithWidth:(double)arg1;
-+ (id)labelViewInContainer:(id*)arg1 width:(double)arg2 constrain:(bool)arg3;
-+ (id)labelViewInContainer:(id*)arg1 width:(double)arg2 withSpinner:(id*)arg3 above:(bool)arg4;
-+ (id)labelViewInContainer:(id*)arg1 width:(double)arg2;
-+ (id)tableViewWithWidth:(double)arg1 height:(double)arg2;
-+ (id)topoViewWithWidth:(double)arg1;
++ (id)containerViewWithWidth:(float)arg1;
++ (id)labelViewInContainer:(id*)arg1 width:(float)arg2;
++ (id)labelViewInContainer:(id*)arg1 width:(float)arg2 constrain:(BOOL)arg3;
++ (id)labelViewInContainer:(id*)arg1 width:(float)arg2 withSpinner:(id*)arg3 above:(BOOL)arg4;
++ (id)tableViewWithWidth:(float)arg1 height:(float)arg2;
++ (id)topoViewWithWidth:(float)arg1;
 
 - (void)dealloc;
 - (id)getProductLocalizedStringWithFormat:(id)arg1;
@@ -28,9 +26,9 @@
 - (id)outResultsDict;
 - (id)parentController;
 - (void)setInParamDict:(id)arg1;
-- (void)setLeftNavigationButton:(id)arg1 enable:(bool)arg2 hide:(bool)arg3;
+- (void)setLeftNavigationButton:(id)arg1 enable:(BOOL)arg2 hide:(BOOL)arg3;
 - (void)setParentController:(id)arg1;
-- (void)setRightNavigationButton:(id)arg1 enable:(bool)arg2 hide:(bool)arg3;
+- (void)setRightNavigationButton:(id)arg1 enable:(BOOL)arg2 hide:(BOOL)arg3;
 - (void)viewDidLoad;
 
 @end

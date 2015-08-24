@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@interface SKUIStarHistogramViewElement : SKUIViewElement {
-}
+@interface SKUIStarHistogramViewElement : SKUIViewElement
 
-- (long long)pageComponentType;
+- (int)pageComponentType;
 
 @end

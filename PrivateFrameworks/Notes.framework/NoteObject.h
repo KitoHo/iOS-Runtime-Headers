@@ -2,54 +2,51 @@
    Image: /System/Library/PrivateFrameworks/Notes.framework/Notes
  */
 
-@class NSData, NSDate, NSNumber, NSSet, NSString, NSURL, NoteBodyObject, NoteStoreObject;
+@interface NoteObject : NSManagedObject
 
-@interface NoteObject : NSManagedObject {
-}
+@property (nonatomic, retain) NSSet *attachments;
+@property (nonatomic, retain) NSString *author;
+@property (nonatomic, retain) NoteBodyObject *body;
+@property (nonatomic, retain) NSNumber *containsCJK;
+@property (nonatomic, retain) NSString *content;
+@property (nonatomic, readonly) NSString *contentAsPlainText;
+@property (nonatomic, retain) NSNumber *contentType;
+@property (nonatomic, retain) NSDate *creationDate;
+@property (nonatomic, retain) NSNumber *deletedFlag;
+@property (nonatomic, retain) NSString *externalContentRef;
+@property (nonatomic, retain) NSNumber *externalFlags;
+@property (nonatomic, retain) NSData *externalRepresentation;
+@property (nonatomic, retain) NSNumber *externalSequenceNumber;
+@property (nonatomic, retain) NSNumber *externalServerIntId;
+@property (nonatomic) unsigned long long flags;
+@property (nonatomic, readonly, retain) NSString *guid;
+@property (nonatomic, readonly) BOOL hasValidServerIntId;
+@property (nonatomic, retain) NSNumber *integerId;
+@property (nonatomic, readonly) BOOL isBeingMarkedForDeletion;
+@property (nonatomic, retain) NSNumber *isBookkeepingEntry;
+@property (nonatomic, readonly) BOOL isMarkedForDeletion;
+@property (nonatomic) BOOL isPlainText;
+@property (nonatomic, retain) NSDate *modificationDate;
+@property (nonatomic, readonly) NSURL *noteId;
+@property (nonatomic) unsigned long long sequenceNumber;
+@property (nonatomic, retain) NSString *serverId;
+@property (nonatomic) long long serverIntId;
+@property (nonatomic, retain) NoteStoreObject *store;
+@property (nonatomic, retain) NSString *summary;
+@property (nonatomic, retain) NSString *title;
 
-@property(retain) NSSet * attachments;
-@property(retain) NSString * author;
-@property(retain) NoteBodyObject * body;
-@property(retain) NSNumber * containsCJK;
-@property(retain) NSString * content;
-@property(readonly) NSString * contentAsPlainText;
-@property(retain) NSNumber * contentType;
-@property(retain) NSDate * creationDate;
-@property(retain) NSNumber * deletedFlag;
-@property(retain) NSString * externalContentRef;
-@property(retain) NSNumber * externalFlags;
-@property(retain) NSData * externalRepresentation;
-@property(retain) NSNumber * externalSequenceNumber;
-@property(retain) NSNumber * externalServerIntId;
-@property unsigned long long flags;
-@property(retain,readonly) NSString * guid;
-@property(readonly) bool hasValidServerIntId;
-@property(retain) NSNumber * integerId;
-@property(readonly) bool isBeingMarkedForDeletion;
-@property(retain) NSNumber * isBookkeepingEntry;
-@property(readonly) bool isMarkedForDeletion;
-@property bool isPlainText;
-@property(retain) NSDate * modificationDate;
-@property(readonly) NSURL * noteId;
-@property unsigned long long sequenceNumber;
-@property(retain) NSString * serverId;
-@property long long serverIntId;
-@property(retain) NoteStoreObject * store;
-@property(retain) NSString * summary;
-@property(retain) NSString * title;
-
-- (bool)belongsToCollection:(id)arg1;
-- (bool)containsAttachments;
+- (BOOL)belongsToCollection:(id)arg1;
+- (BOOL)containsAttachments;
 - (id)content;
 - (id)contentAsPlainText;
 - (id)contentAsPlainTextPreservingNewlines;
 - (id)externalContentRef;
 - (id)externalRepresentation;
 - (unsigned long long)flags;
-- (bool)hasValidServerIntId;
-- (bool)isBeingMarkedForDeletion;
-- (bool)isMarkedForDeletion;
-- (bool)isPlainText;
+- (BOOL)hasValidServerIntId;
+- (BOOL)isBeingMarkedForDeletion;
+- (BOOL)isMarkedForDeletion;
+- (BOOL)isPlainText;
 - (void)markForDeletion;
 - (id)noteId;
 - (unsigned long long)sequenceNumber;
@@ -58,7 +55,7 @@
 - (void)setExternalContentRef:(id)arg1;
 - (void)setExternalRepresentation:(id)arg1;
 - (void)setFlags:(unsigned long long)arg1;
-- (void)setIsPlainText:(bool)arg1;
+- (void)setIsPlainText:(BOOL)arg1;
 - (void)setSequenceNumber:(unsigned long long)arg1;
 - (void)setServerIntId:(long long)arg1;
 

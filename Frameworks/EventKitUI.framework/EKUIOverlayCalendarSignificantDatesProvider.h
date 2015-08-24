@@ -2,25 +2,19 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class CalDateRange, NSDate, NSDictionary, NSObject<OS_dispatch_queue>;
-
 @interface EKUIOverlayCalendarSignificantDatesProvider : NSObject {
     CalDateRange *_cachedCentralYear;
     CalDateRange *_cachedDateRange;
     NSDictionary *_cachedFirstsOfMonths;
     NSDictionary *_cachedFirstsOfYears;
-    unsigned long long _currentGeneration;
+    unsigned int _currentGeneration;
     NSDate *_currentRequest;
+    BOOL _loadPending;
     NSObject<OS_dispatch_queue> *_queue;
-    id _significantDatesChangedHandler;
-    bool_loadPending;
+    id /* block */ _significantDatesChangedHandler;
 }
 
-@property(copy) id significantDatesChangedHandler;
+@property (nonatomic, copy) id /* block */ significantDatesChangedHandler;
 
 - (void).cxx_destruct;
 - (void)_invalidateCaches;
@@ -30,7 +24,7 @@
 - (id)firstOfOverlayMonthsForCalendarMonth:(id)arg1;
 - (id)firstOfOverlayYearsForCalendarMonth:(id)arg1;
 - (id)init;
-- (void)setSignificantDatesChangedHandler:(id)arg1;
-- (id)significantDatesChangedHandler;
+- (void)setSignificantDatesChangedHandler:(id /* block */)arg1;
+- (id /* block */)significantDatesChangedHandler;
 
 @end

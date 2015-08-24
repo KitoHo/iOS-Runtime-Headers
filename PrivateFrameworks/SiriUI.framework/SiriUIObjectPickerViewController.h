@@ -2,30 +2,21 @@
    Image: /System/Library/PrivateFrameworks/SiriUI.framework/SiriUI
  */
 
-@class <SiriUIObjectPickerViewControllerDelegate>, SAUIDomainObjectPicker, SiriUIObjectPickerButtonView;
-
 @interface SiriUIObjectPickerViewController : UIViewController {
     SAUIDomainObjectPicker *_picker;
     <SiriUIObjectPickerViewControllerDelegate> *_pickerDelegate;
-    bool_showsTopKeyline;
 }
 
-@property(getter=_picker,readonly) SAUIDomainObjectPicker * picker;
-@property <SiriUIObjectPickerViewControllerDelegate> * pickerDelegate;
-@property bool showsTopKeyline;
-@property(readonly) SiriUIObjectPickerButtonView * view;
+@property (getter=_picker, nonatomic, readonly) SAUIDomainObjectPicker *picker;
+@property (nonatomic) <SiriUIObjectPickerViewControllerDelegate> *pickerDelegate;
 
-+ (double)defaultHeight;
 + (id)pickerControllerWithPicker:(id)arg1;
 
 - (void).cxx_destruct;
 - (id)_picker;
-- (void)_pickerButtonTapped:(id)arg1;
 - (id)initWithPicker:(id)arg1;
-- (void)loadView;
 - (id)pickerDelegate;
 - (void)setPickerDelegate:(id)arg1;
-- (void)setShowsTopKeyline:(bool)arg1;
-- (bool)showsTopKeyline;
+- (void)showPicker:(id)arg1;
 
 @end

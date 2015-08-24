@@ -2,13 +2,11 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class MPPCompoundPredicate, MPPConditionalPredicate, MPPPersistentIDsPredicate, MPPPropertyPredicate, MPPSearchStringPredicate;
-
 @interface MPPMediaPredicate : PBCodable <NSCopying> {
-    struct { 
-        unsigned int type : 1; 
     MPPCompoundPredicate *_compoundPredicate;
     MPPConditionalPredicate *_conditionalPredicate;
+    struct { 
+        unsigned int type : 1; 
     } _has;
     MPPPersistentIDsPredicate *_persistentIDsPredicate;
     MPPPropertyPredicate *_propertyPredicate;
@@ -16,18 +14,18 @@
     int _type;
 }
 
-@property(retain) MPPCompoundPredicate * compoundPredicate;
-@property(retain) MPPConditionalPredicate * conditionalPredicate;
-@property(readonly) bool hasCompoundPredicate;
-@property(readonly) bool hasConditionalPredicate;
-@property(readonly) bool hasPersistentIDsPredicate;
-@property(readonly) bool hasPropertyPredicate;
-@property(readonly) bool hasSearchStringPredicate;
-@property bool hasType;
-@property(retain) MPPPersistentIDsPredicate * persistentIDsPredicate;
-@property(retain) MPPPropertyPredicate * propertyPredicate;
-@property(retain) MPPSearchStringPredicate * searchStringPredicate;
-@property int type;
+@property (nonatomic, retain) MPPCompoundPredicate *compoundPredicate;
+@property (nonatomic, retain) MPPConditionalPredicate *conditionalPredicate;
+@property (nonatomic, readonly) BOOL hasCompoundPredicate;
+@property (nonatomic, readonly) BOOL hasConditionalPredicate;
+@property (nonatomic, readonly) BOOL hasPersistentIDsPredicate;
+@property (nonatomic, readonly) BOOL hasPropertyPredicate;
+@property (nonatomic, readonly) BOOL hasSearchStringPredicate;
+@property (nonatomic) BOOL hasType;
+@property (nonatomic, retain) MPPPersistentIDsPredicate *persistentIDsPredicate;
+@property (nonatomic, retain) MPPPropertyPredicate *propertyPredicate;
+@property (nonatomic, retain) MPPSearchStringPredicate *searchStringPredicate;
+@property (nonatomic) int type;
 
 - (void).cxx_destruct;
 - (id)compoundPredicate;
@@ -37,21 +35,21 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasCompoundPredicate;
-- (bool)hasConditionalPredicate;
-- (bool)hasPersistentIDsPredicate;
-- (bool)hasPropertyPredicate;
-- (bool)hasSearchStringPredicate;
-- (bool)hasType;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasCompoundPredicate;
+- (BOOL)hasConditionalPredicate;
+- (BOOL)hasPersistentIDsPredicate;
+- (BOOL)hasPropertyPredicate;
+- (BOOL)hasSearchStringPredicate;
+- (BOOL)hasType;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)persistentIDsPredicate;
 - (id)propertyPredicate;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)searchStringPredicate;
 - (void)setCompoundPredicate:(id)arg1;
 - (void)setConditionalPredicate:(id)arg1;
-- (void)setHasType:(bool)arg1;
+- (void)setHasType:(BOOL)arg1;
 - (void)setPersistentIDsPredicate:(id)arg1;
 - (void)setPropertyPredicate:(id)arg1;
 - (void)setSearchStringPredicate:(id)arg1;

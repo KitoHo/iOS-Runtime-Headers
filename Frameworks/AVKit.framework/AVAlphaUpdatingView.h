@@ -2,19 +2,15 @@
    Image: /System/Library/Frameworks/AVKit.framework/AVKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface AVAlphaUpdatingView : UIView {
-    id _alphaUpdatingBlock;
+    id /* block */ _alphaUpdatingBlock;
 }
 
-@property(copy) id alphaUpdatingBlock;
+@property (nonatomic, copy) id /* block */ alphaUpdatingBlock;
 
 - (void).cxx_destruct;
-- (id)alphaUpdatingBlock;
-- (void)setAlpha:(double)arg1;
-- (void)setAlphaUpdatingBlock:(id)arg1;
+- (id /* block */)alphaUpdatingBlock;
+- (void)setAlpha:(float)arg1;
+- (void)setAlphaUpdatingBlock:(id /* block */)arg1;
 
 @end

@@ -2,12 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GameKitServices.framework/GameKitServices
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <CDXClientDelegate>, NSData, NSError, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
-
 @interface CDXClient : NSObject {
     struct sockaddr_in { 
         unsigned char sin_len; 
@@ -17,36 +11,36 @@
             unsigned int s_addr; 
         } sin_addr; 
         BOOL sin_zero[8]; 
-    boolpreblobIsUpToDate_;
-    boolwillReconfigureShortly_;
     } cdxaddr_ipv4;
     <CDXClientDelegate> *delegate_;
     NSError *error_;
     int fd_;
-    long long holePunchAttemptCount_;
+    int holePunchAttemptCount_;
     double holePunchInterval_;
     unsigned long long holePunchSID_;
     NSObject<OS_dispatch_source> *holePunchTimer_;
     unsigned short localPort_;
-    void *padding_[10];
+    void *padding_;
     unsigned short port_;
-    id preblobCallback_;
+    id /* block */ preblobCallback_;
+    BOOL preblobIsUpToDate_;
     NSData *preblob_;
     unsigned long long prevHolePunchSID_;
     NSObject<OS_dispatch_queue> *queue_;
-    long long restartCount_;
+    int restartCount_;
     struct __CFRunLoopSource { } *scDynamicStoreRunLoopSource_;
     struct __SCDynamicStore { } *scDynamicStore_;
     NSString *server_;
     NSMutableDictionary *sessionLookup_;
     NSObject<OS_dispatch_source> *source_;
+    BOOL willReconfigureShortly_;
 }
 
-@property <CDXClientDelegate> * delegate;
-@property(readonly) NSError * error;
-@property(readonly) NSData * preblob;
-@property(copy) id preblobCallback;
-@property(readonly) NSObject<OS_dispatch_queue> * queue;
+@property (nonatomic) <CDXClientDelegate> *delegate;
+@property (nonatomic, readonly) NSError *error;
+@property (readonly) NSData *preblob;
+@property (nonatomic, copy) id /* block */ preblobCallback;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *queue;
 
 + (id)sharedClient;
 
@@ -55,22 +49,22 @@
 - (id)delegate;
 - (id)error;
 - (void)handleFDEvent;
-- (bool)handleHolePunchEvent;
+- (BOOL)handleHolePunchEvent;
 - (id)initWithOptions:(id)arg1 delegate:(id)arg2;
 - (void)invalidate;
 - (void)invalidateSession:(id)arg1;
 - (void)networkDidChange;
 - (id)preblob;
-- (id)preblobCallback;
+- (id /* block */)preblobCallback;
 - (id)queue;
 - (void)resetHolepunchTimer;
 - (void)restart;
 - (void)sendHolePunch;
-- (bool)sendRaw:(id)arg1;
+- (BOOL)sendRaw:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setError:(id)arg1;
 - (void)setPreblob:(id)arg1;
-- (void)setPreblobCallback:(id)arg1;
+- (void)setPreblobCallback:(id /* block */)arg1;
 - (void)start;
 - (void)startListeningOnSockets;
 - (void)stopHolePunchTimer;

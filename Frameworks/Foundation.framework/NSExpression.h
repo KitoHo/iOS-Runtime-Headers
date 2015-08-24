@@ -2,34 +2,33 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSArray, NSExpression, NSPredicate, NSString;
-
-@interface NSExpression : NSObject <NSSecureCoding, NSCopying> {
+@interface NSExpression : NSObject <NSCopying, NSSecureCoding> {
     struct _expressionFlags { 
         unsigned int _evaluationBlocked : 1; 
         unsigned int _reservedExpressionFlags : 31; 
     } _expressionFlags;
-    unsigned long long _expressionType;
-    unsigned int reserved;
+    unsigned int _expressionType;
 }
 
-@property(copy,readonly) NSArray * arguments;
-@property(retain,readonly) id collection;
-@property(retain,readonly) id constantValue;
-@property(copy,readonly) id expressionBlock;
-@property(readonly) unsigned long long expressionType;
-@property(copy,readonly) NSString * function;
-@property(copy,readonly) NSString * keyPath;
-@property(copy,readonly) NSExpression * leftExpression;
-@property(copy,readonly) NSExpression * operand;
-@property(copy,readonly) NSPredicate * predicate;
-@property(copy,readonly) NSExpression * rightExpression;
-@property(copy,readonly) NSString * variable;
+@property (readonly, copy) NSArray *arguments;
+@property (readonly, retain) id collection;
+@property (readonly, retain) id constantValue;
+@property (readonly, copy) id /* block */ expressionBlock;
+@property (readonly) unsigned int expressionType;
+@property (readonly, copy) NSString *function;
+@property (readonly, copy) NSString *keyPath;
+@property (readonly, copy) NSExpression *leftExpression;
+@property (readonly, copy) NSExpression *operand;
+@property (readonly, copy) NSPredicate *predicate;
+@property (readonly, copy) NSExpression *rightExpression;
+@property (readonly, copy) NSString *variable;
+
+// Image: /System/Library/Frameworks/Foundation.framework/Foundation
 
 + (id)_newKeyPathExpressionForString:(id)arg1;
 + (id)expressionForAggregate:(id)arg1;
 + (id)expressionForAnyKey;
-+ (id)expressionForBlock:(id)arg1 arguments:(id)arg2;
++ (id)expressionForBlock:(id /* block */)arg1 arguments:(id)arg2;
 + (id)expressionForConstantValue:(id)arg1;
 + (id)expressionForEvaluatedObject;
 + (id)expressionForFunction:(id)arg1 arguments:(id)arg2;
@@ -43,17 +42,15 @@
 + (id)expressionForUnionSet:(id)arg1 with:(id)arg2;
 + (id)expressionForVariable:(id)arg1;
 + (id)expressionForVariableNameAssignment:(id)arg1 expression:(id)arg2;
-+ (id)expressionWithCKDPRecordFieldValue:(id)arg1 translator:(id)arg2;
-+ (id)expressionWithFormat:(id)arg1 argumentArray:(id)arg2;
-+ (id)expressionWithFormat:(id)arg1 arguments:(char *)arg2;
 + (id)expressionWithFormat:(id)arg1;
-+ (bool)supportsSecureCoding;
++ (id)expressionWithFormat:(id)arg1 argumentArray:(id)arg2;
++ (id)expressionWithFormat:(id)arg1 arguments:(void*)arg2;
++ (BOOL)supportsSecureCoding;
 
-- (id)CKExpressionValue;
-- (bool)_allowsEvaluation;
+- (BOOL)_allowsEvaluation;
 - (id)_expressionWithSubstitutionVariables:(id)arg1;
-- (bool)_shouldUseParensWithDescription;
-- (void)acceptVisitor:(id)arg1 flags:(unsigned long long)arg2;
+- (BOOL)_shouldUseParensWithDescription;
+- (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
 - (void)allowEvaluation;
 - (id)arguments;
 - (id)collection;
@@ -61,16 +58,15 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (id)expressionBlock;
-- (unsigned long long)expressionType;
+- (id /* block */)expressionBlock;
+- (unsigned int)expressionType;
 - (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
 - (id)falseExpression;
 - (id)function;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithExpressionType:(unsigned long long)arg1;
+- (id)initWithExpressionType:(unsigned int)arg1;
 - (id)keyPath;
 - (id)leftExpression;
-- (id)minimalFormInContext:(id)arg1;
 - (id)operand;
 - (id)predicate;
 - (id)predicateFormat;
@@ -79,5 +75,17 @@
 - (id)subexpression;
 - (id)trueExpression;
 - (id)variable;
+
+// Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
+
+- (id)CKExpressionValue;
+
+// Image: /System/Library/Frameworks/CoreData.framework/CoreData
+
+- (id)minimalFormInContext:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
+
++ (id)expressionWithCKDPRecordFieldValue:(id)arg1 translator:(id)arg2;
 
 @end

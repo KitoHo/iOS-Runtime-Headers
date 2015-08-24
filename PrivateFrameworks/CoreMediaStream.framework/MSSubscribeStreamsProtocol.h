@@ -2,12 +2,8 @@
    Image: /System/Library/PrivateFrameworks/CoreMediaStream.framework/CoreMediaStream
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
 @interface MSSubscribeStreamsProtocol : MSStreamsProtocol {
+    int _chunkIndex;
     struct __MSSSPCContext { 
         struct __MSSPCContext { 
             void *owner; 
@@ -33,18 +29,17 @@
         int (*didReceiveServerSideConfigurationVersionCallback)(); 
         int (*didReceiveRetryAfterCallback)(); 
         double connectionTimeout; 
-        long long __state; 
+        int __state; 
         struct __CFData {} *__chunkLengthData; 
         struct __CFData {} *__currentChunkData; 
-        long long __chunkBytesRemaining; 
-    int _chunkIndex;
+        int __chunkBytesRemaining; 
     } _context;
     struct __MSSSPCChunkParsingContext { void *x1; int (*x2)(); int (*x3)(); int (*x4)(); int (*x5)(); int (*x6)(); int (*x7)(); struct __CFString {} *x8; struct __CFURL {} *x9; struct __CFString {} *x10; struct __CFString {} *x11; int x12; } *_parseContext;
 }
 
 - (id)_assetCollectionsFromCoreArray:(id)arg1 personID:(id)arg2 outError:(id*)arg3;
 - (id)_assetFromCoreDictionary:(id)arg1 personID:(id)arg2 outError:(id*)arg3;
-- (void)_chunkDidBeginStreamForPersonID:(id)arg1 wasReset:(bool)arg2 metadata:(id)arg3;
+- (void)_chunkDidBeginStreamForPersonID:(id)arg1 wasReset:(BOOL)arg2 metadata:(id)arg3;
 - (void)_chunkDidEndStreamForPersonID:(id)arg1 ctag:(id)arg2;
 - (void)_chunkDidFindShareState:(id)arg1;
 - (void)_chunkDidFindSubscriptionGoneForPersonID:(id)arg1;
@@ -53,8 +48,8 @@
 - (void)_coreProtocolDidFailAuthentication:(id)arg1;
 - (void)_coreProtocolDidFinishError:(id)arg1;
 - (void)_coreProtocolDidGetDataChunk:(id)arg1;
-- (id)_invalidFieldErrorWithFieldName:(id)arg1 suggestion:(id)arg2;
 - (id)_invalidFieldErrorWithFieldName:(id)arg1;
+- (id)_invalidFieldErrorWithFieldName:(id)arg1 suggestion:(id)arg2;
 - (void)_parseChunks;
 - (void)_parseNextChunk;
 - (id)_pathToChunkIndex:(int)arg1;

@@ -2,34 +2,30 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOPhoto, NSString;
-
 @interface GEOUser : PBCodable <NSCopying> {
     GEOPhoto *_image;
     NSString *_name;
 }
 
-@property(readonly) bool hasImage;
-@property(readonly) bool hasName;
-@property(retain) GEOPhoto * image;
-@property(retain) NSString * name;
-
-+ (id)userWithYelpJSON:(id)arg1;
+@property (nonatomic, readonly) BOOL hasImage;
+@property (nonatomic, readonly) BOOL hasName;
+@property (nonatomic, retain) GEOPhoto *image;
+@property (nonatomic, retain) NSString *name;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasImage;
-- (bool)hasName;
-- (unsigned long long)hash;
+- (BOOL)hasImage;
+- (BOOL)hasName;
+- (unsigned int)hash;
 - (id)image;
 - (id)initWithPlaceDataUser:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)name;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setImage:(id)arg1;
 - (void)setName:(id)arg1;
 - (void)writeTo:(id)arg1;

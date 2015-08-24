@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSMutableDictionary, UIImage;
-
 @interface SKUIRatingStarsCache : NSObject {
     NSMutableDictionary *_cachedImages;
     UIImage *_emptyStarImage;
@@ -11,10 +9,10 @@
     UIImage *_halfStarImage;
 }
 
-+ (id)cacheWithProperties:(long long)arg1;
++ (id)cacheWithProperties:(int)arg1;
 
 - (void).cxx_destruct;
-- (id)initWithProperties:(long long)arg1;
-- (id)ratingStarsImageForRating:(double)arg1;
+- (id)initWithProperties:(int)arg1;
+- (id)ratingStarsImageForRating:(float)arg1;
 
 @end

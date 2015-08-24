@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CloudPhotoLibrary.framework/CloudPhotoLibrary
  */
 
-@class <CPLEngineTransportResourceDownloadTask>, NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSProgress, NSString, NSURL;
-
 @interface CPLDownloadOriginalsTask : CPLEngineSyncEmergencyTask {
     NSMutableDictionary *_cloudIdentifierForLocalIdentifier;
     NSMutableArray *_cloudResources;
@@ -17,13 +15,13 @@
     NSString *_typeIdentifier;
 }
 
-@property(copy) NSURL * destinationURL;
-@property(readonly) NSArray * failedIdentifiers;
-@property(copy) NSArray * localIdentifiers;
-@property(copy) NSString * progressIdentifier;
-@property(copy) NSString * typeIdentifier;
+@property (nonatomic, copy) NSURL *destinationURL;
+@property (nonatomic, readonly) NSArray *failedIdentifiers;
+@property (nonatomic, copy) NSArray *localIdentifiers;
+@property (nonatomic, copy) NSString *progressIdentifier;
+@property (nonatomic, copy) NSString *typeIdentifier;
 
-+ (bool)shouldCoalesceTasks;
++ (BOOL)shouldCoalesceTasks;
 + (id)taskIdentifier;
 
 - (void).cxx_destruct;
@@ -37,13 +35,13 @@
 - (id)initWithCoder:(id)arg1;
 - (void)launch;
 - (id)localIdentifiers;
-- (unsigned long long)priority;
+- (unsigned int)priority;
 - (id)progressIdentifier;
 - (void)setDestinationURL:(id)arg1;
 - (void)setLocalIdentifiers:(id)arg1;
 - (void)setProgressIdentifier:(id)arg1;
 - (void)setTypeIdentifier:(id)arg1;
-- (bool)shouldStopSyncSession;
+- (BOOL)shouldStopSyncSession;
 - (void)taskDidFinishWithError:(id)arg1;
 - (id)typeIdentifier;
 

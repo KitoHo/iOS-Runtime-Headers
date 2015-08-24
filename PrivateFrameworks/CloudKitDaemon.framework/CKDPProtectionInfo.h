@@ -2,31 +2,29 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSData, NSString;
-
 @interface CKDPProtectionInfo : PBCodable <NSCopying> {
     NSData *_protectionInfo;
     NSString *_protectionInfoTag;
 }
 
-@property(readonly) bool hasProtectionInfo;
-@property(readonly) bool hasProtectionInfoTag;
-@property(retain) NSData * protectionInfo;
-@property(retain) NSString * protectionInfoTag;
+@property (nonatomic, readonly) BOOL hasProtectionInfo;
+@property (nonatomic, readonly) BOOL hasProtectionInfoTag;
+@property (nonatomic, retain) NSData *protectionInfo;
+@property (nonatomic, retain) NSString *protectionInfoTag;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasProtectionInfo;
-- (bool)hasProtectionInfoTag;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasProtectionInfo;
+- (BOOL)hasProtectionInfoTag;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)protectionInfo;
 - (id)protectionInfoTag;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setProtectionInfo:(id)arg1;
 - (void)setProtectionInfoTag:(id)arg1;
 - (void)writeTo:(id)arg1;

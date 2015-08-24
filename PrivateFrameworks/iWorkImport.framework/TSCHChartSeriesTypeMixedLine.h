@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCHChartSeriesTypeMixedLine : TSCHChartSeriesTypeLine {
-}
+@interface TSCHChartSeriesTypeMixedLine : TSCHChartSeriesTypeLine
 
 - (id)g_genericToSpecificPropertyMapMixedLine;
 - (id)genericToSpecificPropertyMap;
-- (bool)supportsSymbolDrawing;
-- (bool)supportsSymbolFillForSymbolType:(int)arg1;
+- (BOOL)supportsSymbolDrawing;
+- (BOOL)supportsSymbolFillForSymbolType:(int)arg1;
 
 @end

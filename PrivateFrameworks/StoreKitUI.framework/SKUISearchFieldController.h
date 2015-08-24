@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class <SKUISearchFieldDelegate>, NSOperationQueue, NSString, SKUIClientContext, SKUICompletionList, SKUISearchBar, SKUISearchDisplayController, SSVLoadURLOperation, UISearchBar, UIViewController;
-
-@interface SKUISearchFieldController : NSObject <UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, SKUITrendingSearchPageViewDelegate> {
+@interface SKUISearchFieldController : NSObject <SKUITrendingSearchPageViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate> {
     NSString *_baseHintsURLString;
     SKUIClientContext *_clientContext;
     SKUICompletionList *_completionList;
     <SKUISearchFieldDelegate> *_delegate;
     SSVLoadURLOperation *_loadOperation;
-    long long _numberOfSearchResults;
+    int _numberOfSearchResults;
     NSOperationQueue *_operationQueue;
     SKUISearchBar *_searchBar;
     NSString *_searchBarAccessoryText;
@@ -18,20 +16,20 @@
     NSString *_trendingSearchURLString;
 }
 
-@property(retain) SKUIClientContext * clientContext;
-@property(readonly) UIViewController * contentsController;
-@property(copy,readonly) NSString * debugDescription;
-@property <SKUISearchFieldDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property bool displaysSearchBarInNavigationBar;
-@property(readonly) unsigned long long hash;
-@property long long numberOfSearchResults;
-@property(readonly) UISearchBar * searchBar;
-@property(copy) NSString * searchBarAccessoryText;
-@property(copy) NSString * searchHintsURLString;
-@property bool showsResultsForEmptyField;
-@property(readonly) Class superclass;
-@property(copy) NSString * trendingSearchURLString;
+@property (nonatomic, retain) SKUIClientContext *clientContext;
+@property (nonatomic, readonly) UIViewController *contentsController;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <SKUISearchFieldDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) BOOL displaysSearchBarInNavigationBar;
+@property (readonly) unsigned int hash;
+@property (nonatomic) int numberOfSearchResults;
+@property (nonatomic, readonly) UISearchBar *searchBar;
+@property (nonatomic, copy) NSString *searchBarAccessoryText;
+@property (nonatomic, copy) NSString *searchHintsURLString;
+@property (nonatomic) BOOL showsResultsForEmptyField;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSString *trendingSearchURLString;
 
 - (void).cxx_destruct;
 - (id)URLForTrendingSearchPageView:(id)arg1;
@@ -45,33 +43,33 @@
 - (id)contentsController;
 - (void)dealloc;
 - (id)delegate;
-- (bool)displaysSearchBarInNavigationBar;
+- (BOOL)displaysSearchBarInNavigationBar;
 - (id)initWithContentsController:(id)arg1;
-- (long long)numberOfSearchResults;
-- (void)resignActive:(bool)arg1;
-- (void)searchBar:(id)arg1 textDidChange:(id)arg2;
+- (int)numberOfSearchResults;
+- (void)resignActive:(BOOL)arg1;
 - (id)searchBar;
+- (void)searchBar:(id)arg1 textDidChange:(id)arg2;
 - (id)searchBarAccessoryText;
 - (void)searchBarSearchButtonClicked:(id)arg1;
-- (bool)searchBarShouldBeginTouches:(id)arg1;
+- (BOOL)searchBarShouldBeginTouches:(id)arg1;
 - (void)searchDisplayController:(id)arg1 didLoadSearchResultsTableView:(id)arg2;
-- (bool)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;
+- (BOOL)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;
 - (void)searchDisplayController:(id)arg1 willShowSearchResultsTableView:(id)arg2;
 - (void)searchDisplayControllerWillBeginSearch:(id)arg1;
 - (id)searchHintsURLString;
 - (void)setClientContext:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setDisplaysSearchBarInNavigationBar:(bool)arg1;
-- (void)setNumberOfSearchResults:(long long)arg1;
+- (void)setDisplaysSearchBarInNavigationBar:(BOOL)arg1;
+- (void)setNumberOfSearchResults:(int)arg1;
 - (void)setSearchBarAccessoryText:(id)arg1;
 - (void)setSearchHintsURLString:(id)arg1;
 - (void)setSearchTerm:(id)arg1;
-- (void)setShowsResultsForEmptyField:(bool)arg1;
+- (void)setShowsResultsForEmptyField:(BOOL)arg1;
 - (void)setTrendingSearchURLString:(id)arg1;
-- (bool)showsResultsForEmptyField;
+- (BOOL)showsResultsForEmptyField;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (void)trendingSearchPageView:(id)arg1 didSelectSearch:(id)arg2;
 - (id)trendingSearchURLString;
 

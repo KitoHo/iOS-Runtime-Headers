@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSMutableArray, SKUIClientContext, SKUIDeveloperInfo, SKUIProductInformationView, UIView;
-
 @interface SKUIDeveloperInfoView : UIView {
     SKUIClientContext *_clientContext;
     SKUIDeveloperInfo *_developerInfo;
@@ -12,8 +10,8 @@
     NSMutableArray *_lineViews;
 }
 
-@property(readonly) SKUIClientContext * clientContext;
-@property(readonly) SKUIDeveloperInfo * developerInfo;
+@property (nonatomic, readonly) SKUIClientContext *clientContext;
+@property (nonatomic, readonly) SKUIDeveloperInfo *developerInfo;
 
 - (void).cxx_destruct;
 - (id)clientContext;
@@ -21,6 +19,6 @@
 - (id)initWithDeveloperInfo:(id)arg1 clientContext:(id)arg2;
 - (void)layoutSubviews;
 - (void)setBackgroundColor:(id)arg1;
-- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
+- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
 
 @end

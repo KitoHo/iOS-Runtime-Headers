@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/FrontBoardServices.framework/FrontBoardServices
  */
 
-@class <FBSSceneContextDelegate>, CAContext;
-
 @interface FBSSceneContext : NSObject {
     CAContext *_context;
     <FBSSceneContextDelegate> *_delegate;
     unsigned int _identifier;
-    double _level;
-    bool_shouldObserveContext;
+    float _level;
+    BOOL _shouldObserveContext;
 }
 
-@property(retain,readonly) CAContext * CAContext;
-@property <FBSSceneContextDelegate> * delegate;
-@property(readonly) unsigned int identifier;
-@property double level;
+@property (nonatomic, readonly, retain) CAContext *CAContext;
+@property (nonatomic) <FBSSceneContextDelegate> *delegate;
+@property (nonatomic, readonly) unsigned int identifier;
+@property (nonatomic) float level;
 
 + (id)contextWithCAContext:(id)arg1;
 
@@ -23,14 +21,14 @@
 - (void)dealloc;
 - (id)delegate;
 - (id)description;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (unsigned int)identifier;
 - (id)initWithCAContext:(id)arg1;
-- (id)initWithIdentifier:(unsigned int)arg1 level:(double)arg2;
-- (bool)isEqual:(id)arg1;
-- (double)level;
+- (id)initWithIdentifier:(unsigned int)arg1 level:(float)arg2;
+- (BOOL)isEqual:(id)arg1;
+- (float)level;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4;
 - (void)setDelegate:(id)arg1;
-- (void)setLevel:(double)arg1;
+- (void)setLevel:(float)arg1;
 
 @end

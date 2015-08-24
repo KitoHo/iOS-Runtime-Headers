@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/LatteRTC.framework/LatteRTC
  */
 
-@class LTEVTPWrapper, NSArray, NSObject<OS_dispatch_queue>;
-
 @interface LTEConferenceManager : NSObject <LTEConferenceDelegate> {
-    struct _opaque_pthread_mutex_t { 
-        long long __sig; 
-        BOOL __opaque[56]; 
     LTEVTPWrapper *_vtpWrapper;
     NSArray *conferenceArray;
+    struct _opaque_pthread_mutex_t { 
+        long __sig; 
+        BOOL __opaque[40]; 
     } stateLock;
     NSObject<OS_dispatch_queue> *xpcQueue;
 }
 
-@property(readonly) LTEVTPWrapper * vtpWrapper;
+@property (readonly) LTEVTPWrapper *vtpWrapper;
 
 + (id)LTEConferenceManagerSingleton;
 + (void)addNSError:(id)arg1 toLTEConfXPCArgumentDictionary:(id)arg2;
@@ -26,15 +24,15 @@
 - (id)init;
 - (void)lteConference:(id)arg1 didReceiveDTMFEventWithDigit:(BOOL)arg2;
 - (void)lteConference:(id)arg1 didReceiveRTCPPackets:(id)arg2;
-- (void)lteConference:(id)arg1 didStartSession:(bool)arg2 error:(id)arg3;
+- (void)lteConference:(id)arg1 didStartSession:(BOOL)arg2 error:(id)arg3;
 - (void)lteConferenceDidRTCPTimeOut:(id)arg1;
 - (void)lteConferenceDidRTPTimeOut:(id)arg1;
 - (void)lteConferenceDidStop:(id)arg1;
-- (void)pauseConferences:(bool)arg1;
+- (void)pauseConferences:(BOOL)arg1;
 - (void)registerBlocksForService;
 - (oneway void)release;
 - (id)retain;
-- (unsigned long long)retainCount;
+- (unsigned int)retainCount;
 - (void)startVTP;
 - (void)stopVTP;
 - (id)vtpWrapper;

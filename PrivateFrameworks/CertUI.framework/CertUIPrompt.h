@@ -2,23 +2,17 @@
    Image: /System/Library/PrivateFrameworks/CertUI.framework/CertUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSString;
-
 @interface CertUIPrompt : NSObject {
     NSString *_connectionDisplayName;
     NSString *_host;
-    id _responseBlock;
+    id /* block */ _responseBlock;
     NSString *_service;
     struct __SecTrust { } *_trust;
 }
 
-@property(copy) NSString * connectionDisplayName;
-@property(retain) NSString * host;
-@property(retain) NSString * service;
+@property (nonatomic, copy) NSString *connectionDisplayName;
+@property (nonatomic, retain) NSString *host;
+@property (nonatomic, retain) NSString *service;
 
 + (id)promptQueue;
 + (id)stringForResponse:(int)arg1;
@@ -28,7 +22,7 @@
 - (id)_digestFromTrust:(struct __SecTrust { }*)arg1;
 - (id)_expirationFromTrust:(struct __SecTrust { }*)arg1;
 - (void)_informConsumerOfResponse:(int)arg1;
-- (bool)_isRootCertificateFromTrust:(struct __SecTrust { }*)arg1;
+- (BOOL)_isRootCertificateFromTrust:(struct __SecTrust { }*)arg1;
 - (id)_issuerFromTrust:(struct __SecTrust { }*)arg1;
 - (id)_messagingCenter;
 - (id)_newUserInfoForDisplayName:(id)arg1 hostname:(id)arg2 trust:(struct __SecTrust { }*)arg3;
@@ -51,7 +45,7 @@
 - (void)setService:(id)arg1;
 - (void)setTrust:(struct __SecTrust { }*)arg1;
 - (int)showAndWaitForResponse;
-- (void)showPromptWithResponseBlock:(id)arg1;
+- (void)showPromptWithResponseBlock:(id /* block */)arg1;
 - (struct __SecTrust { }*)trust;
 
 @end

@@ -2,13 +2,12 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface _UISnapshotWindow : UIWindow {
-}
+@interface _UISnapshotWindow : UIWindow
 
-+ (bool)_isSystemWindow;
++ (BOOL)_isSystemWindow;
 
-- (bool)_canBecomeKeyWindow;
-- (bool)_isSettingFirstResponder;
+- (BOOL)_canBecomeKeyWindow;
+- (BOOL)_isSettingFirstResponder;
 - (void)_setFirstResponder:(id)arg1;
 
 @end

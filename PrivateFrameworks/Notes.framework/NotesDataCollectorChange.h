@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/Notes.framework/Notes
  */
 
-@class NSString;
-
 @interface NotesDataCollectorChange : NSObject {
     NSString *_accountIdentifier;
     int _accountType;
-    long long _entity;
-    long long _operation;
+    int _entity;
+    int _operation;
 }
 
-@property(copy) NSString * accountIdentifier;
-@property int accountType;
-@property long long entity;
-@property long long operation;
+@property (nonatomic, copy) NSString *accountIdentifier;
+@property (nonatomic) int accountType;
+@property (nonatomic) int entity;
+@property (nonatomic) int operation;
 
-+ (id)changeForEntity:(long long)arg1 operation:(long long)arg2 account:(id)arg3;
++ (id)changeForEntity:(int)arg1 operation:(int)arg2 account:(id)arg3;
 
 - (void).cxx_destruct;
 - (id)accountIdentifier;
 - (int)accountType;
-- (long long)entity;
-- (long long)operation;
+- (int)entity;
+- (int)operation;
 - (void)setAccountIdentifier:(id)arg1;
 - (void)setAccountType:(int)arg1;
-- (void)setEntity:(long long)arg1;
-- (void)setOperation:(long long)arg1;
+- (void)setEntity:(int)arg1;
+- (void)setOperation:(int)arg1;
 
 @end

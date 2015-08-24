@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
  */
 
-@class NSMapTable, NSObject<OS_dispatch_queue>, NSString;
-
 @interface HDContentProtectionManager : NSObject <HDDiagnosticObject> {
     double _beganObservingTime;
     int _contentProtectionState;
@@ -11,28 +9,28 @@
     int _notifyToken;
     NSObject<OS_dispatch_queue> *_observationQueue;
     NSMapTable *_observers;
+    int _unlockedSinceBoot;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-+ (bool)isProtectedDataAvailableWithState:(long long)arg1;
++ (BOOL)isProtectedDataAvailableWithState:(int)arg1;
 
 - (void).cxx_destruct;
-- (id)_contentProtectionStateString:(long long)arg1;
-- (long long)_keyBagLockState;
-- (void)_notifyObserversWithContentProtectionState:(long long)arg1;
+- (int)_keyBagLockState;
+- (void)_notifyObserversWithContentProtectionState:(int)arg1;
 - (void)addContentProtectionObserver:(id)arg1 withQueue:(id)arg2;
 - (void)dealloc;
-- (bool)deviceUnlockedSinceBoot;
+- (BOOL)deviceUnlockedSinceBoot;
 - (id)diagnosticDescription;
 - (id)init;
-- (id)initWithNotifications:(bool)arg1 initialState:(long long)arg2;
-- (bool)isProtectedDataAvailable;
-- (long long)observedState;
+- (id)initWithNotifications:(BOOL)arg1 initialState:(int)arg2 unlockedSinceBoot:(BOOL)arg3;
+- (BOOL)isProtectedDataAvailable;
+- (int)observedState;
 - (void)removeContentProtectionObserver:(id)arg1;
-- (void)setContentProtectionState:(long long)arg1;
+- (void)setContentProtectionState:(int)arg1;
 
 @end

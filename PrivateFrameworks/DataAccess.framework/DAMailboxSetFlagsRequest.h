@@ -7,13 +7,13 @@
     unsigned long long _onFlags;
 }
 
-@property unsigned long long offFlags;
-@property unsigned long long onFlags;
+@property (nonatomic) unsigned long long offFlags;
+@property (nonatomic) unsigned long long onFlags;
 
 - (id)description;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initRequestWithSetFlags:(unsigned long long)arg1 unsetFlags:(unsigned long long)arg2 message:(id)arg3;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (unsigned long long)offFlags;
 - (unsigned long long)onFlags;
 - (void)setOffFlags:(unsigned long long)arg1;

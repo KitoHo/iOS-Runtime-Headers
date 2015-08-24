@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/AppleAccountUI.framework/AppleAccountUI
  */
 
-@class UIButton, UILabel, UIScrollView, UIView;
-
 @interface AAUIExplainAppleIDViewController : UIViewController {
     UIView *_contentView;
     UILabel *_descriptionLabel;
     UIButton *_goToSettingsButton;
     UIScrollView *_scrollView;
+    BOOL _shouldShowInviteeInstructions;
     UILabel *_titleLabel;
-    bool_shouldShowInviteeInstructions;
 }
 
-@property bool shouldShowInviteeInstructions;
+@property (nonatomic) BOOL shouldShowInviteeInstructions;
 
 - (void).cxx_destruct;
-- (double)_heightForText:(id)arg1 constrainedToWidth:(double)arg2;
+- (float)_heightForText:(id)arg1 constrainedToWidth:(float)arg2;
 - (void)loadView;
-- (void)setShouldShowInviteeInstructions:(bool)arg1;
-- (bool)shouldShowInviteeInstructions;
+- (void)setShouldShowInviteeInstructions:(BOOL)arg1;
+- (BOOL)shouldShowInviteeInstructions;
 - (void)viewWillLayoutSubviews;
 
 @end

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOPDAnalyticMetadata, GEOPDClientMetadata, GEORPProblem, GEORPUserCredentials;
-
 @interface GEORPProblemRequest : PBRequest <NSCopying> {
     GEOPDAnalyticMetadata *_analyticMetadata;
     GEOPDClientMetadata *_clientMetadata;
@@ -11,14 +9,14 @@
     GEORPUserCredentials *_userCredentials;
 }
 
-@property(retain) GEOPDAnalyticMetadata * analyticMetadata;
-@property(retain) GEOPDClientMetadata * clientMetadata;
-@property(readonly) bool hasAnalyticMetadata;
-@property(readonly) bool hasClientMetadata;
-@property(readonly) bool hasProblem;
-@property(readonly) bool hasUserCredentials;
-@property(retain) GEORPProblem * problem;
-@property(retain) GEORPUserCredentials * userCredentials;
+@property (nonatomic, retain) GEOPDAnalyticMetadata *analyticMetadata;
+@property (nonatomic, retain) GEOPDClientMetadata *clientMetadata;
+@property (nonatomic, readonly) BOOL hasAnalyticMetadata;
+@property (nonatomic, readonly) BOOL hasClientMetadata;
+@property (nonatomic, readonly) BOOL hasProblem;
+@property (nonatomic, readonly) BOOL hasUserCredentials;
+@property (nonatomic, retain) GEORPProblem *problem;
+@property (nonatomic, retain) GEORPUserCredentials *userCredentials;
 
 - (id)analyticMetadata;
 - (id)clientMetadata;
@@ -27,16 +25,16 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasAnalyticMetadata;
-- (bool)hasClientMetadata;
-- (bool)hasProblem;
-- (bool)hasUserCredentials;
-- (unsigned long long)hash;
+- (BOOL)hasAnalyticMetadata;
+- (BOOL)hasClientMetadata;
+- (BOOL)hasProblem;
+- (BOOL)hasUserCredentials;
+- (unsigned int)hash;
 - (id)initWithProblem:(id)arg1 traits:(id)arg2;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)problem;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (unsigned int)requestTypeCode;
 - (Class)responseClass;
 - (void)setAnalyticMetadata:(id)arg1;

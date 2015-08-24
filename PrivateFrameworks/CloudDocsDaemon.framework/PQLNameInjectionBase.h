@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-@class NSData;
-
 @interface PQLNameInjectionBase : NSData {
     char *_bytes;
-    unsigned long long _length;
+    unsigned int _length;
 }
 
-@property(readonly) NSData * sql;
+@property (nonatomic, readonly) NSData *sql;
 
 - (const void*)bytes;
 - (void)dealloc;
-- (id)initWithBytes:(const void*)arg1 length:(unsigned long long)arg2;
+- (id)initWithBytes:(const void*)arg1 length:(unsigned int)arg2;
 - (id)initWithData:(id)arg1;
-- (unsigned long long)length;
+- (unsigned int)length;
 - (id)sql;
 
 @end

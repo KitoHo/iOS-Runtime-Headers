@@ -2,9 +2,7 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class <CKRecipientSearchListControllerDelegate>, CKContactsSearchManager, IDSBatchIDQueryController, IMAccount, NSArray, NSDate, NSString;
-
-@interface CKRecipientSearchListController : UITableViewController <IDSBatchIDQueryControllerDelegate, CKContactsSearchManagerDelegate> {
+@interface CKRecipientSearchListController : UITableViewController <CKContactsSearchManagerDelegate, IDSBatchIDQueryControllerDelegate> {
     IMAccount *_defaultiMessageAccount;
     <CKRecipientSearchListControllerDelegate> *_delegate;
     NSArray *_enteredRecipients;
@@ -12,26 +10,26 @@
     NSArray *_prefilteredRecipients;
     CKContactsSearchManager *_searchManager;
     NSArray *_searchResults;
+    BOOL _shouldUsePopovers;
+    BOOL _smsEnabled;
     IDSBatchIDQueryController *_statusQueryController;
-    bool_shouldUsePopovers;
-    bool_smsEnabled;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(retain) IMAccount * defaultiMessageAccount;
-@property <CKRecipientSearchListControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(retain) NSArray * enteredRecipients;
-@property(readonly) unsigned long long hash;
-@property(retain) NSDate * idsQueryStartTime;
-@property(retain) NSArray * prefilteredRecipients;
-@property(retain) CKContactsSearchManager * searchManager;
-@property(copy) NSArray * searchResults;
-@property bool shouldUsePopovers;
-@property bool smsEnabled;
-@property(retain) IDSBatchIDQueryController * statusQueryController;
-@property(readonly) Class superclass;
-@property bool suppressGroupSuggestions;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic, retain) IMAccount *defaultiMessageAccount;
+@property (nonatomic) <CKRecipientSearchListControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSArray *enteredRecipients;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NSDate *idsQueryStartTime;
+@property (nonatomic, retain) NSArray *prefilteredRecipients;
+@property (nonatomic, retain) CKContactsSearchManager *searchManager;
+@property (nonatomic, copy) NSArray *searchResults;
+@property (nonatomic) BOOL shouldUsePopovers;
+@property (nonatomic) BOOL smsEnabled;
+@property (nonatomic, retain) IDSBatchIDQueryController *statusQueryController;
+@property (readonly) Class superclass;
+@property (nonatomic) BOOL suppressGroupSuggestions;
 
 - (BOOL)_serviceColorForRecipients:(id)arg1;
 - (id)_statusQueryController;
@@ -41,18 +39,18 @@
 - (id)defaultiMessageAccount;
 - (id)delegate;
 - (id)enteredRecipients;
-- (bool)hasSearchResults;
+- (BOOL)hasSearchResults;
 - (void)idStatusUpdatedForDestinations:(id)arg1;
 - (id)idsQueryStartTime;
-- (id)initWithStyle:(long long)arg1;
+- (id)initWithStyle:(int)arg1;
 - (void)invalidateOutstandingIDStatusRequests;
 - (void)invalidateSearchManager;
-- (bool)isSearchResultsHidden;
+- (BOOL)isSearchResultsHidden;
 - (void)loadView;
-- (long long)numberOfSectionsInTableView:(id)arg1;
+- (int)numberOfSectionsInTableView:(id)arg1;
 - (id)prefilteredRecipients;
 - (void)removeRecipientFromSearchResults:(id)arg1;
-- (bool)scrollViewShouldScrollToTop:(id)arg1;
+- (BOOL)scrollViewShouldScrollToTop:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (id)searchManager;
 - (id)searchResults;
@@ -64,20 +62,20 @@
 - (void)setPrefilteredRecipients:(id)arg1;
 - (void)setSearchManager:(id)arg1;
 - (void)setSearchResults:(id)arg1;
-- (void)setShouldUsePopovers:(bool)arg1;
-- (void)setSmsEnabled:(bool)arg1;
+- (void)setShouldUsePopovers:(BOOL)arg1;
+- (void)setSmsEnabled:(BOOL)arg1;
 - (void)setStatusQueryController:(id)arg1;
-- (void)setSuppressGroupSuggestions:(bool)arg1;
-- (bool)shouldUsePopovers;
-- (bool)smsEnabled;
+- (void)setSuppressGroupSuggestions:(BOOL)arg1;
+- (BOOL)shouldUsePopovers;
+- (BOOL)smsEnabled;
 - (id)statusQueryController;
-- (bool)suppressGroupSuggestions;
+- (BOOL)suppressGroupSuggestions;
 - (void)tableView:(id)arg1 accessoryButtonTappedForRowWithIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (void)viewWillAppear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 
 @end

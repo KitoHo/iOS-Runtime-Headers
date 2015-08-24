@@ -2,41 +2,39 @@
    Image: /System/Library/PrivateFrameworks/ToneKit.framework/ToneKit
  */
 
-@class <TKVibrationRecorderTouchSurfaceDelegate>, TKVibrationRecorderTouchSurfaceRecordedDataWrapper, TLVibrationPattern;
-
 @interface TKVibrationRecorderTouchSurface : TKVibrationRecorderRippleView {
     <TKVibrationRecorderTouchSurfaceDelegate> *_delegate;
     TKVibrationRecorderTouchSurfaceRecordedDataWrapper *_recordedDataWrapper;
+    BOOL _recordingModeEnabled;
+    BOOL _replayModeEnabled;
     double _replayModeWasEnteredStartTime;
+    BOOL _shouldIgnoreCurrentTouch;
     double _vibrationPatternMaximumDuration;
     TLVibrationPattern *_vibrationPatternToReplay;
-    bool_recordingModeEnabled;
-    bool_replayModeEnabled;
-    bool_shouldIgnoreCurrentTouch;
 }
 
-@property(setter=_setRecordedDataWrapper:,retain) TKVibrationRecorderTouchSurfaceRecordedDataWrapper * _recordedDataWrapper;
-@property(getter=_isRecordingModeEnabled,setter=_setRecordingModeEnabled:) bool _recordingModeEnabled;
-@property(getter=_isReplayModeEnabled,setter=_setReplayModeEnabled:) bool _replayModeEnabled;
-@property(setter=_setReplayModeWasEnteredStartTime:) double _replayModeWasEnteredStartTime;
-@property(setter=_setShouldIgnoreCurrentTouch:) bool _shouldIgnoreCurrentTouch;
-@property(setter=_setVibrationPatternMaximumDuration:) double _vibrationPatternMaximumDuration;
-@property(setter=_setVibrationPatternToReplay:,retain) TLVibrationPattern * _vibrationPatternToReplay;
-@property <TKVibrationRecorderTouchSurfaceDelegate> * delegate;
+@property (setter=_setRecordedDataWrapper:, nonatomic, retain) TKVibrationRecorderTouchSurfaceRecordedDataWrapper *_recordedDataWrapper;
+@property (getter=_isRecordingModeEnabled, setter=_setRecordingModeEnabled:, nonatomic) BOOL _recordingModeEnabled;
+@property (getter=_isReplayModeEnabled, setter=_setReplayModeEnabled:, nonatomic) BOOL _replayModeEnabled;
+@property (setter=_setReplayModeWasEnteredStartTime:, nonatomic) double _replayModeWasEnteredStartTime;
+@property (setter=_setShouldIgnoreCurrentTouch:, nonatomic) BOOL _shouldIgnoreCurrentTouch;
+@property (setter=_setVibrationPatternMaximumDuration:, nonatomic) double _vibrationPatternMaximumDuration;
+@property (setter=_setVibrationPatternToReplay:, nonatomic, retain) TLVibrationPattern *_vibrationPatternToReplay;
+@property (nonatomic) <TKVibrationRecorderTouchSurfaceDelegate> *delegate;
 
-- (bool)_isRecordingModeEnabled;
-- (bool)_isReplayModeEnabled;
-- (void)_recordTouchLocation:(struct CGPoint { double x1; double x2; })arg1 touchPhase:(int)arg2;
+- (BOOL)_isRecordingModeEnabled;
+- (BOOL)_isReplayModeEnabled;
+- (void)_recordTouchLocation:(struct CGPoint { float x1; float x2; })arg1 touchPhase:(int)arg2;
 - (id)_recordedDataWrapper;
 - (double)_replayModeWasEnteredStartTime;
 - (void)_setRecordedDataWrapper:(id)arg1;
-- (void)_setRecordingModeEnabled:(bool)arg1;
-- (void)_setReplayModeEnabled:(bool)arg1;
+- (void)_setRecordingModeEnabled:(BOOL)arg1;
+- (void)_setReplayModeEnabled:(BOOL)arg1;
 - (void)_setReplayModeWasEnteredStartTime:(double)arg1;
-- (void)_setShouldIgnoreCurrentTouch:(bool)arg1;
+- (void)_setShouldIgnoreCurrentTouch:(BOOL)arg1;
 - (void)_setVibrationPatternMaximumDuration:(double)arg1;
 - (void)_setVibrationPatternToReplay:(id)arg1;
-- (bool)_shouldIgnoreCurrentTouch;
+- (BOOL)_shouldIgnoreCurrentTouch;
 - (void)_updateTouchLocationForReplayMode:(id)arg1;
 - (double)_vibrationPatternMaximumDuration;
 - (id)_vibrationPatternToReplay;

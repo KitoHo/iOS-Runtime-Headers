@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class <KeychainSyncViewControllerDelegate>, KeychainSyncPhoneSettingsFragment, NSString, UIAlertView, UILabel;
-
-@interface KeychainSyncPhoneNumberController : PSKeychainSyncViewController <KeychainSyncPhoneSettingsFragmentDelegate, UIAlertViewDelegate, KeychainSyncViewController> {
+@interface KeychainSyncPhoneNumberController : PSKeychainSyncViewController <KeychainSyncPhoneSettingsFragmentDelegate, KeychainSyncViewController, UIAlertViewDelegate> {
     UILabel *_footerLabel;
     UIAlertView *_invalidPhoneNumberAlert;
     KeychainSyncPhoneSettingsFragment *_phoneSettingsFragment;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <KeychainSyncViewControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <KeychainSyncViewControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)controllerDone;
 - (void)dealloc;
 - (void)loadView;
@@ -24,9 +22,9 @@
 - (void)phoneSettingsFragment:(id)arg1 didChangePhoneNumber:(id)arg2 countryInfo:(id)arg3;
 - (void)reloadSpecifiers;
 - (id)specifiers;
-- (void)viewDidAppear:(bool)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
 - (void)viewDidLayoutSubviews;
-- (void)viewWillAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

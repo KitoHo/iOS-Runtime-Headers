@@ -2,48 +2,42 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class GKGame, GKHostedViewController, NSMutableDictionary, NSString, UIColor;
-
 @interface GKRemoteViewController : _UIRemoteViewController <GKServiceViewControllerDelegate> {
-    id _blockToPerformAfterViewDidAppear;
+    id /* block */ _blockToPerformAfterViewDidAppear;
+    BOOL _didSetRemoteGame;
     NSMutableDictionary *_dirtyProperties;
     GKGame *_game;
     GKHostedViewController *_managingViewControllerWeak;
     UIColor *_previousStatusBarColor;
-    bool_didSetRemoteGame;
-    bool_viewDidAppear;
+    BOOL _viewDidAppear;
 }
 
-@property(copy) id blockToPerformAfterViewDidAppear;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property bool didSetRemoteGame;
-@property(retain) NSMutableDictionary * dirtyProperties;
-@property(retain) GKGame * game;
-@property(readonly) unsigned long long hash;
-@property GKHostedViewController * managingViewController;
-@property(retain) UIColor * previousStatusBarColor;
-@property(readonly) bool serviceNeedsCurrentGame;
-@property(readonly) bool serviceNeedsLocalPlayer;
-@property(readonly) Class superclass;
-@property bool viewDidAppear;
+@property (nonatomic, copy) id /* block */ blockToPerformAfterViewDidAppear;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) BOOL didSetRemoteGame;
+@property (nonatomic, retain) NSMutableDictionary *dirtyProperties;
+@property (nonatomic, retain) GKGame *game;
+@property (readonly) unsigned int hash;
+@property (nonatomic) GKHostedViewController *managingViewController;
+@property (nonatomic, retain) UIColor *previousStatusBarColor;
+@property (nonatomic, readonly) BOOL serviceNeedsCurrentGame;
+@property (nonatomic, readonly) BOOL serviceNeedsLocalPlayer;
+@property (readonly) Class superclass;
+@property (nonatomic) BOOL viewDidAppear;
 
 + (id)exportedInterface;
 + (id)serviceViewControllerInterface;
-+ (bool)shouldPropagateAppearanceCustomizations;
++ (BOOL)shouldPropagateAppearanceCustomizations;
 
-- (long long)_desiredStatusBarStyle;
-- (bool)_dismissSelfAfterGettingShouldCancel;
-- (bool)_dismissSelfAfterGettingShouldFinish;
+- (int)_desiredStatusBarStyle;
+- (BOOL)_dismissSelfAfterGettingShouldCancel;
+- (BOOL)_dismissSelfAfterGettingShouldFinish;
 - (void)_performBlockAfterViewDidAppearIfNeeded;
 - (void)_performSelectorAfterAppearingOrTimeOut:(SEL)arg1;
-- (id)blockToPerformAfterViewDidAppear;
+- (id /* block */)blockToPerformAfterViewDidAppear;
 - (void)dealloc;
-- (bool)didSetRemoteGame;
+- (BOOL)didSetRemoteGame;
 - (id)dirtyProperties;
 - (id)game;
 - (id)managingViewController;
@@ -55,24 +49,24 @@
 - (void)readyToPresentInController:(id)arg1;
 - (void)remoteViewControllerIsCanceling;
 - (void)remoteViewControllerIsFinishing;
-- (bool)serviceNeedsCurrentGame;
-- (bool)serviceNeedsLocalPlayer;
-- (void)setBlockToPerformAfterViewDidAppear:(id)arg1;
-- (void)setDidSetRemoteGame:(bool)arg1;
+- (BOOL)serviceNeedsCurrentGame;
+- (BOOL)serviceNeedsLocalPlayer;
+- (void)setBlockToPerformAfterViewDidAppear:(id /* block */)arg1;
+- (void)setDidSetRemoteGame:(BOOL)arg1;
 - (void)setDirtyProperties:(id)arg1;
 - (void)setGame:(id)arg1;
 - (void)setManagingViewController:(id)arg1;
 - (void)setPreviousStatusBarColor:(id)arg1;
 - (void)setValue:(id)arg1 forKeyPath:(id)arg2;
-- (void)setViewDidAppear:(bool)arg1;
+- (void)setViewDidAppear:(BOOL)arg1;
 - (void)setupRemoteView;
-- (bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
-- (unsigned long long)supportedInterfaceOrientations;
-- (void)viewDidAppear:(bool)arg1;
-- (bool)viewDidAppear;
-- (void)viewDidDisappear:(bool)arg1;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (unsigned int)supportedInterfaceOrientations;
+- (BOOL)viewDidAppear;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
-- (void)viewWillAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

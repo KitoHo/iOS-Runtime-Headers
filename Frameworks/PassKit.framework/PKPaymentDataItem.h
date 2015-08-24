@@ -2,31 +2,31 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class NSString, PKPaymentAuthorizationDataModel;
-
 @interface PKPaymentDataItem : NSObject <PKPaymentValidating> {
     PKPaymentAuthorizationDataModel *_model;
-    long long _type;
-    bool_rejected;
+    int _status;
+    int _type;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property PKPaymentAuthorizationDataModel * model;
-@property(getter=isRejected) bool rejected;
-@property(readonly) Class superclass;
-@property long long type;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) PKPaymentAuthorizationDataModel *model;
+@property (getter=isRejected, nonatomic, readonly) BOOL rejected;
+@property (nonatomic) int status;
+@property (readonly) Class superclass;
+@property (nonatomic) int type;
 
-+ (long long)dataType;
++ (int)dataType;
 
 - (id)initWithModel:(id)arg1;
-- (bool)isRejected;
-- (bool)isValidWithError:(id*)arg1;
+- (BOOL)isRejected;
+- (BOOL)isValidWithError:(id*)arg1;
 - (id)model;
 - (void)setModel:(id)arg1;
-- (void)setRejected:(bool)arg1;
-- (void)setType:(long long)arg1;
-- (long long)type;
+- (void)setStatus:(int)arg1;
+- (void)setType:(int)arg1;
+- (int)status;
+- (int)type;
 
 @end

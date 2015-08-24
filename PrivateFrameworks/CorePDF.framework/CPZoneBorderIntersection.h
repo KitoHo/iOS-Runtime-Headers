@@ -2,34 +2,32 @@
    Image: /System/Library/PrivateFrameworks/CorePDF.framework/CorePDF
  */
 
-@class CPZoneBorder;
-
-@interface CPZoneBorderIntersection : NSObject <NSCopying, CPCopying> {
+@interface CPZoneBorderIntersection : NSObject <CPCopying, NSCopying> {
+    BOOL backwardVector;
+    BOOL forwardVector;
+    CPZoneBorder *intersectingBorder;
     struct CGRect { 
         struct CGPoint { 
-            double x; 
-            double y; 
+            float x; 
+            float y; 
         } origin; 
         struct CGSize { 
-            double width; 
-            double height; 
+            float width; 
+            float height; 
         } size; 
-    boolbackwardVector;
-    boolforwardVector;
-    CPZoneBorder *intersectingBorder;
     } intersectionRect;
 }
 
-- (bool)backwardVector;
-- (long long)comparePositionLengthwise:(id)arg1;
+- (BOOL)backwardVector;
+- (int)comparePositionLengthwise:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (bool)forwardVector;
+- (BOOL)forwardVector;
 - (id)initSuper;
 - (id)intersectingBorder;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })intersectionRect;
-- (void)setBackwardVector:(bool)arg1;
-- (void)setForwardVector:(bool)arg1;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })intersectionRect;
+- (void)setBackwardVector:(BOOL)arg1;
+- (void)setForwardVector:(BOOL)arg1;
 - (void)setIntersectingBorder:(id)arg1;
-- (void)setIntersectionRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)setIntersectionRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 
 @end

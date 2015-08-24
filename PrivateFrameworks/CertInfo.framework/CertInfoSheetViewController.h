@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CertInfo.framework/CertInfo
  */
 
-@class <CertInfoSheetViewControllerDelegate>, NSArray, NSDate, NSString;
-
 @interface CertInfoSheetViewController : UIViewController {
     <CertInfoSheetViewControllerDelegate> *_delegate;
     NSString *_serviceName;
@@ -14,13 +12,13 @@
     NSString *_trustTitle;
 }
 
-@property <CertInfoSheetViewControllerDelegate> * delegate;
-@property(retain) NSString * serviceName;
-@property(retain) NSDate * trustExpiration;
-@property(retain) NSArray * trustProperties;
-@property(retain) NSString * trustPurpose;
-@property(retain) NSString * trustSubtitle;
-@property(retain) NSString * trustTitle;
+@property (nonatomic) <CertInfoSheetViewControllerDelegate> *delegate;
+@property (nonatomic, retain) NSString *serviceName;
+@property (nonatomic, retain) NSDate *trustExpiration;
+@property (nonatomic, retain) NSArray *trustProperties;
+@property (nonatomic, retain) NSString *trustPurpose;
+@property (nonatomic, retain) NSString *trustSubtitle;
+@property (nonatomic, retain) NSString *trustTitle;
 
 - (void).cxx_destruct;
 - (void)_accept;
@@ -38,13 +36,13 @@
 - (void)setTrustPurpose:(id)arg1;
 - (void)setTrustSubtitle:(id)arg1;
 - (void)setTrustTitle:(id)arg1;
-- (bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (id)trustExpiration;
 - (id)trustProperties;
 - (id)trustPurpose;
 - (id)trustSubtitle;
 - (id)trustTitle;
-- (void)viewDidDisappear:(bool)arg1;
-- (void)viewWillAppear:(bool)arg1;
+- (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 
 @end

@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPAsset, NSString;
-
 @interface CKDPAssetUploadTokenRetrieveResponseUploadToken : PBCodable <NSCopying> {
     CKDPAsset *_asset;
     NSString *_token;
 }
 
-@property(retain) CKDPAsset * asset;
-@property(readonly) bool hasAsset;
-@property(readonly) bool hasToken;
-@property(retain) NSString * token;
+@property (nonatomic, retain) CKDPAsset *asset;
+@property (nonatomic, readonly) BOOL hasAsset;
+@property (nonatomic, readonly) BOOL hasToken;
+@property (nonatomic, retain) NSString *token;
 
 - (void).cxx_destruct;
 - (id)asset;
@@ -20,12 +18,12 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasAsset;
-- (bool)hasToken;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasAsset;
+- (BOOL)hasToken;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setAsset:(id)arg1;
 - (void)setToken:(id)arg1;
 - (id)token;

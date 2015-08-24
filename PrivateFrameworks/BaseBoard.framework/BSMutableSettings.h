@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/BaseBoard.framework/BaseBoard
  */
 
-@interface BSMutableSettings : BSSettings {
-}
+@interface BSMutableSettings : BSSettings
 
 - (void)applySettings:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)setFlag:(long long)arg1 forSetting:(unsigned long long)arg2;
-- (void)setObject:(id)arg1 forSetting:(unsigned long long)arg2;
+- (void)setFlag:(int)arg1 forSetting:(unsigned int)arg2;
+- (void)setObject:(id)arg1 forSetting:(unsigned int)arg2;
 
 @end

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class GKGameInternal, GKPlayerInternal, NSDate, NSOrderedSet, NSString;
-
 @interface GKChallengeInternal : GKInternalRepresentation {
     NSString *_bundleID;
     NSString *_challengeID;
@@ -14,20 +12,20 @@
     GKPlayerInternal *_issuingPlayer;
     NSString *_message;
     GKPlayerInternal *_receivingPlayer;
-    long long _state;
+    int _state;
 }
 
-@property(retain) NSString * bundleID;
-@property(retain) NSString * challengeID;
-@property(retain) NSOrderedSet * compatibleBundleIDs;
-@property(retain) NSDate * completionDate;
-@property(retain) GKGameInternal * game;
-@property(retain) NSDate * issueDate;
-@property(retain) GKPlayerInternal * issuingPlayer;
-@property(retain) NSString * message;
-@property(retain) GKPlayerInternal * receivingPlayer;
-@property long long state;
-@property(readonly) unsigned long long type;
+@property (nonatomic, retain) NSString *bundleID;
+@property (nonatomic, retain) NSString *challengeID;
+@property (nonatomic, retain) NSOrderedSet *compatibleBundleIDs;
+@property (nonatomic, retain) NSDate *completionDate;
+@property (nonatomic, retain) GKGameInternal *game;
+@property (nonatomic, retain) NSDate *issueDate;
+@property (nonatomic, retain) GKPlayerInternal *issuingPlayer;
+@property (nonatomic, retain) NSString *message;
+@property (nonatomic, retain) GKPlayerInternal *receivingPlayer;
+@property (nonatomic) int state;
+@property (nonatomic, readonly) unsigned int type;
 
 + (id)internalRepresentation;
 + (id)secureCodedPropertyKeys;
@@ -40,8 +38,8 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)findLocalGameBundleID;
 - (id)game;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)issueDate;
 - (id)issuingPlayer;
 - (id)message;
@@ -57,8 +55,8 @@
 - (void)setIssuingPlayer:(id)arg1;
 - (void)setMessage:(id)arg1;
 - (void)setReceivingPlayer:(id)arg1;
-- (void)setState:(long long)arg1;
-- (long long)state;
-- (unsigned long long)type;
+- (void)setState:(int)arg1;
+- (int)state;
+- (unsigned int)type;
 
 @end

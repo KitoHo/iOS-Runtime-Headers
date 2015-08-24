@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSString;
-
 @interface GEOAttribution : PBCodable <NSCopying> {
     NSString *_badge;
     NSString *_badgeChecksum;
@@ -13,18 +11,18 @@
     NSString *_url;
 }
 
-@property(retain) NSString * badge;
-@property(retain) NSString * badgeChecksum;
-@property(readonly) bool hasBadge;
-@property(readonly) bool hasBadgeChecksum;
-@property(readonly) bool hasLogo;
-@property(readonly) bool hasLogoChecksum;
-@property(readonly) bool hasName;
-@property(readonly) bool hasUrl;
-@property(retain) NSString * logo;
-@property(retain) NSString * logoChecksum;
-@property(retain) NSString * name;
-@property(retain) NSString * url;
+@property (nonatomic, retain) NSString *badge;
+@property (nonatomic, retain) NSString *badgeChecksum;
+@property (nonatomic, readonly) BOOL hasBadge;
+@property (nonatomic, readonly) BOOL hasBadgeChecksum;
+@property (nonatomic, readonly) BOOL hasLogo;
+@property (nonatomic, readonly) BOOL hasLogoChecksum;
+@property (nonatomic, readonly) BOOL hasName;
+@property (nonatomic, readonly) BOOL hasUrl;
+@property (nonatomic, retain) NSString *logo;
+@property (nonatomic, retain) NSString *logoChecksum;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *url;
 
 - (id)badge;
 - (id)badgeChecksum;
@@ -33,19 +31,19 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasBadge;
-- (bool)hasBadgeChecksum;
-- (bool)hasLogo;
-- (bool)hasLogoChecksum;
-- (bool)hasName;
-- (bool)hasUrl;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasBadge;
+- (BOOL)hasBadgeChecksum;
+- (BOOL)hasLogo;
+- (BOOL)hasLogoChecksum;
+- (BOOL)hasName;
+- (BOOL)hasUrl;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)logo;
 - (id)logoChecksum;
 - (void)mergeFrom:(id)arg1;
 - (id)name;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setBadge:(id)arg1;
 - (void)setBadgeChecksum:(id)arg1;
 - (void)setLogo:(id)arg1;

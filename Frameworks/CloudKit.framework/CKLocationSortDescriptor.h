@@ -2,20 +2,19 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class CLLocation;
-
 @interface CKLocationSortDescriptor : NSSortDescriptor <NSSecureCoding> {
     CLLocation *_relativeLocation;
 }
 
-@property(copy) CLLocation * relativeLocation;
+@property (nonatomic, copy) CLLocation *relativeLocation;
 
-+ (bool)supportsSecureCoding;
+// Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
+
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (id)CKDPQuerySort;
 - (id)CKPropertiesDescription;
-- (long long)compareObject:(id)arg1 toObject:(id)arg2;
+- (int)compareObject:(id)arg1 toObject:(id)arg2;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
@@ -23,5 +22,9 @@
 - (id)initWithKey:(id)arg1 relativeLocation:(id)arg2;
 - (id)relativeLocation;
 - (void)setRelativeLocation:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
+
+- (id)CKDPQuerySort;
 
 @end

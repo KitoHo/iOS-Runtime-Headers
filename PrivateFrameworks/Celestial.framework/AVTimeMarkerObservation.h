@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class NSArray;
-
 @interface AVTimeMarkerObservation : NSObject {
     id _context;
     int _currentIndex;
@@ -14,7 +12,7 @@
 - (id)context;
 - (int)currentIndex;
 - (void)dealloc;
-- (bool)gotoTime:(double)arg1;
+- (BOOL)gotoTime:(double)arg1;
 - (id)initWithObserver:(id)arg1 times:(id)arg2 context:(id)arg3 currentIndex:(int)arg4;
 - (double)nextInterestingTime;
 - (id)observer;

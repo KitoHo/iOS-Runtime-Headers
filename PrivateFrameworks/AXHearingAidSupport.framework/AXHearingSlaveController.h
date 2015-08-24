@@ -2,35 +2,29 @@
    Image: /System/Library/PrivateFrameworks/AXHearingAidSupport.framework/AXHearingAidSupport
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class AXHATimer, AXRemoteHearingAidDevice, NSString;
-
-@interface AXHearingSlaveController : AXHARemoteController <NSNetServiceDelegate, AXHARemoteUpdateProtocol> {
+@interface AXHearingSlaveController : AXHARemoteController <AXHARemoteUpdateProtocol, NSNetServiceDelegate> {
     AXRemoteHearingAidDevice *_device;
     struct __CFSocket { } *_ipv4socket;
     struct __CFSocket { } *_ipv6socket;
+    BOOL _isVisible;
     AXHATimer *_resolveTimer;
-    id _searchCompletion;
-    bool_isVisible;
+    id /* block */ _searchCompletion;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) AXRemoteHearingAidDevice * device;
-@property(readonly) unsigned long long hash;
-@property(copy) id searchCompletion;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) AXRemoteHearingAidDevice *device;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) id /* block */ searchCompletion;
+@property (readonly) Class superclass;
 
 - (void)acceptConnection:(int)arg1;
 - (void)closeConnectionWithError:(id)arg1;
 - (void)dealloc;
 - (id)device;
 - (id)init;
-- (bool)initialize;
-- (bool)isSlave;
+- (BOOL)initialize;
+- (BOOL)isSlave;
 - (void)netService:(id)arg1 didNotPublish:(id)arg2;
 - (void)netServiceDidPublish:(id)arg1;
 - (void)netServiceDidStop:(id)arg1;
@@ -38,13 +32,13 @@
 - (void)openConnectionIfNecessary;
 - (void)receivedData:(id)arg1;
 - (void)resetConnection;
-- (void)resolveMasterWithCompletion:(id)arg1;
-- (id)searchCompletion;
+- (void)resolveMasterWithCompletion:(id /* block */)arg1;
+- (id /* block */)searchCompletion;
 - (void)setDevice:(id)arg1;
-- (void)setSearchCompletion:(id)arg1;
-- (bool)setVisible:(bool)arg1;
-- (void)updateProperty:(long long)arg1 forDeviceID:(id)arg2;
+- (void)setSearchCompletion:(id /* block */)arg1;
+- (BOOL)setVisible:(BOOL)arg1;
+- (void)updateProperty:(int)arg1 forDeviceID:(id)arg2;
 - (void)validatePairedAid;
-- (void)writeValue:(id)arg1 forProperty:(long long)arg2 forDeviceID:(id)arg3;
+- (void)writeValue:(id)arg1 forProperty:(int)arg2 forDeviceID:(id)arg3;
 
 @end

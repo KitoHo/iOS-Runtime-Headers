@@ -2,19 +2,20 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSNumber, NSString, NSURL;
+@interface SAAlarmUpdate : SADomainCommand <SAAlarmAlarmAction>
 
-@interface SAAlarmUpdate : SADomainCommand {
-}
-
-@property(copy) NSArray * addedFrequency;
-@property(copy) NSURL * alarmId;
-@property(copy) NSNumber * enabled;
-@property(copy) NSNumber * hour;
-@property(copy) NSString * label;
-@property(copy) NSNumber * minute;
-@property(copy) NSArray * modifications;
-@property(copy) NSArray * removedFrequency;
+@property (nonatomic, copy) NSArray *addedFrequency;
+@property (nonatomic, copy) NSURL *alarmId;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, copy) NSNumber *enabled;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSNumber *hour;
+@property (nonatomic, copy) NSString *label;
+@property (nonatomic, copy) NSNumber *minute;
+@property (nonatomic, copy) NSArray *modifications;
+@property (nonatomic, copy) NSArray *removedFrequency;
+@property (readonly) Class superclass;
 
 + (id)update;
 + (id)updateWithDictionary:(id)arg1 context:(id)arg2;
@@ -29,7 +30,7 @@
 - (id)minute;
 - (id)modifications;
 - (id)removedFrequency;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setAddedFrequency:(id)arg1;
 - (void)setAlarmId:(id)arg1;
 - (void)setEnabled:(id)arg1;

@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/TelephonyUtilities.framework/TelephonyUtilities
  */
 
-@interface TUReplyWithMessageStore : NSObject {
-}
+@interface TUReplyWithMessageStore : NSObject
 
-- (id)_cannedRepliesForSending:(bool)arg1;
-- (id)_defaultRepliesForSending:(bool)arg1;
+- (id)_cannedRepliesForSending:(BOOL)arg1;
+- (id)_defaultRepliesForSending:(BOOL)arg1;
 - (void)_handleMessagesStoreChanged;
 - (id)cannedReplies;
 - (id)cannedRepliesForSending;
@@ -16,6 +15,6 @@
 - (void)dealloc;
 - (id)defaultReplies;
 - (id)init;
-- (void)setCustomReply:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)setCustomReply:(id)arg1 atIndex:(unsigned int)arg2;
 
 @end

@@ -2,12 +2,9 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSNumber;
+@interface SASetClientData : SABaseClientBoundCommand
 
-@interface SASetClientData : SABaseClientBoundCommand {
-}
-
-@property(copy) NSNumber * holdToTalkThresholdInMilliseconds;
+@property (nonatomic, copy) NSNumber *holdToTalkThresholdInMilliseconds;
 
 + (id)setClientData;
 + (id)setClientDataWithDictionary:(id)arg1 context:(id)arg2;
@@ -15,7 +12,7 @@
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)holdToTalkThresholdInMilliseconds;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setHoldToTalkThresholdInMilliseconds:(id)arg1;
 
 @end

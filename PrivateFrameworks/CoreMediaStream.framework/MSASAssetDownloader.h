@@ -2,34 +2,32 @@
    Image: /System/Library/PrivateFrameworks/CoreMediaStream.framework/CoreMediaStream
  */
 
-@class <MSASAssetDownloaderDelegate>, NSMutableArray, NSMutableDictionary, NSString;
-
 @interface MSASAssetDownloader : MSASAssetTransferer {
     NSMutableDictionary *_assetToItemInFlightMap;
     NSString *_currentFocusAlbumGUID;
     NSString *_currentFocusAssetCollectionGUID;
+    BOOL _didEncounterNetworkConditionError;
     NSString *_downloadBatchPerfGUID;
     NSMutableArray *_finishedAssets;
+    BOOL _isDownloadingThumbnails;
+    BOOL _isWaitingForFirstDownloadEvent;
     NSMutableArray *_itemsInFlight;
     NSString *_objectGUID;
     int _state;
-    bool_didEncounterNetworkConditionError;
-    bool_isDownloadingThumbnails;
-    bool_isWaitingForFirstDownloadEvent;
 }
 
-@property(retain) NSMutableDictionary * assetToItemInFlightMap;
-@property(retain) NSString * currentFocusAlbumGUID;
-@property(retain) NSString * currentFocusAssetCollectionGUID;
-@property <MSASAssetDownloaderDelegate> * delegate;
-@property bool didEncounterNetworkConditionError;
-@property(retain) NSString * downloadBatchPerfGUID;
-@property(retain) NSMutableArray * finishedAssets;
-@property bool isDownloadingThumbnails;
-@property bool isWaitingForFirstDownloadEvent;
-@property(retain) NSMutableArray * itemsInFlight;
-@property(retain) NSString * objectGUID;
-@property int state;
+@property (nonatomic, retain) NSMutableDictionary *assetToItemInFlightMap;
+@property (nonatomic, retain) NSString *currentFocusAlbumGUID;
+@property (nonatomic, retain) NSString *currentFocusAssetCollectionGUID;
+@property (nonatomic) <MSASAssetDownloaderDelegate> *delegate;
+@property (nonatomic) BOOL didEncounterNetworkConditionError;
+@property (nonatomic, retain) NSString *downloadBatchPerfGUID;
+@property (nonatomic, retain) NSMutableArray *finishedAssets;
+@property (nonatomic) BOOL isDownloadingThumbnails;
+@property (nonatomic) BOOL isWaitingForFirstDownloadEvent;
+@property (nonatomic, retain) NSMutableArray *itemsInFlight;
+@property (nonatomic, retain) NSString *objectGUID;
+@property (nonatomic) int state;
 
 - (void).cxx_destruct;
 - (void)MMCSEngine:(id)arg1 didCreateRequestorContext:(id)arg2 forAssets:(id)arg3;
@@ -45,25 +43,25 @@
 - (id)assetToItemInFlightMap;
 - (id)currentFocusAlbumGUID;
 - (id)currentFocusAssetCollectionGUID;
-- (bool)didEncounterNetworkConditionError;
+- (BOOL)didEncounterNetworkConditionError;
 - (void)didEnqueueAsset:(id)arg1 forAlbumGUID:(id)arg2;
 - (void)didFinishGettingAllAssets;
 - (void)didFinishPuttingAllAssets;
 - (id)downloadBatchPerfGUID;
 - (id)finishedAssets;
-- (bool)isDownloadingThumbnails;
-- (bool)isWaitingForFirstDownloadEvent;
+- (BOOL)isDownloadingThumbnails;
+- (BOOL)isWaitingForFirstDownloadEvent;
 - (id)itemsInFlight;
 - (id)objectGUID;
-- (void)registerAssets:(id)arg1 completionBlock:(id)arg2;
+- (void)registerAssets:(id)arg1 completionBlock:(id /* block */)arg2;
 - (void)setAssetToItemInFlightMap:(id)arg1;
 - (void)setCurrentFocusAlbumGUID:(id)arg1;
 - (void)setCurrentFocusAssetCollectionGUID:(id)arg1;
-- (void)setDidEncounterNetworkConditionError:(bool)arg1;
+- (void)setDidEncounterNetworkConditionError:(BOOL)arg1;
 - (void)setDownloadBatchPerfGUID:(id)arg1;
 - (void)setFinishedAssets:(id)arg1;
-- (void)setIsDownloadingThumbnails:(bool)arg1;
-- (void)setIsWaitingForFirstDownloadEvent:(bool)arg1;
+- (void)setIsDownloadingThumbnails:(BOOL)arg1;
+- (void)setIsWaitingForFirstDownloadEvent:(BOOL)arg1;
 - (void)setItemsInFlight:(id)arg1;
 - (void)setObjectGUID:(id)arg1;
 - (void)setState:(int)arg1;
@@ -72,9 +70,9 @@
 - (void)workQueueCancel;
 - (void)workQueueDownloadNextBatch;
 - (id)workQueueObjectGUID;
-- (void)workQueueRegisterAssets:(id)arg1 completionBlock:(id)arg2;
+- (void)workQueueRegisterAssets:(id)arg1 completionBlock:(id /* block */)arg2;
 - (void)workQueueRetryOutstandingActivities;
-- (void)workQueueShutDownCompletionBlock:(id)arg1;
+- (void)workQueueShutDownCompletionBlock:(id /* block */)arg1;
 - (void)workQueueStop;
 - (void)workQueueUnregisterAssets:(id)arg1;
 

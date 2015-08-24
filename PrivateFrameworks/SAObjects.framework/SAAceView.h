@@ -2,31 +2,28 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class <SAAceSerializable>, NSNumber, NSString;
+@interface SAAceView : AceObject <SAAceSerializable>
 
-@interface SAAceView : AceObject <SAAceSerializable> {
-}
-
-@property(retain) <SAAceSerializable> * context;
-@property(copy,readonly) NSString * debugDescription;
-@property bool deferredRendering;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy) NSNumber * listenAfterSpeaking;
-@property(copy) NSString * speakableText;
-@property(readonly) Class superclass;
-@property(copy) NSString * viewId;
+@property (nonatomic, retain) <SAAceSerializable> *context;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic, copy) NSNumber *deferredRendering;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSNumber *listenAfterSpeaking;
+@property (nonatomic, copy) NSString *speakableText;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSString *viewId;
 
 + (id)aceView;
 + (id)aceViewWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)context;
-- (bool)deferredRendering;
+- (id)deferredRendering;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)listenAfterSpeaking;
 - (void)setContext:(id)arg1;
-- (void)setDeferredRendering:(bool)arg1;
+- (void)setDeferredRendering:(id)arg1;
 - (void)setListenAfterSpeaking:(id)arg1;
 - (void)setSpeakableText:(id)arg1;
 - (void)setViewId:(id)arg1;

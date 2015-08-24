@@ -2,18 +2,15 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class NSArray, NSString;
+@interface PKPaymentSummaryItemsDataItem : PKPaymentDataItem
 
-@interface PKPaymentSummaryItemsDataItem : PKPaymentDataItem {
-}
+@property (nonatomic, readonly) NSString *currencyCode;
+@property (nonatomic, readonly) NSArray *paymentSummaryItems;
 
-@property(readonly) NSString * currencyCode;
-@property(readonly) NSArray * paymentSummaryItems;
-
-+ (long long)dataType;
++ (int)dataType;
 
 - (id)currencyCode;
-- (bool)isValidWithError:(id*)arg1;
+- (BOOL)isValidWithError:(id*)arg1;
 - (id)paymentSummaryItems;
 
 @end

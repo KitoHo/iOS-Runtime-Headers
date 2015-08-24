@@ -2,26 +2,20 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class ABPeoplePickerNavigationController, NSString, SKUIClientContext, SKUIItem, UIViewController;
-
 @interface SKUITonePurchaseController : NSObject <ABPeoplePickerNavigationControllerDelegate> {
     SKUIClientContext *_clientContext;
-    id _completionBlock;
+    id /* block */ _completionBlock;
     SKUIItem *_item;
     UIViewController *_parentViewController;
     ABPeoplePickerNavigationController *_peoplePicker;
 }
 
-@property(retain) SKUIClientContext * clientContext;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property UIViewController * parentViewController;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) SKUIClientContext *clientContext;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) UIViewController *parentViewController;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (void)_dismissPeoplePicker;
@@ -33,11 +27,11 @@
 - (void)dealloc;
 - (id)initWithItem:(id)arg1;
 - (id)parentViewController;
-- (void)peoplePickerNavigationController:(id)arg1 didSelectPerson:(void*)arg2 property:(int)arg3 identifier:(int)arg4;
 - (void)peoplePickerNavigationController:(id)arg1 didSelectPerson:(void*)arg2;
+- (void)peoplePickerNavigationController:(id)arg1 didSelectPerson:(void*)arg2 property:(int)arg3 identifier:(int)arg4;
 - (void)peoplePickerNavigationControllerDidCancel:(id)arg1;
 - (void)setClientContext:(id)arg1;
 - (void)setParentViewController:(id)arg1;
-- (void)showPurchaseFlowWithCompletionBlock:(id)arg1;
+- (void)showPurchaseFlowWithCompletionBlock:(id /* block */)arg1;
 
 @end

@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/TelephonyUI.framework/TelephonyUI
  */
 
-@interface TPStarkUtilities : NSObject {
-}
+@interface TPStarkUtilities : NSObject
 
-+ (bool)activeInterfaceMechanismIsHardware;
-+ (bool)activeInterfaceMechanismIsTouchOnly;
++ (BOOL)activeInterfaceMechanismIsHardware;
++ (BOOL)activeInterfaceMechanismIsTouchOnly;
 + (id)starkScreen;
 
 @end

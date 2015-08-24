@@ -6,16 +6,16 @@
     id _internal;
 }
 
-@property(copy) id gestureHandler;
+@property (copy) id /* block */ gestureHandler;
 
-+ (bool)isGestureServiceAvailable;
-+ (bool)isGestureServiceEnabled;
-+ (void)setGestureServiceEnabled:(bool)arg1;
++ (BOOL)isGestureServiceAvailable;
++ (BOOL)isGestureServiceEnabled;
++ (void)setGestureServiceEnabled:(BOOL)arg1;
 
 - (void)dealloc;
-- (id)gestureHandler;
+- (id /* block */)gestureHandler;
 - (id)init;
 - (id)initWithPriority:(int)arg1;
-- (void)setGestureHandler:(id)arg1;
+- (void)setGestureHandler:(id /* block */)arg1;
 
 @end

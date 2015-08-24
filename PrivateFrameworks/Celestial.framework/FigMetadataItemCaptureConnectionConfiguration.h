@@ -7,8 +7,8 @@
     struct opaqueCMFormatDescription { } *_formatDescription;
 }
 
-@property(retain) struct OpaqueCMClock { }* clock;
-@property(retain) struct opaqueCMFormatDescription { }* formatDescription;
+@property (nonatomic, retain) struct OpaqueCMClock { }*clock;
+@property (nonatomic, retain) struct opaqueCMFormatDescription { }*formatDescription;
 
 - (struct OpaqueCMClock { }*)clock;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -17,7 +17,7 @@
 - (id)description;
 - (struct opaqueCMFormatDescription { }*)formatDescription;
 - (id)initWithXPCEncoding:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)setClock:(struct OpaqueCMClock { }*)arg1;
 - (void)setFormatDescription:(struct opaqueCMFormatDescription { }*)arg1;
 

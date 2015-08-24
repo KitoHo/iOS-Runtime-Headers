@@ -2,65 +2,67 @@
    Image: /System/Library/PrivateFrameworks/MPUFoundation.framework/MPUFoundation
  */
 
-@class NSArray, NSString;
-
 @interface MPUDataSource : NSObject <NSCoding> {
-    long long _entityType;
-    long long _invalidationIgnoreCount;
-    long long _numberOfIgnoredInvalidations;
+    int _entityType;
+    int _invalidationIgnoreCount;
+    int _numberOfIgnoredInvalidations;
 }
 
-@property(readonly) unsigned long long count;
-@property(readonly) NSString * entityCountFormat;
-@property(readonly) long long entityType;
-@property(readonly) bool isEmpty;
-@property(readonly) NSArray * localizedSectionIndexTitles;
-@property(readonly) unsigned long long numberOfSections;
-@property(readonly) bool showsEntityCountFooter;
-@property(readonly) bool showsIndexBar;
-@property(readonly) bool usesSections;
+@property (nonatomic, readonly) unsigned int count;
+@property (nonatomic, readonly) NSString *entityCountFormat;
+@property (nonatomic, readonly) int entityType;
+@property (nonatomic, readonly) BOOL isEmpty;
+@property (nonatomic, readonly) NSArray *localizedSectionIndexTitles;
+@property (nonatomic, readonly) unsigned int numberOfSections;
+@property (nonatomic, readonly) BOOL showsEntityCountFooter;
+@property (nonatomic, readonly) BOOL showsIndexBar;
+@property (nonatomic, readonly) BOOL usesSections;
 
-- (void)_didInvalidate;
-- (unsigned long long)_globalIndexForIndexPath:(id)arg1;
++ (Class)invalidationContextClass;
+
+- (void)_didInvalidateWithContext:(id)arg1;
+- (unsigned int)_globalIndexForIndexPath:(id)arg1;
+- (id)_indexPathForGlobalIndex:(unsigned int)arg1;
 - (void)_invalidateCalculatedEntities;
-- (void)_willInvalidate;
+- (void)_willInvalidateWithContext:(id)arg1;
 - (id)anyEntity;
 - (void)beginIgnoringInvalidation;
-- (bool)canEditEntityAtIndex:(unsigned long long)arg1;
-- (bool)canEditEntityAtIndexPath:(id)arg1;
-- (bool)canSelectEntityAtIndex:(unsigned long long)arg1;
-- (unsigned long long)count;
-- (void)deleteEntityAtIndex:(unsigned long long)arg1;
+- (BOOL)canEditEntityAtIndex:(unsigned int)arg1;
+- (BOOL)canEditEntityAtIndexPath:(id)arg1;
+- (BOOL)canSelectEntityAtIndex:(unsigned int)arg1;
+- (unsigned int)count;
+- (void)deleteEntityAtIndex:(unsigned int)arg1;
 - (void)deleteEntityAtIndexPath:(id)arg1;
-- (long long)editingTypeForEntityAtIndex:(unsigned long long)arg1;
-- (long long)editingTypeForEntityAtIndexPath:(id)arg1;
+- (int)editingTypeForEntityAtIndex:(unsigned int)arg1;
+- (int)editingTypeForEntityAtIndexPath:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)endIgnoringInvalidation;
 - (id)entities;
-- (id)entityAtIndex:(unsigned long long)arg1;
+- (id)entityAtIndex:(unsigned int)arg1;
 - (id)entityAtIndexPath:(id)arg1;
 - (id)entityCountFormat;
-- (bool)entityIsNowPlayingAtIndex:(unsigned long long)arg1;
-- (long long)entityType;
-- (unsigned long long)indexOfEntity:(id)arg1;
-- (unsigned long long)indexOfSectionEntity:(id)arg1;
-- (unsigned long long)indexOfSectionForSectionTitleAtIndex:(unsigned long long)arg1;
+- (BOOL)entityIsNowPlayingAtIndex:(unsigned int)arg1;
+- (int)entityType;
+- (unsigned int)indexOfEntity:(id)arg1;
+- (unsigned int)indexOfSectionEntity:(id)arg1;
+- (unsigned int)indexOfSectionForSectionTitleAtIndex:(unsigned int)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithEntityType:(long long)arg1;
+- (id)initWithEntityType:(int)arg1;
 - (void)invalidate;
-- (bool)isEmpty;
-- (bool)isIgnoringInvalidation;
+- (void)invalidateWithContext:(id)arg1;
+- (BOOL)isEmpty;
+- (BOOL)isIgnoringInvalidation;
 - (id)localizedSectionIndexTitles;
-- (id)localizedSectionTitleAtIndex:(unsigned long long)arg1;
-- (unsigned long long)numberOfSections;
-- (id)playbackContextForIndex:(unsigned long long)arg1;
+- (id)localizedSectionTitleAtIndex:(unsigned int)arg1;
+- (unsigned int)numberOfSections;
+- (id)playbackContextForIndex:(unsigned int)arg1;
 - (void)preloadEntities;
 - (void)preloadSectionEntities;
-- (struct _NSRange { unsigned long long x1; unsigned long long x2; })rangeOfSectionAtIndex:(unsigned long long)arg1;
+- (struct _NSRange { unsigned int x1; unsigned int x2; })rangeOfSectionAtIndex:(unsigned int)arg1;
 - (id)sectionEntities;
-- (id)sectionEntityAtIndex:(unsigned long long)arg1;
-- (bool)showsEntityCountFooter;
-- (bool)showsIndexBar;
-- (bool)usesSections;
+- (id)sectionEntityAtIndex:(unsigned int)arg1;
+- (BOOL)showsEntityCountFooter;
+- (BOOL)showsIndexBar;
+- (BOOL)usesSections;
 
 @end

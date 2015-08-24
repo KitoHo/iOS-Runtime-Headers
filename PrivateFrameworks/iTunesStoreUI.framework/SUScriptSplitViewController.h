@@ -2,21 +2,18 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSNumber, NSString, SUScriptViewController;
+@interface SUScriptSplitViewController : SUScriptViewController
 
-@interface SUScriptSplitViewController : SUScriptViewController {
-}
-
-@property(retain) SUScriptViewController * firstViewController;
-@property(retain) id minimumPaneSize;
-@property(retain) SUScriptViewController * secondViewController;
-@property(retain) id splitPosition;
-@property(retain) id splitShadowColor;
-@property(retain) NSNumber * splitShadowOpacity;
-@property(retain) NSNumber * splitShadowRadius;
-@property(retain) NSString * splitType;
-@property(retain) NSString * title;
-@property bool usesSharedPlaceholder;
+@property (retain) SUScriptViewController *firstViewController;
+@property (retain) id minimumPaneSize;
+@property (retain) SUScriptViewController *secondViewController;
+@property (retain) id splitPosition;
+@property (retain) id splitShadowColor;
+@property (retain) NSNumber *splitShadowOpacity;
+@property (retain) NSNumber *splitShadowRadius;
+@property (retain) NSString *splitType;
+@property (retain) NSString *title;
+@property BOOL usesSharedPlaceholder;
 
 + (void)initialize;
 + (id)webScriptNameForKeyName:(id)arg1;
@@ -38,13 +35,13 @@
 - (void)setSplitShadowRadius:(id)arg1;
 - (void)setSplitType:(id)arg1;
 - (void)setTitle:(id)arg1;
-- (void)setUsesSharedPlaceholder:(bool)arg1;
+- (void)setUsesSharedPlaceholder:(BOOL)arg1;
 - (id)splitPosition;
 - (id)splitShadowColor;
 - (id)splitShadowOpacity;
 - (id)splitShadowRadius;
 - (id)splitType;
 - (id)title;
-- (bool)usesSharedPlaceholder;
+- (BOOL)usesSharedPlaceholder;
 
 @end

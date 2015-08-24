@@ -2,13 +2,12 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@interface PUAlbumPickerViewControllerPhoneSpec : PUAlbumPickerViewControllerSpec {
-}
+@interface PUAlbumPickerViewControllerPhoneSpec : PUAlbumPickerViewControllerSpec
 
 - (id)albumListViewControllerSpec;
-- (unsigned long long)bannerViewStyle;
+- (unsigned int)bannerViewStyle;
 - (void)configureSessionInfo:(id)arg1;
 - (id)newAlbumListViewController;
-- (unsigned long long)supportedInterfaceOrientations;
+- (unsigned int)supportedInterfaceOrientations;
 
 @end

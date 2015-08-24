@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class <TCCancelDelegate>, CXNamespace, NSMutableDictionary, OAVReadState, OAXDrawingState, OAXTableStyleCache, PDPresentation;
-
 @interface PXPresentationState : OCXReadState {
     CXNamespace *_PXPresentationMLNamespace;
     <TCCancelDelegate> *mCancel;
@@ -15,14 +13,14 @@
     PDPresentation *mTgtPresentation;
 }
 
-@property(retain) CXNamespace * PXPresentationMLNamespace;
-@property(retain) <TCCancelDelegate> * cancelDelegate;
+@property (nonatomic, retain) CXNamespace *PXPresentationMLNamespace;
+@property (nonatomic, retain) <TCCancelDelegate> *cancelDelegate;
 
 - (id)PXPresentationMLNamespace;
 - (id)cancelDelegate;
 - (void)dealloc;
 - (id)init;
-- (bool)isCancelled;
+- (BOOL)isCancelled;
 - (id)modelObjectForLocation:(id)arg1;
 - (id)oavState;
 - (id)officeArtState;
@@ -30,10 +28,10 @@
 - (void)setCancelDelegate:(id)arg1;
 - (void)setModelObject:(id)arg1 forLocation:(id)arg2;
 - (void)setPXPresentationMLNamespace:(id)arg1;
-- (void)setSlideIndex:(long long)arg1 forSlideURL:(id)arg2;
+- (void)setSlideIndex:(int)arg1 forSlideURL:(id)arg2;
 - (void)setTgtPresentation:(id)arg1;
 - (void)setupNSForXMLFormat:(int)arg1;
-- (long long)slideIndexForSlideURL:(id)arg1;
+- (int)slideIndexForSlideURL:(id)arg1;
 - (id)tableStyleCache;
 - (id)tgtPresentation;
 

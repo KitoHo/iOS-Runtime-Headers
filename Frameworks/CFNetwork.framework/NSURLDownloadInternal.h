@@ -2,15 +2,13 @@
    Image: /System/Library/Frameworks/CFNetwork.framework/CFNetwork
  */
 
-@class NSOperationQueue, NSURLAuthenticationChallenge;
-
 @interface NSURLDownloadInternal : NSObject {
     NSOperationQueue *_targetQueue;
-    booldownloadActive;
     struct _CFURLDownload { } *cfDownload;
     struct _CFURLAuthChallenge { } *currCFChallenge;
     NSURLAuthenticationChallenge *currNSChallenge;
     id delegate;
+    BOOL downloadActive;
 }
 
 - (void)dealloc;

@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableArray, OITSUNoCopyDictionary;
-
 @interface OITSULRUCache : NSObject {
     SEL mCallback;
     id mCallbackTarget;
     OITSUNoCopyDictionary *mData;
-    unsigned long long mMax;
+    unsigned int mMax;
     NSMutableArray *mOrderedKeys;
 }
 
-@property(readonly) unsigned long long maxSize;
+@property (nonatomic, readonly) unsigned int maxSize;
 
 - (id)allKeys;
 - (id)allValues;
 - (void)clearEvictionCallbackTarget;
 - (void)dealloc;
-- (id)initWithMaxSize:(unsigned long long)arg1;
-- (unsigned long long)maxSize;
+- (id)initWithMaxSize:(unsigned int)arg1;
+- (unsigned int)maxSize;
 - (id)objectForKey:(id)arg1;
 - (void)p_removeOldestObject;
 - (void)removeAllObjects;

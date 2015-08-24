@@ -2,77 +2,78 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString, UILongPressGestureRecognizer, UIView;
-
 @interface UICollectionViewCell : UICollectionReusableView <UIGestureRecognizerDelegate> {
+    UIView *_backgroundView;
     struct { 
         unsigned int selected : 1; 
         unsigned int highlighted : 1; 
         unsigned int showingMenu : 1; 
         unsigned int clearSelectionWhenMenuDisappears : 1; 
         unsigned int waitingForSelectionAnimationHalfwayPoint : 1; 
-    UIView *_backgroundView;
     } _collectionCellFlags;
     UIView *_contentView;
+    BOOL _highlighted;
     id _highlightingSupport;
     UILongPressGestureRecognizer *_menuGesture;
+    BOOL _selected;
     UIView *_selectedBackgroundView;
     id _selectionSegueTemplate;
-    bool_highlighted;
-    bool_selected;
 }
 
-@property(retain) UIView * backgroundView;
-@property(readonly) UIView * contentView;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(getter=isHighlighted) bool highlighted;
-@property(getter=isSelected) bool selected;
-@property(retain) UIView * selectedBackgroundView;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) UIView *backgroundView;
+@property (nonatomic, readonly) UIView *contentView;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (getter=isHighlighted, nonatomic) BOOL highlighted;
+@property (getter=isSelected, nonatomic) BOOL selected;
+@property (nonatomic, retain) UIView *selectedBackgroundView;
+@property (readonly) Class superclass;
 
 + (Class)_contentViewClass;
 
 - (void)_descendent:(id)arg1 didMoveFromSuperview:(id)arg2 toSuperview:(id)arg3;
 - (void)_descendent:(id)arg1 willMoveFromSuperview:(id)arg2 toSuperview:(id)arg3;
-- (bool)_forwardsSystemLayoutFittingSizeToContentView:(id)arg1;
-- (bool)_gestureRecognizerShouldBegin:(id)arg1;
+- (void)_focusedViewDidChange:(id)arg1;
+- (BOOL)_forwardsSystemLayoutFittingSizeToContentView:(id)arg1;
+- (BOOL)_gestureRecognizerShouldBegin:(id)arg1;
 - (void)_handleMenuGesture:(id)arg1;
-- (bool)_isUsingOldStyleMultiselection;
+- (BOOL)_isUsingOldStyleMultiselection;
 - (void)_menuDismissed:(id)arg1;
 - (void)_performAction:(SEL)arg1 sender:(id)arg2;
 - (id)_selectionSegueTemplate;
-- (void)_setHighlighted:(bool)arg1 animated:(bool)arg2;
-- (void)_setOpaque:(bool)arg1 forSubview:(id)arg2;
-- (void)_setSelected:(bool)arg1 animated:(bool)arg2;
+- (void)_setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)_setOpaque:(BOOL)arg1 forSubview:(id)arg2;
+- (void)_setSelected:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)_setSelectionSegueTemplate:(id)arg1;
 - (void)_setupHighlightingSupport;
-- (bool)_shouldSaveOpaqueStateForView:(id)arg1;
+- (BOOL)_shouldSaveOpaqueStateForView:(id)arg1;
 - (void)_teardownHighlightingSupportIfReady;
 - (void)_updateBackgroundView;
 - (void)_updateHighlightColorsForAnimationHalfwayPoint;
-- (void)_updateHighlightColorsForView:(id)arg1 highlight:(bool)arg2;
+- (void)_updateHighlightColorsForView:(id)arg1 highlight:(BOOL)arg2;
 - (id)backgroundView;
-- (bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
+- (BOOL)canBecomeFocused;
+- (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (id)contentView;
 - (void)copy:(id)arg1;
 - (void)cut:(id)arg1;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (bool)isHighlighted;
-- (bool)isSelected;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (BOOL)isHighlighted;
+- (BOOL)isSelected;
 - (void)layoutSubviews;
 - (void)paste:(id)arg1;
 - (void)prepareForReuse;
 - (id)selectedBackgroundView;
 - (void)setBackgroundView:(id)arg1;
-- (void)setHighlighted:(bool)arg1;
-- (void)setSelected:(bool)arg1;
+- (void)setHighlighted:(BOOL)arg1;
+- (void)setSelected:(BOOL)arg1;
 - (void)setSelectedBackgroundView:(id)arg1;
-- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
-- (struct CGSize { double x1; double x2; })systemLayoutSizeFittingSize:(struct CGSize { double x1; double x2; })arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3;
+- (BOOL)shouldChangeFocusedItem:(id)arg1 heading:(unsigned int)arg2;
+- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
+- (struct CGSize { float x1; float x2; })systemLayoutSizeFittingSize:(struct CGSize { float x1; float x2; })arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3;
 
 @end

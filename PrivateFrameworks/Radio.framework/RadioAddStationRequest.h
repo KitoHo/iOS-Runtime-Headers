@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Radio.framework/Radio
  */
 
-@class NSDictionary, NSMutableDictionary, NSString;
-
 @interface RadioAddStationRequest : RadioSyncRequest {
     NSDictionary *_matchDictionary;
     long long _persistentID;
@@ -14,13 +12,13 @@
 - (void).cxx_destruct;
 - (id)changeList;
 - (id)init;
-- (id)initWithLibraryTrackDictionary:(id)arg1 useArtist:(bool)arg2;
+- (id)initWithLibraryTrackDictionary:(id)arg1 useArtist:(BOOL)arg2;
 - (id)initWithQueryTerm:(id)arg1 queryID:(long long)arg2;
-- (id)initWithRadioTrackDictionary:(id)arg1 useArtist:(bool)arg2;
+- (id)initWithRadioTrackDictionary:(id)arg1 useArtist:(BOOL)arg2;
 - (id)initWithStation:(id)arg1;
 - (id)initWithStationDictionary:(id)arg1;
 - (id)matchDictionary;
-- (void)startWithAddStationCompletionHandler:(id)arg1;
-- (void)startWithCompletionHandler:(id)arg1;
+- (void)startWithAddStationCompletionHandler:(id /* block */)arg1;
+- (void)startWithCompletionHandler:(id /* block */)arg1;
 
 @end

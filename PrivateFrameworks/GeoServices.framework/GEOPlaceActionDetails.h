@@ -3,6 +3,8 @@
  */
 
 @interface GEOPlaceActionDetails : PBCodable <NSCopying> {
+    unsigned long long _animationID;
+    unsigned long long _businessID;
     struct { 
         unsigned int animationID : 1; 
         unsigned int businessID : 1; 
@@ -10,8 +12,6 @@
         unsigned int searchResponseRelativeTimestamp : 1; 
         unsigned int localSearchProviderID : 1; 
         unsigned int resultIndex : 1; 
-    unsigned long long _animationID;
-    unsigned long long _businessID;
     } _has;
     int _localSearchProviderID;
     long long _placeID;
@@ -19,18 +19,18 @@
     double _searchResponseRelativeTimestamp;
 }
 
-@property unsigned long long animationID;
-@property unsigned long long businessID;
-@property bool hasAnimationID;
-@property bool hasBusinessID;
-@property bool hasLocalSearchProviderID;
-@property bool hasPlaceID;
-@property bool hasResultIndex;
-@property bool hasSearchResponseRelativeTimestamp;
-@property int localSearchProviderID;
-@property long long placeID;
-@property int resultIndex;
-@property double searchResponseRelativeTimestamp;
+@property (nonatomic) unsigned long long animationID;
+@property (nonatomic) unsigned long long businessID;
+@property (nonatomic) BOOL hasAnimationID;
+@property (nonatomic) BOOL hasBusinessID;
+@property (nonatomic) BOOL hasLocalSearchProviderID;
+@property (nonatomic) BOOL hasPlaceID;
+@property (nonatomic) BOOL hasResultIndex;
+@property (nonatomic) BOOL hasSearchResponseRelativeTimestamp;
+@property (nonatomic) int localSearchProviderID;
+@property (nonatomic) long long placeID;
+@property (nonatomic) int resultIndex;
+@property (nonatomic) double searchResponseRelativeTimestamp;
 
 + (id)actionDetailsWithMapItem:(id)arg1 timestamp:(double)arg2 resultIndex:(int)arg3;
 
@@ -40,29 +40,29 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasAnimationID;
-- (bool)hasBusinessID;
-- (bool)hasLocalSearchProviderID;
-- (bool)hasPlaceID;
-- (bool)hasResultIndex;
-- (bool)hasSearchResponseRelativeTimestamp;
-- (unsigned long long)hash;
+- (BOOL)hasAnimationID;
+- (BOOL)hasBusinessID;
+- (BOOL)hasLocalSearchProviderID;
+- (BOOL)hasPlaceID;
+- (BOOL)hasResultIndex;
+- (BOOL)hasSearchResponseRelativeTimestamp;
+- (unsigned int)hash;
 - (id)initWithMapItem:(id)arg1 relativeTimestamp:(double)arg2 resultIndex:(int)arg3;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (int)localSearchProviderID;
 - (void)mergeFrom:(id)arg1;
 - (long long)placeID;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (int)resultIndex;
 - (double)searchResponseRelativeTimestamp;
 - (void)setAnimationID:(unsigned long long)arg1;
 - (void)setBusinessID:(unsigned long long)arg1;
-- (void)setHasAnimationID:(bool)arg1;
-- (void)setHasBusinessID:(bool)arg1;
-- (void)setHasLocalSearchProviderID:(bool)arg1;
-- (void)setHasPlaceID:(bool)arg1;
-- (void)setHasResultIndex:(bool)arg1;
-- (void)setHasSearchResponseRelativeTimestamp:(bool)arg1;
+- (void)setHasAnimationID:(BOOL)arg1;
+- (void)setHasBusinessID:(BOOL)arg1;
+- (void)setHasLocalSearchProviderID:(BOOL)arg1;
+- (void)setHasPlaceID:(BOOL)arg1;
+- (void)setHasResultIndex:(BOOL)arg1;
+- (void)setHasSearchResponseRelativeTimestamp:(BOOL)arg1;
 - (void)setLocalSearchProviderID:(int)arg1;
 - (void)setPlaceID:(long long)arg1;
 - (void)setResultIndex:(int)arg1;

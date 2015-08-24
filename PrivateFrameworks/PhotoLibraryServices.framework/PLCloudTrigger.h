@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>;
-
 @interface PLCloudTrigger : NSObject {
     NSMutableDictionary *_subscriptions;
     NSObject<OS_dispatch_queue> *_triggerQueue;
-    unsigned long long _type;
+    unsigned int _type;
 }
 
-@property(retain,readonly) NSDictionary * subscriptions;
-@property(readonly) unsigned long long type;
+@property (nonatomic, readonly, retain) NSDictionary *subscriptions;
+@property (nonatomic, readonly) unsigned int type;
 
 - (void)activate;
 - (void)dealloc;
-- (id)initWithType:(unsigned long long)arg1;
+- (id)initWithType:(unsigned int)arg1;
 - (void)subscribeWithInstance:(id)arg1 selector:(SEL)arg2;
 - (id)subscriptions;
 - (void)triggerWithContextObject:(id)arg1;
-- (unsigned long long)type;
+- (unsigned int)type;
 - (void)unsubscribeWithInstance:(id)arg1;
 
 @end

@@ -2,11 +2,9 @@
    Image: /System/Library/Frameworks/CoreAudioKit.framework/CoreAudioKit
  */
 
-@class <BTLEConnectionTable>, CBCentralManager, NSMutableArray, NSString, NSTimer;
-
 @interface AMSBTLEConnectionManager : NSObject <CBCentralManagerDelegate, CBPeripheralDelegate> {
-    boolleState;
     CBCentralManager *centralManager;
+    int centralState;
     NSMutableArray *connectedAMSPeripherals;
     NSMutableArray *connectedBTPeripherals;
     <BTLEConnectionTable> *controller;
@@ -14,14 +12,14 @@
     NSTimer *refreshTimer;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) NSMutableArray * peripheralList;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) NSMutableArray *peripheralList;
+@property (readonly) Class superclass;
 
 - (id)amsPeripheralForCBPeripheral:(id)arg1;
-- (long long)bluetoothState;
+- (int)bluetoothState;
 - (void)centralManager:(id)arg1 didConnectPeripheral:(id)arg2;
 - (void)centralManager:(id)arg1 didDisconnectPeripheral:(id)arg2 error:(id)arg3;
 - (void)centralManager:(id)arg1 didDiscoverPeripheral:(id)arg2 advertisementData:(id)arg3 RSSI:(id)arg4;
@@ -31,13 +29,13 @@
 - (void)createPeripheralList;
 - (void)dealloc;
 - (id)initWithUIController:(id)arg1;
-- (bool)isLECapableHardware;
+- (BOOL)isLECapableHardware;
 - (void)killTimer;
-- (unsigned int)midiDeviceForUUID:(id)arg1;
+- (struct OpaqueMIDIDevice { }*)midiDeviceForUUID:(id)arg1;
 - (void)peripheral:(id)arg1 didDiscoverCharacteristicsForService:(id)arg2 error:(id)arg3;
 - (void)peripheral:(id)arg1 didDiscoverServices:(id)arg2;
 - (void)peripheral:(id)arg1 didUpdateValueForCharacteristic:(id)arg2 error:(id)arg3;
-- (bool)peripheralIsConnectedCentral:(id)arg1;
+- (BOOL)peripheralIsConnectedCentral:(id)arg1;
 - (id)peripheralList;
 - (void)removeAMSPeripheralForCBPeripheral:(id)arg1;
 - (void)setUIController:(id)arg1;

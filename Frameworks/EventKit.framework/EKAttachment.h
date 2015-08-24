@@ -2,29 +2,26 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@class NSNumber, NSString, NSURL;
+@interface EKAttachment : EKObject
 
-@interface EKAttachment : EKObject {
-}
-
-@property(readonly) NSURL * URL;
-@property(readonly) NSString * UUID;
-@property(readonly) NSString * fileFormat;
-@property(readonly) NSString * fileName;
-@property(readonly) NSNumber * fileSize;
-@property(readonly) bool isBinary;
-@property(readonly) NSURL * localURL;
+@property (nonatomic, readonly) NSURL *URL;
+@property (nonatomic, readonly) NSString *UUID;
+@property (nonatomic, readonly) NSString *fileFormat;
+@property (nonatomic, readonly) NSString *fileName;
+@property (nonatomic, readonly) NSNumber *fileSize;
+@property (nonatomic, readonly) BOOL isBinary;
+@property (nonatomic, readonly) NSURL *localURL;
 
 - (id)URL;
 - (id)UUID;
-- (long long)compareFileNames:(id)arg1;
+- (int)compareFileNames:(id)arg1;
 - (id)description;
 - (id)fileFormat;
 - (id)fileName;
 - (id)fileSize;
 - (id)init;
-- (bool)isBinary;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isBinary;
+- (BOOL)isEqual:(id)arg1;
 - (id)localURL;
 
 @end

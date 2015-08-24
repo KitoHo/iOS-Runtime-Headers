@@ -2,36 +2,34 @@
    Image: /System/Library/PrivateFrameworks/CameraKit.framework/CameraKit
  */
 
-@class <CAMEffectSelectionViewControllerDelegate>, CIFilter, NSArray, NSIndexPath, NSString, UICollectionView, UICollectionViewFlowLayout;
-
-@interface CAMEffectSelectionViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource> {
-    struct CGSize { 
-        double width; 
-        double height; 
-    struct CGSize { 
-        double width; 
-        double height; 
+@interface CAMEffectSelectionViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate> {
     NSIndexPath *__selectedIndexPath;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _cellSize;
     UICollectionView *_collectionView;
     <CAMEffectSelectionViewControllerDelegate> *_delegate;
     NSArray *_effects;
     UICollectionViewFlowLayout *_layout;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _thumbnailSize;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <CAMEffectSelectionViewControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) CIFilter * selectedEffect;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <CAMEffectSelectionViewControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) CIFilter *selectedEffect;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (void)_generateFilters;
 - (void)_notifyEffectSelectedAndScrollIfNecessary;
 - (void)_resetSelectedToOriginal;
-- (void)_scrollToSelectedIndexAnimated:(bool)arg1;
+- (void)_scrollToSelectedIndexAnimated:(BOOL)arg1;
 - (void)_scrollToShowNextFilterNearEdge;
 - (id)_selectedIndexPath;
 - (void)_setSelectedIndexPath:(id)arg1;
@@ -39,20 +37,20 @@
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didDeselectItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(long long)arg3;
-- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
-- (bool)collectionView:(id)arg1 shouldDeselectItemAtIndexPath:(id)arg2;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(int)arg3;
+- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
+- (BOOL)collectionView:(id)arg1 shouldDeselectItemAtIndexPath:(id)arg2;
 - (void)dealloc;
 - (id)delegate;
 - (id)init;
-- (id)initWithImageSize:(struct CGSize { double x1; double x2; })arg1;
+- (id)initWithImageSize:(struct CGSize { float x1; float x2; })arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)loadView;
-- (long long)numberOfSectionsInCollectionView:(id)arg1;
+- (int)numberOfSectionsInCollectionView:(id)arg1;
 - (id)selectedEffect;
 - (void)setDelegate:(id)arg1;
 - (void)setSelectedEffect:(id)arg1;
-- (void)viewWillAppear:(bool)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 
 @end

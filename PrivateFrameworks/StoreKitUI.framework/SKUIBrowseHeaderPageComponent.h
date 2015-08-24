@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@interface SKUIBrowseHeaderPageComponent : SKUIPageComponent {
-}
+@interface SKUIBrowseHeaderPageComponent : SKUIPageComponent
 
-- (long long)componentType;
+- (int)componentType;
 
 @end

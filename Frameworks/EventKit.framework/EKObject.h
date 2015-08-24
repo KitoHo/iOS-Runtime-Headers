@@ -2,12 +2,10 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@class EKObjectRelation, EKPersistentObject, NSMutableDictionary, NSMutableSet, NSString;
-
 @interface EKObject : NSObject {
     NSMutableDictionary *_cachedProperties;
     NSMutableDictionary *_dirtyProperties;
-    unsigned int _flags;
+    unsigned long _flags;
     EKObjectRelation *_owningRelation;
     EKPersistentObject *_persistentObject;
     NSString *_propertyName;
@@ -15,17 +13,17 @@
     NSMutableSet *_weakRelations;
 }
 
-@property(retain) NSMutableDictionary * cachedProperties;
-@property(retain) NSMutableDictionary * dirtyProperties;
-@property unsigned int flags;
-@property EKObjectRelation * owningRelation;
-@property(retain) EKPersistentObject * persistentObject;
-@property(copy) NSString * propertyName;
-@property(retain) NSMutableDictionary * relations;
-@property(retain) NSMutableSet * weakRelations;
+@property (nonatomic, retain) NSMutableDictionary *cachedProperties;
+@property (nonatomic, retain) NSMutableDictionary *dirtyProperties;
+@property (nonatomic) unsigned long flags;
+@property (nonatomic) EKObjectRelation *owningRelation;
+@property (nonatomic, retain) EKPersistentObject *persistentObject;
+@property (nonatomic, copy) NSString *propertyName;
+@property (nonatomic, retain) NSMutableDictionary *relations;
+@property (nonatomic, retain) NSMutableSet *weakRelations;
 
 - (void)addWeakRelation:(id)arg1;
-- (bool)boolPropertyForKey:(id)arg1 withPersistentFallback:(id)arg2;
+- (BOOL)boolPropertyForKey:(id)arg1 withPersistentFallback:(id /* block */)arg2;
 - (void)cachePropertyValue:(id)arg1 forKey:(id)arg2;
 - (id)cachedProperties;
 - (void)childRelationChanged:(id)arg1;
@@ -36,28 +34,28 @@
 - (void)didCommit;
 - (id)dirtyProperties;
 - (id)eventStore;
-- (bool)existsInStore;
+- (BOOL)existsInStore;
 - (void)faultPropertiesWithNames:(id)arg1;
-- (unsigned int)flags;
-- (bool)hasChanges;
+- (unsigned long)flags;
+- (BOOL)hasChanges;
 - (id)initWithPersistentObject:(id)arg1;
 - (void)insertPersistentObjectIfNeeded;
-- (int)intPropertyForKey:(id)arg1 withPersistentFallback:(id)arg2;
-- (bool)isEqual:(id)arg1;
-- (bool)isNew;
-- (bool)isPropertyDirty:(id)arg1;
+- (int)intPropertyForKey:(id)arg1 withPersistentFallback:(id /* block */)arg2;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isNew;
+- (BOOL)isPropertyDirty:(id)arg1;
 - (id)lazyLoadRelationForKey:(id)arg1;
 - (id)objectID;
 - (id)owner;
 - (id)owningRelation;
 - (id)persistentObject;
 - (id)persistentOrDirtyPropertyForKey:(id)arg1;
-- (id)propertyForKey:(id)arg1 withPersistentFallback:(id)arg2;
+- (id)propertyForKey:(id)arg1 withPersistentFallback:(id /* block */)arg2;
 - (id)propertyName;
-- (bool)propertyValueForKey:(id)arg1 value:(id*)arg2;
 - (id)propertyValueForKey:(id)arg1;
-- (bool)rebase;
-- (bool)refresh;
+- (BOOL)propertyValueForKey:(id)arg1 value:(id*)arg2;
+- (BOOL)rebase;
+- (BOOL)refresh;
 - (id)relationForKey:(id)arg1;
 - (id)relations;
 - (void)removeWeakRelation:(id)arg1;
@@ -65,7 +63,7 @@
 - (void)rollback;
 - (void)setCachedProperties:(id)arg1;
 - (void)setDirtyProperties:(id)arg1;
-- (void)setFlags:(unsigned int)arg1;
+- (void)setFlags:(unsigned long)arg1;
 - (void)setOwningRelation:(id)arg1;
 - (void)setPersistentObject:(id)arg1;
 - (void)setPropertyName:(id)arg1;
@@ -74,7 +72,7 @@
 - (void)setWeakRelations:(id)arg1;
 - (void)updatePersistentObject;
 - (void)updatePersistentValueForKeyIfNeeded:(id)arg1;
-- (bool)validate:(id*)arg1;
+- (BOOL)validate:(id*)arg1;
 - (id)weakRelations;
 
 @end

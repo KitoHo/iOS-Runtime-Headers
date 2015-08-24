@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/BackBoardServices.framework/BackBoardServices
  */
 
-@class <BKSAccelerometerDelegate>, NSLock, NSThread;
-
 @interface BKSAccelerometer : NSObject {
     struct __CFRunLoop { } *_accelerometerEventsRunLoop;
     struct __CFRunLoopSource { } *_accelerometerEventsSource;
@@ -11,25 +9,25 @@
     double _interval;
     NSLock *_lock;
     int _orientationCheckToken;
+    BOOL _orientationEventsEnabled;
     NSThread *_orientationEventsThread;
     int _orientationNotificationsToken;
     unsigned int _orientationPort;
+    BOOL _passiveOrientationEvents;
     double _updateInterval;
     float _xThreshold;
     float _yThreshold;
     float _zThreshold;
-    bool_orientationEventsEnabled;
-    bool_passiveOrientationEvents;
 }
 
-@property bool accelerometerEventsEnabled;
-@property <BKSAccelerometerDelegate> * delegate;
-@property bool orientationEventsEnabled;
-@property bool passiveOrientationEvents;
-@property double updateInterval;
-@property float xThreshold;
-@property float yThreshold;
-@property float zThreshold;
+@property (nonatomic) BOOL accelerometerEventsEnabled;
+@property (nonatomic) <BKSAccelerometerDelegate> *delegate;
+@property (nonatomic) BOOL orientationEventsEnabled;
+@property (nonatomic) BOOL passiveOrientationEvents;
+@property (nonatomic) double updateInterval;
+@property (nonatomic) float xThreshold;
+@property (nonatomic) float yThreshold;
+@property (nonatomic) float zThreshold;
 
 - (void)_checkIn;
 - (void)_checkOut;
@@ -37,17 +35,17 @@
 - (id)_orientationEventsThread;
 - (void)_serverWasRestarted;
 - (void)_updateOrientationServer;
-- (bool)accelerometerEventsEnabled;
+- (BOOL)accelerometerEventsEnabled;
 - (int)currentDeviceOrientation;
 - (void)dealloc;
 - (id)delegate;
 - (id)init;
-- (bool)orientationEventsEnabled;
-- (bool)passiveOrientationEvents;
-- (void)setAccelerometerEventsEnabled:(bool)arg1;
+- (BOOL)orientationEventsEnabled;
+- (BOOL)passiveOrientationEvents;
+- (void)setAccelerometerEventsEnabled:(BOOL)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setOrientationEventsEnabled:(bool)arg1;
-- (void)setPassiveOrientationEvents:(bool)arg1;
+- (void)setOrientationEventsEnabled:(BOOL)arg1;
+- (void)setPassiveOrientationEvents:(BOOL)arg1;
 - (void)setUpdateInterval:(double)arg1;
 - (void)setXThreshold:(float)arg1;
 - (void)setYThreshold:(float)arg1;

@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class GKPlayerPickerInfo, UIImageView, UILabel;
-
 @interface GKPlayerPickerCell : GKBasePlayerCell {
     UILabel *_infoLabel;
     GKPlayerPickerInfo *_pickerInfo;
-    unsigned long long _selectionStatus;
+    unsigned int _selectionStatus;
     UIImageView *_selectionView;
     UILabel *_statusLabel;
 }
 
-@property(retain) UILabel * infoLabel;
-@property(retain) GKPlayerPickerInfo * pickerInfo;
-@property unsigned long long selectionStatus;
-@property(retain) UIImageView * selectionView;
-@property(retain) UILabel * statusLabel;
+@property (nonatomic, retain) UILabel *infoLabel;
+@property (nonatomic, retain) GKPlayerPickerInfo *pickerInfo;
+@property (nonatomic) unsigned int selectionStatus;
+@property (nonatomic, retain) UIImageView *selectionView;
+@property (nonatomic, retain) UILabel *statusLabel;
 
 + (Class)cellClassForPickerInfo:(id)arg1;
 + (void)registerCellClassesWithCollectionView:(id)arg1;
@@ -24,14 +22,14 @@
 - (void)dealloc;
 - (void)didUpdateModel;
 - (id)infoLabel;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (id)pickerInfo;
 - (void)prepareForReuse;
-- (unsigned long long)selectionStatus;
+- (unsigned int)selectionStatus;
 - (id)selectionView;
 - (void)setInfoLabel:(id)arg1;
 - (void)setPickerInfo:(id)arg1;
-- (void)setSelectionStatus:(unsigned long long)arg1;
+- (void)setSelectionStatus:(unsigned int)arg1;
 - (void)setSelectionView:(id)arg1;
 - (void)setStatusLabel:(id)arg1;
 - (id)statusLabel;

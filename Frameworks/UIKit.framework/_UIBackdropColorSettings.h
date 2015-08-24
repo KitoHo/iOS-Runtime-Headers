@@ -2,56 +2,54 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIColor, _UIBackdropViewSettings;
-
 @interface _UIBackdropColorSettings : NSObject {
-    double _averageBrightness;
-    double _averageHue;
-    double _averageSaturation;
-    double _contrast;
+    float _averageBrightness;
+    float _averageHue;
+    float _averageSaturation;
+    float _contrast;
+    BOOL _hasObservedValues;
     _UIBackdropViewSettings *_parentSettings;
-    double _previousAverageBrightness;
-    double _previousAverageHue;
-    double _previousAverageSaturation;
-    double _previousContrast;
-    bool_hasObservedValues;
+    float _previousAverageBrightness;
+    float _previousAverageHue;
+    float _previousAverageSaturation;
+    float _previousContrast;
 }
 
-@property double averageBrightness;
-@property double averageHue;
-@property double averageSaturation;
-@property(readonly) UIColor * color;
-@property double contrast;
-@property bool hasObservedValues;
-@property _UIBackdropViewSettings * parentSettings;
-@property double previousAverageBrightness;
-@property double previousAverageHue;
-@property double previousAverageSaturation;
-@property double previousContrast;
+@property (nonatomic) float averageBrightness;
+@property (nonatomic) float averageHue;
+@property (nonatomic) float averageSaturation;
+@property (nonatomic, readonly) UIColor *color;
+@property (nonatomic) float contrast;
+@property (nonatomic) BOOL hasObservedValues;
+@property (nonatomic) _UIBackdropViewSettings *parentSettings;
+@property (nonatomic) float previousAverageBrightness;
+@property (nonatomic) float previousAverageHue;
+@property (nonatomic) float previousAverageSaturation;
+@property (nonatomic) float previousContrast;
 
-- (bool)applyCABackdropLayerStatistics:(id)arg1;
-- (double)averageBrightness;
-- (double)averageHue;
-- (double)averageSaturation;
+- (BOOL)applyCABackdropLayerStatistics:(id)arg1;
+- (float)averageBrightness;
+- (float)averageHue;
+- (float)averageSaturation;
 - (id)color;
-- (double)contrast;
-- (bool)hasObservedValues;
+- (float)contrast;
+- (BOOL)hasObservedValues;
 - (id)parentSettings;
-- (double)previousAverageBrightness;
-- (double)previousAverageHue;
-- (double)previousAverageSaturation;
-- (double)previousContrast;
-- (void)setAverageBrightness:(double)arg1;
-- (void)setAverageHue:(double)arg1;
-- (void)setAverageSaturation:(double)arg1;
-- (void)setContrast:(double)arg1;
+- (float)previousAverageBrightness;
+- (float)previousAverageHue;
+- (float)previousAverageSaturation;
+- (float)previousContrast;
+- (void)setAverageBrightness:(float)arg1;
+- (void)setAverageHue:(float)arg1;
+- (void)setAverageSaturation:(float)arg1;
+- (void)setContrast:(float)arg1;
 - (void)setDefaultValues;
-- (void)setHasObservedValues:(bool)arg1;
+- (void)setHasObservedValues:(BOOL)arg1;
 - (void)setParentSettings:(id)arg1;
-- (void)setPreviousAverageBrightness:(double)arg1;
-- (void)setPreviousAverageHue:(double)arg1;
-- (void)setPreviousAverageSaturation:(double)arg1;
-- (void)setPreviousContrast:(double)arg1;
+- (void)setPreviousAverageBrightness:(float)arg1;
+- (void)setPreviousAverageHue:(float)arg1;
+- (void)setPreviousAverageSaturation:(float)arg1;
+- (void)setPreviousContrast:(float)arg1;
 - (void)setValuesFromModel:(id)arg1;
 
 @end

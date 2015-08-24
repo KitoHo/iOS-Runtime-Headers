@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
  */
 
-@interface DOMPageTransitionEvent : DOMEvent {
-}
+@interface DOMPageTransitionEvent : DOMEvent
 
-@property(readonly) bool persisted;
+@property (readonly) BOOL persisted;
 
-- (bool)persisted;
+- (BOOL)persisted;
 
 @end

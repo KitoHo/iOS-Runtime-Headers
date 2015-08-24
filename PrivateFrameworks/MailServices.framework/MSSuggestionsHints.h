@@ -2,14 +2,8 @@
    Image: /System/Library/PrivateFrameworks/MailServices.framework/MailServices
  */
 
-@class MSXPCConnection;
+@interface MSSuggestionsHints : MSXPCService
 
-@interface MSSuggestionsHints : NSObject {
-    MSXPCConnection *_connection;
-}
-
-- (id)_remoteObjectProxyWithErrorHandler:(id)arg1;
-- (void)dealloc;
 - (void)extendLifetimeOfMessagesWithReferences:(id)arg1;
 - (id)init;
 - (void)requestRichDownloadOfMessagesWithReferences:(id)arg1;

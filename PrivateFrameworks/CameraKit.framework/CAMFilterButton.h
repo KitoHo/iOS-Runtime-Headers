@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/CameraKit.framework/CameraKit
  */
 
-@class UIImageView;
-
 @interface CAMFilterButton : UIButton {
-    struct UIEdgeInsets { 
-        double top; 
-        double left; 
-        double bottom; 
-        double right; 
     UIImageView *__circlesImageView;
+    struct UIEdgeInsets { 
+        float top; 
+        float left; 
+        float bottom; 
+        float right; 
     } _tappableEdgeInsets;
 }
 
-@property(readonly) UIImageView * _circlesImageView;
-@property(getter=isOn) bool on;
-@property struct UIEdgeInsets { double x1; double x2; double x3; double x4; } tappableEdgeInsets;
+@property (nonatomic, readonly) UIImageView *_circlesImageView;
+@property (getter=isOn, nonatomic) BOOL on;
+@property (nonatomic) struct UIEdgeInsets { float x1; float x2; float x3; float x4; } tappableEdgeInsets;
 
 + (id)filterButton;
 
@@ -25,14 +23,14 @@
 - (void)_commonCAMFilterButtonInitialization;
 - (id)_filterImage;
 - (id)_filterOnImage;
-- (double)_selectedIndicatorAlpha;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })alignmentRectInsets;
+- (float)_selectedIndicatorAlpha;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })alignmentRectInsets;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (struct CGSize { double x1; double x2; })intrinsicContentSize;
-- (bool)isOn;
-- (void)setOn:(bool)arg1;
-- (void)setTappableEdgeInsets:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; })arg1;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })tappableEdgeInsets;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (struct CGSize { float x1; float x2; })intrinsicContentSize;
+- (BOOL)isOn;
+- (void)setOn:(BOOL)arg1;
+- (void)setTappableEdgeInsets:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg1;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })tappableEdgeInsets;
 
 @end

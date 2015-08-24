@@ -2,63 +2,61 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@class EKObjectID, NSString, NSURL;
-
 @interface EKCalendarNotification : NSObject <EKIdentityProtocol> {
     NSURL *_URI;
+    BOOL _alerted;
     struct CGColor { } *_dotColor;
     NSString *_emailAddress;
     NSString *_firstName;
+    BOOL _hiddenFromNotificationCenter;
     NSString *_lastName;
     NSString *_name;
     EKObjectID *_objectID;
     NSString *_title;
-    long long _type;
-    bool_alerted;
-    bool_hiddenFromNotificationCenter;
+    int _type;
 }
 
-@property(retain) NSURL * URI;
-@property bool alerted;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property struct CGColor { }* dotColor;
-@property(retain) NSString * emailAddress;
-@property(retain) NSString * firstName;
-@property(readonly) unsigned long long hash;
-@property bool hiddenFromNotificationCenter;
-@property(retain) NSString * lastName;
-@property(retain) NSString * name;
-@property(readonly) bool needsAlert;
-@property(retain) EKObjectID * objectID;
-@property(readonly) Class superclass;
-@property(retain) NSString * title;
-@property long long type;
+@property (nonatomic, retain) NSURL *URI;
+@property (nonatomic) BOOL alerted;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) struct CGColor { }*dotColor;
+@property (nonatomic, retain) NSString *emailAddress;
+@property (nonatomic, retain) NSString *firstName;
+@property (readonly) unsigned int hash;
+@property (nonatomic) BOOL hiddenFromNotificationCenter;
+@property (nonatomic, retain) NSString *lastName;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, readonly) BOOL needsAlert;
+@property (nonatomic, retain) EKObjectID *objectID;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSString *title;
+@property (nonatomic) int type;
 
 - (id)URI;
-- (bool)alerted;
+- (BOOL)alerted;
 - (void)dealloc;
 - (struct CGColor { }*)dotColor;
 - (id)emailAddress;
 - (id)firstName;
-- (bool)hiddenFromNotificationCenter;
-- (id)initWithType:(long long)arg1;
+- (BOOL)hiddenFromNotificationCenter;
+- (id)initWithType:(int)arg1;
 - (id)lastName;
 - (id)name;
-- (bool)needsAlert;
+- (BOOL)needsAlert;
 - (id)objectID;
-- (void)setAlerted:(bool)arg1;
+- (void)setAlerted:(BOOL)arg1;
 - (void)setDotColor:(struct CGColor { }*)arg1;
 - (void)setEmailAddress:(id)arg1;
 - (void)setFirstName:(id)arg1;
-- (void)setHiddenFromNotificationCenter:(bool)arg1;
+- (void)setHiddenFromNotificationCenter:(BOOL)arg1;
 - (void)setLastName:(id)arg1;
 - (void)setName:(id)arg1;
 - (void)setObjectID:(id)arg1;
 - (void)setTitle:(id)arg1;
-- (void)setType:(long long)arg1;
+- (void)setType:(int)arg1;
 - (void)setURI:(id)arg1;
 - (id)title;
-- (long long)type;
+- (int)type;
 
 @end

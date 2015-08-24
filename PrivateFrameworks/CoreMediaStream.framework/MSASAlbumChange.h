@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CoreMediaStream.framework/CoreMediaStream
  */
 
-@class MSASInvitation, NSString;
-
 @interface MSASAlbumChange : NSObject {
     NSString *_GUID;
     NSString *_URLString;
@@ -14,19 +12,19 @@
     NSString *_ownerFullName;
     NSString *_ownerLastName;
     NSString *_ownerPersonID;
-    bool_wasDeleted;
+    BOOL _wasDeleted;
 }
 
-@property(retain) NSString * GUID;
-@property(retain) NSString * URLString;
-@property(retain) MSASInvitation * invitation;
-@property(retain) NSString * name;
-@property(copy) NSString * ownerEmail;
-@property(copy) NSString * ownerFirstName;
-@property(copy) NSString * ownerFullName;
-@property(copy) NSString * ownerLastName;
-@property(copy) NSString * ownerPersonID;
-@property bool wasDeleted;
+@property (nonatomic, retain) NSString *GUID;
+@property (nonatomic, retain) NSString *URLString;
+@property (nonatomic, retain) MSASInvitation *invitation;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, copy) NSString *ownerEmail;
+@property (nonatomic, copy) NSString *ownerFirstName;
+@property (nonatomic, copy) NSString *ownerFullName;
+@property (nonatomic, copy) NSString *ownerLastName;
+@property (nonatomic, copy) NSString *ownerPersonID;
+@property (nonatomic) BOOL wasDeleted;
 
 - (void).cxx_destruct;
 - (id)GUID;
@@ -48,7 +46,7 @@
 - (void)setOwnerLastName:(id)arg1;
 - (void)setOwnerPersonID:(id)arg1;
 - (void)setURLString:(id)arg1;
-- (void)setWasDeleted:(bool)arg1;
-- (bool)wasDeleted;
+- (void)setWasDeleted:(BOOL)arg1;
+- (BOOL)wasDeleted;
 
 @end

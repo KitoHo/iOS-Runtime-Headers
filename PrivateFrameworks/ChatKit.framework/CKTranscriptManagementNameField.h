@@ -2,36 +2,34 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class <CKTranscriptManagementNameFieldDelegate>, NSString, UILabel, UITextField, UIView, _UIBackdropView;
-
 @interface CKTranscriptManagementNameField : UIView <UITextFieldDelegate> {
     _UIBackdropView *_backdropView;
     UIView *_bottomSeparator;
     <CKTranscriptManagementNameFieldDelegate> *_delegate;
+    BOOL _enabled;
     UILabel *_fieldLabel;
+    BOOL _isOverlay;
     UITextField *_textField;
     UIView *_topSeparator;
-    bool_enabled;
-    bool_isOverlay;
 }
 
-@property(retain) _UIBackdropView * backdropView;
-@property(retain) UIView * bottomSeparator;
-@property(copy,readonly) NSString * debugDescription;
-@property <CKTranscriptManagementNameFieldDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(getter=isEnabled) bool enabled;
-@property(retain) UILabel * fieldLabel;
-@property(copy) NSString * groupName;
-@property(readonly) unsigned long long hash;
-@property bool isOverlay;
-@property(readonly) Class superclass;
-@property(retain) UITextField * textField;
-@property(retain) UIView * topSeparator;
+@property (nonatomic, retain) _UIBackdropView *backdropView;
+@property (nonatomic, retain) UIView *bottomSeparator;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <CKTranscriptManagementNameFieldDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (getter=isEnabled, nonatomic) BOOL enabled;
+@property (nonatomic, retain) UILabel *fieldLabel;
+@property (nonatomic, copy) NSString *groupName;
+@property (readonly) unsigned int hash;
+@property (nonatomic) BOOL isOverlay;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) UITextField *textField;
+@property (nonatomic, retain) UIView *topSeparator;
 
-+ (double)preferredHeight;
++ (float)preferredHeight;
 
-- (bool)_useRightToLeftLayout;
+- (BOOL)_useRightToLeftLayout;
 - (id)backdropView;
 - (id)bottomSeparator;
 - (void)commitGroupName;
@@ -39,22 +37,22 @@
 - (id)delegate;
 - (id)fieldLabel;
 - (id)groupName;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (bool)isEnabled;
-- (bool)isOverlay;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (BOOL)isEnabled;
+- (BOOL)isOverlay;
 - (void)layoutSubviews;
 - (void)setBackdropView:(id)arg1;
 - (void)setBottomSeparator:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setEnabled:(bool)arg1;
+- (void)setEnabled:(BOOL)arg1;
 - (void)setFieldLabel:(id)arg1;
 - (void)setGroupName:(id)arg1;
-- (void)setIsOverlay:(bool)arg1;
+- (void)setIsOverlay:(BOOL)arg1;
 - (void)setTextField:(id)arg1;
 - (void)setTopSeparator:(id)arg1;
 - (id)textField;
 - (void)textFieldDidEndEditing:(id)arg1;
-- (bool)textFieldShouldReturn:(id)arg1;
+- (BOOL)textFieldShouldReturn:(id)arg1;
 - (id)topSeparator;
 
 @end

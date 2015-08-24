@@ -2,8 +2,7 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@interface MLChapterTOC : NSObject {
-}
+@interface MLChapterTOC : NSObject
 
 - (struct ChapterData { }*)chapterDataRef;
 - (unsigned int)chapterIndexAtTimeLocationInMS:(unsigned int)arg1;
@@ -13,7 +12,7 @@
 - (unsigned int)durationInMSOfGroupAtIndex:(unsigned int)arg1 groupingProperty:(int)arg2;
 - (unsigned int)groupIndexAtTimeLocationInMS:(unsigned int)arg1 groupingProperty:(int)arg2;
 - (unsigned int)groupIndexForChapterIndex:(unsigned int)arg1 groupingProperty:(int)arg2;
-- (bool)hasDataForProperty:(int)arg1;
+- (BOOL)hasDataForProperty:(int)arg1;
 - (unsigned int)timeLocationInMSOfChapterAtIndex:(unsigned int)arg1;
 - (unsigned int)timeLocationInMSOfGroupAtIndex:(unsigned int)arg1 groupingProperty:(int)arg2;
 - (id)titlePropertyOfChapterAtIndex:(unsigned int)arg1;

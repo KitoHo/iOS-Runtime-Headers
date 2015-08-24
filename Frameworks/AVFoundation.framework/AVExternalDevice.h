@@ -2,38 +2,40 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class <AVExternalDeviceDelegate>, AVExternalDeviceInternal, NSArray, NSData, NSDictionary, NSString;
-
 @interface AVExternalDevice : NSObject {
     AVExternalDeviceInternal *_externalDevice;
 }
 
-@property(readonly) NSString * ID;
-@property(readonly) NSData * OEMIcon;
-@property(readonly) NSString * OEMIconLabel;
-@property(readonly) bool OEMIconVisible;
-@property <AVExternalDeviceDelegate> * delegate;
-@property(readonly) NSArray * externalDeviceHIDs;
-@property(readonly) bool limitedUI;
-@property(readonly) NSArray * limitedUIElements;
-@property(readonly) NSString * modelName;
-@property(readonly) NSString * name;
-@property(readonly) bool nightMode;
-@property(readonly) bool nightModeSupported;
-@property(readonly) bool ownsTurnByTurnNavigation;
-@property(readonly) bool rightHandDrive;
-@property(readonly) NSArray * screenIDs;
-@property(readonly) NSDictionary * screenInputCapabilities;
-@property(readonly) NSData * settingsIcon;
+@property (nonatomic, readonly) NSString *ID;
+@property (nonatomic, readonly) NSData *MFiCertificateSerialNumber;
+@property (nonatomic, readonly) NSData *OEMIcon;
+@property (nonatomic, readonly) NSString *OEMIconLabel;
+@property (nonatomic, readonly) BOOL OEMIconVisible;
+@property (nonatomic) <AVExternalDeviceDelegate> *delegate;
+@property (nonatomic, readonly) NSArray *externalDeviceHIDs;
+@property (nonatomic, readonly) BOOL limitedUI;
+@property (nonatomic, readonly) NSArray *limitedUIElements;
+@property (nonatomic, readonly) NSString *modelName;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) BOOL nightMode;
+@property (nonatomic, readonly) BOOL nightModeSupported;
+@property (nonatomic, readonly) BOOL ownsTurnByTurnNavigation;
+@property (nonatomic, readonly) BOOL rightHandDrive;
+@property (nonatomic, readonly) NSArray *screenIDs;
+@property (nonatomic, readonly) NSDictionary *screenInputCapabilities;
+@property (nonatomic, readonly) NSData *settingsIcon;
+@property (nonatomic, readonly) int transportType;
 
 + (id)currentCarPlayExternalDevice;
 + (id)currentExternalDevice;
++ (BOOL)setDiagnosticMode:(BOOL)arg1 error:(id*)arg2;
 + (id)sharedLocalDevice;
 
 - (id)ID;
+- (id)MFiCertificateSerialNumber;
 - (id)OEMIcon;
 - (id)OEMIconLabel;
-- (bool)OEMIconVisible;
+- (BOOL)OEMIconVisible;
 - (id)_figEndpointPropertyValueForKey:(struct __CFString { }*)arg1;
 - (void)_triggerFakeNotificationNamed:(id)arg1 withPayload:(id)arg2;
 - (id)_weakReference;
@@ -47,20 +49,21 @@
 - (id)init;
 - (id)initWithCurrentCarPlayExternalDevice;
 - (id)initWithFigEndpoint:(struct OpaqueFigEndpoint { }*)arg1;
-- (bool)limitedUI;
+- (BOOL)limitedUI;
 - (id)limitedUIElements;
 - (id)modelName;
 - (id)name;
-- (bool)nightMode;
-- (bool)nightModeSupported;
-- (bool)ownsTurnByTurnNavigation;
+- (BOOL)nightMode;
+- (BOOL)nightModeSupported;
+- (BOOL)ownsTurnByTurnNavigation;
 - (void)requestCarUI;
 - (id)requestTurnByTurnNavigationOwnership;
-- (bool)rightHandDrive;
+- (BOOL)rightHandDrive;
 - (id)screenIDs;
 - (id)screenInputCapabilities;
 - (void)setDelegate:(id)arg1;
 - (id)settingsIcon;
 - (void)takeScreenForClient:(id)arg1 reason:(id)arg2;
+- (int)transportType;
 
 @end

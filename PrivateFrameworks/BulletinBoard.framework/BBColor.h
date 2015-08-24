@@ -2,40 +2,43 @@
    Image: /System/Library/PrivateFrameworks/BulletinBoard.framework/BulletinBoard
  */
 
-@class NSString, UIColor;
-
-@interface BBColor : NSObject <BBUniquableObject, NSSecureCoding, NSCopying> {
-    double _alpha;
-    double _blue;
-    double _green;
-    double _red;
+@interface BBColor : NSObject <BBUniquableObject, NSCopying, NSSecureCoding> {
+    float _alpha;
+    float _blue;
+    float _green;
+    float _red;
 }
 
-@property(readonly) double alpha;
-@property(readonly) double blue;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) double green;
-@property(readonly) unsigned long long hash;
-@property(readonly) double red;
-@property(readonly) Class superclass;
-@property(copy,readonly) UIColor * uiColor;
+@property (nonatomic, readonly) float alpha;
+@property (nonatomic, readonly) float blue;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) float green;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) float red;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly, copy) UIColor *uiColor;
 
-+ (id)colorWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
-+ (bool)supportsSecureCoding;
+// Image: /System/Library/PrivateFrameworks/BulletinBoard.framework/BulletinBoard
 
-- (id)_initWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
-- (double)alpha;
-- (double)blue;
++ (id)colorWithRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4;
++ (BOOL)supportsSecureCoding;
+
+- (id)_initWithRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4;
+- (float)alpha;
+- (float)blue;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
-- (double)green;
-- (unsigned long long)hash;
+- (float)green;
+- (unsigned int)hash;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (double)red;
-- (id)uiColor;
+- (BOOL)isEqual:(id)arg1;
+- (float)red;
 - (id)uniqueIdentifier;
+
+// Image: /System/Library/PrivateFrameworks/SpringBoardUI.framework/SpringBoardUI
+
+- (id)uiColor;
 
 @end

@@ -2,20 +2,19 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSWPUserDefaults : NSObject {
-}
+@interface TSWPUserDefaults : NSObject
 
-+ (bool)automaticallyDetectLinks;
-+ (bool)automaticallyDetectLists;
++ (BOOL)automaticallyDetectLinks;
++ (BOOL)automaticallyDetectLists;
 + (id)invisiblesColor;
-+ (bool)p_UserDefaultSet:(id)arg1 force:(bool)arg2;
-+ (void)registerUserDefaults:(bool)arg1;
-+ (void)setAutomaticallyDetectLinks:(bool)arg1;
-+ (void)setAutomaticallyDetectLists:(bool)arg1;
++ (BOOL)p_UserDefaultSet:(id)arg1 force:(BOOL)arg2;
++ (void)registerUserDefaults:(BOOL)arg1;
++ (void)setAutomaticallyDetectLinks:(BOOL)arg1;
++ (void)setAutomaticallyDetectLists:(BOOL)arg1;
 + (void)setInvisiblesColor:(id)arg1;
-+ (void)setSpellCheckingEnabled:(bool)arg1;
-+ (void)setSuperscriptNumericalSuffixes:(bool)arg1;
-+ (bool)spellCheckingEnabled;
-+ (bool)superscriptNumericalSuffixes;
++ (void)setSpellCheckingEnabled:(BOOL)arg1;
++ (void)setSuperscriptNumericalSuffixes:(BOOL)arg1;
++ (BOOL)spellCheckingEnabled;
++ (BOOL)superscriptNumericalSuffixes;
 
 @end

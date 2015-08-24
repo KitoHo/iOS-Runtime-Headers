@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class UIImageView, UILabel;
-
 @interface PUFeedTextCellContentView : UIView {
     UILabel *detailLabel;
     UIImageView *iconImageView;
     UILabel *label;
 }
 
-@property(retain) UILabel * detailLabel;
-@property(retain) UIImageView * iconImageView;
-@property(retain) UILabel * label;
+@property (nonatomic, retain) UILabel *detailLabel;
+@property (nonatomic, retain) UIImageView *iconImageView;
+@property (nonatomic, retain) UILabel *label;
 
 - (void).cxx_destruct;
 - (id)detailLabel;
-- (void)drawRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)drawRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (id)iconImageView;
 - (id)label;
 - (void)setDetailLabel:(id)arg1;

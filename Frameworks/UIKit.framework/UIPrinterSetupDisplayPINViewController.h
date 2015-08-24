@@ -2,13 +2,11 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class PKPrinter;
-
 @interface UIPrinterSetupDisplayPINViewController : UIViewController {
     PKPrinter *_printer;
 }
 
-@property(retain) PKPrinter * printer;
+@property (nonatomic, retain) PKPrinter *printer;
 
 - (void)dealloc;
 - (void)enterPIN;
@@ -16,9 +14,9 @@
 - (void)loadView;
 - (id)printer;
 - (void)setPrinter:(id)arg1;
-- (bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
-- (void)showDisplayMessage:(long long)arg1;
-- (unsigned long long)supportedInterfaceOrientations;
-- (void)viewDidAppear:(bool)arg1;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (void)showDisplayMessage:(int)arg1;
+- (unsigned int)supportedInterfaceOrientations;
+- (void)viewDidAppear:(BOOL)arg1;
 
 @end

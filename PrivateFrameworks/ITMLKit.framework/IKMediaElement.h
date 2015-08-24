@@ -2,17 +2,14 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@class IKViewElement, NSArray;
+@interface IKMediaElement : IKViewElement
 
-@interface IKMediaElement : IKViewElement {
-}
-
-@property(retain,readonly) NSArray * assets;
-@property(readonly) IKViewElement * relatedContent;
-@property(readonly) unsigned long long scrubBehavior;
+@property (nonatomic, readonly, retain) NSArray *assets;
+@property (nonatomic, readonly) IKViewElement *relatedContent;
+@property (nonatomic, readonly) unsigned int scrubBehavior;
 
 - (id)assets;
 - (id)relatedContent;
-- (unsigned long long)scrubBehavior;
+- (unsigned int)scrubBehavior;
 
 @end

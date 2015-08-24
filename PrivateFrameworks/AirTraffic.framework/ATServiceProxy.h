@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/AirTraffic.framework/AirTraffic
  */
 
-@class NSString, NSXPCConnection;
-
 @interface ATServiceProxy : ATService <ATServiceObserver> {
     NSXPCConnection *_connection;
 }
 
-@property(retain) NSXPCConnection * connection;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) NSXPCConnection *connection;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (void)addObserver:(id)arg1;
@@ -21,8 +19,8 @@
 - (id)init;
 - (id)initWithConnection:(id)arg1;
 - (id)messageLinks;
-- (void)service:(id)arg1 willOpenMessageLink:(id)arg2 completion:(id)arg3;
 - (void)service:(id)arg1 willOpenMessageLink:(id)arg2;
+- (void)service:(id)arg1 willOpenMessageLink:(id)arg2 completion:(id /* block */)arg3;
 - (void)setConnection:(id)arg1;
 
 @end

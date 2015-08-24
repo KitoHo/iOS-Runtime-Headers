@@ -2,18 +2,16 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class <PUVideoTrimQueueControllerDelegate>, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, PLManagedAlbum, UIViewController;
-
 @interface PUVideoTrimQueueController : NSObject {
+    PLManagedAlbum *_album;
+    NSString *_albumName;
+    NSString *_commentText;
+    <PUVideoTrimQueueControllerDelegate> *_delegate;
     struct { 
         unsigned int hasWillTrim : 1; 
         unsigned int hasDidTrim : 1; 
         unsigned int hasDidFinish : 1; 
         unsigned int hasDidCancel : 1; 
-    PLManagedAlbum *_album;
-    NSString *_albumName;
-    NSString *_commentText;
-    <PUVideoTrimQueueControllerDelegate> *_delegate;
     } _delegateFlags;
     UIViewController *_displayingViewController;
     double _endTime;
@@ -25,21 +23,20 @@
     NSArray *_videosSources;
 }
 
-@property(readonly) PLManagedAlbum * album;
-@property(retain) NSString * albumName;
-@property(retain) NSString * commentText;
-@property <PUVideoTrimQueueControllerDelegate> * delegate;
-@property(retain) NSArray * recipients;
-@property(readonly) NSDictionary * trimmedVideoInfo;
-@property(readonly) NSArray * videosSources;
+@property (nonatomic, readonly) PLManagedAlbum *album;
+@property (nonatomic, retain) NSString *albumName;
+@property (nonatomic, retain) NSString *commentText;
+@property (nonatomic) <PUVideoTrimQueueControllerDelegate> *delegate;
+@property (nonatomic, retain) NSArray *recipients;
+@property (nonatomic, readonly) NSDictionary *trimmedVideoInfo;
+@property (nonatomic, readonly) NSArray *videosSources;
 
 - (void).cxx_destruct;
 - (void)_dequeueTrimmingControl;
 - (void)_sendDidFinish;
-- (bool)_shouldShowVideoTooLongAlertForVideoSource:(id)arg1;
+- (BOOL)_shouldShowVideoTooLongAlertForVideoSource:(id)arg1;
 - (void)_showTrimViewControllerForSource:(id)arg1;
 - (void)_trimVideoSource:(id)arg1;
-- (id)_videoTooLongAlert;
 - (id)_videoTooLongAlertController;
 - (id)album;
 - (id)albumName;

@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, SAMPCollection;
+@interface SAMPSetQueue : SADomainCommand
 
-@interface SAMPSetQueue : SADomainCommand {
-}
-
-@property(copy) NSArray * filters;
-@property(retain) SAMPCollection * mediaItems;
-@property bool shouldShuffle;
-@property(copy) NSArray * sort;
+@property (nonatomic, copy) NSArray *filters;
+@property (nonatomic, retain) SAMPCollection *mediaItems;
+@property (nonatomic) BOOL shouldOverrideManuallyCuratedUpNext;
+@property (nonatomic) BOOL shouldShuffle;
+@property (nonatomic, copy) NSArray *sort;
 
 + (id)setQueue;
 + (id)setQueueWithDictionary:(id)arg1 context:(id)arg2;
@@ -19,12 +17,14 @@
 - (id)filters;
 - (id)groupIdentifier;
 - (id)mediaItems;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setFilters:(id)arg1;
 - (void)setMediaItems:(id)arg1;
-- (void)setShouldShuffle:(bool)arg1;
+- (void)setShouldOverrideManuallyCuratedUpNext:(BOOL)arg1;
+- (void)setShouldShuffle:(BOOL)arg1;
 - (void)setSort:(id)arg1;
-- (bool)shouldShuffle;
+- (BOOL)shouldOverrideManuallyCuratedUpNext;
+- (BOOL)shouldShuffle;
 - (id)sort;
 
 @end

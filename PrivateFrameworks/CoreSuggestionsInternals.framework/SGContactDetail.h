@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CoreSuggestionsInternals.framework/CoreSuggestionsInternals
  */
 
-@class NSString, SGDuplicateKey;
-
 @interface SGContactDetail : NSObject <NSCopying> {
     NSString *_context;
     SGDuplicateKey *_duplicateKey;
@@ -12,11 +10,11 @@
     NSString *_value;
 }
 
-@property(readonly) NSString * context;
-@property(readonly) SGDuplicateKey * duplicateKey;
-@property(readonly) NSString * label;
-@property(readonly) NSString * sourceKey;
-@property(readonly) NSString * value;
+@property (nonatomic, readonly) NSString *context;
+@property (nonatomic, readonly) SGDuplicateKey *duplicateKey;
+@property (nonatomic, readonly) NSString *label;
+@property (nonatomic, readonly) NSString *sourceKey;
+@property (nonatomic, readonly) NSString *value;
 
 + (id)contactDetail:(id)arg1 label:(id)arg2 duplicateKey:(id)arg3 sourceKey:(id)arg4 context:(id)arg5;
 
@@ -24,10 +22,10 @@
 - (id)context;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)duplicateKey;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithValue:(id)arg1 label:(id)arg2 duplicateKey:(id)arg3 sourceKey:(id)arg4 context:(id)arg5;
-- (bool)isEqual:(id)arg1;
-- (bool)isEqualToContactDetail:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToContactDetail:(id)arg1;
 - (id)label;
 - (id)loadOrigin:(id)arg1;
 - (id)sourceKey;

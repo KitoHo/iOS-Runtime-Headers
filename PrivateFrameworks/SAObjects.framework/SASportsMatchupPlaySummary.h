@@ -2,29 +2,26 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString;
+@interface SASportsMatchupPlaySummary : AceObject <SAAceSerializable>
 
-@interface SASportsMatchupPlaySummary : AceObject <SAAceSerializable> {
-}
-
-@property bool appliesToAwayTeam;
-@property bool appliesToHomeTeam;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * summaryDescription;
-@property(readonly) Class superclass;
-@property(copy) NSString * time;
+@property (nonatomic) BOOL appliesToAwayTeam;
+@property (nonatomic) BOOL appliesToHomeTeam;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSString *summaryDescription;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSString *time;
 
 + (id)matchupPlaySummary;
 + (id)matchupPlaySummaryWithDictionary:(id)arg1 context:(id)arg2;
 
-- (bool)appliesToAwayTeam;
-- (bool)appliesToHomeTeam;
+- (BOOL)appliesToAwayTeam;
+- (BOOL)appliesToHomeTeam;
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (void)setAppliesToAwayTeam:(bool)arg1;
-- (void)setAppliesToHomeTeam:(bool)arg1;
+- (void)setAppliesToAwayTeam:(BOOL)arg1;
+- (void)setAppliesToHomeTeam:(BOOL)arg1;
 - (void)setSummaryDescription:(id)arg1;
 - (void)setTime:(id)arg1;
 - (id)summaryDescription;

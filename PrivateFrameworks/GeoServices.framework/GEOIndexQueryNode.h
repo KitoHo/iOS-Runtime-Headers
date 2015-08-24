@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray, NSString;
-
 @interface GEOIndexQueryNode : PBCodable <NSCopying> {
     NSString *_field;
     NSMutableArray *_operands;
@@ -11,12 +9,12 @@
     NSString *_value;
 }
 
-@property(retain) NSString * field;
-@property(readonly) bool hasField;
-@property(readonly) bool hasValue;
-@property(retain) NSMutableArray * operands;
-@property int type;
-@property(retain) NSString * value;
+@property (nonatomic, retain) NSString *field;
+@property (nonatomic, readonly) BOOL hasField;
+@property (nonatomic, readonly) BOOL hasValue;
+@property (nonatomic, retain) NSMutableArray *operands;
+@property (nonatomic) int type;
+@property (nonatomic, retain) NSString *value;
 
 - (void)addOperands:(id)arg1;
 - (void)clearOperands;
@@ -26,15 +24,15 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)field;
-- (bool)hasField;
-- (bool)hasValue;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasField;
+- (BOOL)hasValue;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)operands;
-- (id)operandsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)operandsCount;
-- (bool)readFrom:(id)arg1;
+- (id)operandsAtIndex:(unsigned int)arg1;
+- (unsigned int)operandsCount;
+- (BOOL)readFrom:(id)arg1;
 - (void)setField:(id)arg1;
 - (void)setOperands:(id)arg1;
 - (void)setType:(int)arg1;

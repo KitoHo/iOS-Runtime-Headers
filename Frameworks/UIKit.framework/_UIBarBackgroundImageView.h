@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIImageView, UIView;
-
 @interface _UIBarBackgroundImageView : UIImageView {
     UIImageView *_customImageContainer;
     UIView *_topStripView;
-    bool_translucent;
+    BOOL _translucent;
 }
 
-@property(getter=isTranslucent) bool translucent;
+@property (getter=isTranslucent, nonatomic) BOOL translucent;
 
 - (id)image;
-- (bool)isTranslucent;
+- (BOOL)isTranslucent;
 - (void)removeTopStripView;
 - (void)setImage:(id)arg1;
-- (void)setTranslucent:(bool)arg1;
+- (void)setTranslucent:(BOOL)arg1;
 - (id)topStripView;
 - (void)updateTopStripViewCreateIfNecessary;
 

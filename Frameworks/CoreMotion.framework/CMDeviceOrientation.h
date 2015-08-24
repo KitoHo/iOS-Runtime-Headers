@@ -6,7 +6,9 @@
     int fOrientation;
 }
 
-@property(readonly) int orientation;
+@property (nonatomic, readonly) int orientation;
+
++ (BOOL)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;

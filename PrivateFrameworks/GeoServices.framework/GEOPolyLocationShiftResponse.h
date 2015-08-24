@@ -5,17 +5,17 @@
 @interface GEOPolyLocationShiftResponse : PBCodable <NSCopying> {
     struct { 
         double *list; 
-        unsigned long long count; 
-        unsigned long long size; 
+        unsigned int count; 
+        unsigned int size; 
     } _parameters;
     double _radius;
     int _status;
 }
 
-@property(readonly) double* parameters;
-@property(readonly) unsigned long long parametersCount;
-@property double radius;
-@property int status;
+@property (nonatomic, readonly) double*parameters;
+@property (nonatomic, readonly) unsigned int parametersCount;
+@property (nonatomic) double radius;
+@property (nonatomic) int status;
 
 - (void)addParameters:(double)arg1;
 - (void)clearParameters;
@@ -24,15 +24,15 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (double*)parameters;
-- (double)parametersAtIndex:(unsigned long long)arg1;
-- (unsigned long long)parametersCount;
+- (double)parametersAtIndex:(unsigned int)arg1;
+- (unsigned int)parametersCount;
 - (double)radius;
-- (bool)readFrom:(id)arg1;
-- (void)setParameters:(double*)arg1 count:(unsigned long long)arg2;
+- (BOOL)readFrom:(id)arg1;
+- (void)setParameters:(double*)arg1 count:(unsigned int)arg2;
 - (void)setRadius:(double)arg1;
 - (void)setStatus:(int)arg1;
 - (int)status;

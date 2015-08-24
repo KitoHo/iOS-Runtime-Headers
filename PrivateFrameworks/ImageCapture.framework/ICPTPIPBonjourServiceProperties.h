@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/ImageCapture.framework/ImageCapture
  */
 
-@class NSDictionary, NSMutableArray, NSString;
-
 @interface ICPTPIPBonjourServiceProperties : NSObject {
     int _clientSpinLock;
     NSMutableArray *_clients;
     int _clientsSpinLock;
     id _delegate;
     NSString *_hostGUID;
-    unsigned int _hostMaxConnections;
+    unsigned long _hostMaxConnections;
     NSString *_hostName;
     unsigned short _hostPort;
     int _hostSecuritylevel;
@@ -20,18 +18,18 @@
     NSDictionary *_txtRecordsDict;
 }
 
-@property(retain) NSMutableArray * clients;
+@property (retain) NSMutableArray *clients;
 @property int clientsSpinLock;
 @property id delegate;
-@property(retain) NSString * hostGUID;
-@property unsigned int hostMaxConnections;
-@property(retain) NSString * hostName;
+@property (retain) NSString *hostGUID;
+@property unsigned long hostMaxConnections;
+@property (retain) NSString *hostName;
 @property unsigned short hostPort;
 @property int hostSecurityLevel;
-@property struct __CFSocket { }* hostSocket;
-@property struct __CFNetService { }* publishedService;
-@property(retain) NSString * serviceType;
-@property(retain) NSDictionary * txtRecordsDict;
+@property struct __CFSocket { }*hostSocket;
+@property struct __CFNetService { }*publishedService;
+@property (retain) NSString *serviceType;
+@property (retain) NSDictionary *txtRecordsDict;
 
 - (id)clients;
 - (int)clientsSpinLock;
@@ -39,7 +37,7 @@
 - (id)delegate;
 - (void)finalize;
 - (id)hostGUID;
-- (unsigned int)hostMaxConnections;
+- (unsigned long)hostMaxConnections;
 - (id)hostName;
 - (unsigned short)hostPort;
 - (int)hostSecurityLevel;
@@ -50,7 +48,7 @@
 - (void)setClientsSpinLock:(int)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setHostGUID:(id)arg1;
-- (void)setHostMaxConnections:(unsigned int)arg1;
+- (void)setHostMaxConnections:(unsigned long)arg1;
 - (void)setHostName:(id)arg1;
 - (void)setHostPort:(unsigned short)arg1;
 - (void)setHostSecurityLevel:(int)arg1;

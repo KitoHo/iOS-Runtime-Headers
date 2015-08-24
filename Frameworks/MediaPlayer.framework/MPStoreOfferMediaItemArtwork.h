@@ -2,11 +2,10 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@interface MPStoreOfferMediaItemArtwork : MPConcreteMediaItemArtwork {
-}
+@interface MPStoreOfferMediaItemArtwork : MPConcreteMediaItemArtwork
 
 - (id)_artworkDescriptor;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 
 @end

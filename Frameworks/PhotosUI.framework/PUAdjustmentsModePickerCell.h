@@ -2,31 +2,25 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSString, UIButton, UIImage, UILabel;
-
 @interface PUAdjustmentsModePickerCell : UITableViewCell {
     UIButton *_accessoryButton;
     NSArray *_accessoryButtonConstraints;
-    id _buttonAction;
-    long long _buttonType;
+    id /* block */ _buttonAction;
+    int _buttonType;
     NSString *_currentDisplayValue;
     UILabel *_displayValueLabel;
     NSArray *_displayValueLabelConstraints;
+    BOOL _isSubMode;
     NSString *_localizedModeName;
     UIImage *_modeIcon;
-    bool_isSubMode;
 }
 
-@property(copy) id buttonAction;
-@property long long buttonType;
-@property(copy) NSString * currentDisplayValue;
-@property bool isSubMode;
-@property(copy) NSString * localizedModeName;
-@property(retain) UIImage * modeIcon;
+@property (nonatomic, copy) id /* block */ buttonAction;
+@property (nonatomic) int buttonType;
+@property (nonatomic, copy) NSString *currentDisplayValue;
+@property (nonatomic) BOOL isSubMode;
+@property (nonatomic, copy) NSString *localizedModeName;
+@property (nonatomic, retain) UIImage *modeIcon;
 
 + (void)configureModePickerCellLabel:(id)arg1;
 
@@ -34,18 +28,18 @@
 - (void)_handleAccessoryButton:(id)arg1;
 - (void)_updateButton;
 - (void)_updateDisplayValueLabel;
-- (id)buttonAction;
-- (long long)buttonType;
+- (id /* block */)buttonAction;
+- (int)buttonType;
 - (id)currentDisplayValue;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
-- (bool)isSubMode;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (BOOL)isSubMode;
 - (id)localizedModeName;
 - (id)modeIcon;
 - (void)prepareForReuse;
-- (void)setButtonAction:(id)arg1;
-- (void)setButtonType:(long long)arg1;
+- (void)setButtonAction:(id /* block */)arg1;
+- (void)setButtonType:(int)arg1;
 - (void)setCurrentDisplayValue:(id)arg1;
-- (void)setIsSubMode:(bool)arg1;
+- (void)setIsSubMode:(BOOL)arg1;
 - (void)setLocalizedModeName:(id)arg1;
 - (void)setModeIcon:(id)arg1;
 

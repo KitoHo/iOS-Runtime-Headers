@@ -2,33 +2,30 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSDate, NSNumber, NSString, NSURL;
+@interface PLCloudFeedEntry : PLManagedObject
 
-@interface PLCloudFeedEntry : PLManagedObject {
-}
-
-@property(readonly) NSURL * URIRepresentation;
-@property(retain) NSString * entryAlbumGUID;
-@property(retain) NSDate * entryDate;
-@property(retain) NSString * entryInvitationRecordGUID;
-@property(readonly) long long entryPriority;
-@property(retain) NSNumber * entryPriorityNumber;
-@property(readonly) long long entryType;
-@property(retain) NSNumber * entryTypeNumber;
+@property (nonatomic, readonly) NSURL *URIRepresentation;
+@property (nonatomic, retain) NSString *entryAlbumGUID;
+@property (nonatomic, retain) NSDate *entryDate;
+@property (nonatomic, retain) NSString *entryInvitationRecordGUID;
+@property (nonatomic, readonly) int entryPriority;
+@property (nonatomic, retain) NSNumber *entryPriorityNumber;
+@property (nonatomic, readonly) int entryType;
+@property (nonatomic, retain) NSNumber *entryTypeNumber;
 
 + (id)allEntriesInLibrary:(id)arg1;
 + (id)allEntriesInManagedObjectContext:(id)arg1;
 + (id)entityInManagedObjectContext:(id)arg1;
 + (id)entityName;
-+ (id)entriesSortDescriptorsAscending:(bool)arg1;
++ (id)entriesSortDescriptorsAscending:(BOOL)arg1;
 + (id)entryWithURIRepresentation:(id)arg1 inLibrary:(id)arg2;
-+ (id)firstEntryWithType:(long long)arg1 albumGUID:(id)arg2 inLibrary:(id)arg3;
-+ (id)recentAssetsEntriesInLibrary:(id)arg1 limit:(long long)arg2;
-+ (id)recentEntriesInLibrary:(id)arg1 earliestDate:(id)arg2 latestDate:(id)arg3 limit:(long long)arg4;
++ (id)firstEntryWithType:(int)arg1 albumGUID:(id)arg2 inLibrary:(id)arg3;
++ (id)recentAssetsEntriesInLibrary:(id)arg1 limit:(int)arg2;
++ (id)recentEntriesInLibrary:(id)arg1 earliestDate:(id)arg2 latestDate:(id)arg3 limit:(int)arg4;
 
 - (id)URIRepresentation;
-- (long long)entryPriority;
-- (long long)entryType;
-- (bool)shouldBeRemovedFromPhotoLibrary:(id)arg1;
+- (int)entryPriority;
+- (int)entryType;
+- (BOOL)shouldBeRemovedFromPhotoLibrary:(id)arg1;
 
 @end

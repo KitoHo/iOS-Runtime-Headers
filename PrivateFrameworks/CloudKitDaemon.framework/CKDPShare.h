@@ -2,34 +2,38 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPShareIdentifier, NSData, NSMutableArray, NSString;
-
 @interface CKDPShare : PBCodable <NSCopying> {
+    NSString *_etag;
     struct { 
-        unsigned int resourceState : 1; 
+        unsigned int publicAccess : 1; 
     } _has;
-    NSData *_keyData;
-    NSString *_keyVersion;
+    NSData *_internalAppSpecificMetadata;
+    CKDPProtectionInfo *_invitedPcs;
     NSMutableArray *_participants;
-    NSData *_resource;
-    NSString *_resourceProvider;
-    int _resourceState;
+    int _publicAccess;
+    CKDPProtectionInfo *_selfAddedPcs;
     CKDPShareIdentifier *_shareId;
+    NSData *_shortTokenHash;
+    NSString *_shortTokenRoutingKey;
 }
 
-@property(readonly) bool hasKeyData;
-@property(readonly) bool hasKeyVersion;
-@property(readonly) bool hasResource;
-@property(readonly) bool hasResourceProvider;
-@property bool hasResourceState;
-@property(readonly) bool hasShareId;
-@property(retain) NSData * keyData;
-@property(retain) NSString * keyVersion;
-@property(retain) NSMutableArray * participants;
-@property(retain) NSData * resource;
-@property(retain) NSString * resourceProvider;
-@property int resourceState;
-@property(retain) CKDPShareIdentifier * shareId;
+@property (nonatomic, retain) NSString *etag;
+@property (nonatomic, readonly) BOOL hasEtag;
+@property (nonatomic, readonly) BOOL hasInternalAppSpecificMetadata;
+@property (nonatomic, readonly) BOOL hasInvitedPcs;
+@property (nonatomic) BOOL hasPublicAccess;
+@property (nonatomic, readonly) BOOL hasSelfAddedPcs;
+@property (nonatomic, readonly) BOOL hasShareId;
+@property (nonatomic, readonly) BOOL hasShortTokenHash;
+@property (nonatomic, readonly) BOOL hasShortTokenRoutingKey;
+@property (nonatomic, retain) NSData *internalAppSpecificMetadata;
+@property (nonatomic, retain) CKDPProtectionInfo *invitedPcs;
+@property (nonatomic, retain) NSMutableArray *participants;
+@property (nonatomic) int publicAccess;
+@property (nonatomic, retain) CKDPProtectionInfo *selfAddedPcs;
+@property (nonatomic, retain) CKDPShareIdentifier *shareId;
+@property (nonatomic, retain) NSData *shortTokenHash;
+@property (nonatomic, retain) NSString *shortTokenRoutingKey;
 
 - (void).cxx_destruct;
 - (void)addParticipant:(id)arg1;
@@ -38,33 +42,39 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasKeyData;
-- (bool)hasKeyVersion;
-- (bool)hasResource;
-- (bool)hasResourceProvider;
-- (bool)hasResourceState;
-- (bool)hasShareId;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
-- (id)keyData;
-- (id)keyVersion;
+- (id)etag;
+- (BOOL)hasEtag;
+- (BOOL)hasInternalAppSpecificMetadata;
+- (BOOL)hasInvitedPcs;
+- (BOOL)hasPublicAccess;
+- (BOOL)hasSelfAddedPcs;
+- (BOOL)hasShareId;
+- (BOOL)hasShortTokenHash;
+- (BOOL)hasShortTokenRoutingKey;
+- (unsigned int)hash;
+- (id)internalAppSpecificMetadata;
+- (id)invitedPcs;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (id)participantAtIndex:(unsigned long long)arg1;
+- (id)participantAtIndex:(unsigned int)arg1;
 - (id)participants;
-- (unsigned long long)participantsCount;
-- (bool)readFrom:(id)arg1;
-- (id)resource;
-- (id)resourceProvider;
-- (int)resourceState;
-- (void)setHasResourceState:(bool)arg1;
-- (void)setKeyData:(id)arg1;
-- (void)setKeyVersion:(id)arg1;
+- (unsigned int)participantsCount;
+- (int)publicAccess;
+- (BOOL)readFrom:(id)arg1;
+- (id)selfAddedPcs;
+- (void)setEtag:(id)arg1;
+- (void)setHasPublicAccess:(BOOL)arg1;
+- (void)setInternalAppSpecificMetadata:(id)arg1;
+- (void)setInvitedPcs:(id)arg1;
 - (void)setParticipants:(id)arg1;
-- (void)setResource:(id)arg1;
-- (void)setResourceProvider:(id)arg1;
-- (void)setResourceState:(int)arg1;
+- (void)setPublicAccess:(int)arg1;
+- (void)setSelfAddedPcs:(id)arg1;
 - (void)setShareId:(id)arg1;
+- (void)setShortTokenHash:(id)arg1;
+- (void)setShortTokenRoutingKey:(id)arg1;
 - (id)shareId;
+- (id)shortTokenHash;
+- (id)shortTokenRoutingKey;
 - (void)writeTo:(id)arg1;
 
 @end

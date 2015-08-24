@@ -2,63 +2,55 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSString, PFUbiquityKnowledgeVector, PFUbiquityLocation;
-
 @interface PFUbiquityBaselineHeuristics : NSObject {
-     /* Encoded args for previous method: D16@0:8 */
-     /* Encoded args for previous method: v24@0:8D16 */
     PFUbiquityKnowledgeVector *_currentBaselineKV;
     PFUbiquityKnowledgeVector *_currentKV;
     NSString *_localPeerID;
     long long _logSize;
-    long long _minLogBytes;
+    long double_logToStoreSizeRatio;
+    int _minLogBytes;
     NSString *_modelVersionHash;
-    long long _numRequiredTransactions;
+    int _numRequiredTransactions;
     NSString *_storeName;
     long long _storeSize;
     PFUbiquityLocation *_ubiquityRootLocation;
-    /* Warning: Unrecognized filer type: 'D' using 'void*' */ void*_logToStoreSizeRatio;
 }
 
-@property(retain) PFUbiquityKnowledgeVector * currentBaselineKV;
-@property(retain) PFUbiquityKnowledgeVector * currentKV;
-@property(readonly) NSString * localPeerID;
-@property(readonly) long long logSize;
-@property /* Warning: Unrecognized filer type: 'D' using 'void*' */ void* logToStoreSizeRatio;
-@property long long minLogBytes;
-@property(readonly) NSString * modelVersionHash;
-@property long long numRequiredTransactions;
-@property(readonly) NSString * storeName;
-@property(readonly) long long storeSize;
-@property(readonly) PFUbiquityLocation * ubiquityRootLocation;
+@property (nonatomic, retain) PFUbiquityKnowledgeVector *currentBaselineKV;
+@property (nonatomic, retain) PFUbiquityKnowledgeVector *currentKV;
+@property (nonatomic, readonly) NSString *localPeerID;
+@property (nonatomic, readonly) long long logSize;
+@property (nonatomic) long double logToStoreSizeRatio;
+@property (nonatomic) int minLogBytes;
+@property (nonatomic, readonly) NSString *modelVersionHash;
+@property (nonatomic) int numRequiredTransactions;
+@property (nonatomic, readonly) NSString *storeName;
+@property (nonatomic, readonly) long long storeSize;
+@property (nonatomic, readonly) PFUbiquityLocation *ubiquityRootLocation;
 
 - (long long)bytesForFileAtPath:(id)arg1;
-- (bool)canRollBaseline:(id*)arg1;
+- (BOOL)canRollBaseline:(id*)arg1;
 - (id)copy;
 - (id)currentBaselineKV;
 - (id)currentKV;
 - (void)dealloc;
 - (id)description;
-- (bool)haveEnoughTransactionsToRoll;
+- (BOOL)haveEnoughTransactionsToRoll;
 - (id)init;
 - (id)initWithLocalPeerID:(id)arg1 storeName:(id)arg2 modelVersionHash:(id)arg3 andUbiquityRootLocation:(id)arg4;
 - (id)localPeerID;
 - (long long)logSize;
-- (/* Warning: Unrecognized filer type: 'D' using 'void*' */ void*)logToStoreSizeRatio;
-- (bool)logsConsumeEnoughDiskSpace;
-- (long long)minLogBytes;
+- (long double)logToStoreSizeRatio;
+- (BOOL)logsConsumeEnoughDiskSpace;
+- (int)minLogBytes;
 - (id)modelVersionHash;
-- (long long)numRequiredTransactions;
+- (int)numRequiredTransactions;
 - (void)setCurrentBaselineKV:(id)arg1;
 - (void)setCurrentKV:(id)arg1;
 - (void)setLogSize:(long long)arg1;
-- (void)setLogToStoreSizeRatio:(/* Warning: Unrecognized filer type: 'D' using 'void*' */ void*)arg1;
-- (void)setMinLogBytes:(long long)arg1;
-- (void)setNumRequiredTransactions:(long long)arg1;
+- (void)setLogToStoreSizeRatio:(long double)arg1;
+- (void)setMinLogBytes:(int)arg1;
+- (void)setNumRequiredTransactions:(int)arg1;
 - (void)setStoreSize:(long long)arg1;
 - (id)storeName;
 - (long long)storeSize;

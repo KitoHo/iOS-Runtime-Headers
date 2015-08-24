@@ -2,19 +2,17 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString, UIViewController;
-
 @interface UIStoryboardSegueTemplate : NSObject <NSCoding> {
     NSString *_destinationViewControllerIdentifier;
     NSString *_identifier;
+    BOOL _performOnViewLoad;
     NSString *_segueClassName;
     UIViewController *_viewController;
-    bool_performOnViewLoad;
 }
 
-@property(readonly) NSString * identifier;
-@property bool performOnViewLoad;
-@property UIViewController * viewController;
+@property (nonatomic, readonly) NSString *identifier;
+@property (nonatomic) BOOL performOnViewLoad;
+@property (nonatomic) UIViewController *viewController;
 
 - (void)_perform:(id)arg1;
 - (void)dealloc;
@@ -24,9 +22,9 @@
 - (id)identifier;
 - (id)initWithCoder:(id)arg1;
 - (void)perform:(id)arg1;
-- (bool)performOnViewLoad;
+- (BOOL)performOnViewLoad;
 - (id)segueWithDestinationViewController:(id)arg1;
-- (void)setPerformOnViewLoad:(bool)arg1;
+- (void)setPerformOnViewLoad:(BOOL)arg1;
 - (void)setViewController:(id)arg1;
 - (id)viewController;
 

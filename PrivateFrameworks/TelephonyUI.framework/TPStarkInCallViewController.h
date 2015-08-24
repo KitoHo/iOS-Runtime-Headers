@@ -2,9 +2,7 @@
    Image: /System/Library/PrivateFrameworks/TelephonyUI.framework/TelephonyUI
  */
 
-@class <TPStarkInCallViewControllerDelegate>, NSArray, NSString, NSTimer, TPStarkInCallButtonsView, TPStarkInCallHardPauseButton, TPStarkPhoneCallGalleryView, TUCall, TUReplyWithMessageStore, UIView;
-
-@interface TPStarkInCallViewController : UIViewController <TPStarkPhoneCallGalleryViewDelegate, TPStarkHardPauseButtonDelegate, TPStarkInCallButtonsViewDelegate, UIActionSheetDelegate> {
+@interface TPStarkInCallViewController : UIViewController <TPStarkHardPauseButtonDelegate, TPStarkInCallButtonsViewDelegate, TPStarkPhoneCallGalleryViewDelegate, UIActionSheetDelegate> {
     TPStarkInCallButtonsView *_buttonsView;
     TUCall *_callToDecline;
     NSArray *_conferenceParticipants;
@@ -20,41 +18,42 @@
     NSTimer *_viewUpdateClockTickTimer;
 }
 
-@property(retain) TPStarkInCallButtonsView * buttonsView;
-@property(retain) TUCall * callToDecline;
-@property(copy) NSArray * conferenceParticipants;
+@property (retain) TPStarkInCallButtonsView *buttonsView;
+@property (retain) TUCall *callToDecline;
+@property (copy) NSArray *conferenceParticipants;
 @property unsigned short currentMode;
-@property(copy,readonly) NSString * debugDescription;
-@property <TPStarkInCallViewControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(retain) TUCall * failedCall;
-@property(retain) UIView * flippyView;
-@property(retain) TPStarkPhoneCallGalleryView * galleryView;
-@property(retain) TPStarkInCallHardPauseButton * hardPauseButton;
-@property(readonly) unsigned long long hash;
-@property(retain) TUCall * incomingPhoneCall;
-@property(readonly) bool isDismissable;
-@property(copy) NSArray * primaryPhoneCalls;
-@property(readonly) Class superclass;
-@property(retain) NSTimer * viewUpdateClockTickTimer;
+@property (readonly, copy) NSString *debugDescription;
+@property <TPStarkInCallViewControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (retain) TUCall *failedCall;
+@property (retain) UIView *flippyView;
+@property (retain) TPStarkPhoneCallGalleryView *galleryView;
+@property (retain) TPStarkInCallHardPauseButton *hardPauseButton;
+@property (readonly) unsigned int hash;
+@property (retain) TUCall *incomingPhoneCall;
+@property (readonly) BOOL isDismissable;
+@property (copy) NSArray *primaryPhoneCalls;
+@property (readonly) Class superclass;
+@property (retain) NSTimer *viewUpdateClockTickTimer;
 
 - (id)__sanitizedPrimaryPhoneCallOrdering:(id)arg1;
+- (void)_invalidateIntrinsicContentSizeForLabelsInView:(id)arg1;
 - (void)_physicalButtonsBegan:(id)arg1 withEvent:(id)arg2;
 - (void)_physicalButtonsCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)_physicalButtonsEnded:(id)arg1 withEvent:(id)arg2;
 - (void)_sendMessageResponse:(id)arg1 toCall:(id)arg2;
 - (void)_wheelChangedWithEvent:(id)arg1;
 - (id)allConferenceParticipantCalls;
-- (bool)areIncomingCallOptionsAllowed;
+- (BOOL)areIncomingCallOptionsAllowed;
 - (id)buttonsView;
 - (void)callFailedNotification:(id)arg1;
 - (id)callToDecline;
-- (bool)canSendMessage;
-- (bool)canSendMessageToCall:(id)arg1;
+- (BOOL)canSendMessage;
+- (BOOL)canSendMessageToCall:(id)arg1;
 - (id)conferenceParticipantCallsForPhoneCall:(id)arg1;
 - (id)conferenceParticipants;
 - (id)currentActivePhoneCall;
-- (bool)currentCallStateWarrantsCallWaitingMode;
+- (BOOL)currentCallStateWarrantsCallWaitingMode;
 - (unsigned short)currentMode;
 - (void)dealloc;
 - (id)delegate;
@@ -68,20 +67,20 @@
 - (void)inCallButtonWasTapped:(id)arg1;
 - (id)incomingPhoneCall;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (bool)isAddCallAllowed;
-- (bool)isDismissable;
-- (bool)isKeypadAllowed;
-- (bool)isMergeCallsAllowed;
-- (bool)isMuted;
-- (bool)isSpringBoardPasscodeLocked;
-- (bool)isSwapCallsAllowed;
+- (BOOL)isAddCallAllowed;
+- (BOOL)isDismissable;
+- (BOOL)isKeypadAllowed;
+- (BOOL)isMergeCallsAllowed;
+- (BOOL)isMuted;
+- (BOOL)isSpringBoardPasscodeLocked;
+- (BOOL)isSwapCallsAllowed;
 - (void)loadView;
 - (void)muteStateChangedNotification:(id)arg1;
 - (id)primaryPhoneCalls;
 - (id)primaryPhoneCallsForGalleryView:(id)arg1;
 - (id)replyWithMessageStore;
 - (id)representativePhoneCallForConferenceForGalleryView:(id)arg1;
-- (void)selectNextHighlightableControlAscending:(bool)arg1;
+- (void)selectNextHighlightableControlAscending:(BOOL)arg1;
 - (void)setButtonsView:(id)arg1;
 - (void)setCallToDecline:(id)arg1;
 - (void)setConferenceParticipants:(id)arg1;
@@ -92,15 +91,16 @@
 - (void)setGalleryView:(id)arg1;
 - (void)setHardPauseButton:(id)arg1;
 - (void)setIncomingPhoneCall:(id)arg1;
-- (void)setIsMuted:(bool)arg1;
-- (void)setPrimaryPhoneCalls:(id)arg1 conferencePhoneCalls:(id)arg2 incomingPhoneCall:(id)arg3;
+- (void)setIsMuted:(BOOL)arg1;
 - (void)setPrimaryPhoneCalls:(id)arg1;
+- (void)setPrimaryPhoneCalls:(id)arg1 conferencePhoneCalls:(id)arg2 incomingPhoneCall:(id)arg3;
 - (void)setViewUpdateClockTickTimer:(id)arg1;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)updateButtonsViewState;
-- (void)viewDidAppear:(bool)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
 - (id)viewUpdateClockTickTimer;
 - (void)viewUpdateClockTickTimerFired:(id)arg1;
-- (void)viewWillAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

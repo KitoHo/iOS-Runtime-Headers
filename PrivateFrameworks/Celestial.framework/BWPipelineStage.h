@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class NSMutableArray, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSString;
-
 @interface BWPipelineStage : NSObject {
     NSObject<OS_dispatch_group> *_executionGroup;
     NSObject<OS_dispatch_queue> *_executionQueue;
@@ -12,16 +10,16 @@
     NSMutableArray *_queuedMessages;
 }
 
-@property(readonly) NSString * name;
+@property (nonatomic, readonly) NSString *name;
 
 + (id)_currentPipelineStage;
 + (void)_setCurrentPipelineStage:(id)arg1;
 + (void)initialize;
-+ (id)pipelineStageWithName:(id)arg1 priority:(unsigned int)arg2 discardsLateSampleData:(bool)arg3;
 + (id)pipelineStageWithName:(id)arg1 priority:(unsigned int)arg2;
++ (id)pipelineStageWithName:(id)arg1 priority:(unsigned int)arg2 discardsLateSampleData:(BOOL)arg3;
 
-- (id)_initWithName:(id)arg1 priority:(unsigned int)arg2 discardsLateSampleData:(bool)arg3;
-- (bool)_isCurrentPipelineStage;
+- (id)_initWithName:(id)arg1 priority:(unsigned int)arg2 discardsLateSampleData:(BOOL)arg3;
+- (BOOL)_isCurrentPipelineStage;
 - (void)_serviceQueuedMessages;
 - (void)dealloc;
 - (id)description;

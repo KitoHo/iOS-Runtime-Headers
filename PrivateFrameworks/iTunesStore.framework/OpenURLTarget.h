@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/iTunesStore.framework/iTunesStore
  */
 
-@class NSString;
-
 @interface OpenURLTarget : NSObject {
+    unsigned int _applicationState;
     struct { 
         NSString *clientIdentifier; 
         NSString *normalScheme; 
         NSString *secureScheme; 
-    unsigned int _applicationState;
     } _targetData;
-    long long _targetIndex;
+    int _targetIndex;
 }
 
-- (long long)compare:(id)arg1;
+- (int)compare:(id)arg1;
 - (id)copyURLForURL:(id)arg1;
 - (id)description;
 - (id)init;

@@ -2,18 +2,16 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-@class NSArray;
-
 @interface WKUserContentController : NSObject {
     struct RefPtr<WebKit::WebUserContentControllerProxy> { 
         struct WebUserContentControllerProxy {} *m_ptr; 
+    } _userContentControllerProxy;
     struct RetainPtr<NSMutableArray> { 
         void *m_ptr; 
-    } _userContentControllerProxy;
     } _userScripts;
 }
 
-@property(copy,readonly) NSArray * userScripts;
+@property (nonatomic, readonly, copy) NSArray *userScripts;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;

@@ -2,22 +2,29 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSString;
-
 @interface GEOResourceInfo : NSObject {
+    BOOL _allowResumingPartialDownload;
     NSString *_checksum;
+    NSArray *_equivalentResources;
     NSString *_name;
-    long long _type;
+    int _type;
 }
 
-@property(readonly) NSString * checksum;
-@property(readonly) NSString * name;
-@property(readonly) long long type;
+@property (getter=_allowResumingPartialDownload, setter=_setAllowResumingPartialDownload:, nonatomic) BOOL allowResumingPartialDownload;
+@property (nonatomic, readonly) NSString *checksum;
+@property (nonatomic, copy) NSArray *equivalentResources;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) int type;
 
+- (BOOL)_allowResumingPartialDownload;
+- (void)_setAllowResumingPartialDownload:(BOOL)arg1;
 - (id)checksum;
 - (void)dealloc;
-- (id)initWithName:(id)arg1 type:(long long)arg2 checksum:(id)arg3;
+- (id)description;
+- (id)equivalentResources;
+- (id)initWithName:(id)arg1 type:(int)arg2 checksum:(id)arg3;
 - (id)name;
-- (long long)type;
+- (void)setEquivalentResources:(id)arg1;
+- (int)type;
 
 @end

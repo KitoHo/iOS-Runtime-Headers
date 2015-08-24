@@ -2,30 +2,28 @@
    Image: /System/Library/Frameworks/SceneKit.framework/SceneKit
  */
 
-@class CAAnimation, NSString, SCNNode;
-
-@interface SCNParticlePropertyController : NSObject <NSSecureCoding, NSCopying> {
+@interface SCNParticlePropertyController : NSObject <NSCopying, NSSecureCoding> {
     CAAnimation *_animation;
     id _c3dAnimation;
-    double _inputBias;
-    long long _inputMode;
+    float _inputBias;
+    int _inputMode;
     SCNNode *_inputOrigin;
     NSString *_inputProperty;
-    double _inputScale;
+    float _inputScale;
     id _reserved;
 }
 
-@property(retain) CAAnimation * animation;
-@property double inputBias;
-@property long long inputMode;
-@property SCNNode * inputOrigin;
-@property(copy) NSString * inputProperty;
-@property double inputScale;
+@property (nonatomic, retain) CAAnimation *animation;
+@property (nonatomic) float inputBias;
+@property (nonatomic) int inputMode;
+@property (nonatomic) SCNNode *inputOrigin;
+@property (nonatomic, copy) NSString *inputProperty;
+@property (nonatomic) float inputScale;
 
 + (id)SCNJSExportProtocol;
 + (id)controllerWithAnimation:(id)arg1;
 + (id)particlePropertyControllerWithAnimation:(id)arg1;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void)_customDecodingOfSCNParticlePropertyController:(id)arg1;
 - (void)_customEncodingOfSCNParticlePropertyController:(id)arg1;
@@ -37,17 +35,17 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (double)inputBias;
-- (long long)inputMode;
+- (float)inputBias;
+- (int)inputMode;
 - (id)inputOrigin;
 - (id)inputProperty;
-- (double)inputScale;
+- (float)inputScale;
 - (void)setAnimation:(id)arg1;
 - (void)setC3dAnimation:(id)arg1;
-- (void)setInputBias:(double)arg1;
-- (void)setInputMode:(long long)arg1;
+- (void)setInputBias:(float)arg1;
+- (void)setInputMode:(int)arg1;
 - (void)setInputOrigin:(id)arg1;
 - (void)setInputProperty:(id)arg1;
-- (void)setInputScale:(double)arg1;
+- (void)setInputScale:(float)arg1;
 
 @end

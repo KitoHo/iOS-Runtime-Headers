@@ -2,32 +2,31 @@
    Image: /System/Library/PrivateFrameworks/ATFoundation.framework/ATFoundation
  */
 
-@class NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSObject<OS_dispatch_source>, NSObject<OS_tcp_connection>, NSString;
-
 @interface ATNetServiceSocket : ATSocket <NSNetServiceDelegate, NSStreamDelegate> {
+    BOOL _connected;
     NSObject<OS_tcp_connection> *_connection;
     NSString *_interfaceName;
     NSObject<OS_dispatch_queue> *_queue;
+    BOOL _readBuffer;
     NSObject<OS_dispatch_semaphore> *_sema;
     NSString *_serviceDomain;
     NSString *_serviceName;
     NSString *_serviceType;
     NSObject<OS_dispatch_source> *_source;
-    bool_connected;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * interfaceName;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSString *interfaceName;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (bool)_connect;
+- (BOOL)_connect;
 - (void)closeDescriptor;
 - (id)initWithServiceName:(id)arg1 type:(id)arg2 domain:(id)arg3;
 - (id)interfaceName;
-- (bool)open;
+- (BOOL)open;
 - (void)setInterfaceName:(id)arg1;
 
 @end

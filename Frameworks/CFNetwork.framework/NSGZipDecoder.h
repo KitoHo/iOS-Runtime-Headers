@@ -2,56 +2,49 @@
    Image: /System/Library/Frameworks/CFNetwork.framework/CFNetwork
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSString;
-
 @interface NSGZipDecoder : NSObject <NSURLDownloadDecoder> {
+    BOOL _decodedHeader;
+    NSString *_filename;
+    BOOL _finishedInflating;
+    unsigned int _modificationTime;
+    BOOL _pad;
     struct z_stream_s { 
         char *next_in; 
         unsigned int avail_in; 
-        unsigned long long total_in; 
+        unsigned int total_in; 
         char *next_out; 
         unsigned int avail_out; 
-        unsigned long long total_out; 
+        unsigned int total_out; 
         char *msg; 
         struct internal_state {} *state; 
         int (*zalloc)(); 
         int (*zfree)(); 
         void *opaque; 
         int data_type; 
-        unsigned long long adler; 
-        unsigned long long reserved; 
-    NSString *_filename;
-    unsigned long long _modificationTime;
+        unsigned int adler; 
+        unsigned int reserved; 
     } _stream;
-    bool_decodedHeader;
-    bool_finishedInflating;
-    bool_pad;
-    bool_streamInitialized;
+    BOOL _streamInitialized;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)MIMEType;
-+ (bool)canDecodeDownloadHeaderData:(id)arg1;
-+ (bool)decodeDownloadHeader:(id)arg1 headerLength:(int*)arg2 modificationTime:(unsigned long long*)arg3 filename:(id*)arg4;
++ (BOOL)canDecodeDownloadHeaderData:(id)arg1;
++ (BOOL)decodeDownloadHeader:(id)arg1 headerLength:(int*)arg2 modificationTime:(unsigned int*)arg3 filename:(id*)arg4;
 
 - (id).cxx_construct;
 - (void)dealloc;
 - (id)decodeData:(id)arg1;
-- (bool)decodeDownloadData:(id)arg1 dataForkData:(id*)arg2 resourceForkData:(id*)arg3;
+- (BOOL)decodeDownloadData:(id)arg1 dataForkData:(id*)arg2 resourceForkData:(id*)arg3;
 - (id)fileAttributes;
 - (id)filenameWithOriginalFilename:(id)arg1;
 - (void)finalize;
-- (bool)finishDownloadDecoding;
+- (BOOL)finishDownloadDecoding;
 - (id)init;
-- (bool)isFinishedDecoding;
+- (BOOL)isFinishedDecoding;
 
 @end

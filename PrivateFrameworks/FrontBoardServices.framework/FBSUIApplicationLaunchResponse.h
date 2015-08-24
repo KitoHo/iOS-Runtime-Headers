@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/FrontBoardServices.framework/FrontBoardServices
  */
 
-@class BSMachSendRight;
-
 @interface FBSUIApplicationLaunchResponse : FBSWorkspaceResponse {
+    BOOL _supportsTaskSuspension;
+    BOOL _supportsTaskSuspensionOnLock;
     BSMachSendRight *_taskPort;
-    bool_supportsTaskSuspension;
-    bool_supportsTaskSuspensionOnLock;
 }
 
-@property bool supportsTaskSuspension;
-@property bool supportsTaskSuspensionOnLock;
-@property(retain) BSMachSendRight * taskPort;
+@property (nonatomic) BOOL supportsTaskSuspension;
+@property (nonatomic) BOOL supportsTaskSuspensionOnLock;
+@property (nonatomic, retain) BSMachSendRight *taskPort;
 
 - (void)dealloc;
 - (void)encodeWithXPCDictionary:(id)arg1;
 - (id)initWithXPCDictionary:(id)arg1;
-- (void)setSupportsTaskSuspension:(bool)arg1;
-- (void)setSupportsTaskSuspensionOnLock:(bool)arg1;
+- (void)setSupportsTaskSuspension:(BOOL)arg1;
+- (void)setSupportsTaskSuspensionOnLock:(BOOL)arg1;
 - (void)setTaskPort:(id)arg1;
-- (bool)supportsTaskSuspension;
-- (bool)supportsTaskSuspensionOnLock;
+- (BOOL)supportsTaskSuspension;
+- (BOOL)supportsTaskSuspensionOnLock;
 - (id)taskPort;
 
 @end

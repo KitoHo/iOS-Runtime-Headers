@@ -2,26 +2,24 @@
    Image: /System/Library/Frameworks/iAd.framework/iAd
  */
 
-@class ADCountdownButton, ADInterstitialAd;
-
 @interface ADInterstitialAdPresentationViewController : UIViewController {
     ADCountdownButton *_closeButton;
     ADInterstitialAd *_interstitialAd;
 }
 
-@property(retain) ADCountdownButton * closeButton;
-@property(readonly) ADInterstitialAd * interstitialAd;
+@property (nonatomic, retain) ADCountdownButton *closeButton;
+@property (nonatomic, readonly) ADInterstitialAd *interstitialAd;
 
 - (id)closeButton;
 - (void)dealloc;
 - (id)initForInterstitialAd:(id)arg1;
 - (id)interstitialAd;
 - (void)loadView;
-- (bool)prefersStatusBarHidden;
+- (BOOL)prefersStatusBarHidden;
 - (void)setCloseButton:(id)arg1;
-- (void)viewDidAppear:(bool)arg1;
-- (void)viewDidDisappear:(bool)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewDidLayoutSubviews;
-- (bool)wantsFullScreenLayout;
+- (BOOL)wantsFullScreenLayout;
 
 @end

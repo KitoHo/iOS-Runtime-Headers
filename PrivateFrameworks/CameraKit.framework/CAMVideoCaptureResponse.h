@@ -2,42 +2,40 @@
    Image: /System/Library/PrivateFrameworks/CameraKit.framework/CameraKit
  */
 
-@class NSString, UIImage;
-
 @interface CAMVideoCaptureResponse : CAMCaptureResponse {
     short _assetSubtype;
+    BOOL _didCompleteUnexpectedly;
     double _duration;
     int _recordingStoppedReason;
+    BOOL _unplayable;
     NSString *_videoCapturePath;
     UIImage *_videoPreviewImage;
-    bool_didCompleteUnexpectedly;
-    bool_unplayable;
 }
 
-@property short assetSubtype;
-@property bool didCompleteUnexpectedly;
-@property double duration;
-@property int recordingStoppedReason;
-@property(getter=isSuccessful,readonly) bool successful;
-@property(getter=isUnplayable) bool unplayable;
-@property(copy) NSString * videoCapturePath;
-@property(retain) UIImage * videoPreviewImage;
+@property (nonatomic) short assetSubtype;
+@property (nonatomic) BOOL didCompleteUnexpectedly;
+@property (nonatomic) double duration;
+@property (nonatomic) int recordingStoppedReason;
+@property (getter=isSuccessful, nonatomic, readonly) BOOL successful;
+@property (getter=isUnplayable, nonatomic) BOOL unplayable;
+@property (nonatomic, copy) NSString *videoCapturePath;
+@property (nonatomic, retain) UIImage *videoPreviewImage;
 
 + (double)minimumVideoCaptureDuration;
 
 - (void).cxx_destruct;
 - (short)assetSubtype;
-- (bool)didCompleteUnexpectedly;
+- (BOOL)didCompleteUnexpectedly;
 - (double)duration;
 - (id)init;
-- (bool)isSuccessful;
-- (bool)isUnplayable;
+- (BOOL)isSuccessful;
+- (BOOL)isUnplayable;
 - (int)recordingStoppedReason;
 - (void)setAssetSubtype:(short)arg1;
-- (void)setDidCompleteUnexpectedly:(bool)arg1;
+- (void)setDidCompleteUnexpectedly:(BOOL)arg1;
 - (void)setDuration:(double)arg1;
 - (void)setRecordingStoppedReason:(int)arg1;
-- (void)setUnplayable:(bool)arg1;
+- (void)setUnplayable:(BOOL)arg1;
 - (void)setVideoCapturePath:(id)arg1;
 - (void)setVideoPreviewImage:(id)arg1;
 - (id)videoCapturePath;

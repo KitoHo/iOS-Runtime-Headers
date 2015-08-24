@@ -2,31 +2,23 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSArray, SUPurchaseManager;
-
 @interface SUPurchaseBatch : NSObject {
     NSArray *_continuations;
     NSArray *_errors;
     NSArray *_items;
     NSArray *_offers;
     SUPurchaseManager *_purchaseManager;
+    BOOL _shouldSuspendWhenFinished;
     NSArray *_validPurchases;
-    bool_shouldSuspendWhenFinished;
 }
 
-@property(retain) NSArray * continuations;
-@property(retain) NSArray * errors;
-@property(readonly) NSArray * items;
-@property(readonly) NSArray * offers;
-@property SUPurchaseManager * purchaseManager;
-@property(retain) NSArray * validPurchases;
+@property (nonatomic, retain) NSArray *continuations;
+@property (nonatomic, retain) NSArray *errors;
+@property (nonatomic, readonly) NSArray *items;
+@property (nonatomic, readonly) NSArray *offers;
+@property (nonatomic) SUPurchaseManager *purchaseManager;
+@property (nonatomic, retain) NSArray *validPurchases;
 
-- (int (*)())errorEqualCallback;
 - (id)_copyModifiedErrorsFromDictionary:(struct __CFDictionary { }*)arg1;
 - (id)_copyUniqueErrorsFromErrors:(id)arg1;
 - (id)_copyValidPurchasesForItems:(id)arg1;
@@ -35,12 +27,13 @@
 - (id)copyContinuationsForPurchases:(id)arg1;
 - (id)copyFilteredItemsFromItems:(id)arg1;
 - (void)dealloc;
+- (int (*)errorEqualCallback;
 - (id)errors;
 - (id)everythingFailedErrorForError:(id)arg1;
-- (id)initWithItems:(id)arg1 offers:(id)arg2;
 - (id)initWithItems:(id)arg1;
+- (id)initWithItems:(id)arg1 offers:(id)arg2;
 - (id)items;
-- (id)mergedErrorForError:(id)arg1 withCount:(long long)arg2;
+- (id)mergedErrorForError:(id)arg1 withCount:(int)arg2;
 - (id)offers;
 - (id)purchaseManager;
 - (void)setContinuations:(id)arg1;

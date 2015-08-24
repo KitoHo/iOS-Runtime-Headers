@@ -2,27 +2,22 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSString, SKUIClientContext, SKUISearchFieldController, UIViewController;
-
 @interface SKUIIPadSearchController : NSObject <SKUISearchFieldDelegate> {
     SKUIClientContext *_clientContext;
     UIViewController *_parentViewController;
     SKUISearchFieldController *_searchFieldController;
 }
 
-@property(retain) SKUIClientContext * clientContext;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) UIViewController * parentViewController;
-@property(readonly) SKUISearchFieldController * searchFieldController;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) SKUIClientContext *clientContext;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) UIViewController *parentViewController;
+@property (nonatomic, readonly) SKUISearchFieldController *searchFieldController;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (id)_existingSharedResultsViewController;
-- (void)_requestSearch:(id)arg1;
 - (id)_searchFieldController;
-- (id)_sharedResultsViewController;
 - (void)_termDidChangeNotification:(id)arg1;
 - (id)clientContext;
 - (void)dealloc;
@@ -30,11 +25,10 @@
 - (id)newSearchFieldBarItem;
 - (id)parentViewController;
 - (void)reloadSearchField;
-- (void)searchFieldController:(id)arg1 requestSearch:(id)arg2;
 - (id)searchFieldController;
-- (bool)searchFieldControllerShouldBeginEditing:(id)arg1;
+- (void)searchFieldController:(id)arg1 requestSearch:(id)arg2;
 - (void)setClientContext:(id)arg1;
-- (void)setNumberOfSearchResults:(long long)arg1;
+- (void)setNumberOfSearchResults:(int)arg1;
 - (void)setSearchFieldPlaceholderText:(id)arg1;
 - (void)setSearchFieldText:(id)arg1;
 

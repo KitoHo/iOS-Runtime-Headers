@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class GQDBGBodyPlaceholder, GQDBGObjectPlaceholder, GQDBGSlideNumberPlaceholder, GQDBGTitlePlaceholder, GQDSStyle, GQDSStylesheet;
-
 @interface GQDBGAbstractSlide : NSObject {
-    boolmCallGenerator;
-    boolmHidden;
     GQDBGBodyPlaceholder *mBodyPlaceholder;
+    BOOL mCallGenerator;
+    BOOL mHidden;
     char *mID;
     GQDBGObjectPlaceholder *mObjectPlaceholder;
     GQDBGSlideNumberPlaceholder *mSlideNumberPlaceholder;
@@ -18,7 +16,7 @@
 
 - (char *)ID;
 - (void)dealloc;
-- (bool)isHidden;
+- (BOOL)isHidden;
 - (int)readAttributesForSlide:(struct _xmlTextReader { }*)arg1;
 - (id)slideStyle;
 - (id)stylesheet;

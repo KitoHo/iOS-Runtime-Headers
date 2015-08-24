@@ -2,14 +2,12 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class PUPhotosGridDownloadHelper, PUPhotosGridViewController;
-
 @interface PUUIImagePickerControllerHelper : NSObject {
     PUPhotosGridDownloadHelper *_downloadHelper;
     PUPhotosGridViewController *_gridViewController;
 }
 
-@property(readonly) PUPhotosGridViewController * gridViewController;
+@property (nonatomic, readonly) PUPhotosGridViewController *gridViewController;
 
 + (int)albumFilterForMediaTypes:(id)arg1;
 + (id)albumListViewControllerSpec;
@@ -18,7 +16,7 @@
 
 - (void).cxx_destruct;
 - (void)_notifyImagePickerOfAssetAvailability:(id)arg1;
-- (void)_pushImageViewControllerForAsset:(id)arg1 allowEditing:(bool)arg2;
+- (void)_pushImageViewControllerForAsset:(id)arg1 allowEditing:(BOOL)arg2;
 - (void)_selectAsset:(id)arg1 withHintCollection:(id)arg2 hintIndexPath:(id)arg3;
 - (void)cancelCurrentAssetDownload;
 - (id)gridViewController;

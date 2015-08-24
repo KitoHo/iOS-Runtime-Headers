@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/FMF.framework/FMF
  */
 
-@class NSArray, NSDictionary, NSNumber, NSString;
-
 @interface FMFHandle : NSObject <NSCopying, NSSecureCoding> {
     NSString *__prettyNameInternal;
     NSArray *_aliasServerIds;
@@ -11,24 +9,24 @@
     NSString *_hashedDSID;
     NSString *_identifier;
     NSArray *_invitationSentToIds;
+    BOOL _pending;
     NSString *_serverId;
     NSNumber *_trackingTimestamp;
-    bool_pending;
 }
 
-@property(copy) NSString * _prettyNameInternal;
-@property(copy) NSArray * aliasServerIds;
-@property(copy) NSDictionary * expiresByGroupId;
-@property(copy) NSString * hashedDSID;
-@property(copy) NSString * identifier;
-@property(copy) NSArray * invitationSentToIds;
-@property(getter=isPending) bool pending;
-@property(copy) NSString * serverId;
-@property(copy) NSNumber * trackingTimestamp;
+@property (nonatomic, copy) NSString *_prettyNameInternal;
+@property (nonatomic, copy) NSArray *aliasServerIds;
+@property (nonatomic, copy) NSDictionary *expiresByGroupId;
+@property (nonatomic, copy) NSString *hashedDSID;
+@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic, copy) NSArray *invitationSentToIds;
+@property (getter=isPending, nonatomic) BOOL pending;
+@property (nonatomic, copy) NSString *serverId;
+@property (nonatomic, copy) NSNumber *trackingTimestamp;
 
-+ (id)handleWithId:(id)arg1 serverId:(id)arg2;
 + (id)handleWithId:(id)arg1;
-+ (bool)supportsSecureCoding;
++ (id)handleWithId:(id)arg1 serverId:(id)arg2;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)_prettyNameInternal;
@@ -39,16 +37,16 @@
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)expiresByGroupId;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)hashedDSID;
 - (id)identifier;
 - (id)initWithCoder:(id)arg1;
 - (id)invitationSentToIds;
-- (bool)isEqual:(id)arg1;
-- (bool)isPending;
-- (bool)isSharingThroughGroupId:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isPending;
+- (BOOL)isSharingThroughGroupId:(id)arg1;
 - (id)prettyName;
-- (long long)prettyNameCompare:(id)arg1;
+- (int)prettyNameCompare:(id)arg1;
 - (id)recordId;
 - (id)serverId;
 - (void)setAliasServerIds:(id)arg1;
@@ -57,7 +55,7 @@
 - (void)setICloudId:(id)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setInvitationSentToIds:(id)arg1;
-- (void)setPending:(bool)arg1;
+- (void)setPending:(BOOL)arg1;
 - (void)setServerId:(id)arg1;
 - (void)setTrackingTimestamp:(id)arg1;
 - (void)set_prettyNameInternal:(id)arg1;

@@ -2,73 +2,74 @@
    Image: /usr/lib/libextension.dylib
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <PKPlugIn>, BKSProcessAssertion, NSArray, NSBundle, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
-
 @interface NSExtension : NSObject <_NSExtensionContextHosting> {
-    long long __assertionRefCount;
+    int __assertionRefCount;
     NSBundle *__extensionBundle;
     NSMutableDictionary *__extensionContexts;
     NSMutableDictionary *__extensionExpirationIdentifiers;
     BKSProcessAssertion *__extensionProcessAssertion;
     NSMutableDictionary *__extensionServiceConnections;
     <PKPlugIn> *__plugIn;
-    id __requestPostCompletionBlock;
-    id __requestPostCompletionBlockWithItems;
+    id /* block */ __requestPostCompletionBlock;
+    id /* block */ __requestPostCompletionBlockWithItems;
     NSObject<OS_dispatch_queue> *__safePluginQueue;
     NSDictionary *_attributes;
     NSString *_extensionPointIdentifier;
     NSString *_identifier;
     NSDictionary *_infoDictionary;
-    id _requestCancellationBlock;
-    id _requestCompletionBlock;
-    id _requestInterruptionBlock;
+    BOOL _observingHostAppStateChanges;
+    id /* block */ _requestCancellationBlock;
+    id /* block */ _requestCompletionBlock;
+    id /* block */ _requestInterruptionBlock;
     NSString *_version;
 }
 
-@property(setter=_setAssertionRefCount:) long long _assertionRefCount;
-@property(setter=_setExtensionBundle:,retain) NSBundle * _extensionBundle;
-@property(setter=_setExtensionContexts:,retain) NSMutableDictionary * _extensionContexts;
-@property(setter=_setExtensionExpirationsIdentifiers:,retain) NSMutableDictionary * _extensionExpirationIdentifiers;
-@property(setter=_setExtensionProcessAssertion:,retain) BKSProcessAssertion * _extensionProcessAssertion;
-@property(setter=_setExtensionServiceConnections:,retain) NSMutableDictionary * _extensionServiceConnections;
-@property(getter=_extensionState,setter=_setExtensionState:,copy) NSDictionary * _extensionState;
-@property(getter=_isMarkedNew,readonly) bool _markedNew;
-@property(setter=_setPlugIn:,retain) <PKPlugIn> * _plugIn;
-@property(copy) id _requestPostCompletionBlock;
-@property(copy) id _requestPostCompletionBlockWithItems;
-@property NSObject<OS_dispatch_queue> * _safePluginQueue;
-@property(copy) NSDictionary * attributes;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(copy) NSString * extensionPointIdentifier;
-@property(readonly) unsigned long long hash;
-@property(copy) NSArray * icons;
-@property(copy) NSString * identifier;
-@property(copy) NSDictionary * infoDictionary;
-@property(readonly) bool optedIn;
-@property(copy) id requestCancellationBlock;
-@property(copy) id requestCompletionBlock;
-@property(copy) id requestInterruptionBlock;
-@property(readonly) Class superclass;
-@property(copy) NSString * version;
+@property (setter=_setAssertionRefCount:, nonatomic) int _assertionRefCount;
+@property (setter=_setExtensionBundle:, nonatomic, retain) NSBundle *_extensionBundle;
+@property (setter=_setExtensionContexts:, nonatomic, retain) NSMutableDictionary *_extensionContexts;
+@property (setter=_setExtensionExpirationsIdentifiers:, nonatomic, retain) NSMutableDictionary *_extensionExpirationIdentifiers;
+@property (setter=_setExtensionProcessAssertion:, nonatomic, retain) BKSProcessAssertion *_extensionProcessAssertion;
+@property (setter=_setExtensionServiceConnections:, nonatomic, retain) NSMutableDictionary *_extensionServiceConnections;
+@property (getter=_extensionState, setter=_setExtensionState:, nonatomic, copy) NSDictionary *_extensionState;
+@property (getter=_isMarkedNew, nonatomic, readonly) BOOL _markedNew;
+@property (setter=_setPlugIn:, nonatomic, retain) <PKPlugIn> *_plugIn;
+@property (nonatomic, copy) id /* block */ _requestPostCompletionBlock;
+@property (nonatomic, copy) id /* block */ _requestPostCompletionBlockWithItems;
+@property (nonatomic) NSObject<OS_dispatch_queue> *_safePluginQueue;
+@property (nonatomic, copy) NSDictionary *attributes;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, copy) NSString *extensionPointIdentifier;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSArray *icons;
+@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic, copy) NSDictionary *infoDictionary;
+@property (getter=_isObservingHostAppStateChanges, setter=_setObservingHostAppStateChanges:, nonatomic) BOOL observingHostAppStateChanges;
+@property (nonatomic, readonly) BOOL optedIn;
+@property (nonatomic, copy) id /* block */ requestCancellationBlock;
+@property (nonatomic, copy) id /* block */ requestCompletionBlock;
+@property (nonatomic, copy) id /* block */ requestInterruptionBlock;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSString *version;
 
-+ (id)beginMatchingExtensionsWithAttributes:(id)arg1 completion:(id)arg2;
+// Image: /usr/lib/libextension.dylib
+
++ (BOOL)_shouldLogExtensionDiscovery;
++ (id)beginMatchingExtensionsWithAttributes:(id)arg1 completion:(id /* block */)arg2;
 + (void)endMatchingExtensions:(id)arg1;
-+ (bool)evaluateActivationRule:(id)arg1 withExtensionItemsRepresentation:(id)arg2;
++ (BOOL)evaluateActivationRule:(id)arg1 withExtensionItemsRepresentation:(id)arg2;
 + (id)extensionWithIdentifier:(id)arg1 error:(id*)arg2;
++ (void)extensionsWithMatchingAttributes:(id)arg1 completion:(id /* block */)arg2;
 + (id)extensionsWithMatchingAttributes:(id)arg1 error:(id*)arg2;
 + (void)initialize;
 + (void)initializeFiltering;
 + (id)predicateForActivationRule:(id)arg1;
 
-- (id)__UIKit_upcall_icons;
-- (long long)_assertionRefCount;
-- (void)_cancelRequestWithError:(id)arg1 forExtensionContextWithUUID:(id)arg2 completion:(id)arg3;
-- (void)_completeRequestReturningItems:(id)arg1 forExtensionContextWithUUID:(id)arg2 completion:(id)arg3;
+- (int)_assertionRefCount;
+- (id)_bareExtensionServiceConnection;
+- (void)_cancelRequestWithError:(id)arg1 forExtensionContextWithUUID:(id)arg2 completion:(id /* block */)arg3;
+- (void)_completeRequestReturningItems:(id)arg1 forExtensionContextWithUUID:(id)arg2 completion:(id /* block */)arg3;
+- (void)_didCreateExtensionContext:(id)arg1;
 - (void)_didShowExtensionManagementInterface;
 - (void)_didShowNewExtensionIndicator;
 - (id)_extensionBundle;
@@ -78,66 +79,76 @@
 - (id)_extensionProcessAssertion;
 - (id)_extensionServiceConnections;
 - (id)_extensionState;
+- (void)_hostDidBecomeActiveNote:(id)arg1;
+- (void)_hostDidEnterBackgroundNote:(id)arg1;
+- (void)_hostWillEnterForegroundNote:(id)arg1;
+- (void)_hostWillResignActiveNote:(id)arg1;
 - (id)_initWithPKPlugin:(id)arg1;
-- (bool)_isMarkedNew;
-- (bool)_isPhotoServiceAccessGranted;
-- (bool)_isSystemExtension;
+- (BOOL)_isMarkedNew;
+- (BOOL)_isObservingHostAppStateChanges;
+- (BOOL)_isPhotoServiceAccessGranted;
+- (BOOL)_isSystemExtension;
 - (id)_itemProviderForPayload:(id)arg1 extensionContext:(id)arg2;
 - (void)_kill:(int)arg1;
-- (void)_loadItemForPayload:(id)arg1 contextIdentifier:(id)arg2 completionHandler:(id)arg3;
-- (void)_loadPreviewImageForPayload:(id)arg1 contextIdentifier:(id)arg2 completionHandler:(id)arg3;
-- (void)_openURL:(id)arg1 completion:(id)arg2;
+- (void)_loadItemForPayload:(id)arg1 contextIdentifier:(id)arg2 completionHandler:(id /* block */)arg3;
+- (void)_loadPreviewImageForPayload:(id)arg1 contextIdentifier:(id)arg2 completionHandler:(id /* block */)arg3;
+- (void)_openURL:(id)arg1 completion:(id /* block */)arg2;
 - (id)_plugIn;
 - (int)_plugInProcessIdentifier;
-- (void)_reallyBeginExtensionRequestWithInputItems:(id)arg1 listenerEndpoint:(id)arg2 completion:(id)arg3;
-- (id)_requestPostCompletionBlock;
-- (id)_requestPostCompletionBlockWithItems;
+- (void)_reallyBeginExtensionRequestWithInputItems:(id)arg1 listenerEndpoint:(id)arg2 completion:(id /* block */)arg3;
+- (id /* block */)_requestPostCompletionBlock;
+- (id /* block */)_requestPostCompletionBlockWithItems;
 - (void)_resetExtensionState;
 - (id)_safePluginQueue;
-- (void)_safelyBeginUsing:(id)arg1;
-- (void)_safelyEndUsing:(id)arg1;
-- (void)_setAssertionRefCount:(long long)arg1;
+- (void)_safelyBeginUsing:(id /* block */)arg1;
+- (void)_safelyEndUsing:(id /* block */)arg1;
+- (void)_setAssertionRefCount:(int)arg1;
 - (void)_setExtensionBundle:(id)arg1;
 - (void)_setExtensionContexts:(id)arg1;
 - (void)_setExtensionExpirationsIdentifiers:(id)arg1;
 - (void)_setExtensionProcessAssertion:(id)arg1;
 - (void)_setExtensionServiceConnections:(id)arg1;
 - (void)_setExtensionState:(id)arg1;
+- (void)_setObservingHostAppStateChanges:(BOOL)arg1;
 - (void)_setPlugIn:(id)arg1;
-- (bool)attemptOptIn:(id*)arg1;
-- (bool)attemptOptOut:(id*)arg1;
+- (BOOL)attemptOptIn:(id*)arg1;
+- (BOOL)attemptOptOut:(id*)arg1;
 - (id)attributes;
-- (void)beginExtensionRequestWithInputItems:(id)arg1 completion:(id)arg2;
-- (void)beginExtensionRequestWithInputItems:(id)arg1 listenerEndpoint:(id)arg2 completion:(id)arg3;
+- (void)beginExtensionRequestWithInputItems:(id)arg1 completion:(id /* block */)arg2;
+- (void)beginExtensionRequestWithInputItems:(id)arg1 listenerEndpoint:(id)arg2 completion:(id /* block */)arg3;
 - (void)cancelExtensionRequestWithIdentifier:(id)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)extensionPointIdentifier;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)icons;
 - (id)identifier;
 - (id)infoDictionary;
 - (id)init;
-- (void)instantiateViewControllerWithInputItems:(id)arg1 connectionHandler:(id)arg2;
-- (void)instantiateViewControllerWithInputItems:(id)arg1 listenerEndpoint:(id)arg2 connectionHandler:(id)arg3;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)objectForInfoDictionaryKey:(id)arg1;
-- (bool)optedIn;
+- (BOOL)optedIn;
 - (int)pidForRequestIdentifier:(id)arg1;
-- (id)requestCancellationBlock;
-- (id)requestCompletionBlock;
-- (id)requestInterruptionBlock;
+- (id /* block */)requestCancellationBlock;
+- (id /* block */)requestCompletionBlock;
+- (id /* block */)requestInterruptionBlock;
 - (void)setAttributes:(id)arg1;
 - (void)setExtensionPointIdentifier:(id)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setInfoDictionary:(id)arg1;
-- (void)setRequestCancellationBlock:(id)arg1;
-- (void)setRequestCompletionBlock:(id)arg1;
-- (void)setRequestInterruptionBlock:(id)arg1;
+- (void)setRequestCancellationBlock:(id /* block */)arg1;
+- (void)setRequestCompletionBlock:(id /* block */)arg1;
+- (void)setRequestInterruptionBlock:(id /* block */)arg1;
 - (void)setVersion:(id)arg1;
-- (void)set_requestPostCompletionBlock:(id)arg1;
-- (void)set_requestPostCompletionBlockWithItems:(id)arg1;
+- (void)set_requestPostCompletionBlock:(id /* block */)arg1;
+- (void)set_requestPostCompletionBlockWithItems:(id /* block */)arg1;
 - (void)set_safePluginQueue:(id)arg1;
 - (id)version;
+
+// Image: /System/Library/Frameworks/UIKit.framework/UIKit
+
+- (id)__UIKit_upcall_icons;
+- (void)instantiateViewControllerWithInputItems:(id)arg1 connectionHandler:(id /* block */)arg2;
+- (void)instantiateViewControllerWithInputItems:(id)arg1 listenerEndpoint:(id)arg2 connectionHandler:(id /* block */)arg3;
 
 @end

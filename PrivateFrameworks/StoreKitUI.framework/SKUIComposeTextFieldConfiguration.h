@@ -2,44 +2,42 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSString;
-
 @interface SKUIComposeTextFieldConfiguration : NSObject {
     struct UIEdgeInsets { 
-        double top; 
-        double left; 
-        double bottom; 
-        double right; 
+        float top; 
+        float left; 
+        float bottom; 
+        float right; 
     } _borderInsets;
-    long long _columnIndex;
+    int _columnIndex;
+    BOOL _isRequired;
     NSString *_label;
-    unsigned long long _maxLength;
+    unsigned int _maxLength;
     NSString *_placeholder;
     NSString *_value;
-    bool_isRequired;
 }
 
-@property struct UIEdgeInsets { double x1; double x2; double x3; double x4; } borderInsets;
-@property long long columnIndex;
-@property(copy) NSString * label;
-@property unsigned long long maxLength;
-@property(copy) NSString * placeholder;
-@property(getter=isRequired) bool required;
-@property(copy) NSString * value;
+@property (nonatomic) struct UIEdgeInsets { float x1; float x2; float x3; float x4; } borderInsets;
+@property (nonatomic) int columnIndex;
+@property (nonatomic, copy) NSString *label;
+@property (nonatomic) unsigned int maxLength;
+@property (nonatomic, copy) NSString *placeholder;
+@property (getter=isRequired, nonatomic) BOOL required;
+@property (nonatomic, copy) NSString *value;
 
 - (void).cxx_destruct;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })borderInsets;
-- (long long)columnIndex;
-- (bool)isRequired;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })borderInsets;
+- (int)columnIndex;
+- (BOOL)isRequired;
 - (id)label;
-- (unsigned long long)maxLength;
+- (unsigned int)maxLength;
 - (id)placeholder;
-- (void)setBorderInsets:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; })arg1;
-- (void)setColumnIndex:(long long)arg1;
+- (void)setBorderInsets:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg1;
+- (void)setColumnIndex:(int)arg1;
 - (void)setLabel:(id)arg1;
-- (void)setMaxLength:(unsigned long long)arg1;
+- (void)setMaxLength:(unsigned int)arg1;
 - (void)setPlaceholder:(id)arg1;
-- (void)setRequired:(bool)arg1;
+- (void)setRequired:(BOOL)arg1;
 - (void)setValue:(id)arg1;
 - (id)value;
 

@@ -2,50 +2,52 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class <VKTileSourceClient>, NSError, NSLocale, NSString, VKSharedResources, VKStyleManager, VKTileKeyList, VKTileKeyMap, VKTilePool;
-
 @interface VKTileSource : NSObject {
     <VKTileSourceClient> *_client;
-    double _contentScale;
+    float _contentScale;
     VKTileKeyList *_decoding;
     VKTileKeyList *_failedTiles;
     NSLocale *_locale;
+    GEOResourceManifestConfiguration *_manifestConfiguration;
     VKTileKeyMap *_pendingLoads;
+    BOOL _preloadOnly;
     NSError *_recentError;
+    BOOL _requireWiFi;
     VKSharedResources *_sharedResources;
     VKStyleManager *_styleManager;
-    unsigned int _tileGroupIdentifier;
     NSString *_tileLoaderClientIdentifier;
     VKTilePool *_tilePool;
     int loadingTiles;
 }
 
-@property <VKTileSourceClient> * client;
-@property double contentScale;
-@property(readonly) struct Device { }* device;
-@property(readonly) unsigned int maximumDownloadZoomLevel;
-@property(readonly) long long maximumZoomLevel;
-@property(readonly) bool maximumZoomLevelBoundsCamera;
-@property(readonly) unsigned int minimumDownloadZoomLevel;
-@property(readonly) long long minimumZoomLevel;
-@property(readonly) bool minimumZoomLevelBoundsCamera;
-@property(retain) VKSharedResources * sharedResources;
-@property(retain) VKStyleManager * styleManager;
-@property(readonly) long long tileSize;
-@property(readonly) long long zEquivalenceClass;
+@property (nonatomic) <VKTileSourceClient> *client;
+@property (nonatomic) float contentScale;
+@property (nonatomic, readonly) struct Device { }*device;
+@property (nonatomic, readonly) unsigned int maximumDownloadZoomLevel;
+@property (nonatomic, readonly) int maximumZoomLevel;
+@property (nonatomic, readonly) BOOL maximumZoomLevelBoundsCamera;
+@property (nonatomic, readonly) unsigned int minimumDownloadZoomLevel;
+@property (nonatomic, readonly) int minimumZoomLevel;
+@property (nonatomic, readonly) BOOL minimumZoomLevelBoundsCamera;
+@property (nonatomic) BOOL preloadOnly;
+@property (nonatomic) BOOL requireWiFi;
+@property (nonatomic, retain) VKSharedResources *sharedResources;
+@property (nonatomic, retain) VKStyleManager *styleManager;
+@property (nonatomic, readonly) int tileSize;
+@property (nonatomic, readonly) int zEquivalenceClass;
 
 - (id)_extraInfoForPendingSourceKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1;
 - (void)_failedToLoadSourceKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1 downloadKey:(const struct _GEOTileKey { unsigned int x1 : 6; unsigned int x2 : 26; unsigned int x3 : 26; unsigned int x4 : 6; unsigned int x5 : 8; unsigned int x6 : 8; unsigned int x7 : 8; unsigned int x8 : 1; unsigned int x9 : 7; unsigned char x10[4]; }*)arg2 error:(id)arg3;
 - (void)_fetchedTile:(id)arg1;
-- (bool)_shouldDecodeTile:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1;
-- (bool)_shouldUseDecodedTile:(id)arg1 extraInfo:(id)arg2;
-- (bool)canFetchTileForKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1;
+- (BOOL)_shouldDecodeTile:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1;
+- (BOOL)_shouldUseDecodedTile:(id)arg1 extraInfo:(id)arg2;
+- (BOOL)canFetchTileForKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1;
 - (void)cancelDownload:(const struct _GEOTileKey { unsigned int x1 : 6; unsigned int x2 : 26; unsigned int x3 : 26; unsigned int x4 : 6; unsigned int x5 : 8; unsigned int x6 : 8; unsigned int x7 : 8; unsigned int x8 : 1; unsigned int x9 : 7; unsigned char x10[4]; }*)arg1;
-- (bool)cancelFetchForKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1 sourceKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg2;
-- (bool)cancelFetchForKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1;
+- (BOOL)cancelFetchForKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1;
+- (BOOL)cancelFetchForKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1 sourceKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg2;
 - (void)clearCaches;
 - (id)client;
-- (double)contentScale;
+- (float)contentScale;
 - (void)dealloc;
 - (void)decodeData:(id)arg1 downloadKey:(const struct _GEOTileKey { unsigned int x1 : 6; unsigned int x2 : 26; unsigned int x3 : 26; unsigned int x4 : 6; unsigned int x5 : 8; unsigned int x6 : 8; unsigned int x7 : 8; unsigned int x8 : 1; unsigned int x9 : 7; unsigned char x10[4]; }*)arg2 sourceKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg3;
 - (id)detailedDescription;
@@ -57,25 +59,29 @@
 - (struct _GEOTileKey { unsigned int x1 : 6; unsigned int x2 : 26; unsigned int x3 : 26; unsigned int x4 : 6; unsigned int x5 : 8; unsigned int x6 : 8; unsigned int x7 : 8; unsigned int x8 : 1; unsigned int x9 : 7; unsigned char x10[4]; })downloadKeyAtX:(unsigned int)arg1 y:(unsigned int)arg2 z:(unsigned int)arg3;
 - (struct _GEOTileKey { unsigned int x1 : 6; unsigned int x2 : 26; unsigned int x3 : 26; unsigned int x4 : 6; unsigned int x5 : 8; unsigned int x6 : 8; unsigned int x7 : 8; unsigned int x8 : 1; unsigned int x9 : 7; unsigned char x10[4]; })downloadKeyForSourceKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1;
 - (void)failedToDecodeSourceKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1;
-- (void)fetchTileForKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1 sourceKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg2;
 - (void)fetchTileForKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1;
+- (void)fetchTileForKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1 sourceKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg2;
 - (void)fetchedTile:(id)arg1 forKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg2;
 - (void)forceDownload;
-- (void)foreachTileInPool:(id)arg1;
+- (void)foreachTileInPool:(id /* block */)arg1;
 - (id)init;
-- (id)initWithTileGroupIdentifier:(unsigned int)arg1 locale:(id)arg2;
+- (id)initWithResourceManifestConfiguration:(id)arg1 locale:(id)arg2;
 - (unsigned int)maximumDownloadZoomLevel;
-- (long long)maximumZoomLevel;
-- (bool)maximumZoomLevelBoundsCamera;
-- (bool)mayUseNetwork;
+- (int)maximumZoomLevel;
+- (BOOL)maximumZoomLevelBoundsCamera;
+- (BOOL)mayUseNetwork;
 - (unsigned int)minimumDownloadZoomLevel;
-- (long long)minimumZoomLevel;
-- (bool)minimumZoomLevelBoundsCamera;
+- (int)minimumZoomLevel;
+- (BOOL)minimumZoomLevelBoundsCamera;
 - (struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; })nativeKeyForRenderKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1;
 - (void)performDownload:(const struct _GEOTileKey { unsigned int x1 : 6; unsigned int x2 : 26; unsigned int x3 : 26; unsigned int x4 : 6; unsigned int x5 : 8; unsigned int x6 : 8; unsigned int x7 : 8; unsigned int x8 : 1; unsigned int x9 : 7; unsigned char x10[4]; }*)arg1;
 - (void)populateVisibleTileSets:(id)arg1 withTiles:(id)arg2;
+- (BOOL)preloadOnly;
+- (BOOL)requireWiFi;
 - (void)setClient:(id)arg1;
-- (void)setContentScale:(double)arg1;
+- (void)setContentScale:(float)arg1;
+- (void)setPreloadOnly:(BOOL)arg1;
+- (void)setRequireWiFi:(BOOL)arg1;
 - (void)setSharedResources:(id)arg1;
 - (void)setStyleManager:(id)arg1;
 - (id)sharedResources;
@@ -87,8 +93,8 @@
 - (id)tileForKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1;
 - (id)tileForSourceKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1 renderKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg2;
 - (id)tileLoader;
-- (long long)tileSize;
+- (int)tileSize;
 - (void)willGoToNetwork;
-- (long long)zEquivalenceClass;
+- (int)zEquivalenceClass;
 
 @end

@@ -2,14 +2,11 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString, SAConnectionPolicy;
+@interface SASetConnectionHeader : SABaseClientBoundCommand
 
-@interface SASetConnectionHeader : SABaseClientBoundCommand {
-}
-
-@property(copy) NSString * aceHostHeader;
-@property(retain) SAConnectionPolicy * connectionPolicy;
-@property bool reconnectNow;
+@property (nonatomic, copy) NSString *aceHostHeader;
+@property (nonatomic, retain) SAConnectionPolicy *connectionPolicy;
+@property (nonatomic) BOOL reconnectNow;
 
 + (id)setConnectionHeader;
 + (id)setConnectionHeaderWithDictionary:(id)arg1 context:(id)arg2;
@@ -18,10 +15,10 @@
 - (id)connectionPolicy;
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (bool)reconnectNow;
-- (bool)requiresResponse;
+- (BOOL)reconnectNow;
+- (BOOL)requiresResponse;
 - (void)setAceHostHeader:(id)arg1;
 - (void)setConnectionPolicy:(id)arg1;
-- (void)setReconnectNow:(bool)arg1;
+- (void)setReconnectNow:(BOOL)arg1;
 
 @end

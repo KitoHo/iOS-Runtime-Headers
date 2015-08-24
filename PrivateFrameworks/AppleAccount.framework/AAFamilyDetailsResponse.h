@@ -2,9 +2,9 @@
    Image: /System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount
  */
 
-@class AAFamilyMember, NSArray, NSString;
-
 @interface AAFamilyDetailsResponse : AAResponse {
+    BOOL _canAddChildMembers;
+    BOOL _canAddMembers;
     NSString *_childAccountButtonTitle;
     NSString *_childAccountPrompt;
     NSArray *_invites;
@@ -12,38 +12,36 @@
     NSArray *_members;
     AAFamilyMember *_organizer;
     NSArray *_pendingMembers;
-    bool_canAddChildMembers;
-    bool_canAddMembers;
 }
 
-@property(readonly) bool canAddChildMembers;
-@property(readonly) bool canAddMembers;
-@property(readonly) NSString * childAccountButtonTitle;
-@property(readonly) NSString * childAccountPrompt;
-@property(readonly) NSArray * firstNames;
-@property(readonly) NSArray * invites;
-@property(readonly) AAFamilyMember * me;
-@property(readonly) long long memberCount;
-@property(readonly) NSArray * members;
-@property(readonly) AAFamilyMember * organizer;
-@property(readonly) long long pendingInviteCount;
-@property(readonly) long long pendingMemberCount;
-@property(readonly) NSArray * pendingMembers;
+@property (nonatomic, readonly) BOOL canAddChildMembers;
+@property (nonatomic, readonly) BOOL canAddMembers;
+@property (nonatomic, readonly) NSString *childAccountButtonTitle;
+@property (nonatomic, readonly) NSString *childAccountPrompt;
+@property (nonatomic, readonly) NSArray *firstNames;
+@property (nonatomic, readonly) NSArray *invites;
+@property (nonatomic, readonly) AAFamilyMember *me;
+@property (nonatomic, readonly) int memberCount;
+@property (nonatomic, readonly) NSArray *members;
+@property (nonatomic, readonly) AAFamilyMember *organizer;
+@property (nonatomic, readonly) int pendingInviteCount;
+@property (nonatomic, readonly) int pendingMemberCount;
+@property (nonatomic, readonly) NSArray *pendingMembers;
 
 - (void).cxx_destruct;
-- (bool)canAddChildMembers;
-- (bool)canAddMembers;
+- (BOOL)canAddChildMembers;
+- (BOOL)canAddMembers;
 - (id)childAccountButtonTitle;
 - (id)childAccountPrompt;
 - (id)firstNames;
 - (id)initWithHTTPResponse:(id)arg1 data:(id)arg2;
 - (id)invites;
 - (id)me;
-- (long long)memberCount;
+- (int)memberCount;
 - (id)members;
 - (id)organizer;
-- (long long)pendingInviteCount;
-- (long long)pendingMemberCount;
+- (int)pendingInviteCount;
+- (int)pendingMemberCount;
 - (id)pendingMembers;
 
 @end

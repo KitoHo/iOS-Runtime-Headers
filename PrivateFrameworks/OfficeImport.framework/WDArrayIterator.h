@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSArray;
-
 @interface WDArrayIterator : WDIterator {
     NSArray *mArray;
     unsigned int mNextIndex;
 }
 
-- (bool)hasNext;
+- (BOOL)hasNext;
 - (id)initWithArray:(id)arg1;
 - (id)next;
 

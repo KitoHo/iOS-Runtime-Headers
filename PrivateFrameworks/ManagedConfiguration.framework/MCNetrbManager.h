@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@class RadiosPreferences;
-
 @interface MCNetrbManager : NSObject {
+    BOOL _needStateUpdate;
     struct NETRBClient { } *_netClient;
     RadiosPreferences *_radioPrefs;
     int _reason;
     struct __SCDynamicStore { } *_scDynamicStore;
     struct __CFRunLoopSource { } *_scRunLoopSource;
     int _state;
-    bool_needStateUpdate;
 }
 
 + (id)sharedManager;
@@ -21,7 +19,7 @@
 - (void)authenticate;
 - (void)cellDataChangedNotification:(id)arg1;
 - (void)detachMIS;
-- (bool)didUserPreventData;
+- (BOOL)didUserPreventData;
 - (void)getState:(int*)arg1 andReason:(int*)arg2;
 - (id)init;
 - (void)readMISState:(int*)arg1 andReason:(int*)arg2;

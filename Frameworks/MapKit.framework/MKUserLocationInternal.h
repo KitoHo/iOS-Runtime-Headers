@@ -2,12 +2,9 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class <MKAnnotation>, <MKUserLocationAnnotation>, CLHeading, CLLocation, NSString;
-
 @interface MKUserLocationInternal : NSObject {
     <MKUserLocationAnnotation> *_annotation;
     <MKAnnotation> *annotation;
-    boolupdating;
     double course;
     CLLocation *fixedLocation;
     CLHeading *heading;
@@ -16,25 +13,26 @@
     NSString *subtitle;
     double timestamp;
     NSString *title;
+    BOOL updating;
 }
 
-@property(readonly) <MKAnnotation> * annotation;
-@property double course;
-@property(retain) CLLocation * fixedLocation;
-@property(retain) CLHeading * heading;
-@property(retain) CLLocation * location;
-@property(retain) CLLocation * predictedLocation;
-@property(retain) NSString * subtitle;
-@property double timestamp;
-@property(retain) NSString * title;
-@property(getter=isUpdating) bool updating;
+@property (nonatomic, readonly) <MKAnnotation> *annotation;
+@property (nonatomic) double course;
+@property (nonatomic, retain) CLLocation *fixedLocation;
+@property (nonatomic, retain) CLHeading *heading;
+@property (nonatomic, retain) CLLocation *location;
+@property (nonatomic, retain) CLLocation *predictedLocation;
+@property (nonatomic, retain) NSString *subtitle;
+@property (nonatomic) double timestamp;
+@property (nonatomic, retain) NSString *title;
+@property (getter=isUpdating, nonatomic) BOOL updating;
 
 - (void).cxx_destruct;
 - (id)annotation;
 - (double)course;
 - (id)fixedLocation;
 - (id)heading;
-- (bool)isUpdating;
+- (BOOL)isUpdating;
 - (id)location;
 - (id)predictedLocation;
 - (void)setCourse:(double)arg1;
@@ -45,7 +43,7 @@
 - (void)setSubtitle:(id)arg1;
 - (void)setTimestamp:(double)arg1;
 - (void)setTitle:(id)arg1;
-- (void)setUpdating:(bool)arg1;
+- (void)setUpdating:(BOOL)arg1;
 - (id)subtitle;
 - (double)timestamp;
 - (id)title;

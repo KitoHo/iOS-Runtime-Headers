@@ -2,25 +2,19 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class EKDirectorySearchQuery, NSError, NSString;
-
 @interface EKDirectorySearchOperation : NSOperation {
     NSString *_accountID;
     NSError *_error;
+    BOOL _isExecuting;
+    BOOL _isFinished;
+    BOOL _numberOfMatchesExceededLimit;
     EKDirectorySearchQuery *_query;
-    id _resultsBlock;
+    id /* block */ _resultsBlock;
     id _searchID;
-    bool_isExecuting;
-    bool_isFinished;
-    bool_numberOfMatchesExceededLimit;
 }
 
-@property(retain) NSError * error;
-@property bool numberOfMatchesExceededLimit;
+@property (nonatomic, retain) NSError *error;
+@property (nonatomic) BOOL numberOfMatchesExceededLimit;
 
 - (void)_finishWithError:(id)arg1;
 - (id)_processGroupsInResults:(id)arg1;
@@ -33,14 +27,14 @@
 - (void)dealloc;
 - (id)error;
 - (id)init;
-- (id)initWithSource:(id)arg1 query:(id)arg2 resultsBlock:(id)arg3;
-- (bool)isConcurrent;
-- (bool)isExecuting;
-- (bool)isFinished;
+- (id)initWithSource:(id)arg1 query:(id)arg2 resultsBlock:(id /* block */)arg3;
+- (BOOL)isConcurrent;
+- (BOOL)isExecuting;
+- (BOOL)isFinished;
 - (void)main;
-- (bool)numberOfMatchesExceededLimit;
+- (BOOL)numberOfMatchesExceededLimit;
 - (void)setError:(id)arg1;
-- (void)setNumberOfMatchesExceededLimit:(bool)arg1;
+- (void)setNumberOfMatchesExceededLimit:(BOOL)arg1;
 - (void)start;
 
 @end

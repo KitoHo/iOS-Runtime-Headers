@@ -2,16 +2,13 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class PKShippingMethod;
+@interface PKPaymentShippingMethodDataItem : PKPaymentDataItem
 
-@interface PKPaymentShippingMethodDataItem : PKPaymentDataItem {
-}
+@property (nonatomic, readonly) PKShippingMethod *shippingMethod;
 
-@property(readonly) PKShippingMethod * shippingMethod;
++ (int)dataType;
 
-+ (long long)dataType;
-
-- (bool)isValidWithError:(id*)arg1;
+- (BOOL)isValidWithError:(id*)arg1;
 - (id)shippingMethod;
 
 @end

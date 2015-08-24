@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class <SUActivityDelegate>, NSString, UIImage, UIViewController;
-
 @interface SUActivity : UIActivity {
     <SUActivityDelegate> *_delegate;
     UIImage *_suActivityImage;
@@ -12,14 +10,14 @@
     UIViewController *_suActivityViewController;
 }
 
-@property <SUActivityDelegate> * ITunesStoreDelegate;
+@property (nonatomic) <SUActivityDelegate> *ITunesStoreDelegate;
 
 - (id)ITunesStoreDelegate;
 - (id)activityImage;
 - (id)activityTitle;
 - (id)activityType;
 - (id)activityViewController;
-- (bool)canPerformWithActivityItems:(id)arg1;
+- (BOOL)canPerformWithActivityItems:(id)arg1;
 - (void)dealloc;
 - (void)performActivity;
 - (void)prepareWithActivityItems:(id)arg1;

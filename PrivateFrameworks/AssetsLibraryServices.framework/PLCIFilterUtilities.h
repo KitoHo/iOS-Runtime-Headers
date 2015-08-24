@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/AssetsLibraryServices.framework/AssetsLibraryServices
  */
 
-@interface PLCIFilterUtilities : NSObject {
-}
+@interface PLCIFilterUtilities : NSObject
 
 + (id)filterCopiesFromFilters:(id)arg1;
-+ (id)outputImageFromFilters:(id)arg1 inputImage:(id)arg2 orientation:(int)arg3 copyFiltersFirst:(bool)arg4;
++ (id)outputImageFromFilters:(id)arg1 inputImage:(id)arg2 orientation:(int)arg3 copyFiltersFirst:(BOOL)arg4;
 
 @end

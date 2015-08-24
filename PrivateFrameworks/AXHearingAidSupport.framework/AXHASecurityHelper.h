@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/AXHearingAidSupport.framework/AXHearingAidSupport
  */
 
-@class AXHAAccessQueue, NSArray;
-
 @interface AXHASecurityHelper : NSObject {
     struct __SecIdentity { } *_appleIDIdentity;
     NSArray *_certificateDescription;
     AXHAAccessQueue *_securityQueue;
 }
 
-@property(retain) NSArray * certificateDescription;
-@property(retain) AXHAAccessQueue * securityQueue;
+@property (nonatomic, retain) NSArray *certificateDescription;
+@property (nonatomic, retain) AXHAAccessQueue *securityQueue;
 
 + (id)sharedHelper;
 
@@ -24,8 +22,8 @@
 - (id)securityQueue;
 - (void)setCertificateDescription:(id)arg1;
 - (void)setSecurityQueue:(id)arg1;
-- (bool)shouldTrustStream:(id)arg1;
+- (BOOL)shouldTrustStream:(id)arg1;
 - (id)trustChain;
-- (bool)trustChainAvailable;
+- (BOOL)trustChainAvailable;
 
 @end

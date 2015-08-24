@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/RadioUI.framework/RadioUI
  */
 
-@class RadioStation;
-
 @interface RUProspectivePlaybackInformation : MPUProspectivePlaybackInformation {
-    RadioStation *_radioStation;
+    RURadioStationPlaybackMetadata *_stationMetadata;
 }
 
-@property(readonly) RadioStation * radioStation;
+@property (nonatomic, readonly) RURadioStationPlaybackMetadata *stationMetadata;
 
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
-- (id)initWithRadioStation:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)isRadioProspectivePlaybackInformation;
-- (id)radioStation;
+- (id)initWithStationMetadata:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isRadioProspectivePlaybackInformation;
+- (id)stationMetadata;
 
 @end

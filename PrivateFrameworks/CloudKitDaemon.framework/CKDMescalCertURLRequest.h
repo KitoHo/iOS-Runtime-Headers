@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSData;
-
 @interface CKDMescalCertURLRequest : CKDURLRequest {
     NSData *_mescalCert;
 }
 
-@property(retain) NSData * mescalCert;
+@property (nonatomic, retain) NSData *mescalCert;
 
 - (void).cxx_destruct;
-- (bool)allowsAnonymousAccount;
-- (bool)hasRequestBody;
+- (BOOL)allowsAnonymousAccount;
+- (BOOL)hasRequestBody;
 - (id)httpMethod;
 - (id)mescalCert;
-- (long long)partitionType;
+- (int)partitionType;
 - (void)requestDidParsePlaintextObject:(id)arg1;
-- (bool)requiresDeviceID;
-- (bool)requiresSignature;
-- (long long)serverType;
+- (BOOL)requiresDeviceID;
+- (BOOL)requiresSignature;
+- (int)serverType;
 - (void)setMescalCert:(id)arg1;
 - (id)url;
 

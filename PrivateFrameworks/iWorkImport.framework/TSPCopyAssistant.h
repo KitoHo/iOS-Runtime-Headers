@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSPPasteboard;
-
 @interface TSPCopyAssistant : TSPPasteboardWriteAssistant {
+    BOOL _didAttemptToCopy;
     TSPPasteboard *_pasteboard;
-    bool_didAttemptToCopy;
 }
 
 - (void).cxx_destruct;
 - (void)copyToPasteboard;
-- (void)copyToPasteboardIsSmartCopy:(bool)arg1;
+- (void)copyToPasteboardIsSmartCopy:(BOOL)arg1;
 - (id)initWithContext:(id)arg1;
 - (id)initWithPasteboard:(id)arg1 sourceContext:(id)arg2;
 - (void)loadData;

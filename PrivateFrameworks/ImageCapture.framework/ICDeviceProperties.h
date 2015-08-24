@@ -2,60 +2,58 @@
    Image: /System/Library/PrivateFrameworks/ImageCapture.framework/ImageCapture
  */
 
-@class DeviceManager, NSString;
-
 @interface ICDeviceProperties : NSObject {
     NSString *_UUIDString;
+    BOOL _autoOpenSession;
+    BOOL _closeSessionPending;
     id _delegate;
     DeviceManager *_deviceManager;
+    BOOL _hasOpenSession;
     struct CGImage { } *_icon;
     NSString *_name;
+    BOOL _openSessionPending;
     NSString *_productKind;
     NSString *_transportType;
     int _usbLocationID;
     int _usbProductID;
     int _usbVendorID;
-    bool_autoOpenSession;
-    bool_closeSessionPending;
-    bool_hasOpenSession;
-    bool_openSessionPending;
 }
 
-@property(retain) NSString * UUIDString;
-@property bool autoOpenSession;
-@property bool closeSessionPending;
+@property (retain) NSString *UUIDString;
+@property BOOL autoOpenSession;
+@property BOOL closeSessionPending;
 @property id delegate;
-@property DeviceManager * deviceManager;
-@property bool hasOpenSession;
-@property struct CGImage { }* icon;
-@property(retain) NSString * name;
-@property bool openSessionPending;
-@property(retain) NSString * productKind;
-@property(retain) NSString * transportType;
+@property DeviceManager *deviceManager;
+@property BOOL hasOpenSession;
+@property struct CGImage { }*icon;
+@property (retain) NSString *name;
+@property BOOL openSessionPending;
+@property (retain) NSString *productKind;
+@property (retain) NSString *transportType;
 @property int usbLocationID;
 @property int usbProductID;
 @property int usbVendorID;
 
 - (id)UUIDString;
-- (bool)autoOpenSession;
-- (bool)closeSessionPending;
+- (BOOL)autoOpenSession;
+- (BOOL)closeSessionPending;
 - (void)dealloc;
 - (id)delegate;
 - (id)deviceManager;
 - (void)finalize;
-- (bool)hasOpenSession;
+- (BOOL)hasOpenSession;
 - (struct CGImage { }*)icon;
 - (id)name;
-- (bool)openSessionPending;
+- (BOOL)openSessionPending;
 - (id)productKind;
-- (void)setAutoOpenSession:(bool)arg1;
-- (void)setCloseSessionPending:(bool)arg1;
+- (void)setAutoOpenSession:(BOOL)arg1;
+- (void)setCloseSessionPending:(BOOL)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setDeviceManager:(id)arg1;
-- (void)setHasOpenSession:(bool)arg1;
+- (void)setHasOpenSession:(BOOL)arg1;
 - (void)setIcon:(struct CGImage { }*)arg1;
 - (void)setName:(id)arg1;
-- (void)setOpenSessionPending:(bool)arg1;
+- (void)setOpenSessionPending:(BOOL)arg1;
 - (void)setProductKind:(id)arg1;
 - (void)setTransportType:(id)arg1;
 - (void)setUUIDString:(id)arg1;

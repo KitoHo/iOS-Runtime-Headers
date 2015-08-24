@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class NSString;
-
 @interface WBSURLCompletionUserTypedString : NSObject {
     const char *_chars;
+    BOOL _containsAnySpaces;
     int _length;
+    BOOL _ownsChars;
+    BOOL _ownsUnichars;
     NSString *_string;
     const unsigned short *_unichars;
-    bool_containsAnySpaces;
-    bool_ownsChars;
-    bool_ownsUnichars;
 }
 
-@property(readonly) NSString * normalizedString;
+@property (nonatomic, readonly) NSString *normalizedString;
 
 + (void)initialize;
 

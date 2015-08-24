@@ -2,28 +2,26 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSArray;
-
 @interface CKFetchRecordZonesOperationInfo : CKDatabaseOperationInfo <NSSecureCoding> {
+    BOOL _ignorePCSFailures;
+    BOOL _isFetchAllRecordZonesOperation;
     NSArray *_recordZoneIDs;
-    bool_ignorePCSFailures;
-    bool_isFetchAllRecordZonesOperation;
 }
 
-@property bool ignorePCSFailures;
-@property bool isFetchAllRecordZonesOperation;
-@property(retain) NSArray * recordZoneIDs;
+@property (nonatomic) BOOL ignorePCSFailures;
+@property (nonatomic) BOOL isFetchAllRecordZonesOperation;
+@property (nonatomic, retain) NSArray *recordZoneIDs;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
-- (bool)ignorePCSFailures;
+- (BOOL)ignorePCSFailures;
 - (id)initWithCoder:(id)arg1;
-- (bool)isFetchAllRecordZonesOperation;
+- (BOOL)isFetchAllRecordZonesOperation;
 - (id)recordZoneIDs;
-- (void)setIgnorePCSFailures:(bool)arg1;
-- (void)setIsFetchAllRecordZonesOperation:(bool)arg1;
+- (void)setIgnorePCSFailures:(BOOL)arg1;
+- (void)setIsFetchAllRecordZonesOperation:(BOOL)arg1;
 - (void)setRecordZoneIDs:(id)arg1;
 
 @end

@@ -3,40 +3,42 @@
  */
 
 @interface UIKBRenderConfig : NSObject <NSCopying> {
-    double _blurRadius;
-    double _blurSaturation;
-    double _keycapOpacity;
-    double _lightKeycapOpacity;
-    bool_lightKeyboard;
+    float _blurRadius;
+    float _blurSaturation;
+    float _keycapOpacity;
+    BOOL _lightKeyboard;
+    float _lightKeycapOpacity;
+    BOOL _useEmojiStyles;
 }
 
-@property(readonly) long long backdropStyle;
-@property double blurRadius;
-@property double blurSaturation;
-@property double keycapOpacity;
-@property bool lightKeyboard;
-@property double lightKeycapOpacity;
-@property(readonly) bool whiteText;
+@property (nonatomic, readonly) int backdropStyle;
+@property (nonatomic) float blurRadius;
+@property (nonatomic) float blurSaturation;
+@property (nonatomic) float keycapOpacity;
+@property (nonatomic) BOOL lightKeyboard;
+@property (nonatomic) float lightKeycapOpacity;
+@property (nonatomic, readonly) BOOL whiteText;
 
-+ (long long)backdropStyleForStyle:(long long)arg1;
-+ (id)configForAppearance:(long long)arg1;
++ (int)backdropStyleForStyle:(int)arg1;
++ (id)configForAppearance:(int)arg1 inputMode:(id)arg2;
 + (id)darkConfig;
 + (id)defaultConfig;
++ (id)defaultEmojiConfig;
 
-- (long long)backdropStyle;
-- (double)blurRadius;
-- (double)blurSaturation;
+- (int)backdropStyle;
+- (float)blurRadius;
+- (float)blurSaturation;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
-- (bool)isEqual:(id)arg1;
-- (double)keycapOpacity;
-- (bool)lightKeyboard;
-- (double)lightKeycapOpacity;
-- (void)setBlurRadius:(double)arg1;
-- (void)setBlurSaturation:(double)arg1;
-- (void)setKeycapOpacity:(double)arg1;
-- (void)setLightKeyboard:(bool)arg1;
-- (void)setLightKeycapOpacity:(double)arg1;
-- (bool)whiteText;
+- (BOOL)isEqual:(id)arg1;
+- (float)keycapOpacity;
+- (BOOL)lightKeyboard;
+- (float)lightKeycapOpacity;
+- (void)setBlurRadius:(float)arg1;
+- (void)setBlurSaturation:(float)arg1;
+- (void)setKeycapOpacity:(float)arg1;
+- (void)setLightKeyboard:(BOOL)arg1;
+- (void)setLightKeycapOpacity:(float)arg1;
+- (BOOL)whiteText;
 
 @end

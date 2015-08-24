@@ -2,28 +2,21 @@
    Image: /System/Library/PrivateFrameworks/VoiceTrigger.framework/VoiceTrigger
  */
 
-@class NSArray, NSString;
-
 @interface VTAsset : NSObject {
-    NSArray *_languages;
-    NSString *_version;
-    bool_isInstalled;
+    ASAsset *_asset;
 }
 
-@property bool isInstalled;
-@property(retain) NSArray * languages;
-@property(retain) NSString * version;
+@property (getter=isInstalled, nonatomic, readonly) BOOL installed;
+@property (nonatomic, readonly) NSArray *languages;
+@property (nonatomic, readonly) NSString *path;
+@property (nonatomic, readonly) NSNumber *version;
 
 - (void).cxx_destruct;
-- (id)dictionaryRepresentation;
-- (id)init;
-- (id)initWithDictionaryRepresentation:(id)arg1;
-- (id)initWithLanguages:(id)arg1 isInstalled:(bool)arg2;
-- (bool)isInstalled;
+- (id)description;
+- (id)initWithASAsset:(id)arg1;
+- (BOOL)isInstalled;
 - (id)languages;
-- (void)setIsInstalled:(bool)arg1;
-- (void)setLanguages:(id)arg1;
-- (void)setVersion:(id)arg1;
+- (id)path;
 - (id)version;
 
 @end

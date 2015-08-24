@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSData, NSNumber, NSString, NSURL;
-
 @interface CKPackageItem : NSObject {
     NSNumber *_deviceID;
     NSNumber *_fileID;
@@ -11,26 +9,24 @@
     NSNumber *_generationID;
     unsigned long long _itemID;
     long long _offset;
-    long long _packageIndex;
-    NSString *_referenceIdentifier;
-    int _sectionIndex;
+    int _packageIndex;
+    long _sectionIndex;
     NSData *_signature;
     long long _size;
     NSData *_wrappedAssetKey;
 }
 
-@property(retain) NSNumber * deviceID;
-@property(retain) NSNumber * fileID;
-@property(retain) NSURL * fileURL;
-@property(retain) NSNumber * generationID;
-@property unsigned long long itemID;
-@property long long offset;
-@property long long packageIndex;
-@property(retain) NSString * referenceIdentifier;
-@property int sectionIndex;
-@property(retain) NSData * signature;
-@property long long size;
-@property(retain) NSData * wrappedAssetKey;
+@property (nonatomic, retain) NSNumber *deviceID;
+@property (nonatomic, retain) NSNumber *fileID;
+@property (nonatomic, retain) NSURL *fileURL;
+@property (nonatomic, retain) NSNumber *generationID;
+@property (nonatomic) unsigned long long itemID;
+@property (nonatomic) long long offset;
+@property (nonatomic) int packageIndex;
+@property (nonatomic) long sectionIndex;
+@property (nonatomic, retain) NSData *signature;
+@property (nonatomic) long long size;
+@property (nonatomic, retain) NSData *wrappedAssetKey;
 
 - (void).cxx_destruct;
 - (id)CKPropertiesDescription;
@@ -43,18 +39,16 @@
 - (id)initWithFileURL:(id)arg1;
 - (unsigned long long)itemID;
 - (long long)offset;
-- (long long)packageIndex;
-- (id)referenceIdentifier;
-- (int)sectionIndex;
+- (int)packageIndex;
+- (long)sectionIndex;
 - (void)setDeviceID:(id)arg1;
 - (void)setFileID:(id)arg1;
 - (void)setFileURL:(id)arg1;
 - (void)setGenerationID:(id)arg1;
 - (void)setItemID:(unsigned long long)arg1;
 - (void)setOffset:(long long)arg1;
-- (void)setPackageIndex:(long long)arg1;
-- (void)setReferenceIdentifier:(id)arg1;
-- (void)setSectionIndex:(int)arg1;
+- (void)setPackageIndex:(int)arg1;
+- (void)setSectionIndex:(long)arg1;
 - (void)setSignature:(id)arg1;
 - (void)setSize:(long long)arg1;
 - (void)setWrappedAssetKey:(id)arg1;

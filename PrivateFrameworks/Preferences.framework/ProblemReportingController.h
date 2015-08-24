@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class NSArray, PSSpecifier, PrefsUILinkLabel;
-
 @interface ProblemReportingController : PSListController {
     PrefsUILinkLabel *_aboutDiagnosticsLinkLabel;
     NSArray *_appActivitySpecifiers;
@@ -12,11 +10,11 @@
     PSSpecifier *_spinnerSpecifier;
 }
 
-@property(readonly) NSArray * appActivitySpecifiers;
-@property(readonly) PSSpecifier * filesystemMetadataSnapshotSpecifier;
-@property(readonly) PSSpecifier * spinnerSpecifier;
+@property (readonly) NSArray *appActivitySpecifiers;
+@property (readonly) PSSpecifier *filesystemMetadataSnapshotSpecifier;
+@property (readonly) PSSpecifier *spinnerSpecifier;
 
-+ (bool)isProblemReportingEnabled;
++ (BOOL)isProblemReportingEnabled;
 
 - (id)appActivitySpecifiers;
 - (void)checkDiagnosticsSessionAvailability;
@@ -24,9 +22,9 @@
 - (void)dismissAboutSheet:(id)arg1;
 - (id)filesystemMetadataSnapshotSpecifier;
 - (void)launchDiagnosticsSession:(id)arg1;
-- (void)setProblemReportingEnabled:(bool)arg1;
+- (void)setProblemReportingEnabled:(BOOL)arg1;
 - (void)setShouldShareAppActivityWithAppDevelopers:(id)arg1 specifier:(id)arg2;
-- (bool)shouldEnableProblemReportingForCheckedSpecifier;
+- (BOOL)shouldEnableProblemReportingForCheckedSpecifier;
 - (id)shouldShareAppActivityWithAppDevelopers;
 - (void)showAboutAppAnalyticsSheet;
 - (void)showAboutDiagnosticsSheet;

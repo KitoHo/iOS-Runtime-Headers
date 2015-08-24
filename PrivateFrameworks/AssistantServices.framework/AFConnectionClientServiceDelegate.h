@@ -2,30 +2,32 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class AFConnection, NSString;
-
 @interface AFConnectionClientServiceDelegate : NSObject <AFClientServiceDelegate> {
     AFConnection *_connection;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)_connectionDelegate;
-- (oneway void)acousticIDRequestDidFinishWithSuccess:(bool)arg1;
+- (oneway void)aceConnectionWillRetryOnError:(id)arg1;
+- (oneway void)acousticIDRequestDidFinishWithSuccess:(BOOL)arg1;
 - (oneway void)acousticIDRequestWillStart;
-- (oneway void)getBulletinContext:(id)arg1;
+- (oneway void)getBulletinContext:(id /* block */)arg1;
 - (id)initWithConnection:(id)arg1;
+- (oneway void)invalidateCurrentUserActivity;
 - (oneway void)musicWasDetected;
 - (oneway void)requestDidFailWithError:(id)arg1 requestClass:(id)arg2;
 - (oneway void)requestDidFinish;
-- (oneway void)requestDidReceiveCommand:(id)arg1 reply:(id)arg2;
+- (oneway void)requestDidReceiveCommand:(id)arg1 reply:(id /* block */)arg2;
 - (oneway void)requestRequestedDismissAssistant;
-- (oneway void)requestRequestedOpenURL:(id)arg1 reply:(id)arg2;
-- (oneway void)shouldSpeakChanged:(bool)arg1;
+- (oneway void)requestRequestedOpenApplicationWithBundleID:(id)arg1 URL:(id)arg2 reply:(id /* block */)arg3;
+- (oneway void)requestRequestedOpenURL:(id)arg1 reply:(id /* block */)arg2;
+- (oneway void)setUserActivityInfo:(id)arg1 webpageURL:(id)arg2;
+- (oneway void)shouldSpeakChanged:(BOOL)arg1;
 - (oneway void)speechRecognitionDidFail:(id)arg1;
 - (oneway void)speechRecognized:(id)arg1;
 - (oneway void)speechRecognizedPartialResult:(id)arg1;
@@ -34,7 +36,6 @@
 - (oneway void)speechRecordingDidChangeAVRecordRoute:(id)arg1;
 - (oneway void)speechRecordingDidEnd;
 - (oneway void)speechRecordingDidFail:(id)arg1;
-- (oneway void)speechRecordingDidUpdateAveragePower:(float)arg1 peakPower:(float)arg2;
-- (oneway void)speechRecordingWillBegin;
+- (oneway void)speechRecordingWillBeginWithLevelsSharedMem:(id)arg1;
 
 @end

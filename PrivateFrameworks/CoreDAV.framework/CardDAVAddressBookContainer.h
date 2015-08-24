@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class NSString, NSURL;
-
 @interface CardDAVAddressBookContainer : CoreDAVContainer {
     NSString *_maxImageSize;
     NSString *_maxResourceSize;
     NSURL *_meCardURL;
 }
 
-@property(readonly) bool isAddressBook;
-@property(readonly) bool isSearchAddressBook;
-@property(readonly) bool isSharedAddressBook;
-@property(retain) NSString * maxImageSize;
-@property(retain) NSString * maxResourceSize;
-@property(retain) NSURL * meCardURL;
+@property (nonatomic, readonly) BOOL isAddressBook;
+@property (nonatomic, readonly) BOOL isSearchAddressBook;
+@property (nonatomic, readonly) BOOL isSharedAddressBook;
+@property (nonatomic, retain) NSString *maxImageSize;
+@property (nonatomic, retain) NSString *maxResourceSize;
+@property (nonatomic, retain) NSURL *meCardURL;
 
 + (id)copyPropertyMappingsForParser;
 
 - (void)applyParsedProperties:(id)arg1;
 - (void)dealloc;
 - (id)description;
-- (bool)isAddressBook;
-- (bool)isSearchAddressBook;
-- (bool)isSharedAddressBook;
+- (BOOL)isAddressBook;
+- (BOOL)isSearchAddressBook;
+- (BOOL)isSharedAddressBook;
 - (id)maxImageSize;
 - (id)maxResourceSize;
 - (id)meCardURL;

@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/TouchRemote.framework/TouchRemote
  */
 
-@class <TRDeviceSetupServerDelegate>, NSString, TRTransferServer;
-
 @interface TRDeviceSetupServer : NSObject <TRTransferServerDelegate> {
+    BOOL _cancelledSetupInProgress;
     <TRDeviceSetupServerDelegate> *_delegate;
     int _notifyToken;
+    BOOL _notifyTokenIsValid;
+    BOOL _setupInProgress;
+    BOOL _started;
     TRTransferServer *_transferServer;
-    bool_cancelledSetupInProgress;
-    bool_notifyTokenIsValid;
-    bool_setupInProgress;
-    bool_started;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <TRDeviceSetupServerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <TRDeviceSetupServerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (void)initialize;
 

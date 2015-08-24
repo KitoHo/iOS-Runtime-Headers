@@ -2,36 +2,34 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class GKButton, NSString, UIView;
-
 @interface GKLeaderboardHeaderView : UICollectionReusableView {
     GKButton *_leaderboardsButton;
-    long long _timeScope;
+    int _timeScope;
     GKButton *_timeScopeButton;
 }
 
-@property(copy) NSString * currentLeaderboardTitle;
-@property(readonly) UIView * leaderboardButton;
-@property bool leaderboardButtonEnabled;
-@property GKButton * leaderboardsButton;
-@property(readonly) UIView * timeButton;
-@property long long timeScope;
-@property GKButton * timeScopeButton;
+@property (nonatomic, copy) NSString *currentLeaderboardTitle;
+@property (nonatomic, readonly) UIView *leaderboardButton;
+@property (nonatomic) BOOL leaderboardButtonEnabled;
+@property GKButton *leaderboardsButton;
+@property (nonatomic, readonly) UIView *timeButton;
+@property (nonatomic) int timeScope;
+@property GKButton *timeScopeButton;
 
 - (id)currentLeaderboardTitle;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (id)leaderboardButton;
-- (bool)leaderboardButtonEnabled;
+- (BOOL)leaderboardButtonEnabled;
 - (void)leaderboardButtonPressed:(id)arg1;
 - (id)leaderboardsButton;
 - (void)setCurrentLeaderboardTitle:(id)arg1;
-- (void)setLeaderboardButtonEnabled:(bool)arg1;
+- (void)setLeaderboardButtonEnabled:(BOOL)arg1;
 - (void)setLeaderboardsButton:(id)arg1;
-- (void)setTimeScope:(long long)arg1;
+- (void)setTimeScope:(int)arg1;
 - (void)setTimeScopeButton:(id)arg1;
 - (id)timeButton;
 - (void)timeButtonPressed:(id)arg1;
-- (long long)timeScope;
+- (int)timeScope;
 - (id)timeScopeButton;
 
 @end

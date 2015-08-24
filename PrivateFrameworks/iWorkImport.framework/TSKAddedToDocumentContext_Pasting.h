@@ -2,23 +2,22 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSMutableArray;
-
 @interface TSKAddedToDocumentContext_Pasting : TSKAddedToDocumentContext {
     NSMutableArray *mAddedDrawables;
-    struct __CFDictionary { } *mTableIDMap;
+    <TSKMultiTableRemapping> *mMultiTableRemapper;
 }
 
 - (void)addDrawable:(id)arg1;
+- (void)addDrawables:(id)arg1;
 - (id)addedDrawables;
-- (bool)autoUpdateSmartFields;
+- (BOOL)autoUpdateSmartFields;
 - (void)dealloc;
 - (id)description;
 - (id)init;
-- (void)setTableIDMap:(struct __CFDictionary { }*)arg1;
-- (bool)syncChanges;
-- (struct __CFDictionary { }*)tableIDMap;
-- (bool)uniqueBookmarks;
-- (bool)wasPasted;
+- (id)multiTableRemapper;
+- (void)setMultiTableRemapper:(id)arg1;
+- (BOOL)syncChanges;
+- (BOOL)uniqueBookmarks;
+- (BOOL)wasPasted;
 
 @end

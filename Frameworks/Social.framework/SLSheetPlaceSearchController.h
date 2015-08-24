@@ -2,26 +2,24 @@
    Image: /System/Library/Frameworks/Social.framework/Social
  */
 
-@class NSArray, NSLock, NSObject<SLPlaceDataSource>, NSString, NSTimer, UISearchDisplayController;
-
-@interface SLSheetPlaceSearchController : NSObject <UITableViewDataSource, SLPlaceDataSourceDelegate> {
+@interface SLSheetPlaceSearchController : NSObject <SLPlaceDataSourceDelegate, UITableViewDataSource> {
     NSTimer *_delayTimer;
+    BOOL _isSearching;
     NSObject<SLPlaceDataSource> *_placeDataSource;
     int _retryCount;
     NSLock *_retryLock;
     UISearchDisplayController *_searchDisplayController;
     NSArray *_searchResults;
     NSString *_searchString;
-    bool_isSearching;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) NSObject<SLPlaceDataSource> * placeDataSource;
-@property(retain) UISearchDisplayController * searchDisplayController;
-@property(retain) NSArray * searchResults;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (retain) NSObject<SLPlaceDataSource> *placeDataSource;
+@property (retain) UISearchDisplayController *searchDisplayController;
+@property (retain) NSArray *searchResults;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (void)cancelSearch;
@@ -37,6 +35,6 @@
 - (void)setSearchDisplayController:(id)arg1;
 - (void)setSearchResults:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 
 @end

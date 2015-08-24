@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class PLPublishingAgent, UIViewController;
-
 @interface PUPublishingActivity : PUActivity {
     PLPublishingAgent *_currentAgent;
     double _endTime;
@@ -11,23 +9,23 @@
     double _startTime;
 }
 
-+ (long long)activityCategory;
++ (int)activityCategory;
 
 - (void).cxx_destruct;
 - (id)_activityImage;
 - (void)_cleanup;
-- (bool)_dismissActivityFromViewController:(id)arg1 animated:(bool)arg2 completion:(id)arg3;
-- (bool)_presentActivityOnViewController:(id)arg1 animated:(bool)arg2 completion:(id)arg3;
+- (BOOL)_dismissActivityFromViewController:(id)arg1 animated:(BOOL)arg2 completion:(id /* block */)arg3;
+- (BOOL)_presentActivityOnViewController:(id)arg1 animated:(BOOL)arg2 completion:(id /* block */)arg3;
 - (void)_publishOverReferenceViewController;
 - (void)_publishingAgentDidCancel:(id)arg1;
 - (void)_publishingAgentDidStartPublishing:(id)arg1;
-- (void)_showPublishingSheetInViewController:(id)arg1 remakeAfterPublish:(bool)arg2;
+- (void)_showPublishingSheetInViewController:(id)arg1 remakeAfterPublish:(BOOL)arg2;
 - (void)_showTrimViewController;
 - (void)_showVideoTooLongAlert;
 - (id)activityTitle;
 - (id)activityType;
 - (id)activityViewController;
-- (bool)canPerformWithActivityItems:(id)arg1;
+- (BOOL)canPerformWithActivityItems:(id)arg1;
 - (id)currentPublishingAgent;
 - (void)dealloc;
 - (void)editVideoViewController:(id)arg1 didTrimVideoWithOptions:(id)arg2;

@@ -2,19 +2,17 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@class <ABPropertyCellDelegate>, UILabel;
-
 @interface ABLinkedCardsCell : ABLabeledCell {
     <ABPropertyCellDelegate> *_delegate;
     UILabel *_nameLabel;
     UILabel *_sourceLabel;
 }
 
-@property <ABPropertyCellDelegate> * delegate;
-@property(readonly) UILabel * nameLabel;
-@property(readonly) UILabel * sourceLabel;
+@property (nonatomic) <ABPropertyCellDelegate> *delegate;
+@property (nonatomic, readonly) UILabel *nameLabel;
+@property (nonatomic, readonly) UILabel *sourceLabel;
 
-+ (bool)wantsChevron;
++ (BOOL)wantsChevron;
 
 - (void)dealloc;
 - (id)delegate;
@@ -23,7 +21,7 @@
 - (void)performDefaultAction;
 - (void)setCardGroupItem:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (bool)shouldPerformDefaultAction;
+- (BOOL)shouldPerformDefaultAction;
 - (id)sourceLabel;
 - (id)valueView;
 

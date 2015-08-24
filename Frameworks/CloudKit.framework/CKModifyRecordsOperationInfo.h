@@ -2,32 +2,30 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSArray, NSData, NSDictionary;
-
 @interface CKModifyRecordsOperationInfo : CKDatabaseOperationInfo <NSSecureCoding> {
+    BOOL _atomic;
     NSData *_clientChangeTokenData;
     NSDictionary *_conflictLosersToResolveByRecordID;
     NSArray *_recordIDsToDelete;
     NSDictionary *_recordIDsToDeleteToEtags;
     NSArray *_recordsToSave;
-    long long _savePolicy;
-    bool_atomic;
-    bool_shouldOnlySaveAssetContent;
+    int _savePolicy;
+    BOOL _shouldOnlySaveAssetContent;
 }
 
-@property bool atomic;
-@property(retain) NSData * clientChangeTokenData;
-@property(retain) NSDictionary * conflictLosersToResolveByRecordID;
-@property(retain) NSArray * recordIDsToDelete;
-@property(copy) NSDictionary * recordIDsToDeleteToEtags;
-@property(retain) NSArray * recordsToSave;
-@property long long savePolicy;
-@property bool shouldOnlySaveAssetContent;
+@property (nonatomic) BOOL atomic;
+@property (nonatomic, retain) NSData *clientChangeTokenData;
+@property (nonatomic, retain) NSDictionary *conflictLosersToResolveByRecordID;
+@property (nonatomic, retain) NSArray *recordIDsToDelete;
+@property (nonatomic, copy) NSDictionary *recordIDsToDeleteToEtags;
+@property (nonatomic, retain) NSArray *recordsToSave;
+@property (nonatomic) int savePolicy;
+@property (nonatomic) BOOL shouldOnlySaveAssetContent;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (bool)atomic;
+- (BOOL)atomic;
 - (id)clientChangeTokenData;
 - (id)conflictLosersToResolveByRecordID;
 - (void)encodeWithCoder:(id)arg1;
@@ -35,15 +33,15 @@
 - (id)recordIDsToDelete;
 - (id)recordIDsToDeleteToEtags;
 - (id)recordsToSave;
-- (long long)savePolicy;
-- (void)setAtomic:(bool)arg1;
+- (int)savePolicy;
+- (void)setAtomic:(BOOL)arg1;
 - (void)setClientChangeTokenData:(id)arg1;
 - (void)setConflictLosersToResolveByRecordID:(id)arg1;
 - (void)setRecordIDsToDelete:(id)arg1;
 - (void)setRecordIDsToDeleteToEtags:(id)arg1;
 - (void)setRecordsToSave:(id)arg1;
-- (void)setSavePolicy:(long long)arg1;
-- (void)setShouldOnlySaveAssetContent:(bool)arg1;
-- (bool)shouldOnlySaveAssetContent;
+- (void)setSavePolicy:(int)arg1;
+- (void)setShouldOnlySaveAssetContent:(BOOL)arg1;
+- (BOOL)shouldOnlySaveAssetContent;
 
 @end

@@ -2,28 +2,26 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSArray, NSString;
-
-@interface SSSoftwareUpdatesContext : NSObject <SSXPCCoding, NSCopying, NSMutableCopying> {
+@interface SSSoftwareUpdatesContext : NSObject <NSCopying, NSMutableCopying, SSXPCCoding> {
     NSString *_clientIdentifierHeader;
+    BOOL _forced;
     NSArray *_softwareTypes;
-    bool_forced;
 }
 
-@property(copy,readonly) NSString * clientIdentifierHeader;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(getter=isForced,readonly) bool forced;
-@property(readonly) unsigned long long hash;
-@property(copy,readonly) NSArray * softwareTypes;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly, copy) NSString *clientIdentifierHeader;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (getter=isForced, nonatomic, readonly) BOOL forced;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly, copy) NSArray *softwareTypes;
+@property (readonly) Class superclass;
 
 - (id)clientIdentifierHeader;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)copyXPCEncoding;
 - (void)dealloc;
 - (id)initWithXPCEncoding:(id)arg1;
-- (bool)isForced;
+- (BOOL)isForced;
 - (id)mutableCopyWithZone:(struct _NSZone { }*)arg1;
 - (id)softwareTypes;
 

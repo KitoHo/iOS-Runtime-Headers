@@ -2,18 +2,16 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@class CNContact;
-
 @interface ABSiriContactContextProvider : NSObject <AFContextProvider> {
     CNContact *_contact;
 }
 
 - (void)_removeContextProviderOnMainThread;
-- (bool)allowContextProvider:(id)arg1;
+- (BOOL)allowContextProvider:(id)arg1;
 - (id)contextManager;
 - (void)dealloc;
 - (id)getCurrentContext;
 - (id)initWithContact:(id)arg1;
-- (void)setEnabled:(bool)arg1;
+- (void)setEnabled:(BOOL)arg1;
 
 @end

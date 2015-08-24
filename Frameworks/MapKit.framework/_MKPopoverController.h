@@ -2,11 +2,10 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@interface _MKPopoverController : UIPopoverController {
-}
+@interface _MKPopoverController : UIPopoverController
 
-+ (bool)_popoversDisabled;
++ (BOOL)_popoversDisabled;
 
-- (bool)_shimPopoverPresentationController;
+- (BOOL)_shimPopoverPresentationController;
 
 @end

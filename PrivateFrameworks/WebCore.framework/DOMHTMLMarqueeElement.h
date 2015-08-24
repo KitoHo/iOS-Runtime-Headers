@@ -2,8 +2,7 @@
    Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
  */
 
-@interface DOMHTMLMarqueeElement : DOMHTMLElement {
-}
+@interface DOMHTMLMarqueeElement : DOMHTMLElement
 
 - (id)behavior;
 - (id)bgColor;
@@ -21,12 +20,12 @@
 - (void)setLoop:(int)arg1;
 - (void)setScrollAmount:(int)arg1;
 - (void)setScrollDelay:(int)arg1;
-- (void)setTrueSpeed:(bool)arg1;
+- (void)setTrueSpeed:(BOOL)arg1;
 - (void)setVspace:(unsigned int)arg1;
 - (void)setWidth:(id)arg1;
 - (void)start;
 - (void)stop;
-- (bool)trueSpeed;
+- (BOOL)trueSpeed;
 - (unsigned int)vspace;
 - (id)width;
 

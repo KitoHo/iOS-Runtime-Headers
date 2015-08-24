@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEORPUserCredentials, NSMutableArray, NSString;
-
 @interface GEORPProblemStatusRequest : PBRequest <NSCopying> {
     NSMutableArray *_problemIds;
     NSString *_statusNotificationId;
     GEORPUserCredentials *_userCredentials;
 }
 
-@property(readonly) bool hasStatusNotificationId;
-@property(readonly) bool hasUserCredentials;
-@property(retain) NSMutableArray * problemIds;
-@property(retain) NSString * statusNotificationId;
-@property(retain) GEORPUserCredentials * userCredentials;
+@property (nonatomic, readonly) BOOL hasStatusNotificationId;
+@property (nonatomic, readonly) BOOL hasUserCredentials;
+@property (nonatomic, retain) NSMutableArray *problemIds;
+@property (nonatomic, retain) NSString *statusNotificationId;
+@property (nonatomic, retain) GEORPUserCredentials *userCredentials;
 
 - (void)addProblemId:(id)arg1;
 - (void)clearProblemIds;
@@ -23,15 +21,15 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasStatusNotificationId;
-- (bool)hasUserCredentials;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasStatusNotificationId;
+- (BOOL)hasUserCredentials;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (id)problemIdAtIndex:(unsigned long long)arg1;
+- (id)problemIdAtIndex:(unsigned int)arg1;
 - (id)problemIds;
-- (unsigned long long)problemIdsCount;
-- (bool)readFrom:(id)arg1;
+- (unsigned int)problemIdsCount;
+- (BOOL)readFrom:(id)arg1;
 - (unsigned int)requestTypeCode;
 - (Class)responseClass;
 - (void)setProblemIds:(id)arg1;

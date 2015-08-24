@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSArray, SUScriptFunction;
-
 @interface SUNativeScriptMenuViewController : SUMenuViewController {
     SUScriptFunction *_action;
     NSArray *_menuItems;
 }
 
-@property(retain) SUScriptFunction * action;
-@property(retain) NSArray * menuItems;
+@property (nonatomic, retain) SUScriptFunction *action;
+@property (nonatomic, retain) NSArray *menuItems;
 
 - (id)action;
 - (id)copyScriptViewController;
 - (void)dealloc;
-- (bool)isMenuItemEnabledAtIndex:(long long)arg1;
+- (BOOL)isMenuItemEnabledAtIndex:(int)arg1;
 - (id)menuItems;
-- (long long)numberOfMenuItems;
-- (void)performActionForMenuItemAtIndex:(long long)arg1;
+- (int)numberOfMenuItems;
+- (void)performActionForMenuItemAtIndex:(int)arg1;
 - (void)setAction:(id)arg1;
 - (void)setMenuItems:(id)arg1;
-- (id)titleOfMenuItemAtIndex:(long long)arg1;
+- (id)titleOfMenuItemAtIndex:(int)arg1;
 
 @end

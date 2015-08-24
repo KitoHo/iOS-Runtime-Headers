@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSMTraceBuffer;
-
 @interface TSTTracingManager : NSObject {
     TSMTraceBuffer *mBuffer;
 }
@@ -17,7 +15,7 @@
 - (void)dealloc;
 - (oneway void)release;
 - (id)retain;
-- (unsigned long long)retainCount;
+- (unsigned int)retainCount;
 - (void)setup;
 - (void)teardown;
 

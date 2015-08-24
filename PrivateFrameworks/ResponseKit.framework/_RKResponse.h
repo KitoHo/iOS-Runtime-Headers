@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/ResponseKit.framework/ResponseKit
  */
 
-@class NSString;
-
 @interface _RKResponse : NSObject {
     NSString *_text;
-    unsigned long long _type;
+    unsigned int _type;
 }
 
-@property(retain) NSString * text;
-@property unsigned long long type;
+@property (retain) NSString *text;
+@property unsigned int type;
 
 - (void).cxx_destruct;
 - (id)description;
 - (id)init;
-- (id)initWithText:(id)arg1 type:(unsigned long long)arg2;
+- (id)initWithText:(id)arg1 type:(unsigned int)arg2;
 - (void)setText:(id)arg1;
-- (void)setType:(unsigned long long)arg1;
+- (void)setType:(unsigned int)arg1;
 - (id)text;
-- (unsigned long long)type;
+- (unsigned int)type;
 
 @end

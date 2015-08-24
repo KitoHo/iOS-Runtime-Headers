@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOAddress, NSString;
-
 @interface GEOPDLocalizedAddress : PBCodable <NSCopying> {
     GEOAddress *_address;
     NSString *_locale;
 }
 
-@property(retain) GEOAddress * address;
-@property(readonly) bool hasAddress;
-@property(readonly) bool hasLocale;
-@property(retain) NSString * locale;
+@property (nonatomic, retain) GEOAddress *address;
+@property (nonatomic, readonly) BOOL hasAddress;
+@property (nonatomic, readonly) BOOL hasLocale;
+@property (nonatomic, retain) NSString *locale;
 
 - (id)address;
 - (void)copyTo:(id)arg1;
@@ -20,13 +18,13 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasAddress;
-- (bool)hasLocale;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasAddress;
+- (BOOL)hasLocale;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)locale;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setAddress:(id)arg1;
 - (void)setLocale:(id)arg1;
 - (void)writeTo:(id)arg1;

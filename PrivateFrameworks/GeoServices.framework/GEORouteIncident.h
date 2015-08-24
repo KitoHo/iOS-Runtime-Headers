@@ -2,9 +2,10 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOLatLng, NSString;
-
 @interface GEORouteIncident : PBCodable <NSCopying> {
+    NSString *_crossStreet;
+    long long _endTime;
+    BOOL _endTimeReliable;
     struct { 
         unsigned int endTime : 1; 
         unsigned int startTime : 1; 
@@ -14,8 +15,6 @@
         unsigned int significance : 1; 
         unsigned int type : 1; 
         unsigned int endTimeReliable : 1; 
-    NSString *_crossStreet;
-    long long _endTime;
     } _has;
     NSString *_incidentId;
     NSString *_info;
@@ -27,37 +26,37 @@
     NSString *_street;
     int _type;
     long long _updateTime;
-    bool_endTimeReliable;
 }
 
-@property(retain) NSString * crossStreet;
-@property long long endTime;
-@property bool endTimeReliable;
-@property(readonly) bool hasCrossStreet;
-@property bool hasEndTime;
-@property bool hasEndTimeReliable;
-@property(readonly) bool hasIncidentId;
-@property(readonly) bool hasInfo;
-@property bool hasLaneClosureCount;
-@property bool hasLaneClosureType;
-@property(readonly) bool hasPosition;
-@property bool hasSignificance;
-@property bool hasStartTime;
-@property(readonly) bool hasStreet;
-@property bool hasType;
-@property bool hasUpdateTime;
-@property(retain) NSString * incidentId;
-@property(retain) NSString * info;
-@property unsigned int laneClosureCount;
-@property int laneClosureType;
-@property(retain) GEOLatLng * position;
-@property int significance;
-@property long long startTime;
-@property(retain) NSString * street;
-@property int type;
-@property long long updateTime;
+@property (nonatomic, retain) NSString *crossStreet;
+@property (nonatomic) long long endTime;
+@property (nonatomic) BOOL endTimeReliable;
+@property (nonatomic, readonly) BOOL hasCrossStreet;
+@property (nonatomic) BOOL hasEndTime;
+@property (nonatomic) BOOL hasEndTimeReliable;
+@property (nonatomic, readonly) BOOL hasIncidentId;
+@property (nonatomic, readonly) BOOL hasInfo;
+@property (nonatomic) BOOL hasLaneClosureCount;
+@property (nonatomic) BOOL hasLaneClosureType;
+@property (nonatomic, readonly) BOOL hasPosition;
+@property (nonatomic) BOOL hasSignificance;
+@property (nonatomic) BOOL hasStartTime;
+@property (nonatomic, readonly) BOOL hasStreet;
+@property (nonatomic) BOOL hasType;
+@property (nonatomic) BOOL hasUpdateTime;
+@property (nonatomic, retain) NSString *incidentId;
+@property (nonatomic, retain) NSString *info;
+@property (nonatomic) unsigned int laneClosureCount;
+@property (nonatomic) int laneClosureType;
+@property (nonatomic, retain) GEOLatLng *position;
+@property (nonatomic) int significance;
+@property (nonatomic) long long startTime;
+@property (nonatomic, retain) NSString *street;
+@property (nonatomic) int type;
+@property (nonatomic) long long updateTime;
 
-- (struct CGImage { }*)_mapKitImage;
+// Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
+
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)crossStreet;
@@ -65,40 +64,40 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (long long)endTime;
-- (bool)endTimeReliable;
-- (bool)hasCrossStreet;
-- (bool)hasEndTime;
-- (bool)hasEndTimeReliable;
-- (bool)hasIncidentId;
-- (bool)hasInfo;
-- (bool)hasLaneClosureCount;
-- (bool)hasLaneClosureType;
-- (bool)hasPosition;
-- (bool)hasSignificance;
-- (bool)hasStartTime;
-- (bool)hasStreet;
-- (bool)hasType;
-- (bool)hasUpdateTime;
-- (unsigned long long)hash;
+- (BOOL)endTimeReliable;
+- (BOOL)hasCrossStreet;
+- (BOOL)hasEndTime;
+- (BOOL)hasEndTimeReliable;
+- (BOOL)hasIncidentId;
+- (BOOL)hasInfo;
+- (BOOL)hasLaneClosureCount;
+- (BOOL)hasLaneClosureType;
+- (BOOL)hasPosition;
+- (BOOL)hasSignificance;
+- (BOOL)hasStartTime;
+- (BOOL)hasStreet;
+- (BOOL)hasType;
+- (BOOL)hasUpdateTime;
+- (unsigned int)hash;
 - (id)incidentId;
 - (id)info;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (unsigned int)laneClosureCount;
 - (int)laneClosureType;
 - (void)mergeFrom:(id)arg1;
 - (id)position;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setCrossStreet:(id)arg1;
 - (void)setEndTime:(long long)arg1;
-- (void)setEndTimeReliable:(bool)arg1;
-- (void)setHasEndTime:(bool)arg1;
-- (void)setHasEndTimeReliable:(bool)arg1;
-- (void)setHasLaneClosureCount:(bool)arg1;
-- (void)setHasLaneClosureType:(bool)arg1;
-- (void)setHasSignificance:(bool)arg1;
-- (void)setHasStartTime:(bool)arg1;
-- (void)setHasType:(bool)arg1;
-- (void)setHasUpdateTime:(bool)arg1;
+- (void)setEndTimeReliable:(BOOL)arg1;
+- (void)setHasEndTime:(BOOL)arg1;
+- (void)setHasEndTimeReliable:(BOOL)arg1;
+- (void)setHasLaneClosureCount:(BOOL)arg1;
+- (void)setHasLaneClosureType:(BOOL)arg1;
+- (void)setHasSignificance:(BOOL)arg1;
+- (void)setHasStartTime:(BOOL)arg1;
+- (void)setHasType:(BOOL)arg1;
+- (void)setHasUpdateTime:(BOOL)arg1;
 - (void)setIncidentId:(id)arg1;
 - (void)setInfo:(id)arg1;
 - (void)setLaneClosureCount:(unsigned int)arg1;
@@ -115,5 +114,9 @@
 - (int)type;
 - (long long)updateTime;
 - (void)writeTo:(id)arg1;
+
+// Image: /System/Library/Frameworks/MapKit.framework/MapKit
+
+- (struct CGImage { }*)_mapKitImage;
 
 @end

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/VUSocialUpload.framework/VUSocialUpload
  */
 
-@class <VimeoRemoteSessionProtocol>;
-
 @interface VimeoUploadSession : NSObject {
     <VimeoRemoteSessionProtocol> *_remoteSession;
 }
@@ -12,6 +10,6 @@
 
 - (void).cxx_destruct;
 - (id)init;
-- (bool)uploadPost:(id)arg1 error:(id*)arg2;
+- (BOOL)uploadPost:(id)arg1 error:(id*)arg2;
 
 @end

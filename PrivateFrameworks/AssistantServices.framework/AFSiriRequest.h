@@ -2,19 +2,24 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class NSUUID;
-
 @interface AFSiriRequest : NSObject <NSSecureCoding> {
     NSUUID *_identifier;
+    NSString *_originatingAceID;
 }
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
+- (id)_descriptionWithProperties:(id)arg1;
 - (id)_identifier;
-- (id)_initWithIdentifier:(id)arg1;
+- (id)_initWithOriginatingAceID:(id)arg1;
+- (id)_initWithOriginatingAceID:(id)arg1 identifier:(id)arg2;
+- (BOOL)_makeAppFrontmost;
+- (id)_originatingAceID;
+- (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
+- (id)requestName;
 
 @end

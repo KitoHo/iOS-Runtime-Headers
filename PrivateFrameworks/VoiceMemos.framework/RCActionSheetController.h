@@ -2,52 +2,46 @@
    Image: /System/Library/PrivateFrameworks/VoiceMemos.framework/VoiceMemos
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSString, RCActionSheetAlertController, UIResponder, UIViewController;
-
 @interface RCActionSheetController : NSObject <UIActionSheetDelegate> {
     UIViewController *_accessoryViewController;
     NSArray *_actionButtonTitles;
-    id _actionHandlerBlock;
+    id /* block */ _actionHandlerBlock;
     RCActionSheetAlertController *_alertController;
     NSString *_alertMessage;
     NSString *_alertTitle;
+    BOOL _autoDismissDisabled;
     NSString *_cancelButtonTitle;
+    BOOL _dismissWhenDismissIsEnabled;
+    BOOL _enabled;
     UIViewController *_modalItemPresentationViewController;
     UIResponder *_originalFirstResponder;
-    bool_autoDismissDisabled;
-    bool_dismissWhenDismissIsEnabled;
-    bool_enabled;
-    bool_showing;
+    BOOL _showing;
 }
 
-@property(readonly) UIViewController * accessoryViewController;
-@property(copy,readonly) id actionHandlerBlock;
-@property bool autoDismissDisabled;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property bool enabled;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) UIViewController *accessoryViewController;
+@property (nonatomic, readonly, copy) id /* block */ actionHandlerBlock;
+@property (nonatomic) BOOL autoDismissDisabled;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) BOOL enabled;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (void)_invokeActionHandlerWithActionIndex:(long long)arg1;
+- (void)_invokeActionHandlerWithActionIndex:(int)arg1;
 - (void)_willDismiss;
 - (id)accessoryViewController;
-- (id)actionHandlerBlock;
-- (bool)autoDismissDisabled;
+- (id /* block */)actionHandlerBlock;
+- (BOOL)autoDismissDisabled;
 - (void)cancel;
 - (void)dealloc;
-- (void)dismissWithActionIndex:(long long)arg1 invokeActionHandler:(bool)arg2;
-- (void)dismissWithActionIndex:(long long)arg1;
-- (bool)enabled;
+- (void)dismissWithActionIndex:(int)arg1;
+- (void)dismissWithActionIndex:(int)arg1 invokeActionHandler:(BOOL)arg2;
+- (BOOL)enabled;
 - (id)initWithTitle:(id)arg1 cancelTitle:(id)arg2 actionTitles:(id)arg3 accessoryViewController:(id)arg4;
-- (void)setAutoDismissDisabled:(bool)arg1;
-- (void)setEnabled:(bool)arg1;
-- (void)showInView:(id)arg1 actionHandlerBlock:(id)arg2;
-- (void)showInViewController:(id)arg1 actionHandlerBlock:(id)arg2;
+- (void)setAutoDismissDisabled:(BOOL)arg1;
+- (void)setEnabled:(BOOL)arg1;
+- (void)showInView:(id)arg1 actionHandlerBlock:(id /* block */)arg2;
+- (void)showInViewController:(id)arg1 actionHandlerBlock:(id /* block */)arg2;
 
 @end

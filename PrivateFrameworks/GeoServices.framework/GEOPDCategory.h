@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray, NSString;
-
 @interface GEOPDCategory : PBCodable <NSCopying> {
+    NSString *_categoryId;
     struct { 
         unsigned int level : 1; 
-    NSString *_categoryId;
     } _has;
     int _level;
     NSMutableArray *_localizedNames;
 }
 
-@property(retain) NSString * categoryId;
-@property(readonly) bool hasCategoryId;
-@property bool hasLevel;
-@property int level;
-@property(retain) NSMutableArray * localizedNames;
+@property (nonatomic, retain) NSString *categoryId;
+@property (nonatomic, readonly) BOOL hasCategoryId;
+@property (nonatomic) BOOL hasLevel;
+@property (nonatomic) int level;
+@property (nonatomic, retain) NSMutableArray *localizedNames;
 
 + (id)_allCategoriesForPlaceData:(id)arg1 type:(unsigned int)arg2;
 + (id)categoryNamesForPlaceData:(id)arg1 type:(unsigned int)arg2;
-+ (bool)hasCategoryNamesForPlaceData:(id)arg1 type:(unsigned int)arg2;
++ (BOOL)hasCategoryNamesForPlaceData:(id)arg1 type:(unsigned int)arg2;
 
 - (void)addLocalizedName:(id)arg1;
 - (id)categoryId;
@@ -31,18 +29,18 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasCategoryId;
-- (bool)hasLevel;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasCategoryId;
+- (BOOL)hasLevel;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (int)level;
-- (id)localizedNameAtIndex:(unsigned long long)arg1;
+- (id)localizedNameAtIndex:(unsigned int)arg1;
 - (id)localizedNames;
-- (unsigned long long)localizedNamesCount;
+- (unsigned int)localizedNamesCount;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setCategoryId:(id)arg1;
-- (void)setHasLevel:(bool)arg1;
+- (void)setHasLevel:(BOOL)arg1;
 - (void)setLevel:(int)arg1;
 - (void)setLocalizedNames:(id)arg1;
 - (void)writeTo:(id)arg1;

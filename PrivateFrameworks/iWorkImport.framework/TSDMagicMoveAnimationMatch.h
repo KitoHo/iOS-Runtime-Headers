@@ -2,49 +2,54 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSLock, TSDTextureSet;
-
 @interface TSDMagicMoveAnimationMatch : NSObject {
+    BOOL _didUseMorphTexture;
+    BOOL _hasBeenTornDown;
     TSDTextureSet *_incomingTexture;
+    BOOL _isMorphMatch;
+    BOOL _isTextStyleIdenticalExceptSize;
+    BOOL _isUsingMorphTexture;
+    int _matchType;
     TSDTextureSet *_morphQueuedForDeletionTexture;
     TSDTextureSet *_morphQueuedTexture;
     TSDTextureSet *_morphTexture;
     NSLock *_morphTextureUpdateLock;
     TSDTextureSet *_outgoingTexture;
-    bool_didUseMorphTexture;
-    bool_hasBeenTornDown;
-    bool_isMorphMatch;
-    bool_isTextStyleIdenticalExceptSize;
-    bool_isUsingMorphTexture;
-    bool_shouldDisableTextMorphing;
+    float _outgoingTextureActionBuildFinalAngle;
+    BOOL _shouldDisableTextMorphing;
 }
 
-@property(retain) TSDTextureSet * incomingTexture;
-@property(readonly) bool isMatched;
-@property bool isMorphMatch;
-@property bool isTextStyleIdenticalExceptSize;
-@property(retain) TSDTextureSet * outgoingTexture;
-@property bool shouldDisableTextMorphing;
+@property (nonatomic, retain) TSDTextureSet *incomingTexture;
+@property (nonatomic, readonly) BOOL isMatched;
+@property (nonatomic) BOOL isMorphMatch;
+@property (nonatomic) BOOL isTextStyleIdenticalExceptSize;
+@property (nonatomic) int matchType;
+@property (nonatomic, retain) TSDTextureSet *outgoingTexture;
+@property (nonatomic) float outgoingTextureActionBuildFinalAngle;
+@property (nonatomic) BOOL shouldDisableTextMorphing;
 
-+ (id)animationMatch;
-+ (unsigned long long)magicMoveMorphTexturesPerSecond;
++ (unsigned int)magicMoveMorphTexturesPerSecond;
 
 - (void)addMorphTexture:(id)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)incomingTexture;
-- (id)init;
-- (bool)isMatched;
-- (bool)isMorphMatch;
-- (bool)isTextStyleIdenticalExceptSize;
+- (id)initWithMatchType:(int)arg1 outgoingTexture:(id)arg2 incomingTexture:(id)arg3;
+- (BOOL)isMatched;
+- (BOOL)isMorphMatch;
+- (BOOL)isTextStyleIdenticalExceptSize;
 - (id)lockCurrentMorphTexture;
+- (int)matchType;
 - (id)outgoingTexture;
+- (float)outgoingTextureActionBuildFinalAngle;
 - (void)setIncomingTexture:(id)arg1;
-- (void)setIsMorphMatch:(bool)arg1;
-- (void)setIsTextStyleIdenticalExceptSize:(bool)arg1;
+- (void)setIsMorphMatch:(BOOL)arg1;
+- (void)setIsTextStyleIdenticalExceptSize:(BOOL)arg1;
+- (void)setMatchType:(int)arg1;
 - (void)setOutgoingTexture:(id)arg1;
-- (void)setShouldDisableTextMorphing:(bool)arg1;
-- (bool)shouldDisableTextMorphing;
+- (void)setOutgoingTextureActionBuildFinalAngle:(float)arg1;
+- (void)setShouldDisableTextMorphing:(BOOL)arg1;
+- (BOOL)shouldDisableTextMorphing;
 - (void)teardown;
 - (void)unlockCurrentMorphTexture;
 

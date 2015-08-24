@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/HealthKitUI.framework/HealthKitUI
  */
 
-@class NSString, UIImageView, UILabel;
-
 @interface HKAuthorizationSettingsHeaderView : UIView {
     UIImageView *_iconImageView;
     NSString *_sourceName;
@@ -11,26 +9,26 @@
     UILabel *_titleLabel;
 }
 
-@property(retain) UIImageView * iconImageView;
-@property(copy) NSString * sourceName;
-@property(retain) UILabel * subtitleLabel;
-@property(retain) UILabel * titleLabel;
+@property (nonatomic, retain) UIImageView *iconImageView;
+@property (nonatomic, copy) NSString *sourceName;
+@property (nonatomic, retain) UILabel *subtitleLabel;
+@property (nonatomic, retain) UILabel *titleLabel;
 
 - (void).cxx_destruct;
 - (id)_healthIconImage;
-- (struct CGSize { double x1; double x2; })_subtitleSizeThatFitsContainerSize:(struct CGSize { double x1; double x2; })arg1;
+- (struct CGSize { float x1; float x2; })_subtitleSizeThatFitsContainerSize:(struct CGSize { float x1; float x2; })arg1;
 - (id)_titleFont;
-- (double)_verticalOffsetForSubtitle;
-- (double)_verticalOffsetForTitle;
+- (float)_verticalOffsetForSubtitle;
+- (float)_verticalOffsetForTitle;
 - (id)iconImageView;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)layoutSubviews;
 - (void)setIconImageView:(id)arg1;
 - (void)setLayoutMarginsWithTableView:(id)arg1;
 - (void)setSourceName:(id)arg1;
 - (void)setSubtitleLabel:(id)arg1;
 - (void)setTitleLabel:(id)arg1;
-- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
+- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
 - (id)sourceName;
 - (id)subtitleLabel;
 - (id)titleLabel;

@@ -2,38 +2,32 @@
    Image: /System/Library/PrivateFrameworks/Weather.framework/Weather
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class CLGeocoder, City;
-
 @interface LocationUpdater : WeatherUpdater {
     City *_currentCity;
     CLGeocoder *_geoCoder;
-    id _localWeatherHandler;
-    bool_isGeoCoding;
+    BOOL _isGeoCoding;
+    id /* block */ _localWeatherHandler;
 }
 
-@property(retain) City * currentCity;
+@property (nonatomic, retain) City *currentCity;
 
 + (void)clearSharedLocationUpdater;
 + (id)sharedLocationUpdater;
 
-- (void)_failed:(unsigned long long)arg1;
+- (void)_failed:(unsigned int)arg1;
 - (id)aggregateDictionaryDomain;
 - (void)cancel;
 - (id)currentCity;
 - (void)dealloc;
 - (void)didProcessDocument;
-- (void)enableProgressIndicator:(bool)arg1;
+- (void)enableProgressIndicator:(BOOL)arg1;
 - (void)failCity:(id)arg1;
-- (void)handleCompletionForCity:(id)arg1 withUpdateDetail:(unsigned long long)arg2;
+- (void)handleCompletionForCity:(id)arg1 withUpdateDetail:(unsigned int)arg2;
 - (void)handleNilCity;
-- (bool)isDataValid:(id)arg1;
+- (BOOL)isDataValid:(id)arg1;
 - (void)parsedResultCity:(id)arg1;
 - (void)setCurrentCity:(id)arg1;
-- (void)updateWeatherForLocation:(id)arg1 city:(id)arg2 withCompletionHandler:(id)arg3;
 - (void)updateWeatherForLocation:(id)arg1 city:(id)arg2;
+- (void)updateWeatherForLocation:(id)arg1 city:(id)arg2 withCompletionHandler:(id /* block */)arg3;
 
 @end

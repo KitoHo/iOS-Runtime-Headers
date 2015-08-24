@@ -2,94 +2,92 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class NSMutableArray;
-
 @interface CIBurstFaceStat : NSObject <NSCopying> {
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
     int FCRBlinkFeaturesSize;
     int FCRLeftEyeFeaturesOffset;
     int FCRRightEyeFeaturesOffset;
     NSMutableArray *FCRSmileAndBlinkFeatures;
     int FCRSmileFeaturesOffset;
     int FCRSmileFeaturesSize;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _hwFaceRect;
-    bool_isSyncedWithImage;
-    boolfoundByFaceCore;
-    boolhasLeftEye;
-    boolhasRightEye;
-    boolhasRollAngle;
-    boolhasYawAngle;
-    boolleftEyeOpen;
-    boolleftEyePleasant;
-    boolmouthPleasant;
-    boolrightEyeOpen;
-    boolrightEyePleasant;
-    boolsmallFace;
-    boolsmiling;
+    BOOL _isSyncedWithImage;
     float faceCropTime;
     NSMutableArray *faceHOG;
     float faceHOGTime;
     int faceId;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } faceRect;
     float faceScore;
     float faceScoreTime;
     float focusScore;
+    BOOL foundByFaceCore;
     int framesSinceLast;
+    BOOL hasLeftEye;
+    BOOL hasRightEye;
+    BOOL hasRollAngle;
+    BOOL hasYawAngle;
     int hwFaceId;
     float leftEyeBlinkScore;
+    BOOL leftEyeOpen;
+    BOOL leftEyePleasant;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } leftEyeRect;
+    BOOL mouthPleasant;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } normalizedFaceRect;
     float normalizedFocusScore;
     float normalizedSigma;
     float normalizedSmileScore;
     float rightEyeBlinkScore;
+    BOOL rightEyeOpen;
+    BOOL rightEyePleasant;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } rightEyeRect;
     float rollAngle;
+    BOOL smallFace;
     float smileScore;
+    BOOL smiling;
     double timestamp;
     float yawAngle;
 }
@@ -97,43 +95,43 @@
 @property int FCRBlinkFeaturesSize;
 @property int FCRLeftEyeFeaturesOffset;
 @property int FCRRightEyeFeaturesOffset;
-@property NSMutableArray * FCRSmileAndBlinkFeatures;
+@property NSMutableArray *FCRSmileAndBlinkFeatures;
 @property int FCRSmileFeaturesOffset;
 @property int FCRSmileFeaturesSize;
 @property float faceCropTime;
-@property NSMutableArray * faceHOG;
+@property NSMutableArray *faceHOG;
 @property float faceHOGTime;
 @property int faceId;
-@property struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } faceRect;
+@property struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } faceRect;
 @property float faceScore;
 @property float faceScoreTime;
 @property float focusScore;
-@property bool foundByFaceCore;
+@property BOOL foundByFaceCore;
 @property int framesSinceLast;
-@property bool hasLeftEye;
-@property bool hasRightEye;
-@property bool hasRollAngle;
-@property bool hasYawAngle;
+@property BOOL hasLeftEye;
+@property BOOL hasRightEye;
+@property BOOL hasRollAngle;
+@property BOOL hasYawAngle;
 @property int hwFaceId;
-@property struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } hwFaceRect;
-@property bool isSyncedWithImage;
+@property struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } hwFaceRect;
+@property BOOL isSyncedWithImage;
 @property float leftEyeBlinkScore;
-@property bool leftEyeOpen;
-@property bool leftEyePleasant;
-@property struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } leftEyeRect;
-@property bool mouthPleasant;
-@property struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } normalizedFaceRect;
+@property BOOL leftEyeOpen;
+@property BOOL leftEyePleasant;
+@property struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } leftEyeRect;
+@property BOOL mouthPleasant;
+@property struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } normalizedFaceRect;
 @property float normalizedFocusScore;
 @property float normalizedSigma;
 @property float normalizedSmileScore;
 @property float rightEyeBlinkScore;
-@property bool rightEyeOpen;
-@property bool rightEyePleasant;
-@property struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } rightEyeRect;
+@property BOOL rightEyeOpen;
+@property BOOL rightEyePleasant;
+@property struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } rightEyeRect;
 @property float rollAngle;
-@property bool smallFace;
+@property BOOL smallFace;
 @property float smileScore;
-@property bool smiling;
+@property BOOL smiling;
 @property double timestamp;
 @property float yawAngle;
 
@@ -149,33 +147,33 @@
 - (id)faceHOG;
 - (float)faceHOGTime;
 - (int)faceId;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })faceRect;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })faceRect;
 - (float)faceScore;
 - (float)faceScoreTime;
 - (float)focusScore;
-- (bool)foundByFaceCore;
+- (BOOL)foundByFaceCore;
 - (int)framesSinceLast;
-- (bool)hasLeftEye;
-- (bool)hasRightEye;
-- (bool)hasRollAngle;
-- (bool)hasYawAngle;
+- (BOOL)hasLeftEye;
+- (BOOL)hasRightEye;
+- (BOOL)hasRollAngle;
+- (BOOL)hasYawAngle;
 - (int)hwFaceId;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })hwFaceRect;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })hwFaceRect;
 - (id)initWithFaceStat:(id)arg1;
-- (bool)isSyncedWithImage;
+- (BOOL)isSyncedWithImage;
 - (float)leftEyeBlinkScore;
-- (bool)leftEyeOpen;
-- (bool)leftEyePleasant;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })leftEyeRect;
-- (bool)mouthPleasant;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })normalizedFaceRect;
+- (BOOL)leftEyeOpen;
+- (BOOL)leftEyePleasant;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })leftEyeRect;
+- (BOOL)mouthPleasant;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })normalizedFaceRect;
 - (float)normalizedFocusScore;
 - (float)normalizedSigma;
 - (float)normalizedSmileScore;
 - (float)rightEyeBlinkScore;
-- (bool)rightEyeOpen;
-- (bool)rightEyePleasant;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })rightEyeRect;
+- (BOOL)rightEyeOpen;
+- (BOOL)rightEyePleasant;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })rightEyeRect;
 - (float)rollAngle;
 - (void)setFCRBlinkFeaturesSize:(int)arg1;
 - (void)setFCRLeftEyeFeaturesOffset:(int)arg1;
@@ -187,41 +185,41 @@
 - (void)setFaceHOG:(id)arg1;
 - (void)setFaceHOGTime:(float)arg1;
 - (void)setFaceId:(int)arg1;
-- (void)setFaceRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)setFaceRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)setFaceScore:(float)arg1;
 - (void)setFaceScoreTime:(float)arg1;
 - (void)setFocusScore:(float)arg1;
-- (void)setFoundByFaceCore:(bool)arg1;
+- (void)setFoundByFaceCore:(BOOL)arg1;
 - (void)setFramesSinceLast:(int)arg1;
-- (void)setHasLeftEye:(bool)arg1;
-- (void)setHasRightEye:(bool)arg1;
-- (void)setHasRollAngle:(bool)arg1;
-- (void)setHasYawAngle:(bool)arg1;
+- (void)setHasLeftEye:(BOOL)arg1;
+- (void)setHasRightEye:(BOOL)arg1;
+- (void)setHasRollAngle:(BOOL)arg1;
+- (void)setHasYawAngle:(BOOL)arg1;
 - (void)setHwFaceId:(int)arg1;
-- (void)setHwFaceRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (void)setIsSyncedWithImage:(bool)arg1;
+- (void)setHwFaceRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (void)setIsSyncedWithImage:(BOOL)arg1;
 - (void)setLeftEyeBlinkScore:(float)arg1;
-- (void)setLeftEyeOpen:(bool)arg1;
-- (void)setLeftEyePleasant:(bool)arg1;
-- (void)setLeftEyeRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (void)setMouthPleasant:(bool)arg1;
-- (void)setNormalizedFaceRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)setLeftEyeOpen:(BOOL)arg1;
+- (void)setLeftEyePleasant:(BOOL)arg1;
+- (void)setLeftEyeRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (void)setMouthPleasant:(BOOL)arg1;
+- (void)setNormalizedFaceRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)setNormalizedFocusScore:(float)arg1;
 - (void)setNormalizedSigma:(float)arg1;
 - (void)setNormalizedSmileScore:(float)arg1;
 - (void)setRightEyeBlinkScore:(float)arg1;
-- (void)setRightEyeOpen:(bool)arg1;
-- (void)setRightEyePleasant:(bool)arg1;
-- (void)setRightEyeRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)setRightEyeOpen:(BOOL)arg1;
+- (void)setRightEyePleasant:(BOOL)arg1;
+- (void)setRightEyeRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)setRollAngle:(float)arg1;
-- (void)setSmallFace:(bool)arg1;
+- (void)setSmallFace:(BOOL)arg1;
 - (void)setSmileScore:(float)arg1;
-- (void)setSmiling:(bool)arg1;
+- (void)setSmiling:(BOOL)arg1;
 - (void)setTimestamp:(double)arg1;
 - (void)setYawAngle:(float)arg1;
-- (bool)smallFace;
+- (BOOL)smallFace;
 - (float)smileScore;
-- (bool)smiling;
+- (BOOL)smiling;
 - (double)timestamp;
 - (float)yawAngle;
 

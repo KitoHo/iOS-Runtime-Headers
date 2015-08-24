@@ -2,49 +2,43 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSMutableArray, NSMutableData, NSString, NSURLConnection, PKGroupsController, PKPassGroupStackView, UINavigationBar, UIProgressView;
-
-@interface PKServiceAddPassesViewController : UIViewController <PKPassGroupStackViewDelegate, PKPassGroupStackViewDatasource, PKGroupsControllerDelegate, UIScrollViewDelegate, PKServiceAddPassesViewControllerProtocol> {
+@interface PKServiceAddPassesViewController : UIViewController <PKGroupsControllerDelegate, PKPassGroupStackViewDatasource, PKPassGroupStackViewDelegate, PKServiceAddPassesViewControllerProtocol, UIScrollViewDelegate> {
+    BOOL _allowsPassIngestion;
+    BOOL _alreadyAdding;
     PKPassGroupStackView *_cardStackView;
     NSMutableData *_downloadPassData;
     long long _downloadPassExpectedBytes;
     NSURLConnection *_downloadPassURLConnection;
-    long long _groupLoadState;
+    int _groupLoadState;
     PKGroupsController *_groupsController;
-    id _loadedGroupsCallback;
+    BOOL _haveStartedCardAnimation;
+    id /* block */ _loadedGroupsCallback;
     NSArray *_localPassDatas;
     NSMutableArray *_localPasses;
     NSMutableArray *_minimumCardHeightFromHereToTop;
     UINavigationBar *_navigationBar;
-    long long _presentationState;
+    int _presentationState;
     UIProgressView *_progressView;
-    bool_allowsPassIngestion;
-    bool_alreadyAdding;
-    bool_haveStartedCardAnimation;
-    bool_viewAppeared;
+    BOOL _viewAppeared;
 }
 
-@property(retain) PKPassGroupStackView * cardStackView;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) PKGroupsController * groupsController;
-@property(readonly) unsigned long long hash;
-@property bool haveStartedCardAnimation;
-@property(retain) NSArray * localPassDatas;
-@property(retain) NSMutableArray * localPasses;
-@property(retain) NSMutableArray * minimumCardHeightFromHereToTop;
-@property(retain) UINavigationBar * navigationBar;
-@property long long presentationState;
-@property(retain) UIProgressView * progressView;
-@property(readonly) Class superclass;
-@property bool viewAppeared;
+@property (nonatomic, retain) PKPassGroupStackView *cardStackView;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) PKGroupsController *groupsController;
+@property (readonly) unsigned int hash;
+@property (nonatomic) BOOL haveStartedCardAnimation;
+@property (nonatomic, retain) NSArray *localPassDatas;
+@property (nonatomic, retain) NSMutableArray *localPasses;
+@property (nonatomic, retain) NSMutableArray *minimumCardHeightFromHereToTop;
+@property (retain) UINavigationBar *navigationBar;
+@property (nonatomic) int presentationState;
+@property (nonatomic, retain) UIProgressView *progressView;
+@property (readonly) Class superclass;
+@property (nonatomic) BOOL viewAppeared;
 
 + (id)_exportedInterface;
-+ (bool)_preventsAppearanceProxyCustomization;
++ (BOOL)_preventsAppearanceProxyCustomization;
 + (id)_remoteViewControllerInterface;
 
 - (void)_acceptCard:(id)arg1;
@@ -57,19 +51,19 @@
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)dealloc;
-- (id)genericTitleWithCount:(unsigned long long)arg1;
-- (id)groupAtIndex:(unsigned long long)arg1;
+- (id)genericTitleWithCount:(unsigned int)arg1;
+- (id)groupAtIndex:(unsigned int)arg1;
 - (void)groupStackView:(id)arg1 deleteConfirmedForPass:(id)arg2;
-- (void)groupStackView:(id)arg1 didTransitionToState:(long long)arg2 animated:(bool)arg3;
+- (void)groupStackView:(id)arg1 didTransitionToState:(int)arg2 animated:(BOOL)arg3;
 - (void)groupStackViewDidBeginReordering:(id)arg1;
 - (void)groupStackViewDidEndReordering:(id)arg1;
-- (void)groupsController:(id)arg1 didInsertGroup:(id)arg2 atIndex:(unsigned long long)arg3;
-- (void)groupsController:(id)arg1 didMoveGroup:(id)arg2 fromIndex:(unsigned long long)arg3 toIndex:(unsigned long long)arg4;
-- (void)groupsController:(id)arg1 didRemoveGroup:(id)arg2 atIndex:(unsigned long long)arg3;
 - (id)groupsController;
-- (bool)haveStartedCardAnimation;
-- (unsigned long long)indexOfGroup:(id)arg1;
-- (unsigned long long)indexOfSeparationGroup;
+- (void)groupsController:(id)arg1 didInsertGroup:(id)arg2 atIndex:(unsigned int)arg3;
+- (void)groupsController:(id)arg1 didMoveGroup:(id)arg2 fromIndex:(unsigned int)arg3 toIndex:(unsigned int)arg4;
+- (void)groupsController:(id)arg1 didRemoveGroup:(id)arg2 atIndex:(unsigned int)arg3;
+- (BOOL)haveStartedCardAnimation;
+- (unsigned int)indexOfGroup:(id)arg1;
+- (unsigned int)indexOfSeparationGroup;
 - (void)ingestCardAtURL:(id)arg1;
 - (void)ingestPasses:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
@@ -79,36 +73,36 @@
 - (id)localPasses;
 - (id)minimumCardHeightFromHereToTop;
 - (id)navigationBar;
-- (unsigned long long)numberOfGroups;
-- (bool)passesGrowWhenFlipped;
-- (long long)presentationState;
+- (unsigned int)numberOfGroups;
+- (BOOL)passesGrowWhenFlipped;
+- (int)presentationState;
 - (id)progressView;
-- (void)setAllowsPassIngestion:(bool)arg1;
+- (void)setAllowsPassIngestion:(BOOL)arg1;
 - (void)setCardStackView:(id)arg1;
-- (void)setDisplayPropertiesWithScreenSize:(struct CGSize { double x1; double x2; })arg1 scale:(double)arg2;
+- (void)setDisplayPropertiesWithScreenSize:(struct CGSize { float x1; float x2; })arg1 scale:(float)arg2;
 - (void)setGroupsController:(id)arg1;
-- (void)setHaveStartedCardAnimation:(bool)arg1;
+- (void)setHaveStartedCardAnimation:(BOOL)arg1;
 - (void)setLocalPassDatas:(id)arg1;
 - (void)setLocalPasses:(id)arg1;
 - (void)setMinimumCardHeightFromHereToTop:(id)arg1;
 - (void)setNavigationBar:(id)arg1;
-- (void)setPresentationState:(long long)arg1;
+- (void)setPresentationState:(int)arg1;
 - (void)setProgressView:(id)arg1;
-- (void)setViewAppeared:(bool)arg1;
-- (bool)shouldAutorotate;
+- (void)setViewAppeared:(BOOL)arg1;
+- (BOOL)shouldAutorotate;
 - (void)showDownloadingPassUI;
-- (id)styleTitleUsingPass:(id)arg1 count:(unsigned long long)arg2;
-- (unsigned long long)supportedInterfaceOrientations;
-- (unsigned long long)suppressedContent;
+- (id)styleTitleUsingPass:(id)arg1 count:(unsigned int)arg2;
+- (unsigned int)supportedInterfaceOrientations;
+- (unsigned int)suppressedContent;
 - (void)tearDown;
 - (void)tearDownDownloadConnection;
 - (void)updateAddButton;
 - (void)updateAddButtonAndSettings;
 - (void)updateCancelButton;
 - (void)updateNavTitle;
-- (bool)viewAppeared;
-- (void)viewDidAppear:(bool)arg1;
-- (void)viewDidDisappear:(bool)arg1;
+- (BOOL)viewAppeared;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillLayoutSubviews;
 
 @end

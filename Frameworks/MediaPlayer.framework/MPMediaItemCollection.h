@@ -2,39 +2,38 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class MPMediaItem, MPMediaQuery, NSArray;
-
 @interface MPMediaItemCollection : MPMediaEntity {
-    unsigned long long _containedMediaTypes;
+    unsigned int _containedMediaTypes;
+    BOOL _initializedContainedMediaTypes;
     NSArray *_items;
-    unsigned long long _itemsCount;
+    unsigned int _itemsCount;
     MPMediaQuery *_itemsQuery;
     MPMediaItem *_representativeItem;
-    bool_initializedContainedMediaTypes;
 }
 
-@property(readonly) unsigned long long count;
-@property(readonly) long long groupingType;
-@property(readonly) NSArray * items;
-@property(readonly) unsigned long long mediaTypes;
-@property(readonly) MPMediaItem * representativeItem;
+@property (nonatomic, readonly) unsigned int count;
+@property (nonatomic, readonly) int groupingType;
+@property (nonatomic, readonly) NSArray *items;
+@property (nonatomic, readonly) unsigned int mediaTypes;
+@property (nonatomic, readonly) MPMediaItem *representativeItem;
+
+// Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
 
 + (id)collectionWithItems:(id)arg1;
-+ (id)representativePersistentIDPropertyForGroupingType:(long long)arg1;
-+ (id)sortTitlePropertyForGroupingType:(long long)arg1;
-+ (bool)supportsSecureCoding;
-+ (id)titlePropertyForGroupingType:(long long)arg1;
++ (id)representativePersistentIDPropertyForGroupingType:(int)arg1;
++ (id)sortTitlePropertyForGroupingType:(int)arg1;
++ (BOOL)supportsSecureCoding;
++ (id)titlePropertyForGroupingType:(int)arg1;
 
 - (void).cxx_destruct;
-- (bool)MPSD_hasDownloadableItem;
-- (bool)MPSD_hasDownloadingItem;
-- (id)__albumArtistArtworkCatalog;
-- (id)__artistArtworkCatalog;
+- (BOOL)MPSD_hasDownloadableItem;
+- (BOOL)MPSD_hasDownloadingItem;
+- (id)albumArtistArtworkCatalog;
+- (id)artistArtworkCatalog;
 - (id)artworkCatalog;
-- (unsigned long long)count;
+- (unsigned int)count;
 - (void)encodeWithCoder:(id)arg1;
-- (long long)groupingType;
-- (bool)hasDeletableContent;
+- (int)groupingType;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithItems:(id)arg1;
@@ -42,8 +41,18 @@
 - (id)initWithMultiverseIdentifier:(id)arg1;
 - (id)items;
 - (id)itemsQuery;
-- (unsigned long long)mediaTypes;
+- (unsigned int)mediaTypes;
 - (id)multiverseIdentifier;
 - (id)representativeItem;
+- (BOOL)setValue:(id)arg1 forProperty:(id)arg2;
+- (void)setValue:(id)arg1 forProperty:(id)arg2 withCompletionBlock:(id /* block */)arg3;
+
+// Image: /System/Library/PrivateFrameworks/FuseUI.framework/FuseUI
+
++ (void)registerSupportedCustomProperties;
+
+// Image: /System/Library/PrivateFrameworks/MPUFoundation.framework/MPUFoundation
+
+- (id)MPU_contentItemIdentifierCollection;
 
 @end

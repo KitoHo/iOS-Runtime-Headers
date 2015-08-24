@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/NotificationsUI.framework/NotificationsUI
  */
 
-@class <NCBannerAccessoryHostViewControllerDelegate>;
-
 @interface NCBannerAccessoryHostViewController : _UIRemoteViewController <NCBannerAccessoryHostInterface> {
     <NCBannerAccessoryHostViewControllerDelegate> *_delegate;
 }
 
-@property <NCBannerAccessoryHostViewControllerDelegate> * delegate;
+@property (nonatomic) <NCBannerAccessoryHostViewControllerDelegate> *delegate;
 
 + (id)exportedInterface;
-+ (void)requestBannerAccessoryViewControllerWithName:(id)arg1 bundleIdentifier:(id)arg2 context:(id)arg3 completion:(id)arg4;
++ (void)requestBannerAccessoryViewControllerWithName:(id)arg1 bundleIdentifier:(id)arg2 context:(id)arg3 completion:(id /* block */)arg4;
 + (id)serviceViewControllerInterface;
 
 - (void)_becomeSticky;
 - (void)_dismiss;
-- (void)_setSticky:(bool)arg1;
+- (void)_setSticky:(BOOL)arg1;
 - (id)delegate;
 - (void)setDelegate:(id)arg1;
 

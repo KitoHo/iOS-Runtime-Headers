@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/AirPortAssistant.framework/AirPortAssistant
  */
 
-@interface DomainNameFormatter : APFormatter {
-}
+@interface DomainNameFormatter : APFormatter
 
-+ (id)domainNameFormatter:(unsigned long long)arg1;
++ (id)domainNameFormatter:(unsigned int)arg1;
 + (id)domainNameSet;
 
-- (id)initWithMaxLength:(unsigned long long)arg1;
+- (id)initWithMaxLength:(unsigned int)arg1;
 
 @end

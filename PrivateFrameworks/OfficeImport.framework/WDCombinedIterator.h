@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class WDIterator;
-
 @interface WDCombinedIterator : WDIterator {
     WDIterator *mChildIterator;
     WDIterator *mParentIterator;
 }
 
-@property(retain) WDIterator * childIterator;
+@property (nonatomic, retain) WDIterator *childIterator;
 
 - (id)childIterator;
 - (id)childIteratorFrom:(id)arg1;
 - (void)dealloc;
-- (bool)hasNext;
+- (BOOL)hasNext;
 - (void)incrementChildIterator;
 - (id)initWithParentIterator:(id)arg1;
 - (id)newChildIteratorFrom:(id)arg1;

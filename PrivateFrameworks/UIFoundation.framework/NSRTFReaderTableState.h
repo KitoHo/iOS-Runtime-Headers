@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/UIFoundation.framework/UIFoundation
  */
 
-@class NSMutableArray, NSTextTable;
-
 @interface NSRTFReaderTableState : NSObject {
     int _currentColumn;
     int _currentDefinitionColumn;
     int _currentRow;
     NSMutableArray *_currentRowArray;
+    BOOL _currentRowIsLast;
     NSTextTable *_currentTable;
     NSMutableArray *_previousRowArray;
     NSTextTable *_previousTable;
-    bool_currentRowIsLast;
 }
 
 - (void)dealloc;

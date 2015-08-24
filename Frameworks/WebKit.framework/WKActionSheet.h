@@ -2,36 +2,33 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-@class <WKActionSheetDelegate>, WKContentView;
-
 @interface WKActionSheet : UIAlertController {
-    struct RetainPtr<UIViewController> { 
-        void *m_ptr; 
+    unsigned int _arrowDirections;
+    BOOL _isRotating;
     struct RetainPtr<id<UIPopoverPresentationControllerDelegate> > { 
         void *m_ptr; 
-    unsigned long long _arrowDirections;
     } _popoverPresentationControllerDelegateWhileRotating;
+    struct RetainPtr<UIViewController> { 
+        void *m_ptr; 
     } _presentedViewControllerWhileRotating;
+    BOOL _readyToPresentAfterRotation;
     <WKActionSheetDelegate> *_sheetDelegate;
-    WKContentView *_view;
-    bool_isRotating;
-    bool_readyToPresentAfterRotation;
 }
 
-@property unsigned long long arrowDirections;
-@property <WKActionSheetDelegate> * sheetDelegate;
+@property (nonatomic) unsigned int arrowDirections;
+@property (nonatomic) <WKActionSheetDelegate> *sheetDelegate;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)_didRotateAndLayout;
-- (unsigned long long)arrowDirections;
+- (unsigned int)arrowDirections;
 - (void)dealloc;
 - (void)didRotate;
 - (void)doneWithSheet;
-- (id)initWithView:(id)arg1;
-- (bool)presentSheet;
-- (bool)presentSheetFromRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (void)setArrowDirections:(unsigned long long)arg1;
+- (id)init;
+- (BOOL)presentSheet;
+- (BOOL)presentSheetFromRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (void)setArrowDirections:(unsigned int)arg1;
 - (void)setSheetDelegate:(id)arg1;
 - (id)sheetDelegate;
 - (void)updateSheetPosition;

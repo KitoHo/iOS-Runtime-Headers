@@ -2,49 +2,48 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSTimer, SKUIItemOfferButton, UIImageView, UILabel, UIView, _UIDocumentPickerContainerItem, _UIDocumentPickerDocumentTableViewController;
-
 @interface _UIDocumentPickerDocumentTableCell : UITableViewCell {
     SKUIItemOfferButton *_cloudButton;
     UIView *_iconCenteringView;
     UIImageView *_iconView;
+    BOOL _isContainer;
     _UIDocumentPickerContainerItem *_item;
     id _progressSubscriber;
     NSTimer *_progressTimer;
     UILabel *_subtitleLabel;
     UILabel *_titleLabel;
     _UIDocumentPickerDocumentTableViewController *_weak_tableView;
-    bool_isContainer;
 }
 
-@property(retain) SKUIItemOfferButton * cloudButton;
-@property(retain) UIView * iconCenteringView;
-@property(retain) UIImageView * iconView;
-@property bool isContainer;
-@property(retain) _UIDocumentPickerContainerItem * item;
-@property(retain) id progressSubscriber;
-@property(retain) NSTimer * progressTimer;
-@property(retain) UILabel * subtitleLabel;
-@property _UIDocumentPickerDocumentTableViewController * tableView;
-@property(retain) UILabel * titleLabel;
+@property (nonatomic, retain) SKUIItemOfferButton *cloudButton;
+@property (nonatomic, retain) UIView *iconCenteringView;
+@property (nonatomic, retain) UIImageView *iconView;
+@property (nonatomic) BOOL isContainer;
+@property (nonatomic, retain) _UIDocumentPickerContainerItem *item;
+@property (nonatomic, retain) id progressSubscriber;
+@property (nonatomic, retain) NSTimer *progressTimer;
+@property (nonatomic, retain) UILabel *subtitleLabel;
+@property (nonatomic) _UIDocumentPickerDocumentTableViewController *tableView;
+@property (nonatomic, retain) UILabel *titleLabel;
 
-+ (struct CGSize { double x1; double x2; })thumbnailSize;
++ (float)estimatedHeight;
++ (struct CGSize { float x1; float x2; })thumbnailSize;
 
 - (id)cloudButton;
 - (void)dealloc;
 - (id)iconCenteringView;
 - (id)iconView;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
-- (bool)isContainer;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (BOOL)isContainer;
 - (id)item;
 - (void)prepareForReuse;
 - (id)progressSubscriber;
 - (id)progressTimer;
-- (void)reloadItem:(bool)arg1;
+- (void)reloadItem:(BOOL)arg1;
 - (void)setCloudButton:(id)arg1;
 - (void)setIconCenteringView:(id)arg1;
 - (void)setIconView:(id)arg1;
-- (void)setIsContainer:(bool)arg1;
+- (void)setIsContainer:(BOOL)arg1;
 - (void)setItem:(id)arg1;
 - (void)setProgressSubscriber:(id)arg1;
 - (void)setProgressTimer:(id)arg1;

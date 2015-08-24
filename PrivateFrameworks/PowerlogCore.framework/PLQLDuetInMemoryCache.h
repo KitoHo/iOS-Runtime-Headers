@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/PowerlogCore.framework/PowerlogCore
  */
 
-@class NSDictionary;
-
 @interface PLQLDuetInMemoryCache : NSObject {
     double _cellIn;
     double _cellOut;
@@ -19,9 +17,9 @@
 @property double cellIn;
 @property double cellOut;
 @property int refCount;
-@property(retain) NSDictionary * startArgs;
+@property (retain) NSDictionary *startArgs;
 @property double startTime;
-@property(retain) NSDictionary * stopArgs;
+@property (retain) NSDictionary *stopArgs;
 @property double stopTime;
 @property double wifiIn;
 @property double wifiOut;
@@ -35,8 +33,8 @@
 - (void)clearStop;
 - (id)init;
 - (id)initWithStartTime:(double)arg1 withStartargs:(id)arg2;
-- (bool)isStartPresent;
-- (bool)isStopPresent;
+- (BOOL)isStartPresent;
+- (BOOL)isStopPresent;
 - (int)refCount;
 - (void)setCellIn:(double)arg1;
 - (void)setCellOut:(double)arg1;

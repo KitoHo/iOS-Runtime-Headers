@@ -2,23 +2,19 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface CKDFetchUserQuotaURLRequest : CKDURLRequest {
-    id _quotaFetchedBlock;
+    id /* block */ _quotaFetchedBlock;
 }
 
-@property(copy) id quotaFetchedBlock;
+@property (nonatomic, copy) id /* block */ quotaFetchedBlock;
 
 - (void).cxx_destruct;
 - (int)operationType;
-- (id)quotaFetchedBlock;
+- (id /* block */)quotaFetchedBlock;
 - (void)requestDidParseNodeFailure:(id)arg1;
 - (id)requestDidParseProtobufObject:(id)arg1;
 - (id)requestOperationClasses;
 - (id)requestOperations;
-- (void)setQuotaFetchedBlock:(id)arg1;
+- (void)setQuotaFetchedBlock:(id /* block */)arg1;
 
 @end

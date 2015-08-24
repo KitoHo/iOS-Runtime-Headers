@@ -2,8 +2,6 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDMPTCPSubflowSwitchingReport : PBCodable <NSCopying> {
     struct { 
         unsigned int timestamp : 1; 
@@ -15,30 +13,30 @@
     unsigned long long _timestamp;
 }
 
-@property bool hasSwitchCount;
-@property(readonly) bool hasSwitchFromInterfaceName;
-@property(readonly) bool hasSwitchToInterfaceName;
-@property bool hasTimestamp;
-@property int switchCount;
-@property(retain) NSString * switchFromInterfaceName;
-@property(retain) NSString * switchToInterfaceName;
-@property unsigned long long timestamp;
+@property (nonatomic) BOOL hasSwitchCount;
+@property (nonatomic, readonly) BOOL hasSwitchFromInterfaceName;
+@property (nonatomic, readonly) BOOL hasSwitchToInterfaceName;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) int switchCount;
+@property (nonatomic, retain) NSString *switchFromInterfaceName;
+@property (nonatomic, retain) NSString *switchToInterfaceName;
+@property (nonatomic) unsigned long long timestamp;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasSwitchCount;
-- (bool)hasSwitchFromInterfaceName;
-- (bool)hasSwitchToInterfaceName;
-- (bool)hasTimestamp;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasSwitchCount;
+- (BOOL)hasSwitchFromInterfaceName;
+- (BOOL)hasSwitchToInterfaceName;
+- (BOOL)hasTimestamp;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
-- (void)setHasSwitchCount:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasSwitchCount:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
 - (void)setSwitchCount:(int)arg1;
 - (void)setSwitchFromInterfaceName:(id)arg1;
 - (void)setSwitchToInterfaceName:(id)arg1;

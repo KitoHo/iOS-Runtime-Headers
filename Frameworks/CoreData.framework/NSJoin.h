@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSString;
-
 @interface NSJoin : NSObject <NSCoding, NSCopying> {
     NSString *_destinationAttributeName;
     NSString *_sourceAttributeName;
@@ -15,10 +13,10 @@
 - (void)dealloc;
 - (id)destinationAttributeName;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithSourceAttributeName:(id)arg1 destinationAttributeName:(id)arg2;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)sourceAttributeName;
 
 @end

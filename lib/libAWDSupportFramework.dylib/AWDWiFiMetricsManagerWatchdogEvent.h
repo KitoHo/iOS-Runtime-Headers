@@ -3,6 +3,9 @@
  */
 
 @interface AWDWiFiMetricsManagerWatchdogEvent : PBCodable <NSCopying> {
+    int _available;
+    unsigned int _deviceIdentifierMap;
+    unsigned int _flags;
     struct { 
         unsigned int timestamp : 1; 
         unsigned int available : 1; 
@@ -11,9 +14,6 @@
         unsigned int reason : 1; 
         unsigned int subreason : 1; 
         unsigned int version : 1; 
-    int _available;
-    unsigned int _deviceIdentifierMap;
-    unsigned int _flags;
     } _has;
     int _reason;
     unsigned int _subreason;
@@ -21,20 +21,20 @@
     unsigned int _version;
 }
 
-@property int available;
-@property unsigned int deviceIdentifierMap;
-@property unsigned int flags;
-@property bool hasAvailable;
-@property bool hasDeviceIdentifierMap;
-@property bool hasFlags;
-@property bool hasReason;
-@property bool hasSubreason;
-@property bool hasTimestamp;
-@property bool hasVersion;
-@property int reason;
-@property unsigned int subreason;
-@property unsigned long long timestamp;
-@property unsigned int version;
+@property (nonatomic) int available;
+@property (nonatomic) unsigned int deviceIdentifierMap;
+@property (nonatomic) unsigned int flags;
+@property (nonatomic) BOOL hasAvailable;
+@property (nonatomic) BOOL hasDeviceIdentifierMap;
+@property (nonatomic) BOOL hasFlags;
+@property (nonatomic) BOOL hasReason;
+@property (nonatomic) BOOL hasSubreason;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) BOOL hasVersion;
+@property (nonatomic) int reason;
+@property (nonatomic) unsigned int subreason;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) unsigned int version;
 
 - (int)available;
 - (void)copyTo:(id)arg1;
@@ -43,28 +43,28 @@
 - (unsigned int)deviceIdentifierMap;
 - (id)dictionaryRepresentation;
 - (unsigned int)flags;
-- (bool)hasAvailable;
-- (bool)hasDeviceIdentifierMap;
-- (bool)hasFlags;
-- (bool)hasReason;
-- (bool)hasSubreason;
-- (bool)hasTimestamp;
-- (bool)hasVersion;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasAvailable;
+- (BOOL)hasDeviceIdentifierMap;
+- (BOOL)hasFlags;
+- (BOOL)hasReason;
+- (BOOL)hasSubreason;
+- (BOOL)hasTimestamp;
+- (BOOL)hasVersion;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (int)reason;
 - (void)setAvailable:(int)arg1;
 - (void)setDeviceIdentifierMap:(unsigned int)arg1;
 - (void)setFlags:(unsigned int)arg1;
-- (void)setHasAvailable:(bool)arg1;
-- (void)setHasDeviceIdentifierMap:(bool)arg1;
-- (void)setHasFlags:(bool)arg1;
-- (void)setHasReason:(bool)arg1;
-- (void)setHasSubreason:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
-- (void)setHasVersion:(bool)arg1;
+- (void)setHasAvailable:(BOOL)arg1;
+- (void)setHasDeviceIdentifierMap:(BOOL)arg1;
+- (void)setHasFlags:(BOOL)arg1;
+- (void)setHasReason:(BOOL)arg1;
+- (void)setHasSubreason:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasVersion:(BOOL)arg1;
 - (void)setReason:(int)arg1;
 - (void)setSubreason:(unsigned int)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;

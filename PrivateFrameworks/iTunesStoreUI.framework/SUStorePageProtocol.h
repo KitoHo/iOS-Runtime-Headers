@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSArray, NSNumber, NSString, SSURLRequestProperties;
-
 @interface SUStorePageProtocol : NSObject <NSCopying> {
     NSArray *_allowedOrientations;
     NSString *_copyright;
@@ -14,23 +12,23 @@
     NSArray *_navigationMenus;
     SSURLRequestProperties *_overlayBackgroundURLRequestProperties;
     NSString *_rootSectionIdentifier;
-    bool_shouldDisplayInOverlay;
-    bool_shouldExcludeFromNavigationHistory;
-    bool_shouldReplaceRootViewController;
+    BOOL _shouldDisplayInOverlay;
+    BOOL _shouldExcludeFromNavigationHistory;
+    BOOL _shouldReplaceRootViewController;
 }
 
-@property(retain) NSArray * allowedOrientations;
-@property(retain) NSString * copyright;
-@property(copy) NSArray * expectedClientIdentifiers;
-@property(retain) NSNumber * focusedItemIdentifier;
-@property(copy) NSArray * navigationButtons;
-@property(retain) NSArray * navigationHistoryItems;
-@property(copy) NSArray * navigationMenus;
-@property(retain) SSURLRequestProperties * overlayBackgroundURLRequestProperties;
-@property(retain) NSString * rootSectionIdentifier;
-@property bool shouldDisplayInOverlay;
-@property bool shouldExcludeFromNavigationHistory;
-@property bool shouldReplaceRootViewController;
+@property (nonatomic, retain) NSArray *allowedOrientations;
+@property (nonatomic, retain) NSString *copyright;
+@property (nonatomic, copy) NSArray *expectedClientIdentifiers;
+@property (nonatomic, retain) NSNumber *focusedItemIdentifier;
+@property (nonatomic, copy) NSArray *navigationButtons;
+@property (nonatomic, retain) NSArray *navigationHistoryItems;
+@property (nonatomic, copy) NSArray *navigationMenus;
+@property (nonatomic, retain) SSURLRequestProperties *overlayBackgroundURLRequestProperties;
+@property (nonatomic, retain) NSString *rootSectionIdentifier;
+@property (nonatomic) BOOL shouldDisplayInOverlay;
+@property (nonatomic) BOOL shouldExcludeFromNavigationHistory;
+@property (nonatomic) BOOL shouldReplaceRootViewController;
 
 - (id)_initCommon;
 - (id)_newNavigationButtonsFromArray:(id)arg1;
@@ -46,7 +44,7 @@
 - (id)navigationButtonForLocation:(id)arg1;
 - (id)navigationButtons;
 - (id)navigationHistoryItems;
-- (id)navigationMenuForLocation:(long long)arg1;
+- (id)navigationMenuForLocation:(int)arg1;
 - (id)navigationMenus;
 - (id)overlayBackgroundURLRequest;
 - (id)overlayBackgroundURLRequestProperties;
@@ -61,12 +59,12 @@
 - (void)setOverlayBackgroundURLRequest:(id)arg1;
 - (void)setOverlayBackgroundURLRequestProperties:(id)arg1;
 - (void)setRootSectionIdentifier:(id)arg1;
-- (void)setShouldDisplayInOverlay:(bool)arg1;
-- (void)setShouldExcludeFromNavigationHistory:(bool)arg1;
-- (void)setShouldReplaceRootViewController:(bool)arg1;
+- (void)setShouldDisplayInOverlay:(BOOL)arg1;
+- (void)setShouldExcludeFromNavigationHistory:(BOOL)arg1;
+- (void)setShouldReplaceRootViewController:(BOOL)arg1;
 - (void)setValuesFromStorePageDictionary:(id)arg1;
-- (bool)shouldDisplayInOverlay;
-- (bool)shouldExcludeFromNavigationHistory;
-- (bool)shouldReplaceRootViewController;
+- (BOOL)shouldDisplayInOverlay;
+- (BOOL)shouldExcludeFromNavigationHistory;
+- (BOOL)shouldReplaceRootViewController;
 
 @end

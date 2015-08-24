@@ -3,31 +3,31 @@
  */
 
 @interface TKVibrationRecorderRippleRingLayer : CAShapeLayer {
-    struct CGPoint { 
-        double x; 
-        double y; 
     double _creationTimestamp;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _normalizedRingLocation;
-    double _ringSpeed;
+    float _ringSpeed;
 }
 
-@property(setter=_setCreationTimestamp:) double _creationTimestamp;
-@property(setter=_setNormalizedRingLocation:) struct CGPoint { double x1; double x2; } _normalizedRingLocation;
-@property(setter=_setRingSpeed:) double _ringSpeed;
-@property(readonly) struct CGPoint { double x1; double x2; } normalizedRingLocation;
-@property(readonly) double ringSpeed;
+@property (setter=_setCreationTimestamp:, nonatomic) double _creationTimestamp;
+@property (setter=_setNormalizedRingLocation:, nonatomic) struct CGPoint { float x1; float x2; } _normalizedRingLocation;
+@property (setter=_setRingSpeed:, nonatomic) float _ringSpeed;
+@property (nonatomic, readonly) struct CGPoint { float x1; float x2; } normalizedRingLocation;
+@property (nonatomic, readonly) float ringSpeed;
 
 - (double)_creationTimestamp;
-- (struct CGPoint { double x1; double x2; })_normalizedRingLocation;
-- (double)_ringSpeed;
+- (struct CGPoint { float x1; float x2; })_normalizedRingLocation;
+- (float)_ringSpeed;
 - (void)_setCreationTimestamp:(double)arg1;
-- (void)_setNormalizedRingLocation:(struct CGPoint { double x1; double x2; })arg1;
-- (void)_setRingSpeed:(double)arg1;
-- (void)configureWithTimeIntervalSinceCreation:(double)arg1 normalizedRingLocation:(struct CGPoint { double x1; double x2; })arg2 ringSpeed:(double)arg3;
+- (void)_setNormalizedRingLocation:(struct CGPoint { float x1; float x2; })arg1;
+- (void)_setRingSpeed:(float)arg1;
+- (void)configureWithTimeIntervalSinceCreation:(double)arg1 normalizedRingLocation:(struct CGPoint { float x1; float x2; })arg2 ringSpeed:(float)arg3;
 - (id)init;
-- (struct CGPoint { double x1; double x2; })normalizedRingLocation;
+- (struct CGPoint { float x1; float x2; })normalizedRingLocation;
 - (void)reset;
-- (double)ringSpeed;
+- (float)ringSpeed;
 - (double)timeIntervalSinceCreation;
 
 @end

@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSMutableSet, NSOrderedSet, PLAssetContainerChangeNotification, PLInFlightAssetsAlbum;
-
 @interface PLInFlightAssetsAlbumChangeNotification : PLAssetContainerChangeNotification {
     PLInFlightAssetsAlbum *_album;
     PLAssetContainerChangeNotification *_backingNotification;
+    BOOL _keyAssetDidChange;
     NSOrderedSet *_oldOIDs;
     NSMutableSet *_uniquedOIDs;
-    bool_keyAssetDidChange;
 }
 
-@property(retain,readonly) PLInFlightAssetsAlbum * album;
-@property(retain,readonly) PLAssetContainerChangeNotification * backingNotification;
-@property(retain,readonly) NSOrderedSet * oldOIDs;
+@property (nonatomic, readonly, retain) PLInFlightAssetsAlbum *album;
+@property (nonatomic, readonly, retain) PLAssetContainerChangeNotification *backingNotification;
+@property (nonatomic, readonly, retain) NSOrderedSet *oldOIDs;
 
 + (id)notificationForDerivedObject:(id)arg1 priorChangeState:(id)arg2 forBackingObjectNotification:(id)arg3;
 
 - (id)_changedObjects;
 - (id)_diffDescription;
-- (bool)_getOldSet:(id*)arg1 newSet:(id*)arg2;
+- (BOOL)_getOldSet:(id*)arg1 newSet:(id*)arg2;
 - (id)album;
 - (id)backingNotification;
 - (void)dealloc;
 - (id)description;
 - (id)initWithInFlightAssetsAlbum:(id)arg1 priorChangeState:(id)arg2 albumChangeNotification:(id)arg3;
-- (bool)keyAssetDidChange;
+- (BOOL)keyAssetDidChange;
 - (id)object;
 - (id)oldOIDs;
-- (bool)titleDidChange;
+- (BOOL)titleDidChange;
 
 @end

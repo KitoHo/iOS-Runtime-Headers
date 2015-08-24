@@ -2,27 +2,25 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSArray, NSLayoutManager, NSMutableArray, NSTextContainer, NSTextStorage, UITextView, UIView;
-
 @interface _UISiriStreamingManager : NSObject {
-    unsigned long long _firstIndexToRemoveAfterLineChangeClearingAnimation;
+    BOOL _commitResultsAfterDynamicsFinish;
+    unsigned int _firstIndexToRemoveAfterLineChangeClearingAnimation;
+    BOOL _isPerformingLineChangeClearingAnimation;
     UIView *_siriItemView;
     NSLayoutManager *_streamingLayoutManager;
     NSTextContainer *_streamingTextContainer;
     NSTextStorage *_streamingTextStorage;
     UITextView *_textView;
+    BOOL _waitingForDynamicsBehaviorToStop;
     NSMutableArray *_wordTokens;
     NSMutableArray *_words;
     NSArray *_wordsToSetAfterAnimations;
-    bool_commitResultsAfterDynamicsFinish;
-    bool_isPerformingLineChangeClearingAnimation;
-    bool_waitingForDynamicsBehaviorToStop;
 }
 
-@property(readonly) NSLayoutManager * streamingLayoutManager;
-@property(readonly) NSTextContainer * streamingTextContainer;
-@property(readonly) NSTextStorage * streamingTextStorage;
-@property(copy) NSArray * words;
+@property (nonatomic, readonly) NSLayoutManager *streamingLayoutManager;
+@property (nonatomic, readonly) NSTextContainer *streamingTextContainer;
+@property (nonatomic, readonly) NSTextStorage *streamingTextStorage;
+@property (nonatomic, copy) NSArray *words;
 
 - (void)_commitFinalResults;
 - (void)animateText;

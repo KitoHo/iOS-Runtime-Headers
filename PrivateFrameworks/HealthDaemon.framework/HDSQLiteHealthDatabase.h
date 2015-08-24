@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
  */
 
-@class NSString;
-
 @interface HDSQLiteHealthDatabase : HDSQLiteDatabase {
     NSString *_homeDirectoryPath;
 }
 
-@property(copy) NSString * homeDirectoryPath;
+@property (nonatomic, copy) NSString *homeDirectoryPath;
 
 + (void)_removeDatabases:(id)arg1 withHomeDirectoryPath:(id)arg2;
 + (void)removeAllDatabasesWithHomeDirectoryPath:(id)arg1;
@@ -16,12 +14,12 @@
 + (id)virtualFilesystemModule;
 
 - (void).cxx_destruct;
-- (bool)attachProtectedDatabaseWithError:(id*)arg1;
+- (BOOL)attachProtectedDatabaseWithError:(id*)arg1;
 - (void)detachProtectedDatabase;
 - (id)homeDirectoryPath;
 - (id)initWithDatabaseURL:(id)arg1;
 - (id)initWithHomeDirectoryPath:(id)arg1;
-- (bool)isProtectedDatabaseAttached;
+- (BOOL)isProtectedDatabaseAttached;
 - (void)setHomeDirectoryPath:(id)arg1;
 
 @end

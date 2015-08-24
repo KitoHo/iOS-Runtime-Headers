@@ -2,35 +2,32 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSString;
+@interface SACommandFailed : SABaseClientBoundCommand <SAClientBoundCommand, SAServerBoundCommand>
 
-@interface SACommandFailed : SABaseClientBoundCommand <SAServerBoundCommand, SAClientBoundCommand> {
-}
-
-@property(copy) NSString * aceId;
-@property(copy) NSString * appId;
-@property(copy) NSArray * callbacks;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property long long errorCode;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * reason;
-@property(copy) NSString * refId;
-@property(readonly) Class superclass;
+@property (nonatomic, copy) NSString *aceId;
+@property (nonatomic, copy) NSString *appId;
+@property (nonatomic, copy) NSArray *callbacks;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) int errorCode;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSString *reason;
+@property (nonatomic, copy) NSString *refId;
+@property (readonly) Class superclass;
 
 + (id)commandFailed;
 + (id)commandFailedWithDictionary:(id)arg1 context:(id)arg2;
-+ (id)commandFailedWithErrorCode:(long long)arg1;
++ (id)commandFailedWithErrorCode:(int)arg1;
 + (id)commandFailedWithReason:(id)arg1;
 
 - (id)encodedClassName;
-- (long long)errorCode;
+- (int)errorCode;
 - (id)groupIdentifier;
-- (id)initWithErrorCode:(long long)arg1;
+- (id)initWithErrorCode:(int)arg1;
 - (id)initWithReason:(id)arg1;
 - (id)reason;
-- (bool)requiresResponse;
-- (void)setErrorCode:(long long)arg1;
+- (BOOL)requiresResponse;
+- (void)setErrorCode:(int)arg1;
 - (void)setReason:(id)arg1;
 
 @end

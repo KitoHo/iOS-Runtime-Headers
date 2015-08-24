@@ -2,17 +2,13 @@
    Image: /System/Library/Frameworks/CFNetwork.framework/CFNetwork
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface _NSURLBDOnce : NSObject {
-    boolfDone;
-    id fBlock;
+    id /* block */ fBlock;
+    BOOL fDone;
 }
 
 - (void)dealloc;
 - (void)doit;
-- (id)initWithBlock:(id)arg1;
+- (id)initWithBlock:(id /* block */)arg1;
 
 @end

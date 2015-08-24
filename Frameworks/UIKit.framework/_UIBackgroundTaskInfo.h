@@ -2,24 +2,18 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class BKSProcessAssertion;
-
 @interface _UIBackgroundTaskInfo : NSObject {
     int _count;
-    id _expireHandler;
+    id /* block */ _expireHandler;
     BKSProcessAssertion *_processAssertion;
-    unsigned long long _taskId;
+    unsigned int _taskId;
 }
 
 + (id)backgroundTaskAssertionQueue;
 
 - (void)dealloc;
 - (void)fireExpirationHandler;
-- (id)initWithProcessAssertion:(id)arg1 expirationHandler:(id)arg2;
+- (id)initWithProcessAssertion:(id)arg1 expirationHandler:(id /* block */)arg2;
 - (void)invalidate;
 
 @end

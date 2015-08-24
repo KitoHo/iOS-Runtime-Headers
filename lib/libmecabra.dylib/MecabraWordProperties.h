@@ -2,21 +2,19 @@
    Image: /usr/lib/libmecabra.dylib
  */
 
-@class NSArray, NSString;
-
 @interface MecabraWordProperties : NSObject {
     NSString *_analysisString;
     NSArray *_characterInformation;
     NSArray *_codeLookupInformation;
+    BOOL _emoji;
     int _language;
-    bool_emoji;
 }
 
-@property(copy) NSString * analysisString;
-@property(retain) NSArray * characterInformation;
-@property(retain) NSArray * codeLookupInformation;
-@property(getter=isEmoji) bool emoji;
-@property int language;
+@property (nonatomic, copy) NSString *analysisString;
+@property (nonatomic, retain) NSArray *characterInformation;
+@property (nonatomic, retain) NSArray *codeLookupInformation;
+@property (getter=isEmoji, nonatomic) BOOL emoji;
+@property (nonatomic) int language;
 
 + (struct __IDXIndex { }*)characterInformationDictionary;
 + (struct __IDXIndex { }*)codeLookupInformationDictionary;
@@ -32,7 +30,7 @@
 - (void)dealloc;
 - (id)initWithString:(id)arg1 language:(int)arg2;
 - (id)initialsForStrings:(id)arg1;
-- (bool)isEmoji;
+- (BOOL)isEmoji;
 - (id)isIncludedInCurrentLanguage;
 - (int)language;
 - (id)pinyinInformationForString:(id)arg1;
@@ -41,7 +39,7 @@
 - (void)setAnalysisString:(id)arg1;
 - (void)setCharacterInformation:(id)arg1;
 - (void)setCodeLookupInformation:(id)arg1;
-- (void)setEmoji:(bool)arg1;
+- (void)setEmoji:(BOOL)arg1;
 - (void)setLanguage:(int)arg1;
 - (id)strokeInformationForString:(id)arg1;
 - (id)tonesForString:(id)arg1;

@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/Stocks.framework/Stocks
  */
 
-@class NSString;
-
 @interface StockDataSource : NSObject {
-    long long _identifier;
+    int _identifier;
     NSString *_name;
     NSString *_sourceDescription;
 }
 
-@property long long identifier;
-@property(readonly) NSString * localizedSourceDescription;
-@property(copy) NSString * name;
-@property(copy) NSString * sourceDescription;
+@property (nonatomic) int identifier;
+@property (nonatomic, readonly) NSString *localizedSourceDescription;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *sourceDescription;
 
 - (void).cxx_destruct;
 - (id)archiveDictionary;
 - (id)description;
-- (long long)identifier;
+- (int)identifier;
 - (id)initWithDictionary:(id)arg1;
 - (id)localizedSourceDescription;
 - (id)name;
-- (void)setIdentifier:(long long)arg1;
+- (void)setIdentifier:(int)arg1;
 - (void)setName:(id)arg1;
 - (void)setSourceDescription:(id)arg1;
 - (id)sourceDescription;

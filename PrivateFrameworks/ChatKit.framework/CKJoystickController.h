@@ -2,65 +2,63 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class <CKJoystickControllerDelegate>, CKJoystickButtonItem, CKJoystickView, NSArray, UIColor;
-
 @interface CKJoystickController : NSObject {
+    BOOL _autoDismiss;
     <CKJoystickControllerDelegate> *_delegate;
-    long long _deviceOrientation;
-    unsigned long long _highlightStyle;
+    int _deviceOrientation;
+    unsigned int _highlightStyle;
     CKJoystickView *_joystickView;
     NSArray *_passthroughViews;
-    bool_autoDismiss;
-    bool_radialButtonRotationEnabled;
+    BOOL _radialButtonRotationEnabled;
 }
 
-@property bool autoDismiss;
-@property(retain,readonly) CKJoystickButtonItem * centerButtonItem;
-@property <CKJoystickControllerDelegate> * delegate;
-@property long long deviceOrientation;
-@property(readonly) unsigned long long highlightStyle;
-@property CKJoystickButtonItem * highlightedButtonItem;
-@property(getter=isJoystickCollapsed,readonly) bool joystickCollapsed;
-@property(retain) CKJoystickView * joystickView;
-@property(getter=isJoystickVisible,readonly) bool joystickVisible;
-@property(copy) NSArray * passthroughViews;
-@property(copy,readonly) NSArray * radialButtonItems;
-@property bool radialButtonRotationEnabled;
-@property(retain) UIColor * tintColor;
+@property (nonatomic) BOOL autoDismiss;
+@property (nonatomic, readonly, retain) CKJoystickButtonItem *centerButtonItem;
+@property (nonatomic) <CKJoystickControllerDelegate> *delegate;
+@property (nonatomic) int deviceOrientation;
+@property (nonatomic, readonly) unsigned int highlightStyle;
+@property (nonatomic) CKJoystickButtonItem *highlightedButtonItem;
+@property (getter=isJoystickCollapsed, nonatomic, readonly) BOOL joystickCollapsed;
+@property (nonatomic, retain) CKJoystickView *joystickView;
+@property (getter=isJoystickVisible, nonatomic, readonly) BOOL joystickVisible;
+@property (nonatomic, copy) NSArray *passthroughViews;
+@property (nonatomic, readonly, copy) NSArray *radialButtonItems;
+@property (nonatomic) BOOL radialButtonRotationEnabled;
+@property (nonatomic, retain) UIColor *tintColor;
 
 + (double)joystickExpandAnimationDuration;
-+ (double)joystickExpandedRadius;
-+ (double)joystickRadius;
++ (float)joystickExpandedRadius;
++ (float)joystickRadius;
 + (double)joystickRotationAnimationDuration;
 + (id)sharedJoystickOverlay;
 
-- (bool)autoDismiss;
+- (BOOL)autoDismiss;
 - (id)centerButtonItem;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })convertJoystickFrameToView:(id)arg1;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })convertJoystickFrameToView:(id)arg1;
 - (void)dealloc;
 - (id)delegate;
-- (long long)deviceOrientation;
-- (void)dismissJoystickAnimated:(bool)arg1;
-- (unsigned long long)highlightStyle;
+- (int)deviceOrientation;
+- (void)dismissJoystickAnimated:(BOOL)arg1;
+- (unsigned int)highlightStyle;
 - (id)highlightedButtonItem;
-- (id)initWithCenterButtonItem:(id)arg1 radialButtonItems:(id)arg2 startAngle:(double)arg3 endAngle:(double)arg4 clockwise:(bool)arg5 style:(unsigned long long)arg6 highlightStyle:(unsigned long long)arg7;
-- (bool)isJoystickCollapsed;
-- (bool)isJoystickVisible;
+- (id)initWithCenterButtonItem:(id)arg1 radialButtonItems:(id)arg2 startAngle:(double)arg3 endAngle:(double)arg4 clockwise:(BOOL)arg5 style:(unsigned int)arg6 highlightStyle:(unsigned int)arg7;
+- (BOOL)isJoystickCollapsed;
+- (BOOL)isJoystickVisible;
 - (id)joystickView;
 - (id)passthroughViews;
-- (void)presentJoystickFromPoint:(struct CGPoint { double x1; double x2; })arg1 inView:(id)arg2 animated:(bool)arg3;
+- (void)presentJoystickFromPoint:(struct CGPoint { float x1; float x2; })arg1 inView:(id)arg2 animated:(BOOL)arg3;
 - (id)radialButtonItems;
-- (bool)radialButtonRotationEnabled;
-- (struct CGAffineTransform { double x1; double x2; double x3; double x4; double x5; double x6; })rotationTransformForCurrentDeviceOrientation;
-- (void)setAutoDismiss:(bool)arg1;
-- (void)setCenterButtonItem:(id)arg1 animated:(bool)arg2;
+- (BOOL)radialButtonRotationEnabled;
+- (struct CGAffineTransform { float x1; float x2; float x3; float x4; float x5; float x6; })rotationTransformForCurrentDeviceOrientation;
+- (void)setAutoDismiss:(BOOL)arg1;
+- (void)setCenterButtonItem:(id)arg1 animated:(BOOL)arg2;
 - (void)setDelegate:(id)arg1;
-- (void)setDeviceOrientation:(long long)arg1;
+- (void)setDeviceOrientation:(int)arg1;
 - (void)setHighlightedButtonItem:(id)arg1;
 - (void)setJoystickView:(id)arg1;
 - (void)setPassthroughViews:(id)arg1;
-- (void)setRadialButtonItems:(id)arg1 animated:(bool)arg2;
-- (void)setRadialButtonRotationEnabled:(bool)arg1;
+- (void)setRadialButtonItems:(id)arg1 animated:(BOOL)arg2;
+- (void)setRadialButtonRotationEnabled:(BOOL)arg1;
 - (void)setTintColor:(id)arg1;
 - (id)tintColor;
 

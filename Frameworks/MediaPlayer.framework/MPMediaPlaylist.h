@@ -2,49 +2,60 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class MPMediaItem, MPMediaQuery, NSArray, NSString;
-
 @interface MPMediaPlaylist : MPMediaItemCollection {
     NSArray *_representativeArtists;
     MPMediaQuery *_seedTracksQuery;
 }
 
-@property(getter=music_seedItem,readonly) MPMediaItem * music_seedItem;
-@property(readonly) NSString * name;
-@property(readonly) unsigned long long persistentID;
-@property(readonly) unsigned long long playlistAttributes;
-@property(readonly) NSArray * seedItems;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) unsigned long long persistentID;
+@property (nonatomic, readonly) unsigned int playlistAttributes;
+@property (nonatomic, readonly) NSArray *seedItems;
+
+// Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
 
 + (void)_createFilterableDictionary;
-+ (bool)_isValidPlaylistProperty:(id)arg1;
-+ (id)activeGeniusPlaylist;
-+ (bool)canFilterByProperty:(id)arg1;
++ (BOOL)_isValidPlaylistProperty:(id)arg1;
++ (BOOL)canFilterByProperty:(id)arg1;
 
 - (void).cxx_destruct;
-- (long long)_sortPlaylistByName:(id)arg1;
-- (id)artworkCatalogsWithMaximumCount:(unsigned long long)arg1;
-- (bool)canPlayUsingNetworkType:(long long)arg1;
-- (unsigned long long)count;
+- (id)artworkCatalog;
+- (id)artworkCatalogsWithMaximumCount:(unsigned int)arg1;
+- (BOOL)canPlayUsingNetworkType:(int)arg1;
+- (unsigned int)count;
 - (void)encodeWithCoder:(id)arg1;
-- (bool)existsInLibrary;
-- (void)generateGeniusArtworkWithImageSize:(struct CGSize { double x1; double x2; })arg1 completionHandler:(id)arg2 queue:(id)arg3;
-- (unsigned long long)hash;
+- (BOOL)existsInLibrary;
+- (unsigned int)hash;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithMultiverseIdentifier:(id)arg1;
 - (id)initWithPersistentID:(unsigned long long)arg1;
-- (bool)isCloudMix;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isCloudMix;
+- (BOOL)isEqual:(id)arg1;
 - (id)items;
-- (unsigned long long)mediaTypes;
+- (unsigned int)mediaTypes;
 - (id)multiverseIdentifier;
-- (id)music_seedItem;
 - (id)name;
 - (unsigned long long)persistentID;
-- (unsigned long long)playlistAttributes;
+- (unsigned int)playlistAttributes;
+- (void)removeFirstItem;
 - (id)representativeArtists;
 - (id)representativeItem;
 - (id)seedItems;
 - (id)seedTracksQuery;
+- (void)setUserSelectedArtworkImage:(id)arg1;
+- (id)tiledArtworkCatalogWithRows:(unsigned int)arg1 columns:(unsigned int)arg2;
 - (id)valueForProperty:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/FuseUI.framework/FuseUI
+
++ (void)registerSupportedCustomProperties;
+
+// Image: /System/Library/PrivateFrameworks/MPUFoundation.framework/MPUFoundation
+
+- (id)MPU_contentItemIdentifierCollection;
+
+// Image: /System/Library/PrivateFrameworks/MusicCarDisplayUI.framework/MusicCarDisplayUI
+
+- (int)MCD_sortPlaylistByName:(id)arg1;
 
 @end

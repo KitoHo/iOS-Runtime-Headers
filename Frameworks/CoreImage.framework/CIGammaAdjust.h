@@ -2,19 +2,17 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIImage, NSNumber;
-
 @interface CIGammaAdjust : CIFilter {
     CIImage *inputImage;
     NSNumber *inputPower;
 }
 
-@property(retain) CIImage * inputImage;
-@property(retain) NSNumber * inputPower;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, retain) NSNumber *inputPower;
 
 + (id)customAttributes;
 
-- (bool)_isIdentity;
+- (BOOL)_isIdentity;
 - (id)inputImage;
 - (id)inputPower;
 - (id)outputImage;

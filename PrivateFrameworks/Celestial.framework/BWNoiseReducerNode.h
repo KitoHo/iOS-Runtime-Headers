@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class NSDictionary;
-
 @interface BWNoiseReducerNode : BWNode {
     NSDictionary *_cameraTuningOptions;
     struct NoiseReductionCtx_s { } *_context;
@@ -11,9 +9,9 @@
     int _gpuPriority;
     NSDictionary *_noiseReductionOptions;
     struct opaqueCMFormatDescription { } *_outputFormatDescription;
-    bool_processLuma;
-    bool_threaded;
-    bool_useInPlaceAlgorithm;
+    BOOL _processLuma;
+    BOOL _threaded;
+    BOOL _useInPlaceAlgorithm;
 }
 
 + (void)initialize;

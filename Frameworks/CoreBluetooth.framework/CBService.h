@@ -2,23 +2,21 @@
    Image: /System/Library/Frameworks/CoreBluetooth.framework/CoreBluetooth
  */
 
-@class CBPeripheral, NSArray, NSNumber;
-
 @interface CBService : CBAttribute {
     NSArray *_characteristics;
     NSNumber *_endHandle;
     NSArray *_includedServices;
+    BOOL _isPrimary;
     CBPeripheral *_peripheral;
     NSNumber *_startHandle;
-    bool_isPrimary;
 }
 
-@property(retain) NSArray * characteristics;
-@property(readonly) NSNumber * endHandle;
-@property(retain) NSArray * includedServices;
-@property bool isPrimary;
-@property(readonly) CBPeripheral * peripheral;
-@property(readonly) NSNumber * startHandle;
+@property (retain) NSArray *characteristics;
+@property (nonatomic, readonly) NSNumber *endHandle;
+@property (retain) NSArray *includedServices;
+@property (nonatomic) BOOL isPrimary;
+@property (nonatomic, readonly) CBPeripheral *peripheral;
+@property (nonatomic, readonly) NSNumber *startHandle;
 
 - (id)characteristics;
 - (void)dealloc;
@@ -29,11 +27,11 @@
 - (id)includedServices;
 - (id)initWithPeripheral:(id)arg1 dictionary:(id)arg2;
 - (void)invalidate;
-- (bool)isPrimary;
+- (BOOL)isPrimary;
 - (id)peripheral;
 - (void)setCharacteristics:(id)arg1;
 - (void)setIncludedServices:(id)arg1;
-- (void)setIsPrimary:(bool)arg1;
+- (void)setIsPrimary:(BOOL)arg1;
 - (id)startHandle;
 
 @end

@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-@interface HKCharacteristicType : HKObjectType {
-}
+@interface HKCharacteristicType : HKObjectType
 
-+ (void)_insertCode:(long long)arg1 forIdentifier:(id)arg2;
++ (void)_insertCode:(int)arg1 forIdentifier:(id)arg2;
 
 @end

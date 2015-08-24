@@ -2,19 +2,16 @@
    Image: /System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount
  */
 
-@class NSArray, NSDictionary, NSString;
+@interface ATVHighSecurityAccountDeviceListResponse : AAResponse
 
-@interface ATVHighSecurityAccountDeviceListResponse : AAResponse {
-}
-
-@property(readonly) NSArray * devices;
-@property(readonly) long long errorCode;
-@property(readonly) NSString * errorMessage;
-@property(readonly) NSString * errorTitle;
-@property(readonly) NSDictionary * userDisplayStrings;
+@property (nonatomic, readonly) NSArray *devices;
+@property (nonatomic, readonly) int errorCode;
+@property (nonatomic, readonly) NSString *errorMessage;
+@property (nonatomic, readonly) NSString *errorTitle;
+@property (nonatomic, readonly) NSDictionary *userDisplayStrings;
 
 - (id)devices;
-- (long long)errorCode;
+- (int)errorCode;
 - (id)errorMessage;
 - (id)errorTitle;
 - (id)userDisplayStrings;

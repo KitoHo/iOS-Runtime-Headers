@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/TouchRemote.framework/TouchRemote
  */
 
-@class <TRXPCDaemonExportedInterface>, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
-
 @interface TRXPCClient : NSObject <NSXPCConnectionDelegate> {
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSXPCConnection *_connection;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) <TRXPCDaemonExportedInterface> * remoteDaemonProxy;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) <TRXPCDaemonExportedInterface> *remoteDaemonProxy;
+@property (readonly) Class superclass;
 
 + (id)sharedClient;
 
 - (void).cxx_destruct;
 - (id)_init;
-- (void)connection:(id)arg1 handleInvocation:(id)arg2 isReply:(bool)arg3;
+- (void)connection:(id)arg1 handleInvocation:(id)arg2 isReply:(BOOL)arg3;
 - (void)dealloc;
 - (id)init;
 - (id)remoteDaemonProxy;
-- (id)remoteDaemonProxyWithErrorHandler:(id)arg1;
+- (id)remoteDaemonProxyWithErrorHandler:(id /* block */)arg1;
 
 @end

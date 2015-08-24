@@ -2,32 +2,7 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class NSString;
-
 @interface VKRouteDrawStyle : VKRenderStyle {
-    struct VKProfileSparseRamp<float> { 
-        union _u { 
-            struct VKProfileSparseRampValue { 
-                float value; 
-                unsigned char hi; 
-            } v[2]; 
-            float *extra; 
-        } u; 
-        unsigned char count; 
-    struct VKProfileSparseRamp<_VGLColor> { 
-        union _u { 
-            struct VKProfileSparseRampValue { 
-                struct _VGLColor { 
-                    float r; 
-                    float g; 
-                    float b; 
-                    float a; 
-                } value; 
-                unsigned char hi; 
-            } v[2]; 
-            struct _VGLColor {} *extra; 
-        } u; 
-        unsigned char count; 
     struct VKProfileSparseRamp<_VGLColor> { 
         union _u { 
             struct VKProfileSparseRampValue { 
@@ -43,24 +18,47 @@
         } u; 
         unsigned char count; 
     } _fillColor;
+    struct VKProfileSparseRamp<_VGLColor> { 
+        union _u { 
+            struct VKProfileSparseRampValue { 
+                struct _VGLColor { 
+                    float r; 
+                    float g; 
+                    float b; 
+                    float a; 
+                } value; 
+                unsigned char hi; 
+            } v[2]; 
+            struct _VGLColor {} *extra; 
+        } u; 
+        unsigned char count; 
     } _travelledColor;
+    struct VKProfileSparseRamp<float> { 
+        union _u { 
+            struct VKProfileSparseRampValue { 
+                float value; 
+                unsigned char hi; 
+            } v[2]; 
+            float *extra; 
+        } u; 
+        unsigned char count; 
     } _width;
 }
 
-@property(readonly) float arrowMinZoom;
-@property(readonly) float brightness;
-@property(readonly) float enlargementMaxScale;
-@property(readonly) float enlargementScale;
-@property(readonly) float enlargementStartZoom;
-@property(readonly) bool hasBrightness;
-@property(readonly) bool hasFillColor;
-@property(readonly) bool hasObscuredTexture;
-@property(readonly) bool hasTexture;
-@property(readonly) bool hasTravelledTexture;
-@property(readonly) NSString * obscuredTexture;
-@property(readonly) float selectedArrowMinZoom;
-@property(readonly) NSString * texture;
-@property(readonly) NSString * travelledTexture;
+@property (nonatomic, readonly) float arrowMinZoom;
+@property (nonatomic, readonly) float brightness;
+@property (nonatomic, readonly) float enlargementMaxScale;
+@property (nonatomic, readonly) float enlargementScale;
+@property (nonatomic, readonly) float enlargementStartZoom;
+@property (nonatomic, readonly) BOOL hasBrightness;
+@property (nonatomic, readonly) BOOL hasFillColor;
+@property (nonatomic, readonly) BOOL hasObscuredTexture;
+@property (nonatomic, readonly) BOOL hasTexture;
+@property (nonatomic, readonly) BOOL hasTravelledTexture;
+@property (nonatomic, readonly) NSString *obscuredTexture;
+@property (nonatomic, readonly) float selectedArrowMinZoom;
+@property (nonatomic, readonly) NSString *texture;
+@property (nonatomic, readonly) NSString *travelledTexture;
 
 + (int)renderStyleID;
 
@@ -74,12 +72,12 @@
 - (struct Matrix<float, 4, 1> { float x1[4]; })fillColor;
 - (unsigned long long)fillDashPatternAtZoom:(float)arg1;
 - (struct Matrix<float, 4, 1> { float x1[4]; })glossColor;
-- (bool)hasBrightness;
-- (bool)hasDashAtAnyZ;
-- (bool)hasFillColor;
-- (bool)hasObscuredTexture;
-- (bool)hasTexture;
-- (bool)hasTravelledTexture;
+- (BOOL)hasBrightness;
+- (BOOL)hasDashAtAnyZ;
+- (BOOL)hasFillColor;
+- (BOOL)hasObscuredTexture;
+- (BOOL)hasTexture;
+- (BOOL)hasTravelledTexture;
 - (id)obscuredTexture;
 - (float)selectedArrowMinZoom;
 - (struct Matrix<float, 4, 1> { float x1[4]; })strokeColor;

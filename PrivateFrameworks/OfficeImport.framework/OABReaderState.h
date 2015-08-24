@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class <OADColorPalette>, NSMutableDictionary;
-
 @interface OABReaderState : NSObject {
     NSMutableDictionary *mBlipIdMap;
     Class mClient;
@@ -13,7 +11,7 @@
     NSMutableDictionary *mShapeIdMap;
 }
 
-@property int groupDepth;
+@property (nonatomic) int groupDepth;
 
 - (Class)client;
 - (id)colorPalette;
@@ -26,7 +24,7 @@
 - (id)initWithClient:(Class)arg1;
 - (void)setColorPalette:(id)arg1;
 - (void)setDrawable:(id)arg1 forBlipId:(int)arg2;
-- (void)setDrawable:(id)arg1 forShapeId:(unsigned int)arg2;
+- (void)setDrawable:(id)arg1 forShapeId:(unsigned long)arg2;
 - (void)setEshContent:(struct EshContent { }*)arg1 forId:(int)arg2;
 - (void)setGroupDepth:(int)arg1;
 

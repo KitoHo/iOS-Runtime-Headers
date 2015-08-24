@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSDictionary, NSMutableArray;
-
 @interface GEOBatchRevGeocodeResponse : PBCodable <NSCopying> {
+    NSMutableArray *_batchPlaceResults;
+    NSMutableArray *_clusters;
     struct { 
         unsigned int timestamp : 1; 
         unsigned int statusCode : 1; 
         unsigned int ttl : 1; 
         unsigned int version : 1; 
-    NSMutableArray *_batchPlaceResults;
-    NSMutableArray *_clusters;
     } _has;
     int _statusCode;
     double _timestamp;
@@ -20,51 +18,51 @@
     NSMutableArray *_versionDomains;
 }
 
-@property(retain) NSMutableArray * batchPlaceResults;
-@property(retain) NSMutableArray * clusters;
-@property bool hasStatusCode;
-@property bool hasTimestamp;
-@property bool hasTtl;
-@property bool hasVersion;
-@property(retain) NSDictionary * httpHeaders;
-@property int statusCode;
-@property double timestamp;
-@property unsigned int ttl;
-@property unsigned int version;
-@property(retain) NSMutableArray * versionDomains;
+@property (nonatomic, retain) NSMutableArray *batchPlaceResults;
+@property (nonatomic, retain) NSMutableArray *clusters;
+@property (nonatomic) BOOL hasStatusCode;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) BOOL hasTtl;
+@property (nonatomic) BOOL hasVersion;
+@property (nonatomic, retain) NSDictionary *httpHeaders;
+@property (nonatomic) int statusCode;
+@property (nonatomic) double timestamp;
+@property (nonatomic) unsigned int ttl;
+@property (nonatomic) unsigned int version;
+@property (nonatomic, retain) NSMutableArray *versionDomains;
 
 - (void)addBatchPlaceResult:(id)arg1;
 - (void)addCluster:(id)arg1;
 - (void)addVersionDomain:(id)arg1;
-- (id)batchPlaceResultAtIndex:(unsigned long long)arg1;
+- (id)batchPlaceResultAtIndex:(unsigned int)arg1;
 - (id)batchPlaceResults;
-- (unsigned long long)batchPlaceResultsCount;
+- (unsigned int)batchPlaceResultsCount;
 - (void)clearBatchPlaceResults;
 - (void)clearClusters;
 - (void)clearVersionDomains;
-- (id)clusterAtIndex:(unsigned long long)arg1;
+- (id)clusterAtIndex:(unsigned int)arg1;
 - (id)clusters;
-- (unsigned long long)clustersCount;
+- (unsigned int)clustersCount;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasStatusCode;
-- (bool)hasTimestamp;
-- (bool)hasTtl;
-- (bool)hasVersion;
-- (unsigned long long)hash;
+- (BOOL)hasStatusCode;
+- (BOOL)hasTimestamp;
+- (BOOL)hasTtl;
+- (BOOL)hasVersion;
+- (unsigned int)hash;
 - (id)httpHeaders;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setBatchPlaceResults:(id)arg1;
 - (void)setClusters:(id)arg1;
-- (void)setHasStatusCode:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
-- (void)setHasTtl:(bool)arg1;
-- (void)setHasVersion:(bool)arg1;
+- (void)setHasStatusCode:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasTtl:(BOOL)arg1;
+- (void)setHasVersion:(BOOL)arg1;
 - (void)setHttpHeaders:(id)arg1;
 - (void)setStatusCode:(int)arg1;
 - (void)setTimestamp:(double)arg1;
@@ -75,9 +73,9 @@
 - (double)timestamp;
 - (unsigned int)ttl;
 - (unsigned int)version;
-- (id)versionDomainAtIndex:(unsigned long long)arg1;
+- (id)versionDomainAtIndex:(unsigned int)arg1;
 - (id)versionDomains;
-- (unsigned long long)versionDomainsCount;
+- (unsigned int)versionDomainsCount;
 - (void)writeTo:(id)arg1;
 
 @end

@@ -2,11 +2,11 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCHChartFeatureCategory : TSCHChartFeature {
-}
+@interface TSCHChartFeatureCategory : TSCHChartFeature
 
 - (void)p_initializeAxisIDs;
-- (unsigned long long)styleIndexForAxisID:(id)arg1;
+- (int)representativeGridValueAxisType;
+- (unsigned int)styleIndexForAxisID:(id)arg1;
 - (void)updateTitlesForExportingModel:(id)arg1 info:(id)arg2;
 - (id)valueLabelPositioner;
 

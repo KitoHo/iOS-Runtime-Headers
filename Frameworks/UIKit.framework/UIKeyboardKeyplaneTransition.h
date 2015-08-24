@@ -2,50 +2,44 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <UIKeyboardKeyplaneTransitionDelegate>, CADisplayLink, UIKBTree, UIView;
-
 @interface UIKeyboardKeyplaneTransition : NSObject {
-    id _completionBlock;
-    double _currentProgress;
+    id /* block */ _completionBlock;
+    float _currentProgress;
     CADisplayLink *_displayLink;
     UIKBTree *_end;
     UIView *_endView;
     double _finalTransitionStartTime;
-    double _finishDuration;
-    double _finishProgress;
-    double _liftOffProgress;
+    float _finishDuration;
+    float _finishProgress;
+    BOOL _initiallyAtEnd;
+    float _liftOffProgress;
     UIKBTree *_start;
     UIView *_startView;
     <UIKeyboardKeyplaneTransitionDelegate> *_transitionDelegate;
-    bool_initiallyAtEnd;
 }
 
-@property(copy) id completionBlock;
-@property(readonly) double endHeight;
-@property bool initiallyAtEnd;
-@property(readonly) double startHeight;
-@property <UIKeyboardKeyplaneTransitionDelegate> * transitionDelegate;
+@property (copy) id /* block */ completionBlock;
+@property (nonatomic, readonly) float endHeight;
+@property (nonatomic) BOOL initiallyAtEnd;
+@property (nonatomic, readonly) float startHeight;
+@property (nonatomic) <UIKeyboardKeyplaneTransitionDelegate> *transitionDelegate;
 
-- (bool)canDisplayTransitionFromKeyplane:(id)arg1 toKeyplane:(id)arg2;
+- (BOOL)canDisplayTransitionFromKeyplane:(id)arg1 toKeyplane:(id)arg2;
 - (void)commitTransitionRebuild;
-- (id)completionBlock;
+- (id /* block */)completionBlock;
 - (void)dealloc;
-- (double)endHeight;
+- (float)endHeight;
 - (void)finalizeTransition;
-- (void)finishWithProgress:(double)arg1 completionBlock:(id)arg2;
-- (bool)initiallyAtEnd;
+- (void)finishWithProgress:(float)arg1 completionBlock:(id /* block */)arg2;
+- (BOOL)initiallyAtEnd;
 - (void)rebuildWithStartKeyplane:(id)arg1 startView:(id)arg2 endKeyplane:(id)arg3 endView:(id)arg4;
 - (void)removeAllAnimations;
-- (void)setCompletionBlock:(id)arg1;
-- (void)setInitiallyAtEnd:(bool)arg1;
+- (void)setCompletionBlock:(id /* block */)arg1;
+- (void)setInitiallyAtEnd:(BOOL)arg1;
 - (void)setTransitionDelegate:(id)arg1;
-- (double)startHeight;
+- (float)startHeight;
 - (id)transitionDelegate;
 - (void)transitionToFinalState:(id)arg1;
-- (void)updateWithProgress:(double)arg1;
+- (void)updateWithProgress:(float)arg1;
 
 @end

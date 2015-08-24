@@ -2,53 +2,51 @@
    Image: /System/Library/PrivateFrameworks/VoiceMemos.framework/VoiceMemos
  */
 
-@class NSHashTable, NSObject<OS_dispatch_queue>, NSString, NSURL, RCMutableWaveform, RCWaveform, RCWaveformGenerator;
-
 @interface RCWaveformDataSource : NSObject <RCWaveformGeneratorSegmentOutputObserver> {
     RCMutableWaveform *_accumulatorWaveform;
     NSURL *_generatedWaveformOutputURL;
+    BOOL _hasSavedGeneratedWaveform;
+    BOOL _hasStartedLoading;
     NSObject<OS_dispatch_queue> *_observerQueue;
     NSObject<OS_dispatch_queue> *_queue;
     RCWaveformGenerator *_waveformGenerator;
     NSHashTable *_weakObservers;
-    bool_hasSavedGeneratedWaveform;
-    bool_hasStartedLoading;
 }
 
-@property(readonly) RCWaveform * accumulatorWaveform;
-@property(readonly) double averagePowerLevelsRate;
-@property(readonly) bool canceled;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) double duration;
-@property(readonly) bool finished;
-@property(readonly) NSURL * generatedWaveformOutputURL;
-@property(readonly) bool hasSavedGeneratedWaveform;
-@property(readonly) bool hasStartedLoading;
-@property(readonly) unsigned long long hash;
-@property(readonly) float loadingProgress;
-@property(readonly) NSObject<OS_dispatch_queue> * observerQueue;
-@property(readonly) NSObject<OS_dispatch_queue> * queue;
-@property(readonly) Class superclass;
-@property(readonly) struct { double x1; double x2; } timeRangeToHighlight;
-@property(readonly) RCWaveformGenerator * waveformGenerator;
-@property(readonly) NSHashTable * weakObservers;
+@property (nonatomic, readonly) RCWaveform *accumulatorWaveform;
+@property (nonatomic, readonly) double averagePowerLevelsRate;
+@property (nonatomic, readonly) BOOL canceled;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) double duration;
+@property (nonatomic, readonly) BOOL finished;
+@property (nonatomic, readonly) NSURL *generatedWaveformOutputURL;
+@property (nonatomic, readonly) BOOL hasSavedGeneratedWaveform;
+@property (nonatomic, readonly) BOOL hasStartedLoading;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) float loadingProgress;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *observerQueue;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *queue;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) struct { double x1; double x2; } timeRangeToHighlight;
+@property (nonatomic, readonly) RCWaveformGenerator *waveformGenerator;
+@property (nonatomic, readonly) NSHashTable *weakObservers;
 
 - (void).cxx_destruct;
-- (void)_performObserversBlock:(id)arg1;
-- (void)_performOnObserversBlock:(id)arg1;
+- (void)_performObserversBlock:(id /* block */)arg1;
+- (void)_performOnObserversBlock:(id /* block */)arg1;
 - (id)accumulatorWaveform;
 - (void)addObserver:(id)arg1;
 - (double)averagePowerLevelsRate;
 - (void)beginLoading;
-- (bool)canceled;
+- (BOOL)canceled;
 - (void)dealloc;
 - (double)duration;
-- (void)finishLoadingWithCompletionTimeoutDate:(id)arg1 completionBlock:(id)arg2;
-- (bool)finished;
+- (void)finishLoadingWithCompletionTimeoutDate:(id)arg1 completionBlock:(id /* block */)arg2;
+- (BOOL)finished;
 - (id)generatedWaveformOutputURL;
-- (bool)hasSavedGeneratedWaveform;
-- (bool)hasStartedLoading;
+- (BOOL)hasSavedGeneratedWaveform;
+- (BOOL)hasStartedLoading;
 - (id)initWithWaveformGenerator:(id)arg1 generatedWaveformOutputURL:(id)arg2;
 - (float)loadingProgress;
 - (id)observerQueue;
@@ -57,13 +55,13 @@
 - (void)saveGeneratedWaveformIfNecessary;
 - (id)saveableWaveform;
 - (id)segmentsInCompositionByConvertingFromActiveLoadingFragment:(id)arg1;
-- (bool)setPaused:(bool)arg1;
+- (BOOL)setPaused:(BOOL)arg1;
 - (id)synchronouslyApproximateWaveformSegmentsByReadingCurrentFileAheadTimeRange:(struct { double x1; double x2; })arg1;
 - (struct { double x1; double x2; })timeRangeToHighlight;
-- (void)updateAccumulatorWaveformSegmentsWithBlock:(id)arg1;
-- (bool)waitUntilFinished;
-- (void)waveformGenerator:(id)arg1 didLoadWaveformSegment:(id)arg2;
+- (void)updateAccumulatorWaveformSegmentsWithBlock:(id /* block */)arg1;
+- (BOOL)waitUntilFinished;
 - (id)waveformGenerator;
+- (void)waveformGenerator:(id)arg1 didLoadWaveformSegment:(id)arg2;
 - (void)waveformGeneratorDidFinishLoading:(id)arg1 error:(id)arg2;
 - (void)waveformGeneratorWillBeginLoading:(id)arg1;
 - (id)waveformSegmentsInTimeRange:(struct { double x1; double x2; })arg1;

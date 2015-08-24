@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/CoreSuggestionsInternals.framework/CoreSuggestionsInternals
  */
 
-@class NSMutableArray, NSNumber, NSString, NSThread, NSTimer;
-
 @interface SGRTCLogging : NSObject <NSCoding> {
     struct _opaque_pthread_mutex_t { 
-        long long __sig; 
-        BOOL __opaque[56]; 
+        long __sig; 
+        BOOL __opaque[40]; 
     } _lock;
     NSMutableArray *_loggedEvents;
     NSString *_path;
@@ -17,7 +15,7 @@
     NSNumber *_version;
 }
 
-+ (bool)createEmptyFileAtPath:(id)arg1;
++ (BOOL)createEmptyFileAtPath:(id)arg1;
 + (id)defaultLogger;
 + (id)defaultPath;
 + (id)inMemoryLogger;
@@ -25,7 +23,7 @@
 - (void).cxx_destruct;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
-- (void)enumerateLoggedEvents:(id)arg1;
+- (void)enumerateLoggedEvents:(id /* block */)arg1;
 - (id)getLoggingString;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
@@ -36,11 +34,11 @@
 - (id)loggedEvents;
 - (id)metricNameForShortName:(id)arg1;
 - (void)persistLogs;
-- (bool)resetLogs;
-- (bool)sendLogsUsingRTC;
+- (BOOL)resetLogs;
+- (BOOL)sendLogsUsingRTC;
 - (id)shortNameForMetricNamed:(id)arg1;
 - (double)storeAge;
-- (bool)storeToDisk;
+- (BOOL)storeToDisk;
 - (void)updateAndScheduleDiskWrite;
 - (int)version;
 

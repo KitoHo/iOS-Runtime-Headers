@@ -2,37 +2,35 @@
    Image: /System/Library/PrivateFrameworks/Search.framework/Search
  */
 
-@class NSMutableArray, NSString;
-
 @interface SPSearchResultSection : PBCodable <NSCopying> {
-    struct { 
-        unsigned int domain : 1; 
-        unsigned int flags : 1; 
     NSString *_category;
     NSString *_displayIdentifier;
     unsigned int _domain;
     int _flags;
+    struct { 
+        unsigned int domain : 1; 
+        unsigned int flags : 1; 
     } _has;
     NSString *_icon;
-    NSMutableArray *_results;
+    NSMutableOrderedSet *_resultSet;
     NSString *_scheme;
 }
 
-@property(retain) NSString * category;
-@property(retain) NSString * displayIdentifier;
-@property unsigned int domain;
-@property int flags;
-@property(readonly) bool hasCategory;
-@property(readonly) bool hasDisplayIdentifier;
-@property bool hasDomain;
-@property bool hasFlags;
-@property(readonly) bool hasIcon;
-@property(readonly) bool hasScheme;
-@property(retain) NSString * icon;
-@property(retain) NSMutableArray * results;
-@property(retain) NSString * scheme;
+@property (nonatomic, retain) NSString *category;
+@property (nonatomic, retain) NSString *displayIdentifier;
+@property (nonatomic) unsigned int domain;
+@property (nonatomic) int flags;
+@property (nonatomic, readonly) BOOL hasCategory;
+@property (nonatomic, readonly) BOOL hasDisplayIdentifier;
+@property (nonatomic) BOOL hasDomain;
+@property (nonatomic) BOOL hasFlags;
+@property (nonatomic, readonly) BOOL hasIcon;
+@property (nonatomic, readonly) BOOL hasScheme;
+@property (nonatomic, retain) NSString *icon;
+@property (nonatomic, retain) NSString *scheme;
 
 - (void)addResults:(id)arg1;
+- (void)addResults:(id)arg1 atIndex:(unsigned int)arg2;
 - (id)category;
 - (void)clearResults;
 - (void)copyTo:(id)arg1;
@@ -43,29 +41,31 @@
 - (id)displayIdentifier;
 - (unsigned int)domain;
 - (int)flags;
-- (bool)hasCategory;
-- (bool)hasDisplayIdentifier;
-- (bool)hasDomain;
-- (bool)hasEquivalentResults:(id)arg1;
-- (bool)hasFlags;
-- (bool)hasIcon;
-- (bool)hasScheme;
-- (unsigned long long)hash;
+- (BOOL)hasCategory;
+- (BOOL)hasDisplayIdentifier;
+- (BOOL)hasDomain;
+- (BOOL)hasEquivalentResults:(id)arg1;
+- (BOOL)hasFlags;
+- (BOOL)hasIcon;
+- (BOOL)hasScheme;
+- (unsigned int)hash;
 - (id)icon;
-- (bool)isEqual:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (unsigned int)indexOfResult:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)removeResultsAtIndex:(unsigned int)arg1;
+- (id)resultSet;
 - (id)results;
-- (id)resultsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)resultsCount;
+- (id)resultsAtIndex:(unsigned int)arg1;
+- (unsigned int)resultsCount;
 - (id)scheme;
 - (void)setCategory:(id)arg1;
 - (void)setDisplayIdentifier:(id)arg1;
 - (void)setDomain:(unsigned int)arg1;
 - (void)setFlags:(int)arg1;
-- (void)setHasDomain:(bool)arg1;
-- (void)setHasFlags:(bool)arg1;
+- (void)setHasDomain:(BOOL)arg1;
+- (void)setHasFlags:(BOOL)arg1;
 - (void)setIcon:(id)arg1;
-- (void)setResults:(id)arg1;
 - (void)setScheme:(id)arg1;
 - (void)writeTo:(id)arg1;
 

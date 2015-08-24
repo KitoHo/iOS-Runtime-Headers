@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/CoreRoutine.framework/CoreRoutine
  */
 
-@interface RTSource : NSObject <NSSecureCoding> {
-}
+@interface RTSource : NSObject <NSSecureCoding>
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

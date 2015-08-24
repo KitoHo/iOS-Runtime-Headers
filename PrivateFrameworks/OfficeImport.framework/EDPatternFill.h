@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class EDColorReference;
-
 @interface EDPatternFill : EDFill {
     EDColorReference *mBackColorReference;
     EDColorReference *mForeColorReference;
@@ -21,13 +19,13 @@
 - (void)dealloc;
 - (id)foreColor;
 - (id)foreColorReference;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithResources:(id)arg1;
 - (id)initWithType:(int)arg1 foreColor:(id)arg2 backColor:(id)arg3 resources:(id)arg4;
 - (id)initWithType:(int)arg1 foreColorReference:(id)arg2 backColorReference:(id)arg3 resources:(id)arg4;
 - (bool)isEmpty;
-- (bool)isEqual:(id)arg1;
-- (bool)isEqualToPatternFill:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToPatternFill:(id)arg1;
 - (void)setBackColor:(id)arg1;
 - (void)setBackColorReference:(id)arg1;
 - (void)setForeColor:(id)arg1;

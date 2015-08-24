@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/NotificationsUI.framework/NotificationsUI
  */
 
-@class NSDictionary;
-
 @interface NCBannerAccessoryViewController : UIViewController <NCBannerAccessoryServiceInterface> {
     NSDictionary *_context;
 }
 
-@property(copy) NSDictionary * context;
+@property (nonatomic, copy) NSDictionary *context;
 
 + (id)_exportedInterface;
 + (id)_remoteViewControllerInterface;
 
-- (void)_getPreferredContentSizeWithCompletion:(id)arg1;
+- (void)_getPreferredContentSizeWithCompletion:(id /* block */)arg1;
 - (void)_setContext:(id)arg1;
 - (void)becomeSticky;
 - (id)context;
 - (void)dealloc;
 - (void)dismiss;
 - (void)setContext:(id)arg1;
-- (void)setSticky:(bool)arg1;
+- (void)setSticky:(BOOL)arg1;
 
 @end

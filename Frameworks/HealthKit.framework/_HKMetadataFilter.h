@@ -2,29 +2,32 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-@class NSString;
-
 @interface _HKMetadataFilter : _HKFilter {
     NSString *_key;
-    unsigned long long _operatorType;
+    unsigned int _operatorType;
 }
 
-@property(copy,readonly) NSString * key;
-@property(readonly) unsigned long long operatorType;
+@property (nonatomic, readonly, copy) NSString *key;
+@property (nonatomic, readonly) unsigned int operatorType;
 
-+ (bool)_acceptsOperatorType:(unsigned long long)arg1;
-+ (id)filterForKeyPath:(id)arg1 predicateOperatorType:(unsigned long long)arg2 value:(id)arg3 dataTypes:(id)arg4;
-+ (bool)supportsSecureCoding;
+// Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
+
++ (BOOL)_acceptsOperatorType:(unsigned int)arg1;
++ (id)filterForKeyPath:(id)arg1 predicateOperatorType:(unsigned int)arg2 value:(id)arg3 dataTypes:(id)arg4;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (id)_initWithKey:(id)arg1 operatorType:(unsigned long long)arg2;
-- (bool)acceptsDataObject:(id)arg1;
+- (id)_initWithKey:(id)arg1 operatorType:(unsigned int)arg2;
+- (BOOL)acceptsDataObject:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)key;
-- (unsigned long long)operatorType;
+- (unsigned int)operatorType;
+
+// Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
+
 - (id)predicateWithHealthDaemon:(id)arg1;
 
 @end

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/MIME.framework/MIME
  */
 
-@class NSConditionLock, NSError, NSMutableArray, NSString;
-
 @interface MFFuture : NSObject <MFFuture> {
     NSMutableArray *_completionBlocks;
     NSError *_error;
@@ -11,29 +9,29 @@
     NSConditionLock *_stateLock;
 }
 
-@property(getter=isCancelled,readonly) bool cancelled;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(getter=isFinished,readonly) bool finished;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (getter=isCancelled, readonly) BOOL cancelled;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (getter=isFinished, readonly) BOOL finished;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)future;
 
-- (void)_addCompletionBlock:(id)arg1;
+- (void)_addCompletionBlock:(id /* block */)arg1;
 - (void)_flushCompletionBlocks;
-- (bool)_nts_isFinished;
-- (void)addFailureBlock:(id)arg1;
-- (void)addSuccessBlock:(id)arg1;
-- (bool)cancel;
+- (BOOL)_nts_isFinished;
+- (void)addFailureBlock:(id /* block */)arg1;
+- (void)addSuccessBlock:(id /* block */)arg1;
+- (BOOL)cancel;
 - (void)dealloc;
 - (void)didCancel;
-- (bool)finishWithError:(id)arg1;
-- (bool)finishWithResult:(id)arg1 error:(id)arg2;
-- (bool)finishWithResult:(id)arg1;
+- (BOOL)finishWithError:(id)arg1;
+- (BOOL)finishWithResult:(id)arg1;
+- (BOOL)finishWithResult:(id)arg1 error:(id)arg2;
 - (id)init;
-- (bool)isCancelled;
-- (bool)isFinished;
+- (BOOL)isCancelled;
+- (BOOL)isFinished;
 - (id)result:(id*)arg1;
 - (id)resultBeforeDate:(id)arg1 error:(id*)arg2;
 - (id)resultWithTimeout:(double)arg1 error:(id*)arg2;

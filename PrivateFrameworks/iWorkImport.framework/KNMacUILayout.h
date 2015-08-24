@@ -2,45 +2,40 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
 @interface KNMacUILayout : NSObject <NSCopying, NSMutableCopying> {
-    boolmShowingInspectorPane;
-    boolmShowingLightTable;
-    boolmShowingMasterSlides;
-    boolmShowingNavigatorViewInSidebar;
-    boolmShowingPresenterNotes;
-    boolmShowingSidebar;
-    long long mInspectorPaneViewMode;
+    int mInspectorPaneViewMode;
+    BOOL mShowingInspectorPane;
+    BOOL mShowingLightTable;
+    BOOL mShowingMasterSlides;
+    BOOL mShowingNavigatorViewInSidebar;
+    BOOL mShowingPresenterNotes;
+    BOOL mShowingSidebar;
 }
 
-@property(readonly) long long inspectorPaneViewMode;
-@property(getter=p_isShowingNavigatorViewInSidebar,readonly) bool p_showingNavigatorViewInSidebar;
-@property(getter=isShowingInspectorPane,readonly) bool showingInspectorPane;
-@property(getter=isShowingLightTable,readonly) bool showingLightTable;
-@property(getter=isShowingMasterSlides,readonly) bool showingMasterSlides;
-@property(getter=isShowingPresenterNotes,readonly) bool showingPresenterNotes;
-@property(getter=isShowingSidebar,readonly) bool showingSidebar;
-@property(readonly) long long sidebarViewMode;
+@property (nonatomic, readonly) int inspectorPaneViewMode;
+@property (getter=p_isShowingNavigatorViewInSidebar, nonatomic, readonly) BOOL p_showingNavigatorViewInSidebar;
+@property (getter=isShowingInspectorPane, nonatomic, readonly) BOOL showingInspectorPane;
+@property (getter=isShowingLightTable, nonatomic, readonly) BOOL showingLightTable;
+@property (getter=isShowingMasterSlides, nonatomic, readonly) BOOL showingMasterSlides;
+@property (getter=isShowingPresenterNotes, nonatomic, readonly) BOOL showingPresenterNotes;
+@property (getter=isShowingSidebar, nonatomic, readonly) BOOL showingSidebar;
+@property (nonatomic, readonly) int sidebarViewMode;
 
-+ (id)uiLayoutFromArchive:(const struct DesktopUILayoutArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; int x3; boolx4; boolx5; boolx6; boolx7; int x8; int x9; unsigned int x10[1]; }*)arg1 unarchiver:(id)arg2 context:(id)arg3;
++ (id)uiLayoutFromArchive:(const struct DesktopUILayoutArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; int x5; bool x6; bool x7; bool x8; bool x9; int x10; bool x11; }*)arg1 unarchiver:(id)arg2 context:(id)arg3;
 
 - (id)archivedUILayoutInContext:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (unsigned long long)hash;
-- (long long)inspectorPaneViewMode;
-- (bool)isEqual:(id)arg1;
-- (bool)isShowingInspectorPane;
-- (bool)isShowingLightTable;
-- (bool)isShowingMasterSlides;
-- (bool)isShowingPresenterNotes;
-- (bool)isShowingSidebar;
+- (unsigned int)hash;
+- (int)inspectorPaneViewMode;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isShowingInspectorPane;
+- (BOOL)isShowingLightTable;
+- (BOOL)isShowingMasterSlides;
+- (BOOL)isShowingPresenterNotes;
+- (BOOL)isShowingSidebar;
 - (id)mutableCopyWithZone:(struct _NSZone { }*)arg1;
-- (bool)p_isShowingNavigatorViewInSidebar;
-- (void)saveToArchive:(struct DesktopUILayoutArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; int x3; boolx4; boolx5; boolx6; boolx7; int x8; int x9; unsigned int x10[1]; }*)arg1 archiver:(id)arg2;
-- (long long)sidebarViewMode;
+- (BOOL)p_isShowingNavigatorViewInSidebar;
+- (void)saveToArchive:(struct DesktopUILayoutArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; int x5; bool x6; bool x7; bool x8; bool x9; int x10; bool x11; }*)arg1 archiver:(id)arg2;
+- (int)sidebarViewMode;
 
 @end

@@ -2,45 +2,85 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class NSArray, NSLayoutConstraint, NSString, UIScrollView, UIView;
-
-@interface GKBubbleDetailViewController : GKViewController <UIScrollViewDelegate> {
-    NSArray *_bubbleViews;
-    NSLayoutConstraint *_containerConstraint;
-    UIView *_containerView;
-    UIView *_rootLayoutView;
-    id _scrollInsetsToken;
-    UIScrollView *_scrollView;
+@interface GKBubbleDetailViewController : GKCenteredContentViewController {
+    NSArray *_activeConstraints;
+    GKHorizontalBubbleControlsView *_bubblesView;
+    GKLabel *_descriptionLabel;
+    BOOL _didFloatInBubbles;
+    BOOL _didTransition;
+    GKLabel *_disabledFunctionalityLabel;
+    UIImageView *_iconView;
+    NSArray *_landscapeConstraints;
+    GKPlayerWithSpeechBalloonView *_playerWithSpeechView;
+    NSArray *_portraitConstraints;
+    BOOL _showDescriptionView;
+    BOOL _showPlayerWithSpeechView;
+    GKLabel *_subtitleLabel;
+    GKLabel *_titleLabel;
 }
 
-@property(retain) NSArray * bubbleViews;
-@property(retain) NSLayoutConstraint * containerConstraint;
-@property(retain) UIView * containerView;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) UIView * rootLayoutView;
-@property(retain) id scrollInsetsToken;
-@property(retain) UIScrollView * scrollView;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) NSArray *activeConstraints;
+@property (nonatomic, retain) GKHorizontalBubbleControlsView *bubblesView;
+@property (nonatomic, retain) GKLabel *descriptionLabel;
+@property (nonatomic) BOOL didFloatInBubbles;
+@property (nonatomic) BOOL didTransition;
+@property (nonatomic, retain) GKLabel *disabledFunctionalityLabel;
+@property (nonatomic, retain) UIImageView *iconView;
+@property (nonatomic, retain) NSArray *landscapeConstraints;
+@property (nonatomic, retain) GKPlayerWithSpeechBalloonView *playerWithSpeechView;
+@property (nonatomic, retain) NSArray *portraitConstraints;
+@property (nonatomic) BOOL showDescriptionView;
+@property (nonatomic) BOOL showPlayerWithSpeechView;
+@property (nonatomic, retain) GKLabel *subtitleLabel;
+@property (nonatomic, retain) GKLabel *titleLabel;
 
-- (id)bubbleViews;
-- (id)containerConstraint;
-- (id)containerView;
++ (Class)iconViewClass;
+
+- (void)activateAppropriateConstraints;
+- (id)activeConstraints;
+- (void)animateOutBubbleWithFocus:(int)arg1 completion:(id /* block */)arg2;
+- (id)bubblesView;
 - (void)dealloc;
-- (double)heightConstant;
+- (id)descriptionLabel;
+- (void)didEnterBackground:(id)arg1;
+- (BOOL)didFloatInBubbles;
+- (BOOL)didTransition;
+- (id)disabledFunctionalityLabel;
+- (void)floatInBubbles;
+- (void)hideBubbles;
+- (id)iconView;
+- (id)init;
+- (id)landscapeConstraints;
 - (void)loadView;
-- (id)rootLayoutView;
-- (id)scrollInsetsToken;
-- (id)scrollView;
-- (void)setBubbleViews:(id)arg1;
-- (void)setContainerConstraint:(id)arg1;
-- (void)setContainerView:(id)arg1;
-- (void)setRootLayoutView:(id)arg1;
-- (void)setScrollInsetsToken:(id)arg1;
-- (void)setScrollView:(id)arg1;
-- (void)updateViewConstraints;
-- (void)viewDidDisappear:(bool)arg1;
-- (void)viewWillAppear:(bool)arg1;
+- (id)playerWithSpeechView;
+- (id)portraitConstraints;
+- (void)prepareViewsForAppear;
+- (void)prepareViewsForDisappear;
+- (void)registerForAppSwitching;
+- (void)setActiveConstraints:(id)arg1;
+- (void)setBubblesView:(id)arg1;
+- (void)setDescriptionLabel:(id)arg1;
+- (void)setDidFloatInBubbles:(BOOL)arg1;
+- (void)setDidTransition:(BOOL)arg1;
+- (void)setDisabledFunctionalityLabel:(id)arg1;
+- (void)setIconView:(id)arg1;
+- (void)setLandscapeConstraints:(id)arg1;
+- (void)setPlayerWithSpeechView:(id)arg1;
+- (void)setPortraitConstraints:(id)arg1;
+- (void)setShowDescriptionView:(BOOL)arg1;
+- (void)setShowPlayerWithSpeechView:(BOOL)arg1;
+- (void)setSubtitleLabel:(id)arg1;
+- (void)setTitleLabel:(id)arg1;
+- (BOOL)showDescriptionView;
+- (BOOL)showPlayerWithSpeechView;
+- (id)subtitleLabel;
+- (id)titleLabel;
+- (void)traitCollectionDidChange:(id)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
+- (void)willAnimateAppearingWithBubbleFlow;
+- (void)willEnterForeground:(id)arg1;
 
 @end

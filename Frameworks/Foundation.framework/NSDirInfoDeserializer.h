@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@interface NSDirInfoDeserializer : NSAKDeserializer {
-}
+@interface NSDirInfoDeserializer : NSAKDeserializer
 
-- (id)deserializePListValueIn:(id)arg1 key:(id)arg2 length:(unsigned long long)arg3;
+- (id)deserializePListValueIn:(id)arg1 key:(id)arg2 length:(unsigned int)arg3;
 
 @end

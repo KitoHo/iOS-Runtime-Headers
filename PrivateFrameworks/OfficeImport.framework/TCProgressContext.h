@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSDate, NSMutableArray, OITSUProgressContext, TCProgressStage;
-
 @interface TCProgressContext : NSObject {
     TCProgressStage *m_currentStage;
     NSDate *m_lastReportTime;
@@ -17,8 +15,8 @@
 + (id)contextForCurrentThread;
 + (id)createBranchWithSteps:(double)arg1 takingSteps:(double)arg2 name:(id)arg3;
 + (void)createContextForCurrentThreadWithParentContext:(id)arg1;
-+ (void)createStageWithSteps:(double)arg1 takingSteps:(double)arg2 name:(id)arg3;
 + (void)createStageWithSteps:(double)arg1 takingSteps:(double)arg2;
++ (void)createStageWithSteps:(double)arg1 takingSteps:(double)arg2 name:(id)arg3;
 + (double)currentPosition;
 + (void)endBranch:(id)arg1;
 + (void)endStage;

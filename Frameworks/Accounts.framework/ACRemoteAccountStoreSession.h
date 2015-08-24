@@ -2,27 +2,25 @@
    Image: /System/Library/Frameworks/Accounts.framework/Accounts
  */
 
-@class NSString, NSXPCConnection;
-
 @interface ACRemoteAccountStoreSession : NSObject <NSXPCProxyCreating> {
     NSXPCConnection *_connection;
+    BOOL _hasConfiguredRemoteAccountStore;
+    BOOL _notificationsEnabled;
     NSString *_spoofedBundleID;
-    bool_hasConfiguredRemoteAccountStore;
-    bool_notificationsEnabled;
 }
 
-@property bool notificationsEnabled;
-@property(copy) NSString * spoofedBundleID;
+@property (nonatomic) BOOL notificationsEnabled;
+@property (nonatomic, copy) NSString *spoofedBundleID;
 
 - (void).cxx_destruct;
 - (void)_configureRemoteAccountStoreIfNecessary;
 - (void)connect;
 - (void)disconnect;
 - (id)initWithXPCConnection:(id)arg1;
-- (bool)notificationsEnabled;
+- (BOOL)notificationsEnabled;
 - (id)remoteObjectProxy;
-- (id)remoteObjectProxyWithErrorHandler:(id)arg1;
-- (void)setNotificationsEnabled:(bool)arg1;
+- (id)remoteObjectProxyWithErrorHandler:(id /* block */)arg1;
+- (void)setNotificationsEnabled:(BOOL)arg1;
 - (void)setSpoofedBundleID:(id)arg1;
 - (id)spoofedBundleID;
 

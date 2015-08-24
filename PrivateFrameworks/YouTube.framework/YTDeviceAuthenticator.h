@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/YouTube.framework/YouTube
  */
 
-@class NSData, NSMutableData, NSString, NSURLConnection;
-
 @interface YTDeviceAuthenticator : NSObject <NSURLConnectionDelegate> {
     NSURLConnection *_connection;
     NSData *_hmac;
@@ -16,15 +14,15 @@
     NSString *_token;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)sharedAuthenticator;
 
-- (bool)_authenticate1;
-- (bool)_authenticate2;
+- (BOOL)_authenticate1;
+- (BOOL)_authenticate2;
 - (void)_clearNonces;
 - (void)_connectionDidEnd;
 - (void)_copyCertificateData:(id*)arg1 privateKey:(struct __SecKey {}**)arg2;
@@ -32,12 +30,12 @@
 - (void)_loadStatusChanged;
 - (void)_succeeded;
 - (void)authenticate;
-- (bool)canAuthenticate;
+- (BOOL)canAuthenticate;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)invalidateToken;
-- (bool)isAuthenticating;
+- (BOOL)isAuthenticating;
 - (id)token;
 
 @end

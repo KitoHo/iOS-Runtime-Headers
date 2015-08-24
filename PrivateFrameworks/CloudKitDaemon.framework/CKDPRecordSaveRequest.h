@@ -2,40 +2,44 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPRecord, CKDPRecordSaveRequestConflictLoserUpdate, NSMutableArray, NSString;
-
 @interface CKDPRecordSaveRequest : PBRequest <NSCopying> {
-    struct { 
-        unsigned int saveSemantics : 1; 
-        unsigned int merge : 1; 
     CKDPRecordSaveRequestConflictLoserUpdate *_conflictLoserUpdate;
     NSMutableArray *_conflictLosersToResolves;
     NSString *_etag;
     NSMutableArray *_fieldsToDeleteIfExistOnMerges;
+    struct { 
+        unsigned int saveSemantics : 1; 
+        unsigned int merge : 1; 
     } _has;
+    BOOL _merge;
     CKDPRecord *_record;
     NSString *_recordProtectionInfoTag;
     int _saveSemantics;
+    NSString *_shareEtag;
+    CKDPRecordSaveRequestShareIdUpdate *_shareIDUpdate;
     NSString *_zoneProtectionInfoTag;
-    bool_merge;
 }
 
-@property(retain) CKDPRecordSaveRequestConflictLoserUpdate * conflictLoserUpdate;
-@property(retain) NSMutableArray * conflictLosersToResolves;
-@property(retain) NSString * etag;
-@property(retain) NSMutableArray * fieldsToDeleteIfExistOnMerges;
-@property(readonly) bool hasConflictLoserUpdate;
-@property(readonly) bool hasEtag;
-@property bool hasMerge;
-@property(readonly) bool hasRecord;
-@property(readonly) bool hasRecordProtectionInfoTag;
-@property bool hasSaveSemantics;
-@property(readonly) bool hasZoneProtectionInfoTag;
-@property bool merge;
-@property(retain) CKDPRecord * record;
-@property(retain) NSString * recordProtectionInfoTag;
-@property int saveSemantics;
-@property(retain) NSString * zoneProtectionInfoTag;
+@property (nonatomic, retain) CKDPRecordSaveRequestConflictLoserUpdate *conflictLoserUpdate;
+@property (nonatomic, retain) NSMutableArray *conflictLosersToResolves;
+@property (nonatomic, retain) NSString *etag;
+@property (nonatomic, retain) NSMutableArray *fieldsToDeleteIfExistOnMerges;
+@property (nonatomic, readonly) BOOL hasConflictLoserUpdate;
+@property (nonatomic, readonly) BOOL hasEtag;
+@property (nonatomic) BOOL hasMerge;
+@property (nonatomic, readonly) BOOL hasRecord;
+@property (nonatomic, readonly) BOOL hasRecordProtectionInfoTag;
+@property (nonatomic) BOOL hasSaveSemantics;
+@property (nonatomic, readonly) BOOL hasShareEtag;
+@property (nonatomic, readonly) BOOL hasShareIDUpdate;
+@property (nonatomic, readonly) BOOL hasZoneProtectionInfoTag;
+@property (nonatomic) BOOL merge;
+@property (nonatomic, retain) CKDPRecord *record;
+@property (nonatomic, retain) NSString *recordProtectionInfoTag;
+@property (nonatomic) int saveSemantics;
+@property (nonatomic, retain) NSString *shareEtag;
+@property (nonatomic, retain) CKDPRecordSaveRequestShareIdUpdate *shareIDUpdate;
+@property (nonatomic, retain) NSString *zoneProtectionInfoTag;
 
 + (id)options;
 
@@ -45,29 +49,31 @@
 - (void)clearConflictLosersToResolves;
 - (void)clearFieldsToDeleteIfExistOnMerges;
 - (id)conflictLoserUpdate;
-- (id)conflictLosersToResolveAtIndex:(unsigned long long)arg1;
+- (id)conflictLosersToResolveAtIndex:(unsigned int)arg1;
 - (id)conflictLosersToResolves;
-- (unsigned long long)conflictLosersToResolvesCount;
+- (unsigned int)conflictLosersToResolvesCount;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)etag;
-- (id)fieldsToDeleteIfExistOnMergeAtIndex:(unsigned long long)arg1;
+- (id)fieldsToDeleteIfExistOnMergeAtIndex:(unsigned int)arg1;
 - (id)fieldsToDeleteIfExistOnMerges;
-- (unsigned long long)fieldsToDeleteIfExistOnMergesCount;
-- (bool)hasConflictLoserUpdate;
-- (bool)hasEtag;
-- (bool)hasMerge;
-- (bool)hasRecord;
-- (bool)hasRecordProtectionInfoTag;
-- (bool)hasSaveSemantics;
-- (bool)hasZoneProtectionInfoTag;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
-- (bool)merge;
+- (unsigned int)fieldsToDeleteIfExistOnMergesCount;
+- (BOOL)hasConflictLoserUpdate;
+- (BOOL)hasEtag;
+- (BOOL)hasMerge;
+- (BOOL)hasRecord;
+- (BOOL)hasRecordProtectionInfoTag;
+- (BOOL)hasSaveSemantics;
+- (BOOL)hasShareEtag;
+- (BOOL)hasShareIDUpdate;
+- (BOOL)hasZoneProtectionInfoTag;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)merge;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)record;
 - (id)recordProtectionInfoTag;
 - (unsigned int)requestTypeCode;
@@ -77,13 +83,17 @@
 - (void)setConflictLosersToResolves:(id)arg1;
 - (void)setEtag:(id)arg1;
 - (void)setFieldsToDeleteIfExistOnMerges:(id)arg1;
-- (void)setHasMerge:(bool)arg1;
-- (void)setHasSaveSemantics:(bool)arg1;
-- (void)setMerge:(bool)arg1;
+- (void)setHasMerge:(BOOL)arg1;
+- (void)setHasSaveSemantics:(BOOL)arg1;
+- (void)setMerge:(BOOL)arg1;
 - (void)setRecord:(id)arg1;
 - (void)setRecordProtectionInfoTag:(id)arg1;
 - (void)setSaveSemantics:(int)arg1;
+- (void)setShareEtag:(id)arg1;
+- (void)setShareIDUpdate:(id)arg1;
 - (void)setZoneProtectionInfoTag:(id)arg1;
+- (id)shareEtag;
+- (id)shareIDUpdate;
 - (void)writeTo:(id)arg1;
 - (id)zoneProtectionInfoTag;
 

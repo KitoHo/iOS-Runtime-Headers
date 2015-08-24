@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSString, PKPaymentRequest;
-
 @interface PKPaymentRequestValidator : NSObject <PKPaymentValidating> {
     PKPaymentRequest *_request;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (Class)validatedClass;
 + (id)validatorWithObject:(id)arg1;
 
-- (bool)_checkTotal:(id)arg1 error:(id*)arg2;
+- (BOOL)_checkTotal:(id)arg1 error:(id*)arg2;
 - (void)dealloc;
 - (id)initWithPaymentRequest:(id)arg1;
-- (bool)isValidWithError:(id*)arg1;
+- (BOOL)isValidWithError:(id*)arg1;
 
 @end

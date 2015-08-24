@@ -2,23 +2,21 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class <_MKWiFiObserverDelegate>;
-
 @interface _MKWiFiObserver : NSObject {
     <_MKWiFiObserverDelegate> *_delegate;
     struct __WiFiDeviceClient { } *_wifiDevice;
+    BOOL _wifiEnabled;
     struct __WiFiManagerClient { } *_wifiManager;
-    bool_wifiEnabled;
 }
 
-@property <_MKWiFiObserverDelegate> * delegate;
-@property(getter=isWifiEnabled,readonly) bool wifiEnabled;
+@property (nonatomic) <_MKWiFiObserverDelegate> *delegate;
+@property (getter=isWifiEnabled, nonatomic, readonly) BOOL wifiEnabled;
 
 - (void).cxx_destruct;
-- (void)_updateWiFiState:(bool)arg1;
+- (void)_updateWiFiState:(BOOL)arg1;
 - (id)delegate;
 - (id)init;
-- (bool)isWifiEnabled;
+- (BOOL)isWifiEnabled;
 - (void)setDelegate:(id)arg1;
 
 @end

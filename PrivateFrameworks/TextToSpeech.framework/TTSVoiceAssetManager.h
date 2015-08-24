@@ -2,19 +2,18 @@
    Image: /System/Library/PrivateFrameworks/TextToSpeech.framework/TextToSpeech
  */
 
-@interface TTSVoiceAssetManager : NSObject {
-}
+@interface TTSVoiceAssetManager : NSObject
 
 + (id)sharedInstance;
 
 - (id)_autoDownloadedAssets;
 - (void)_automaticallyDownloadVoiceAssetsIfNeeded;
-- (id)_voiceAssetQueryForName:(id)arg1 language:(id)arg2 gender:(long long)arg3 footprint:(long long)arg4 version:(id)arg5 localOnly:(bool)arg6;
+- (id)_voiceAssetQueryForName:(id)arg1 language:(id)arg2 gender:(int)arg3 footprint:(int)arg4 version:(id)arg5 localOnly:(BOOL)arg6;
 - (void)automaticallyDownloadVoiceAssetsIfNeeded;
-- (void)getAutoDownloadedVoiceAssets:(id)arg1;
-- (void)getVoiceAssetsLocalOnly:(bool)arg1 reply:(id)arg2;
-- (id)resourcePathForLanguage:(id)arg1 gender:(long long)arg2 footprint:(long long)arg3 name:(id)arg4;
+- (void)getAutoDownloadedVoiceAssets:(id /* block */)arg1;
+- (void)getVoiceAssetsLocalOnly:(BOOL)arg1 reply:(id /* block */)arg2;
+- (id)resourcePathForLanguage:(id)arg1 gender:(int)arg2 footprint:(int)arg3 name:(id)arg4;
 - (void)setAutoDownloadedVoiceAssets:(id)arg1;
-- (void)startDownloadingVoiceAsset:(id)arg1 progress:(id)arg2 completion:(id)arg3;
+- (void)startDownloadingVoiceAsset:(id)arg1 progress:(id /* block */)arg2 completion:(id /* block */)arg3;
 
 @end

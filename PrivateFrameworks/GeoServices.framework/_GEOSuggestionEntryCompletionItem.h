@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class <GEOMapItem>, GEOMapServiceTraits, GEOSuggestionEntry, NSArray, NSData, NSString;
-
 @interface _GEOSuggestionEntryCompletionItem : NSObject <GEOCompletionItem, _GEOCompletionSearchHint> {
     NSData *_completionMetaData;
     GEOSuggestionEntry *_entry;
@@ -13,16 +11,15 @@
     GEOMapServiceTraits *_traits;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) NSArray * displayLines;
-@property(readonly) NSData * entryMetadata;
-@property(readonly) <GEOMapItem> * geoMapItem;
-@property(readonly) unsigned long long hash;
-@property(readonly) NSData * metadata;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) NSArray *displayLines;
+@property (nonatomic, readonly) NSData *entryMetadata;
+@property (nonatomic, readonly) <GEOMapItem> *geoMapItem;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) NSData *metadata;
+@property (readonly) Class superclass;
 
-- (void)applyToLegacySearch:(id)arg1;
 - (id)calloutTitle;
 - (id)completionLocation;
 - (void)dealloc;
@@ -30,11 +27,11 @@
 - (id)displayLines;
 - (id)entryMetadata;
 - (id)geoMapItem;
-- (bool)getCoordinate:(struct { double x1; double x2; }*)arg1;
-- (unsigned long long)hash;
-- (id)highlightsForLine:(unsigned long long)arg1;
+- (BOOL)getCoordinate:(struct { double x1; double x2; }*)arg1;
+- (unsigned int)hash;
+- (id)highlightsForLine:(unsigned int)arg1;
 - (id)initWithSuggestionEntry:(id)arg1 query:(id)arg2 entryListIndex:(int)arg3 entryIndex:(int)arg4 completion:(id)arg5 traits:(id)arg6;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)metadata;
 - (id)query;
 - (id)queryLine;

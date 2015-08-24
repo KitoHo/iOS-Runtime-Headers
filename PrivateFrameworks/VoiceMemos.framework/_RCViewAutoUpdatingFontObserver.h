@@ -7,9 +7,9 @@
     id _target;
 }
 
-@property(readonly) id target;
+@property (nonatomic, readonly) id target;
 
-+ (bool)canObserveFontsForTarget:(id)arg1;
++ (BOOL)canObserveFontsForTarget:(id)arg1;
 
 - (void).cxx_destruct;
 - (void)applyCurrentContentSizeToTarget;

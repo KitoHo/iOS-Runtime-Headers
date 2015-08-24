@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class NSString, UILabel;
-
 @interface KeychainSyncSecurityCodeCell : PSEditableTableCell {
     UILabel *_bulletTextLabel;
     NSString *_firstPasscodeEntry;
@@ -11,9 +9,9 @@
     int _securityCodeType;
 }
 
-@property(retain) NSString * firstPasscodeEntry;
-@property int mode;
-@property int securityCodeType;
+@property (nonatomic, retain) NSString *firstPasscodeEntry;
+@property (nonatomic) int mode;
+@property (nonatomic) int securityCodeType;
 
 - (void)dealloc;
 - (id)firstPasscodeEntry;
@@ -24,7 +22,7 @@
 - (void)setFirstPasscodeEntry:(id)arg1;
 - (void)setMode:(int)arg1;
 - (void)setSecurityCodeType:(int)arg1;
-- (bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg2 replacementString:(id)arg3;
-- (bool)textFieldShouldBeginEditing:(id)arg1;
+- (BOOL)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg2 replacementString:(id)arg3;
+- (BOOL)textFieldShouldBeginEditing:(id)arg1;
 
 @end

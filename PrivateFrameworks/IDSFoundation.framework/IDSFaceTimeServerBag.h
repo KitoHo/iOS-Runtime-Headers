@@ -2,13 +2,12 @@
    Image: /System/Library/PrivateFrameworks/IDSFoundation.framework/IDSFoundation
  */
 
-@interface IDSFaceTimeServerBag : IDSServerBag {
-}
+@interface IDSFaceTimeServerBag : IDSServerBag
 
 + (id)_bagCreationLock;
 
 - (id)_bagDefaultsDomain;
 - (id)init;
-- (bool)isInDebilitatedMode;
+- (BOOL)isInDebilitatedMode;
 
 @end

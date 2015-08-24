@@ -2,36 +2,34 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class <EKEditItemViewControllerDelegate>, EKDayView, EKEvent, NSDate, NSString;
-
 @interface EKDayPreviewController : UIViewController <EKDayViewDataSource, EKEditItemViewControllerProtocol> {
     NSDate *_date;
     EKDayView *_dayView;
     EKEvent *_event;
+    BOOL _hasOverriddenEventDates;
     NSDate *_originalEventEndDate;
     NSDate *_originalEventStartDate;
     NSDate *_overriddenEventEndDate;
     NSDate *_overriddenEventStartDate;
-    bool_hasOverriddenEventDates;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property <EKEditItemViewControllerDelegate> * editDelegate;
-@property bool editItemShouldBeAskedForInjectableViewController;
-@property(readonly) unsigned long long hash;
-@property bool presentModally;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) <EKEditItemViewControllerDelegate> *editDelegate;
+@property (nonatomic) BOOL editItemShouldBeAskedForInjectableViewController;
+@property (readonly) unsigned int hash;
+@property (nonatomic) BOOL presentModally;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)_eventsForStartDate:(id)arg1 endDate:(id)arg2;
 - (id)dayView:(id)arg1 eventsForStartDate:(id)arg2 endDate:(id)arg3;
 - (id)initWithDate:(id)arg1 event:(id)arg2 overriddenEventStartDate:(id)arg3 overriddenEventEndDate:(id)arg4;
 - (void)loadView;
-- (struct CGSize { double x1; double x2; })preferredContentSize;
-- (unsigned long long)supportedInterfaceOrientations;
+- (struct CGSize { float x1; float x2; })preferredContentSize;
+- (unsigned int)supportedInterfaceOrientations;
 - (void)viewDidLoad;
-- (void)viewWillAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

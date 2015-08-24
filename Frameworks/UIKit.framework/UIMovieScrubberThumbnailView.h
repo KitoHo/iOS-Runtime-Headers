@@ -3,10 +3,10 @@
  */
 
 @interface UIMovieScrubberThumbnailView : UIImageView {
-    unsigned int _hasPlaceholderImage : 1;
+    unsigned int _hasPlaceholderImage;
 }
 
-- (bool)hasPlaceholderImage;
-- (void)setHasPlaceholderImage:(bool)arg1;
+- (BOOL)hasPlaceholderImage;
+- (void)setHasPlaceholderImage:(BOOL)arg1;
 
 @end

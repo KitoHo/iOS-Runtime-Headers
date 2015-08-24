@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSTLayout, TSTLayoutSpace;
-
 @interface TSTLayoutSpaceBundle : NSObject {
     TSTLayoutSpace *mFrozenHeaderColumnsSpace;
     TSTLayoutSpace *mFrozenHeaderCornerSpace;
@@ -15,17 +13,20 @@
     TSTLayoutSpace *mSpace;
 }
 
-@property(retain) TSTLayoutSpace * frozenHeaderColumnsSpace;
-@property(retain) TSTLayoutSpace * frozenHeaderCornerSpace;
-@property(retain) TSTLayoutSpace * frozenHeaderRowsSpace;
-@property TSTLayout * layout;
-@property(retain) TSTLayoutSpace * repeatHeaderColumnsSpace;
-@property(retain) TSTLayoutSpace * repeatHeaderCornerSpace;
-@property(retain) TSTLayoutSpace * repeatHeaderRowsSpace;
-@property(retain) TSTLayoutSpace * space;
+@property (nonatomic, retain) TSTLayoutSpace *frozenHeaderColumnsSpace;
+@property (nonatomic, retain) TSTLayoutSpace *frozenHeaderCornerSpace;
+@property (nonatomic, retain) TSTLayoutSpace *frozenHeaderRowsSpace;
+@property (nonatomic) TSTLayout *layout;
+@property (nonatomic, retain) TSTLayoutSpace *repeatHeaderColumnsSpace;
+@property (nonatomic, retain) TSTLayoutSpace *repeatHeaderCornerSpace;
+@property (nonatomic, retain) TSTLayoutSpace *repeatHeaderRowsSpace;
+@property (nonatomic, retain) TSTLayoutSpace *space;
 
 - (void)dealloc;
 - (id)description;
+- (BOOL)enumerateFrozenLayoutSpacesUsingBlock:(id /* block */)arg1;
+- (void)enumerateLayoutSpacesUsingBlock:(id /* block */)arg1;
+- (BOOL)enumerateRepeatLayoutSpacesUsingBlock:(id /* block */)arg1;
 - (id)frozenHeaderColumnsSpace;
 - (id)frozenHeaderCornerSpace;
 - (id)frozenHeaderRowsSpace;
@@ -36,9 +37,6 @@
 - (void)invalidateCoordinatesAfterRow:(unsigned short)arg1;
 - (void)invalidateTableOffsets;
 - (id)layout;
-- (void)performActionOnEachLayoutSpace:(id)arg1;
-- (bool)performActionOnFrozenLayoutSpaces:(id)arg1;
-- (bool)performActionOnRepeatLayoutSpaces:(id)arg1;
 - (id)repeatHeaderColumnsSpace;
 - (id)repeatHeaderCornerSpace;
 - (id)repeatHeaderRowsSpace;

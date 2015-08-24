@@ -2,23 +2,20 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UITextPosition, UITextRangeImpl;
+@interface UITextRange : NSObject
 
-@interface UITextRange : NSObject {
-}
+@property (getter=isEmpty, nonatomic, readonly) BOOL empty;
+@property (nonatomic, readonly) UITextPosition *end;
+@property (getter=_isCaret, nonatomic, readonly) BOOL isCaret;
+@property (getter=_isImpl, nonatomic, readonly) UITextRangeImpl *isImpl;
+@property (getter=_isRanged, nonatomic, readonly) BOOL isRanged;
+@property (nonatomic, readonly) UITextPosition *start;
 
-@property(getter=isEmpty,readonly) bool empty;
-@property(readonly) UITextPosition * end;
-@property(getter=_isCaret,readonly) bool isCaret;
-@property(getter=_isImpl,readonly) UITextRangeImpl * isImpl;
-@property(getter=_isRanged,readonly) bool isRanged;
-@property(readonly) UITextPosition * start;
-
-- (bool)_isCaret;
+- (BOOL)_isCaret;
 - (id)_isImpl;
-- (bool)_isRanged;
+- (BOOL)_isRanged;
 - (id)end;
-- (bool)isEmpty;
+- (BOOL)isEmpty;
 - (id)start;
 
 @end

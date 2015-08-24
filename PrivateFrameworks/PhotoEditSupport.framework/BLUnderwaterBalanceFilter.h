@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/PhotoEditSupport.framework/PhotoEditSupport
  */
 
-@class CIFilter, CIImage, CIVector, NSNumber;
-
 @interface BLUnderwaterBalanceFilter : CIFilter {
     CIVector *_inputAverageLinearColor;
     NSNumber *_inputDepthStrength;
@@ -11,6 +9,7 @@
     NSNumber *_inputWaterBlend;
     float _lastDepthStrength;
     float _lastWaterBlend;
+    BOOL _needsReprocess;
     CIFilter *_underwaterAdditionFilter;
     CIFilter *_underwaterBalanceFilter;
     CIFilter *_underwaterColorMatrixIQFilter;
@@ -20,22 +19,21 @@
     CIFilter *_underwaterColorMatrixYIQ2RGBFilter;
     CIFilter *_underwaterGamma1Filter;
     CIFilter *_underwaterGamma2Filter;
-    bool_needsReprocess;
 }
 
-@property(copy) CIVector * inputAverageLinearColor;
-@property(copy) NSNumber * inputDepthStrength;
-@property(retain) CIImage * inputImage;
-@property(copy) NSNumber * inputWaterBlend;
-@property(retain) CIFilter * underwaterAdditionFilter;
-@property(retain) CIFilter * underwaterBalanceFilter;
-@property(retain) CIFilter * underwaterColorMatrixIQFilter;
-@property(retain) CIFilter * underwaterColorMatrixRGB2YIQFilter;
-@property(retain) CIFilter * underwaterColorMatrixScaleFilter;
-@property(retain) CIFilter * underwaterColorMatrixYFilter;
-@property(retain) CIFilter * underwaterColorMatrixYIQ2RGBFilter;
-@property(retain) CIFilter * underwaterGamma1Filter;
-@property(retain) CIFilter * underwaterGamma2Filter;
+@property (nonatomic, copy) CIVector *inputAverageLinearColor;
+@property (nonatomic, copy) NSNumber *inputDepthStrength;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, copy) NSNumber *inputWaterBlend;
+@property (nonatomic, retain) CIFilter *underwaterAdditionFilter;
+@property (nonatomic, retain) CIFilter *underwaterBalanceFilter;
+@property (nonatomic, retain) CIFilter *underwaterColorMatrixIQFilter;
+@property (nonatomic, retain) CIFilter *underwaterColorMatrixRGB2YIQFilter;
+@property (nonatomic, retain) CIFilter *underwaterColorMatrixScaleFilter;
+@property (nonatomic, retain) CIFilter *underwaterColorMatrixYFilter;
+@property (nonatomic, retain) CIFilter *underwaterColorMatrixYIQ2RGBFilter;
+@property (nonatomic, retain) CIFilter *underwaterGamma1Filter;
+@property (nonatomic, retain) CIFilter *underwaterGamma2Filter;
 
 - (void).cxx_destruct;
 - (id)init;

@@ -2,55 +2,53 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class NSString, PSSpecifier, PSTableCell, UIView<UIKeyInput>;
-
 @interface KeychainSyncTextEntryController : PSKeychainSyncViewController <KeychainSyncPasscodeFieldDelegate> {
+    BOOL _convertsNumeralsToASCII;
+    BOOL _hidesNextButton;
+    BOOL _secureTextEntry;
     PSTableCell *_textEntryCell;
     PSSpecifier *_textEntrySpecifier;
     int _textEntryType;
     UIView<UIKeyInput> *_textEntryView;
+    BOOL _textFieldHasRoundBorder;
     NSString *_textValue;
-    bool_convertsNumeralsToASCII;
-    bool_hidesNextButton;
-    bool_secureTextEntry;
-    bool_textFieldHasRoundBorder;
 }
 
-@property bool convertsNumeralsToASCII;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property bool hidesNextButton;
-@property bool secureTextEntry;
-@property(readonly) Class superclass;
-@property int textEntryType;
-@property bool textFieldHasRoundBorder;
-@property(retain) NSString * textValue;
+@property (nonatomic) BOOL convertsNumeralsToASCII;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) BOOL hidesNextButton;
+@property (nonatomic) BOOL secureTextEntry;
+@property (readonly) Class superclass;
+@property (nonatomic) int textEntryType;
+@property (nonatomic) BOOL textFieldHasRoundBorder;
+@property (nonatomic, retain) NSString *textValue;
 
-- (bool)becomeFirstResponder;
-- (bool)convertsNumeralsToASCII;
+- (BOOL)becomeFirstResponder;
+- (BOOL)convertsNumeralsToASCII;
 - (void)dealloc;
 - (void)didFinishEnteringText:(id)arg1;
 - (id)getTextValueForSpecifier:(id)arg1;
-- (bool)hidesNextButton;
+- (BOOL)hidesNextButton;
 - (id)init;
 - (void)loadView;
 - (void)nextPressed;
-- (unsigned long long)numberOfPasscodeFields;
+- (unsigned int)numberOfPasscodeFields;
 - (void)passcodeField:(id)arg1 didUpdateEnteredPasscode:(id)arg2;
 - (id)placeholderText;
-- (bool)secureTextEntry;
-- (void)setConvertsNumeralsToASCII:(bool)arg1;
-- (void)setHidesNextButton:(bool)arg1;
-- (void)setSecureTextEntry:(bool)arg1;
+- (BOOL)secureTextEntry;
+- (void)setConvertsNumeralsToASCII:(BOOL)arg1;
+- (void)setHidesNextButton:(BOOL)arg1;
+- (void)setSecureTextEntry:(BOOL)arg1;
 - (void)setTextEntryText:(id)arg1;
 - (void)setTextEntryType:(int)arg1;
-- (void)setTextFieldHasRoundBorder:(bool)arg1;
-- (void)setTextValue:(id)arg1 forSpecifier:(id)arg2;
+- (void)setTextFieldHasRoundBorder:(BOOL)arg1;
 - (void)setTextValue:(id)arg1;
+- (void)setTextValue:(id)arg1 forSpecifier:(id)arg2;
 - (id)specifiers;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)textEntryCell;
 - (Class)textEntryCellClass;
 - (id)textEntrySpecifier;
@@ -59,11 +57,11 @@
 - (id)textEntryView;
 - (void)textEntryViewDidChange:(id)arg1;
 - (void)textFieldChanged:(id)arg1;
-- (bool)textFieldHasRoundBorder;
+- (BOOL)textFieldHasRoundBorder;
 - (id)textValue;
 - (void)updateNextButton;
-- (void)viewDidDisappear:(bool)arg1;
-- (void)viewWillAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

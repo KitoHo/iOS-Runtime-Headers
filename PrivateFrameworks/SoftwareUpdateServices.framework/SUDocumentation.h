@@ -2,9 +2,7 @@
    Image: /System/Library/PrivateFrameworks/SoftwareUpdateServices.framework/SoftwareUpdateServices
  */
 
-@class NSMutableDictionary, NSString, NSURL;
-
-@interface SUDocumentation : NSObject <NSSecureCoding, NSCopying> {
+@interface SUDocumentation : NSObject <NSCopying, NSSecureCoding> {
     NSURL *_baseDocumentationURL;
     NSMutableDictionary *_cachedData;
     NSString *_humanReadableUpdateName;
@@ -17,17 +15,17 @@
     NSURL *_releaseNotesURL;
 }
 
-@property(retain) NSURL * baseDocumentationURL;
-@property(retain) NSString * humanReadableUpdateName;
-@property(retain) NSString * licenseAgreementFileName;
-@property(retain) NSURL * licenseAgreementURL;
-@property(retain) NSString * primaryLanguage;
-@property(retain) NSString * releaseNotesFileName;
-@property(retain) NSString * releaseNotesSummaryFileName;
-@property(retain) NSURL * releaseNotesSummaryURL;
-@property(retain) NSURL * releaseNotesURL;
+@property (nonatomic, retain) NSURL *baseDocumentationURL;
+@property (nonatomic, retain) NSString *humanReadableUpdateName;
+@property (nonatomic, retain) NSString *licenseAgreementFileName;
+@property (nonatomic, retain) NSURL *licenseAgreementURL;
+@property (nonatomic, retain) NSString *primaryLanguage;
+@property (nonatomic, retain) NSString *releaseNotesFileName;
+@property (nonatomic, retain) NSString *releaseNotesSummaryFileName;
+@property (nonatomic, retain) NSURL *releaseNotesSummaryURL;
+@property (nonatomic, retain) NSURL *releaseNotesURL;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)_cachedDocumentationDataForURL:(id)arg1;
 - (void)_clearTransientDocumentationData;
@@ -38,7 +36,7 @@
 - (void)dealloc;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (bool)hasAnyDocumentation;
+- (BOOL)hasAnyDocumentation;
 - (id)humanReadableUpdateName;
 - (id)init;
 - (id)initWithCoder:(id)arg1;

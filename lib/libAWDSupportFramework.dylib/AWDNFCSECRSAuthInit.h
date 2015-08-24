@@ -2,8 +2,6 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSData;
-
 @interface AWDNFCSECRSAuthInit : PBCodable <NSCopying> {
     struct { 
         unsigned int timeDeltaFromReference : 1; 
@@ -16,31 +14,31 @@
     NSData *_uuidReference;
 }
 
-@property bool hasStatus;
-@property bool hasTimeDeltaFromReference;
-@property bool hasTimestamp;
-@property(readonly) bool hasUuidReference;
-@property unsigned int status;
-@property unsigned long long timeDeltaFromReference;
-@property unsigned long long timestamp;
-@property(retain) NSData * uuidReference;
+@property (nonatomic) BOOL hasStatus;
+@property (nonatomic) BOOL hasTimeDeltaFromReference;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic, readonly) BOOL hasUuidReference;
+@property (nonatomic) unsigned int status;
+@property (nonatomic) unsigned long long timeDeltaFromReference;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic, retain) NSData *uuidReference;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasStatus;
-- (bool)hasTimeDeltaFromReference;
-- (bool)hasTimestamp;
-- (bool)hasUuidReference;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasStatus;
+- (BOOL)hasTimeDeltaFromReference;
+- (BOOL)hasTimestamp;
+- (BOOL)hasUuidReference;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
-- (void)setHasStatus:(bool)arg1;
-- (void)setHasTimeDeltaFromReference:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasStatus:(BOOL)arg1;
+- (void)setHasTimeDeltaFromReference:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
 - (void)setStatus:(unsigned int)arg1;
 - (void)setTimeDeltaFromReference:(unsigned long long)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;

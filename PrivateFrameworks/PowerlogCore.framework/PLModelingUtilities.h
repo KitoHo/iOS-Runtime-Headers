@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/PowerlogCore.framework/PowerlogCore
  */
 
-@interface PLModelingUtilities : NSObject {
-}
+@interface PLModelingUtilities : NSObject
 
-+ (bool)alsCurveHigherThanDefault;
++ (BOOL)alsCurveHigherThanDefault;
 + (double)defaultBatteryEnergyCapacity;
-+ (bool)internalBuild;
++ (BOOL)internalBuild;
 
 @end

@@ -2,26 +2,19 @@
    Image: /System/Library/PrivateFrameworks/VoiceServices.framework/VoiceServices
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSArray, NSString;
-
 @interface VSRecognitionRecognizeAction : VSRecognitionAction {
-    struct { 
-        unsigned int debugDumpEnabled : 1; 
-        unsigned int preferredEngine : 2; 
-        unsigned int resetEngine : 1; 
-        unsigned int bluetoothAllowed : 1; 
-        unsigned int hasStarted : 1; 
     NSString *_audioInputPath;
     NSString *_debugDumpPath;
     NSArray *_keywords;
     double _levelInterval;
     NSString *_modelIdentifier;
     void *_recognition;
+    struct { 
+        unsigned int debugDumpEnabled : 1; 
+        unsigned int preferredEngine : 2; 
+        unsigned int resetEngine : 1; 
+        unsigned int bluetoothAllowed : 1; 
+        unsigned int hasStarted : 1; 
     } _recognizeFlags;
     NSArray *_results;
 }
@@ -35,25 +28,25 @@
 - (void)_handleRecognitionPrepared:(struct __VSRecognition { }*)arg1;
 - (void)_handleRecognitionStarted:(struct __VSRecognition { }*)arg1;
 - (void)_handledThreadedResults:(id)arg1 nextAction:(id)arg2;
-- (bool)_hasDeferredStartCallback;
+- (BOOL)_hasDeferredStartCallback;
 - (float)_inputLevel;
 - (float)_inputLevelDB;
-- (bool)_isActivelyRecognizing;
-- (bool)_isRecognizing;
-- (id)_keywordAtIndex:(long long)arg1;
-- (long long)_keywordCount;
-- (bool)_keywordIndexChanged;
+- (BOOL)_isActivelyRecognizing;
+- (BOOL)_isRecognizing;
+- (id)_keywordAtIndex:(int)arg1;
+- (int)_keywordCount;
+- (BOOL)_keywordIndexChanged;
 - (id)_keywords;
 - (void)_releaseFromPrepare;
 - (void)_reset;
-- (bool)_setAudioInputPath:(id)arg1;
-- (bool)_setBluetoothInputAllowed:(bool)arg1;
-- (bool)_setDebugDumpEnabled:(bool)arg1 dumpPath:(id)arg2;
-- (bool)_setDebugDumpEnabled:(bool)arg1;
-- (bool)_setDebugDumpPath:(id)arg1;
-- (bool)_setEngineResetRequired:(bool)arg1;
-- (bool)_setInputLevelUpdateInterval:(double)arg1;
-- (bool)_setPreferredEngine:(int)arg1;
+- (BOOL)_setAudioInputPath:(id)arg1;
+- (BOOL)_setBluetoothInputAllowed:(BOOL)arg1;
+- (BOOL)_setDebugDumpEnabled:(BOOL)arg1;
+- (BOOL)_setDebugDumpEnabled:(BOOL)arg1 dumpPath:(id)arg2;
+- (BOOL)_setDebugDumpPath:(id)arg1;
+- (BOOL)_setEngineResetRequired:(BOOL)arg1;
+- (BOOL)_setInputLevelUpdateInterval:(double)arg1;
+- (BOOL)_setPreferredEngine:(int)arg1;
 - (void)_setResults:(id)arg1;
 - (id)cancel;
 - (int)completionType;

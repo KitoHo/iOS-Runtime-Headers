@@ -2,23 +2,21 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@class UIButton;
-
 @interface ABContactActionSplitCell : ABLabeledCell {
     UIButton *_leftLabel;
     UIButton *_rightLabel;
 }
 
-@property(readonly) UIButton * leftLabel;
-@property(readonly) UIButton * rightLabel;
+@property (nonatomic, readonly) UIButton *leftLabel;
+@property (nonatomic, readonly) UIButton *rightLabel;
 
 - (void)_setupButton:(id)arg1 forAction:(id)arg2;
 - (id)constantConstraints;
 - (void)dealloc;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (id)labelView;
 - (id)leftLabel;
-- (double)minCellHeight;
+- (float)minCellHeight;
 - (id)rightLabel;
 - (id)rightMostView;
 - (void)setCardGroupItem:(id)arg1;

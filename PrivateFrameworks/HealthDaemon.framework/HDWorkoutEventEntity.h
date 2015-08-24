@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
  */
 
-@interface HDWorkoutEventEntity : HDHealthEntity {
-}
+@interface HDWorkoutEventEntity : HDHealthEntity
 
 + (id)createTableSQL;
 + (id)databaseTable;
-+ (id)insertWorkoutEventWithWorkoutID:(id)arg1 date:(id)arg2 eventType:(long long)arg3 database:(id)arg4;
-+ (bool)insertWorkoutEventsFromWorkout:(id)arg1 entity:(id)arg2 database:(id)arg3;
-+ (void)load;
-+ (long long)protectionClass;
-+ (void)removeWorkoutEventsForWorkoutEntity:(id)arg1 database:(id)arg2;
++ (id)deleteStatementForWorkoutEventsWithDatabase:(id)arg1;
++ (id)insertWorkoutEventWithWorkoutID:(id)arg1 date:(id)arg2 eventType:(int)arg3 database:(id)arg4;
++ (BOOL)insertWorkoutEventsFromWorkout:(id)arg1 entity:(id)arg2 database:(id)arg3;
++ (int)protectionClass;
 + (id)workoutEventsWithWorkoutID:(id)arg1 database:(id)arg2;
 + (id)workoutEventsWithWorkoutID:(id)arg1 healthDatabase:(id)arg2 error:(id*)arg3;
 

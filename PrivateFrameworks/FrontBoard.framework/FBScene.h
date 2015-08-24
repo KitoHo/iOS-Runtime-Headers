@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/FrontBoard.framework/FrontBoard
  */
 
-@class <FBSceneBoundsDelegate>, <FBSceneClient>, <FBSceneClientProvider>, <FBSceneDelegate>, FBProcess, FBSDisplay, FBSMutableSceneSettings, FBSSceneClientSettings, FBSSceneSettings, FBWindowContextHostManager, FBWindowContextManager, NSString;
-
 @interface FBScene : NSObject <FBSceneHost> {
     <FBSceneBoundsDelegate> *_boundsDelegate;
     <FBSceneClient> *_client;
@@ -15,45 +13,45 @@
     <FBSceneDelegate> *_delegate;
     FBSDisplay *_display;
     NSString *_identifier;
+    BOOL _lockedForMutation;
     FBSMutableSceneSettings *_mutableSettings;
     FBSSceneSettings *_settings;
-    unsigned long long _transactionID;
-    bool_lockedForMutation;
-    bool_valid;
+    unsigned int _transactionID;
+    BOOL _valid;
 }
 
-@property(setter=_setBoundsDelegate:) <FBSceneBoundsDelegate> * _boundsDelegate;
-@property(setter=_setLockedForMutation:) bool _lockedForMutation;
-@property(readonly) unsigned long long _transactionID;
-@property(retain,readonly) <FBSceneClient> * client;
-@property(retain,readonly) FBProcess * clientProcess;
-@property(retain,readonly) <FBSceneClientProvider> * clientProvider;
-@property(retain,readonly) FBSSceneClientSettings * clientSettings;
-@property(retain,readonly) FBWindowContextHostManager * contextHostManager;
-@property(retain,readonly) FBWindowContextManager * contextManager;
-@property <FBSceneDelegate> * delegate;
-@property(retain,readonly) FBSDisplay * display;
-@property(copy,readonly) NSString * identifier;
-@property(retain,readonly) FBSMutableSceneSettings * mutableSettings;
-@property(retain,readonly) FBSSceneSettings * settings;
-@property(getter=isValid,readonly) bool valid;
+@property (setter=_setBoundsDelegate:, nonatomic) <FBSceneBoundsDelegate> *_boundsDelegate;
+@property (setter=_setLockedForMutation:, nonatomic) BOOL _lockedForMutation;
+@property (nonatomic, readonly) unsigned int _transactionID;
+@property (nonatomic, readonly, retain) <FBSceneClient> *client;
+@property (nonatomic, readonly, retain) FBProcess *clientProcess;
+@property (nonatomic, readonly, retain) <FBSceneClientProvider> *clientProvider;
+@property (nonatomic, readonly, retain) FBSSceneClientSettings *clientSettings;
+@property (nonatomic, readonly, retain) FBWindowContextHostManager *contextHostManager;
+@property (nonatomic, readonly, retain) FBWindowContextManager *contextManager;
+@property (nonatomic) <FBSceneDelegate> *delegate;
+@property (nonatomic, readonly, retain) FBSDisplay *display;
+@property (nonatomic, readonly, copy) NSString *identifier;
+@property (nonatomic, readonly, retain) FBSMutableSceneSettings *mutableSettings;
+@property (nonatomic, readonly, retain) FBSSceneSettings *settings;
+@property (getter=isValid, nonatomic, readonly) BOOL valid;
 
-- (void)_applyMutableSettings:(id)arg1 withTransitionContext:(id)arg2 completion:(id)arg3;
+- (void)_applyMutableSettings:(id)arg1 withTransitionContext:(id)arg2 completion:(id /* block */)arg3;
 - (id)_boundsDelegate;
 - (id)_descriptionWithMultilinePrefix:(id)arg1;
-- (void)_handleSceneClientMessage:(id)arg1 withBlock:(id)arg2;
-- (unsigned long long)_incrementTransactionID;
+- (void)_handleSceneClientMessage:(id)arg1 withBlock:(id /* block */)arg2;
+- (unsigned int)_incrementTransactionID;
 - (void)_invalidateWithTransitionContext:(id)arg1;
-- (bool)_lockedForMutation;
+- (BOOL)_lockedForMutation;
 - (void)_setBoundsDelegate:(id)arg1;
-- (void)_setLockedForMutation:(bool)arg1;
-- (unsigned long long)_transactionID;
+- (void)_setLockedForMutation:(BOOL)arg1;
+- (unsigned int)_transactionID;
+- (id)client;
 - (void)client:(id)arg1 attachContext:(id)arg2;
 - (void)client:(id)arg1 detachContext:(id)arg2;
 - (void)client:(id)arg1 didReceiveActions:(id)arg2;
 - (void)client:(id)arg1 didUpdateClientSettings:(id)arg2 withDiff:(id)arg3 transitionContext:(id)arg4;
 - (void)client:(id)arg1 updateContext:(id)arg2;
-- (id)client;
 - (id)clientProcess;
 - (id)clientProvider;
 - (id)clientSettings;
@@ -66,12 +64,12 @@
 - (id)display;
 - (id)identifier;
 - (id)initWithIdentifier:(id)arg1 display:(id)arg2 initialClientSettings:(id)arg3 clientProvider:(id)arg4;
-- (bool)isValid;
+- (BOOL)isValid;
 - (id)mutableSettings;
 - (void)sendActions:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (id)settings;
 - (void)updateSettings:(id)arg1 withTransitionContext:(id)arg2;
-- (void)updateSettingsWithBlock:(id)arg1;
+- (void)updateSettingsWithBlock:(id /* block */)arg1;
 
 @end

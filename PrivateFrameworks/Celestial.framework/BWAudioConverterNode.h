@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class NSDictionary;
-
 @interface BWAudioConverterNode : BWNode {
     struct OpaqueFigSampleBufferProcessor { } *_audioCompressionSBP;
     NSDictionary *_settings;
 }
 
-@property(readonly) NSDictionary * gaplessPlaybackInfo;
+@property (nonatomic, readonly) NSDictionary *gaplessPlaybackInfo;
 
 + (void)initialize;
 
 - (void)_handleUpdatedRecordingSettings:(id)arg1;
-- (int)_setupAudioCompressionSBPForInputFormat:(id)arg1;
+- (long)_setupAudioCompressionSBPForInputFormat:(id)arg1;
 - (void)_teardownAudioCompressionSBP;
 - (void)acquireHardware;
 - (void)configurationWithID:(long long)arg1 updatedFormat:(id)arg2 didBecomeLiveForInput:(id)arg3;

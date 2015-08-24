@@ -2,10 +2,9 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface _UILegibilityImageView : UIImageView {
-}
+@interface _UILegibilityImageView : UIImageView
 
-- (bool)_shouldAnimatePropertyWithKey:(id)arg1;
+- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
 - (void)setImage:(id)arg1;
 
 @end

@@ -2,27 +2,29 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSArray, NSString;
-
-@interface TSPPasteboard : NSObject {
+@interface TSPPasteboard : NSObject <TSPDecoder> {
     id _pasteboard;
 }
 
-@property(readonly) NSArray * URLs;
-@property(readonly) long long changeCount;
-@property(readonly) bool isSmartCopy;
-@property(readonly) NSString * name;
-@property(readonly) long long numberOfItems;
-@property(readonly) NSArray * richTextStrings;
-@property(copy) NSString * string;
-@property(readonly) NSArray * strings;
+@property (nonatomic, readonly) NSArray *URLs;
+@property (nonatomic, readonly) int changeCount;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) BOOL isSmartCopy;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) int numberOfItems;
+@property (nonatomic, readonly) NSArray *richTextStrings;
+@property (nonatomic, copy) NSString *string;
+@property (nonatomic, readonly) NSArray *strings;
+@property (readonly) Class superclass;
 
 + (id)activePasteboardForName:(id)arg1;
 + (id)activePasteboards;
 + (id)activePasteboardsQueue;
 + (id)generalPasteboard;
 + (Class)pasteboardClass;
-+ (id)pasteboardWithName:(id)arg1 create:(bool)arg2;
++ (id)pasteboardWithName:(id)arg1 create:(BOOL)arg2;
 + (id)pasteboardWithPasteboard:(id)arg1;
 + (id)pasteboardWithUniqueName;
 + (id)stylePasteboard;
@@ -30,34 +32,37 @@
 - (void).cxx_destruct;
 - (id)URLs;
 - (void)addData:(id)arg1 forPasteboardType:(id)arg2;
-- (void)addItems:(id)arg1 isSmartCopy:(bool)arg2;
 - (void)addItems:(id)arg1;
-- (long long)changeCount;
-- (long long)clearContents;
-- (bool)containsAnyPasteboardTypeInArray:(id)arg1;
-- (bool)containsImportableRichTextTypes;
-- (bool)containsImportableTextTypes;
-- (bool)containsNativePasteboardTypes;
-- (bool)containsPasteboardTypes:(id)arg1;
-- (id)dataForPasteboardType:(id)arg1 inItemSet:(id)arg2;
+- (void)addItems:(id)arg1 isSmartCopy:(BOOL)arg2;
+- (int)changeCount;
+- (int)clearContents;
+- (BOOL)containsAnyPasteboardTypeInArray:(id)arg1;
+- (BOOL)containsImportableRichTextTypes;
+- (BOOL)containsImportableTextTypes;
+- (BOOL)containsNativePasteboardTypes;
+- (BOOL)containsPasteboardTypes:(id)arg1;
 - (id)dataForPasteboardType:(id)arg1;
+- (id)dataForPasteboardType:(id)arg1 inItemSet:(id)arg2;
 - (id)description;
-- (bool)fromExcelDataSource;
-- (bool)fromIWorkSageDataSource;
+- (BOOL)fromExcelDataSource;
+- (BOOL)fromIWorkSageDataSource;
 - (id)importableImageTypes;
 - (id)importablePlainTextTypes;
 - (id)importableRichTextTypes;
 - (id)initWithGeneralPasteboard;
 - (id)initWithNativePasteboard:(id)arg1;
-- (id)initWithPasteboardName:(id)arg1 create:(bool)arg2;
+- (id)initWithPasteboardName:(id)arg1 create:(BOOL)arg2;
 - (id)initWithUniquePasteboardName;
 - (oneway void)invalidate;
-- (bool)isSmartCopy;
+- (BOOL)isSmartCopy;
 - (id)name;
-- (long long)numberOfItems;
+- (id)newReadChannelForDataWithIdentifier:(long long)arg1 info:(id)arg2;
+- (id)newReadChannelForMetadata;
+- (id)newReadChannelForRootObjectComponent;
+- (int)numberOfItems;
 - (id)pasteboardTypes;
 - (id)pasteboardTypesForItemSet:(id)arg1;
-- (void)performAsynchronousWriteUsingBlock:(id)arg1;
+- (void)performAsynchronousWriteUsingBlock:(id /* block */)arg1;
 - (id)richTextStrings;
 - (void)setString:(id)arg1;
 - (id)string;

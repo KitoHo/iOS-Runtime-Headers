@@ -2,31 +2,23 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSManagedObjectContext, NSManagedObjectID, NSString;
-
-@interface PLTransientOrderKey : NSObject <PLOrderKeyObject> {
+@interface PLTransientOrderKey : NSObject {
     NSManagedObjectContext *_moc;
     NSManagedObjectID *_objectID;
     long long _orderValue;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) NSManagedObjectContext * moc;
-@property(retain) NSManagedObjectID * objectID;
-@property long long orderValue;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) NSManagedObjectContext *moc;
+@property (nonatomic, retain) NSManagedObjectID *objectID;
+@property (nonatomic) long long orderValue;
 
 - (id)childManagedObject;
 - (void)dealloc;
 - (id)description;
-- (bool)isSpecial;
 - (id)moc;
 - (id)objectID;
 - (long long)orderValue;
 - (id)secondaryOrderSortKey;
-- (void)setIsSpecial:(bool)arg1;
 - (void)setMoc:(id)arg1;
 - (void)setObjectID:(id)arg1;
 - (void)setOrderValue:(long long)arg1;

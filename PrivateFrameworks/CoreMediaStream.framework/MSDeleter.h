@@ -2,9 +2,7 @@
    Image: /System/Library/PrivateFrameworks/CoreMediaStream.framework/CoreMediaStream
  */
 
-@class <MSDeleterDelegate>, MSDeleteStreamsProtocol, MSMediaStreamDaemon, MSObjectQueue, NSMutableArray, NSString;
-
-@interface MSDeleter : MSCupidStateMachine <MSDeleter, MSDeleteStreamsProtocolDelegate> {
+@interface MSDeleter : MSCupidStateMachine <MSDeleteStreamsProtocolDelegate, MSDeleter> {
     int _batchSize;
     MSMediaStreamDaemon *_daemon;
     <MSDeleterDelegate> *_delegate;
@@ -15,13 +13,13 @@
     int _state;
 }
 
-@property int batchSize;
-@property MSMediaStreamDaemon * daemon;
-@property(copy,readonly) NSString * debugDescription;
-@property <MSDeleterDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (nonatomic) int batchSize;
+@property (nonatomic) MSMediaStreamDaemon *daemon;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <MSDeleterDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)_clearInstantiatedDeletersByPersonID;
 + (void)_setMasterNextActivityDate:(id)arg1 forPersonID:(id)arg2;
@@ -29,7 +27,7 @@
 + (id)deleterForPersonID:(id)arg1;
 + (id)existingDeleterForPersonID:(id)arg1;
 + (void)forgetPersonID:(id)arg1;
-+ (bool)isInRetryState;
++ (BOOL)isInRetryState;
 + (id)nextActivityDate;
 + (id)nextActivityDateForPersonID:(id)arg1;
 + (id)personIDsWithOutstandingActivities;
@@ -39,8 +37,8 @@
 - (void)_abort;
 - (id)_abortedError;
 - (void)_forget;
-- (bool)_isAllowedToDelete;
-- (bool)_isInRetryState;
+- (BOOL)_isAllowedToDelete;
+- (BOOL)_isInRetryState;
 - (void)_sendDeleteRequest;
 - (void)_stop;
 - (void)_updateMasterManifest;

@@ -2,38 +2,36 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@class NSDate, NSString;
-
 @interface EKReminderPredicate : EKPredicate {
+    BOOL _completed;
     NSDate *_dueAfter;
     NSDate *_dueBefore;
+    BOOL _limitToCompletedOrIncomplete;
     NSString *_listTitle;
-    unsigned long long _maxResults;
+    unsigned int _maxResults;
     NSString *_searchTerm;
     int _sortOrder;
     NSString *_title;
-    bool_completed;
-    bool_limitToCompletedOrIncomplete;
-    bool_useCompletionDateAsAlternate;
-    bool_useDueDateAsCompletionDate;
+    BOOL _useCompletionDateAsAlternate;
+    BOOL _useDueDateAsCompletionDate;
 }
 
-@property bool completed;
-@property(retain) NSDate * dueAfter;
-@property(retain) NSDate * dueBefore;
-@property bool limitToCompletedOrIncomplete;
-@property(retain) NSString * listTitle;
-@property unsigned long long maxResults;
-@property(retain) NSString * searchTerm;
-@property int sortOrder;
-@property(retain) NSString * title;
-@property bool useCompletionDateAsAlternate;
-@property bool useDueDateAsCompletionDate;
+@property (nonatomic) BOOL completed;
+@property (nonatomic, retain) NSDate *dueAfter;
+@property (nonatomic, retain) NSDate *dueBefore;
+@property (nonatomic) BOOL limitToCompletedOrIncomplete;
+@property (nonatomic, retain) NSString *listTitle;
+@property (nonatomic) unsigned int maxResults;
+@property (nonatomic, retain) NSString *searchTerm;
+@property (nonatomic) int sortOrder;
+@property (nonatomic, retain) NSString *title;
+@property (nonatomic) BOOL useCompletionDateAsAlternate;
+@property (nonatomic) BOOL useDueDateAsCompletionDate;
 
 + (id)predicateWithCalendars:(id)arg1;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
-- (bool)completed;
+- (BOOL)completed;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)dueAfter;
@@ -41,25 +39,25 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCalendars:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)limitToCompletedOrIncomplete;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)limitToCompletedOrIncomplete;
 - (id)listTitle;
-- (unsigned long long)maxResults;
+- (unsigned int)maxResults;
 - (id)searchTerm;
-- (void)setCompleted:(bool)arg1;
+- (void)setCompleted:(BOOL)arg1;
 - (void)setDueAfter:(id)arg1;
 - (void)setDueBefore:(id)arg1;
-- (void)setLimitToCompletedOrIncomplete:(bool)arg1;
+- (void)setLimitToCompletedOrIncomplete:(BOOL)arg1;
 - (void)setListTitle:(id)arg1;
-- (void)setMaxResults:(unsigned long long)arg1;
+- (void)setMaxResults:(unsigned int)arg1;
 - (void)setSearchTerm:(id)arg1;
 - (void)setSortOrder:(int)arg1;
 - (void)setTitle:(id)arg1;
-- (void)setUseCompletionDateAsAlternate:(bool)arg1;
-- (void)setUseDueDateAsCompletionDate:(bool)arg1;
+- (void)setUseCompletionDateAsAlternate:(BOOL)arg1;
+- (void)setUseDueDateAsCompletionDate:(BOOL)arg1;
 - (int)sortOrder;
 - (id)title;
-- (bool)useCompletionDateAsAlternate;
-- (bool)useDueDateAsCompletionDate;
+- (BOOL)useCompletionDateAsAlternate;
+- (BOOL)useDueDateAsCompletionDate;
 
 @end

@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString;
-
 @interface TSCH3DFBOResource : TSCH3DResource {
     NSString *mName;
 }
 
-@property(retain) NSString * name;
+@property (nonatomic, retain) NSString *name;
 
 - (void)dealloc;
 - (id)description;
 - (id)get;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)name;
 - (void)setName:(id)arg1;
 

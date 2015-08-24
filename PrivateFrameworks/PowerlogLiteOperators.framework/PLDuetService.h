@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/PowerlogLiteOperators.framework/PowerlogLiteOperators
  */
 
-@class CDDClientConnection, NSMutableDictionary, PLNSTimerOperatorComposition, PLQLDuetQuery, PLXPCListenerOperatorComposition, PLXPCResponderOperatorComposition;
-
 @interface PLDuetService : PLService {
     CDDClientConnection *_clouddocClientConnection;
     PLQLDuetQuery *_coreDuetAccountingQuery;
@@ -18,17 +16,17 @@
     PLXPCResponderOperatorComposition *_xpcResponderDuetEnergyQuery;
 }
 
-@property(readonly) CDDClientConnection * clouddocClientConnection;
-@property(retain) PLQLDuetQuery * coreDuetAccountingQuery;
-@property(retain) PLQLDuetQuery * duetAccountingQuery;
-@property(retain) NSMutableDictionary * duetBudgetKeys;
-@property(retain) NSMutableDictionary * duetEventsCache;
-@property(readonly) CDDClientConnection * gCddClientConnection;
+@property (readonly) CDDClientConnection *clouddocClientConnection;
+@property (retain) PLQLDuetQuery *coreDuetAccountingQuery;
+@property (retain) PLQLDuetQuery *duetAccountingQuery;
+@property (retain) NSMutableDictionary *duetBudgetKeys;
+@property (retain) NSMutableDictionary *duetEventsCache;
+@property (readonly) CDDClientConnection *gCddClientConnection;
 @property int leafCount;
-@property(retain) PLNSTimerOperatorComposition * queryDuetBudgetTimer;
-@property(retain) PLNSTimerOperatorComposition * runQueryTimer;
-@property(retain) PLXPCListenerOperatorComposition * xpcListenerDuetEvent;
-@property(retain) PLXPCResponderOperatorComposition * xpcResponderDuetEnergyQuery;
+@property (retain) PLNSTimerOperatorComposition *queryDuetBudgetTimer;
+@property (retain) PLNSTimerOperatorComposition *runQueryTimer;
+@property (retain) PLXPCListenerOperatorComposition *xpcListenerDuetEvent;
+@property (retain) PLXPCResponderOperatorComposition *xpcResponderDuetEnergyQuery;
 
 + (id)accountingGroupDefinitions;
 + (id)aggregateNameCoreDuetEventEnergyBreakdown;
@@ -72,7 +70,7 @@
 - (void)flushInMemoryStartStopEvents:(id)arg1 withDict:(id)arg2;
 - (id)gCddClientConnection;
 - (id)getBundleIDsFromContainerID:(unsigned long long)arg1 clientID:(unsigned long long)arg2;
-- (id)getDuetForecast:(unsigned long long)arg1 clientID:(unsigned long long)arg2 forHistoryWindow:(id)arg3 forecastType:(long long)arg4 maximumElements:(unsigned long long)arg5 error:(id*)arg6;
+- (id)getDuetForecast:(unsigned long long)arg1 clientID:(unsigned long long)arg2 forHistoryWindow:(id)arg3 forecastType:(int)arg4 maximumElements:(unsigned long long)arg5 error:(id*)arg6;
 - (id)getMatchingCoreDuetEvent:(id)arg1 inTable:(id)arg2;
 - (void)handleDuetAccountingTimer:(id)arg1;
 - (id)init;

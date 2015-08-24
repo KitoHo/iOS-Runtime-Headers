@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/PowerlogLiteOperators.framework/PowerlogLiteOperators
  */
 
-@class NSDate, PLEntryNotificationOperatorComposition, PLNSNotificationOperatorComposition;
-
 @interface PLProcessMonitorAgent : PLAgent {
     PLNSNotificationOperatorComposition *_asertionNotifications;
     PLEntryNotificationOperatorComposition *_batteryLevelChanged;
     NSDate *_currentCachedDate;
     double _currentCachedTotalCPUTime;
+    BOOL _firstBoot;
     NSDate *_previousCacheDate;
-    bool_firstBoot;
 }
 
-@property(retain) PLNSNotificationOperatorComposition * asertionNotifications;
-@property(retain) PLEntryNotificationOperatorComposition * batteryLevelChanged;
-@property(retain) NSDate * currentCachedDate;
+@property (retain) PLNSNotificationOperatorComposition *asertionNotifications;
+@property (retain) PLEntryNotificationOperatorComposition *batteryLevelChanged;
+@property (retain) NSDate *currentCachedDate;
 @property double currentCachedTotalCPUTime;
-@property bool firstBoot;
-@property(retain) NSDate * previousCacheDate;
+@property BOOL firstBoot;
+@property (retain) NSDate *previousCacheDate;
 
 + (id)accountingGroupDefinitions;
 + (id)defaults;
@@ -38,11 +36,11 @@
 - (id)currentCachedDate;
 - (double)currentCachedTotalCPUTime;
 - (id)eventForwardProcessIDForPID:(int)arg1;
-- (bool)firstBoot;
+- (BOOL)firstBoot;
 - (id)init;
 - (void)initOperatorDependancies;
-- (bool)isCachedForProcessID:(int)arg1 andName:(id)arg2;
-- (bool)isCachedForProcessID:(int)arg1;
+- (BOOL)isCachedForProcessID:(int)arg1;
+- (BOOL)isCachedForProcessID:(int)arg1 andName:(id)arg2;
 - (void)log;
 - (void)logEventBackwardProcessMonitor;
 - (void)logEventBackwardProcessMonitorUsingCache;
@@ -54,7 +52,7 @@
 - (void)setBatteryLevelChanged:(id)arg1;
 - (void)setCurrentCachedDate:(id)arg1;
 - (void)setCurrentCachedTotalCPUTime:(double)arg1;
-- (void)setFirstBoot:(bool)arg1;
+- (void)setFirstBoot:(BOOL)arg1;
 - (void)setPreviousCacheDate:(id)arg1;
 - (id)trimmingConditionsForRolloverAtDate:(id)arg1;
 - (void)updateProcessMonitorCache;

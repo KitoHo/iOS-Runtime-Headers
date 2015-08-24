@@ -2,28 +2,26 @@
    Image: /System/Library/PrivateFrameworks/IMDaemonCore.framework/IMDaemonCore
  */
 
-@class IDSAccount, NSArray, NSString;
-
 @interface IMDAppleServiceSession : IMDServiceSession {
     NSString *_GUID;
     NSString *_serviceName;
 }
 
-@property(retain,readonly) NSString * GUID;
-@property(retain,readonly) NSArray * aliases;
-@property(retain,readonly) NSString * callerID;
-@property(retain,readonly) NSString * callerURI;
-@property(retain,readonly) IDSAccount * idsAccount;
-@property(readonly) NSArray * registeredURIs;
-@property(readonly) NSString * serviceType;
-@property(retain,readonly) NSArray * vettedAliases;
+@property (nonatomic, readonly, retain) NSString *GUID;
+@property (nonatomic, readonly, retain) NSArray *aliases;
+@property (nonatomic, readonly, retain) NSString *callerID;
+@property (nonatomic, readonly, retain) NSString *callerURI;
+@property (nonatomic, readonly, retain) IDSAccount *idsAccount;
+@property (nonatomic, readonly) NSArray *registeredURIs;
+@property (nonatomic, readonly) NSString *serviceType;
+@property (nonatomic, readonly, retain) NSArray *vettedAliases;
 
 - (id)GUID;
 - (id)_aliasStrings;
 - (id)_aliases;
-- (bool)_isDeviceRegistered;
-- (void)_updateAccountStatusToUnregistered:(bool)arg1;
-- (long long)_validationStatusForAlias:(id)arg1;
+- (BOOL)_isDeviceRegistered;
+- (void)_updateAccountStatusToUnregistered:(BOOL)arg1;
+- (int)_validationStatusForAlias:(id)arg1;
 - (void)activeDevicesUpdated;
 - (void)addAliases:(id)arg1;
 - (id)aliases;
@@ -53,7 +51,7 @@
 - (void)updateAuthorizationCredentials:(id)arg1 token:(id)arg2;
 - (void)validateAliases:(id)arg1;
 - (void)validateProfile;
-- (long long)validationStatusForAlias:(id)arg1;
+- (int)validationStatusForAlias:(id)arg1;
 - (id)vettedAliases;
 
 @end

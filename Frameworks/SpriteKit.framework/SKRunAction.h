@@ -2,15 +2,13 @@
    Image: /System/Library/Frameworks/SpriteKit.framework/SpriteKit
  */
 
-@class NSString, SKAction;
-
 @interface SKRunAction : SKAction {
     SKAction *_action;
     NSString *_actionKey;
+    BOOL _fired;
+    BOOL _runOnSubSprite;
     NSString *_subSpriteKey;
-    bool_fired;
-    bool_runOnSubSprite;
-    bool_waitForKeyedAction;
+    BOOL _waitForKeyedAction;
 }
 
 + (id)runAction:(id)arg1 afterActionWithKey:(id)arg2;

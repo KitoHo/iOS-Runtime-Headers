@@ -2,19 +2,18 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface UIVirtualResizeAction : BSAction {
-}
+@interface UIVirtualResizeAction : BSAction
 
-@property(readonly) long long virtualHorizontalSizeClass;
-@property(readonly) struct CGSize { double x1; double x2; } virtualSize;
-@property(readonly) long long virtualVerticalSizeClass;
+@property (nonatomic, readonly) int virtualHorizontalSizeClass;
+@property (nonatomic, readonly) struct CGSize { float x1; float x2; } virtualSize;
+@property (nonatomic, readonly) int virtualVerticalSizeClass;
 
-- (long long)UIActionType;
-- (id)initWithInfo:(id)arg1 timeout:(double)arg2 forResponseOnQueue:(id)arg3 withHandler:(id)arg4;
-- (id)initWithVirtualSize:(struct CGSize { double x1; double x2; })arg1 virtualHorizontalSizeClass:(long long)arg2 virtualVerticalSizeClass:(long long)arg3;
-- (id)keyDescriptionForSetting:(unsigned long long)arg1;
-- (long long)virtualHorizontalSizeClass;
-- (struct CGSize { double x1; double x2; })virtualSize;
-- (long long)virtualVerticalSizeClass;
+- (int)UIActionType;
+- (id)initWithInfo:(id)arg1 timeout:(double)arg2 forResponseOnQueue:(id)arg3 withHandler:(id /* block */)arg4;
+- (id)initWithVirtualSize:(struct CGSize { float x1; float x2; })arg1 virtualHorizontalSizeClass:(int)arg2 virtualVerticalSizeClass:(int)arg3;
+- (id)keyDescriptionForSetting:(unsigned int)arg1;
+- (int)virtualHorizontalSizeClass;
+- (struct CGSize { float x1; float x2; })virtualSize;
+- (int)virtualVerticalSizeClass;
 
 @end

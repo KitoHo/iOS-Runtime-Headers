@@ -2,16 +2,14 @@
    Image: /System/Library/Frameworks/AVKit.framework/AVKit
  */
 
-@class AVPlayerController;
-
 @interface AVRemoteCommandController : NSObject {
     AVPlayerController *_playerController;
 }
 
-@property(retain) AVPlayerController * playerController;
+@property (nonatomic, retain) AVPlayerController *playerController;
 
 - (void).cxx_destruct;
-- (long long)_handleRemoteCommandEvent:(id)arg1;
+- (int)_handleRemoteCommandEvent:(id)arg1;
 - (void)_updateRegisteredRemoteCommandEnabledStates;
 - (void)dealloc;
 - (id)init;

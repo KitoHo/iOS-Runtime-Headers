@@ -2,8 +2,6 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDWiProxLeScanStartResult : PBCodable <NSCopying> {
     struct { 
         unsigned int timestamp : 1; 
@@ -17,37 +15,37 @@
     int _type;
 }
 
-@property bool hasResult;
-@property(readonly) bool hasResultString;
-@property(readonly) bool hasSessionId;
-@property bool hasTimestamp;
-@property bool hasType;
-@property unsigned int result;
-@property(retain) NSString * resultString;
-@property(retain) NSString * sessionId;
-@property unsigned long long timestamp;
-@property int type;
+@property (nonatomic) BOOL hasResult;
+@property (nonatomic, readonly) BOOL hasResultString;
+@property (nonatomic, readonly) BOOL hasSessionId;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) BOOL hasType;
+@property (nonatomic) unsigned int result;
+@property (nonatomic, retain) NSString *resultString;
+@property (nonatomic, retain) NSString *sessionId;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) int type;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasResult;
-- (bool)hasResultString;
-- (bool)hasSessionId;
-- (bool)hasTimestamp;
-- (bool)hasType;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasResult;
+- (BOOL)hasResultString;
+- (BOOL)hasSessionId;
+- (BOOL)hasTimestamp;
+- (BOOL)hasType;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (unsigned int)result;
 - (id)resultString;
 - (id)sessionId;
-- (void)setHasResult:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
-- (void)setHasType:(bool)arg1;
+- (void)setHasResult:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasType:(BOOL)arg1;
 - (void)setResult:(unsigned int)arg1;
 - (void)setResultString:(id)arg1;
 - (void)setSessionId:(id)arg1;

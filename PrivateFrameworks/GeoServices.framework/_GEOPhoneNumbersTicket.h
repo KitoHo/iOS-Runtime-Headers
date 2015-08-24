@@ -2,34 +2,32 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOMapRegion, GEOMapServiceTraits, NSArray, NSString;
-
 @interface _GEOPhoneNumbersTicket : NSObject <GEOMapServiceTicket> {
+    BOOL _allowCellularDataForLookup;
+    BOOL _canceled;
     NSArray *_phoneNumbers;
     GEOMapServiceTraits *_traits;
-    bool_allowCellularDataForLookup;
-    bool_canceled;
 }
 
-@property(getter=isCanceled,readonly) bool canceled;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) GEOMapRegion * resultBoundingRegion;
-@property(readonly) Class superclass;
-@property(readonly) GEOMapServiceTraits * traits;
+@property (getter=isCanceled, nonatomic, readonly) BOOL canceled;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) GEOMapRegion *resultBoundingRegion;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) GEOMapServiceTraits *traits;
 
 - (void)applyToCorrectedSearch:(id)arg1;
 - (void)cancel;
 - (void)dealloc;
 - (id)description;
-- (id)initWithPhoneNumbers:(id)arg1 allowCellularDataForLookup:(bool)arg2 traits:(id)arg3;
-- (bool)isCanceled;
+- (id)initWithPhoneNumbers:(id)arg1 allowCellularDataForLookup:(BOOL)arg2 traits:(id)arg3;
+- (BOOL)isCanceled;
 - (id)resultBoundingRegion;
-- (void)submitWithHandler:(id)arg1 networkActivity:(id)arg2;
-- (void)submitWithHandler:(id)arg1 timeout:(long long)arg2 networkActivity:(id)arg3;
-- (void)submitWithRefinedHandler:(id)arg1 networkActivity:(id)arg2;
-- (void)submitWithRefinedHandler:(id)arg1 timeout:(long long)arg2 networkActivity:(id)arg3;
+- (void)submitWithHandler:(id /* block */)arg1 networkActivity:(id /* block */)arg2;
+- (void)submitWithHandler:(id /* block */)arg1 timeout:(int)arg2 networkActivity:(id /* block */)arg3;
+- (void)submitWithRefinedHandler:(id /* block */)arg1 networkActivity:(id /* block */)arg2;
+- (void)submitWithRefinedHandler:(id /* block */)arg1 timeout:(int)arg2 networkActivity:(id /* block */)arg3;
 - (id)traits;
 
 @end

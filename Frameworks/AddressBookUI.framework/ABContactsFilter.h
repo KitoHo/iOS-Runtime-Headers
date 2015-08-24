@@ -2,27 +2,25 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@class NSArray, NSString;
-
 @interface ABContactsFilter : NSObject {
     void *_addressBook;
     void *_directorySource;
     NSArray *_groups;
+    BOOL _showsAllContacts;
     NSArray *_sources;
-    bool_showsAllContacts;
 }
 
-@property(readonly) void* addressBook;
-@property(readonly) void* directorySource;
-@property(getter=isEditable,readonly) bool editable;
-@property(readonly) void* groupForNewRecords;
-@property(readonly) NSArray * groups;
-@property(readonly) bool isDirectory;
-@property(readonly) NSString * name;
-@property(readonly) bool shouldChangeModelSelectionWhenDisplayed;
-@property(readonly) bool showsAllContacts;
-@property(readonly) void* sourceForNewRecords;
-@property(readonly) NSArray * sources;
+@property (nonatomic, readonly) void*addressBook;
+@property (nonatomic, readonly) void*directorySource;
+@property (getter=isEditable, nonatomic, readonly) BOOL editable;
+@property (nonatomic, readonly) void*groupForNewRecords;
+@property (nonatomic, readonly) NSArray *groups;
+@property (nonatomic, readonly) BOOL isDirectory;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) BOOL shouldChangeModelSelectionWhenDisplayed;
+@property (nonatomic, readonly) BOOL showsAllContacts;
+@property (nonatomic, readonly) void*sourceForNewRecords;
+@property (nonatomic, readonly) NSArray *sources;
 
 + (id)_newContactsFilterFromGroupWrapperRepresentation:(id)arg1 withAddressBook:(void*)arg2;
 + (id)newContactsFilterFromDictionaryRepresentation:(id)arg1 withAddressBook:(void*)arg2;
@@ -37,17 +35,17 @@
 - (void*)directorySource;
 - (void*)groupForNewRecords;
 - (id)groups;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithAddressBook:(void*)arg1;
 - (id)initWithDirectorySource:(void*)arg1 addressBook:(void*)arg2;
 - (id)initWithGroups:(id)arg1 sources:(id)arg2 addressBook:(void*)arg3;
 - (void)invalidateSourcesForAllContacts;
-- (bool)isDirectory;
-- (bool)isEditable;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isDirectory;
+- (BOOL)isEditable;
+- (BOOL)isEqual:(id)arg1;
 - (id)name;
-- (bool)shouldChangeModelSelectionWhenDisplayed;
-- (bool)showsAllContacts;
+- (BOOL)shouldChangeModelSelectionWhenDisplayed;
+- (BOOL)showsAllContacts;
 - (id)sortedGroupsForGroups:(id)arg1;
 - (id)sortedSourcesForSources:(id)arg1;
 - (void*)sourceForNewRecords;

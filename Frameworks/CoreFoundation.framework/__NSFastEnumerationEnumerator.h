@@ -2,11 +2,9 @@
    Image: /System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
  */
 
-@class <NSFastEnumeration>;
-
 @interface __NSFastEnumerationEnumerator : NSEnumerator {
-    unsigned long long _count;
-    unsigned long long _mut;
+    unsigned int _count;
+    unsigned int _mut;
     <NSFastEnumeration> *_obj;
     id _origObj;
 }

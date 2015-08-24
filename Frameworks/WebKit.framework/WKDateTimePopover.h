@@ -2,12 +2,10 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-@class WKContentView;
-
 @interface WKDateTimePopover : WKFormRotatingAccessoryPopover <WKFormControl> {
+    WKContentView *_view;
     struct RetainPtr<WKDateTimePopoverViewController> { 
         void *m_ptr; 
-    WKContentView *_view;
     } _viewController;
 }
 
@@ -17,7 +15,7 @@
 - (void)controlBeginEditing;
 - (void)controlEndEditing;
 - (id)controlView;
-- (id)initWithView:(id)arg1 datePickerMode:(long long)arg2;
+- (id)initWithView:(id)arg1 datePickerMode:(int)arg2;
 - (id)viewController;
 
 @end

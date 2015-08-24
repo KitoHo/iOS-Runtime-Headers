@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/AppleAccountUI.framework/AppleAccountUI
  */
 
-@interface AAUIBleachedNavigationController : UINavigationController {
-}
+@interface AAUIBleachedNavigationController : UINavigationController
 
-- (bool)shouldAutorotate;
+- (BOOL)shouldAutorotate;
 - (void)viewDidLoad;
 
 @end

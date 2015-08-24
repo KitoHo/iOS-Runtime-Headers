@@ -2,14 +2,12 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class _NSAttributeRun;
-
 @interface _UITextUndoOperationSetAttributes : NSUndoTextOperation {
     _NSAttributeRun *_attributes;
 }
 
 - (void)dealloc;
-- (id)initWithAffectedRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1 inputController:(id)arg2;
+- (id)initWithAffectedRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1 inputController:(id)arg2;
 - (void)undoRedo;
 
 @end

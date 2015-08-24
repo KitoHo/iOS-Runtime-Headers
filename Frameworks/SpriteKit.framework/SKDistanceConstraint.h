@@ -2,24 +2,22 @@
    Image: /System/Library/Frameworks/SpriteKit.framework/SpriteKit
  */
 
-@class SKNode, SKRange;
-
 @interface SKDistanceConstraint : SKConstraint {
-    struct CGPoint { 
-        double x; 
-        double y; 
     SKRange *_distanceRange;
     SKNode *_node;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _point;
 }
 
-@property(copy) SKRange * distanceRange;
-@property SKNode * node;
-@property struct CGPoint { double x1; double x2; } point;
+@property (copy) SKRange *distanceRange;
+@property SKNode *node;
+@property struct CGPoint { float x1; float x2; } point;
 
 + (id)constraintWithNode:(id)arg1 distanceRange:(id)arg2;
-+ (id)constraintWithPoint:(struct CGPoint { double x1; double x2; })arg1 distanceRange:(id)arg2;
-+ (id)constraintWithPoint:(struct CGPoint { double x1; double x2; })arg1 inNode:(id)arg2 distanceRange:(id)arg3;
++ (id)constraintWithPoint:(struct CGPoint { float x1; float x2; })arg1 distanceRange:(id)arg2;
++ (id)constraintWithPoint:(struct CGPoint { float x1; float x2; })arg1 inNode:(id)arg2 distanceRange:(id)arg3;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
@@ -27,11 +25,11 @@
 - (id)distanceRange;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithPoint:(struct CGPoint { double x1; double x2; })arg1 inNode:(id)arg2 distanceRange:(id)arg3;
+- (id)initWithPoint:(struct CGPoint { float x1; float x2; })arg1 inNode:(id)arg2 distanceRange:(id)arg3;
 - (id)node;
-- (struct CGPoint { double x1; double x2; })point;
+- (struct CGPoint { float x1; float x2; })point;
 - (void)setDistanceRange:(id)arg1;
 - (void)setNode:(id)arg1;
-- (void)setPoint:(struct CGPoint { double x1; double x2; })arg1;
+- (void)setPoint:(struct CGPoint { float x1; float x2; })arg1;
 
 @end

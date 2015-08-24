@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class EDPhoneticInfo, EDRunsCollection, NSString;
-
-@interface EDString : NSObject <NSCopying, EDImmutableObject> {
-    boolmDoNotModify;
+@interface EDString : NSObject <EDImmutableObject, NSCopying> {
+    bool mDoNotModify;
     EDPhoneticInfo *mPhoneticInfo;
     EDRunsCollection *mRuns;
     NSString *mString;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-+ (id)edStringWithString:(id)arg1 runs:(id)arg2;
 + (id)edStringWithString:(id)arg1;
++ (id)edStringWithString:(id)arg1 runs:(id)arg2;
 + (id)string;
 
 - (void)appendString:(id)arg1;
@@ -25,14 +23,14 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)firstRunFont;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
-- (id)initWithString:(id)arg1 runs:(id)arg2;
 - (id)initWithString:(id)arg1;
+- (id)initWithString:(id)arg1 runs:(id)arg2;
 - (bool)isEmpty;
-- (bool)isEqual:(id)arg1;
-- (bool)isEqualToEDString:(id)arg1;
-- (bool)isEqualToString:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToEDString:(id)arg1;
+- (BOOL)isEqualToString:(id)arg1;
 - (id)phoneticInfo;
 - (void)prependString:(id)arg1;
 - (id)runs;

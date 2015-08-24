@@ -2,22 +2,16 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSString, SKUIClientContext;
-
 @interface SKUIRedeemOperation : NSOperation {
+    BOOL _cameraRecognized;
     SKUIClientContext *_clientContext;
     NSString *_code;
-    id _resultBlock;
-    bool_cameraRecognized;
+    id /* block */ _resultBlock;
 }
 
-@property bool cameraRecognized;
-@property(retain) SKUIClientContext * clientContext;
-@property(copy) id resultBlock;
+@property (nonatomic) BOOL cameraRecognized;
+@property (nonatomic, retain) SKUIClientContext *clientContext;
+@property (copy) id /* block */ resultBlock;
 
 - (void).cxx_destruct;
 - (void)_applyThankYouDictionary:(id)arg1 toRedeem:(id)arg2;
@@ -25,13 +19,13 @@
 - (id)_performRequestWithProperties:(id)arg1 error:(id*)arg2;
 - (id)_redeemForSuccessDictionary:(id)arg1;
 - (id)_requestPropertiesForThankYouWithURL:(id)arg1;
-- (bool)cameraRecognized;
+- (BOOL)cameraRecognized;
 - (id)clientContext;
 - (id)initWithCode:(id)arg1;
 - (void)main;
-- (id)resultBlock;
-- (void)setCameraRecognized:(bool)arg1;
+- (id /* block */)resultBlock;
+- (void)setCameraRecognized:(BOOL)arg1;
 - (void)setClientContext:(id)arg1;
-- (void)setResultBlock:(id)arg1;
+- (void)setResultBlock:(id /* block */)arg1;
 
 @end

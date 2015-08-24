@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/MediaPlayerUI.framework/MediaPlayerUI
  */
 
-@class UIActivityIndicatorView, UILabel;
-
 @interface MPUExtrasActivityIndicator : UIView {
     UIActivityIndicatorView *_spinner;
     UILabel *_titleLabel;
@@ -11,7 +9,7 @@
 
 - (void).cxx_destruct;
 - (id)initWithElement:(id)arg1;
-- (struct CGSize { double x1; double x2; })intrinsicContentSize;
-- (void)setAlpha:(double)arg1;
+- (struct CGSize { float x1; float x2; })intrinsicContentSize;
+- (void)setAlpha:(float)arg1;
 
 @end

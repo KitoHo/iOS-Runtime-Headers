@@ -2,26 +2,23 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSUColor;
+@interface TSDMutableCurvedShadow : TSDCurvedShadow
 
-@interface TSDMutableCurvedShadow : TSDCurvedShadow {
-}
+@property (nonatomic, copy) TSUColor *TSUColor;
+@property (nonatomic) float angle;
+@property (nonatomic) struct CGColor { }*color;
+@property (nonatomic) float curve;
+@property (getter=isEnabled, nonatomic) BOOL enabled;
+@property (nonatomic) float offset;
+@property (nonatomic) float opacity;
+@property (nonatomic) float radius;
 
-@property TSUColor * TSUColor;
-@property double angle;
-@property struct CGColor { }* color;
-@property double curve;
-@property(getter=isEnabled) bool enabled;
-@property double offset;
-@property double opacity;
-@property long long radius;
-
-- (void)setAngle:(double)arg1;
+- (void)setAngle:(float)arg1;
 - (void)setColor:(struct CGColor { }*)arg1;
-- (void)setCurve:(double)arg1;
-- (void)setOffset:(double)arg1;
-- (void)setOpacity:(double)arg1;
-- (void)setRadius:(long long)arg1;
+- (void)setCurve:(float)arg1;
+- (void)setOffset:(float)arg1;
+- (void)setOpacity:(float)arg1;
+- (void)setRadius:(float)arg1;
 - (void)setTSUColor:(id)arg1;
 
 @end

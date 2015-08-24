@@ -2,18 +2,16 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UITouch;
-
 @interface UITouchData : NSObject {
-    struct CGPoint { 
-        double x; 
-        double y; 
-    booltouchIsValidTap;
-    unsigned long long lastTapCount;
+    unsigned int lastTapCount;
     UITouch *lastTouch;
     double lastTouchDownTimestamp;
     double lastTouchUpTimestamp;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } startTouchDownLocation;
+    BOOL touchIsValidTap;
 }
 
 @end

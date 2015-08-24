@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/Accounts.framework/Accounts
  */
 
-@interface ACDispatchCerberus : NSObject {
-}
+@interface ACDispatchCerberus : NSObject
 
-+ (void)waitOnSemaphore:(id)arg1 withTimeout:(unsigned long long)arg2;
++ (void)waitOnSemaphore:(id)arg1 withTimeout:(unsigned int)arg2;
 
 @end

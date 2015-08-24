@@ -2,96 +2,90 @@
    Image: /System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class AXAccessQueue, NSLock, NSMutableArray, NSString;
-
 @interface AXIPCClient : NSObject {
     unsigned int _assignedServerMachPort;
     NSString *_clientIdentifier;
     struct __CFRunLoopSource { } *_clientSource;
-    unsigned long long _connectionAttempts;
+    BOOL _connected;
+    unsigned int _connectionAttempts;
     AXAccessQueue *_connectionQueue;
     int _pid;
     AXAccessQueue *_portDeathAccessQueue;
-    id _portDeathHandler;
+    id /* block */ _portDeathHandler;
     NSMutableArray *_postConnectionTasks;
     struct __CFMachPort { } *_serverPort;
     NSLock *_serverPortLock;
     NSString *_serviceName;
     float _timeout;
-    bool_connected;
-    bool_usesPerPidLookup;
-    boolshouldRegisterCallbackSourceOnMainRunloop;
+    BOOL _usesPerPidLookup;
     unsigned int clientCallbackPort;
     struct __CFRunLoopSource { } *clientCallbackSource;
+    BOOL shouldRegisterCallbackSourceOnMainRunloop;
 }
 
-@property(readonly) unsigned int clientCallbackPort;
-@property(readonly) struct __CFRunLoopSource { }* clientCallbackSource;
-@property(copy) NSString * clientIdentifier;
-@property(getter=isConnected) bool connected;
-@property(retain) AXAccessQueue * connectionQueue;
-@property int pid;
-@property(retain) AXAccessQueue * portDeathAccessQueue;
-@property(copy) id portDeathHandler;
-@property(retain) NSMutableArray * postConnectionTasks;
-@property struct __CFMachPort { }* serverPort;
-@property(readonly) unsigned int serviceMachPort;
-@property(copy) NSString * serviceName;
-@property bool shouldRegisterCallbackSourceOnMainRunloop;
-@property float timeout;
-@property bool usesPerPidLookup;
+@property (nonatomic, readonly) unsigned int clientCallbackPort;
+@property (nonatomic, readonly) struct __CFRunLoopSource { }*clientCallbackSource;
+@property (nonatomic, copy) NSString *clientIdentifier;
+@property (getter=isConnected, nonatomic) BOOL connected;
+@property (nonatomic, retain) AXAccessQueue *connectionQueue;
+@property (nonatomic) int pid;
+@property (nonatomic, retain) AXAccessQueue *portDeathAccessQueue;
+@property (nonatomic, copy) id /* block */ portDeathHandler;
+@property (nonatomic, retain) NSMutableArray *postConnectionTasks;
+@property (nonatomic) struct __CFMachPort { }*serverPort;
+@property (nonatomic, readonly) unsigned int serviceMachPort;
+@property (nonatomic, copy) NSString *serviceName;
+@property (nonatomic) BOOL shouldRegisterCallbackSourceOnMainRunloop;
+@property (nonatomic) float timeout;
+@property (nonatomic) BOOL usesPerPidLookup;
 
 + (id)allClients;
 + (void)initialize;
 
 - (void)_attemptToEstablishConnection;
 - (void)_commonInit;
-- (bool)_handleErrorWithMessage:(id)arg1 outError:(id*)arg2;
+- (BOOL)_handleErrorWithMessage:(id)arg1 outError:(id*)arg2;
 - (void)_registerWithServer;
 - (void)_serverDied;
-- (bool)_verifyConnectionWithError:(id*)arg1;
+- (BOOL)_verifyConnectionWithError:(id*)arg1;
 - (unsigned int)clientCallbackPort;
 - (struct __CFRunLoopSource { }*)clientCallbackSource;
 - (id)clientIdentifier;
-- (bool)connectWithError:(id*)arg1;
+- (BOOL)connectWithError:(id*)arg1;
 - (id)connectionQueue;
 - (void)dealloc;
 - (id)description;
-- (bool)disconnectWithError:(id*)arg1;
-- (void)establishConnectionWithTimeout:(double)arg1 completion:(id)arg2;
+- (BOOL)disconnectWithError:(id*)arg1;
+- (void)establishConnectionWithTimeout:(double)arg1 completion:(id /* block */)arg2;
 - (id)initWithPort:(unsigned int)arg1;
 - (id)initWithServiceName:(id)arg1;
-- (bool)isConnected;
+- (BOOL)isConnected;
 - (int)pid;
 - (id)portDeathAccessQueue;
-- (id)portDeathHandler;
+- (id /* block */)portDeathHandler;
 - (id)postConnectionTasks;
 - (id)sendMessage:(id)arg1 withError:(id*)arg2;
-- (bool)sendSimpleMessage:(id)arg1 synchronizationPort:(unsigned int)arg2 error:(id*)arg3;
-- (bool)sendSimpleMessage:(id)arg1 withError:(id*)arg2;
 - (void)sendSimpleMessage:(id)arg1;
+- (BOOL)sendSimpleMessage:(id)arg1 synchronizationPort:(unsigned int)arg2 error:(id*)arg3;
+- (BOOL)sendSimpleMessage:(id)arg1 withError:(id*)arg2;
 - (struct __CFMachPort { }*)serverPort;
 - (unsigned int)serviceMachPort;
 - (id)serviceName;
 - (void)setClientIdentifier:(id)arg1;
-- (void)setConnected:(bool)arg1;
+- (void)setConnected:(BOOL)arg1;
 - (void)setConnectionQueue:(id)arg1;
 - (void)setPid:(int)arg1;
 - (void)setPortDeathAccessQueue:(id)arg1;
-- (void)setPortDeathHandler:(id)arg1;
+- (void)setPortDeathHandler:(id /* block */)arg1;
 - (void)setPostConnectionTasks:(id)arg1;
 - (void)setServerPort:(struct __CFMachPort { }*)arg1;
 - (void)setServiceName:(id)arg1;
-- (void)setShouldRegisterCallbackSourceOnMainRunloop:(bool)arg1;
+- (void)setShouldRegisterCallbackSourceOnMainRunloop:(BOOL)arg1;
 - (void)setTimeout:(float)arg1;
-- (void)setUsesPerPidLookup:(bool)arg1;
-- (bool)shouldRegisterCallbackSourceOnMainRunloop;
+- (void)setUsesPerPidLookup:(BOOL)arg1;
+- (BOOL)shouldRegisterCallbackSourceOnMainRunloop;
 - (float)timeout;
-- (bool)usesPerPidLookup;
-- (bool)verifyConnectionExists;
+- (BOOL)usesPerPidLookup;
+- (BOOL)verifyConnectionExists;
 
 @end

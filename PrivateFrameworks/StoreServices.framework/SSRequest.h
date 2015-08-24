@@ -2,42 +2,43 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class <SSRequestDelegate>, NSObject<OS_dispatch_queue>, NSString, SSXPCConnection;
-
 @interface SSRequest : NSObject <SSXPCCoding> {
-    long long _backgroundTaskIdentifier;
+    NSObject<OS_dispatch_source> *_backgroundTaskExpirationTimer;
+    int _backgroundTaskIdentifier;
+    BOOL _cancelAfterTaskExpiration;
     <SSRequestDelegate> *_delegate;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     SSXPCConnection *_requestConnection;
     SSXPCConnection *_responseConnection;
-    bool_cancelAfterTaskExpiration;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <SSRequestDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property bool shouldCancelAfterTaskExpiration;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <SSRequestDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) BOOL shouldCancelAfterTaskExpiration;
+@property (readonly) Class superclass;
 
 - (void)__beginBackgroundTask;
 - (void)__endBackgroundTask;
-- (bool)__shouldUseBackgroundTaskAssertions;
+- (BOOL)__shouldUseBackgroundTaskAssertions;
 - (void)_beginBackgroundTask;
+- (void)_cancelBackgroundTaskExpirationTimer;
 - (void)_endBackgroundTask;
+- (void)_expireBackgroundTask;
 - (id)_initSSRequest;
 - (void)_shutdownRequest;
 - (void)_shutdownRequestWithMessageID:(long long)arg1;
-- (void)_startWithMessageID:(long long)arg1 messageBlock:(id)arg2;
+- (void)_startWithMessageID:(long long)arg1 messageBlock:(id /* block */)arg2;
 - (void)cancel;
 - (void)dealloc;
 - (id)delegate;
 - (void)disconnect;
 - (id)init;
 - (void)setDelegate:(id)arg1;
-- (void)setShouldCancelAfterTaskExpiration:(bool)arg1;
-- (bool)shouldCancelAfterTaskExpiration;
-- (bool)start;
-- (void)startWithCompletionBlock:(id)arg1;
+- (void)setShouldCancelAfterTaskExpiration:(BOOL)arg1;
+- (BOOL)shouldCancelAfterTaskExpiration;
+- (BOOL)start;
+- (void)startWithCompletionBlock:(id /* block */)arg1;
 
 @end

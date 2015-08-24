@@ -2,33 +2,27 @@
    Image: /System/Library/PrivateFrameworks/AppLaunchStats.framework/AppLaunchStats
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class AppLaunchStatsSaveAndRestore, NSDate, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>;
-
 @interface AppLaunchStatsStatistics : NSObject <DuetLoggerProtocol, DuetSaveAndRestore> {
     NSMutableDictionary *appStatistics;
-    boolbypass;
+    BOOL bypass;
     NSMutableArray *lastForegroundApps;
     NSMutableArray *lastPredictedApps;
     NSDate *lastTriggeredDate;
     short lastTriggeredSlot;
     unsigned long long records;
     AppLaunchStatsSaveAndRestore *saveAndRestoreContext;
-    id scoreCallback;
+    id /* block */ scoreCallback;
     NSObject<OS_dispatch_queue> *statsQueue;
 }
 
 - (void).cxx_destruct;
-- (bool)admit:(id)arg1;
+- (BOOL)admit:(id)arg1;
 - (void)broughtToForeground:(id)arg1;
 - (id)copyStatisticsToDictionary;
-- (id)init:(id)arg1;
+- (id)init:(id /* block */)arg1;
 - (void)logAll:(struct __asl_object_s { }*)arg1 withMsg:(struct __asl_object_s { }*)arg2 withLevel:(int)arg3;
 - (void)logLight:(struct __asl_object_s { }*)arg1 withMsg:(struct __asl_object_s { }*)arg2 withLevel:(int)arg3;
-- (bool)pullPredicted:(unsigned short)arg1;
+- (BOOL)pullPredicted:(unsigned short)arg1;
 - (void)restore:(id)arg1;
 - (void)save:(id)arg1;
 - (void)saveContext:(id)arg1;

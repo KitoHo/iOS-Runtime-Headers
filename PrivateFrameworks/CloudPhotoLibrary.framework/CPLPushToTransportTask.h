@@ -2,28 +2,30 @@
    Image: /System/Library/PrivateFrameworks/CloudPhotoLibrary.framework/CloudPhotoLibrary
  */
 
-@class <CPLEngineTransportUploadBatchTask>, <CPLPushToTransportTaskDelegate>, CPLChangeBatch, NSArray, NSObject<OS_dispatch_queue>, NSString;
-
 @interface CPLPushToTransportTask : CPLEngineSyncTask {
     NSString *_clientCacheIdentifier;
-    unsigned long long _countOfPushedBatches;
-    unsigned long long _lastReportedProgress;
+    unsigned int _countOfPushedBatches;
+    CPLEngineChangePipe *_currentPushQueue;
+    unsigned int _lastReportedProgress;
     NSObject<OS_dispatch_queue> *_lock;
     NSArray *_resourcesForBackgroundUpload;
     NSArray *_staleOrUnavailableResources;
+    double _startOfIteration;
     CPLChangeBatch *_uploadBatch;
     NSArray *_uploadResourceTasks;
     <CPLEngineTransportUploadBatchTask> *_uploadTask;
 }
 
-@property(retain) <CPLPushToTransportTaskDelegate> * delegate;
+@property (retain) <CPLPushToTransportTaskDelegate> *delegate;
 
 - (void).cxx_destruct;
-- (bool)_discardResourcesToUploadFromBatch:(id)arg1 error:(id*)arg2;
+- (void)_detectUpdatesForFullRecordsWithNoChangeDataInBatch:(id)arg1;
+- (BOOL)_discardResourcesToUploadFromBatch:(id)arg1 error:(id*)arg2;
 - (void)_doOneIteration;
-- (bool)_markUploadedTasksDidFinishWithError:(id)arg1 error:(id*)arg2;
+- (BOOL)_markUploadedTasksDidFinishWithError:(id)arg1 error:(id*)arg2;
 - (void)_popNextBatchAndContinue;
-- (bool)_prepareResourcesToUploadInBatch:(id)arg1 error:(id*)arg2;
+- (BOOL)_prepareResourcesToUploadInBatch:(id)arg1 error:(id*)arg2;
+- (void)_prepareUploadBatchWithTransaction:(id)arg1 andStore:(id)arg2;
 - (void)_pushTaskDidFinishWithError:(id)arg1;
 - (void)cancel;
 - (id)initWithEngineLibrary:(id)arg1;

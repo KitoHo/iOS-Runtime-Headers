@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class CLLocation, NSDate, NSNumber, NSObject<NSCopying>, NSString, PLMomentCluster;
-
 @interface PLMomentNode : NSObject {
     PLMomentCluster *__cluster;
     NSDate *__creationDate;
     CLLocation *__location;
     NSObject<NSCopying> *__objectID;
     NSString *__userTag;
-    unsigned long long __userTagType;
+    unsigned int __userTagType;
     NSNumber *_cacheInsertionIndex;
-    bool_marked;
-    bool_visited;
+    BOOL _marked;
+    BOOL _visited;
 }
 
-@property(retain) NSNumber * cacheInsertionIndex;
-@property PLMomentCluster * cluster;
-@property(readonly) struct { double x1; double x2; } coordinate;
-@property(retain,readonly) NSDate * creationDate;
-@property(readonly) CLLocation * location;
-@property(getter=isMarked) bool marked;
-@property(retain,readonly) NSObject<NSCopying> * objectID;
-@property(readonly) NSString * userTag;
-@property(readonly) unsigned long long userTagType;
-@property(getter=isVisited) bool visited;
+@property (nonatomic, retain) NSNumber *cacheInsertionIndex;
+@property (nonatomic) PLMomentCluster *cluster;
+@property (nonatomic, readonly) struct { double x1; double x2; } coordinate;
+@property (nonatomic, readonly, retain) NSDate *creationDate;
+@property (nonatomic, readonly) CLLocation *location;
+@property (getter=isMarked, nonatomic) BOOL marked;
+@property (nonatomic, readonly, retain) NSObject<NSCopying> *objectID;
+@property (nonatomic, readonly) NSString *userTag;
+@property (nonatomic, readonly) unsigned int userTagType;
+@property (getter=isVisited, nonatomic) BOOL visited;
 
 - (id)cacheInsertionIndex;
 - (id)cluster;
@@ -35,16 +33,16 @@
 - (id)description;
 - (id)initWithManagedAsset:(id)arg1;
 - (id)initWithPartialFetchDictionary:(id)arg1;
-- (bool)isMarked;
-- (bool)isTagged;
-- (bool)isVisited;
+- (BOOL)isMarked;
+- (BOOL)isTagged;
+- (BOOL)isVisited;
 - (id)location;
 - (id)objectID;
 - (void)setCacheInsertionIndex:(id)arg1;
 - (void)setCluster:(id)arg1;
-- (void)setMarked:(bool)arg1;
-- (void)setVisited:(bool)arg1;
+- (void)setMarked:(BOOL)arg1;
+- (void)setVisited:(BOOL)arg1;
 - (id)userTag;
-- (unsigned long long)userTagType;
+- (unsigned int)userTagType;
 
 @end

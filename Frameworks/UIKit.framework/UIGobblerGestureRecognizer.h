@@ -2,14 +2,12 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIView;
-
 @interface UIGobblerGestureRecognizer : UIGestureRecognizer {
     UIView *_excludedView;
 }
 
-- (bool)canBePreventedByGestureRecognizer:(id)arg1;
-- (bool)canPreventGestureRecognizer:(id)arg1;
+- (BOOL)canBePreventedByGestureRecognizer:(id)arg1;
+- (BOOL)canPreventGestureRecognizer:(id)arg1;
 - (void)dealloc;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2 excludedView:(id)arg3;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;

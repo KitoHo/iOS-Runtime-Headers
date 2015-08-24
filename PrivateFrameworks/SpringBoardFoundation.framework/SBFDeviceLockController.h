@@ -2,28 +2,31 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardFoundation.framework/SpringBoardFoundation
  */
 
-@class NSString, PCPersistentTimer, SBFPasscodeLockAssertionManager, SBFPasscodeLockDisableAssertion;
-
 @interface SBFDeviceLockController : NSObject {
     SBFPasscodeLockAssertionManager *_assertionManager;
+    BOOL _cachedPasscodeLockedOrBlocked;
     double _deviceLockUnblockTime;
     PCPersistentTimer *_deviceLockUnblockTimer;
+    BOOL _hasBeenUnlockedOnceSinceBoot;
+    BOOL _isBlockedForThermalCondition;
+    BOOL _isPermanentlyBlocked;
     NSString *_lastIncorrectPasscodeAttempt;
     double _lastLockDate;
+    BOOL _lastPasscodeLockStateWasLocked;
     int _lockState;
+    BOOL _okToSendNotifications;
+    NSDictionary *_originalDefaultsForRollback;
+    NSObject<OS_dispatch_queue> *_persistentStateQueue;
     struct __CFRunLoopObserver { } *_runLoopObserver;
+    BOOL _shouldFetchPasscodeLockState;
+    BOOL _speculativePasscodeFailureChargeOutstanding;
     SBFPasscodeLockDisableAssertion *_transientPasscodeCheckingAssertion;
-    bool_cachedPasscodeLockedOrBlocked;
-    bool_hasBeenUnlockedOnceSinceBoot;
-    bool_isBlockedForThermalCondition;
-    bool_isPermanentlyBlocked;
-    bool_lastPasscodeLockStateWasLocked;
-    bool_okToSendNotifications;
-    bool_shouldFetchPasscodeLockState;
 }
 
++ (id)_copyLockControllerDefaults;
 + (id)_journalPath;
 + (id)_journaledDefaultsAndTypes;
++ (void)_loadLockControllerDefaults:(id)arg1;
 + (void)_loadLockControllerDefaultsJournalIfNecessary;
 + (id)_lockStateDefaults;
 + (void)_updateLockControllerDefaultsJournal;
@@ -32,41 +35,47 @@
 - (void)_cachePassword:(id)arg1;
 - (void)_clearBlockedState;
 - (void)_clearUnblockTimer;
-- (void)_enablePasscodeLockImmediately:(bool)arg1;
+- (void)_commitSpeculativeFailureCharge;
+- (void)_enablePasscodeLockImmediately:(BOOL)arg1;
+- (void)_evaluatePendingWipe;
 - (void)_keybagLockStateChangedTo:(int)arg1;
 - (void)_lockStateChangedFrom:(int)arg1 to:(int)arg2;
 - (void)_noteBlockedReasonsMayHaveChanged;
-- (void)_notePasscodeLockedOrBlockedStateMayHaveChanged:(bool)arg1;
+- (void)_notePasscodeLockedOrBlockedStateMayHaveChanged:(BOOL)arg1;
 - (void)_notifyOfFirstUnlock;
+- (void)_persistentStateQueue_beginSpeculativeFailureCharge;
+- (void)_persistentStateQueue_cancelSpeculativeFailureCharge;
 - (void)_removeDeviceLockDisableAssertion:(id)arg1;
 - (void)_scheduleUnblockTimer;
 - (void)_sendBlockStateChangeNotification;
 - (void)_setDeviceLockUnblockTime:(double)arg1;
 - (void)_setLockState:(int)arg1;
 - (void)_setupRunLoopObserverIfNecessary;
-- (bool)_shouldLockDeviceNow;
-- (bool)_shouldSuppressLockOnInit;
-- (bool)_temporarilyBlocked;
+- (BOOL)_shouldLockDeviceNow;
+- (BOOL)_shouldSuppressLockOnInit;
+- (BOOL)_temporarilyBlocked;
 - (void)_unblockTimerFired;
 - (void)_uncachePasscodeIfNecessary;
 - (void)_updateDeviceLockedState;
 - (void)_wipeDevice;
-- (bool)attemptDeviceUnlockWithPassword:(id)arg1 appRequested:(bool)arg2;
+- (BOOL)attemptDeviceUnlockWithPassword:(id)arg1 appRequested:(BOOL)arg2;
 - (void)dealloc;
 - (id)description;
-- (bool)deviceHasBeenPasscodeUnlockedOnceSinceBoot;
-- (bool)deviceHasPasscodeSet;
+- (BOOL)deviceHasBeenPasscodeUnlockedOnceSinceBoot;
+- (BOOL)deviceHasPasscodeSet;
 - (void)enablePasscodeLockImmediately;
 - (id)init;
-- (bool)isBlocked;
-- (bool)isBlockedForThermalCondition;
-- (bool)isPasscodeLocked;
-- (bool)isPasscodeLockedCached;
-- (bool)isPasscodeLockedOrBlocked;
-- (bool)isPermanentlyBlocked:(double*)arg1;
+- (BOOL)isBlocked;
+- (BOOL)isBlockedForThermalCondition;
+- (BOOL)isPasscodeLocked;
+- (BOOL)isPasscodeLockedCached;
+- (BOOL)isPasscodeLockedOrBlocked;
+- (BOOL)isPermanentlyBlocked:(double*)arg1;
 - (id)lastLockDate;
-- (void)setBlockedForThermalCondition:(bool)arg1;
+- (void)notePasscodeEntryBegan;
+- (void)notePasscodeEntryCancelled;
+- (void)setBlockedForThermalCondition:(BOOL)arg1;
 - (void)synchronize;
-- (void)updateLockControllerDefaultsWithBlock:(id)arg1 journaled:(bool)arg2;
+- (id)updateLockControllerDefaultsWithBlock:(id /* block */)arg1 journaled:(BOOL)arg2;
 
 @end

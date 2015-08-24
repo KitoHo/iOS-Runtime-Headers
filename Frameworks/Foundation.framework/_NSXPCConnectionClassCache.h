@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSMutableSet;
-
 @interface _NSXPCConnectionClassCache : NSObject {
     NSMutableSet *_cache;
     int _lock;
@@ -11,7 +9,7 @@
 
 - (void)addClass:(Class)arg1;
 - (void)clear;
-- (bool)containsClass:(Class)arg1;
+- (BOOL)containsClass:(Class)arg1;
 - (void)dealloc;
 - (id)init;
 

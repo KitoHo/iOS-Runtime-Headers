@@ -2,16 +2,14 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class NSArray;
-
 @interface MPMediaItemArray : NSObject <NSSecureCoding> {
     Class _itemArrayCoderPIDDataCodingClass;
     NSArray *_items;
 }
 
-@property(retain,readonly) NSArray * items;
+@property (nonatomic, readonly, retain) NSArray *items;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

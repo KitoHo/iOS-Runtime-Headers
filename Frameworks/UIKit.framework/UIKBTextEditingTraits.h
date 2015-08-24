@@ -3,48 +3,48 @@
  */
 
 @interface UIKBTextEditingTraits : NSObject {
-    bool_canCopy;
-    bool_canCut;
-    bool_canMoveCursorLeft;
-    bool_canMoveCursorRight;
-    bool_canPaste;
-    bool_canToggleBoldface;
-    bool_canToggleItalics;
-    bool_canToggleUnderline;
-    bool_isBold;
-    bool_isItalicized;
-    bool_isUnderlined;
-    bool_supportStyling;
+    BOOL _canCopy;
+    BOOL _canCut;
+    BOOL _canMoveCursorLeft;
+    BOOL _canMoveCursorRight;
+    BOOL _canPaste;
+    BOOL _canToggleBoldface;
+    BOOL _canToggleItalics;
+    BOOL _canToggleUnderline;
+    BOOL _isBold;
+    BOOL _isItalicized;
+    BOOL _isUnderlined;
+    BOOL _supportStyling;
 }
 
-@property(readonly) bool canCopy;
-@property bool canCut;
-@property(readonly) bool canMoveCursorLeft;
-@property(readonly) bool canMoveCursorRight;
-@property(readonly) bool canPaste;
-@property(readonly) bool canToggleBoldface;
-@property(readonly) bool canToggleItalics;
-@property(readonly) bool canToggleUnderline;
-@property(readonly) bool isBold;
-@property(readonly) bool isItalicized;
-@property(readonly) bool isUnderlined;
-@property(readonly) bool supportStyling;
+@property (nonatomic, readonly) BOOL canCopy;
+@property (nonatomic) BOOL canCut;
+@property (nonatomic, readonly) BOOL canMoveCursorLeft;
+@property (nonatomic, readonly) BOOL canMoveCursorRight;
+@property (nonatomic, readonly) BOOL canPaste;
+@property (nonatomic, readonly) BOOL canToggleBoldface;
+@property (nonatomic, readonly) BOOL canToggleItalics;
+@property (nonatomic, readonly) BOOL canToggleUnderline;
+@property (nonatomic, readonly) BOOL isBold;
+@property (nonatomic, readonly) BOOL isItalicized;
+@property (nonatomic, readonly) BOOL isUnderlined;
+@property (nonatomic, readonly) BOOL supportStyling;
 
-+ (id)traitsWithResponder:(id)arg1 keyMaskFlags:(unsigned long long)arg2;
++ (id)traitsWithResponder:(id)arg1 keyMaskFlags:(unsigned int)arg2;
 
-- (bool)canCopy;
-- (bool)canCut;
-- (bool)canMoveCursorLeft;
-- (bool)canMoveCursorRight;
-- (bool)canPaste;
-- (bool)canToggleBoldface;
-- (bool)canToggleItalics;
-- (bool)canToggleUnderline;
-- (id)initWithResponder:(id)arg1 keyMaskFlags:(unsigned long long)arg2;
-- (bool)isBold;
-- (bool)isItalicized;
-- (bool)isUnderlined;
-- (void)setCanCut:(bool)arg1;
-- (bool)supportStyling;
+- (BOOL)canCopy;
+- (BOOL)canCut;
+- (BOOL)canMoveCursorLeft;
+- (BOOL)canMoveCursorRight;
+- (BOOL)canPaste;
+- (BOOL)canToggleBoldface;
+- (BOOL)canToggleItalics;
+- (BOOL)canToggleUnderline;
+- (id)initWithResponder:(id)arg1 keyMaskFlags:(unsigned int)arg2;
+- (BOOL)isBold;
+- (BOOL)isItalicized;
+- (BOOL)isUnderlined;
+- (void)setCanCut:(BOOL)arg1;
+- (BOOL)supportStyling;
 
 @end

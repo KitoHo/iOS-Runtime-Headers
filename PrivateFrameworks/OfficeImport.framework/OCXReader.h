@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OCPZipPackage;
-
 @interface OCXReader : OCDEncryptedReader {
     OCPZipPackage *mZipPackage;
 }
 
-@property(retain) OCPZipPackage * zipPackage;
+@property (nonatomic, retain) OCPZipPackage *zipPackage;
 
 - (void)dealloc;
 - (bool)isBinaryReader;
 - (id)read;
 - (void)restartReaderToUseDecryptedDocument;
-- (bool)retainDecryptorWithErrorCode:(int*)arg1;
+- (BOOL)retainDecryptorWithErrorCode:(int*)arg1;
 - (void)setZipPackage:(id)arg1;
-- (bool)start;
-- (bool)verifyFileFormat;
+- (BOOL)start;
+- (BOOL)verifyFileFormat;
 - (id)zipPackage;
 
 @end

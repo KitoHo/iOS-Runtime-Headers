@@ -2,22 +2,20 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@class ABRepeatingGradientSeparatorView, UITextField;
-
 @interface ABSplitTextFieldCell : UITableViewCell {
     ABRepeatingGradientSeparatorView *_separator;
     UITextField *_textFieldLeft;
     UITextField *_textFieldRight;
 }
 
-@property(retain) ABRepeatingGradientSeparatorView * separator;
-@property(retain) UITextField * textFieldLeft;
-@property(retain) UITextField * textFieldRight;
+@property (nonatomic, retain) ABRepeatingGradientSeparatorView *separator;
+@property (nonatomic, retain) UITextField *textFieldLeft;
+@property (nonatomic, retain) UITextField *textFieldRight;
 
-+ (bool)requiresConstraintBasedLayout;
++ (BOOL)requiresConstraintBasedLayout;
 
 - (void)dealloc;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (id)separator;
 - (void)setNeedsUpdateConstraints;
 - (void)setSeparator:(id)arg1;

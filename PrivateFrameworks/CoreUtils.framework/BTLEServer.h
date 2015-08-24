@@ -2,12 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CoreUtils.framework/CoreUtils
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class CBPeripheralManager, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSUUID;
-
 @interface BTLEServer : NSObject <CBPeripheralManagerDelegate> {
     NSUUID *_advertiseUUID;
     NSMutableDictionary *_characteristics;
@@ -15,29 +9,29 @@
     NSMutableDictionary *_pendingReplies;
     CBPeripheralManager *_peripheralManager;
     NSObject<OS_dispatch_queue> *_queue;
-    id _readHandler;
+    id /* block */ _readHandler;
+    BOOL _started;
     struct LogCategory { int x1; int x2; char *x3; unsigned int x4; char *x5; char *x6; int x7; struct LogCategory {} *x8; struct LogOutput {} *x9; struct LogOutput {} *x10; unsigned long long x11; unsigned long long x12; unsigned int x13; unsigned int x14; } *_ucat;
-    id _writeHandler;
-    bool_started;
+    id /* block */ _writeHandler;
 }
 
-@property(copy) NSUUID * advertiseUUID;
-@property(copy) NSDictionary * configuration;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) NSObject<OS_dispatch_queue> * dispatchQueue;
-@property(readonly) unsigned long long hash;
-@property struct LogCategory { int x1; int x2; char *x3; unsigned int x4; char *x5; char *x6; int x7; struct LogCategory {} *x8; struct LogOutput {} *x9; struct LogOutput {} *x10; unsigned long long x11; unsigned long long x12; unsigned int x13; unsigned int x14; }* logCategory;
-@property(copy) id readHandler;
-@property(readonly) Class superclass;
-@property(copy) id writeHandler;
+@property (nonatomic, copy) NSUUID *advertiseUUID;
+@property (nonatomic, copy) NSDictionary *configuration;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *dispatchQueue;
+@property (readonly) unsigned int hash;
+@property (nonatomic) struct LogCategory { int x1; int x2; char *x3; unsigned int x4; char *x5; char *x6; int x7; struct LogCategory {} *x8; struct LogOutput {} *x9; struct LogOutput {} *x10; unsigned long long x11; unsigned long long x12; unsigned int x13; unsigned int x14; }*logCategory;
+@property (nonatomic, copy) id /* block */ readHandler;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) id /* block */ writeHandler;
 
-- (int)_start2;
 - (void)_start;
-- (void)_stop:(int)arg1;
+- (long)_start2;
+- (void)_stop:(long)arg1;
 - (id)advertiseUUID;
-- (void)completeReadRequest:(id)arg1 status:(int)arg2;
-- (void)completeWriteRequests:(id)arg1 status:(int)arg2;
+- (void)completeReadRequest:(id)arg1 status:(long)arg2;
+- (void)completeWriteRequests:(id)arg1 status:(long)arg2;
 - (id)configuration;
 - (void)dealloc;
 - (id)dispatchQueue;
@@ -51,15 +45,15 @@
 - (void)peripheralManagerDidStartAdvertising:(id)arg1 error:(id)arg2;
 - (void)peripheralManagerDidUpdateState:(id)arg1;
 - (void)peripheralManagerIsReadyToUpdateSubscribers:(id)arg1;
-- (id)readHandler;
+- (id /* block */)readHandler;
 - (void)setAdvertiseUUID:(id)arg1;
 - (void)setConfiguration:(id)arg1;
 - (void)setDispatchQueue:(id)arg1;
 - (void)setLogCategory:(struct LogCategory { int x1; int x2; char *x3; unsigned int x4; char *x5; char *x6; int x7; struct LogCategory {} *x8; struct LogOutput {} *x9; struct LogOutput {} *x10; unsigned long long x11; unsigned long long x12; unsigned int x13; unsigned int x14; }*)arg1;
-- (void)setReadHandler:(id)arg1;
-- (void)setWriteHandler:(id)arg1;
+- (void)setReadHandler:(id /* block */)arg1;
+- (void)setWriteHandler:(id /* block */)arg1;
 - (void)start;
 - (void)stop;
-- (id)writeHandler;
+- (id /* block */)writeHandler;
 
 @end

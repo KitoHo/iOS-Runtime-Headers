@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableData;
-
 @interface GEONetworkDataReader : NSObject {
-    unsigned long long _bookmarkOffset;
+    unsigned int _bookmarkOffset;
     const void *_bytes;
     NSMutableData *_data;
-    unsigned long long _dataLength;
-    unsigned long long _offset;
+    unsigned int _dataLength;
+    unsigned int _offset;
 }
 
 - (id)allData;
 - (void)appendNetworkData:(id)arg1;
 - (void)dealloc;
-- (bool)hasUnreadData;
+- (BOOL)hasUnreadData;
 - (id)initWithData:(id)arg1;
 - (void)markOffset;
 - (id)readData:(unsigned int)arg1;
 - (id)readString;
-- (bool)readUnsignedInt:(unsigned int*)arg1;
-- (bool)readUnsignedShort:(unsigned short*)arg1;
+- (BOOL)readUnsignedInt:(unsigned int*)arg1;
+- (BOOL)readUnsignedShort:(unsigned short*)arg1;
 - (void)seekToMarkedOffset;
 
 @end

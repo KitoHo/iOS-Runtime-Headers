@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/FMFUI.framework/FMFUI
  */
 
-@class FMFDevice, FMFSession, NSMutableArray, NSString;
-
-@interface FMFActiveDeviceSelectionViewController : PSListController <FMFSessionDelegate, UITableViewDelegate, UITableViewDataSource> {
+@interface FMFActiveDeviceSelectionViewController : PSListController <FMFSessionDelegate, UITableViewDataSource, UITableViewDelegate> {
     FMFDevice *_currentActiveDevice;
     NSMutableArray *_deviceList;
     FMFSession *_fmfSession;
     FMFDevice *_nowActiveDevice;
-    long long _specifierStartIndex;
+    int _specifierStartIndex;
 }
 
-@property(retain) FMFDevice * currentActiveDevice;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) NSMutableArray * deviceList;
-@property(retain) FMFSession * fmfSession;
-@property(readonly) unsigned long long hash;
-@property(retain) FMFDevice * nowActiveDevice;
-@property long long specifierStartIndex;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) FMFDevice *currentActiveDevice;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSMutableArray *deviceList;
+@property (nonatomic, retain) FMFSession *fmfSession;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) FMFDevice *nowActiveDevice;
+@property (nonatomic) int specifierStartIndex;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (bool)_hasActiveDeviceAtIndex:(unsigned long long)arg1;
-- (bool)_hasThisDeviceAtIndex:(unsigned long long)arg1;
-- (id)_specifierForRowIndex:(long long)arg1;
+- (BOOL)_hasActiveDeviceAtIndex:(unsigned int)arg1;
+- (BOOL)_hasThisDeviceAtIndex:(unsigned int)arg1;
+- (id)_specifierForRowIndex:(int)arg1;
 - (void)cancelActiveDeviceSelection;
 - (id)currentActiveDevice;
 - (id)deviceList;
@@ -40,16 +38,16 @@
 - (void)setDeviceList:(id)arg1;
 - (void)setFmfSession:(id)arg1;
 - (void)setNowActiveDevice:(id)arg1;
-- (void)setSpecifierStartIndex:(long long)arg1;
+- (void)setSpecifierStartIndex:(int)arg1;
 - (void)sortDevicesList;
-- (long long)specifierStartIndex;
+- (int)specifierStartIndex;
 - (id)specifiers;
-- (bool)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
-- (void)tableView:(id)arg1 commitEditingStyle:(long long)arg2 forRowAtIndexPath:(id)arg3;
+- (BOOL)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 commitEditingStyle:(int)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (long long)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
+- (int)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
 - (void)viewDidLoad;
-- (void)viewWillAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

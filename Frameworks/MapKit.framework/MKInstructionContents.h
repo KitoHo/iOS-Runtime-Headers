@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class NSArray, NSString;
-
 @interface MKInstructionContents : NSObject {
     NSArray *_branchNames;
     NSString *_destinationName;
@@ -11,28 +9,28 @@
     NSString *_intersectionName;
     int _junctionAngle;
     int _maneuverType;
+    BOOL _toFreeway;
     NSArray *_towardNames;
     int _transportType;
-    bool_toFreeway;
 }
 
-@property(retain) NSArray * branchNames;
-@property(retain) NSString * destinationName;
-@property(retain) NSString * exitNumber;
-@property(readonly) bool hasName;
-@property(retain) NSString * intersectionName;
-@property(readonly) bool isExitManeuver;
-@property int junctionAngle;
-@property int maneuverType;
-@property(readonly) NSString * primaryName;
-@property(retain) NSString * roadName;
-@property bool toFreeway;
-@property(retain) NSArray * towardNames;
-@property int transportType;
-@property(readonly) bool useDestinationName;
-@property(readonly) bool useIntersectionName;
-@property(readonly) bool useRoadName;
-@property(readonly) bool useTowardNames;
+@property (nonatomic, retain) NSArray *branchNames;
+@property (nonatomic, retain) NSString *destinationName;
+@property (nonatomic, retain) NSString *exitNumber;
+@property (nonatomic, readonly) BOOL hasName;
+@property (nonatomic, retain) NSString *intersectionName;
+@property (nonatomic, readonly) BOOL isExitManeuver;
+@property (nonatomic) int junctionAngle;
+@property (nonatomic) int maneuverType;
+@property (nonatomic, readonly) NSString *primaryName;
+@property (nonatomic, retain) NSString *roadName;
+@property (nonatomic) BOOL toFreeway;
+@property (nonatomic, retain) NSArray *towardNames;
+@property (nonatomic) int transportType;
+@property (nonatomic, readonly) BOOL useDestinationName;
+@property (nonatomic, readonly) BOOL useIntersectionName;
+@property (nonatomic, readonly) BOOL useRoadName;
+@property (nonatomic, readonly) BOOL useTowardNames;
 
 + (id)contentsWithManeuverType:(int)arg1 transportType:(int)arg2;
 + (id)contentsWithStep:(id)arg1 transportType:(int)arg2;
@@ -63,11 +61,11 @@
 - (id)description;
 - (id)destinationName;
 - (id)exitNumber;
-- (bool)hasName;
+- (BOOL)hasName;
 - (id)init;
 - (id)instruction;
 - (id)intersectionName;
-- (bool)isExitManeuver;
+- (BOOL)isExitManeuver;
 - (int)junctionAngle;
 - (int)maneuverType;
 - (id)primaryName;
@@ -80,15 +78,15 @@
 - (void)setManeuverType:(int)arg1;
 - (void)setName:(id)arg1 signposts:(id)arg2;
 - (void)setRoadName:(id)arg1;
-- (void)setToFreeway:(bool)arg1;
+- (void)setToFreeway:(BOOL)arg1;
 - (void)setTowardNames:(id)arg1;
 - (void)setTransportType:(int)arg1;
-- (bool)toFreeway;
+- (BOOL)toFreeway;
 - (id)towardNames;
 - (int)transportType;
-- (bool)useDestinationName;
-- (bool)useIntersectionName;
-- (bool)useRoadName;
-- (bool)useTowardNames;
+- (BOOL)useDestinationName;
+- (BOOL)useIntersectionName;
+- (BOOL)useRoadName;
+- (BOOL)useTowardNames;
 
 @end

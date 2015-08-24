@@ -2,29 +2,23 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSDate, NSMutableOrderedSet, NSObject<OS_dispatch_queue>, PCPersistentTimer;
-
 @interface EKTravelEngineThrottle : NSObject {
-    id _adviceBlock;
+    id /* block */ _adviceBlock;
     PCPersistentTimer *_emissionTimer;
     NSDate *_nextEmissionDate;
-    unsigned long long _numberOfThrottleAdviceObjectsToEmitLater;
+    unsigned int _numberOfThrottleAdviceObjectsToEmitLater;
+    BOOL _running;
     NSObject<OS_dispatch_queue> *_throttleQueue;
     NSMutableOrderedSet *_throttledAdviceQueue;
-    bool_running;
 }
 
-@property(copy) id adviceBlock;
-@property(retain) PCPersistentTimer * emissionTimer;
-@property(retain) NSDate * nextEmissionDate;
-@property unsigned long long numberOfThrottleAdviceObjectsToEmitLater;
-@property bool running;
-@property NSObject<OS_dispatch_queue> * throttleQueue;
-@property(retain) NSMutableOrderedSet * throttledAdviceQueue;
+@property (nonatomic, copy) id /* block */ adviceBlock;
+@property (nonatomic, retain) PCPersistentTimer *emissionTimer;
+@property (nonatomic, retain) NSDate *nextEmissionDate;
+@property (nonatomic) unsigned int numberOfThrottleAdviceObjectsToEmitLater;
+@property (nonatomic) BOOL running;
+@property (nonatomic) NSObject<OS_dispatch_queue> *throttleQueue;
+@property (nonatomic, retain) NSMutableOrderedSet *throttledAdviceQueue;
 
 + (id)_throttleIdentifier;
 + (double)_throttlePeriodInSeconds;
@@ -37,22 +31,22 @@
 - (void)_uninstallEmissionTimer;
 - (void)_unregisterForNotificationObservation;
 - (void)_updateEmissionTimerWithEmissionDate:(id)arg1;
-- (id)adviceBlock;
+- (id /* block */)adviceBlock;
 - (void)dealloc;
 - (id)description;
 - (id)emissionTimer;
 - (id)init;
 - (void)injectAdvice:(id)arg1 forEventWithExternalURL:(id)arg2;
 - (id)nextEmissionDate;
-- (unsigned long long)numberOfThrottleAdviceObjectsToEmitLater;
+- (unsigned int)numberOfThrottleAdviceObjectsToEmitLater;
 - (void)removeAllThrottledAdvice;
 - (void)removeThrottledAdviceForEventWithExternalURL:(id)arg1;
-- (bool)running;
-- (void)setAdviceBlock:(id)arg1;
+- (BOOL)running;
+- (void)setAdviceBlock:(id /* block */)arg1;
 - (void)setEmissionTimer:(id)arg1;
 - (void)setNextEmissionDate:(id)arg1;
-- (void)setNumberOfThrottleAdviceObjectsToEmitLater:(unsigned long long)arg1;
-- (void)setRunning:(bool)arg1;
+- (void)setNumberOfThrottleAdviceObjectsToEmitLater:(unsigned int)arg1;
+- (void)setRunning:(BOOL)arg1;
 - (void)setThrottleQueue:(id)arg1;
 - (void)setThrottledAdviceQueue:(id)arg1;
 - (void)start;

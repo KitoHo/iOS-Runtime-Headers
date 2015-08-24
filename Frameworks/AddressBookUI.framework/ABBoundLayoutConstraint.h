@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@class NSString;
-
 @interface ABBoundLayoutConstraint : NSLayoutConstraint {
     NSString *_keyPath;
     id _object;
 }
 
-@property(copy) NSString * keyPath;
-@property(retain) id object;
+@property (nonatomic, copy) NSString *keyPath;
+@property (nonatomic) id object;
 
-+ (id)constraintWithItem:(id)arg1 attribute:(long long)arg2 relatedBy:(long long)arg3 toItem:(id)arg4 attribute:(long long)arg5 multiplier:(double)arg6 constantObject:(id)arg7 keyPath:(id)arg8;
++ (id)constraintWithItem:(id)arg1 attribute:(int)arg2 relatedBy:(int)arg3 toItem:(id)arg4 attribute:(int)arg5 multiplier:(float)arg6 constantObject:(id)arg7 keyPath:(id)arg8;
 
 - (void)_boundValueDidChange;
 - (void)bindConstantToObject:(id)arg1 keyPath:(id)arg2;
@@ -22,5 +20,6 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4;
 - (void)setKeyPath:(id)arg1;
 - (void)setObject:(id)arg1;
+- (void)unbind;
 
 @end

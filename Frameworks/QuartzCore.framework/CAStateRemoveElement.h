@@ -2,15 +2,13 @@
    Image: /System/Library/Frameworks/QuartzCore.framework/QuartzCore
  */
 
-@class NSString;
-
 @interface CAStateRemoveElement : CAStateElement {
     NSString *_keyPath;
     id _object;
 }
 
-@property(copy) NSString * keyPath;
-@property(retain) id object;
+@property (nonatomic, copy) NSString *keyPath;
+@property (nonatomic, retain) id object;
 
 - (void)CAMLParser:(id)arg1 setValue:(id)arg2 forKey:(id)arg3;
 - (id)CAMLTypeForKey:(id)arg1;
@@ -22,7 +20,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)keyPath;
-- (bool)matches:(id)arg1;
+- (BOOL)matches:(id)arg1;
 - (id)object;
 - (void)setKeyPath:(id)arg1;
 - (void)setObject:(id)arg1;

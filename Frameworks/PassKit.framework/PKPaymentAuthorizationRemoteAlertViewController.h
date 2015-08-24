@@ -2,39 +2,38 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class NSString, NSXPCConnection, PKInAppPaymentService, PKPaymentAuthorizationRemoteAlertViewControllerExportedObject, PKPaymentAuthorizationServiceNavigationController, PKPaymentRequest;
-
 @interface PKPaymentAuthorizationRemoteAlertViewController : SBUIRemoteAlertServiceViewController <PKPaymentAuthorizationHostProtocol> {
+    BOOL _didForceDismiss;
     PKPaymentAuthorizationRemoteAlertViewControllerExportedObject *_exportedObject;
-    long long _hostAppInterfaceOrientation;
+    int _hostAppInterfaceOrientation;
     NSXPCConnection *_hostConnection;
     PKInAppPaymentService *_inAppPaymentService;
     PKPaymentAuthorizationServiceNavigationController *_navigationController;
     PKPaymentRequest *_paymentRequest;
-    bool_didForceDismiss;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) PKPaymentAuthorizationRemoteAlertViewControllerExportedObject * exportedObject;
-@property(readonly) unsigned long long hash;
-@property(retain) NSXPCConnection * hostConnection;
-@property(retain) PKInAppPaymentService * inAppPaymentService;
-@property(retain) PKPaymentAuthorizationServiceNavigationController * navigationController;
-@property(retain) PKPaymentRequest * paymentRequest;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) PKPaymentAuthorizationRemoteAlertViewControllerExportedObject *exportedObject;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NSXPCConnection *hostConnection;
+@property (nonatomic, retain) PKInAppPaymentService *inAppPaymentService;
+@property (nonatomic, retain) PKPaymentAuthorizationServiceNavigationController *navigationController;
+@property (nonatomic, retain) PKPaymentRequest *paymentRequest;
+@property (readonly) Class superclass;
 
-+ (bool)_shouldForwardViewWillTransitionToSize;
++ (BOOL)_shouldForwardViewWillTransitionToSize;
 
 - (void)_dismiss;
 - (void)_forceDismiss;
 - (id)_remoteObjectProxy;
-- (bool)_shouldRemoveViewFromHierarchyOnDisappear;
+- (BOOL)_shouldRemoveViewFromHierarchyOnDisappear;
 - (void)_willAppearInRemoteViewController;
 - (void)authorizationDidAuthorizePayment:(id)arg1;
 - (void)authorizationDidFinishWithError:(id)arg1;
 - (void)authorizationDidSelectShippingAddress:(id)arg1;
 - (void)authorizationDidSelectShippingMethod:(id)arg1;
+- (void)authorizationWillStart;
 - (void)dealloc;
 - (id)exportedObject;
 - (void)handleHomeButtonPressed;
@@ -50,9 +49,10 @@
 - (void)setNavigationController:(id)arg1;
 - (void)setPaymentRequest:(id)arg1;
 - (void)setUserInfo:(id)arg1;
-- (bool)shouldAutorotate;
-- (struct CGSize { double x1; double x2; })sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize { double x1; double x2; })arg2;
-- (unsigned long long)supportedInterfaceOrientations;
-- (void)viewWillDisappear:(bool)arg1;
+- (BOOL)shouldAutorotate;
+- (struct CGSize { float x1; float x2; })sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize { float x1; float x2; })arg2;
+- (unsigned int)supportedInterfaceOrientations;
+- (void)viewDidLoad;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

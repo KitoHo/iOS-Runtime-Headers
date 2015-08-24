@@ -2,22 +2,26 @@
    Image: /System/Library/PrivateFrameworks/BulletinBoard.framework/BulletinBoard
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface BBObserverGatewayAddBulletinRequest : NSObject {
-    id _handler;
-    unsigned long long _timeout;
+    NSString *_bulletinID;
+    NSString *_sectionID;
+    NSDate *_timeout;
+    id /* block */ _timeoutHandler;
 }
 
-@property(copy) id handler;
-@property unsigned long long timeout;
+@property (nonatomic, retain) NSString *bulletinID;
+@property (nonatomic, retain) NSString *sectionID;
+@property (nonatomic, retain) NSDate *timeout;
+@property (nonatomic, copy) id /* block */ timeoutHandler;
 
+- (id)bulletinID;
 - (void)dealloc;
-- (id)handler;
-- (void)setHandler:(id)arg1;
-- (void)setTimeout:(unsigned long long)arg1;
-- (unsigned long long)timeout;
+- (id)sectionID;
+- (void)setBulletinID:(id)arg1;
+- (void)setSectionID:(id)arg1;
+- (void)setTimeout:(id)arg1;
+- (void)setTimeoutHandler:(id /* block */)arg1;
+- (id)timeout;
+- (id /* block */)timeoutHandler;
 
 @end

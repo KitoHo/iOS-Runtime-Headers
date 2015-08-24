@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class FigCaptureRecordingSettings, FigCaptureStillImageSettings;
-
 @interface BWNodeSampleBufferMessage : BWNodeMessage {
     FigCaptureRecordingSettings *_recordingSettings;
     struct opaqueCMSampleBuffer { } *_sampleBuffer;
     FigCaptureStillImageSettings *_stillImageSettings;
 }
 
-@property(readonly) FigCaptureRecordingSettings * recordingSettings;
-@property(readonly) struct opaqueCMSampleBuffer { }* sampleBuffer;
-@property(readonly) FigCaptureStillImageSettings * stillImageSettings;
+@property (readonly) FigCaptureRecordingSettings *recordingSettings;
+@property (readonly) struct opaqueCMSampleBuffer { }*sampleBuffer;
+@property (readonly) FigCaptureStillImageSettings *stillImageSettings;
 
++ (id)newMessageWithSampleBuffer:(struct opaqueCMSampleBuffer { }*)arg1;
 + (id)newMessageWithSampleBuffer:(struct opaqueCMSampleBuffer { }*)arg1 recordingSettings:(id)arg2;
 + (id)newMessageWithSampleBuffer:(struct opaqueCMSampleBuffer { }*)arg1 stillImageSettings:(id)arg2;
-+ (id)newMessageWithSampleBuffer:(struct opaqueCMSampleBuffer { }*)arg1;
 
 - (id)_initWithSampleBuffer:(struct opaqueCMSampleBuffer { }*)arg1 stillImageSettings:(id)arg2 recordingSettings:(id)arg3;
 - (void)dealloc;

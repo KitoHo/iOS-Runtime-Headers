@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/FrontBoardServices.framework/FrontBoardServices
  */
 
-@class FBSContext;
-
 @interface FBSWorkspaceSceneContextEvent : FBSWorkspaceSceneEvent {
     FBSContext *_context;
-    bool_orderOut;
+    BOOL _orderOut;
 }
 
-@property(retain) FBSContext * context;
-@property bool orderOut;
+@property (nonatomic, retain) FBSContext *context;
+@property (nonatomic) BOOL orderOut;
 
 - (id)context;
 - (void)dealloc;
 - (id)description;
 - (void)encodeWithXPCDictionary:(id)arg1;
 - (id)initWithXPCDictionary:(id)arg1;
-- (bool)orderOut;
+- (BOOL)orderOut;
 - (void)setContext:(id)arg1;
-- (void)setOrderOut:(bool)arg1;
+- (void)setOrderOut:(BOOL)arg1;
 
 @end

@@ -2,36 +2,34 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDNetworkUsage : PBCodable <NSCopying> {
+    NSString *_bundleName;
+    unsigned long long _cellIn;
+    unsigned long long _cellOut;
     struct { 
         unsigned int cellIn : 1; 
         unsigned int cellOut : 1; 
         unsigned int wifiIn : 1; 
         unsigned int wifiOut : 1; 
         unsigned int numConnections : 1; 
-    NSString *_bundleName;
-    unsigned long long _cellIn;
-    unsigned long long _cellOut;
     } _has;
     unsigned int _numConnections;
     unsigned long long _wifiIn;
     unsigned long long _wifiOut;
 }
 
-@property(retain) NSString * bundleName;
-@property unsigned long long cellIn;
-@property unsigned long long cellOut;
-@property(readonly) bool hasBundleName;
-@property bool hasCellIn;
-@property bool hasCellOut;
-@property bool hasNumConnections;
-@property bool hasWifiIn;
-@property bool hasWifiOut;
-@property unsigned int numConnections;
-@property unsigned long long wifiIn;
-@property unsigned long long wifiOut;
+@property (nonatomic, retain) NSString *bundleName;
+@property (nonatomic) unsigned long long cellIn;
+@property (nonatomic) unsigned long long cellOut;
+@property (nonatomic, readonly) BOOL hasBundleName;
+@property (nonatomic) BOOL hasCellIn;
+@property (nonatomic) BOOL hasCellOut;
+@property (nonatomic) BOOL hasNumConnections;
+@property (nonatomic) BOOL hasWifiIn;
+@property (nonatomic) BOOL hasWifiOut;
+@property (nonatomic) unsigned int numConnections;
+@property (nonatomic) unsigned long long wifiIn;
+@property (nonatomic) unsigned long long wifiOut;
 
 - (id)bundleName;
 - (unsigned long long)cellIn;
@@ -41,25 +39,25 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasBundleName;
-- (bool)hasCellIn;
-- (bool)hasCellOut;
-- (bool)hasNumConnections;
-- (bool)hasWifiIn;
-- (bool)hasWifiOut;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasBundleName;
+- (BOOL)hasCellIn;
+- (BOOL)hasCellOut;
+- (BOOL)hasNumConnections;
+- (BOOL)hasWifiIn;
+- (BOOL)hasWifiOut;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (unsigned int)numConnections;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setBundleName:(id)arg1;
 - (void)setCellIn:(unsigned long long)arg1;
 - (void)setCellOut:(unsigned long long)arg1;
-- (void)setHasCellIn:(bool)arg1;
-- (void)setHasCellOut:(bool)arg1;
-- (void)setHasNumConnections:(bool)arg1;
-- (void)setHasWifiIn:(bool)arg1;
-- (void)setHasWifiOut:(bool)arg1;
+- (void)setHasCellIn:(BOOL)arg1;
+- (void)setHasCellOut:(BOOL)arg1;
+- (void)setHasNumConnections:(BOOL)arg1;
+- (void)setHasWifiIn:(BOOL)arg1;
+- (void)setHasWifiOut:(BOOL)arg1;
 - (void)setNumConnections:(unsigned int)arg1;
 - (void)setWifiIn:(unsigned long long)arg1;
 - (void)setWifiOut:(unsigned long long)arg1;

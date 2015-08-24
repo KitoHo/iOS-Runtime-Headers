@@ -2,71 +2,65 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSArray, NSString, UIKBKeyDisplayContents;
-
 @interface UIKBKeyDisplayContents : NSObject {
-    long long _displayPathType;
+    int _displayPathType;
     NSString *_displayString;
     NSString *_displayStringImage;
     UIKBKeyDisplayContents *_fallbackContents;
-    long long _highlightedVariantIndex;
+    BOOL _fillPath;
+    BOOL _force1xImages;
+    NSArray *_highlightedVariantsList;
+    BOOL _isCustomGlyph;
     NSString *_secondaryDisplayString;
     NSString *_secondaryDisplayStringImage;
-    NSArray *_variantDisplayImages;
-    NSArray *_variantDisplayStrings;
-    bool_fillPath;
-    bool_force1xImages;
-    bool_isCustomGlyph;
-    bool_secondaryIsCustomGlyph;
-    bool_stringKeycapOverImage;
+    BOOL _secondaryIsCustomGlyph;
+    BOOL _stringKeycapOverImage;
+    NSArray *_variantDisplayContents;
 }
 
-@property long long displayPathType;
-@property(retain) NSString * displayString;
-@property(retain) NSString * displayStringImage;
-@property(retain) UIKBKeyDisplayContents * fallbackContents;
-@property bool fillPath;
-@property bool force1xImages;
-@property long long highlightedVariantIndex;
-@property bool isCustomGlyph;
-@property(retain) NSString * secondaryDisplayString;
-@property(retain) NSString * secondaryDisplayStringImage;
-@property bool secondaryIsCustomGlyph;
-@property bool stringKeycapOverImage;
-@property(retain) NSArray * variantDisplayImages;
-@property(retain) NSArray * variantDisplayStrings;
+@property (nonatomic) int displayPathType;
+@property (nonatomic, retain) NSString *displayString;
+@property (nonatomic, retain) NSString *displayStringImage;
+@property (nonatomic, retain) UIKBKeyDisplayContents *fallbackContents;
+@property (nonatomic) BOOL fillPath;
+@property (nonatomic) BOOL force1xImages;
+@property (nonatomic, retain) NSArray *highlightedVariantsList;
+@property (nonatomic) BOOL isCustomGlyph;
+@property (nonatomic, retain) NSString *secondaryDisplayString;
+@property (nonatomic, retain) NSString *secondaryDisplayStringImage;
+@property (nonatomic) BOOL secondaryIsCustomGlyph;
+@property (nonatomic) BOOL stringKeycapOverImage;
+@property (nonatomic, retain) NSArray *variantDisplayContents;
 
 + (id)displayContents;
 
 - (void)dealloc;
 - (id)description;
-- (long long)displayPathType;
+- (int)displayPathType;
 - (id)displayString;
 - (id)displayStringImage;
 - (id)fallbackContents;
-- (bool)fillPath;
-- (bool)force1xImages;
-- (long long)highlightedVariantIndex;
-- (bool)isCustomGlyph;
+- (BOOL)fillPath;
+- (BOOL)force1xImages;
+- (id)highlightedVariantsList;
+- (BOOL)isCustomGlyph;
 - (id)secondaryDisplayString;
 - (id)secondaryDisplayStringImage;
-- (bool)secondaryIsCustomGlyph;
-- (void)setDisplayPathType:(long long)arg1;
+- (BOOL)secondaryIsCustomGlyph;
+- (void)setDisplayPathType:(int)arg1;
 - (void)setDisplayString:(id)arg1;
 - (void)setDisplayStringImage:(id)arg1;
 - (void)setFallbackContents:(id)arg1;
-- (void)setFillPath:(bool)arg1;
-- (void)setForce1xImages:(bool)arg1;
-- (void)setHighlightedVariantIndex:(long long)arg1;
-- (void)setIsCustomGlyph:(bool)arg1;
+- (void)setFillPath:(BOOL)arg1;
+- (void)setForce1xImages:(BOOL)arg1;
+- (void)setHighlightedVariantsList:(id)arg1;
+- (void)setIsCustomGlyph:(BOOL)arg1;
 - (void)setSecondaryDisplayString:(id)arg1;
 - (void)setSecondaryDisplayStringImage:(id)arg1;
-- (void)setSecondaryIsCustomGlyph:(bool)arg1;
-- (void)setStringKeycapOverImage:(bool)arg1;
-- (void)setVariantDisplayImages:(id)arg1;
-- (void)setVariantDisplayStrings:(id)arg1;
-- (bool)stringKeycapOverImage;
-- (id)variantDisplayImages;
-- (id)variantDisplayStrings;
+- (void)setSecondaryIsCustomGlyph:(BOOL)arg1;
+- (void)setStringKeycapOverImage:(BOOL)arg1;
+- (void)setVariantDisplayContents:(id)arg1;
+- (BOOL)stringKeycapOverImage;
+- (id)variantDisplayContents;
 
 @end

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString;
-
 @interface TSUDateFormatter : NSObject {
     NSString *mDateOnlyFormatString;
     struct __CFDateFormatter { } *mFullDateFormatter;
@@ -12,16 +10,15 @@
 
 + (id)dateFormatStringSpecialSymbols;
 + (id)datePortionOfDateTimeFormatString:(id)arg1;
-+ (id)defaultDateTimeFormat;
-+ (unsigned long long)p_DateTimeSplitLocationInFormatString:(id)arg1;
++ (id)defaultDateTimeFormatForLocale:(id)arg1;
++ (unsigned int)p_DateTimeSplitLocationInFormatString:(id)arg1;
 + (id)shortMonthNamesForNonCachedCurrentLocale;
-+ (id)supportedDateFormats;
-+ (id)supportedTimeFormats;
++ (id)supportedDateFormatsForLocale:(id)arg1;
++ (id)supportedTimeFormatsForLocale:(id)arg1;
 + (id)timePortionOfDateTimeFormatString:(id)arg1;
 
 - (void)dealloc;
-- (id)fullDateString:(id)arg1;
 - (id)init;
-- (id)stringFromDate:(id)arg1 format:(id)arg2;
+- (id)initWithLocale:(id)arg1;
 
 @end

@@ -2,10 +2,10 @@
    Image: /System/Library/PrivateFrameworks/CoreMediaStream.framework/CoreMediaStream
  */
 
-@class MSASServerSideModel, MSTimerGate, NSObject<OS_dispatch_queue>;
-
 @interface MSASGroupedQueue : NSObject {
     MSTimerGate *_idleTimerGate;
+    BOOL _isAssertingBusyAssertion;
+    BOOL _isShuttingDown;
     int _maxGroupedCallbackEventBatchCount;
     double _maxGroupedCallbackEventIdleInterval;
     double _maxGroupedCallbackEventStaleness;
@@ -13,40 +13,38 @@
     MSASServerSideModel *_model;
     MSTimerGate *_stalenessTimerGate;
     NSObject<OS_dispatch_queue> *_workQueue;
-    bool_isAssertingBusyAssertion;
-    bool_isShuttingDown;
 }
 
-@property(retain) MSTimerGate * idleTimerGate;
-@property(readonly) bool isAssertingBusyAssertion;
-@property bool isShuttingDown;
-@property int maxGroupedCallbackEventBatchCount;
-@property double maxGroupedCallbackEventIdleInterval;
-@property double maxGroupedCallbackEventStaleness;
-@property(retain) NSObject<OS_dispatch_queue> * memberQueue;
-@property MSASServerSideModel * model;
-@property(retain) MSTimerGate * stalenessTimerGate;
-@property(retain) NSObject<OS_dispatch_queue> * workQueue;
+@property (nonatomic, retain) MSTimerGate *idleTimerGate;
+@property (nonatomic, readonly) BOOL isAssertingBusyAssertion;
+@property (nonatomic) BOOL isShuttingDown;
+@property (nonatomic) int maxGroupedCallbackEventBatchCount;
+@property (nonatomic) double maxGroupedCallbackEventIdleInterval;
+@property (nonatomic) double maxGroupedCallbackEventStaleness;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *memberQueue;
+@property (nonatomic) MSASServerSideModel *model;
+@property (nonatomic, retain) MSTimerGate *stalenessTimerGate;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *workQueue;
 
 - (void).cxx_destruct;
 - (void)assertBusyAssertion;
 - (void)dealloc;
 - (void)deassertBusyAssertion;
-- (void)flushQueueCompletionBlock:(id)arg1;
-- (bool)hasEnqueuedItems;
+- (void)flushQueueCompletionBlock:(id /* block */)arg1;
+- (BOOL)hasEnqueuedItems;
 - (id)idleTimerGate;
 - (id)init;
-- (bool)isAssertingBusyAssertion;
-- (bool)isShuttingDown;
+- (BOOL)isAssertingBusyAssertion;
+- (BOOL)isShuttingDown;
 - (int)maxGroupedCallbackEventBatchCount;
 - (double)maxGroupedCallbackEventIdleInterval;
 - (double)maxGroupedCallbackEventStaleness;
 - (id)memberQueue;
-- (bool)memberQueueIsAssertingBusyAssertion;
-- (void)memberQueueSetIsAssertingBusyAssertion:(bool)arg1;
+- (BOOL)memberQueueIsAssertingBusyAssertion;
+- (void)memberQueueSetIsAssertingBusyAssertion:(BOOL)arg1;
 - (id)model;
 - (void)setIdleTimerGate:(id)arg1;
-- (void)setIsShuttingDown:(bool)arg1;
+- (void)setIsShuttingDown:(BOOL)arg1;
 - (void)setMaxGroupedCallbackEventBatchCount:(int)arg1;
 - (void)setMaxGroupedCallbackEventIdleInterval:(double)arg1;
 - (void)setMaxGroupedCallbackEventStaleness:(double)arg1;
@@ -54,7 +52,7 @@
 - (void)setModel:(id)arg1;
 - (void)setStalenessTimerGate:(id)arg1;
 - (void)setWorkQueue:(id)arg1;
-- (void)shutDownFlush:(bool)arg1 completionBlock:(id)arg2;
+- (void)shutDownFlush:(BOOL)arg1 completionBlock:(id /* block */)arg2;
 - (id)stalenessTimerGate;
 - (id)workQueue;
 - (void)workQueueAssertBusyAssertion;

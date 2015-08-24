@@ -2,81 +2,96 @@
    Image: /System/Library/Frameworks/Photos.framework/Photos
  */
 
-@class NSArray, NSPredicate, NSString;
-
 @interface PHFetchOptions : NSObject <NSCopying> {
-    long long _chunkSizeForFetch;
+    int _cacheSizeForFetch;
+    int _chunkSizeForFetch;
     NSArray *_customObjectIDSortOrder;
-    unsigned long long _fetchPropertyHint;
+    unsigned int _fetchLimit;
+    unsigned int _fetchPropertyHint;
+    BOOL _forceIncludeCloudSharedAssets;
+    BOOL _forceIncludeiTunesSyncAssets;
+    BOOL _hasIncludeCloudSharedAssetsOverride;
+    BOOL _includeAllBurstAssets;
+    BOOL _includeDuplicateAssets;
+    BOOL _includeHiddenAssets;
+    BOOL _includeWallpaperAssets;
     NSPredicate *_internalPredicate;
     NSArray *_internalSortDescriptors;
     NSPredicate *_predicate;
+    BOOL _reverseSortOrder;
     NSArray *_sortDescriptors;
     NSString *_transientIdentifier;
-    bool_forceIncludeCloudSharedAssets;
-    bool_forceIncludeiTunesSyncAssets;
-    bool_hasIncludeCloudSharedAssetsOverride;
-    bool_includeAllBurstAssets;
-    bool_includeDuplicateAssets;
-    bool_includeHiddenAssets;
-    bool_includeWallpaperAssets;
-    bool_wantsIncrementalChangeDetails;
+    BOOL _wantsIncrementalChangeDetails;
 }
 
-@property long long chunkSizeForFetch;
-@property(retain) NSArray * customObjectIDSortOrder;
-@property unsigned long long fetchPropertyHint;
-@property bool forceIncludeCloudSharedAssets;
-@property bool forceIncludeiTunesSyncAssets;
-@property(readonly) bool hasIncludeCloudSharedAssetsOverride;
-@property bool includeAllBurstAssets;
-@property bool includeDuplicateAssets;
-@property bool includeHiddenAssets;
-@property bool includeWallpaperAssets;
-@property(retain) NSPredicate * internalPredicate;
-@property(retain) NSArray * internalSortDescriptors;
-@property(retain) NSPredicate * predicate;
-@property(retain) NSArray * sortDescriptors;
-@property(retain) NSString * transientIdentifier;
-@property bool wantsIncrementalChangeDetails;
+@property (nonatomic) int cacheSizeForFetch;
+@property (nonatomic) int chunkSizeForFetch;
+@property (nonatomic, retain) NSArray *customObjectIDSortOrder;
+@property (nonatomic) unsigned int fetchLimit;
+@property (nonatomic) unsigned int fetchPropertyHint;
+@property (nonatomic) BOOL forceIncludeCloudSharedAssets;
+@property (nonatomic) BOOL forceIncludeiTunesSyncAssets;
+@property (nonatomic, readonly) BOOL hasIncludeCloudSharedAssetsOverride;
+@property (nonatomic) BOOL includeAllBurstAssets;
+@property (nonatomic) BOOL includeDuplicateAssets;
+@property (nonatomic) BOOL includeHiddenAssets;
+@property (nonatomic) BOOL includeWallpaperAssets;
+@property (nonatomic, retain) NSPredicate *internalPredicate;
+@property (nonatomic, retain) NSArray *internalSortDescriptors;
+@property (nonatomic, retain) NSPredicate *predicate;
+@property (nonatomic) BOOL reverseSortOrder;
+@property (nonatomic, retain) NSArray *sortDescriptors;
+@property (nonatomic, retain) NSString *transientIdentifier;
+@property (nonatomic) BOOL wantsIncrementalChangeDetails;
+
+// Image: /System/Library/Frameworks/Photos.framework/Photos
 
 + (id)fetchOptionsWithInclusiveDefaults;
-+ (id)pu_standardFetchOptions;
 
 - (void).cxx_destruct;
-- (long long)chunkSizeForFetch;
+- (int)cacheSizeForFetch;
+- (int)chunkSizeForFetch;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)customObjectIDSortOrder;
 - (id)description;
-- (unsigned long long)fetchPropertyHint;
-- (bool)forceIncludeCloudSharedAssets;
-- (bool)forceIncludeiTunesSyncAssets;
-- (bool)hasIncludeCloudSharedAssetsOverride;
-- (bool)includeAllBurstAssets;
-- (bool)includeDuplicateAssets;
-- (bool)includeHiddenAssets;
-- (bool)includeWallpaperAssets;
+- (unsigned int)fetchLimit;
+- (unsigned int)fetchPropertyHint;
+- (BOOL)forceIncludeCloudSharedAssets;
+- (BOOL)forceIncludeiTunesSyncAssets;
+- (BOOL)hasIncludeCloudSharedAssetsOverride;
+- (BOOL)includeAllBurstAssets;
+- (BOOL)includeDuplicateAssets;
+- (BOOL)includeHiddenAssets;
+- (BOOL)includeWallpaperAssets;
 - (id)init;
 - (id)internalPredicate;
 - (id)internalSortDescriptors;
 - (id)predicate;
-- (void)setChunkSizeForFetch:(long long)arg1;
+- (BOOL)reverseSortOrder;
+- (void)setCacheSizeForFetch:(int)arg1;
+- (void)setChunkSizeForFetch:(int)arg1;
 - (void)setCustomObjectIDSortOrder:(id)arg1;
-- (void)setFetchPropertyHint:(unsigned long long)arg1;
-- (void)setForceIncludeCloudSharedAssets:(bool)arg1;
-- (void)setForceIncludeiTunesSyncAssets:(bool)arg1;
-- (void)setIncludeAllBurstAssets:(bool)arg1;
-- (void)setIncludeDuplicateAssets:(bool)arg1;
-- (void)setIncludeHiddenAssets:(bool)arg1;
-- (void)setIncludeWallpaperAssets:(bool)arg1;
+- (void)setFetchLimit:(unsigned int)arg1;
+- (void)setFetchPropertyHint:(unsigned int)arg1;
+- (void)setForceIncludeCloudSharedAssets:(BOOL)arg1;
+- (void)setForceIncludeiTunesSyncAssets:(BOOL)arg1;
+- (void)setIncludeAllBurstAssets:(BOOL)arg1;
+- (void)setIncludeDuplicateAssets:(BOOL)arg1;
+- (void)setIncludeHiddenAssets:(BOOL)arg1;
+- (void)setIncludeWallpaperAssets:(BOOL)arg1;
 - (void)setInternalPredicate:(id)arg1;
 - (void)setInternalSortDescriptors:(id)arg1;
 - (void)setPredicate:(id)arg1;
+- (void)setReverseSortOrder:(BOOL)arg1;
 - (void)setSortDescriptors:(id)arg1;
 - (void)setTransientIdentifier:(id)arg1;
-- (void)setWantsIncrementalChangeDetails:(bool)arg1;
+- (void)setWantsIncrementalChangeDetails:(BOOL)arg1;
 - (id)sortDescriptors;
 - (id)transientIdentifier;
-- (bool)wantsIncrementalChangeDetails;
+- (BOOL)wantsIncrementalChangeDetails;
+
+// Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
+
++ (id)pu_standardFetchOptions;
 
 @end

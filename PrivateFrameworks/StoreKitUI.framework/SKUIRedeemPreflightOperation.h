@@ -2,24 +2,18 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSObject<OS_dispatch_queue>, NSString, SKUIClientContext, SKUIRedeemConfiguration;
-
 @interface SKUIRedeemPreflightOperation : NSOperation {
     SKUIClientContext *_clientContext;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
-    id _outputBlock;
+    BOOL _loadsRedeemCodeMetadata;
+    id /* block */ _outputBlock;
     NSString *_redeemCode;
     SKUIRedeemConfiguration *_redeemConfiguration;
-    bool_loadsRedeemCodeMetadata;
 }
 
-@property bool loadsRedeemCodeMetadata;
-@property(copy) id outputBlock;
-@property(retain) SKUIRedeemConfiguration * redeemConfiguration;
+@property BOOL loadsRedeemCodeMetadata;
+@property (copy) id /* block */ outputBlock;
+@property (retain) SKUIRedeemConfiguration *redeemConfiguration;
 
 - (void).cxx_destruct;
 - (id)_authenticationContext;
@@ -27,12 +21,12 @@
 - (id)_redeemCodeMetadataWithClientContext:(id)arg1;
 - (id)init;
 - (id)initWithClientContext:(id)arg1 redeemCode:(id)arg2;
-- (bool)loadsRedeemCodeMetadata;
+- (BOOL)loadsRedeemCodeMetadata;
 - (void)main;
-- (id)outputBlock;
+- (id /* block */)outputBlock;
 - (id)redeemConfiguration;
-- (void)setLoadsRedeemCodeMetadata:(bool)arg1;
-- (void)setOutputBlock:(id)arg1;
+- (void)setLoadsRedeemCodeMetadata:(BOOL)arg1;
+- (void)setOutputBlock:(id /* block */)arg1;
 - (void)setRedeemConfiguration:(id)arg1;
 
 @end

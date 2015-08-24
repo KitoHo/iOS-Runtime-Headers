@@ -2,19 +2,16 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class SAMPPodcast;
+@interface SAMPPlayPodcastStation : SADomainCommand
 
-@interface SAMPPlayPodcastStation : SADomainCommand {
-}
-
-@property(retain) SAMPPodcast * station;
+@property (nonatomic, retain) SAMPPodcast *station;
 
 + (id)playPodcastStation;
 + (id)playPodcastStationWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setStation:(id)arg1;
 - (id)station;
 

@@ -2,13 +2,12 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSArray, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, PSIDatabase;
-
 @interface PSIGroupResult : NSObject {
     struct __CFArray { } *_assetIds;
     NSMutableArray *_assetUUIDs;
     struct __CFArray { } *_categories;
     NSArray *_contentStrings;
+    BOOL _didFetchOwningContentString;
     PSIDatabase *_heldIdx;
     PSIDatabase *_idx;
     NSArray *_matchRanges;
@@ -16,31 +15,30 @@
     struct __CFArray { } *_owningGroupIds;
     NSObject<OS_dispatch_queue> *_queue;
     float _score;
-    bool_didFetchOwningContentString;
 }
 
-@property(retain) struct __CFArray { }* assetIds;
-@property(readonly) NSArray * assetUUIDs;
-@property(retain) struct __CFArray { }* categories;
-@property(retain) NSArray * contentStrings;
-@property PSIDatabase * idx;
-@property(readonly) unsigned long long matchCount;
-@property(retain) NSArray * matchRanges;
-@property(readonly) NSString * owningContentString;
-@property(retain) struct __CFArray { }* owningGroupIds;
-@property float score;
+@property (nonatomic, retain) struct __CFArray { }*assetIds;
+@property (readonly) NSArray *assetUUIDs;
+@property (nonatomic, retain) struct __CFArray { }*categories;
+@property (nonatomic, retain) NSArray *contentStrings;
+@property (nonatomic) PSIDatabase *idx;
+@property (nonatomic, readonly) unsigned int matchCount;
+@property (nonatomic, retain) NSArray *matchRanges;
+@property (readonly) NSString *owningContentString;
+@property (nonatomic, retain) struct __CFArray { }*owningGroupIds;
+@property (nonatomic) float score;
 
-- (id)_prepareForFetchWithCount:(unsigned long long)arg1 outRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; }*)arg2 outFetchOwningContentString:(bool*)arg3;
+- (id)_prepareForFetchWithCount:(unsigned int)arg1 outRange:(struct _NSRange { unsigned int x1; unsigned int x2; }*)arg2 outFetchOwningContentString:(BOOL*)arg3;
 - (struct __CFArray { }*)assetIds;
 - (id)assetUUIDs;
 - (struct __CFArray { }*)categories;
 - (id)contentStrings;
 - (void)dealloc;
 - (id)description;
-- (void)fetchNextAssetUUIDs:(unsigned long long)arg1 completionHandler:(id)arg2;
+- (void)fetchNextAssetUUIDs:(unsigned int)arg1 completionHandler:(id /* block */)arg2;
 - (id)idx;
 - (id)init;
-- (unsigned long long)matchCount;
+- (unsigned int)matchCount;
 - (id)matchRanges;
 - (id)owningContentString;
 - (struct __CFArray { }*)owningGroupIds;

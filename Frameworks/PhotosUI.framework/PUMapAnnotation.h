@@ -2,66 +2,64 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSArray, NSDate, NSMutableSet, NSObject, NSString, PUMapItem;
-
 @interface PUMapAnnotation : NSObject <PUMapAnnotationAnimatable> {
     struct { 
         double latitude; 
         double longitude; 
+    } _coordinate;
+    unsigned int _hash;
+    PUMapItem *_mapItem;
     struct { 
         double latitude; 
         double longitude; 
-    } _coordinate;
-    unsigned long long _hash;
-    PUMapItem *_mapItem;
     } _originalCoordinate;
-    unsigned long long _relativeOrder;
+    unsigned int _relativeOrder;
 }
 
-@property(readonly) struct { double x1; double x2; } coordinate;
-@property(readonly) unsigned long long count;
-@property(retain,readonly) NSDate * dateCreated;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain,readonly) NSObject * itemId;
-@property(retain) PUMapItem * mapItem;
-@property(readonly) NSArray * mapItems;
-@property(readonly) struct { double x1; double x2; } originalCoordinate;
-@property unsigned long long relativeOrder;
-@property(retain,readonly) NSMutableSet * subAnnotations;
-@property(copy,readonly) NSString * subtitle;
-@property(readonly) Class superclass;
-@property(copy,readonly) NSString * title;
+@property (nonatomic, readonly) struct { double x1; double x2; } coordinate;
+@property (nonatomic, readonly) unsigned int count;
+@property (nonatomic, readonly, retain) NSDate *dateCreated;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly, retain) NSObject *itemId;
+@property (nonatomic, retain) PUMapItem *mapItem;
+@property (nonatomic, readonly) NSArray *mapItems;
+@property (nonatomic, readonly) struct { double x1; double x2; } originalCoordinate;
+@property (nonatomic) unsigned int relativeOrder;
+@property (nonatomic, readonly, retain) NSMutableSet *subAnnotations;
+@property (nonatomic, readonly, copy) NSString *subtitle;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly, copy) NSString *title;
 
-+ (id)annotationSortingComparatorNewestToOldest;
-+ (id)annotationSortingComparatorOldestToNewest;
++ (id /* block */)annotationSortingComparatorNewestToOldest;
++ (id /* block */)annotationSortingComparatorOldestToNewest;
 + (id)compactDescriptionForAnnotations:(id)arg1;
 
 - (void).cxx_destruct;
 - (id)_dateString;
-- (long long)annotationSortingCompareWithAnnotation:(id)arg1;
+- (int)annotationSortingCompareWithAnnotation:(id)arg1;
 - (id)compactDescription;
-- (long long)compare:(id)arg1;
-- (bool)containsAnnotation:(id)arg1;
+- (int)compare:(id)arg1;
+- (BOOL)containsAnnotation:(id)arg1;
 - (struct { double x1; double x2; })coordinate;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (unsigned long long)count;
+- (unsigned int)count;
 - (id)dateCreated;
 - (id)description;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithCoordinate:(struct { double x1; double x2; })arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)itemId;
 - (id)mapItem;
 - (id)mapItems;
-- (id)newestMaxMapItems:(unsigned long long)arg1;
+- (id)newestMaxMapItems:(unsigned int)arg1;
 - (struct { double x1; double x2; })originalCoordinate;
-- (unsigned long long)relativeOrder;
+- (unsigned int)relativeOrder;
 - (void)resetCoordinateToOriginal;
 - (void)setCoordinate:(struct { double x1; double x2; })arg1;
 - (void)setMapItem:(id)arg1;
-- (void)setRelativeOrder:(unsigned long long)arg1;
+- (void)setRelativeOrder:(unsigned int)arg1;
 - (id)subAnnotations;
 - (id)subtitle;
 - (id)title;

@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSHashTable, NSString;
-
 @interface SUScriptTextFieldDelegate : NSObject <SUScriptTextFieldDelegate> {
     NSHashTable *_delegates;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) long long numberOfDelegates;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) int numberOfDelegates;
+@property (readonly) Class superclass;
 
 - (void)addDelegate:(id)arg1;
 - (void)dealloc;
 - (void)forwardInvocation:(id)arg1;
 - (id)init;
 - (id)methodSignatureForSelector:(SEL)arg1;
-- (long long)numberOfDelegates;
+- (int)numberOfDelegates;
 - (void)removeDelegate:(id)arg1;
-- (bool)respondsToSelector:(SEL)arg1;
+- (BOOL)respondsToSelector:(SEL)arg1;
 
 @end

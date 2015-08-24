@@ -2,19 +2,15 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface PKPaymentOptionGroupButtonItem : PKPaymentOptionGroupItem {
-    id _buttonHandler;
+    id /* block */ _buttonHandler;
 }
 
-@property(copy) id buttonHandler;
+@property (nonatomic, copy) id /* block */ buttonHandler;
 
-- (id)buttonHandler;
-- (bool)isSelectable;
-- (void)setButtonHandler:(id)arg1;
+- (id /* block */)buttonHandler;
+- (BOOL)isSelectable;
+- (void)setButtonHandler:(id /* block */)arg1;
 - (Class)tableViewCellClass;
 
 @end

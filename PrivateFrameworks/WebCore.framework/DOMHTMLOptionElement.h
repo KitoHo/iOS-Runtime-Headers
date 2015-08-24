@@ -2,36 +2,38 @@
    Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
  */
 
-@class DOMHTMLFormElement, NSString;
+@interface DOMHTMLOptionElement : DOMHTMLElement
 
-@interface DOMHTMLOptionElement : DOMHTMLElement {
-}
+@property BOOL defaultSelected;
+@property BOOL disabled;
+@property (readonly) DOMHTMLFormElement *form;
+@property (readonly) int index;
+@property (copy) NSString *label;
+@property BOOL selected;
+@property (readonly, copy) NSString *text;
+@property (copy) NSString *value;
 
-@property bool defaultSelected;
-@property bool disabled;
-@property(readonly) DOMHTMLFormElement * form;
-@property(readonly) int index;
-@property(copy) NSString * label;
-@property bool selected;
-@property(copy,readonly) NSString * text;
-@property(copy) NSString * value;
+// Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
 
-- (id)createPickerCell;
-- (id)createSelectedItem;
-- (bool)defaultSelected;
-- (bool)disabled;
+- (BOOL)defaultSelected;
+- (BOOL)disabled;
 - (id)form;
 - (int)index;
-- (id)itemTitle;
 - (id)label;
-- (void)populateCell:(id)arg1;
-- (bool)selected;
-- (void)setDefaultSelected:(bool)arg1;
-- (void)setDisabled:(bool)arg1;
+- (BOOL)selected;
+- (void)setDefaultSelected:(BOOL)arg1;
+- (void)setDisabled:(BOOL)arg1;
 - (void)setLabel:(id)arg1;
-- (void)setSelected:(bool)arg1;
+- (void)setSelected:(BOOL)arg1;
 - (void)setValue:(id)arg1;
 - (id)text;
 - (id)value;
+
+// Image: /System/Library/Frameworks/UIKit.framework/UIKit
+
+- (id)createPickerCell;
+- (id)createSelectedItem;
+- (id)itemTitle;
+- (void)populateCell:(id)arg1;
 
 @end

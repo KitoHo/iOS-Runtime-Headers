@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOLatLng, GEOPDViewportInfo, NSData;
-
 @interface GEORPMapLocation : PBCodable <NSCopying> {
+    GEOLatLng *_coordinate;
     struct { 
         unsigned int zoomLevel : 1; 
-    GEOLatLng *_coordinate;
     } _has;
     NSData *_image;
     GEOPDViewportInfo *_viewportInfo;
     float _zoomLevel;
 }
 
-@property(retain) GEOLatLng * coordinate;
-@property(readonly) bool hasCoordinate;
-@property(readonly) bool hasImage;
-@property(readonly) bool hasViewportInfo;
-@property bool hasZoomLevel;
-@property(retain) NSData * image;
-@property(retain) GEOPDViewportInfo * viewportInfo;
-@property float zoomLevel;
+@property (nonatomic, retain) GEOLatLng *coordinate;
+@property (nonatomic, readonly) BOOL hasCoordinate;
+@property (nonatomic, readonly) BOOL hasImage;
+@property (nonatomic, readonly) BOOL hasViewportInfo;
+@property (nonatomic) BOOL hasZoomLevel;
+@property (nonatomic, retain) NSData *image;
+@property (nonatomic, retain) GEOPDViewportInfo *viewportInfo;
+@property (nonatomic) float zoomLevel;
 
 - (id)coordinate;
 - (void)copyTo:(id)arg1;
@@ -29,17 +27,17 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasCoordinate;
-- (bool)hasImage;
-- (bool)hasViewportInfo;
-- (bool)hasZoomLevel;
-- (unsigned long long)hash;
+- (BOOL)hasCoordinate;
+- (BOOL)hasImage;
+- (BOOL)hasViewportInfo;
+- (BOOL)hasZoomLevel;
+- (unsigned int)hash;
 - (id)image;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setCoordinate:(id)arg1;
-- (void)setHasZoomLevel:(bool)arg1;
+- (void)setHasZoomLevel:(BOOL)arg1;
 - (void)setImage:(id)arg1;
 - (void)setViewportInfo:(id)arg1;
 - (void)setZoomLevel:(float)arg1;

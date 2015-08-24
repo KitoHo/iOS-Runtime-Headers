@@ -2,14 +2,7 @@
    Image: /System/Library/Frameworks/QuartzCore.framework/QuartzCore
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSString;
-
-@interface CAFilter : NSObject <NSCopying, NSMutableCopying, NSCoding> {
+@interface CAFilter : NSObject <NSCoding, NSCopying, NSMutableCopying> {
     void *_attr;
     void *_cache;
     unsigned int _flags;
@@ -17,35 +10,35 @@
     unsigned int _type;
 }
 
-@property bool cachesInputImage;
-@property(getter=isEnabled) bool enabled;
-@property(copy) NSString * name;
-@property(readonly) NSString * type;
+@property BOOL cachesInputImage;
+@property (getter=isEnabled) BOOL enabled;
+@property (copy) NSString *name;
+@property (readonly) NSString *type;
 
 + (void)CAMLParserStartElement:(id)arg1;
-+ (bool)automaticallyNotifiesObserversForKey:(id)arg1;
++ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)filterTypes;
 + (id)filterWithName:(id)arg1;
 + (id)filterWithType:(id)arg1;
 
-- (struct Object { int (**x1)(); struct Atomic { struct { int x_1_2_1; } x_2_1_1; } x2; }*)CA_copyRenderValue;
 - (void)CAMLParser:(id)arg1 setValue:(id)arg2 forKey:(id)arg3;
 - (id)CAMLTypeForKey:(id)arg1;
-- (bool)cachesInputImage;
+- (struct Object { int (**x1)(); struct Atomic { struct { int x_1_2_1; } x_2_1_1; } x2; }*)CA_copyRenderValue;
+- (BOOL)cachesInputImage;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
-- (bool)enabled;
+- (BOOL)enabled;
 - (void)encodeWithCAMLWriter:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithName:(id)arg1;
 - (id)initWithType:(id)arg1;
-- (bool)isEnabled;
+- (BOOL)isEnabled;
 - (id)mutableCopyWithZone:(struct _NSZone { }*)arg1;
 - (id)name;
-- (void)setCachesInputImage:(bool)arg1;
+- (void)setCachesInputImage:(BOOL)arg1;
 - (void)setDefaults;
-- (void)setEnabled:(bool)arg1;
+- (void)setEnabled:(BOOL)arg1;
 - (void)setName:(id)arg1;
 - (void)setValue:(id)arg1 forKey:(id)arg2;
 - (id)type;

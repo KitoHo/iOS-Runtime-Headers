@@ -2,8 +2,7 @@
    Image: /System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
  */
 
-@interface __NSPlaceholderSet : NSMutableSet {
-}
+@interface __NSPlaceholderSet : NSMutableSet
 
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
 + (id)immutablePlaceholder;
@@ -11,16 +10,16 @@
 + (id)mutablePlaceholder;
 
 - (void)addObject:(id)arg1;
-- (unsigned long long)count;
+- (unsigned int)count;
 - (void)dealloc;
 - (id)init;
-- (id)initWithCapacity:(unsigned long long)arg1;
-- (id)initWithObjects:(const id*)arg1 count:(unsigned long long)arg2;
+- (id)initWithCapacity:(unsigned int)arg1;
+- (id)initWithObjects:(const id*)arg1 count:(unsigned int)arg2;
 - (id)member:(id)arg1;
 - (id)objectEnumerator;
 - (oneway void)release;
 - (void)removeObject:(id)arg1;
 - (id)retain;
-- (unsigned long long)retainCount;
+- (unsigned int)retainCount;
 
 @end

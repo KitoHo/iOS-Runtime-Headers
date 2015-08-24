@@ -2,38 +2,36 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class MFMailComposeViewController, NSString, PLManagedAsset, PLProgressView, PLUIEditVideoViewController, PUActivityItemSource, PUActivityItemSourceController, UIViewController;
-
 @interface PUMailActivity : UIMailActivity <MFMailComposeViewControllerDelegate, PUActivity> {
     PLManagedAsset *_currentVideo;
     PUActivityItemSource *_currentVideoItemSource;
     PLUIEditVideoViewController *_editVideoViewController;
+    BOOL _isSharingSingleVideo;
     PUActivityItemSourceController *_itemSourceController;
     MFMailComposeViewController *_mailComposeController;
     UIViewController *_referenceViewController;
     PLProgressView *_remakerProgressView;
     id _strongSelf;
-    bool_isSharingSingleVideo;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property PUActivityItemSourceController * itemSourceController;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) PUActivityItemSourceController *itemSourceController;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (void)_composeMailForVideo:(id)arg1 trimmedFilePath:(id)arg2;
-- (bool)_presentActivityOnViewController:(id)arg1 animated:(bool)arg2 completion:(id)arg3;
+- (BOOL)_presentActivityOnViewController:(id)arg1 animated:(BOOL)arg2 completion:(id /* block */)arg3;
 - (void)_pu_cleanup;
 - (void)_remakeAndSendVideoWithTrimStartTime:(double)arg1 endTime:(double)arg2;
 - (void)_sendViaEmail;
 - (void)_showTrimViewControllerForVideo:(id)arg1 maximumTrimDuration:(double)arg2 trimButtonTitle:(id)arg3;
-- (bool)_showTrimViewControllerIfNeededForVideo:(id)arg1 usingMode:(int)arg2;
+- (BOOL)_showTrimViewControllerIfNeededForVideo:(id)arg1 usingMode:(int)arg2;
 - (void)_transcodeVideo:(id)arg1 usingMode:(int)arg2;
-- (void)activityDidFinish:(bool)arg1;
+- (void)activityDidFinish:(BOOL)arg1;
 - (id)activityViewController;
-- (bool)canPerformWithActivityItems:(id)arg1;
+- (BOOL)canPerformWithActivityItems:(id)arg1;
 - (void)cancelRemaking;
 - (void)dealloc;
 - (void)editVideoViewController:(id)arg1 didTrimVideoWithOptions:(id)arg2;

@@ -2,18 +2,22 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-@interface _HKFilter : NSObject <NSSecureCoding, NSCopying> {
-}
+@interface _HKFilter : NSObject <NSCopying, NSSecureCoding>
 
-+ (bool)filter:(id)arg1 acceptsDataObject:(id)arg2;
-+ (id)filterByCombiningFilters:(id)arg1 compoundType:(unsigned long long)arg2;
-+ (id)filterForKeyPath:(id)arg1 predicateOperatorType:(unsigned long long)arg2 value:(id)arg3 dataTypes:(id)arg4;
-+ (bool)supportsSecureCoding;
+// Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
 
-- (bool)acceptsDataObject:(id)arg1;
++ (BOOL)filter:(id)arg1 acceptsDataObject:(id)arg2;
++ (id)filterByCombiningFilters:(id)arg1 compoundType:(unsigned int)arg2;
++ (id)filterForKeyPath:(id)arg1 predicateOperatorType:(unsigned int)arg2 value:(id)arg3 dataTypes:(id)arg4;
++ (BOOL)supportsSecureCoding;
+
+- (BOOL)acceptsDataObject:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
+
 - (id)predicateWithHealthDaemon:(id)arg1;
 
 @end

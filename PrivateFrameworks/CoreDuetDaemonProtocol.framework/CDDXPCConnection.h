@@ -2,32 +2,30 @@
    Image: /System/Library/PrivateFrameworks/CoreDuetDaemonProtocol.framework/CoreDuetDaemonProtocol
  */
 
-@class CDDebug, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSString;
-
 @interface CDDXPCConnection : NSObject {
     NSObject<OS_xpc_object> *_connection;
     NSObject<OS_dispatch_queue> *_connectionQueue;
     CDDebug *_debug;
+    BOOL _hasValidConnection;
     NSObject<OS_dispatch_queue> *_replyQueue;
     long long _sequenceNumber;
     NSString *_serviceName;
-    bool_hasValidConnection;
 }
 
-@property(readonly) CDDebug * debug;
-@property(readonly) NSString * serviceName;
+@property (readonly) CDDebug *debug;
+@property (readonly) NSString *serviceName;
 
 - (void).cxx_destruct;
 - (void)cancelConnection;
 - (id)connection;
 - (void)dealloc;
 - (id)debug;
-- (bool)establishConnection;
+- (BOOL)establishConnection;
 - (id)initWithMachServiceName:(id)arg1 dispatchQueue:(id)arg2;
 - (void)invalidateConnection;
 - (id)makeStashWithId:(unsigned long long)arg1;
-- (void)sendBarrier:(id)arg1;
-- (bool)sendMessageAsync:(id)arg1 withReplyHandler:(id)arg2;
+- (void)sendBarrier:(id /* block */)arg1;
+- (BOOL)sendMessageAsync:(id)arg1 withReplyHandler:(id /* block */)arg2;
 - (unsigned long long)sequenceNumber;
 - (id)serviceName;
 

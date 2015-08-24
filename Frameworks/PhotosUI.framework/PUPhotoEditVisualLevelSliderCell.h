@@ -2,23 +2,21 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class UIImage, UIImageView;
-
 @interface PUPhotoEditVisualLevelSliderCell : UICollectionViewCell {
     UIImageView *_imageView;
-    unsigned long long _roundedCornersEdge;
+    unsigned int _roundedCornersEdge;
     UIImage *_thumbnail;
 }
 
-@property unsigned long long roundedCornersEdge;
-@property(retain) UIImage * thumbnail;
+@property (nonatomic) unsigned int roundedCornersEdge;
+@property (nonatomic, retain) UIImage *thumbnail;
 
 - (void).cxx_destruct;
 - (void)layoutSubviews;
-- (unsigned long long)roundedCornersEdge;
-- (void)setRoundedCornersEdge:(unsigned long long)arg1;
-- (void)setThumbnail:(id)arg1 animated:(bool)arg2;
+- (unsigned int)roundedCornersEdge;
+- (void)setRoundedCornersEdge:(unsigned int)arg1;
 - (void)setThumbnail:(id)arg1;
+- (void)setThumbnail:(id)arg1 animated:(BOOL)arg2;
 - (id)thumbnail;
 
 @end

@@ -2,43 +2,41 @@
    Image: /System/Library/PrivateFrameworks/PowerlogLiteOperators.framework/PowerlogLiteOperators
  */
 
-@class NSArray, PLEntryNotificationOperatorComposition, PLIOKitOperatorComposition, PLNSTimerOperatorComposition, PLSemaphore, PLXPCResponderOperatorComposition;
-
 @interface PLBatteryAgent : PLAgent {
     struct __IOHIDEventSystemClient { } *_accessoryCurrentHIDRef;
     NSArray *_accessoryCurrentMatchingSensors;
     struct __IOHIDEventSystemClient { } *_accessoryVoltageHIDRef;
     NSArray *_accessoryVoltageMatchingSensors;
+    BOOL _allowGasGaugeRead;
     PLXPCResponderOperatorComposition *_batteryInfoResponder;
     double _batteryLevelPercent;
     PLEntryNotificationOperatorComposition *_canSleepEntryNotifications;
     PLSemaphore *_canSleepSemaphore;
+    BOOL _deviceIsPluggedIn;
     struct ggcontext { } *_gasGagueConnection;
     int _gasGaugeConsecutiveEmptyEntriesCount;
     PLNSTimerOperatorComposition *_gasGaugeTimer;
     PLIOKitOperatorComposition *_iokit;
     double _rawBatteryVoltageVolt;
     PLEntryNotificationOperatorComposition *_wakeEntryNotifications;
-    bool_allowGasGaugeRead;
-    bool_deviceIsPluggedIn;
 }
 
-@property struct __IOHIDEventSystemClient { }* accessoryCurrentHIDRef;
-@property(retain) NSArray * accessoryCurrentMatchingSensors;
-@property struct __IOHIDEventSystemClient { }* accessoryVoltageHIDRef;
-@property(retain) NSArray * accessoryVoltageMatchingSensors;
-@property bool allowGasGaugeRead;
-@property(retain) PLXPCResponderOperatorComposition * batteryInfoResponder;
+@property struct __IOHIDEventSystemClient { }*accessoryCurrentHIDRef;
+@property (retain) NSArray *accessoryCurrentMatchingSensors;
+@property struct __IOHIDEventSystemClient { }*accessoryVoltageHIDRef;
+@property (retain) NSArray *accessoryVoltageMatchingSensors;
+@property BOOL allowGasGaugeRead;
+@property (retain) PLXPCResponderOperatorComposition *batteryInfoResponder;
 @property double batteryLevelPercent;
-@property(readonly) PLEntryNotificationOperatorComposition * canSleepEntryNotifications;
-@property(retain) PLSemaphore * canSleepSemaphore;
-@property bool deviceIsPluggedIn;
-@property struct ggcontext { }* gasGagueConnection;
+@property (readonly) PLEntryNotificationOperatorComposition *canSleepEntryNotifications;
+@property (retain) PLSemaphore *canSleepSemaphore;
+@property BOOL deviceIsPluggedIn;
+@property struct ggcontext { }*gasGagueConnection;
 @property int gasGaugeConsecutiveEmptyEntriesCount;
-@property(retain) PLNSTimerOperatorComposition * gasGaugeTimer;
-@property(readonly) PLIOKitOperatorComposition * iokit;
+@property (retain) PLNSTimerOperatorComposition *gasGaugeTimer;
+@property (readonly) PLIOKitOperatorComposition *iokit;
 @property double rawBatteryVoltageVolt;
-@property(readonly) PLEntryNotificationOperatorComposition * wakeEntryNotifications;
+@property (readonly) PLEntryNotificationOperatorComposition *wakeEntryNotifications;
 
 + (id)defaults;
 + (id)entryEventBackwardDefinitionBattery;
@@ -56,20 +54,20 @@
 - (double)accessorySensorReadingForType:(short)arg1;
 - (struct __IOHIDEventSystemClient { }*)accessoryVoltageHIDRef;
 - (id)accessoryVoltageMatchingSensors;
-- (bool)allowGasGaugeRead;
+- (BOOL)allowGasGaugeRead;
 - (id)batteryInfoResponder;
 - (double)batteryLevelPercent;
 - (id)canSleepEntryNotifications;
 - (id)canSleepSemaphore;
 - (void)dealloc;
-- (bool)deviceIsPluggedIn;
+- (BOOL)deviceIsPluggedIn;
 - (struct ggcontext { }*)gasGagueConnection;
 - (int)gasGaugeConsecutiveEmptyEntriesCount;
-- (bool)gasGaugeOpenAndStartLogging;
+- (BOOL)gasGaugeOpenAndStartLogging;
 - (void)gasGaugeRead;
-- (bool)gasGaugeStopLoggingAndClose;
+- (BOOL)gasGaugeStopLoggingAndClose;
 - (id)gasGaugeTimer;
-- (bool)givePluggedInFreePass;
+- (BOOL)givePluggedInFreePass;
 - (id)init;
 - (void)initOperatorDependancies;
 - (void)initializeAccessoryIOHIDForType:(short)arg1;
@@ -83,11 +81,11 @@
 - (void)setAccessoryCurrentMatchingSensors:(id)arg1;
 - (void)setAccessoryVoltageHIDRef:(struct __IOHIDEventSystemClient { }*)arg1;
 - (void)setAccessoryVoltageMatchingSensors:(id)arg1;
-- (void)setAllowGasGaugeRead:(bool)arg1;
+- (void)setAllowGasGaugeRead:(BOOL)arg1;
 - (void)setBatteryInfoResponder:(id)arg1;
 - (void)setBatteryLevelPercent:(double)arg1;
 - (void)setCanSleepSemaphore:(id)arg1;
-- (void)setDeviceIsPluggedIn:(bool)arg1;
+- (void)setDeviceIsPluggedIn:(BOOL)arg1;
 - (void)setGasGagueConnection:(struct ggcontext { }*)arg1;
 - (void)setGasGaugeConsecutiveEmptyEntriesCount:(int)arg1;
 - (void)setGasGaugeTimer:(id)arg1;

@@ -2,34 +2,32 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@class NSTimer, UIScrollView;
-
 @interface ABAdjusterRecord : NSObject {
-    double _adjustment;
+    float _adjustment;
     NSTimer *_delayedScrollTimer;
+    BOOL _manuallyAdjusted;
     UIScrollView *_scrollView;
-    bool_manuallyAdjusted;
 }
 
-@property double adjustment;
-@property(retain) NSTimer * delayedScrollTimer;
-@property bool manuallyAdjusted;
-@property(retain) UIScrollView * scrollView;
+@property (nonatomic) float adjustment;
+@property (nonatomic, retain) NSTimer *delayedScrollTimer;
+@property (nonatomic) BOOL manuallyAdjusted;
+@property (nonatomic, retain) UIScrollView *scrollView;
 
 + (id)recordWithScrollView:(id)arg1;
 
 - (void)_adjustTableForKeyboardInfo:(id)arg1;
-- (double)adjustment;
+- (float)adjustment;
 - (void)cancelDelayedAdjustments;
 - (void)dealloc;
 - (id)delayedScrollTimer;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
-- (bool)manuallyAdjusted;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)manuallyAdjusted;
 - (id)scrollView;
-- (void)setAdjustment:(double)arg1;
+- (void)setAdjustment:(float)arg1;
 - (void)setDelayedScrollTimer:(id)arg1;
-- (void)setManuallyAdjusted:(bool)arg1;
+- (void)setManuallyAdjusted:(BOOL)arg1;
 - (void)setScrollView:(id)arg1;
 
 @end

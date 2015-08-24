@@ -2,23 +2,21 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVAssetResourceLoadingContentInformationRequest, AVAssetResourceLoadingDataRequest, AVAssetResourceLoadingRequestInternal, NSString, NSURLRequest, NSURLResponse;
-
 @interface AVAssetResourceLoadingRequest : NSObject <AVAssetResourceLoaderRequest> {
     AVAssetResourceLoadingRequestInternal *_loadingRequest;
 }
 
-@property(getter=isCancelled,readonly) bool cancelled;
-@property(readonly) AVAssetResourceLoadingContentInformationRequest * contentInformationRequest;
-@property(readonly) AVAssetResourceLoadingDataRequest * dataRequest;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(getter=isFinished,readonly) bool finished;
-@property(readonly) unsigned long long hash;
-@property(copy) NSURLRequest * redirect;
-@property(readonly) NSURLRequest * request;
-@property(copy) NSURLResponse * response;
-@property(readonly) Class superclass;
+@property (getter=isCancelled, nonatomic, readonly) BOOL cancelled;
+@property (nonatomic, readonly) AVAssetResourceLoadingContentInformationRequest *contentInformationRequest;
+@property (nonatomic, readonly) AVAssetResourceLoadingDataRequest *dataRequest;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (getter=isFinished, nonatomic, readonly) BOOL finished;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSURLRequest *redirect;
+@property (nonatomic, readonly) NSURLRequest *request;
+@property (nonatomic, copy) NSURLResponse *response;
+@property (readonly) Class superclass;
 
 + (SEL)_selectorForInformingDelegateOfCancellationByFig;
 
@@ -35,8 +33,8 @@
 - (void)_sendDictionaryForURLRequest:(id)arg1 context:(id)arg2;
 - (void)_setContentInformationRequest:(id)arg1;
 - (void)_setDataRequest:(id)arg1;
-- (bool)_shouldInformDelegateOfFigCancellation;
-- (bool)_tryToMarkAsCancelled;
+- (BOOL)_shouldInformDelegateOfFigCancellation;
+- (BOOL)_tryToMarkAsCancelled;
 - (id)_weakReference;
 - (id)contentInformationRequest;
 - (id)dataRequest;
@@ -46,12 +44,12 @@
 - (void)finishLoading;
 - (void)finishLoadingWithError:(id)arg1;
 - (void)finishLoadingWithResponse:(id)arg1 data:(id)arg2 redirect:(id)arg3;
-- (bool)finished;
-- (void)generateStreamingContentKeyRequestDataAsynchronouslyForApp:(id)arg1 contentIdentifier:(id)arg2 options:(id)arg3 completionHandler:(id)arg4;
+- (BOOL)finished;
+- (void)generateStreamingContentKeyRequestDataAsynchronouslyForApp:(id)arg1 contentIdentifier:(id)arg2 options:(id)arg3 completionHandler:(id /* block */)arg4;
 - (id)init;
 - (id)initWithResourceLoader:(id)arg1 requestDictionary:(id)arg2;
-- (bool)isCancelled;
-- (bool)isFinished;
+- (BOOL)isCancelled;
+- (BOOL)isFinished;
 - (id)redirect;
 - (id)request;
 - (id)response;

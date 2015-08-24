@@ -2,22 +2,19 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSNumber, UIColor;
+@interface UIMutableStatusBarStyleRequest : UIStatusBarStyleRequest
 
-@interface UIMutableStatusBarStyleRequest : UIStatusBarStyleRequest {
-}
-
-@property(retain) UIColor * foregroundColor;
-@property(getter=isLegacy) bool legacy;
-@property long long legibilityStyle;
-@property(retain) NSNumber * overrideHeight;
-@property long long style;
+@property (nonatomic, retain) UIColor *foregroundColor;
+@property (getter=isLegacy, nonatomic) BOOL legacy;
+@property (nonatomic) int legibilityStyle;
+@property (nonatomic, retain) NSNumber *overrideHeight;
+@property (nonatomic) int style;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)setForegroundColor:(id)arg1;
-- (void)setLegacy:(bool)arg1;
-- (void)setLegibilityStyle:(long long)arg1;
+- (void)setLegacy:(BOOL)arg1;
+- (void)setLegibilityStyle:(int)arg1;
 - (void)setOverrideHeight:(id)arg1;
-- (void)setStyle:(long long)arg1;
+- (void)setStyle:(int)arg1;
 
 @end

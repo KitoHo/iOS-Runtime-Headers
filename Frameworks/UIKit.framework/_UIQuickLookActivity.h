@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIDocumentInteractionController;
-
 @interface _UIQuickLookActivity : UIActivity {
     UIDocumentInteractionController *_documentInteractionController;
 }
@@ -12,7 +10,7 @@
 - (id)activityImage;
 - (id)activityTitle;
 - (id)activityType;
-- (bool)canPerformWithActivityItems:(id)arg1;
+- (BOOL)canPerformWithActivityItems:(id)arg1;
 - (id)initWithDocumentInteractionController:(id)arg1;
 - (void)performActivity;
 

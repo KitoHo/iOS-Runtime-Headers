@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/IMDaemonCore.framework/IMDaemonCore
  */
 
-@class IMDAccount, IMDService, IMDServiceSession, IMMessageItem, NSArray, NSDictionary, NSMutableDictionary, NSRecursiveLock, NSString;
-
 @interface IMDChat : NSObject {
     NSString *_accountID;
     NSString *_chatIdentifier;
@@ -11,6 +9,7 @@
     NSString *_displayName;
     NSString *_groupID;
     NSString *_guid;
+    BOOL _isArchived;
     NSString *_lastAddressedLocalHandle;
     IMMessageItem *_lastMessage;
     NSRecursiveLock *_lock;
@@ -19,36 +18,35 @@
     NSString *_roomName;
     long long _rowID;
     NSString *_serviceName;
-    long long _state;
+    int _state;
     unsigned char _style;
-    unsigned long long _unreadCount;
-    bool_isArchived;
+    unsigned int _unreadCount;
 }
 
-@property(retain,readonly) IMDAccount * account;
-@property(copy) NSString * accountID;
-@property(copy) NSString * chatIdentifier;
-@property(retain,readonly) NSDictionary * chatProperties;
-@property(retain,readonly) NSDictionary * dictionaryRepresentation;
-@property(copy) NSString * displayName;
-@property(copy) NSString * groupID;
-@property(copy) NSString * guid;
-@property(readonly) bool isArchived;
-@property(copy) NSString * lastAddressedLocalHandle;
-@property(retain) IMMessageItem * lastMessage;
-@property(copy) NSArray * participants;
-@property(retain) NSDictionary * properties;
-@property(copy) NSString * roomName;
+@property (readonly, retain) IMDAccount *account;
+@property (copy) NSString *accountID;
+@property (copy) NSString *chatIdentifier;
+@property (readonly, retain) NSDictionary *chatProperties;
+@property (readonly, retain) NSDictionary *dictionaryRepresentation;
+@property (copy) NSString *displayName;
+@property (copy) NSString *groupID;
+@property (copy) NSString *guid;
+@property (readonly) BOOL isArchived;
+@property (copy) NSString *lastAddressedLocalHandle;
+@property (retain) IMMessageItem *lastMessage;
+@property (copy) NSArray *participants;
+@property (retain) NSDictionary *properties;
+@property (copy) NSString *roomName;
 @property long long rowID;
-@property(retain,readonly) IMDService * service;
-@property(copy) NSString * serviceName;
-@property(retain,readonly) IMDServiceSession * serviceSession;
-@property long long state;
+@property (readonly, retain) IMDService *service;
+@property (copy) NSString *serviceName;
+@property (readonly, retain) IMDServiceSession *serviceSession;
+@property int state;
 @property unsigned char style;
-@property unsigned long long unreadCount;
+@property unsigned int unreadCount;
 
 - (void)_setRowID:(long long)arg1;
-- (void)_setUnreadCount:(unsigned long long)arg1;
+- (void)_setUnreadCount:(unsigned int)arg1;
 - (void)_updateCachedParticipants;
 - (void)_updateLastMessage:(id)arg1;
 - (id)account;
@@ -57,15 +55,15 @@
 - (void)addParticipants:(id)arg1;
 - (id)chatIdentifier;
 - (id)chatProperties;
-- (id)copyDictionaryRepresentation:(bool)arg1;
+- (id)copyDictionaryRepresentation:(BOOL)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)displayName;
 - (id)groupID;
 - (id)guid;
-- (id)initWithAccountID:(id)arg1 service:(id)arg2 guid:(id)arg3 groupID:(id)arg4 chatIdentifier:(id)arg5 participants:(id)arg6 roomName:(id)arg7 displayName:(id)arg8 lastAddressedLocalHandle:(id)arg9 properties:(id)arg10 state:(long long)arg11 style:(unsigned char)arg12;
-- (bool)isArchived;
+- (id)initWithAccountID:(id)arg1 service:(id)arg2 guid:(id)arg3 groupID:(id)arg4 chatIdentifier:(id)arg5 participants:(id)arg6 roomName:(id)arg7 displayName:(id)arg8 lastAddressedLocalHandle:(id)arg9 properties:(id)arg10 state:(int)arg11 style:(unsigned char)arg12;
+- (BOOL)isArchived;
 - (id)lastAddressedLocalHandle;
 - (id)lastMessage;
 - (id)participants;
@@ -88,12 +86,12 @@
 - (void)setProperties:(id)arg1;
 - (void)setRoomName:(id)arg1;
 - (void)setServiceName:(id)arg1;
-- (void)setState:(long long)arg1;
+- (void)setState:(int)arg1;
 - (void)setStyle:(unsigned char)arg1;
-- (long long)state;
+- (int)state;
 - (void)storeAndBroadcastChatChanges;
 - (unsigned char)style;
-- (unsigned long long)unreadCount;
+- (unsigned int)unreadCount;
 - (void)updateDisplayName:(id)arg1;
 - (void)updateGroupID:(id)arg1;
 - (void)updateLastAddressedHandle:(id)arg1;

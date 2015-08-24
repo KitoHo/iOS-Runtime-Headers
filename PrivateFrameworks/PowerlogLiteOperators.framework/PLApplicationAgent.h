@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/PowerlogLiteOperators.framework/PowerlogLiteOperators
  */
 
-@class NSMutableSet, PLAccountingGroup, PLNSNotificationOperatorComposition;
-
 @interface PLApplicationAgent : PLAgent {
     PLAccountingGroup *_accountingGroupApplication;
     PLAccountingGroup *_appAccountingGroup;
@@ -11,10 +9,10 @@
     PLNSNotificationOperatorComposition *_notificationSBApplicationStateChanged;
 }
 
-@property(readonly) PLAccountingGroup * accountingGroupApplication;
-@property(retain) PLAccountingGroup * appAccountingGroup;
-@property(retain) NSMutableSet * keyboardPlugins;
-@property(readonly) PLNSNotificationOperatorComposition * notificationSBApplicationStateChanged;
+@property (readonly) PLAccountingGroup *accountingGroupApplication;
+@property (retain) PLAccountingGroup *appAccountingGroup;
+@property (retain) NSMutableSet *keyboardPlugins;
+@property (readonly) PLNSNotificationOperatorComposition *notificationSBApplicationStateChanged;
 
 + (id)accountingGroupDefinitions;
 + (id)appNameForBundleID:(id)arg1;
@@ -44,8 +42,8 @@
 - (void)logAllApps;
 - (void)logAllPlugins;
 - (void)logEventPointApplication;
-- (void)logEventPointApplicationForDisplayID:(id)arg1 withPid:(int)arg2 withState:(id)arg3 withReasons:(id)arg4;
 - (void)logEventPointApplicationForDisplayID:(id)arg1;
+- (void)logEventPointApplicationForDisplayID:(id)arg1 withPid:(int)arg2 withState:(id)arg3 withReasons:(id)arg4;
 - (void)logInstalledApp:(id)arg1;
 - (void)logInstalledPlugin:(id)arg1;
 - (void)logUninstalledApp:(id)arg1;

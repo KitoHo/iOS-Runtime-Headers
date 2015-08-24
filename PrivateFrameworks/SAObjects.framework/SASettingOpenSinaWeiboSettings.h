@@ -2,14 +2,13 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@interface SASettingOpenSinaWeiboSettings : SASettingOpenAppSettings {
-}
+@interface SASettingOpenSinaWeiboSettings : SASettingOpenAppSettings
 
 + (id)openSinaWeiboSettings;
 + (id)openSinaWeiboSettingsWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 
 @end

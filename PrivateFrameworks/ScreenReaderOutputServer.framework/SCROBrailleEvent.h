@@ -3,26 +3,26 @@
  */
 
 @interface SCROBrailleEvent : NSObject {
+    id _data;
     id _data2;
     id _data3;
-    id _data;
+    BOOL _shouldDisplay;
     int _type;
-    bool_shouldDisplay;
 }
 
-@property bool shouldDisplay;
+@property (nonatomic) BOOL shouldDisplay;
 
-+ (id)eventWithType:(int)arg1 data:(id)arg2 data2:(id)arg3 data3:(id)arg4;
 + (id)eventWithType:(int)arg1 data:(id)arg2;
++ (id)eventWithType:(int)arg1 data:(id)arg2 data2:(id)arg3 data3:(id)arg4;
 
+- (id)data;
 - (id)data2;
 - (id)data3;
-- (id)data;
 - (void)dealloc;
 - (id)description;
 - (id)initWithType:(int)arg1 data:(id)arg2 data2:(id)arg3 data3:(id)arg4;
-- (void)setShouldDisplay:(bool)arg1;
-- (bool)shouldDisplay;
+- (void)setShouldDisplay:(BOOL)arg1;
+- (BOOL)shouldDisplay;
 - (int)type;
 
 @end

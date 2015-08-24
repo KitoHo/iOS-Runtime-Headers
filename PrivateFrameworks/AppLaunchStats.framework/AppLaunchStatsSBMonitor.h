@@ -2,19 +2,13 @@
    Image: /System/Library/PrivateFrameworks/AppLaunchStats.framework/AppLaunchStats
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class AppLaunchStatsSaveAndRestore, AppLaunchStatsState, BKSApplicationStateMonitor, NSMutableDictionary, NSMutableString, NSObject<OS_dispatch_queue>;
-
 @interface AppLaunchStatsSBMonitor : NSObject <DuetLoggerProtocol, DuetSaveAndRestore> {
+    BOOL _enableAppSwitcherCheck;
+    BOOL _enableWasRecentlyLaunched;
     AppLaunchStatsState *aplsState;
     BKSApplicationStateMonitor *appStateMonitor;
     NSMutableDictionary *blackListed;
-    bool_enableAppSwitcherCheck;
-    bool_enableWasRecentlyLaunched;
-    id callback;
+    id /* block */ callback;
     NSMutableString *foreGroundApp;
     NSMutableDictionary *recentList;
     AppLaunchStatsSaveAndRestore *saveAndRestoreContext;
@@ -22,19 +16,19 @@
     NSMutableDictionary *trendList;
 }
 
-@property(readonly) bool enableAppSwitcherCheck;
-@property(readonly) bool enableWasRecentlyLaunched;
-@property(readonly) NSMutableString * foreGroundApp;
+@property (nonatomic, readonly) BOOL enableAppSwitcherCheck;
+@property (nonatomic, readonly) BOOL enableWasRecentlyLaunched;
+@property (nonatomic, readonly) NSMutableString *foreGroundApp;
 
 - (void).cxx_destruct;
 - (void)addToBlackList:(id)arg1;
 - (void)appSuspendedTriggerExternalEvent:(id)arg1;
 - (void)appSwitchedObserver:(id)arg1;
 - (void)clearTrendingCache;
-- (bool)enableAppSwitcherCheck;
-- (bool)enableWasRecentlyLaunched;
+- (BOOL)enableAppSwitcherCheck;
+- (BOOL)enableWasRecentlyLaunched;
 - (id)foreGroundApp;
-- (id)init:(id)arg1 withCallback:(id)arg2;
+- (id)init:(id)arg1 withCallback:(id /* block */)arg2;
 - (void)initListenerForAppStateChange;
 - (bool)isForeGroundApp:(id)arg1;
 - (bool)isRemovedFromAppSwitcher:(id)arg1;

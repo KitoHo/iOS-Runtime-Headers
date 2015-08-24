@@ -2,48 +2,35 @@
    Image: /System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
  */
 
-@interface NSMutableSet : NSSet {
-}
+@interface NSMutableSet : NSSet
 
-+ (id)_vk_newWeakSet;
-+ (id)nonRetainingSet;
-+ (id)setWithCapacity:(unsigned long long)arg1;
+// Image: /System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
 
-- (void)CDVAddItemParserMappingWithNameSpace:(id)arg1 name:(id)arg2 parseClass:(Class)arg3;
++ (id)setWithCapacity:(unsigned int)arg1;
+
 - (void)_mutate;
-- (void)addMessageEntry:(id)arg1;
-- (void)addNonNilObject:(id)arg1;
-- (void)addNonNilObject:(id)arg1;
-- (void)addNonNilObject:(id)arg1;
 - (void)addObject:(id)arg1;
-- (void)addObjects:(const id*)arg1 count:(unsigned long long)arg2;
-- (void)addObjectsFromArray:(id)arg1 range:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg2;
+- (void)addObjects:(const id*)arg1 count:(unsigned int)arg2;
 - (void)addObjectsFromArray:(id)arg1;
-- (void)addObjectsFromOrderedSet:(id)arg1 range:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg2;
+- (void)addObjectsFromArray:(id)arg1 range:(struct _NSRange { unsigned int x1; unsigned int x2; })arg2;
 - (void)addObjectsFromOrderedSet:(id)arg1;
+- (void)addObjectsFromOrderedSet:(id)arg1 range:(struct _NSRange { unsigned int x1; unsigned int x2; })arg2;
 - (void)addObjectsFromSet:(id)arg1;
-- (void)axSafelyAddObject:(id)arg1;
-- (Class)classForCoder;
-- (void)filterUsingPredicate:(id)arg1;
-- (id)initWithCapacity:(unsigned long long)arg1;
-- (id)initWithObjects:(const id*)arg1 count:(unsigned long long)arg2;
+- (id)initWithCapacity:(unsigned int)arg1;
+- (id)initWithObjects:(const id*)arg1 count:(unsigned int)arg2;
 - (void)intersectOrderedSet:(id)arg1;
 - (void)intersectSet:(id)arg1;
-- (id)mf_uniquedObject:(id)arg1;
 - (void)minusOrderedSet:(id)arg1;
-- (void)minusPathSet:(id)arg1;
 - (void)minusSet:(id)arg1;
-- (id)physicalDeviceWithAddress:(unsigned long long)arg1;
-- (void)pl_addObjectIfNotNil:(id)arg1;
 - (void)removeAllObjects;
 - (void)removeObject:(id)arg1;
-- (void)removeObjectsInArray:(id)arg1 range:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg2;
 - (void)removeObjectsInArray:(id)arg1;
-- (void)removeObjectsInOrderedSet:(id)arg1 range:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg2;
+- (void)removeObjectsInArray:(id)arg1 range:(struct _NSRange { unsigned int x1; unsigned int x2; })arg2;
 - (void)removeObjectsInOrderedSet:(id)arg1;
+- (void)removeObjectsInOrderedSet:(id)arg1 range:(struct _NSRange { unsigned int x1; unsigned int x2; })arg2;
 - (void)removeObjectsInSet:(id)arg1;
-- (void)removeObjectsPassingTest:(id)arg1;
-- (void)removeObjectsWithOptions:(unsigned long long)arg1 passingTest:(id)arg2;
+- (void)removeObjectsPassingTest:(id /* block */)arg1;
+- (void)removeObjectsWithOptions:(unsigned int)arg1 passingTest:(id /* block */)arg2;
 - (void)replaceObject:(id)arg1;
 - (void)setArray:(id)arg1;
 - (void)setObject:(id)arg1;
@@ -51,8 +38,53 @@
 - (void)setSet:(id)arg1;
 - (void)unionOrderedSet:(id)arg1;
 - (void)unionSet:(id)arg1;
+
+// Image: /System/Library/Frameworks/Foundation.framework/Foundation
+
+- (Class)classForCoder;
+- (void)filterUsingPredicate:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities
+
+- (void)axSafelyAddObject:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
+
+- (void)CDVAddItemParserMappingWithNameSpace:(id)arg1 name:(id)arg2 parseClass:(Class)arg3;
+
+// Image: /System/Library/PrivateFrameworks/CoreRC.framework/CoreRC
+
+- (id)physicalDeviceWithAddress:(unsigned int)arg1;
+
+// Image: /System/Library/PrivateFrameworks/IMFoundation.framework/IMFoundation
+
++ (id)nonRetainingSet;
+
+// Image: /System/Library/PrivateFrameworks/MIME.framework/MIME
+
+- (id)mf_uniquedObject:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/MobileBackup.framework/MobileBackup
+
+- (void)minusPathSet:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
+
+- (void)addMessageEntry:(id)arg1;
+- (void)addNonNilObject:(id)arg1;
 - (void)xorSet:(id)arg1;
-- (void)xorSet:(id)arg1;
-- (void)xorSet:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
+
+- (void)pl_addObjectIfNotNil:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
+
++ (id)_vk_newWeakSet;
+
+// Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
+
+- (void)tsu_addNonNilObject:(id)arg1;
+- (void)tsu_xorSet:(id)arg1;
 
 @end

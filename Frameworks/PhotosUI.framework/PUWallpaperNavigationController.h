@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@interface PUWallpaperNavigationController : UINavigationController {
-}
+@interface PUWallpaperNavigationController : UINavigationController
 
-- (unsigned long long)supportedInterfaceOrientations;
+- (unsigned int)supportedInterfaceOrientations;
 
 @end

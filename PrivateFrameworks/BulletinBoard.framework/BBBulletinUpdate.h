@@ -2,26 +2,27 @@
    Image: /System/Library/PrivateFrameworks/BulletinBoard.framework/BulletinBoard
  */
 
-@class BBBulletin;
-
-@interface BBBulletinUpdate : NSObject <NSSecureCoding> {
+@interface BBBulletinUpdate : NSObject {
     BBBulletin *_bulletin;
-    unsigned long long _transactionID;
-    long long _updateType;
+    unsigned int _feeds;
+    BOOL _shouldSync;
+    int _type;
 }
 
-@property(retain,readonly) BBBulletin * bulletin;
-@property(readonly) unsigned long long transactionID;
-@property(readonly) long long updateType;
+@property (nonatomic, readonly, retain) BBBulletin *bulletin;
+@property (nonatomic, readonly) unsigned int feeds;
+@property (nonatomic, readonly) BOOL shouldSync;
+@property (nonatomic, readonly) int type;
 
-+ (bool)supportsSecureCoding;
++ (id)modifyForBulletin:(id)arg1 feeds:(unsigned int)arg2;
++ (id)removeForBulletin:(id)arg1 feeds:(unsigned int)arg2 shouldSync:(BOOL)arg3;
 
 - (id)bulletin;
 - (void)dealloc;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithBulletin:(id)arg1 updateType:(long long)arg2 transactionID:(unsigned long long)arg3;
-- (id)initWithCoder:(id)arg1;
-- (unsigned long long)transactionID;
-- (long long)updateType;
+- (unsigned int)feeds;
+- (id)initWithBulletin:(id)arg1 feeds:(unsigned int)arg2 type:(int)arg3 shouldSync:(BOOL)arg4;
+- (BOOL)shouldSync;
+- (int)type;
+- (id)typeDescription;
 
 @end

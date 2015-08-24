@@ -2,43 +2,38 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
 @interface TSDExteriorTextWrap : NSObject <NSCopying, NSMutableCopying> {
-    double _alphaThreshold;
+    float _alphaThreshold;
     int _direction;
     int _fitType;
-    double _margin;
+    BOOL _isHTMLWrap;
+    float _margin;
     int _type;
-    bool_isHTMLWrap;
 }
 
-@property(readonly) double alphaThreshold;
-@property(readonly) int direction;
-@property(readonly) int fitType;
-@property(readonly) bool isHTMLWrap;
-@property(readonly) double margin;
-@property(readonly) int type;
+@property (nonatomic, readonly) float alphaThreshold;
+@property (nonatomic, readonly) int direction;
+@property (nonatomic, readonly) int fitType;
+@property (nonatomic, readonly) BOOL isHTMLWrap;
+@property (nonatomic, readonly) float margin;
+@property (nonatomic, readonly) int type;
 
 + (id)exteriorTextWrap;
-+ (id)exteriorTextWrapWithIsHTMLWrap:(bool)arg1 type:(int)arg2 direction:(int)arg3 fitType:(int)arg4 margin:(double)arg5 alphaThreshold:(double)arg6;
++ (id)exteriorTextWrapWithIsHTMLWrap:(BOOL)arg1 type:(int)arg2 direction:(int)arg3 fitType:(int)arg4 margin:(float)arg5 alphaThreshold:(float)arg6;
 
-- (double)alphaThreshold;
+- (float)alphaThreshold;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (int)direction;
 - (int)fitType;
 - (id)init;
-- (id)initWithArchive:(const struct ExteriorTextWrapArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3; unsigned int x4; unsigned int x5; float x6; float x7; boolx8; int x9; unsigned int x10[1]; }*)arg1;
-- (id)initWithIsHTMLWrap:(bool)arg1 type:(int)arg2 direction:(int)arg3 fitType:(int)arg4 margin:(double)arg5 alphaThreshold:(double)arg6;
-- (bool)isEqual:(id)arg1;
-- (bool)isHTMLWrap;
-- (double)margin;
+- (id)initWithArchive:(const struct ExteriorTextWrapArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; unsigned int x5; unsigned int x6; unsigned int x7; float x8; float x9; bool x10; }*)arg1;
+- (id)initWithIsHTMLWrap:(BOOL)arg1 type:(int)arg2 direction:(int)arg3 fitType:(int)arg4 margin:(float)arg5 alphaThreshold:(float)arg6;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isHTMLWrap;
+- (float)margin;
 - (id)mutableCopyWithZone:(struct _NSZone { }*)arg1;
-- (void)saveToArchive:(struct ExteriorTextWrapArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3; unsigned int x4; unsigned int x5; float x6; float x7; boolx8; int x9; unsigned int x10[1]; }*)arg1 archiver:(id)arg2;
+- (void)saveToArchive:(struct ExteriorTextWrapArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; unsigned int x5; unsigned int x6; unsigned int x7; float x8; float x9; bool x10; }*)arg1 archiver:(id)arg2;
 - (int)type;
 
 @end

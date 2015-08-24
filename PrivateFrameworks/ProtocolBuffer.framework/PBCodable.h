@@ -2,15 +2,18 @@
    Image: /System/Library/PrivateFrameworks/ProtocolBuffer.framework/ProtocolBuffer
  */
 
-@class NSData;
+@interface PBCodable : NSObject <NSSecureCoding, PQLValuable>
 
-@interface PBCodable : NSObject <NSSecureCoding> {
-}
+@property (nonatomic, readonly) NSData *data;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-@property(readonly) NSData * data;
+// Image: /System/Library/PrivateFrameworks/ProtocolBuffer.framework/ProtocolBuffer
 
 + (id)options;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)data;
 - (id)dictionaryRepresentation;
@@ -19,7 +22,23 @@
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithData:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)writeTo:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/BulletinDistributorCompanion.framework/BulletinDistributorCompanion
+
+- (BOOL)_isRedactable:(id)arg1;
+- (id)_redact:(id)arg1;
+- (id)redact;
+
+// Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
+
++ (id)newFromSqliteValue:(struct Mem { }*)arg1;
+
+- (void)sqliteBind:(struct sqlite3_stmt { }*)arg1 index:(int)arg2;
+
+// Image: /System/Library/PrivateFrameworks/NanoMediaRemote.framework/NanoMediaRemote
+
+- (id)nmr_valueForPotentiallyUndefinedKey:(id)arg1;
 
 @end

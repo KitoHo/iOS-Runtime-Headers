@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/AppSupport.framework/AppSupport
  */
 
-@class NSLock, NSMutableDictionary;
-
 @interface CPNetworkObserver : NSObject {
     NSLock *_lock;
+    BOOL _networkNotified;
     struct __CFDictionary { } *_networkObservers;
     struct __SCNetworkReachability { } *_networkReach;
     unsigned int _networkReachability;
+    BOOL _networkReachable;
     NSMutableDictionary *_reachabilityRequests;
+    BOOL _wifiEnabled;
+    BOOL _wifiNotified;
     struct __CFDictionary { } *_wifiObservers;
     struct __SCPreferences { } *_wifiPreferences;
-    bool_networkNotified;
-    bool_networkReachable;
-    bool_wifiEnabled;
-    bool_wifiNotified;
 }
 
 + (id)sharedNetworkObserver;
@@ -31,11 +29,11 @@
 - (void)addWiFiObserver:(id)arg1 selector:(SEL)arg2;
 - (void)dealloc;
 - (id)init;
-- (bool)isNetworkReachable;
-- (bool)isWiFiEnabled;
+- (BOOL)isNetworkReachable;
+- (BOOL)isWiFiEnabled;
 - (void)removeNetworkReachableObserver:(id)arg1;
-- (void)removeObserver:(id)arg1 forHostname:(id)arg2;
 - (void)removeObserver:(id)arg1;
+- (void)removeObserver:(id)arg1 forHostname:(id)arg2;
 - (void)removeWiFiObserver:(id)arg1;
 
 @end

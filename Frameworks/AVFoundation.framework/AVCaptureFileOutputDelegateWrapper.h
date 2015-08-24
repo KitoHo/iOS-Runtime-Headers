@@ -2,25 +2,23 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVWeakReferencingDelegateStorage, NSArray, NSURL;
-
 @interface AVCaptureFileOutputDelegateWrapper : NSObject {
     NSArray *_connections;
     AVWeakReferencingDelegateStorage *_delegateStorage;
     NSArray *_metadata;
     NSURL *_outputFileURL;
+    BOOL _paused;
+    BOOL _recording;
     long long _settingsID;
-    bool_paused;
-    bool_recording;
 }
 
-@property(readonly) NSArray * connections;
-@property(readonly) AVWeakReferencingDelegateStorage * delegateStorage;
-@property(retain) NSArray * metadata;
-@property(readonly) NSURL * outputFileURL;
-@property(getter=isPaused) bool paused;
-@property(getter=isRecording) bool recording;
-@property(readonly) long long settingsID;
+@property (readonly) NSArray *connections;
+@property (readonly) AVWeakReferencingDelegateStorage *delegateStorage;
+@property (retain) NSArray *metadata;
+@property (readonly) NSURL *outputFileURL;
+@property (getter=isPaused, nonatomic) BOOL paused;
+@property (getter=isRecording, nonatomic) BOOL recording;
+@property (readonly) long long settingsID;
 
 + (id)wrapperWithURL:(id)arg1 delegate:(id)arg2 settingsID:(long long)arg3 connections:(id)arg4;
 
@@ -28,13 +26,13 @@
 - (void)dealloc;
 - (id)delegateStorage;
 - (id)initWithURL:(id)arg1 delegate:(id)arg2 settingsID:(long long)arg3 connections:(id)arg4;
-- (bool)isPaused;
-- (bool)isRecording;
+- (BOOL)isPaused;
+- (BOOL)isRecording;
 - (id)metadata;
 - (id)outputFileURL;
 - (void)setMetadata:(id)arg1;
-- (void)setPaused:(bool)arg1;
-- (void)setRecording:(bool)arg1;
+- (void)setPaused:(BOOL)arg1;
+- (void)setRecording:(BOOL)arg1;
 - (long long)settingsID;
 
 @end

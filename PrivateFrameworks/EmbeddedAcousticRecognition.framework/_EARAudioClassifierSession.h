@@ -2,20 +2,13 @@
    Image: /System/Library/PrivateFrameworks/EmbeddedAcousticRecognition.framework/EmbeddedAcousticRecognition
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class <_EARAudioClassifierSessionDelegate>;
-
 @interface _EARAudioClassifierSession : NSObject {
     struct RecogAudioBuffer { 
         int (**_vptr$OnlineAudioSourceItf)(); 
         int state; 
         unsigned int samplingRate; 
         int maxBufferLen; 
-        boolmaxBufferLenReached; 
+        bool maxBufferLenReached; 
         unsigned int bufferPos; 
         struct Vector<float> { 
             float *data_; 
@@ -24,15 +17,15 @@
         } linearBuffer; 
         struct mutex { 
             struct _opaque_pthread_mutex_t { 
-                long long __sig; 
-                BOOL __opaque[56]; 
+                long __sig; 
+                BOOL __opaque[40]; 
             } __m_; 
         } bufferMutex; 
         struct condition_variable_any { 
             struct condition_variable { 
                 struct _opaque_pthread_cond_t { 
-                    long long __sig; 
-                    BOOL __opaque[40]; 
+                    long __sig; 
+                    BOOL __opaque[24]; 
                 } __cv_; 
             } __cv_; 
             struct shared_ptr<std::__1::mutex> { 
@@ -43,17 +36,17 @@
         struct thread { 
             struct _opaque_pthread_t {} *__t_; 
         } recogThread; 
-        boolendOfAudio; 
+        bool endOfAudio; 
     } _bufferedSource;
     <_EARAudioClassifierSessionDelegate> *_delegate;
     double _frameDuration;
 }
 
-@property(readonly) double frameDuration;
+@property (nonatomic, readonly) double frameDuration;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)appendAudioSamples:(const float*)arg1 count:(unsigned long long)arg2;
+- (void)appendAudioSamples:(const float*)arg1 count:(unsigned int)arg2;
 - (void)cancel;
 - (void)finish;
 - (double)frameDuration;

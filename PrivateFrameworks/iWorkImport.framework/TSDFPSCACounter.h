@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSTimer;
-
 @interface TSDFPSCACounter : TSDFPSCounter {
-    bool_shouldRunTimer;
+    BOOL _shouldRunTimer;
     unsigned int mCAFrameCount;
-    unsigned long long mMaxFrameDelta;
+    unsigned int mMaxFrameDelta;
     NSTimer *mTimer;
 }
 
-@property bool shouldRunTimer;
+@property (nonatomic) BOOL shouldRunTimer;
 
 - (id)init;
 - (void)p_updateFrameCount;
 - (void)reset;
-- (void)setShouldRunTimer:(bool)arg1;
-- (bool)shouldRunTimer;
+- (void)setShouldRunTimer:(BOOL)arg1;
+- (BOOL)shouldRunTimer;
 - (void)startLoggingFPS;
 - (void)stopLoggingFPS;
 

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class <SSDownloadHandlerDelegate>, NSArray, NSObject<OS_dispatch_queue>, SSXPCConnection;
-
 @interface SSDownloadHandler : NSObject {
     SSXPCConnection *_controlConnection;
     <SSDownloadHandlerDelegate> *_delegate;
@@ -12,25 +10,25 @@
     NSArray *_downloadPhasesToIgnore;
     long long _handlerID;
     SSXPCConnection *_observerConnection;
-    bool_sessionsNeedPowerAssertion;
-    bool_sessionsShouldBlockOtherDownloads;
+    BOOL _sessionsNeedPowerAssertion;
+    BOOL _sessionsShouldBlockOtherDownloads;
 }
 
-@property <SSDownloadHandlerDelegate> * delegate;
-@property(copy) NSArray * downloadPhasesToIgnore;
-@property(readonly) long long handlerIdentifier;
-@property bool sessionsNeedPowerAssertion;
-@property bool sessionsShouldBlockOtherDownloads;
+@property <SSDownloadHandlerDelegate> *delegate;
+@property (copy) NSArray *downloadPhasesToIgnore;
+@property (readonly) long long handlerIdentifier;
+@property BOOL sessionsNeedPowerAssertion;
+@property BOOL sessionsShouldBlockOtherDownloads;
 
 - (void)_connectToDaemon;
 - (id)_controlConnection;
 - (void)_handleMessage:(id)arg1 fromServerConnection:(id)arg2;
 - (id)_newSessionWithMessage:(id)arg1;
-- (bool)_sendAuthenticationSessionWithMessage:(id)arg1;
+- (BOOL)_sendAuthenticationSessionWithMessage:(id)arg1;
 - (void)_sendDisconnectMessage;
-- (bool)_sendSessionCancelWithMessage:(id)arg1;
-- (bool)_sendSessionHandleWithMessage:(id)arg1;
-- (bool)_sendSessionPauseWithMessage:(id)arg1;
+- (BOOL)_sendSessionCancelWithMessage:(id)arg1;
+- (BOOL)_sendSessionHandleWithMessage:(id)arg1;
+- (BOOL)_sendSessionPauseWithMessage:(id)arg1;
 - (void)_setValue:(id)arg1 forProperty:(const char *)arg2;
 - (void)dealloc;
 - (id)delegate;
@@ -39,11 +37,11 @@
 - (long long)handlerIdentifier;
 - (id)init;
 - (void)resetDisavowedSessions;
-- (bool)sessionsNeedPowerAssertion;
-- (bool)sessionsShouldBlockOtherDownloads;
+- (BOOL)sessionsNeedPowerAssertion;
+- (BOOL)sessionsShouldBlockOtherDownloads;
 - (void)setDelegate:(id)arg1;
 - (void)setDownloadPhasesToIgnore:(id)arg1;
-- (void)setSessionsNeedPowerAssertion:(bool)arg1;
-- (void)setSessionsShouldBlockOtherDownloads:(bool)arg1;
+- (void)setSessionsNeedPowerAssertion:(BOOL)arg1;
+- (void)setSessionsShouldBlockOtherDownloads:(BOOL)arg1;
 
 @end

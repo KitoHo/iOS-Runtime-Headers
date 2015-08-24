@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSData, NSString;
-
 @interface CKDPTokenRegistrationBody : PBCodable <NSCopying> {
-    struct { 
-        unsigned int apnsEnv : 1; 
     int _apnsEnv;
     NSString *_bundleIdentifier;
+    struct { 
+        unsigned int apnsEnv : 1; 
     } _has;
     NSData *_token;
 }
 
-@property int apnsEnv;
-@property(retain) NSString * bundleIdentifier;
-@property bool hasApnsEnv;
-@property(readonly) bool hasBundleIdentifier;
-@property(readonly) bool hasToken;
-@property(retain) NSData * token;
+@property (nonatomic) int apnsEnv;
+@property (nonatomic, retain) NSString *bundleIdentifier;
+@property (nonatomic) BOOL hasApnsEnv;
+@property (nonatomic, readonly) BOOL hasBundleIdentifier;
+@property (nonatomic, readonly) BOOL hasToken;
+@property (nonatomic, retain) NSData *token;
 
 - (void).cxx_destruct;
 - (int)apnsEnv;
@@ -27,16 +25,16 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasApnsEnv;
-- (bool)hasBundleIdentifier;
-- (bool)hasToken;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasApnsEnv;
+- (BOOL)hasBundleIdentifier;
+- (BOOL)hasToken;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setApnsEnv:(int)arg1;
 - (void)setBundleIdentifier:(id)arg1;
-- (void)setHasApnsEnv:(bool)arg1;
+- (void)setHasApnsEnv:(BOOL)arg1;
 - (void)setToken:(id)arg1;
 - (id)token;
 - (void)writeTo:(id)arg1;

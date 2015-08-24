@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/StoreBookkeeperClient.framework/StoreBookkeeperClient
  */
 
-@class NSString, SBCPlaybackPositionDomain;
-
 @interface SBCPlaybackPositionService : SBCXPCService <SBCPlaybackPositionServiceProtocol> {
     SBCPlaybackPositionDomain *_playbackPositionDomain;
-    bool_usingPlaybackPositions;
+    BOOL _usingPlaybackPositions;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) SBCPlaybackPositionDomain * playbackPositionDomain;
-@property(readonly) Class superclass;
-@property(readonly) bool usingPlaybackPositions;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) SBCPlaybackPositionDomain *playbackPositionDomain;
+@property (readonly) Class superclass;
+@property (readonly) BOOL usingPlaybackPositions;
 
 + (Class)XPCServiceInterfaceClass;
 + (id)_serviceForPlaybackPositionDomain:(id)arg1;
@@ -29,11 +27,11 @@
 - (oneway void)endAccessingPlaybackPositionEntities;
 - (id)initWithPlaybackPositionDomain:(id)arg1;
 - (id)playbackPositionDomain;
-- (oneway void)pullPlaybackPositionEntity:(id)arg1 completionBlock:(id)arg2;
-- (oneway void)pushPlaybackPositionEntity:(id)arg1 completionBlock:(id)arg2;
-- (oneway void)savePlaybackPositionEntity:(id)arg1 isCheckpoint:(bool)arg2;
-- (oneway void)synchronizeImmediatelyWithCompletionHandler:(id)arg1;
+- (oneway void)pullPlaybackPositionEntity:(id)arg1 completionBlock:(id /* block */)arg2;
+- (oneway void)pushPlaybackPositionEntity:(id)arg1 completionBlock:(id /* block */)arg2;
+- (oneway void)savePlaybackPositionEntity:(id)arg1 isCheckpoint:(BOOL)arg2;
+- (oneway void)synchronizeImmediatelyWithCompletionHandler:(id /* block */)arg1;
 - (oneway void)updateForeignDatabaseWithValuesFromPlaybackPositionEntity:(id)arg1;
-- (bool)usingPlaybackPositions;
+- (BOOL)usingPlaybackPositions;
 
 @end

@@ -2,36 +2,38 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class CKRecordZoneID, CKServerChangeToken, NSArray;
-
 @interface CKFetchRecordChangesOperationInfo : CKDatabaseOperationInfo <NSSecureCoding> {
+    int _changeTypes;
     NSArray *_desiredKeys;
     CKServerChangeToken *_previousServerChangeToken;
     CKRecordZoneID *_recordZoneID;
-    unsigned long long _resultsLimit;
-    bool_shouldFetchAssetContents;
+    unsigned int _resultsLimit;
+    BOOL _shouldFetchAssetContents;
 }
 
-@property(retain) NSArray * desiredKeys;
-@property(retain) CKServerChangeToken * previousServerChangeToken;
-@property(retain) CKRecordZoneID * recordZoneID;
-@property unsigned long long resultsLimit;
-@property bool shouldFetchAssetContents;
+@property (nonatomic) int changeTypes;
+@property (nonatomic, retain) NSArray *desiredKeys;
+@property (nonatomic, retain) CKServerChangeToken *previousServerChangeToken;
+@property (nonatomic, retain) CKRecordZoneID *recordZoneID;
+@property (nonatomic) unsigned int resultsLimit;
+@property (nonatomic) BOOL shouldFetchAssetContents;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
+- (int)changeTypes;
 - (id)desiredKeys;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)previousServerChangeToken;
 - (id)recordZoneID;
-- (unsigned long long)resultsLimit;
+- (unsigned int)resultsLimit;
+- (void)setChangeTypes:(int)arg1;
 - (void)setDesiredKeys:(id)arg1;
 - (void)setPreviousServerChangeToken:(id)arg1;
 - (void)setRecordZoneID:(id)arg1;
-- (void)setResultsLimit:(unsigned long long)arg1;
-- (void)setShouldFetchAssetContents:(bool)arg1;
-- (bool)shouldFetchAssetContents;
+- (void)setResultsLimit:(unsigned int)arg1;
+- (void)setShouldFetchAssetContents:(BOOL)arg1;
+- (BOOL)shouldFetchAssetContents;
 
 @end

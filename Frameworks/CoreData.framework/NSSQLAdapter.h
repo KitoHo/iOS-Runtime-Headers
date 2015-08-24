@@ -2,22 +2,24 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSMutableArray, NSSQLCore;
-
 @interface NSSQLAdapter : NSObject {
     NSMutableArray *_connections;
     NSSQLCore *_sqlCore;
 }
 
-- (id)_newSelectStatementWithFetchRequest:(id)arg1 ignoreInheritance:(bool)arg2;
+- (id)_newSelectStatementWithFetchRequest:(id)arg1 ignoreInheritance:(BOOL)arg2;
 - (id)_originalRowForUpdate:(id)arg1;
+- (void)_setupBindVariablesForCachedStatement:(id)arg1 usingValues:(id)arg2;
+- (id)_statementForFetchRequest:(id)arg1 ignoreInheritance:(BOOL)arg2 countOnly:(BOOL)arg3 nestingLevel:(unsigned int)arg4;
 - (id)connections;
 - (id)createConnection;
 - (void)dealloc;
+- (id)generateSQLStatmentForSourcesAndOrderKeysForDestination:(id)arg1 inManyToMany:(id)arg2;
+- (id)generateSQLStatmentForSourcesAndOrderKeysForDestination:(id)arg1 inToMany:(id)arg2;
 - (Class)generatorClass;
-- (bool)hasOpenConnections;
+- (BOOL)hasOpenConnections;
 - (id)initWithSQLCore:(id)arg1;
-- (id)newCopyAndInsertStatementForManyToMany:(id)arg1 toManyToMany:(id)arg2 intermediateTableName:(id)arg3 invertColumns:(bool)arg4;
+- (id)newCopyAndInsertStatementForManyToMany:(id)arg1 toManyToMany:(id)arg2 intermediateTableName:(id)arg3 invertColumns:(BOOL)arg4;
 - (id)newCorrelationDeleteStatementForRelationship:(id)arg1;
 - (id)newCorrelationInsertStatementForRelationship:(id)arg1;
 - (id)newCorrelationMasterReorderStatementForRelationship:(id)arg1;
@@ -46,7 +48,7 @@
 - (id)sqlCore;
 - (unsigned int)sqlTypeForExpressionConstantValue:(id)arg1;
 - (Class)statementClass;
-- (bool)supportsCorrelatedSubqueries;
+- (BOOL)supportsCorrelatedSubqueries;
 - (id)type;
 - (id)typeStringForColumn:(id)arg1;
 - (id)typeStringForSQLType:(unsigned int)arg1;

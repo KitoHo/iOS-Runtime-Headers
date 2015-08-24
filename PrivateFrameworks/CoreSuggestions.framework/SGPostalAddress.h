@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/CoreSuggestions.framework/CoreSuggestions
  */
 
-@class NSString;
-
 @interface SGPostalAddress : SGLabeledObject {
     NSString *_cachedAddress;
-    long long _cachedAddressDispatchOnceToken;
+    long _cachedAddressDispatchOnceToken;
     NSString *_rawAddress;
 }
 
-@property(readonly) NSString * address;
-@property(readonly) NSString * rawAddress;
+@property (nonatomic, readonly) NSString *address;
+@property (nonatomic, readonly) NSString *rawAddress;
 
 + (id)address:(id)arg1 label:(id)arg2;
 + (id)postalAddress:(id)arg1 label:(id)arg2;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)address;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithAddress:(id)arg1 label:(id)arg2;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)isEqualToPostalAddress:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToPostalAddress:(id)arg1;
 - (id)rawAddress;
 
 @end

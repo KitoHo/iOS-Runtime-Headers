@@ -2,43 +2,39 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class PUAvalancheReviewControllerSpec;
-
 @interface PUPhotoBrowserControllerSpec : NSObject {
     PUAvalancheReviewControllerSpec *_avalancheReviewControllerSpec;
 }
 
-@property(readonly) PUAvalancheReviewControllerSpec * avalancheReviewControllerSpec;
-@property(readonly) bool isInCamera;
-@property(readonly) int photoThumbnailFormat;
-@property(readonly) bool shouldShowAirplayItem;
-@property(readonly) bool shouldShowBackButtonTitle;
-@property(readonly) bool shouldShowDeleteItem;
-@property(readonly) bool shouldShowEditItem;
-@property(readonly) bool shouldShowPhotoScrubber;
-@property(readonly) bool shouldShowShareItem;
-@property(readonly) bool shouldShowSlideshowItem;
-@property(readonly) bool shouldUsePopovers;
-@property(readonly) unsigned long long supportedInterfaceOrientations;
-@property(readonly) bool wantsCompactCommentsLayout;
-@property(readonly) bool wantsSubtitleForPhotobrowserTitleInLandscape;
+@property (nonatomic, readonly) PUAvalancheReviewControllerSpec *avalancheReviewControllerSpec;
+@property (nonatomic, readonly) BOOL isInCamera;
+@property (nonatomic, readonly) int photoThumbnailFormat;
+@property (nonatomic, readonly) BOOL shouldShowAirplayItem;
+@property (nonatomic, readonly) BOOL shouldShowBackButtonTitle;
+@property (nonatomic, readonly) BOOL shouldShowDeleteItem;
+@property (nonatomic, readonly) BOOL shouldShowEditItem;
+@property (nonatomic, readonly) BOOL shouldShowPhotoScrubber;
+@property (nonatomic, readonly) BOOL shouldShowShareItem;
+@property (nonatomic, readonly) BOOL shouldShowSlideshowItem;
+@property (nonatomic, readonly) unsigned int supportedInterfaceOrientations;
+@property (nonatomic, readonly) BOOL wantsCompactCommentsLayout;
+@property (nonatomic, readonly) BOOL wantsSubtitleForPhotobrowserTitleInLandscape;
 
 - (void).cxx_destruct;
 - (id)avalancheReviewControllerSpec;
-- (bool)isInCamera;
+- (BOOL)isInCamera;
 - (id)newPhotoBrowserControllerForPhotoAtIndexPath:(id)arg1 assetCollections:(id)arg2 dataSource:(id)arg3;
 - (id)newPhotoBrowserZoomTransition;
 - (int)photoThumbnailFormat;
-- (bool)shouldShowAirplayItem;
-- (bool)shouldShowBackButtonTitle;
-- (bool)shouldShowDeleteItem;
-- (bool)shouldShowEditItem;
-- (bool)shouldShowPhotoScrubber;
-- (bool)shouldShowShareItem;
-- (bool)shouldShowSlideshowItem;
-- (bool)shouldUsePopovers;
-- (unsigned long long)supportedInterfaceOrientations;
-- (bool)wantsCompactCommentsLayout;
-- (bool)wantsSubtitleForPhotobrowserTitleInLandscape;
+- (BOOL)shouldShowAirplayItem;
+- (BOOL)shouldShowBackButtonTitle;
+- (BOOL)shouldShowDeleteItem;
+- (BOOL)shouldShowEditItem;
+- (BOOL)shouldShowPhotoScrubber;
+- (BOOL)shouldShowShareItem;
+- (BOOL)shouldShowSlideshowItem;
+- (unsigned int)supportedInterfaceOrientations;
+- (BOOL)wantsCompactCommentsLayout;
+- (BOOL)wantsSubtitleForPhotobrowserTitleInLandscape;
 
 @end

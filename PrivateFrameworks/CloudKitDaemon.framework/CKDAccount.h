@@ -2,37 +2,35 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class ACAccountStore, ACAccountType, CKDBackingAccount, CKDClientContext, NSString;
-
 @interface CKDAccount : NSObject <CKDAccountInfoProvider> {
     ACAccountType *_acAccountType;
     ACAccountStore *_accountStore;
+    BOOL _accountWantsPushRegistration;
     CKDBackingAccount *_backingAccount;
     CKDClientContext *_context;
-    bool_accountWantsPushRegistration;
-    bool_haveWarnedAboutServerPreferredPushEnvironment;
-    bool_isAnonymousAccount;
-    bool_isUnitTestingAccount;
+    BOOL _haveWarnedAboutServerPreferredPushEnvironment;
+    BOOL _isAnonymousAccount;
+    BOOL _isUnitTestingAccount;
 }
 
-@property(retain) ACAccountType * acAccountType;
-@property(readonly) NSString * accountID;
-@property(readonly) NSString * accountIdentifier;
-@property(retain) ACAccountStore * accountStore;
-@property bool accountWantsPushRegistration;
-@property(readonly) bool allowsCellularAccess;
-@property(readonly) CKDBackingAccount * backingAccount;
-@property(readonly) bool cloudKitIsEnabled;
-@property(readonly) bool cloudPhotosIsEnabled;
-@property CKDClientContext * context;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property bool haveWarnedAboutServerPreferredPushEnvironment;
-@property bool isAnonymousAccount;
-@property(readonly) bool isFakeAccount;
-@property bool isUnitTestingAccount;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) ACAccountType *acAccountType;
+@property (nonatomic, readonly) NSString *accountID;
+@property (nonatomic, readonly) NSString *accountIdentifier;
+@property (nonatomic, retain) ACAccountStore *accountStore;
+@property (nonatomic) BOOL accountWantsPushRegistration;
+@property (nonatomic, readonly) BOOL allowsCellularAccess;
+@property (nonatomic, readonly) CKDBackingAccount *backingAccount;
+@property (nonatomic, readonly) BOOL cloudKitIsEnabled;
+@property (nonatomic, readonly) BOOL cloudPhotosIsEnabled;
+@property (nonatomic) CKDClientContext *context;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) BOOL haveWarnedAboutServerPreferredPushEnvironment;
+@property (nonatomic) BOOL isAnonymousAccount;
+@property (nonatomic, readonly) BOOL isFakeAccount;
+@property (nonatomic) BOOL isUnitTestingAccount;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)_initWithContext:(id)arg1;
@@ -41,16 +39,16 @@
 - (id)accountID;
 - (id)accountIdentifier;
 - (id)accountStore;
-- (bool)accountWantsPushRegistration;
-- (bool)allowsCellularAccess;
+- (BOOL)accountWantsPushRegistration;
+- (BOOL)allowsCellularAccess;
 - (id)applicationBundle;
 - (id)backingAccount;
-- (id)baseURLForServerType:(long long)arg1 partitionType:(long long)arg2;
+- (id)baseURLForServerType:(int)arg1 partitionType:(int)arg2;
 - (id)bundleID;
-- (bool)canAccessAccount;
+- (BOOL)canAccessAccount;
 - (id)cloudKitAuthToken;
-- (bool)cloudKitIsEnabled;
-- (bool)cloudPhotosIsEnabled;
+- (BOOL)cloudKitIsEnabled;
+- (BOOL)cloudPhotosIsEnabled;
 - (id)config;
 - (id)containerID;
 - (id)containerScopedUserID;
@@ -59,39 +57,39 @@
 - (id)deviceName;
 - (id)dsid;
 - (id)enabledKeyboards;
-- (void)fetchConfigurationUsingBackgroundSession:(bool)arg1 allowsCellularAccess:(bool)arg2 withCompletionHandler:(id)arg3;
-- (void)fetchContainerScopedUserIDUsingBackgroundSession:(bool)arg1 allowsCellularAccess:(bool)arg2 withCompletionHandler:(id)arg3;
-- (void)fetchDeviceIDUsingBackgroundSession:(bool)arg1 allowsCellularAccess:(bool)arg2 withCompletionHandler:(id)arg3;
-- (void)fetchPublicURLUsingBackgroundSession:(bool)arg1 allowsCellularAccess:(bool)arg2 serverType:(long long)arg3 completionHandler:(id)arg4;
+- (void)fetchConfigurationUsingBackgroundSession:(BOOL)arg1 allowsCellularAccess:(BOOL)arg2 withCompletionHandler:(id /* block */)arg3;
+- (void)fetchContainerScopedUserIDUsingBackgroundSession:(BOOL)arg1 allowsCellularAccess:(BOOL)arg2 withCompletionHandler:(id /* block */)arg3;
+- (void)fetchDeviceIDUsingBackgroundSession:(BOOL)arg1 allowsCellularAccess:(BOOL)arg2 withCompletionHandler:(id /* block */)arg3;
+- (void)fetchPublicURLUsingBackgroundSession:(BOOL)arg1 allowsCellularAccess:(BOOL)arg2 serverType:(int)arg3 completionHandler:(id /* block */)arg4;
 - (id)hardwareID;
-- (bool)haveWarnedAboutServerPreferredPushEnvironment;
+- (BOOL)haveWarnedAboutServerPreferredPushEnvironment;
 - (id)iCloudAuthToken;
 - (id)initAnonymousAccountWithContext:(id)arg1;
 - (id)initFakeAccountWithEmail:(id)arg1 password:(id)arg2 context:(id)arg3;
 - (id)initPrimaryAccountWithContext:(id)arg1;
 - (id)initWithAccountID:(id)arg1 context:(id)arg2;
-- (bool)isAnonymousAccount;
-- (bool)isFakeAccount;
-- (bool)isUnitTestingAccount;
+- (BOOL)isAnonymousAccount;
+- (BOOL)isFakeAccount;
+- (BOOL)isUnitTestingAccount;
 - (id)languageCode;
 - (id)mescalSession;
 - (void)noteFailedNetworkRequest;
 - (void)noteFailedProtocolRequest;
-- (void)noteSuccessfulRequestWithNumDownloadedElements:(long long)arg1;
+- (void)noteSuccessfulRequestWithNumDownloadedElements:(int)arg1;
 - (void)noteTimeSpentInNetworking:(double)arg1;
 - (id)regionCode;
-- (void)renewAuthTokenWithCompletionHandler:(id)arg1;
-- (void)renewMescalSessionForRequest:(id)arg1 withCompletionHandler:(id)arg2;
+- (void)renewAuthTokenWithCompletionHandler:(id /* block */)arg1;
+- (void)renewMescalSessionForRequest:(id)arg1 withCompletionHandler:(id /* block */)arg2;
 - (void)resetMescalSession;
 - (id)serverPreferredPushEnvironment;
 - (void)setAcAccountType:(id)arg1;
 - (void)setAccountStore:(id)arg1;
-- (void)setAccountWantsPushRegistration:(bool)arg1;
+- (void)setAccountWantsPushRegistration:(BOOL)arg1;
 - (void)setContext:(id)arg1;
-- (void)setHaveWarnedAboutServerPreferredPushEnvironment:(bool)arg1;
-- (void)setIsAnonymousAccount:(bool)arg1;
-- (void)setIsUnitTestingAccount:(bool)arg1;
-- (bool)shouldFailAllTasks;
+- (void)setHaveWarnedAboutServerPreferredPushEnvironment:(BOOL)arg1;
+- (void)setIsAnonymousAccount:(BOOL)arg1;
+- (void)setIsUnitTestingAccount:(BOOL)arg1;
+- (BOOL)shouldFailAllTasks;
 - (id)trafficContainerIdentifier;
 
 @end

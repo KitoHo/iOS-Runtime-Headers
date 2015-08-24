@@ -2,31 +2,29 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@class EKObject, NSString;
-
 @interface EKObjectRelation : NSObject {
+    BOOL _dirty;
     NSString *_inverseName;
+    BOOL _loaded;
     EKObject *_owner;
     NSString *_relationName;
-    bool_dirty;
-    bool_loaded;
 }
 
-@property(readonly) NSString * inverseName;
-@property(readonly) EKObject * owner;
-@property(readonly) NSString * relationName;
+@property (nonatomic, readonly) NSString *inverseName;
+@property (nonatomic, readonly) EKObject *owner;
+@property (nonatomic, readonly) NSString *relationName;
 
-- (void)_addRelatedObject:(id)arg1 setInverse:(bool)arg2 dirty:(bool)arg3;
-- (void)_removeRelatedObject:(id)arg1 setInverse:(bool)arg2 dirty:(bool)arg3;
+- (void)_addRelatedObject:(id)arg1 setInverse:(BOOL)arg2 dirty:(BOOL)arg3;
+- (void)_removeRelatedObject:(id)arg1 setInverse:(BOOL)arg2 dirty:(BOOL)arg3;
 - (id)committedValue;
 - (void)dealloc;
 - (void)didCommit;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithOwner:(id)arg1 relationName:(id)arg2 inverseRelationName:(id)arg3;
 - (id)inverseName;
-- (bool)isDirty;
-- (bool)isEqual:(id)arg1;
-- (bool)isWeak;
+- (BOOL)isDirty;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isWeak;
 - (id)owner;
 - (void)refresh;
 - (void)relatedObjectDidChange;
@@ -34,6 +32,6 @@
 - (void)reset;
 - (void)rollback;
 - (void)updatePersistentObject;
-- (bool)validate:(id*)arg1;
+- (BOOL)validate:(id*)arg1;
 
 @end

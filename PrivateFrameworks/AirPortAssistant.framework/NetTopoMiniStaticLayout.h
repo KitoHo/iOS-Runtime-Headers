@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/AirPortAssistant.framework/AirPortAssistant
  */
 
-@class CALayer, NSArray, NSMutableArray;
-
 @interface NetTopoMiniStaticLayout : NSObject {
     NSMutableArray *_connectionLayers;
     CALayer *_containerLayer;
@@ -13,17 +11,17 @@
     NSArray *_topoDevicesDescriptor;
 }
 
-@property(retain) CALayer * containerLayer;
-@property int layoutOptions;
-@property(retain) id owningView;
-@property(readonly) NSArray * topoDeviceLayers;
-@property(retain) NSArray * topoDevicesDescriptor;
+@property (nonatomic, retain) CALayer *containerLayer;
+@property (nonatomic) int layoutOptions;
+@property (nonatomic, retain) id owningView;
+@property (nonatomic, readonly) NSArray *topoDeviceLayers;
+@property (nonatomic, retain) NSArray *topoDevicesDescriptor;
 
 - (id)containerLayer;
 - (void)createLayoutForDevices:(id)arg1;
 - (void)dealloc;
 - (void)destroyDeviceLayers;
-- (struct CGImage { }*)imageForDeviceSpec:(id)arg1 wantSmall:(bool)arg2 forContentsScale:(double)arg3;
+- (struct CGImage { }*)imageForDeviceSpec:(id)arg1 wantSmall:(BOOL)arg2 forContentsScale:(float)arg3;
 - (id)initWithContainerLayer:(id)arg1 andOptions:(int)arg2;
 - (int)layoutOptions;
 - (id)owningView;

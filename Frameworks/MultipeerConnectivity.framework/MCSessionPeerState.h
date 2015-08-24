@@ -2,10 +2,9 @@
    Image: /System/Library/Frameworks/MultipeerConnectivity.framework/MultipeerConnectivity
  */
 
-@class MCPeerID, NSData, NSMutableDictionary;
-
 @interface MCSessionPeerState : NSObject {
-    long long _certificateDecision;
+    int _certificateDecision;
+    BOOL _connectPeerCalled;
     NSMutableDictionary *_incomingStreams;
     NSData *_nearbyConnectionData;
     unsigned int _newStreamID;
@@ -13,23 +12,22 @@
     NSMutableDictionary *_outgoingStreamRequests;
     NSMutableDictionary *_outgoingStreams;
     MCPeerID *_peerID;
-    long long _state;
-    bool_connectPeerCalled;
+    int _state;
 }
 
-@property long long certificateDecision;
-@property bool connectPeerCalled;
-@property(retain) NSMutableDictionary * incomingStreams;
-@property(copy) NSData * nearbyConnectionData;
-@property(readonly) unsigned int newStreamID;
-@property(readonly) unsigned int newStreamOpenRequestID;
-@property(retain) NSMutableDictionary * outgoingStreamRequests;
-@property(retain) NSMutableDictionary * outgoingStreams;
-@property(copy,readonly) MCPeerID * peerID;
-@property long long state;
+@property (nonatomic) int certificateDecision;
+@property (nonatomic) BOOL connectPeerCalled;
+@property (nonatomic, retain) NSMutableDictionary *incomingStreams;
+@property (nonatomic, copy) NSData *nearbyConnectionData;
+@property (nonatomic, readonly) unsigned int newStreamID;
+@property (nonatomic, readonly) unsigned int newStreamOpenRequestID;
+@property (nonatomic, retain) NSMutableDictionary *outgoingStreamRequests;
+@property (nonatomic, retain) NSMutableDictionary *outgoingStreams;
+@property (nonatomic, readonly, copy) MCPeerID *peerID;
+@property (nonatomic) int state;
 
-- (long long)certificateDecision;
-- (bool)connectPeerCalled;
+- (int)certificateDecision;
+- (BOOL)connectPeerCalled;
 - (void)dealloc;
 - (id)incomingStreams;
 - (id)initWithPeer:(id)arg1;
@@ -39,13 +37,13 @@
 - (id)outgoingStreamRequests;
 - (id)outgoingStreams;
 - (id)peerID;
-- (void)setCertificateDecision:(long long)arg1;
-- (void)setConnectPeerCalled:(bool)arg1;
+- (void)setCertificateDecision:(int)arg1;
+- (void)setConnectPeerCalled:(BOOL)arg1;
 - (void)setIncomingStreams:(id)arg1;
 - (void)setNearbyConnectionData:(id)arg1;
 - (void)setOutgoingStreamRequests:(id)arg1;
 - (void)setOutgoingStreams:(id)arg1;
-- (void)setState:(long long)arg1;
-- (long long)state;
+- (void)setState:(int)arg1;
+- (int)state;
 
 @end

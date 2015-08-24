@@ -2,8 +2,7 @@
    Image: /System/Library/PrivateFrameworks/TelephonyUtilities.framework/TelephonyUtilities
  */
 
-@interface TUFaceTimeAudioCall : TUFaceTimeCall {
-}
+@interface TUFaceTimeAudioCall : TUFaceTimeCall
 
 - (void)addCallConnectedObserver;
 - (id)audioCategory;
@@ -14,7 +13,7 @@
 - (void)hold;
 - (void)removeCallConnectedObserver;
 - (int)service;
-- (bool)shouldIgnoreStatusChange;
+- (BOOL)shouldIgnoreStatusChange;
 - (int)supportedModelType;
 - (void)unhold;
 

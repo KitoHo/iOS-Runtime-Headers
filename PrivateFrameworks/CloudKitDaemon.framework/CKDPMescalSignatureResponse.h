@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSData;
-
 @interface CKDPMescalSignatureResponse : PBCodable <NSCopying> {
     struct { 
         unsigned int status : 1; 
@@ -12,24 +10,24 @@
     int _status;
 }
 
-@property(readonly) bool hasMescalHeaderData;
-@property bool hasStatus;
-@property(retain) NSData * mescalHeaderData;
-@property int status;
+@property (nonatomic, readonly) BOOL hasMescalHeaderData;
+@property (nonatomic) BOOL hasStatus;
+@property (nonatomic, retain) NSData *mescalHeaderData;
+@property (nonatomic) int status;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasMescalHeaderData;
-- (bool)hasStatus;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasMescalHeaderData;
+- (BOOL)hasStatus;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)mescalHeaderData;
-- (bool)readFrom:(id)arg1;
-- (void)setHasStatus:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasStatus:(BOOL)arg1;
 - (void)setMescalHeaderData:(id)arg1;
 - (void)setStatus:(int)arg1;
 - (int)status;

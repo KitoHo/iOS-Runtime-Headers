@@ -2,19 +2,16 @@
    Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
  */
 
-@class NSString;
+@interface DOMHTMLOListElement : DOMHTMLElement
 
-@interface DOMHTMLOListElement : DOMHTMLElement {
-}
-
-@property bool compact;
+@property BOOL compact;
 @property int start;
-@property(copy) NSString * type;
+@property (copy) NSString *type;
 
-- (bool)compact;
-- (bool)reversed;
-- (void)setCompact:(bool)arg1;
-- (void)setReversed:(bool)arg1;
+- (BOOL)compact;
+- (BOOL)reversed;
+- (void)setCompact:(BOOL)arg1;
+- (void)setReversed:(BOOL)arg1;
 - (void)setStart:(int)arg1;
 - (void)setType:(id)arg1;
 - (int)start;

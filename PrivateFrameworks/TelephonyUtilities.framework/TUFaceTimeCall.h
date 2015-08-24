@@ -2,13 +2,13 @@
    Image: /System/Library/PrivateFrameworks/TelephonyUtilities.framework/TelephonyUtilities
  */
 
-@class IMAVChat;
-
 @interface TUFaceTimeCall : TUCall {
     IMAVChat *_chat;
 }
 
-@property(retain) IMAVChat * chat;
+@property (nonatomic, retain) IMAVChat *chat;
+
++ (id)sourceAccount:(BOOL)arg1;
 
 - (void)answerWithSourceIdentifier:(id)arg1;
 - (double)callDuration;
@@ -22,34 +22,42 @@
 - (void)dealloc;
 - (id)destinationID;
 - (void)disconnect;
-- (int)disconnectedReason;
+- (int)endedError;
+- (unsigned int)endedReason;
 - (int)faceTimeIDStatus;
 - (id)initWithChat:(id)arg1;
 - (void)inviteWithCallIdentifier:(int)arg1;
-- (bool)isAlerting;
-- (bool)isBlocked;
-- (bool)isConferenced;
-- (bool)isDownlinkMuted;
-- (bool)isEqual:(id)arg1;
-- (bool)isOutgoing;
-- (bool)isStatusFinal;
-- (bool)isTTY;
-- (bool)isUplinkMuted;
+- (BOOL)isAlerting;
+- (BOOL)isBlocked;
+- (BOOL)isConferenced;
+- (BOOL)isDownlinkMuted;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isOutgoing;
+- (BOOL)isSendingAudio;
+- (BOOL)isStatusFinal;
+- (BOOL)isTTY;
+- (BOOL)isUplinkMuted;
 - (void)joinConference;
 - (void)leaveConference;
 - (id)localFrequency;
 - (float)localVolume;
-- (bool)managesAudioInterruptions;
-- (bool)managesAudioRelay;
-- (bool)needsManualInCallSounds;
-- (bool)playsConnectedSound;
+- (BOOL)managesAudioInterruptions;
+- (BOOL)managesAudioRelay;
+- (BOOL)needsManualInCallSounds;
+- (BOOL)playsConnectedSound;
 - (id)remoteFrequency;
 - (id)remoteParticipant;
+- (id)remoteUnavailableUserInfo;
+- (void)resetWantsHoldMusic;
 - (void)setChat:(id)arg1;
-- (bool)setDownlinkMuted:(bool)arg1;
-- (bool)setUplinkMuted:(bool)arg1;
-- (bool)shouldPlayDTMFTone;
+- (BOOL)setDownlinkMuted:(BOOL)arg1;
+- (void)setIsSendingAudio:(BOOL)arg1;
+- (BOOL)setUplinkMuted:(BOOL)arg1;
+- (BOOL)shouldPlayDTMFTone;
+- (BOOL)shouldPlayHoldMusic;
 - (double)startTime;
 - (id)totalDataUsed;
+- (void)updateForDisconnection;
+- (BOOL)wasDeclined;
 
 @end

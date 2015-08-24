@@ -2,15 +2,13 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDAirPlaySessionEnded : PBCodable <NSCopying> {
+    unsigned int _duration;
     struct { 
         unsigned int timestamp : 1; 
         unsigned int duration : 1; 
         unsigned int initiator : 1; 
         unsigned int reason : 1; 
-    unsigned int _duration;
     } _has;
     unsigned int _initiator;
     int _reason;
@@ -18,16 +16,16 @@
     unsigned long long _timestamp;
 }
 
-@property unsigned int duration;
-@property bool hasDuration;
-@property bool hasInitiator;
-@property bool hasReason;
-@property(readonly) bool hasSessionUUID;
-@property bool hasTimestamp;
-@property unsigned int initiator;
-@property int reason;
-@property(retain) NSString * sessionUUID;
-@property unsigned long long timestamp;
+@property (nonatomic) unsigned int duration;
+@property (nonatomic) BOOL hasDuration;
+@property (nonatomic) BOOL hasInitiator;
+@property (nonatomic) BOOL hasReason;
+@property (nonatomic, readonly) BOOL hasSessionUUID;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) unsigned int initiator;
+@property (nonatomic) int reason;
+@property (nonatomic, retain) NSString *sessionUUID;
+@property (nonatomic) unsigned long long timestamp;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -35,23 +33,23 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (unsigned int)duration;
-- (bool)hasDuration;
-- (bool)hasInitiator;
-- (bool)hasReason;
-- (bool)hasSessionUUID;
-- (bool)hasTimestamp;
-- (unsigned long long)hash;
+- (BOOL)hasDuration;
+- (BOOL)hasInitiator;
+- (BOOL)hasReason;
+- (BOOL)hasSessionUUID;
+- (BOOL)hasTimestamp;
+- (unsigned int)hash;
 - (unsigned int)initiator;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (int)reason;
 - (id)sessionUUID;
 - (void)setDuration:(unsigned int)arg1;
-- (void)setHasDuration:(bool)arg1;
-- (void)setHasInitiator:(bool)arg1;
-- (void)setHasReason:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
+- (void)setHasDuration:(BOOL)arg1;
+- (void)setHasInitiator:(BOOL)arg1;
+- (void)setHasReason:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
 - (void)setInitiator:(unsigned int)arg1;
 - (void)setReason:(int)arg1;
 - (void)setSessionUUID:(id)arg1;

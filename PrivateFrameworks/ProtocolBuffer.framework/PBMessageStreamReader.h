@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/ProtocolBuffer.framework/ProtocolBuffer
  */
 
-@class NSInputStream;
-
 @interface PBMessageStreamReader : NSObject {
     Class _classOfNextMessage;
-    unsigned long long _position;
+    unsigned int _position;
     NSInputStream *_stream;
 }
 
 @property Class classOfNextMessage;
-@property(readonly) unsigned long long position;
+@property (readonly) unsigned int position;
 
 - (Class)classOfNextMessage;
 - (void)dealloc;
 - (id)initWithStream:(id)arg1;
 - (id)nextMessage;
-- (unsigned long long)position;
+- (unsigned int)position;
 - (void)setClassOfNextMessage:(Class)arg1;
 
 @end

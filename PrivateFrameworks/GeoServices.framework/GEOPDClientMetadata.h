@@ -2,34 +2,36 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOLatLng, NSMutableArray, NSString;
-
 @interface GEOPDClientMetadata : PBCodable <NSCopying> {
-    struct { 
-        unsigned int timeSinceMapEnteredForeground : 1; 
     NSString *_deviceCountryCode;
     NSString *_deviceDisplayLocale;
     NSMutableArray *_deviceInstalledKeyboardLocales;
     NSString *_deviceKeyboardLocale;
     GEOLatLng *_deviceLocation;
     NSString *_deviceSpokenLocale;
+    struct { 
+        unsigned int resultListAttributionSupport : 1; 
+        unsigned int timeSinceMapEnteredForeground : 1; 
     } _has;
+    int _resultListAttributionSupport;
     unsigned int _timeSinceMapEnteredForeground;
 }
 
-@property(retain) NSString * deviceCountryCode;
-@property(retain) NSString * deviceDisplayLocale;
-@property(retain) NSMutableArray * deviceInstalledKeyboardLocales;
-@property(retain) NSString * deviceKeyboardLocale;
-@property(retain) GEOLatLng * deviceLocation;
-@property(retain) NSString * deviceSpokenLocale;
-@property(readonly) bool hasDeviceCountryCode;
-@property(readonly) bool hasDeviceDisplayLocale;
-@property(readonly) bool hasDeviceKeyboardLocale;
-@property(readonly) bool hasDeviceLocation;
-@property(readonly) bool hasDeviceSpokenLocale;
-@property bool hasTimeSinceMapEnteredForeground;
-@property unsigned int timeSinceMapEnteredForeground;
+@property (nonatomic, retain) NSString *deviceCountryCode;
+@property (nonatomic, retain) NSString *deviceDisplayLocale;
+@property (nonatomic, retain) NSMutableArray *deviceInstalledKeyboardLocales;
+@property (nonatomic, retain) NSString *deviceKeyboardLocale;
+@property (nonatomic, retain) GEOLatLng *deviceLocation;
+@property (nonatomic, retain) NSString *deviceSpokenLocale;
+@property (nonatomic, readonly) BOOL hasDeviceCountryCode;
+@property (nonatomic, readonly) BOOL hasDeviceDisplayLocale;
+@property (nonatomic, readonly) BOOL hasDeviceKeyboardLocale;
+@property (nonatomic, readonly) BOOL hasDeviceLocation;
+@property (nonatomic, readonly) BOOL hasDeviceSpokenLocale;
+@property (nonatomic) BOOL hasResultListAttributionSupport;
+@property (nonatomic) BOOL hasTimeSinceMapEnteredForeground;
+@property (nonatomic) int resultListAttributionSupport;
+@property (nonatomic) unsigned int timeSinceMapEnteredForeground;
 
 - (void)addDeviceInstalledKeyboardLocale:(id)arg1;
 - (void)clearDeviceInstalledKeyboardLocales;
@@ -39,31 +41,35 @@
 - (id)description;
 - (id)deviceCountryCode;
 - (id)deviceDisplayLocale;
-- (id)deviceInstalledKeyboardLocaleAtIndex:(unsigned long long)arg1;
+- (id)deviceInstalledKeyboardLocaleAtIndex:(unsigned int)arg1;
 - (id)deviceInstalledKeyboardLocales;
-- (unsigned long long)deviceInstalledKeyboardLocalesCount;
+- (unsigned int)deviceInstalledKeyboardLocalesCount;
 - (id)deviceKeyboardLocale;
 - (id)deviceLocation;
 - (id)deviceSpokenLocale;
 - (id)dictionaryRepresentation;
-- (bool)hasDeviceCountryCode;
-- (bool)hasDeviceDisplayLocale;
-- (bool)hasDeviceKeyboardLocale;
-- (bool)hasDeviceLocation;
-- (bool)hasDeviceSpokenLocale;
-- (bool)hasTimeSinceMapEnteredForeground;
-- (unsigned long long)hash;
+- (BOOL)hasDeviceCountryCode;
+- (BOOL)hasDeviceDisplayLocale;
+- (BOOL)hasDeviceKeyboardLocale;
+- (BOOL)hasDeviceLocation;
+- (BOOL)hasDeviceSpokenLocale;
+- (BOOL)hasResultListAttributionSupport;
+- (BOOL)hasTimeSinceMapEnteredForeground;
+- (unsigned int)hash;
 - (id)initWithTraits:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (int)resultListAttributionSupport;
 - (void)setDeviceCountryCode:(id)arg1;
 - (void)setDeviceDisplayLocale:(id)arg1;
 - (void)setDeviceInstalledKeyboardLocales:(id)arg1;
 - (void)setDeviceKeyboardLocale:(id)arg1;
 - (void)setDeviceLocation:(id)arg1;
 - (void)setDeviceSpokenLocale:(id)arg1;
-- (void)setHasTimeSinceMapEnteredForeground:(bool)arg1;
+- (void)setHasResultListAttributionSupport:(BOOL)arg1;
+- (void)setHasTimeSinceMapEnteredForeground:(BOOL)arg1;
+- (void)setResultListAttributionSupport:(int)arg1;
 - (void)setTimeSinceMapEnteredForeground:(unsigned int)arg1;
 - (unsigned int)timeSinceMapEnteredForeground;
 - (void)writeTo:(id)arg1;

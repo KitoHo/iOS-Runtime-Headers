@@ -2,79 +2,88 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class <_UIDocumentPickerViewControllerHost>, NSArray, NSString, NSURL;
-
-@interface _UIDocumentPickerViewServiceViewController : UINavigationController <_UIDocumentPickerRemoteViewControllerContaining, _UIDocumentPickerOverviewDelegate, _UIDocumentPickerViewController> {
+@interface _UIDocumentPickerViewServiceViewController : UINavigationController <_UIDocumentPickerOverviewDelegate, _UIDocumentPickerRemoteViewControllerContaining, _UIDocumentPickerServiceViewController, _UIDocumentPickerViewController> {
     NSArray *_auxiliaryOptions;
     NSString *_currentPickerIdentifier;
-    long long _displayMode;
+    BOOL _displayedAsMenu;
+    BOOL _hasBeenDismissed;
     NSArray *_pickableTypes;
-    unsigned long long _pickerMode;
+    unsigned int _pickerMode;
+    BOOL _showingSpinner;
     NSURL *_uploadURL;
-    bool_displayedAsMenu;
-    bool_hasBeenDismissed;
 }
 
-@property(setter=_setAuxiliaryOptions:,retain) NSArray * auxiliaryOptions;
-@property(retain) NSString * currentPickerIdentifier;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property long long displayMode;
-@property bool displayedAsMenu;
-@property bool hasBeenDismissed;
-@property(readonly) unsigned long long hash;
-@property(readonly) <_UIDocumentPickerViewControllerHost> * hostingViewController;
-@property(copy) NSArray * pickableTypes;
-@property unsigned long long pickerMode;
-@property int sortOrder;
-@property(readonly) Class superclass;
-@property(copy) NSURL * uploadURL;
+@property (setter=_setAuxiliaryOptions:, nonatomic, retain) NSArray *auxiliaryOptions;
+@property (nonatomic, retain) NSString *currentPickerIdentifier;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) int displayMode;
+@property (nonatomic) BOOL displayedAsMenu;
+@property (nonatomic) BOOL hasBeenDismissed;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) <_UIDocumentPickerViewControllerHost> *hostingViewController;
+@property (nonatomic, copy) NSArray *pickableTypes;
+@property (nonatomic) unsigned int pickerMode;
+@property (nonatomic) BOOL showingSpinner;
+@property (nonatomic) int sortOrder;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSURL *uploadURL;
 
 + (id)_exportedInterface;
 + (id)_remoteViewControllerInterface;
 
+- (BOOL)_appIsSharingAware;
+- (void)_checkFileStatus;
 - (void)_createBookmarkAndDismissWithCloudURL:(id)arg1;
+- (void)_didInstantiateThirdPartyPickerWithDescription:(id)arg1 viewController:(id)arg2;
 - (void)_didSelectPicker;
 - (void)_didSelectURL:(id)arg1;
 - (void)_dismissViewController;
 - (void)_dismissWithFileProviderURL:(id)arg1 bundleIdentifier:(id)arg2;
 - (void)_dismissWithImportURL:(id)arg1;
 - (void)_dismissWithOption:(id)arg1;
+- (void)_displayLocationsMenuFromRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)_documentPickerDidDismiss;
 - (void)_doneButton:(id)arg1;
-- (void)_preferredContentSizeChanged:(struct CGSize { double x1; double x2; })arg1;
-- (void)_prepareForDisplayWithCompletion:(id)arg1;
+- (void)_prepareForDisplayWithCompletion:(id /* block */)arg1;
+- (void)_presentError:(id)arg1 forThirdPartyPickerWithDescription:(id)arg2;
 - (void)_setAuxiliaryOptions:(id)arg1;
 - (void)_setPickableTypes:(id)arg1;
-- (void)_setPickerMode:(unsigned long long)arg1;
+- (void)_setPickerMode:(unsigned int)arg1;
+- (void)_setTintColor:(id)arg1;
 - (void)_setUploadURL:(id)arg1;
 - (void)_setUploadURLWrapper:(id)arg1;
 - (void)_showDefaultPicker;
 - (void)_showLocationPopup:(id)arg1;
+- (void)_showLocationPopupFromBarButtonItem:(id)arg1 rect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg2;
 - (void)_showPicker:(id)arg1;
 - (void)_showTopLevelViewController;
 - (void)_stitchFileCreationAtURL:(id)arg1;
 - (void)_willAppearInRemoteViewController;
 - (id)auxiliaryOptions;
-- (void)beginDownloadingURL:(id)arg1 completion:(id)arg2;
+- (void)beginDownloadingURL:(id)arg1 completion:(id /* block */)arg2;
 - (id)currentPickerIdentifier;
 - (void)dealloc;
 - (void)dismissWithURL:(id)arg1 forBundleIdentifier:(id)arg2;
-- (long long)displayMode;
-- (bool)displayedAsMenu;
-- (bool)hasBeenDismissed;
+- (int)displayMode;
+- (BOOL)displayedAsMenu;
+- (BOOL)hasBeenDismissed;
 - (id)hostingViewController;
 - (void)overviewController:(id)arg1 selectedAuxiliaryOptionWithIdentifier:(id)arg2;
 - (void)overviewController:(id)arg1 selectedDocumentPickerWithIdentifier:(id)arg2;
 - (id)pickableTypes;
-- (unsigned long long)pickerMode;
+- (unsigned int)pickerMode;
 - (void)setCurrentPickerIdentifier:(id)arg1;
-- (void)setDisplayMode:(long long)arg1;
-- (void)setDisplayedAsMenu:(bool)arg1;
-- (void)setHasBeenDismissed:(bool)arg1;
+- (void)setDisplayMode:(int)arg1;
+- (void)setDisplayedAsMenu:(BOOL)arg1;
+- (void)setHasBeenDismissed:(BOOL)arg1;
+- (void)setNavigationItemSpinner:(BOOL)arg1;
+- (void)setShowingSpinner:(BOOL)arg1;
 - (void)setSortOrder:(int)arg1;
-- (void)setViewControllers:(id)arg1 animated:(bool)arg2;
-- (void)setupNavigationItemForPicker:(id)arg1 isRoot:(bool)arg2;
+- (void)setViewControllers:(id)arg1 animated:(BOOL)arg2;
+- (void)setupNavigationItemForPicker:(id)arg1 isRoot:(BOOL)arg2;
+- (BOOL)shouldShowSearch;
+- (BOOL)showingSpinner;
 - (int)sortOrder;
 - (id)uploadURL;
 

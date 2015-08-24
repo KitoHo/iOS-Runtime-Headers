@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class NSMutableSet, NSSet, NSString, VKMapModel, VKStyleManager;
-
 @interface VKMapTileModel : VKModelObject <VKMapLayer, VKStyleManagerObserver> {
     VKMapModel *_mapModel;
     unsigned char _maximumZ;
@@ -16,19 +14,19 @@
     NSMutableSet *_tilesWillExitScene;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property VKMapModel * mapModel;
-@property(readonly) unsigned char maximumZ;
-@property(readonly) unsigned char minimumZ;
-@property(readonly) VKStyleManager * styleManager;
-@property(readonly) Class superclass;
-@property(readonly) NSSet * tilesInScene;
-@property(readonly) NSSet * tilesInScenePlusExitingTiles;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) VKMapModel *mapModel;
+@property (nonatomic, readonly) unsigned char maximumZ;
+@property (nonatomic, readonly) unsigned char minimumZ;
+@property (nonatomic, readonly) VKStyleManager *styleManager;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) NSSet *tilesInScene;
+@property (nonatomic, readonly) NSSet *tilesInScenePlusExitingTiles;
 
-+ (bool)reloadOnActiveTileGroupChange;
-+ (bool)reloadOnStylesheetChange;
++ (BOOL)reloadOnActiveTileGroupChange;
++ (BOOL)reloadOnStylesheetChange;
 
 - (void)activeTileGroupChanged;
 - (void)clearCollections;
@@ -40,19 +38,19 @@
 - (unsigned long long)mapLayerPosition;
 - (id)mapModel;
 - (unsigned char)maximumZ;
-- (bool)maximumZoomLevelBoundsCamera;
+- (BOOL)maximumZoomLevelBoundsCamera;
 - (unsigned char)minimumZ;
-- (bool)minimumZoomLevelBoundsCamera;
+- (BOOL)minimumZoomLevelBoundsCamera;
 - (void)removePersistingExitingTiles:(id)arg1;
 - (void)reset;
 - (void)setMapModel:(id)arg1;
-- (bool)shouldLayoutWithoutStyleManager;
+- (BOOL)shouldLayoutWithoutStyleManager;
 - (id)styleManager;
 - (void)stylesheetDidChange;
 - (void)stylesheetWillChange;
 - (id)tilesInScene;
 - (id)tilesInScenePlusExitingTiles;
-- (void)updateTilesInScene:(id)arg1 withContext:(id)arg2 categorize:(bool)arg3;
+- (void)updateTilesInScene:(id)arg1 withContext:(id)arg2 categorize:(BOOL)arg3;
 - (void)willStartDrawingTiles:(id)arg1;
 - (void)willStopDrawingTiles:(id)arg1;
 

@@ -2,55 +2,53 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSArray, NSDictionary, NSMutableDictionary, NSMutableSet;
-
 @interface UICollectionViewLayoutInvalidationContext : NSObject {
     struct CGPoint { 
-        double x; 
-        double y; 
-    struct CGSize { 
-        double width; 
-        double height; 
-    struct { 
-        unsigned int invalidateDataSource : 1; 
-        unsigned int invalidateEverything : 1; 
+        float x; 
+        float y; 
     } _contentOffsetAdjustment;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _contentSizeAdjustment;
     NSMutableDictionary *_invalidatedDecorationIndexPaths;
     NSMutableSet *_invalidatedItemIndexPaths;
     NSMutableDictionary *_invalidatedSupplementaryIndexPaths;
+    struct { 
+        unsigned int invalidateDataSource : 1; 
+        unsigned int invalidateEverything : 1; 
     } _invalidationContextFlags;
     NSArray *_updateItems;
 }
 
-@property struct CGPoint { double x1; double x2; } contentOffsetAdjustment;
-@property struct CGSize { double x1; double x2; } contentSizeAdjustment;
-@property bool invalidateDataSourceCounts;
-@property bool invalidateEverything;
-@property(readonly) NSDictionary * invalidatedDecorationIndexPaths;
-@property(readonly) NSArray * invalidatedItemIndexPaths;
-@property(readonly) NSDictionary * invalidatedSupplementaryIndexPaths;
-@property(getter=_updateItems,setter=_setUpdateItems:) NSArray * updateItems;
+@property (nonatomic) struct CGPoint { float x1; float x2; } contentOffsetAdjustment;
+@property (nonatomic) struct CGSize { float x1; float x2; } contentSizeAdjustment;
+@property (nonatomic) BOOL invalidateDataSourceCounts;
+@property (nonatomic) BOOL invalidateEverything;
+@property (nonatomic, readonly) NSDictionary *invalidatedDecorationIndexPaths;
+@property (nonatomic, readonly) NSArray *invalidatedItemIndexPaths;
+@property (nonatomic, readonly) NSDictionary *invalidatedSupplementaryIndexPaths;
+@property (getter=_updateItems, setter=_setUpdateItems:, nonatomic) NSArray *updateItems;
 
 - (void)_invalidateSupplementaryElementsOfKind:(id)arg1 atIndexPaths:(id)arg2;
 - (id)_invalidatedSupplementaryViews;
-- (void)_setInvalidateDataSourceCounts:(bool)arg1;
-- (void)_setInvalidateEverything:(bool)arg1;
+- (void)_setInvalidateDataSourceCounts:(BOOL)arg1;
+- (void)_setInvalidateEverything:(BOOL)arg1;
 - (void)_setInvalidatedSupplementaryViews:(id)arg1;
 - (void)_setUpdateItems:(id)arg1;
 - (id)_updateItems;
-- (struct CGPoint { double x1; double x2; })contentOffsetAdjustment;
-- (struct CGSize { double x1; double x2; })contentSizeAdjustment;
+- (struct CGPoint { float x1; float x2; })contentOffsetAdjustment;
+- (struct CGSize { float x1; float x2; })contentSizeAdjustment;
 - (void)dealloc;
-- (bool)invalidateDataSourceCounts;
+- (BOOL)invalidateDataSourceCounts;
 - (void)invalidateDecorationElementsOfKind:(id)arg1 atIndexPaths:(id)arg2;
-- (bool)invalidateEverything;
+- (BOOL)invalidateEverything;
 - (void)invalidateItemsAtIndexPaths:(id)arg1;
 - (void)invalidateSupplementaryElementsOfKind:(id)arg1 atIndexPaths:(id)arg2;
 - (id)invalidatedDecorationIndexPaths;
 - (id)invalidatedItemIndexPaths;
 - (id)invalidatedSupplementaryIndexPaths;
-- (void)setContentOffsetAdjustment:(struct CGPoint { double x1; double x2; })arg1;
-- (void)setContentSizeAdjustment:(struct CGSize { double x1; double x2; })arg1;
+- (void)setContentOffsetAdjustment:(struct CGPoint { float x1; float x2; })arg1;
+- (void)setContentSizeAdjustment:(struct CGSize { float x1; float x2; })arg1;
 
 @end

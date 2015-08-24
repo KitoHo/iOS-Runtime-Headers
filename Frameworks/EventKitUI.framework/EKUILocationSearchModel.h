@@ -2,9 +2,7 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class <EKUILocationSearchModelDelegate>, ABSearchOperation, CLGeocoder, CLInUseAssertion, CLLocationManager, EKEventStore, EKOccurrenceCacheLocationSearch, EKStructuredLocation, MKLocalSearch, MKLocalSearchCompleter, NSArray, NSCharacterSet, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSOperationQueue, NSString, NSTimer;
-
-@interface EKUILocationSearchModel : NSObject <CLLocationManagerDelegate, MKSearchCompleterDelegate, ABSearchOperationDelegate> {
+@interface EKUILocationSearchModel : NSObject <ABSearchOperationDelegate, CLLocationManagerDelegate, MKSearchCompleterDelegate> {
     ABSearchOperation *_abSearchOperation;
     NSOperationQueue *_abSearchQueue;
     MKLocalSearchCompleter *_completer;
@@ -32,19 +30,19 @@
     NSCharacterSet *_whitespaceAndNewlineCharacterSet;
 }
 
-@property(readonly) NSArray * conferenceRoomSearchResults;
-@property(readonly) NSArray * contactsSearchResults;
-@property(retain) EKStructuredLocation * currentLocation;
-@property(copy,readonly) NSString * debugDescription;
-@property <EKUILocationSearchModelDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) NSArray * eventsSearchResults;
-@property(readonly) NSArray * frequentsSearchResults;
-@property(readonly) NSArray * geocodedSearchResults;
-@property(readonly) unsigned long long hash;
-@property(readonly) NSArray * mapCompletionSearchResults;
-@property(readonly) NSArray * recentsSearchResults;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) NSArray *conferenceRoomSearchResults;
+@property (nonatomic, readonly) NSArray *contactsSearchResults;
+@property (nonatomic, retain) EKStructuredLocation *currentLocation;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <EKUILocationSearchModelDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) NSArray *eventsSearchResults;
+@property (nonatomic, readonly) NSArray *frequentsSearchResults;
+@property (nonatomic, readonly) NSArray *geocodedSearchResults;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) NSArray *mapCompletionSearchResults;
+@property (nonatomic, readonly) NSArray *recentsSearchResults;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)CLLocationForDictionary:(id)arg1;
@@ -55,7 +53,7 @@
 - (void)beginSearchForTerm:(id)arg1;
 - (void)cancelSearch;
 - (void)cancelTimer;
-- (void)completerDidUpdateResults:(id)arg1 finished:(bool)arg2;
+- (void)completerDidUpdateResults:(id)arg1 finished:(BOOL)arg2;
 - (id)conferenceRoomSearchResults;
 - (id)contactsSearchResults;
 - (id)currentLocation;
@@ -76,10 +74,10 @@
 - (void)resetConferenceRoomSearchResults;
 - (void)resetContactsSearchResults;
 - (void)resetEventsSearchResults;
-- (void)resetSearchResults:(bool)arg1;
+- (void)resetSearchResults:(BOOL)arg1;
 - (void)searchConferenceRooms:(id)arg1;
 - (void)searchFrequentLocations:(id)arg1;
-- (void)searchOperation:(id)arg1 didFindMatches:(id)arg2 moreComing:(bool)arg3;
+- (void)searchOperation:(id)arg1 didFindMatches:(id)arg2 moreComing:(BOOL)arg3;
 - (void)selectCurrentLocation;
 - (void)selectLocation:(id)arg1;
 - (void)selectMapSearchCompletion:(id)arg1;

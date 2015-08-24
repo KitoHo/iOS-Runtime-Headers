@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVWeakReference;
-
 @interface AVAssetWriterFigAssetWriterNotificationHandler : NSObject {
     int _didNotCallDelegate;
     struct OpaqueFigAssetWriter { } *_figAssetWriter;
@@ -12,9 +10,9 @@
     AVWeakReference *_weakReferenceToSelf;
 }
 
-@property(retain) AVWeakReference * weakReferenceToDelegate;
+@property (retain) AVWeakReference *weakReferenceToDelegate;
 
-- (void)_callDelegateIfNotCalledWithSuccess:(bool)arg1 error:(id)arg2;
+- (void)_callDelegateIfNotCalledWithSuccess:(BOOL)arg1 error:(id)arg2;
 - (void)_handleCompletedWritingNotification;
 - (void)_handleFailedNotificationWithError:(id)arg1;
 - (void)_handleServerDiedNotification;

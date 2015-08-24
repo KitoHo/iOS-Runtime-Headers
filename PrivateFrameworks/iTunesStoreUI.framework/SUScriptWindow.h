@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSNumber, NSString, SUScriptCanvasFunction, SUScriptFunction, SUScriptViewController, SUScriptWindowContext, WebScriptObject;
-
 @interface SUScriptWindow : SUScriptObject {
     SUScriptViewController *_backViewController;
+    BOOL _canSwipeToDismiss;
     SUScriptWindowContext *_context;
     SUScriptViewController *_frontViewController;
     id _height;
@@ -14,36 +13,35 @@
     id _shadowRadius;
     SUScriptFunction *_shouldDismissFunction;
     id _width;
-    bool_canSwipeToDismiss;
 }
 
-@property(retain) SUScriptViewController * backViewController;
-@property(copy) id canSwipeToDismiss;
-@property(readonly) SUScriptWindowContext * context;
-@property(retain) SUScriptViewController * frontViewController;
-@property(retain) NSNumber * height;
-@property(retain) WebScriptObject * maskFunction;
-@property(retain) NSNumber * shadowOpacity;
-@property(retain) NSNumber * shadowRadius;
-@property(retain) WebScriptObject * shouldDismissFunction;
-@property(readonly) NSString * style;
-@property(retain) NSNumber * width;
-@property(readonly) SUScriptViewController * windowParentViewController;
+@property (retain) SUScriptViewController *backViewController;
+@property (copy) id canSwipeToDismiss;
+@property (readonly) SUScriptWindowContext *context;
+@property (retain) SUScriptViewController *frontViewController;
+@property (retain) NSNumber *height;
+@property (retain) WebScriptObject *maskFunction;
+@property (retain) NSNumber *shadowOpacity;
+@property (retain) NSNumber *shadowRadius;
+@property (retain) WebScriptObject *shouldDismissFunction;
+@property (readonly) NSString *style;
+@property (retain) NSNumber *width;
+@property (readonly) SUScriptViewController *windowParentViewController;
 
 + (void)dismissWindowsWithOptions:(id)arg1;
 + (void)initialize;
 + (id)webScriptNameForKeyName:(id)arg1;
 + (id)webScriptNameForSelector:(SEL)arg1;
 
-- (id)_backgroundViewController:(bool)arg1;
+- (id)_backgroundViewController:(BOOL)arg1;
 - (id)_className;
 - (id)_copySafeTransitionOptionsFromOptions:(id)arg1;
 - (id)_newOverlayTransitionWithOptions:(id)arg1;
 - (void)_overlayDidDismissNotification:(id)arg1;
 - (void)_overlayDidFlipNotification:(id)arg1;
 - (void)_overlayDidShowNotification:(id)arg1;
-- (struct CGSize { double x1; double x2; })_overlaySize;
-- (id)_overlayViewController:(bool)arg1;
+- (struct CGSize { float x1; float x2; })_overlaySize;
+- (id)_overlayViewController:(BOOL)arg1;
 - (void)_registerForOverlayNotifications;
 - (id)attributeKeys;
 - (id)backViewController;

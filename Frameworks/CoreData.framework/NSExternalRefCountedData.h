@@ -3,6 +3,8 @@
  */
 
 @interface NSExternalRefCountedData : NSObject {
+    double _birth;
+    int _cd_rc;
     struct _externalRefFlags_st { 
         unsigned int _invalidToOnes : 1; 
         unsigned int _hasTemporaryID : 1; 
@@ -10,8 +12,6 @@
         unsigned int _reservedFlags : 1; 
         unsigned int _virtualfk_count : 14; 
         unsigned int _ordkey_count : 14; 
-    double _birth;
-    int _cd_rc;
     } _externalRefFlags;
     int _externalReferenceCount;
     id *_toManyMap;
@@ -20,8 +20,8 @@
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
 
 - (void)_initializeRelationshipCaches;
-- (bool)_isDeallocating;
-- (bool)_tryRetain;
+- (BOOL)_isDeallocating;
+- (BOOL)_tryRetain;
 - (id)ancillaryOrderKeysForProperty:(id)arg1;
 - (void)copyRelationshipCachesFrom:(id)arg1;
 - (void)dealloc;
@@ -36,7 +36,7 @@
 - (oneway void)release;
 - (void)releaseRelationshipCaches;
 - (id)retain;
-- (unsigned long long)retainCount;
+- (unsigned int)retainCount;
 - (void)setAncillaryOrderKeys:(id)arg1 forProperty:(id)arg2 options:(unsigned int)arg3 andTimestamp:(double)arg4;
 - (void)setRelatedObjectIDs:(id)arg1 forProperty:(id)arg2 options:(unsigned int)arg3 andTimestamp:(double)arg4;
 - (void)setTimestamp:(double)arg1;

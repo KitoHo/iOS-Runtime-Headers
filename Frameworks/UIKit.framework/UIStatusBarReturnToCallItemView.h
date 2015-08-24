@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UILabel;
-
 @interface UIStatusBarReturnToCallItemView : UIStatusBarAppIconItemView {
     UILabel *_textLabel;
 }
@@ -11,6 +9,6 @@
 - (id)_appBundleIdentifier;
 - (void)dealloc;
 - (void)layoutSubviews;
-- (bool)updateForNewData:(id)arg1 actions:(int)arg2;
+- (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
 
 @end

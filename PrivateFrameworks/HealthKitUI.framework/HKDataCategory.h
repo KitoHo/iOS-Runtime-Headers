@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/HealthKitUI.framework/HealthKitUI
  */
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSString, UIColor, UIImage;
-
 @interface HKDataCategory : NSObject {
     UIColor *_bottomColor;
     NSMutableDictionary *_cachedGradients;
     NSMutableDictionary *_cachedRoundedCornerGradients;
-    unsigned long long _categoryID;
+    int _categoryID;
     UIImage *_dashboardIcon;
     NSMutableArray *_dataUnitGroups;
     NSString *_displayName;
@@ -16,33 +14,32 @@
     NSString *_listIconName;
     UIImage *_shareIcon;
     UIColor *_topColor;
-    bool_isMeCategory;
 }
 
-@property(readonly) unsigned long long categoryID;
-@property(readonly) UIImage * dashboardIcon;
-@property(readonly) NSArray * dataUnitGroups;
-@property(readonly) NSString * displayName;
-@property(readonly) bool isMeCategory;
-@property(readonly) UIImage * listIcon;
-@property(readonly) NSString * listIconName;
-@property(readonly) UIImage * shareIcon;
+@property (nonatomic, readonly) int categoryID;
+@property (nonatomic, readonly) UIImage *dashboardIcon;
+@property (nonatomic, readonly) NSArray *dataUnitGroups;
+@property (nonatomic, readonly) NSString *displayName;
+@property (nonatomic, readonly) BOOL isMeCategory;
+@property (nonatomic, readonly) UIImage *listIcon;
+@property (nonatomic, readonly) NSString *listIconName;
+@property (nonatomic, readonly) UIImage *shareIcon;
 
 - (void).cxx_destruct;
-- (id)_generateGradientOfHeight:(double)arg1;
-- (id)_generateRoundedCornerGradientWithHeight:(double)arg1;
+- (id)_generateGradientOfHeight:(float)arg1;
+- (id)_generateRoundedCornerGradientWithHeight:(float)arg1;
 - (void)addDataUnitGroup:(id)arg1;
-- (unsigned long long)categoryID;
+- (int)categoryID;
 - (id)dashboardIcon;
 - (id)dataUnitGroups;
 - (id)displayName;
-- (id)gradientWithHeight:(double)arg1;
+- (id)gradientWithHeight:(float)arg1;
 - (id)init;
 - (id)initWithDictionary:(id)arg1;
-- (bool)isMeCategory;
+- (BOOL)isMeCategory;
 - (id)listIcon;
 - (id)listIconName;
-- (id)roundedCornerGradientWithHeight:(double)arg1;
+- (id)roundedCornerGradientWithHeight:(float)arg1;
 - (id)shareIcon;
 
 @end

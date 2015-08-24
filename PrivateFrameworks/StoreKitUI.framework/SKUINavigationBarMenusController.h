@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, NSString, SKUIMenuPopoverController, SKUINavigationBarMenusView, UIControl;
-
 @interface SKUINavigationBarMenusController : SKUINavigationBarSectionController <SKUIMenuPopoverDelegate> {
     UIControl *_focusedMenuButton;
     NSArray *_menuViewElements;
@@ -11,10 +9,10 @@
     SKUIMenuPopoverController *_popoverController;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (void)_destroyPopover;
@@ -22,8 +20,8 @@
 - (id)_menuViewElementForView:(id)arg1;
 - (void)dealloc;
 - (id)initWithMenuViewElements:(id)arg1;
-- (void)menuPopover:(id)arg1 didSelectMenuItemAtIndex:(long long)arg2;
-- (void)menuPopover:(id)arg1 willRepositionToRect:(inout struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; }*)arg2 inView:(inout id*)arg3;
+- (void)menuPopover:(id)arg1 didSelectMenuItemAtIndex:(int)arg2;
+- (void)menuPopover:(id)arg1 willRepositionToRect:(inout struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; }*)arg2 inView:(inout id*)arg3;
 - (void)menuPopoverDidCancel:(id)arg1;
 - (void)reloadSectionViews;
 - (id)view;

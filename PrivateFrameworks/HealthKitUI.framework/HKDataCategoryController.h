@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/HealthKitUI.framework/HealthKitUI
  */
 
-@class NSMutableArray, NSMutableDictionary;
-
 @interface HKDataCategoryController : NSObject {
     NSMutableArray *_dataCategories;
     NSMutableDictionary *_dataCategoriesByCategoryID;
@@ -13,7 +11,7 @@
 
 - (void).cxx_destruct;
 - (id)allDataCategories;
-- (id)categoryWithID:(unsigned long long)arg1;
-- (id)initWithDataFromURL:(id)arg1;
+- (id)categoryWithID:(int)arg1;
+- (id)init;
 
 @end

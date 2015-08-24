@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@interface PUImagePickerSessionInfo : PUSessionInfo {
-}
+@interface PUImagePickerSessionInfo : PUSessionInfo
 
-- (bool)isSelectingAssets;
+- (BOOL)isSelectingAssets;
 
 @end

@@ -2,32 +2,39 @@
    Image: /System/Library/PrivateFrameworks/CallHistory.framework/CallHistory
  */
 
-@class CallHistoryDBHandle;
-
 @interface CallHistoryDBClientHandle : CHSynchronizedLoggable {
+    BOOL _dataStoreCreated;
     id _observerCallRecordRef;
     id _observerCallTimersRef;
+    NSObject<OS_dispatch_queue> *_recentCallQueue;
     CallHistoryDBHandle *dbStoreHandle;
 }
 
-@property(readonly) CallHistoryDBHandle * dbStoreHandle;
+@property (nonatomic) BOOL dataStoreCreated;
+@property (nonatomic, readonly) CallHistoryDBHandle *dbStoreHandle;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *recentCallQueue;
+
++ (id)createForClient;
++ (id)createForServer;
 
 - (void).cxx_destruct;
 - (id)convertToCHRecentCalls_sync:(id)arg1;
-- (bool)createCallRecord:(id)arg1 error:(id*)arg2 save:(bool)arg3;
-- (bool)createCallRecord:(id)arg1 error:(id*)arg2;
-- (bool)createCallRecord:(id)arg1;
-- (bool)createCallRecords:(id)arg1 error:(id*)arg2;
-- (bool)createCallRecords:(id)arg1;
+- (BOOL)createCallRecord:(id)arg1;
+- (BOOL)createCallRecord:(id)arg1 error:(id*)arg2;
+- (BOOL)createCallRecord:(id)arg1 error:(id*)arg2 save:(BOOL)arg3;
+- (BOOL)createCallRecords:(id)arg1;
+- (BOOL)createCallRecords:(id)arg1 error:(id*)arg2;
+- (void)createDataStore;
+- (BOOL)dataStoreCreated;
 - (id)dbStoreHandle;
 - (void)dealloc;
-- (bool)deleteAll:(id*)arg1;
-- (bool)deleteAll;
-- (bool)deleteObjectWithUniqueId:(id)arg1 error:(id*)arg2 save:(bool)arg3;
-- (bool)deleteObjectWithUniqueId:(id)arg1 error:(id*)arg2;
-- (bool)deleteObjectWithUniqueId:(id)arg1;
-- (bool)deleteObjectsWithUniqueIds:(id)arg1 error:(id*)arg2;
-- (bool)deleteObjectsWithUniqueIds:(id)arg1;
+- (BOOL)deleteAll;
+- (BOOL)deleteAll:(id*)arg1;
+- (BOOL)deleteObjectWithUniqueId:(id)arg1;
+- (BOOL)deleteObjectWithUniqueId:(id)arg1 error:(id*)arg2;
+- (BOOL)deleteObjectWithUniqueId:(id)arg1 error:(id*)arg2 save:(BOOL)arg3;
+- (BOOL)deleteObjectsWithUniqueIds:(id)arg1;
+- (BOOL)deleteObjectsWithUniqueIds:(id)arg1 error:(id*)arg2;
 - (id)fetchAll;
 - (id)fetchAllNoLimit;
 - (id)fetchObjectWithUniqueId:(id)arg1;
@@ -38,25 +45,30 @@
 - (void)handleCallRecordSave_sync:(id)arg1;
 - (void)handleCallTimersSave_sync:(id)arg1;
 - (id)init;
-- (void)parseCallStatus_sync:(unsigned int)arg1 isAnswered:(bool*)arg2 isOriginated:(bool*)arg3;
+- (id)init:(BOOL)arg1;
+- (id)manager;
+- (void)parseCallStatus_sync:(unsigned int)arg1 isAnswered:(BOOL*)arg2 isOriginated:(BOOL*)arg3;
+- (id)recentCallQueue;
 - (void)registerForNotifications;
 - (void)resetTimers;
-- (bool)saveDatabase:(id*)arg1;
+- (BOOL)saveDatabase:(id*)arg1;
 - (void)setClientObject_sync:(id)arg1 withStoreObject:(id)arg2;
+- (void)setDataStoreCreated:(BOOL)arg1;
+- (void)setRecentCallQueue:(id)arg1;
 - (void)setStoreObject_sync:(id)arg1 withClientObject:(id)arg2;
 - (id)timerIncoming;
 - (id)timerLastReset;
 - (id)timerLifetime;
 - (id)timerOutgoing;
 - (void)unRegisterForNotifications;
-- (id)updateAllCallRecords:(id)arg1 error:(id*)arg2;
 - (id)updateAllCallRecords:(id)arg1;
+- (id)updateAllCallRecords:(id)arg1 error:(id*)arg2;
 - (id)updateAllCallRecords_sync:(id)arg1 error:(id*)arg2;
-- (bool)updateCallRecord_sync:(id)arg1 withChangeDict:(id)arg2;
-- (id)updateCallRecords:(id)arg1 error:(id*)arg2 save:(bool)arg3;
-- (id)updateCallRecords:(id)arg1 error:(id*)arg2;
+- (BOOL)updateCallRecord_sync:(id)arg1 withChangeDict:(id)arg2;
 - (id)updateCallRecords:(id)arg1;
-- (id)updateCallRecords_sync:(id)arg1 error:(id*)arg2 save:(bool)arg3;
-- (bool)willHandleNotification_sync:(id)arg1;
+- (id)updateCallRecords:(id)arg1 error:(id*)arg2;
+- (id)updateCallRecords:(id)arg1 error:(id*)arg2 save:(BOOL)arg3;
+- (id)updateCallRecords_sync:(id)arg1 error:(id*)arg2 save:(BOOL)arg3;
+- (BOOL)willHandleNotification_sync:(id)arg1;
 
 @end

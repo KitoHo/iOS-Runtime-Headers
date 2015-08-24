@@ -2,16 +2,13 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class <CoreDAVCopyTaskDelegate>;
+@interface CoreDAVCopyTask : CoreDAVCopyOrMoveTask
 
-@interface CoreDAVCopyTask : CoreDAVCopyOrMoveTask {
-}
-
-@property <CoreDAVCopyTaskDelegate> * delegate;
+@property (nonatomic) <CoreDAVCopyTaskDelegate> *delegate;
 
 - (void)_callBackToDelegateWithResponses:(id)arg1 error:(id)arg2;
 - (void)dealloc;
 - (id)httpMethod;
-- (bool)validate:(id*)arg1;
+- (BOOL)validate:(id*)arg1;
 
 @end

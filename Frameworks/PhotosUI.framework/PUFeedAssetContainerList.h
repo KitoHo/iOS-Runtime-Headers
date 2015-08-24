@@ -2,27 +2,25 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSOrderedSet, NSString;
-
 @interface PUFeedAssetContainerList : NSObject <PLAssetContainerList> {
     NSOrderedSet *_sectionInfos;
     NSString *_transientIdentifier;
 }
 
-@property(readonly) unsigned long long containersCount;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) NSOrderedSet * sectionInfos;
-@property(readonly) Class superclass;
-@property(readonly) NSString * transientIdentifier;
+@property (nonatomic, readonly) unsigned int containersCount;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NSOrderedSet *sectionInfos;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) NSString *transientIdentifier;
 
 - (void).cxx_destruct;
-- (bool)canEditContainers;
+- (BOOL)canEditContainers;
 - (id)containers;
-- (unsigned long long)containersCount;
+- (unsigned int)containersCount;
 - (id)containersRelationshipName;
-- (bool)isEmpty;
+- (BOOL)isEmpty;
 - (id)managedObjectContext;
 - (id)photoLibrary;
 - (id)sectionInfos;

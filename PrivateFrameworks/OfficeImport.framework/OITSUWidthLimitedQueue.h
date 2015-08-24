@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSObject<OS_dispatch_queue>;
-
 @interface OITSUWidthLimitedQueue : NSObject {
     int mLimit;
     NSObject<OS_dispatch_queue> *mManagerQueue;
@@ -14,7 +12,7 @@
 
 - (void)dealloc;
 - (id)init;
-- (id)initWithLimit:(unsigned long long)arg1;
-- (void)performAsync:(id)arg1;
+- (id)initWithLimit:(unsigned int)arg1;
+- (void)performAsync:(id /* block */)arg1;
 
 @end

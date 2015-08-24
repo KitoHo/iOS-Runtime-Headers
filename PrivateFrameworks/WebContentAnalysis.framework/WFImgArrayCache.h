@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/WebContentAnalysis.framework/WebContentAnalysis
  */
 
-@class NSMutableString;
-
 @interface WFImgArrayCache : NSObject {
     NSMutableString *imageAlternativeDescriptions;
-    long long numberOfKnownImagePixels;
-    long long numberOfUnknownSizedImages;
+    int numberOfKnownImagePixels;
+    int numberOfUnknownSizedImages;
 }
 
 + (id)imgArrayCacheWithArray:(id)arg1;
@@ -15,7 +13,7 @@
 - (void)dealloc;
 - (id)imageAlternativeDescriptions;
 - (id)initWithArray:(id)arg1;
-- (long long)numberOfKnownImagePixels;
-- (long long)numberOfUnknownSizedImages;
+- (int)numberOfKnownImagePixels;
+- (int)numberOfUnknownSizedImages;
 
 @end

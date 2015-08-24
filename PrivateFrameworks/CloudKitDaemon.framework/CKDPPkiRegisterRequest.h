@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPPublicKey, NSString;
-
 @interface CKDPPkiRegisterRequest : PBRequest <NSCopying> {
     NSString *_currentKeyHash;
     CKDPPublicKey *_publicKey;
 }
 
-@property(retain) NSString * currentKeyHash;
-@property(readonly) bool hasCurrentKeyHash;
-@property(readonly) bool hasPublicKey;
-@property(retain) CKDPPublicKey * publicKey;
+@property (nonatomic, retain) NSString *currentKeyHash;
+@property (nonatomic, readonly) BOOL hasCurrentKeyHash;
+@property (nonatomic, readonly) BOOL hasPublicKey;
+@property (nonatomic, retain) CKDPPublicKey *publicKey;
 
 + (id)options;
 
@@ -22,13 +20,13 @@
 - (id)currentKeyHash;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasCurrentKeyHash;
-- (bool)hasPublicKey;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasCurrentKeyHash;
+- (BOOL)hasPublicKey;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)publicKey;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setCurrentKeyHash:(id)arg1;
 - (void)setPublicKey:(id)arg1;
 - (void)writeTo:(id)arg1;

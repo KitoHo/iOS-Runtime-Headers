@@ -2,38 +2,35 @@
    Image: /System/Library/PrivateFrameworks/TelephonyUtilities.framework/TelephonyUtilities
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class TUCall;
-
 @interface TUAVConferenceConnection : NSObject {
-    TUCall *_call;
-    id _didStartHandler;
-    id _didStopHandler;
-    bool_receivedDidStart;
+    id /* block */ _didStartHandler;
+    id /* block */ _didStopHandler;
+    BOOL _host;
+    NSString *_identifier;
+    BOOL _receivedDidStart;
 }
 
-@property(retain) TUCall * call;
-@property(copy) id didStartHandler;
-@property(copy) id didStopHandler;
-@property(getter=isMuted) bool muted;
-@property bool receivedDidStart;
+@property (nonatomic, copy) id /* block */ didStartHandler;
+@property (nonatomic, copy) id /* block */ didStopHandler;
+@property (getter=isHost, nonatomic) BOOL host;
+@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic) BOOL receivedDidStart;
 
-+ (id)conferenceConnectionWithCall:(id)arg1;
++ (id)conferenceConnectionWithIdentifier:(id)arg1 host:(BOOL)arg2;
 
-- (id)call;
 - (void)dealloc;
 - (id)description;
-- (id)didStartHandler;
-- (id)didStopHandler;
-- (bool)isMuted;
-- (bool)receivedDidStart;
-- (void)setCall:(id)arg1;
-- (void)setDidStartHandler:(id)arg1;
-- (void)setDidStopHandler:(id)arg1;
-- (void)setMuted:(bool)arg1;
-- (void)setReceivedDidStart:(bool)arg1;
+- (id /* block */)didStartHandler;
+- (id /* block */)didStopHandler;
+- (id)identifier;
+- (void)invokeDidStartIfNecessary:(BOOL)arg1 error:(id)arg2;
+- (void)invokeDidStopIfNecessary:(BOOL)arg1 error:(id)arg2;
+- (BOOL)isHost;
+- (BOOL)receivedDidStart;
+- (void)setDidStartHandler:(id /* block */)arg1;
+- (void)setDidStopHandler:(id /* block */)arg1;
+- (void)setHost:(BOOL)arg1;
+- (void)setIdentifier:(id)arg1;
+- (void)setReceivedDidStart:(BOOL)arg1;
 
 @end

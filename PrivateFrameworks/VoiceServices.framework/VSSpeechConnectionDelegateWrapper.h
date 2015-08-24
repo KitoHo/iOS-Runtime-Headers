@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/VoiceServices.framework/VoiceServices
  */
 
-@class <VSSpeechConnectionDelegate>, NSString, VSSpeechConnection, VSSpeechRequest;
-
 @interface VSSpeechConnectionDelegateWrapper : NSObject <VSSpeechServiceDelegate> {
     VSSpeechConnection *_connection;
     <VSSpeechConnectionDelegate> *_delegate;
     VSSpeechRequest *_request;
 }
 
-@property VSSpeechConnection * connection;
-@property(copy,readonly) NSString * debugDescription;
-@property <VSSpeechConnectionDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) VSSpeechRequest * request;
-@property(readonly) Class superclass;
+@property (nonatomic) VSSpeechConnection *connection;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <VSSpeechConnectionDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) VSSpeechRequest *request;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)connection;
@@ -28,7 +26,7 @@
 - (oneway void)speechRequestDidContinue;
 - (oneway void)speechRequestDidPause;
 - (oneway void)speechRequestDidStart;
-- (oneway void)speechRequestDidStopWithSuccess:(bool)arg1 phonemesSpoken:(id)arg2 error:(id)arg3;
-- (oneway void)speechRequestMark:(long long)arg1 didStartForRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg2;
+- (oneway void)speechRequestDidStopWithSuccess:(BOOL)arg1 phonemesSpoken:(id)arg2 error:(id)arg3;
+- (oneway void)speechRequestMark:(int)arg1 didStartForRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg2;
 
 @end

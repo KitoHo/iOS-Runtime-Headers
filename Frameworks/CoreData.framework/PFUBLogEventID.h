@@ -2,22 +2,20 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSString;
-
 @interface PFUBLogEventID : NSObject {
-    long long _eventType;
-    long long _hash;
+    int _eventType;
+    int _hash;
     NSString *_idString;
 }
 
-@property(readonly) long long eventType;
-@property(readonly) long long hash;
-@property(readonly) NSString * idString;
+@property (nonatomic, readonly) int eventType;
+@property (nonatomic, readonly) int hash;
+@property (nonatomic, readonly) NSString *idString;
 
 + (void)initialize;
 
-- (long long)eventType;
-- (long long)hash;
+- (int)eventType;
+- (int)hash;
 - (id)idString;
 - (id)initWithCustomKey:(id)arg1;
 - (id)initWithEventType:(int)arg1;

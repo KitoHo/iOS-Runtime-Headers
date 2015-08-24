@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPComment;
-
 @interface CKDPGetCommentResponse : PBCodable <NSCopying> {
     CKDPComment *_comment;
 }
 
-@property(retain) CKDPComment * comment;
-@property(readonly) bool hasComment;
+@property (nonatomic, retain) CKDPComment *comment;
+@property (nonatomic, readonly) BOOL hasComment;
 
 - (void).cxx_destruct;
 - (id)comment;
@@ -17,11 +15,11 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasComment;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasComment;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setComment:(id)arg1;
 - (void)writeTo:(id)arg1;
 

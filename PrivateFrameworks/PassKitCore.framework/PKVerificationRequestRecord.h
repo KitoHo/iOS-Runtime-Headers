@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSDate, NSString, PKVerificationChannel;
-
 @interface PKVerificationRequestRecord : NSObject <NSSecureCoding> {
     PKVerificationChannel *_channel;
     NSDate *_date;
     NSString *_passUniqueID;
 }
 
-@property(copy) PKVerificationChannel * channel;
-@property(copy) NSDate * date;
-@property(copy) NSString * passUniqueID;
+@property (nonatomic, copy) PKVerificationChannel *channel;
+@property (nonatomic, copy) NSDate *date;
+@property (nonatomic, copy) NSString *passUniqueID;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 + (id)verificationRequestRecordForPass:(id)arg1 channel:(id)arg2 date:(id)arg3;
 
 - (id)channel;

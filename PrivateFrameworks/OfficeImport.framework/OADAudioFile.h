@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@interface OADAudioFile : OADLinkedMediaFile {
-}
+@interface OADAudioFile : OADLinkedMediaFile
 
-- (bool)isAudioOnly;
+- (BOOL)isAudioOnly;
 
 @end

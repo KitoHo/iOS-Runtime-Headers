@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/MPUFoundation.framework/MPUFoundation
  */
 
-@class MPUBorderConfiguration, MPUBorderDrawingCache, UIImageView;
-
 @interface MPUBorderedImageStackItemView : MPUImageStackItemView {
     MPUBorderConfiguration *_borderConfiguration;
     MPUBorderDrawingCache *_borderDrawingCache;
     UIImageView *_borderImageView;
 }
 
-@property(copy) MPUBorderConfiguration * borderConfiguration;
-@property(retain) MPUBorderDrawingCache * borderDrawingCache;
+@property (nonatomic, copy) MPUBorderConfiguration *borderConfiguration;
+@property (nonatomic, retain) MPUBorderDrawingCache *borderDrawingCache;
 
 - (void).cxx_destruct;
 - (void)_borderDrawingCacheWasInvalidated:(id)arg1;
@@ -19,7 +17,7 @@
 - (id)borderConfiguration;
 - (id)borderDrawingCache;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)layoutSubviews;
 - (void)setBorderConfiguration:(id)arg1;
 - (void)setBorderDrawingCache:(id)arg1;

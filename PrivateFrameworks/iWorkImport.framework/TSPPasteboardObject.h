@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSArray, TSPObject;
-
 @interface TSPPasteboardObject : TSPObject {
     TSPObject *_appNativeObject;
     NSArray *_drawables;
     TSPObject *_guideStorage;
+    BOOL _isCrossAppPaste;
+    BOOL _isCrossDocumentPaste;
+    BOOL _isSmartCopyPaste;
+    BOOL _isTextPrimary;
     NSArray *_styles;
     TSPObject *_stylesheet;
     TSPObject *_theme;
     TSPObject *_wpStorage;
-    bool_isCrossAppPaste;
-    bool_isCrossDocumentPaste;
-    bool_isSmartCopyPaste;
-    bool_isTextPrimary;
 }
 
-@property(retain) TSPObject * appNativeObject;
-@property(copy) NSArray * drawables;
-@property(retain) TSPObject * guideStorage;
-@property(readonly) bool isCrossAppPaste;
-@property(readonly) bool isCrossDocumentPaste;
-@property bool isSmartCopyPaste;
-@property bool isTextPrimary;
-@property(copy) NSArray * styles;
-@property(retain) TSPObject * stylesheet;
-@property(retain) TSPObject * theme;
-@property(retain) TSPObject * wpStorage;
+@property (nonatomic, retain) TSPObject *appNativeObject;
+@property (nonatomic, copy) NSArray *drawables;
+@property (nonatomic, retain) TSPObject *guideStorage;
+@property (nonatomic, readonly) BOOL isCrossAppPaste;
+@property (nonatomic, readonly) BOOL isCrossDocumentPaste;
+@property (nonatomic) BOOL isSmartCopyPaste;
+@property (nonatomic) BOOL isTextPrimary;
+@property (nonatomic, copy) NSArray *styles;
+@property (nonatomic, retain) TSPObject *stylesheet;
+@property (nonatomic, retain) TSPObject *theme;
+@property (nonatomic, retain) TSPObject *wpStorage;
 
 - (void).cxx_destruct;
 - (id)appNativeObject;
@@ -36,16 +34,16 @@
 - (id)guideStorage;
 - (id)initFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1;
-- (bool)isCrossAppPaste;
-- (bool)isCrossDocumentPaste;
-- (bool)isSmartCopyPaste;
-- (bool)isTextPrimary;
+- (BOOL)isCrossAppPaste;
+- (BOOL)isCrossDocumentPaste;
+- (BOOL)isSmartCopyPaste;
+- (BOOL)isTextPrimary;
 - (void)saveToArchiver:(id)arg1;
 - (void)setAppNativeObject:(id)arg1;
 - (void)setDrawables:(id)arg1;
 - (void)setGuideStorage:(id)arg1;
-- (void)setIsSmartCopyPaste:(bool)arg1;
-- (void)setIsTextPrimary:(bool)arg1;
+- (void)setIsSmartCopyPaste:(BOOL)arg1;
+- (void)setIsTextPrimary:(BOOL)arg1;
 - (void)setStyles:(id)arg1;
 - (void)setStylesheet:(id)arg1;
 - (void)setTheme:(id)arg1;

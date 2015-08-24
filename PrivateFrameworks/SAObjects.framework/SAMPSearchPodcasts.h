@@ -2,23 +2,20 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString;
+@interface SAMPSearchPodcasts : SADomainCommand
 
-@interface SAMPSearchPodcasts : SADomainCommand {
-}
-
-@property long long maxResults;
-@property(copy) NSString * podcastName;
+@property (nonatomic) int maxResults;
+@property (nonatomic, copy) NSString *podcastName;
 
 + (id)searchPodcasts;
 + (id)searchPodcastsWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (long long)maxResults;
+- (int)maxResults;
 - (id)podcastName;
-- (bool)requiresResponse;
-- (void)setMaxResults:(long long)arg1;
+- (BOOL)requiresResponse;
+- (void)setMaxResults:(int)arg1;
 - (void)setPodcastName:(id)arg1;
 
 @end

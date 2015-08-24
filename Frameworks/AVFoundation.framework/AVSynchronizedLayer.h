@@ -2,20 +2,18 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVPlayerItem, AVSynchronizedLayerInternal;
-
 @interface AVSynchronizedLayer : CALayer {
     AVSynchronizedLayerInternal *_syncLayer;
 }
 
-@property(retain) AVPlayerItem * playerItem;
+@property (nonatomic, retain) AVPlayerItem *playerItem;
 
 + (id)synchronizedLayerWithPlayerItem:(id)arg1;
 
 - (void)dealloc;
 - (void)finalize;
 - (id)init;
-- (void)layerDidBecomeVisible:(bool)arg1;
+- (void)layerDidBecomeVisible:(BOOL)arg1;
 - (id)playerItem;
 - (void)setPlayerItem:(id)arg1;
 

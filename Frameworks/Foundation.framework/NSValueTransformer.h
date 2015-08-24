@@ -2,11 +2,10 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@interface NSValueTransformer : NSObject {
-}
+@interface NSValueTransformer : NSObject
 
 + (id)_transformerRegistry;
-+ (bool)allowsReverseTransformation;
++ (BOOL)allowsReverseTransformation;
 + (void)setValueTransformer:(id)arg1 forName:(id)arg2;
 + (Class)transformedValueClass;
 + (id)valueTransformerForName:(id)arg1;

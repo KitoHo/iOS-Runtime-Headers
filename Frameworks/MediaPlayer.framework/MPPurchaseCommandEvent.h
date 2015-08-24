@@ -2,25 +2,23 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class NSNumber, NSString;
-
 @interface MPPurchaseCommandEvent : MPRemoteCommandEvent {
     NSString *_stationHash;
     NSNumber *_stationID;
     NSNumber *_trackID;
-    long long _type;
+    int _type;
 }
 
-@property(readonly) NSString * stationHash;
-@property(readonly) NSNumber * stationID;
-@property(readonly) NSNumber * trackID;
-@property(readonly) long long type;
+@property (nonatomic, readonly) NSString *stationHash;
+@property (nonatomic, readonly) NSNumber *stationID;
+@property (nonatomic, readonly) NSNumber *trackID;
+@property (nonatomic, readonly) int type;
 
 - (void).cxx_destruct;
 - (id)initWithCommand:(id)arg1 mediaRemoteType:(unsigned int)arg2 options:(id)arg3;
 - (id)stationHash;
 - (id)stationID;
 - (id)trackID;
-- (long long)type;
+- (int)type;
 
 @end

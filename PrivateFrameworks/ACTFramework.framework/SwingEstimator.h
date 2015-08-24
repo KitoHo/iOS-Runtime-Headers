@@ -2,29 +2,22 @@
    Image: /System/Library/PrivateFrameworks/ACTFramework.framework/ACTFramework
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class CMMotionManager, NSMutableArray, NSOperationQueue;
-
 @interface SwingEstimator : NSObject {
-    int (*outputCallback)();
     float LA;
     float LOmega;
     float RA;
     float ROmega;
-    boolcollectDebugData;
-    boolestimate;
-    boolshowDebugData;
+    BOOL collectDebugData;
     NSMutableArray *debugData;
+    BOOL estimate;
     CMMotionManager *motionManager;
     int numberOfSamples;
     int numberOfValidSamplesAngularVelocity;
     int numberOfValidSamplesLinearAcceleration;
     NSOperationQueue *operationQueue;
+    int (*outputCallback;
     void *outputRefCon;
+    BOOL showDebugData;
     unsigned long long startTime;
     unsigned long long stopTime;
 }
@@ -33,11 +26,11 @@
 @property float LOmega;
 @property float RA;
 @property float ROmega;
-@property bool estimate;
+@property BOOL estimate;
 @property int numberOfSamples;
 @property int numberOfValidSamplesAngularVelocity;
 @property int numberOfValidSamplesLinearAcceleration;
-@property(readonly) NSOperationQueue * operationQueue;
+@property (readonly) NSOperationQueue *operationQueue;
 
 - (float)LA;
 - (float)LOmega;
@@ -45,17 +38,17 @@
 - (float)ROmega;
 - (id)createCSVfromDebugData;
 - (void)dealloc;
-- (bool)estimate;
+- (BOOL)estimate;
 - (void)estimateSwingMotion;
 - (void)initSensors;
-- (id)initWithCallback:(int (*)())arg1 userData:(void*)arg2;
+- (id)initWithCallback:(int (*)arg1 userData:(void*)arg2;
 - (bool)isSignalTooNoisy:(float)arg1 withMean:(float)arg2 andWithStandardDeviation:(float)arg3 withMargin:(float)arg4;
 - (bool)isSignalTooWeak:(float)arg1 withRespectTo:(float)arg2 withMargin:(float)arg3;
 - (int)numberOfSamples;
 - (int)numberOfValidSamplesAngularVelocity;
 - (int)numberOfValidSamplesLinearAcceleration;
 - (id)operationQueue;
-- (void)setEstimate:(bool)arg1;
+- (void)setEstimate:(BOOL)arg1;
 - (void)setLA:(float)arg1;
 - (void)setLOmega:(float)arg1;
 - (void)setNumberOfSamples:(int)arg1;
@@ -64,7 +57,7 @@
 - (void)setRA:(float)arg1;
 - (void)setROmega:(float)arg1;
 - (void)stopMotionManager;
-- (float)updateEvidenceAngularVelocity:(float)arg1 withOmegaX:(float)arg2 withOmegaY:(float)arg3 withOmegaZ:(float)arg4 checkIfSampleIsGood:(bool*)arg5;
-- (float)updateEvidenceLinearAcceleration:(float)arg1 withAX:(float)arg2 withAY:(float)arg3 withAZ:(float)arg4 checkIfSampleIsGood:(bool*)arg5;
+- (float)updateEvidenceAngularVelocity:(float)arg1 withOmegaX:(float)arg2 withOmegaY:(float)arg3 withOmegaZ:(float)arg4 checkIfSampleIsGood:(BOOL*)arg5;
+- (float)updateEvidenceLinearAcceleration:(float)arg1 withAX:(float)arg2 withAY:(float)arg3 withAZ:(float)arg4 checkIfSampleIsGood:(BOOL*)arg5;
 
 @end

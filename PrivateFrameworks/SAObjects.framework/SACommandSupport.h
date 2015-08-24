@@ -2,21 +2,18 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSString, NSURL, SAObjectSupport;
+@interface SACommandSupport : AceObject <SAAceSerializable>
 
-@interface SACommandSupport : AceObject <SAAceSerializable> {
-}
-
-@property(copy) NSString * aceVersion;
-@property(copy) NSString * commandId;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) SAObjectSupport * resultSupport;
-@property(copy) NSURL * serverEndpoint;
-@property(readonly) Class superclass;
-@property(copy) NSArray * supportedConstraints;
-@property long long weight;
+@property (nonatomic, copy) NSString *aceVersion;
+@property (nonatomic, copy) NSString *commandId;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) SAObjectSupport *resultSupport;
+@property (nonatomic, copy) NSURL *serverEndpoint;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSArray *supportedConstraints;
+@property (nonatomic) int weight;
 
 + (id)commandSupport;
 + (id)commandSupportWithDictionary:(id)arg1 context:(id)arg2;
@@ -32,8 +29,8 @@
 - (void)setResultSupport:(id)arg1;
 - (void)setServerEndpoint:(id)arg1;
 - (void)setSupportedConstraints:(id)arg1;
-- (void)setWeight:(long long)arg1;
+- (void)setWeight:(int)arg1;
 - (id)supportedConstraints;
-- (long long)weight;
+- (int)weight;
 
 @end

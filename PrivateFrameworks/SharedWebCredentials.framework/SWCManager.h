@@ -2,46 +2,44 @@
    Image: /System/Library/PrivateFrameworks/SharedWebCredentials.framework/SharedWebCredentials
  */
 
-@class NSMutableArray, NSObject<OS_dispatch_source>, NSString, NSXPCListener;
-
 @interface SWCManager : NSObject <NSXPCListenerDelegate, SWCXPCServer> {
     NSMutableArray *_database;
     NSMutableArray *_netRequests;
     NSObject<OS_dispatch_source> *_recheckTimer;
     NSObject<OS_dispatch_source> *_retryTimer;
+    BOOL _started;
+    BOOL _verifyEV;
     NSXPCListener *_xpcListener;
     NSMutableArray *_xpcRequests;
-    bool_started;
-    bool_verifyEV;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-- (int)_addService:(id)arg1 app:(id)arg2 domain:(id)arg3;
+- (long)_addService:(id)arg1 app:(id)arg2 domain:(id)arg3;
 - (id)_appEntitlementsByID:(id)arg1;
-- (void)_completeAppsRequestForURLConnection:(id)arg1 status:(int)arg2 services:(id)arg3;
+- (void)_completeAppsRequestForURLConnection:(id)arg1 status:(long)arg2 services:(id)arg3;
 - (void)_connectionInvalidated:(id)arg1;
-- (int)_ensureDatabaseLoaded;
+- (long)_ensureDatabaseLoaded;
 - (id)_findAppRequestForURLConnection:(id)arg1;
 - (id)_findService:(id)arg1 app:(id)arg2 domain:(id)arg3;
 - (id)_installedAppByID:(id)arg1;
-- (void)_parseServiceDomainString:(id)arg1 legacy:(bool)arg2 service:(id*)arg3 domain:(id*)arg4;
+- (void)_parseServiceDomainString:(id)arg1 legacy:(BOOL)arg2 service:(id*)arg3 domain:(id*)arg4;
 - (void)_performPeriodicRechecks;
 - (void)_retryDownloads;
 - (void)_sanitizeDatabase;
-- (int)_saveDatabase;
+- (long)_saveDatabase;
 - (void)_schedulePeriodicRechecks;
 - (void)_scheduleRetries;
-- (int)_startAppsRequestForDomain:(id)arg1;
-- (int)_verifyTrust:(struct __SecTrust { }*)arg1;
+- (long)_startAppsRequestForDomain:(id)arg1;
+- (long)_verifyTrust:(struct __SecTrust { }*)arg1;
 - (void)addAllApps;
-- (void)addAllAppsWithReply:(id)arg1;
+- (void)addAllAppsWithReply:(id /* block */)arg1;
 - (void)addBundleID:(id)arg1;
-- (void)addService:(id)arg1 app:(id)arg2 domain:(id)arg3 reply:(id)arg4;
-- (void)checkService:(id)arg1 app:(id)arg2 domain:(id)arg3 reply:(id)arg4;
+- (void)addService:(id)arg1 app:(id)arg2 domain:(id)arg3 reply:(id /* block */)arg4;
+- (void)checkService:(id)arg1 app:(id)arg2 domain:(id)arg3 reply:(id /* block */)arg4;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
@@ -49,14 +47,14 @@
 - (void)connection:(id)arg1 willSendRequestForAuthenticationChallenge:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)dealloc;
-- (void)getInfoForService:(id)arg1 app:(id)arg2 domain:(id)arg3 reply:(id)arg4;
+- (void)getInfoForService:(id)arg1 app:(id)arg2 domain:(id)arg3 reply:(id /* block */)arg4;
 - (id)init;
-- (bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
-- (void)logControl:(id)arg1 reply:(id)arg2;
+- (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
+- (void)logControl:(id)arg1 reply:(id /* block */)arg2;
 - (void)removeBundleID:(id)arg1;
-- (void)removeService:(id)arg1 app:(id)arg2 domain:(id)arg3 reply:(id)arg4;
-- (void)setService:(id)arg1 app:(id)arg2 domain:(id)arg3 mask:(unsigned int)arg4 flags:(unsigned int)arg5 reply:(id)arg6;
-- (void)show:(id)arg1 reply:(id)arg2;
+- (void)removeService:(id)arg1 app:(id)arg2 domain:(id)arg3 reply:(id /* block */)arg4;
+- (void)setService:(id)arg1 app:(id)arg2 domain:(id)arg3 mask:(unsigned int)arg4 flags:(unsigned int)arg5 reply:(id /* block */)arg6;
+- (void)show:(id)arg1 reply:(id /* block */)arg2;
 - (void)start;
 - (void)stop;
 

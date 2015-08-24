@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSLock, SUScriptObject;
-
 @interface SUScriptNativeObject : NSObject {
     NSLock *_lock;
     id _nativeObject;
     SUScriptObject *_scriptObject;
-    bool_weak;
+    BOOL _weak;
 }
 
-@property id object;
-@property SUScriptObject * scriptObject;
+@property (nonatomic) id object;
+@property SUScriptObject *scriptObject;
 
 + (void)clearWeakReferencesToObject:(id)arg1;
 + (void)makeReferencesToObjectWeak:(id)arg1;

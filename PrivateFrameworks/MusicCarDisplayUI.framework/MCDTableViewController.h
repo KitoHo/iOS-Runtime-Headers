@@ -2,33 +2,46 @@
    Image: /System/Library/PrivateFrameworks/MusicCarDisplayUI.framework/MusicCarDisplayUI
  */
 
-@class NSIndexPath;
-
 @interface MCDTableViewController : MPUTableViewController {
-    NSIndexPath *_previouslySelectedIndexPath;
-    bool_shouldHideIndexTitles;
+    AVExternalDevice *_externalDevice;
+    BOOL _limitedUI;
+    BOOL _limiting;
+    UIView *_nowPlayingButton;
+    BOOL _shouldHideIndexTitles;
+    BOOL _showMore;
+    UIView *_snapshotView;
 }
 
-@property bool shouldHideIndexTitles;
+@property (nonatomic) BOOL limitedUI;
+@property (nonatomic) BOOL shouldHideIndexTitles;
+@property (nonatomic) BOOL showMore;
 
 + (Class)_tableViewClass;
 
 - (void).cxx_destruct;
 - (id)MPU_createNowPlayingButton;
 - (void)_MCD_nowPlayingButtonAction:(id)arg1;
-- (id)_createTableView;
-- (bool)_viewControllerWasSelected;
+- (void)_itemChanged:(id)arg1;
+- (void)_limitedUIDidChange;
+- (BOOL)_viewControllerWasSelected;
+- (void)dataSourceDidInvalidate;
 - (void)dealloc;
 - (id)initWithDataSource:(id)arg1 cellConfigurationClass:(Class)arg2;
+- (BOOL)limitedUI;
+- (id)preferredFocusedItem;
 - (void)reloadData;
 - (id)sectionIndexTitlesForTableView:(id)arg1;
-- (void)setShouldHideIndexTitles:(bool)arg1;
-- (bool)shouldHideIndexTitles;
-- (bool)shouldScrollToFirstDataSourceSectionOnInitialAppearance;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (void)viewDidAppear:(bool)arg1;
+- (void)setLimitedUI:(BOOL)arg1;
+- (void)setShouldHideIndexTitles:(BOOL)arg1;
+- (void)setShowMore:(BOOL)arg1;
+- (BOOL)shouldHideIndexTitles;
+- (BOOL)shouldScrollToFirstDataSourceSectionOnInitialAppearance;
+- (BOOL)shouldShowActionCellConfiguration:(Class)arg1;
+- (BOOL)showMore;
+- (BOOL)tableView:(id)arg1 shouldChangeFocusedItem:(id)arg2 fromRowAtIndexPath:(id)arg3;
+- (void)viewDidAppear:(BOOL)arg1;
 - (void)viewDidLoad;
-- (void)viewWillAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class <NSXPCListenerDelegate>, NSObject<OS_dispatch_queue>, NSString, NSXPCListenerEndpoint;
-
 @interface NSXPCListener : NSObject {
     <NSXPCListenerDelegate> *_delegate;
     id _reserved1;
@@ -15,8 +13,10 @@
     void *reserved0;
 }
 
-@property <NSXPCListenerDelegate> * delegate;
-@property(retain,readonly) NSXPCListenerEndpoint * endpoint;
+@property <NSXPCListenerDelegate> *delegate;
+@property (readonly, retain) NSXPCListenerEndpoint *endpoint;
+
+// Image: /System/Library/Frameworks/Foundation.framework/Foundation
 
 + (id)_UUID;
 + (id)anonymousListener;
@@ -32,16 +32,19 @@
 - (id)description;
 - (id)endpoint;
 - (void)finalize;
-- (id)initCellularPlanDatabaseServer;
-- (id)initVinylTestServer;
 - (id)initWithMachServiceName:(id)arg1;
 - (id)initWithServiceName:(id)arg1;
 - (void)invalidate;
 - (void)resume;
 - (id)serviceName;
 - (void)setDelegate:(id)arg1;
-- (void)setOptions:(unsigned long long)arg1;
+- (void)setOptions:(unsigned int)arg1;
 - (void)stop;
 - (void)suspend;
+
+// Image: /System/Library/PrivateFrameworks/CellularPlanManager.framework/CellularPlanManager
+
+- (id)initCellularPlanDatabaseServer;
+- (id)initVinylTestServer;
 
 @end

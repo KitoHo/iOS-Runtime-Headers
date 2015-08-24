@@ -2,50 +2,48 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class NSData, NSString, UIImage;
-
 @interface CKImageData : NSObject {
-    struct CGSize { 
-        double width; 
-        double height; 
-    unsigned long long _count;
+    unsigned int _count;
     NSData *_data;
     struct CGImageSource { } *_imageSource;
-    long long _orientation;
+    BOOL _initializedProperties;
+    int _orientation;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _pxSize;
-    bool_initializedProperties;
 }
 
-@property(copy,readonly) NSString * MIMEType;
-@property(copy,readonly) NSString * UTIType;
-@property(readonly) unsigned long long count;
-@property(retain) NSData * data;
-@property(retain,readonly) UIImage * image;
-@property(readonly) long long orientation;
-@property(readonly) struct CGSize { double x1; double x2; } ptSize;
-@property(readonly) struct CGSize { double x1; double x2; } pxSize;
+@property (nonatomic, readonly, copy) NSString *MIMEType;
+@property (nonatomic, readonly, copy) NSString *UTIType;
+@property (nonatomic, readonly) unsigned int count;
+@property (nonatomic, retain) NSData *data;
+@property (nonatomic, readonly, retain) UIImage *image;
+@property (nonatomic, readonly) int orientation;
+@property (nonatomic, readonly) struct CGSize { float x1; float x2; } ptSize;
+@property (nonatomic, readonly) struct CGSize { float x1; float x2; } pxSize;
 
 + (id)UTITypeForData:(id)arg1;
 
 - (id)MIMEType;
 - (id)UTIType;
 - (void)_initializeProperties;
-- (id)_thumbnailFillToSize:(struct CGSize { double x1; double x2; })arg1 atIndex:(unsigned long long)arg2;
-- (id)_thumbnailFitToSize:(struct CGSize { double x1; double x2; })arg1 atIndex:(unsigned long long)arg2;
-- (unsigned long long)count;
+- (id)_thumbnailFillToSize:(struct CGSize { float x1; float x2; })arg1 atIndex:(unsigned int)arg2;
+- (id)_thumbnailFitToSize:(struct CGSize { float x1; float x2; })arg1 atIndex:(unsigned int)arg2;
+- (unsigned int)count;
 - (id)data;
 - (void)dealloc;
-- (id)durationsWithMaxCount:(unsigned long long)arg1;
+- (id)durationsWithMaxCount:(unsigned int)arg1;
 - (id)image;
 - (id)initWithData:(id)arg1;
-- (long long)orientation;
-- (struct CGSize { double x1; double x2; })ptSize;
-- (struct CGSize { double x1; double x2; })pxSize;
+- (int)orientation;
+- (struct CGSize { float x1; float x2; })ptSize;
+- (struct CGSize { float x1; float x2; })pxSize;
 - (void)setData:(id)arg1;
-- (id)thumbnailFillToSize:(struct CGSize { double x1; double x2; })arg1;
-- (id)thumbnailFillToSizeCropping:(struct CGSize { double x1; double x2; })arg1;
-- (id)thumbnailFitToSize:(struct CGSize { double x1; double x2; })arg1;
-- (id)thumbnailsFillToSize:(struct CGSize { double x1; double x2; })arg1 maxCount:(unsigned long long)arg2;
-- (id)thumbnailsFitToSize:(struct CGSize { double x1; double x2; })arg1 maxCount:(unsigned long long)arg2;
+- (id)thumbnailFillToSize:(struct CGSize { float x1; float x2; })arg1;
+- (id)thumbnailFillToSizeCropping:(struct CGSize { float x1; float x2; })arg1;
+- (id)thumbnailFitToSize:(struct CGSize { float x1; float x2; })arg1;
+- (id)thumbnailsFillToSize:(struct CGSize { float x1; float x2; })arg1 maxCount:(unsigned int)arg2;
+- (id)thumbnailsFitToSize:(struct CGSize { float x1; float x2; })arg1 maxCount:(unsigned int)arg2;
 
 @end

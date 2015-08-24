@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSMutableArray;
-
 @interface PLCloudScenarioExecutionResult : NSObject {
+    BOOL _duplicateScenario;
     NSMutableArray *_failedOperations;
     NSMutableArray *_successfullOperations;
-    bool_duplicateScenario;
 }
 
-@property bool duplicateScenario;
-@property(retain) NSMutableArray * failedOperations;
-@property(retain) NSMutableArray * successfullOperations;
+@property (nonatomic) BOOL duplicateScenario;
+@property (nonatomic, retain) NSMutableArray *failedOperations;
+@property (nonatomic, retain) NSMutableArray *successfullOperations;
 
 - (void)dealloc;
-- (bool)duplicateScenario;
+- (BOOL)duplicateScenario;
 - (id)failedOperations;
 - (id)init;
-- (void)setDuplicateScenario:(bool)arg1;
+- (void)setDuplicateScenario:(BOOL)arg1;
 - (void)setFailedOperations:(id)arg1;
 - (void)setSuccessfullOperations:(id)arg1;
 - (id)successfullOperations;

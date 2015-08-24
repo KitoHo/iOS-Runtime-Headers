@@ -2,21 +2,24 @@
    Image: /System/Library/PrivateFrameworks/YouTube.framework/YouTube
  */
 
-@class NSMutableURLRequest;
-
 @interface YTXMLHTTPRequest : XMLSAXHTTPRequest {
     NSMutableURLRequest *_deferredRequest;
-    bool_needsAccountAuth;
+    BOOL _needsAccountAuth;
+    BOOL _needsHostHeader;
 }
 
-@property bool needsAccountAuth;
+@property (nonatomic) BOOL needsAccountAuth;
+@property (nonatomic) BOOL needsHostHeader;
 
 - (void)dealloc;
 - (void)didAuthenticate:(id)arg1;
 - (void)failedToAuthenticate:(id)arg1;
-- (void)listenForAuthenticationNotifications:(bool)arg1;
+- (id)init;
+- (void)listenForAuthenticationNotifications:(BOOL)arg1;
 - (void)loadRequest:(id)arg1;
-- (bool)needsAccountAuth;
-- (void)setNeedsAccountAuth:(bool)arg1;
+- (BOOL)needsAccountAuth;
+- (BOOL)needsHostHeader;
+- (void)setNeedsAccountAuth:(BOOL)arg1;
+- (void)setNeedsHostHeader:(BOOL)arg1;
 
 @end

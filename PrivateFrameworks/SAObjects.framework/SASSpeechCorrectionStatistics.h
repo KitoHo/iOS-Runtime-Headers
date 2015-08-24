@@ -2,37 +2,34 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString;
+@interface SASSpeechCorrectionStatistics : SABaseCommand <SAServerBoundCommand>
 
-@interface SASSpeechCorrectionStatistics : SABaseCommand <SAServerBoundCommand> {
-}
-
-@property(copy) NSString * aceId;
-@property long long alternativeSelectCount;
-@property long long characterChangeCount;
-@property(copy) NSString * correctionSource;
-@property(copy) NSString * correctionText;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * interactionId;
-@property(copy) NSString * refId;
-@property(copy) NSString * sessionId;
-@property(readonly) Class superclass;
+@property (nonatomic, copy) NSString *aceId;
+@property (nonatomic) int alternativeSelectCount;
+@property (nonatomic) int characterChangeCount;
+@property (nonatomic, copy) NSString *correctionSource;
+@property (nonatomic, copy) NSString *correctionText;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSString *interactionId;
+@property (nonatomic, copy) NSString *refId;
+@property (nonatomic, copy) NSString *sessionId;
+@property (readonly) Class superclass;
 
 + (id)speechCorrectionStatistics;
 + (id)speechCorrectionStatisticsWithDictionary:(id)arg1 context:(id)arg2;
 
-- (long long)alternativeSelectCount;
-- (long long)characterChangeCount;
+- (int)alternativeSelectCount;
+- (int)characterChangeCount;
 - (id)correctionSource;
 - (id)correctionText;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)interactionId;
 - (id)sessionId;
-- (void)setAlternativeSelectCount:(long long)arg1;
-- (void)setCharacterChangeCount:(long long)arg1;
+- (void)setAlternativeSelectCount:(int)arg1;
+- (void)setCharacterChangeCount:(int)arg1;
 - (void)setCorrectionSource:(id)arg1;
 - (void)setCorrectionText:(id)arg1;
 - (void)setInteractionId:(id)arg1;

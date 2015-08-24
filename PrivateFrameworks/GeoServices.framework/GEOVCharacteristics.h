@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray;
-
 @interface GEOVCharacteristics : PBCodable <NSCopying> {
     NSMutableArray *_pointCharacteristics;
 }
 
-@property(retain) NSMutableArray * pointCharacteristics;
+@property (nonatomic, retain) NSMutableArray *pointCharacteristics;
 
 - (void)addPointCharacteristic:(id)arg1;
 - (void)clearPointCharacteristics;
@@ -17,12 +15,12 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
-- (id)pointCharacteristicAtIndex:(unsigned long long)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)pointCharacteristicAtIndex:(unsigned int)arg1;
 - (id)pointCharacteristics;
-- (unsigned long long)pointCharacteristicsCount;
-- (bool)readFrom:(id)arg1;
+- (unsigned int)pointCharacteristicsCount;
+- (BOOL)readFrom:(id)arg1;
 - (void)setPointCharacteristics:(id)arg1;
 - (void)writeTo:(id)arg1;
 

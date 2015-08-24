@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@interface PLDisconnectedManagedObjectContext : PLManagedObjectContext {
-}
+@interface PLDisconnectedManagedObjectContext : PLManagedObjectContext
 
-+ (bool)canMergeRemoteChanges;
-+ (bool)useModelMigratorToCreateDatabase;
++ (BOOL)canMergeRemoteChanges;
++ (BOOL)useModelMigratorToCreateDatabase;
 
 - (void)connectToChangeHub;
 - (void)disconnectFromChangeHub;

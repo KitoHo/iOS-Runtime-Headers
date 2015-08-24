@@ -2,38 +2,39 @@
    Image: /System/Library/PrivateFrameworks/ImageCapture.framework/ImageCapture
  */
 
-@class NSArray, NSString;
-
 @interface ICCameraDevice : ICDevice {
     void *_cameraProperties;
 }
 
-@property(getter=isAccessRestrictedAppleDevice) bool accessRestrictedAppleDevice;
-@property bool allowsSyncingClock;
-@property(readonly) unsigned long long batteryLevel;
-@property(readonly) bool batteryLevelAvailable;
-@property bool beingEjected;
-@property unsigned long long contentCatalogPercentCompleted;
-@property(readonly) NSArray * contents;
-@property(getter=isEjectable) bool ejectable;
-@property unsigned long long estimatedNumberOfDownloadableItems;
-@property(getter=isLocked) bool locked;
-@property(readonly) NSArray * mediaFiles;
-@property unsigned long long numberOfDownloadableItems;
-@property(readonly) double timeOffset;
-@property(copy) NSString * volumePath;
+@property (getter=isAccessRestrictedAppleDevice) BOOL accessRestrictedAppleDevice;
+@property BOOL allowsSyncingClock;
+@property (readonly) unsigned int batteryLevel;
+@property (readonly) BOOL batteryLevelAvailable;
+@property BOOL beingEjected;
+@property unsigned int contentCatalogPercentCompleted;
+@property (readonly) NSArray *contents;
+@property (getter=isEjectable) BOOL ejectable;
+@property unsigned int estimatedNumberOfDownloadableItems;
+@property (getter=isLocked) BOOL locked;
+@property (readonly) NSArray *mediaFiles;
+@property (readonly) NSArray *notifyArray;
+@property unsigned int numberOfDownloadableItems;
+@property (readonly) double timeOffset;
+@property (copy) NSString *volumePath;
 
-+ (bool)automaticallyNotifiesObserversForKey:(id)arg1;
++ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 
 - (void)addFolder:(id)arg1;
+- (void)addObjectToNotifyArray:(id)arg1;
 - (void)addToMetadataFetchQ:(id)arg1;
 - (void)addToThumbnailFetchQ:(id)arg1;
-- (bool)allowsSyncingClock;
-- (unsigned long long)batteryLevel;
-- (bool)batteryLevelAvailable;
-- (bool)beingEjected;
+- (BOOL)allowsSyncingClock;
+- (unsigned int)batteryLevel;
+- (BOOL)batteryLevelAvailable;
+- (BOOL)beingEjected;
 - (void)cancelDownload;
-- (unsigned long long)contentCatalogPercentCompleted;
+- (void)clearNotifyArray;
+- (unsigned int)contentCatalogPercentCompleted;
 - (id)contents;
 - (void)dealloc;
 - (void)decrementEstimatedNumberOfDownloadableItems;
@@ -41,7 +42,7 @@
 - (id)description;
 - (id)deviceQSemaphore;
 - (double)downloadCancelTimestamp;
-- (unsigned long long)estimatedNumberOfDownloadableItems;
+- (unsigned int)estimatedNumberOfDownloadableItems;
 - (id)filesOfType:(id)arg1;
 - (void)finalize;
 - (id)generalQ;
@@ -50,12 +51,14 @@
 - (void)incrementEstimatedNumberOfDownloadableItems;
 - (void)incrementNumberOfDownloadableItems;
 - (id)init;
-- (bool)isAccessRestrictedAppleDevice;
-- (bool)isEjectable;
-- (bool)isLocked;
+- (BOOL)isAccessRestrictedAppleDevice;
+- (BOOL)isEjectable;
+- (BOOL)isLocked;
 - (id)mediaFiles;
+- (id)notifyArray;
 - (void)notifyDelegateOfAddedItem:(id)arg1;
-- (unsigned long long)numberOfDownloadableItems;
+- (void)notifyDelegateOfAddedItems:(id)arg1;
+- (unsigned int)numberOfDownloadableItems;
 - (void)pendNotifyingDelegateOfAddedItem:(id)arg1;
 - (void)receivedDeviceCommandCompletion;
 - (void)removeFolder:(id)arg1;
@@ -65,14 +68,14 @@
 - (void)requestEject;
 - (void)requestOpenSession;
 - (void)requestSyncClock;
-- (void)setAccessRestrictedAppleDevice:(bool)arg1;
-- (void)setAllowsSyncingClock:(bool)arg1;
-- (void)setBeingEjected:(bool)arg1;
-- (void)setContentCatalogPercentCompleted:(unsigned long long)arg1;
-- (void)setEjectable:(bool)arg1;
-- (void)setEstimatedNumberOfDownloadableItems:(unsigned long long)arg1;
-- (void)setLocked:(bool)arg1;
-- (void)setNumberOfDownloadableItems:(unsigned long long)arg1;
+- (void)setAccessRestrictedAppleDevice:(BOOL)arg1;
+- (void)setAllowsSyncingClock:(BOOL)arg1;
+- (void)setBeingEjected:(BOOL)arg1;
+- (void)setContentCatalogPercentCompleted:(unsigned int)arg1;
+- (void)setEjectable:(BOOL)arg1;
+- (void)setEstimatedNumberOfDownloadableItems:(unsigned int)arg1;
+- (void)setLocked:(BOOL)arg1;
+- (void)setNumberOfDownloadableItems:(unsigned int)arg1;
 - (void)setVolumePath:(id)arg1;
 - (double)timeOffset;
 - (id)volumePath;

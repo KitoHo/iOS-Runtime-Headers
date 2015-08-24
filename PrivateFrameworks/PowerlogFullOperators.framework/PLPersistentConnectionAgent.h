@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/PowerlogFullOperators.framework/PowerlogFullOperators
  */
 
-@class PLCFNotificationOperatorComposition;
-
 @interface PLPersistentConnectionAgent : PLAgent {
     PLCFNotificationOperatorComposition *_intervalChangedNotification;
     PLCFNotificationOperatorComposition *_preferencesChangedNotification;
 }
 
-@property(readonly) PLCFNotificationOperatorComposition * intervalChangedNotification;
-@property(readonly) PLCFNotificationOperatorComposition * preferencesChangedNotification;
+@property (readonly) PLCFNotificationOperatorComposition *intervalChangedNotification;
+@property (readonly) PLCFNotificationOperatorComposition *preferencesChangedNotification;
 
 + (id)accountingGroupDefinitions;
 + (id)defaults;
@@ -29,8 +27,8 @@
 - (void)log;
 - (void)logEventForwardConfig;
 - (void)logEventPointCache;
-- (long long)pollingInterval;
+- (int)pollingInterval;
 - (id)preferencesChangedNotification;
-- (bool)pushEnabled;
+- (BOOL)pushEnabled;
 
 @end

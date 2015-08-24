@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/MediaPlayerUI.framework/MediaPlayerUI
  */
 
-@interface MPUNowPlayingVideoViewController : MPVideoViewController {
-}
+@interface MPUNowPlayingVideoViewController : MPVideoViewController
 
-+ (long long)_activityIndicatorViewStyle;
++ (int)_activityIndicatorViewStyle;
 
 - (void)displayVideoViewOnScreen;
-- (void)viewWillAppear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 
 @end

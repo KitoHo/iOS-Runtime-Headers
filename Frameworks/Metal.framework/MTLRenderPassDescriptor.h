@@ -2,37 +2,35 @@
    Image: /System/Library/Frameworks/Metal.framework/Metal
  */
 
-@class <MTLBuffer>, MTLRenderPassColorAttachmentDescriptorArray, MTLRenderPassDepthAttachmentDescriptor, MTLRenderPassStencilAttachmentDescriptor;
-
 @interface MTLRenderPassDescriptor : NSObject <NSCopying> {
     struct MTLRenderPassDescriptorPrivate { 
         MTLRenderPassColorAttachmentDescriptorArray *attachments; 
         <MTLBuffer> *visibilityResultBuffer; 
-        boolditherEnabled; 
+        BOOL ditherEnabled; 
     } _private;
 }
 
-@property(readonly) MTLRenderPassColorAttachmentDescriptorArray * colorAttachments;
-@property(copy) MTLRenderPassDepthAttachmentDescriptor * depthAttachment;
-@property(copy) MTLRenderPassStencilAttachmentDescriptor * stencilAttachment;
-@property(retain) <MTLBuffer> * visibilityResultBuffer;
+@property (readonly) MTLRenderPassColorAttachmentDescriptorArray *colorAttachments;
+@property (nonatomic, copy) MTLRenderPassDepthAttachmentDescriptor *depthAttachment;
+@property (nonatomic, copy) MTLRenderPassStencilAttachmentDescriptor *stencilAttachment;
+@property (nonatomic, retain) <MTLBuffer> *visibilityResultBuffer;
 
 + (id)renderPassDescriptor;
 
-- (const struct MTLRenderPassDescriptorPrivate { id x1; id x2; boolx3; }*)_descriptorPrivate;
+- (const struct MTLRenderPassDescriptorPrivate { id x1; BOOL x2; }*)_descriptorPrivate;
 - (id)colorAttachments;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)depthAttachment;
 - (id)description;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)setDepthAttachment:(id)arg1;
 - (void)setStencilAttachment:(id)arg1;
 - (void)setVisibilityResultBuffer:(id)arg1;
 - (id)stencilAttachment;
-- (bool)validate:(id)arg1 width:(unsigned long long*)arg2 height:(unsigned long long*)arg3;
+- (BOOL)validate:(id)arg1 width:(unsigned int*)arg2 height:(unsigned int*)arg3;
 - (id)visibilityResultBuffer;
 
 @end

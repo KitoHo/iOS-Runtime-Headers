@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CoreHAP.framework/CoreHAP
  */
 
-@class HAPMetadataConstraints, NSString;
-
 @interface HAPCharacteristicMetadata : NSObject {
     HAPMetadataConstraints *_constraints;
     NSString *_format;
@@ -11,10 +9,10 @@
     NSString *_units;
 }
 
-@property(retain) HAPMetadataConstraints * constraints;
-@property(retain) NSString * format;
-@property(copy) NSString * manufacturerDescription;
-@property(retain) NSString * units;
+@property (nonatomic, retain) HAPMetadataConstraints *constraints;
+@property (nonatomic, retain) NSString *format;
+@property (nonatomic, copy) NSString *manufacturerDescription;
+@property (nonatomic, retain) NSString *units;
 
 - (void).cxx_destruct;
 - (id)_generateValidConstraints:(id)arg1;
@@ -22,7 +20,7 @@
 - (id)description;
 - (id)format;
 - (id)initWithConstraints:(id)arg1 description:(id)arg2 format:(id)arg3 units:(id)arg4;
-- (bool)isEqualToCharacteristicMetadata:(id)arg1;
+- (BOOL)isEqualToCharacteristicMetadata:(id)arg1;
 - (id)manufacturerDescription;
 - (void)setConstraints:(id)arg1;
 - (void)setFormat:(id)arg1;

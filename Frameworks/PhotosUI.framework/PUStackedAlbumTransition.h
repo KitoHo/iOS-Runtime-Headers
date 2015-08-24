@@ -2,21 +2,7 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class <PLAssetContainer>, <PUStackedAlbumTransitionDelegate>, NSSet, NSString, PHCollection, PUPhotoPinchGestureRecognizer, PUStackedAlbumLayout, PUStackedAlbumTransitionLayout, PUTransitionViewAnimator, UIView, UIViewController<PUStackedAlbumControllerTransition>;
-
 @interface PUStackedAlbumTransition : PUNavigationTransition <PUCollectionViewLayoutTransitioningDelegate, PUTransitionViewAnimatorDelegate> {
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    struct CGPoint { 
-        double x; 
-        double y; 
     id __disableToken;
     PUStackedAlbumTransitionLayout *__interactiveTransitionLayout;
     PUPhotoPinchGestureRecognizer *__photoPinchGestureRecognizer;
@@ -24,44 +10,56 @@
     PUTransitionViewAnimator *__transitionViewAnimator;
     UIView *_animatorView;
     <PUStackedAlbumTransitionDelegate> *_delegate;
+    BOOL _forFolder;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _interactionCenter;
+    BOOL _isExpanding;
+    BOOL _isForStandInAlbum;
     PHCollection *_ph_photoCollection;
     <PLAssetContainer> *_photoCollection;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _popTransitionInitialVisibleBounds;
     NSSet *_popTransitionInitialVisibleStackedAssetIndexPaths;
-    bool_forFolder;
-    bool_isExpanding;
-    bool_isForStandInAlbum;
 }
 
-@property(setter=_setDisableToken:,retain) id _disableToken;
-@property(setter=_setInteractiveTransitionLayout:,retain) PUStackedAlbumTransitionLayout * _interactiveTransitionLayout;
-@property(setter=_setPhotoPinchGestureRecognizer:,retain) PUPhotoPinchGestureRecognizer * _photoPinchGestureRecognizer;
-@property(setter=_setTransitionLayout:) PUStackedAlbumLayout * _transitionLayout;
-@property(setter=_setTransitionViewAnimator:,retain) PUTransitionViewAnimator * _transitionViewAnimator;
-@property(copy,readonly) NSString * debugDescription;
-@property <PUStackedAlbumTransitionDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(getter=isForFolder) bool forFolder;
-@property(readonly) UIViewController<PUStackedAlbumControllerTransition> * fromViewController;
-@property(readonly) unsigned long long hash;
-@property struct CGPoint { double x1; double x2; } interactionCenter;
-@property bool isExpanding;
-@property(setter=setForStandInAlbum:) bool isForStandInAlbum;
-@property(setter=ph_setPhotoCollection:,retain) PHCollection * ph_photoCollection;
-@property(retain) <PLAssetContainer> * photoCollection;
-@property(readonly) Class superclass;
-@property(readonly) UIViewController<PUStackedAlbumControllerTransition> * toViewController;
+@property (setter=_setDisableToken:, nonatomic, retain) id _disableToken;
+@property (setter=_setInteractiveTransitionLayout:, nonatomic, retain) PUStackedAlbumTransitionLayout *_interactiveTransitionLayout;
+@property (setter=_setPhotoPinchGestureRecognizer:, nonatomic, retain) PUPhotoPinchGestureRecognizer *_photoPinchGestureRecognizer;
+@property (setter=_setTransitionLayout:, nonatomic) PUStackedAlbumLayout *_transitionLayout;
+@property (setter=_setTransitionViewAnimator:, nonatomic, retain) PUTransitionViewAnimator *_transitionViewAnimator;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <PUStackedAlbumTransitionDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (getter=isForFolder, nonatomic) BOOL forFolder;
+@property (nonatomic, readonly) UIViewController<PUStackedAlbumControllerTransition> *fromViewController;
+@property (readonly) unsigned int hash;
+@property (nonatomic) struct CGPoint { float x1; float x2; } interactionCenter;
+@property (nonatomic) BOOL isExpanding;
+@property (setter=setForStandInAlbum:, nonatomic) BOOL isForStandInAlbum;
+@property (setter=ph_setPhotoCollection:, nonatomic, retain) PHCollection *ph_photoCollection;
+@property (nonatomic, retain) <PLAssetContainer> *photoCollection;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) UIViewController<PUStackedAlbumControllerTransition> *toViewController;
 
 - (void).cxx_destruct;
 - (id)_disableToken;
 - (id)_interactiveTransitionLayout;
 - (id)_newInteractiveTransitionViewAnimatorForLayout:(id)arg1 collectionView:(id)arg2;
-- (id)_newTransitionLayoutWithStackedAlbumLayout:(id)arg1 otherLayout:(id)arg2 forPush:(bool)arg3;
+- (id)_newTransitionLayoutWithStackedAlbumLayout:(id)arg1 otherLayout:(id)arg2 forPush:(BOOL)arg3;
 - (id)_photoPinchGestureRecognizer;
 - (id)_popTransitionInitialVisibleStackedAssetIndexPaths:(id)arg1;
 - (void)_setDisableToken:(id)arg1;
-- (void)_setExpanding:(bool)arg1;
+- (void)_setExpanding:(BOOL)arg1;
 - (void)_setInteractiveTransitionLayout:(id)arg1;
 - (void)_setPhotoPinchGestureRecognizer:(id)arg1;
 - (void)_setTransitionLayout:(id)arg1;
@@ -71,26 +69,26 @@
 - (void)animatePopTransition;
 - (void)animatePushTransition;
 - (void)collectionViewLayout:(id)arg1 willSupplyLayoutAttributes:(id)arg2;
-- (bool)collectionViewLayoutShouldProvideCustomAnimations:(id)arg1;
-- (void)completeInteractiveOperation:(long long)arg1 finished:(bool)arg2;
+- (BOOL)collectionViewLayoutShouldProvideCustomAnimations:(id)arg1;
+- (void)completeInteractiveOperation:(int)arg1 finished:(BOOL)arg2;
 - (id)delegate;
 - (id)init;
-- (struct CGPoint { double x1; double x2; })interactionCenter;
-- (bool)isExpanding;
-- (bool)isForFolder;
-- (bool)isForStandInAlbum;
+- (struct CGPoint { float x1; float x2; })interactionCenter;
+- (BOOL)isExpanding;
+- (BOOL)isForFolder;
+- (BOOL)isForStandInAlbum;
 - (id)ph_photoCollection;
 - (void)ph_setPhotoCollection:(id)arg1;
 - (id)photoCollection;
 - (void)setDelegate:(id)arg1;
-- (void)setForFolder:(bool)arg1;
-- (void)setForStandInAlbum:(bool)arg1;
-- (void)setInteractionCenter:(struct CGPoint { double x1; double x2; })arg1;
+- (void)setForFolder:(BOOL)arg1;
+- (void)setForStandInAlbum:(BOOL)arg1;
+- (void)setInteractionCenter:(struct CGPoint { float x1; float x2; })arg1;
 - (void)setPhotoCollection:(id)arg1;
-- (void)startInteractiveTransitionWithPhotoPinchGestureRecognizer:(id)arg1 isExpanding:(bool)arg2;
-- (void)transitionViewAnimatorDidEnd:(id)arg1 finished:(bool)arg2;
+- (void)startInteractiveTransitionWithPhotoPinchGestureRecognizer:(id)arg1 isExpanding:(BOOL)arg2;
+- (void)transitionViewAnimatorDidEnd:(id)arg1 finished:(BOOL)arg2;
 - (void)transitionViewAnimatorDidUpdate:(id)arg1;
-- (void)transitionViewAnimatorWillEnd:(id)arg1 withTargetTranslation:(inout struct CGPoint { double x1; double x2; }*)arg2;
+- (void)transitionViewAnimatorWillEnd:(id)arg1 withTargetTranslation:(inout struct CGPoint { float x1; float x2; }*)arg2;
 - (void)updateInteractiveTransitionWithPhotoPinchGestureRecognizer:(id)arg1;
 
 @end

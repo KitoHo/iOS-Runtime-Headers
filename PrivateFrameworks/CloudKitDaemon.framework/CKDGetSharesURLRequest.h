@@ -2,34 +2,37 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSMutableDictionary;
-
 @interface CKDGetSharesURLRequest : CKDURLRequest {
-    id _shareFetchedBlock;
-    NSMutableDictionary *_shareIDByRequestID;
-    NSArray *_shareIDsToFetch;
+    id /* block */ _shareFetchedBlock;
+    NSArray *_shareIDs;
+    NSMutableDictionary *_shareIDsByRequestID;
+    NSArray *_zoneIDs;
+    NSMutableDictionary *_zoneIDsByRequestID;
 }
 
-@property(copy) id shareFetchedBlock;
-@property(retain) NSMutableDictionary * shareIDByRequestID;
-@property(retain) NSArray * shareIDsToFetch;
+@property (nonatomic, copy) id /* block */ shareFetchedBlock;
+@property (nonatomic, retain) NSArray *shareIDs;
+@property (nonatomic, retain) NSMutableDictionary *shareIDsByRequestID;
+@property (nonatomic, retain) NSArray *zoneIDs;
+@property (nonatomic, retain) NSMutableDictionary *zoneIDsByRequestID;
 
 - (void).cxx_destruct;
 - (id)initWithShareIDs:(id)arg1;
+- (id)initWithZoneIDs:(id)arg1;
 - (int)operationType;
 - (void)requestDidParseNodeFailure:(id)arg1;
 - (id)requestDidParseProtobufObject:(id)arg1;
 - (id)requestOperationClasses;
 - (id)requestOperations;
-- (void)setShareFetchedBlock:(id)arg1;
-- (void)setShareIDByRequestID:(id)arg1;
-- (void)setShareIDsToFetch:(id)arg1;
-- (id)shareFetchedBlock;
-- (id)shareIDByRequestID;
-- (id)shareIDsToFetch;
+- (void)setShareFetchedBlock:(id /* block */)arg1;
+- (void)setShareIDs:(id)arg1;
+- (void)setShareIDsByRequestID:(id)arg1;
+- (void)setZoneIDs:(id)arg1;
+- (void)setZoneIDsByRequestID:(id)arg1;
+- (id /* block */)shareFetchedBlock;
+- (id)shareIDs;
+- (id)shareIDsByRequestID;
+- (id)zoneIDs;
+- (id)zoneIDsByRequestID;
 
 @end

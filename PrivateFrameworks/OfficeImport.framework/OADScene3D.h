@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADBackdrop, OADCamera, OADLightRig;
-
 @interface OADScene3D : NSObject <NSCopying> {
     OADBackdrop *mBackdrop;
     OADCamera *mCamera;
@@ -17,9 +15,9 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)lightRig;
 - (void)setBackdrop:(id)arg1;
 - (void)setCamera:(id)arg1;

@@ -2,23 +2,21 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class MPPMediaPredicateValue, NSString;
-
 @interface MPPPropertyPredicate : PBCodable <NSCopying> {
+    int _comparisonType;
     struct { 
         unsigned int comparisonType : 1; 
-    int _comparisonType;
     } _has;
     NSString *_property;
     MPPMediaPredicateValue *_value;
 }
 
-@property int comparisonType;
-@property bool hasComparisonType;
-@property(readonly) bool hasProperty;
-@property(readonly) bool hasValue;
-@property(retain) NSString * property;
-@property(retain) MPPMediaPredicateValue * value;
+@property (nonatomic) int comparisonType;
+@property (nonatomic) BOOL hasComparisonType;
+@property (nonatomic, readonly) BOOL hasProperty;
+@property (nonatomic, readonly) BOOL hasValue;
+@property (nonatomic, retain) NSString *property;
+@property (nonatomic, retain) MPPMediaPredicateValue *value;
 
 - (void).cxx_destruct;
 - (int)comparisonType;
@@ -27,15 +25,15 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasComparisonType;
-- (bool)hasProperty;
-- (bool)hasValue;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasComparisonType;
+- (BOOL)hasProperty;
+- (BOOL)hasValue;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)property;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setComparisonType:(int)arg1;
-- (void)setHasComparisonType:(bool)arg1;
+- (void)setHasComparisonType:(BOOL)arg1;
 - (void)setProperty:(id)arg1;
 - (void)setValue:(id)arg1;
 - (id)value;

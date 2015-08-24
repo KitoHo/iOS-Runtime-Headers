@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@class <IKJSDOMDocumentAppBridge>, IKDOMElement, IKDOMImplementation, IKJSNavigationDocument, NSString;
-
 @interface IKDOMDocument : IKDOMNode <IKJSDOMDocument, IKJSDOMXPathEvaluator> {
     <IKJSDOMDocumentAppBridge> *_appBridge;
-    unsigned long long _itmlIDSequence;
+    unsigned int _itmlIDSequence;
 }
 
-@property <IKJSDOMDocumentAppBridge> * appBridge;
-@property(retain,readonly) IKDOMElement * documentElement;
-@property(retain) NSString * documentURI;
-@property(readonly) IKDOMImplementation * implementation;
-@property(retain,readonly) NSString * inputEncoding;
-@property unsigned long long itmlIDSequence;
-@property IKJSNavigationDocument * navigationDocument;
-@property bool strictErrorChecking;
-@property(retain,readonly) NSString * xmlEncoding;
-@property bool xmlStandalone;
-@property(retain) NSString * xmlVersion;
+@property (nonatomic) <IKJSDOMDocumentAppBridge> *appBridge;
+@property (nonatomic, readonly, retain) IKDOMElement *documentElement;
+@property (nonatomic, retain) NSString *documentURI;
+@property (nonatomic, readonly) IKDOMImplementation *implementation;
+@property (nonatomic, readonly, retain) NSString *inputEncoding;
+@property (nonatomic) unsigned int itmlIDSequence;
+@property (nonatomic) IKJSNavigationDocument *navigationDocument;
+@property (nonatomic) BOOL strictErrorChecking;
+@property (nonatomic, readonly, retain) NSString *xmlEncoding;
+@property (nonatomic) BOOL xmlStandalone;
+@property (nonatomic, retain) NSString *xmlVersion;
 
 + (struct _xmlDoc { void *x1; int x2; char *x3; struct _xmlNode {} *x4; struct _xmlNode {} *x5; struct _xmlNode {} *x6; struct _xmlNode {} *x7; struct _xmlNode {} *x8; struct _xmlDoc {} *x9; int x10; int x11; struct _xmlDtd {} *x12; struct _xmlDtd {} *x13; struct _xmlNs {} *x14; char *x15; char *x16; void *x17; void *x18; char *x19; int x20; struct _xmlDict {} *x21; void *x22; int x23; int x24; }*)_documentWithXMLStr:(id)arg1 lsInput:(id)arg2 error:(id*)arg3;
 
@@ -34,20 +32,20 @@
 - (id)createTextNode:(id)arg1;
 - (id)documentElement;
 - (id)documentURI;
-- (id)evaluate:(id)arg1 :(id)arg2 :(id)arg3 :(long long)arg4 :(id)arg5;
+- (id)evaluate:(id)arg1 :(id)arg2 :(id)arg3 :(int)arg4 :(id)arg5;
 - (id)getElementById:(id)arg1;
 - (id)getElementsByTagName:(id)arg1;
 - (id)implementation;
+- (id)initWithAppContext:(id)arg1;
 - (id)initWithAppContext:(id)arg1 input:(id)arg2 error:(id*)arg3;
 - (id)initWithAppContext:(id)arg1 qualifiedName:(id)arg2;
 - (id)initWithAppContext:(id)arg1 xmlStr:(id)arg2 error:(id*)arg3;
-- (id)initWithAppContext:(id)arg1;
 - (id)inputEncoding;
-- (unsigned long long)itmlIDSequence;
-- (bool)markUpdated;
+- (unsigned int)itmlIDSequence;
+- (BOOL)markUpdated;
 - (id)navigationDocument;
 - (id)nodeName;
-- (long long)nodeType;
+- (int)nodeType;
 - (id)recordedImpressions;
 - (void)replace:(id)arg1;
 - (void)runTest:(id)arg1 :(id)arg2;
@@ -55,16 +53,16 @@
 - (void)setAppBridge:(id)arg1;
 - (void)setDocumentURI:(id)arg1;
 - (void)setITMLIDForNode:(id)arg1;
-- (void)setItmlIDSequence:(unsigned long long)arg1;
+- (void)setItmlIDSequence:(unsigned int)arg1;
 - (void)setNavigationDocument:(id)arg1;
 - (void)setNeedsUpdate;
-- (void)setStrictErrorChecking:(bool)arg1;
-- (void)setXmlStandalone:(bool)arg1;
+- (void)setStrictErrorChecking:(BOOL)arg1;
+- (void)setXmlStandalone:(BOOL)arg1;
 - (void)setXmlVersion:(id)arg1;
 - (id)snapshotImpressions;
-- (bool)strictErrorChecking;
+- (BOOL)strictErrorChecking;
 - (id)xmlEncoding;
-- (bool)xmlStandalone;
+- (BOOL)xmlStandalone;
 - (id)xmlVersion;
 
 @end

@@ -2,29 +2,27 @@
    Image: /System/Library/Frameworks/CFNetwork.framework/CFNetwork
  */
 
-@class NSArray, NSString, __NSHostExtraIvars;
-
 @interface NSHost : NSObject {
     NSArray *addresses;
     NSArray *names;
     id reserved;
 }
 
-@property(copy,readonly) NSString * address;
-@property(copy,readonly) NSArray * addresses;
-@property(copy,readonly) NSString * localizedName;
-@property(copy,readonly) NSString * name;
-@property(copy,readonly) NSArray * names;
-@property(retain) __NSHostExtraIvars * reserved;
+@property (readonly, copy) NSString *address;
+@property (readonly, copy) NSArray *addresses;
+@property (readonly, copy) NSString *localizedName;
+@property (readonly, copy) NSString *name;
+@property (readonly, copy) NSArray *names;
+@property (nonatomic, retain) __NSHostExtraIvars *reserved;
 
 + (id)currentHost;
 + (void)flushHostCache;
 + (id)hostWithAddress:(id)arg1;
 + (id)hostWithName:(id)arg1;
-+ (bool)isHostCacheEnabled;
-+ (void)setHostCacheEnabled:(bool)arg1;
++ (BOOL)isHostCacheEnabled;
++ (void)setHostCacheEnabled:(BOOL)arg1;
 
-- (void)__resolveWithFlags:(int)arg1 resultArray:(id)arg2 handler:(id)arg3;
+- (void)__resolveWithFlags:(int)arg1 resultArray:(id)arg2 handler:(id /* block */)arg3;
 - (id)_thingToResolve;
 - (id)address;
 - (id)addresses;
@@ -32,13 +30,13 @@
 - (void)dealloc;
 - (id)description;
 - (id)initToResolve:(id)arg1 as:(int)arg2;
-- (bool)isEqualToHost:(id)arg1;
+- (BOOL)isEqualToHost:(id)arg1;
 - (id)localizedName;
 - (id)name;
 - (id)names;
 - (id)reserved;
-- (void)resolve:(id)arg1;
-- (void)resolveCurrentHostWithHandler:(id)arg1;
+- (void)resolve:(id /* block */)arg1;
+- (void)resolveCurrentHostWithHandler:(id /* block */)arg1;
 - (void)setReserved:(id)arg1;
 
 @end

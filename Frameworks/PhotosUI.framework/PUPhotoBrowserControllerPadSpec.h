@@ -2,14 +2,12 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@interface PUPhotoBrowserControllerPadSpec : PUPhotoBrowserControllerSpec {
-}
+@interface PUPhotoBrowserControllerPadSpec : PUPhotoBrowserControllerSpec
 
 - (id)avalancheReviewControllerSpec;
 - (id)newPhotoBrowserControllerForPhotoAtIndexPath:(id)arg1 assetCollections:(id)arg2 dataSource:(id)arg3;
-- (bool)shouldShowPhotoScrubber;
-- (bool)shouldShowToolbarItemsInNavigationBar;
-- (bool)shouldUsePopovers;
-- (unsigned long long)supportedInterfaceOrientations;
+- (BOOL)shouldShowPhotoScrubber;
+- (BOOL)shouldShowToolbarItemsInNavigationBar;
+- (unsigned int)supportedInterfaceOrientations;
 
 @end

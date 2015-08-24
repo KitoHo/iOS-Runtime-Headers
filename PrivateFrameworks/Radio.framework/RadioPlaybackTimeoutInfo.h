@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/Radio.framework/Radio
  */
 
-@class NSMutableDictionary;
-
 @interface RadioPlaybackTimeoutInfo : NSObject <NSCopying, NSMutableCopying> {
     NSMutableDictionary *_playbackTimeoutIdentifierToTimeoutNumber;
 }
 
 - (void).cxx_destruct;
-- (id)_playbackTimeoutIdentifierForBase:(id)arg1 playbackType:(long long)arg2;
+- (id)_playbackTimeoutIdentifierForBase:(id)arg1 playbackType:(int)arg2;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (double)dockedPlaybackTimeoutForPlaybackType:(long long)arg1;
-- (unsigned long long)hash;
+- (double)dockedPlaybackTimeoutForPlaybackType:(int)arg1;
+- (unsigned int)hash;
 - (id)init;
-- (bool)isEqual:(id)arg1;
-- (double)lockedPlaybackTimeoutForPlaybackType:(long long)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (double)lockedPlaybackTimeoutForPlaybackType:(int)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone { }*)arg1;
-- (double)pausedPlaybackTimeoutForPlaybackType:(long long)arg1;
-- (double)unlockedPlaybackTimeoutForPlaybackType:(long long)arg1;
+- (double)pausedPlaybackTimeoutForPlaybackType:(int)arg1;
+- (double)unlockedPlaybackTimeoutForPlaybackType:(int)arg1;
 
 @end

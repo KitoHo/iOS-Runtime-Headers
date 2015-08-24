@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class NSArray, NSString;
-
 @interface PSLanguageSelector : NSObject {
     NSString *_language;
     NSArray *_languagesWithLocaleData;
@@ -12,17 +10,19 @@
 
 + (id)languageArrayAfterSettingLanguage:(id)arg1 fallback:(id)arg2 toLanguageArray:(id)arg3;
 + (id)sharedInstance;
++ (void)updatePreferredLanguages:(id)arg1;
++ (void)updateShouldShowPreferredLanguages:(BOOL)arg1;
 
-- (id)appleLanguages;
 - (void)dealloc;
 - (id)defaultOtherLanguages;
 - (id)deviceLanguageIdentifier;
-- (bool)languageIsSupportedLanguage:(id)arg1;
+- (BOOL)languageIsSupportedLanguage:(id)arg1;
 - (id)languagesWithAvailableLocaleIdentifiers;
-- (bool)preferredLanguages;
+- (id)preferredLanguages;
 - (id)renderableLanguagesFromList:(id)arg1;
-- (void)setLanguage:(id)arg1 fallback:(id)arg2;
 - (void)setLanguage:(id)arg1;
+- (void)setLanguage:(id)arg1 fallback:(id)arg2;
+- (BOOL)shouldShowPreferredLanguages;
 - (id)supportedLanguages;
 - (id)systemLanguages;
 - (id)userDeviceLanguageOrder;

@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@class NSArray, NSData, NSString;
-
 @interface MCProfileServiceProfile : MCProfile {
     NSString *_URLString;
     NSArray *_bogusPayloads;
     id _challenge;
+    BOOL _confirmInstallation;
     NSArray *_deviceAttributes;
     NSData *_enrollmentIdentityPersistentID;
-    bool_confirmInstallation;
 }
 
-@property(retain) NSString * URLString;
-@property(retain,readonly) id challenge;
-@property(readonly) bool confirmInstallation;
-@property(retain,readonly) NSArray * deviceAttributes;
-@property(retain) NSData * enrollmentIdentityPersistentID;
+@property (nonatomic, retain) NSString *URLString;
+@property (nonatomic, readonly, retain) id challenge;
+@property (nonatomic, readonly) BOOL confirmInstallation;
+@property (nonatomic, readonly, retain) NSArray *deviceAttributes;
+@property (nonatomic, retain) NSData *enrollmentIdentityPersistentID;
 
 - (void).cxx_destruct;
 - (id)URLString;
 - (id)_badDataTypeErrorWithFieldName:(id)arg1;
 - (id)_unsupportedValueErrorWithFieldName:(id)arg1 value:(id)arg2;
 - (id)challenge;
-- (bool)confirmInstallation;
+- (BOOL)confirmInstallation;
 - (id)description;
 - (id)deviceAttributes;
 - (id)enrollmentIdentityPersistentID;
-- (id)initWithDictionary:(id)arg1 allowEmptyPayload:(bool)arg2 outError:(id*)arg3;
+- (id)initWithDictionary:(id)arg1 allowEmptyPayload:(BOOL)arg2 outError:(id*)arg3;
 - (id)localizedManagedPayloadSummaryByType;
 - (id)localizedPayloadSummaryByType;
 - (id)managedPayloads;

@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class <GKNearbyBrowserDelegate>, NSMutableArray;
-
 @interface GKNearbyPlayersDataSource : GKBasicCollectionViewDataSource {
+    BOOL _browsingForNearbyPlayers;
     <GKNearbyBrowserDelegate> *_nearbyDelegate;
     NSMutableArray *_nearbyPlayers;
-    bool_browsingForNearbyPlayers;
 }
 
-@property bool browsingForNearbyPlayers;
-@property <GKNearbyBrowserDelegate> * nearbyDelegate;
-@property(retain) NSMutableArray * nearbyPlayers;
+@property (nonatomic) BOOL browsingForNearbyPlayers;
+@property (nonatomic) <GKNearbyBrowserDelegate> *nearbyDelegate;
+@property (nonatomic, retain) NSMutableArray *nearbyPlayers;
 
-- (bool)browsingForNearbyPlayers;
+- (BOOL)browsingForNearbyPlayers;
 - (void)dealloc;
 - (void)didUpdateModel;
 - (id)init;
@@ -23,9 +21,9 @@
 - (void)refreshContentsForDataType:(unsigned int)arg1 userInfo:(id)arg2 updateNotifier:(id)arg3;
 - (void)removeAllPlayers;
 - (id)sectionTitle;
-- (void)setBrowsingForNearbyPlayers:(bool)arg1;
+- (void)setBrowsingForNearbyPlayers:(BOOL)arg1;
 - (void)setNearbyDelegate:(id)arg1;
-- (void)setNearbyPlayer:(id)arg1 reachable:(bool)arg2;
+- (void)setNearbyPlayer:(id)arg1 reachable:(BOOL)arg2;
 - (void)setNearbyPlayers:(id)arg1;
 
 @end

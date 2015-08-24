@@ -2,25 +2,22 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSDStrokePattern, TSUColor;
+@interface TSDMutableStroke : TSDStroke
 
-@interface TSDMutableStroke : TSDStroke {
-}
-
-@property double actualWidth;
-@property int cap;
-@property(retain) TSUColor * color;
-@property bool dontClearBackground;
-@property int join;
-@property double miterLimit;
-@property(retain) TSDStrokePattern * pattern;
-@property double width;
+@property (nonatomic) float actualWidth;
+@property (nonatomic) int cap;
+@property (nonatomic, copy) TSUColor *color;
+@property (nonatomic) BOOL dontClearBackground;
+@property (nonatomic) int join;
+@property (nonatomic) float miterLimit;
+@property (nonatomic, copy) TSDStrokePattern *pattern;
+@property (nonatomic) float width;
 
 + (id)emptyStroke;
 + (id)stroke;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)setDontClearBackground:(bool)arg1;
+- (void)setDontClearBackground:(BOOL)arg1;
 - (void)setPatternPropertiesFromStroke:(id)arg1;
 - (void)setPropertiesFromStroke:(id)arg1;
 

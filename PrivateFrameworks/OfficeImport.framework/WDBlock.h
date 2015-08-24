@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class WDText;
-
 @interface WDBlock : NSObject {
     WDText *mText;
 }
@@ -13,7 +11,7 @@
 - (id)document;
 - (id)init;
 - (id)initWithText:(id)arg1;
-- (bool)isEmpty;
+- (BOOL)isEmpty;
 - (id)newRunIterator;
 - (id)runIterator;
 - (id)text;

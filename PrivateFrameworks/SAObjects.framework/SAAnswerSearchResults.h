@@ -2,19 +2,16 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray;
+@interface SAAnswerSearchResults : SADomainSearchResults
 
-@interface SAAnswerSearchResults : SADomainSearchResults {
-}
-
-@property(copy) NSArray * results;
+@property (nonatomic, copy) NSArray *results;
 
 + (id)searchResults;
 + (id)searchResultsWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (id)results;
 - (void)setResults:(id)arg1;
 

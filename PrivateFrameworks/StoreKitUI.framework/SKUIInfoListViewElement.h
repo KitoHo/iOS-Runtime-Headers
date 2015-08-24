@@ -3,15 +3,15 @@
  */
 
 @interface SKUIInfoListViewElement : SKUIViewElement {
-    long long _infoListType;
+    int _infoListType;
 }
 
-@property(readonly) long long infoListType;
+@property (nonatomic, readonly) int infoListType;
 
 - (id)applyUpdatesWithElement:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(id)arg1;
-- (long long)infoListType;
+- (void)enumerateChildrenUsingBlock:(id /* block */)arg1;
+- (int)infoListType;
 - (id)initWithDOMElement:(id)arg1 parent:(id)arg2 elementFactory:(id)arg3;
-- (long long)pageComponentType;
+- (int)pageComponentType;
 
 @end

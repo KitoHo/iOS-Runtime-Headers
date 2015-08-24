@@ -2,46 +2,45 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString;
-
 @interface TSDMediaInfo : TSDStyledInfo {
-    struct CGSize { 
-        double width; 
-        double height; 
     struct { 
         unsigned int isPlaceholder : 1; 
         unsigned int wasMediaReplaced : 1; 
     } mFlags;
+    struct CGSize { 
+        float width; 
+        float height; 
     } mOriginalSize;
 }
 
-@property(readonly) struct CGSize { double x1; double x2; } defaultOriginalSize;
-@property unsigned int flags;
-@property bool isPlaceholder;
-@property(readonly) NSString * mediaDisplayName;
-@property(readonly) NSString * mediaFileType;
-@property struct CGSize { double x1; double x2; } originalSize;
-@property(readonly) struct CGSize { double x1; double x2; } rawDataSize;
-@property bool wasMediaReplaced;
+@property (nonatomic, readonly) struct CGSize { float x1; float x2; } defaultOriginalSize;
+@property (nonatomic) unsigned int flags;
+@property (nonatomic) BOOL isPlaceholder;
+@property (nonatomic, readonly) NSString *mediaDisplayName;
+@property (nonatomic, readonly) NSString *mediaFileType;
+@property (nonatomic) struct CGSize { float x1; float x2; } originalSize;
+@property (nonatomic, readonly) struct CGSize { float x1; float x2; } rawDataSize;
+@property (nonatomic) BOOL wasMediaReplaced;
 
-- (struct CGPoint { double x1; double x2; })centerForReplacingWithNewMedia;
-- (id)commandForSettingBoxedValue:(id)arg1 forProperty:(int)arg2;
+- (struct CGPoint { float x1; float x2; })centerForReplacingWithNewMedia;
 - (id)copyWithContext:(id)arg1;
-- (struct CGSize { double x1; double x2; })defaultOriginalSize;
+- (struct CGSize { float x1; float x2; })defaultOriginalSize;
 - (unsigned int)flags;
 - (id)initWithContext:(id)arg1 geometry:(id)arg2;
-- (bool)isPlaceholder;
+- (BOOL)isPlaceholder;
 - (id)mediaDisplayName;
 - (id)mediaFileType;
-- (struct CGSize { double x1; double x2; })originalSize;
-- (struct CGSize { double x1; double x2; })rawDataSize;
+- (struct CGSize { float x1; float x2; })originalSize;
+- (id)propertyNameForFlagsCommand;
+- (id)propertyNameForOriginalSizeCommand;
+- (struct CGSize { float x1; float x2; })rawDataSize;
 - (void)setFlags:(unsigned int)arg1;
 - (void)setGeometry:(id)arg1;
-- (void)setIsPlaceholder:(bool)arg1;
-- (void)setOriginalSize:(struct CGSize { double x1; double x2; })arg1;
-- (void)setWasMediaReplaced:(bool)arg1;
+- (void)setIsPlaceholder:(BOOL)arg1;
+- (void)setOriginalSize:(struct CGSize { float x1; float x2; })arg1;
+- (void)setWasMediaReplaced:(BOOL)arg1;
 - (void)takePropertiesFromReplacedMediaInfo:(id)arg1;
 - (void)updateGeometryToReplaceMediaInfo:(id)arg1;
-- (bool)wasMediaReplaced;
+- (BOOL)wasMediaReplaced;
 
 @end

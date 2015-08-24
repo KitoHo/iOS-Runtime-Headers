@@ -3,22 +3,22 @@
  */
 
 @interface FigVideoCaptureConnectionConfiguration : FigCaptureConnectionConfiguration {
+    BOOL _mirroringEnabled;
     int _orientation;
     int _outputFormat;
     int _outputHeight;
     int _outputWidth;
     int _retainedBufferCount;
     int _videoStabilizationMethod;
-    bool_mirroringEnabled;
 }
 
-@property bool mirroringEnabled;
-@property int orientation;
-@property int outputFormat;
-@property int outputHeight;
-@property int outputWidth;
-@property int retainedBufferCount;
-@property int videoStabilizationMethod;
+@property (nonatomic) BOOL mirroringEnabled;
+@property (nonatomic) int orientation;
+@property (nonatomic) int outputFormat;
+@property (nonatomic) int outputHeight;
+@property (nonatomic) int outputWidth;
+@property (nonatomic) int retainedBufferCount;
+@property (nonatomic) int videoStabilizationMethod;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)copyXPCEncoding;
@@ -26,14 +26,14 @@
 - (id)description;
 - (id)init;
 - (id)initWithXPCEncoding:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)mirroringEnabled;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)mirroringEnabled;
 - (int)orientation;
 - (int)outputFormat;
 - (int)outputHeight;
 - (int)outputWidth;
 - (int)retainedBufferCount;
-- (void)setMirroringEnabled:(bool)arg1;
+- (void)setMirroringEnabled:(BOOL)arg1;
 - (void)setOrientation:(int)arg1;
 - (void)setOutputFormat:(int)arg1;
 - (void)setOutputHeight:(int)arg1;

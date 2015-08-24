@@ -2,36 +2,34 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class NSArray, NSMutableArray, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>;
-
 @interface VKRasterOverlayTileSource : VKTileSource {
     NSObject<OS_dispatch_queue> *_homeQ;
     NSMutableArray *_overlays;
     NSObject<OS_dispatch_group> *_renderGroup;
 }
 
-@property(readonly) NSArray * overlays;
+@property (nonatomic, readonly) NSArray *overlays;
 
 - (void)_flush;
 - (void)_queueDraw:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1;
 - (void)addOverlay:(id)arg1;
-- (bool)canFetchTileForKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1;
-- (bool)cancelFetchForKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1;
+- (BOOL)canFetchTileForKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1;
+- (BOOL)cancelFetchForKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1;
 - (void)dealloc;
-- (void)exchangeOverlayAtIndex:(unsigned long long)arg1 withOverlayAtIndex:(unsigned long long)arg2;
+- (void)exchangeOverlayAtIndex:(unsigned int)arg1 withOverlayAtIndex:(unsigned int)arg2;
 - (void)fetchTileForKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg1 sourceKey:(const struct VKTileKey { unsigned int x1; int x2; int x3; unsigned int x4; }*)arg2;
 - (id)init;
 - (void)insertOverlay:(id)arg1 aboveOverlay:(id)arg2;
-- (void)insertOverlay:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)insertOverlay:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)insertOverlay:(id)arg1 belowOverlay:(id)arg2;
 - (void)invalidate;
-- (void)invalidateRect:(const struct { double x1; double x2; double x3; double x4; }*)arg1 level:(long long)arg2;
+- (void)invalidateRect:(const struct { double x1; double x2; double x3; double x4; }*)arg1 level:(int)arg2;
 - (unsigned int)maximumDownloadZoomLevel;
-- (bool)maximumZoomLevelBoundsCamera;
+- (BOOL)maximumZoomLevelBoundsCamera;
 - (unsigned int)minimumDownloadZoomLevel;
-- (bool)minimumZoomLevelBoundsCamera;
+- (BOOL)minimumZoomLevelBoundsCamera;
 - (id)overlays;
 - (void)removeOverlay:(id)arg1;
-- (long long)tileSize;
+- (int)tileSize;
 
 @end

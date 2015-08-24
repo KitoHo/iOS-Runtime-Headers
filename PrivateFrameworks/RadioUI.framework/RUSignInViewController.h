@@ -2,19 +2,8 @@
    Image: /System/Library/PrivateFrameworks/RadioUI.framework/RadioUI
  */
 
-@class <RUSignInViewControllerDelegate>, MPUShapeView, NSString, SKUICircleProgressIndicator, UIBarButtonItem, UIButton, UILabel, UITapGestureRecognizer, UITextField;
-
 @interface RUSignInViewController : UIViewController <UIGestureRecognizerDelegate, UITextFieldDelegate> {
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    long long _accountChangeIgnoreCount;
+    int _accountChangeIgnoreCount;
     SKUICircleProgressIndicator *_activityIndicatorView;
     UITextField *_appleIDTextField;
     UILabel *_appleIDTitleLabel;
@@ -25,20 +14,29 @@
     UITapGestureRecognizer *_dismissGestureRecognizer;
     MPUShapeView *_entryContentView;
     UIButton *_forgotPasswordButton;
+    BOOL _isAuthenticating;
+    BOOL _isLoading;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _keyboardFrame;
     UILabel *_loadingLabel;
     UITextField *_passwordTextField;
     UILabel *_passwordTitleLabel;
     UILabel *_titleLabel;
-    bool_isAuthenticating;
-    bool_isLoading;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <RUSignInViewControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <RUSignInViewControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (void)_accountStoreDidChangeNotification:(id)arg1;
@@ -51,19 +49,19 @@
 - (void)_forgotPasswordAction:(id)arg1;
 - (void)_keyboardWillChangeFrameNotification:(id)arg1;
 - (void)_keyboardWillHideNotification:(id)arg1;
-- (void)_setLoading:(bool)arg1;
+- (void)_setLoading:(BOOL)arg1;
 - (void)_textFieldDidChangeAction:(id)arg1;
 - (void)_updateAccountRelatedControls;
-- (void)_updateContinueButtonVisibilityAnimated:(bool)arg1;
+- (void)_updateContinueButtonVisibilityAnimated:(BOOL)arg1;
 - (void)dealloc;
 - (id)delegate;
-- (bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)resetFakeLoadingState;
 - (void)setDelegate:(id)arg1;
-- (bool)textFieldShouldReturn:(id)arg1;
+- (BOOL)textFieldShouldReturn:(id)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
-- (void)viewWillAppear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 
 @end

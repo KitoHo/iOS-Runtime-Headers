@@ -2,22 +2,26 @@
    Image: /System/Library/Frameworks/CoreLocation.framework/CoreLocation
  */
 
-@interface CLCircularRegion : CLRegion {
-}
+@interface CLCircularRegion : CLRegion
 
-@property(readonly) struct { double x1; double x2; } center;
-@property(readonly) double radius;
+@property (nonatomic, readonly) struct { double x1; double x2; } center;
+@property (nonatomic, readonly) double radius;
 
-+ (id)circularRegionFromMapRegion:(id)arg1;
-+ (bool)supportsSecureCoding;
+// Image: /System/Library/Frameworks/CoreLocation.framework/CoreLocation
+
++ (BOOL)supportsSecureCoding;
 
 - (struct { double x1; double x2; })center;
-- (bool)containsCoordinate:(struct { double x1; double x2; })arg1;
+- (BOOL)containsCoordinate:(struct { double x1; double x2; })arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCenter:(struct { double x1; double x2; })arg1 radius:(double)arg2 identifier:(id)arg3;
 - (id)initWithCoder:(id)arg1;
 - (double)radius;
+
+// Image: /System/Library/Frameworks/MapKit.framework/MapKit
+
++ (id)circularRegionFromMapRegion:(id)arg1;
 
 @end

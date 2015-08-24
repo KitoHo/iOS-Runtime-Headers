@@ -2,16 +2,13 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString;
+@interface UIMutableUserNotificationAction : UIUserNotificationAction
 
-@interface UIMutableUserNotificationAction : UIUserNotificationAction {
-}
-
-@property unsigned long long activationMode;
-@property(getter=isAuthenticationRequired) bool authenticationRequired;
-@property(getter=isDestructive) bool destructive;
-@property(copy) NSString * identifier;
-@property(copy) NSString * title;
+@property (nonatomic) unsigned int activationMode;
+@property (getter=isAuthenticationRequired, nonatomic) BOOL authenticationRequired;
+@property (getter=isDestructive, nonatomic) BOOL destructive;
+@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic, copy) NSString *title;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class MFConditionLock, NSArray, NSDate, NSMutableArray;
-
 @interface _MFDAMSSearchResponseConsumer : _MFDAMSBasicConsumer <DASearchQueryConsumer> {
     MFConditionLock *doneCondition;
     NSDate *latestDateToAdd;
@@ -12,11 +10,11 @@
     unsigned int totalCount;
 }
 
-@property(retain) NSDate * latestDateToAdd;
-@property(retain,readonly) NSArray * matchingRemoteIDs;
+@property (nonatomic, retain) NSDate *latestDateToAdd;
+@property (nonatomic, readonly, retain) NSArray *matchingRemoteIDs;
 
 - (void)dealloc;
-- (bool)handleItems:(id)arg1;
+- (BOOL)handleItems:(id)arg1;
 - (id)initWithMaximumSize:(unsigned int)arg1 latency:(double)arg2;
 - (id)latestDateToAdd;
 - (id)matchingRemoteIDs;
@@ -26,6 +24,6 @@
 - (void)searchQuery:(id)arg1 returnedTotalCount:(id)arg2;
 - (void)setLatestDateToAdd:(id)arg1;
 - (void)waitUntilDone;
-- (bool)waitUntilDoneBeforeDate:(id)arg1;
+- (BOOL)waitUntilDoneBeforeDate:(id)arg1;
 
 @end

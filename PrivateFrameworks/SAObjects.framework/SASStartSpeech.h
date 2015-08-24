@@ -2,62 +2,64 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSNumber, NSString;
+@interface SASStartSpeech : SABaseCommand <SAServerBoundCommand>
 
-@interface SASStartSpeech : SABaseCommand <SAServerBoundCommand> {
-}
+@property (nonatomic, copy) NSString *aceId;
+@property (nonatomic, copy) NSString *audioSource;
+@property (nonatomic) BOOL clearContext;
+@property (nonatomic) int codec;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, copy) NSString *deviceIdentifier;
+@property (nonatomic, copy) NSString *deviceModel;
+@property (nonatomic) BOOL disableAutoEndpointing;
+@property (nonatomic, copy) NSString *dspStatus;
+@property (nonatomic) BOOL enablePartialResults;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSString *headsetAddress;
+@property (nonatomic, copy) NSString *headsetId;
+@property (nonatomic, copy) NSString *headsetName;
+@property (nonatomic, copy) NSNumber *isCarryDevice;
+@property (nonatomic, copy) NSString *motionActivity;
+@property (nonatomic, copy) NSNumber *motionConfidence;
+@property (nonatomic, copy) NSNumber *noiseReductionLevel;
+@property (nonatomic, copy) NSString *origin;
+@property (nonatomic, copy) NSString *refId;
+@property (readonly) Class superclass;
 
-@property(copy) NSString * aceId;
-@property(copy) NSString * audioSource;
-@property bool clearContext;
-@property int codec;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(copy) NSString * deviceIdentifier;
-@property(copy) NSString * deviceModel;
-@property bool disableAutoEndpointing;
-@property(copy) NSString * dspStatus;
-@property bool enablePartialResults;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * headsetAddress;
-@property(copy) NSString * headsetId;
-@property(copy) NSString * headsetName;
-@property(copy) NSString * motionActivity;
-@property(copy) NSNumber * motionConfidence;
-@property(copy) NSNumber * noiseReductionLevel;
-@property(copy) NSString * origin;
-@property(copy) NSString * refId;
-@property(readonly) Class superclass;
++ (id)startSpeech;
++ (id)startSpeechWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)audioSource;
-- (bool)clearContext;
+- (BOOL)clearContext;
 - (int)codec;
 - (id)deviceIdentifier;
 - (id)deviceModel;
-- (bool)disableAutoEndpointing;
+- (BOOL)disableAutoEndpointing;
 - (id)dspStatus;
-- (bool)enablePartialResults;
+- (BOOL)enablePartialResults;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)headsetAddress;
 - (id)headsetId;
 - (id)headsetName;
-- (id)init;
+- (id)isCarryDevice;
 - (id)motionActivity;
 - (id)motionConfidence;
 - (id)noiseReductionLevel;
 - (id)origin;
 - (void)setAudioSource:(id)arg1;
-- (void)setClearContext:(bool)arg1;
+- (void)setClearContext:(BOOL)arg1;
 - (void)setCodec:(int)arg1;
 - (void)setDeviceIdentifier:(id)arg1;
 - (void)setDeviceModel:(id)arg1;
-- (void)setDisableAutoEndpointing:(bool)arg1;
+- (void)setDisableAutoEndpointing:(BOOL)arg1;
 - (void)setDspStatus:(id)arg1;
-- (void)setEnablePartialResults:(bool)arg1;
+- (void)setEnablePartialResults:(BOOL)arg1;
 - (void)setHeadsetAddress:(id)arg1;
 - (void)setHeadsetId:(id)arg1;
 - (void)setHeadsetName:(id)arg1;
+- (void)setIsCarryDevice:(id)arg1;
 - (void)setMotionActivity:(id)arg1;
 - (void)setMotionConfidence:(id)arg1;
 - (void)setNoiseReductionLevel:(id)arg1;

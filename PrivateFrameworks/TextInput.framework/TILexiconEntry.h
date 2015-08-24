@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/TextInput.framework/TextInput
  */
 
-@class NSString;
-
 @interface TILexiconEntry : NSObject <NSCopying, NSSecureCoding> {
     NSString *_documentText;
     NSString *_userInput;
 }
 
-@property(readonly) NSString * documentText;
-@property(readonly) NSString * userInput;
+@property (nonatomic, readonly) NSString *documentText;
+@property (nonatomic, readonly) NSString *userInput;
 
 + (id)entryWithDocumentText:(id)arg1 userInput:(id)arg2;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)documentText;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)userInput;
 
 @end

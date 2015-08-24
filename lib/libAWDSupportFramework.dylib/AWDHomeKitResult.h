@@ -2,17 +2,14 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDHomeKitResult : PBCodable <NSCopying> {
     struct { 
         unsigned int *list; 
-        unsigned long long count; 
-        unsigned long long size; 
-    struct { 
-        unsigned int *list; 
-        unsigned long long count; 
-        unsigned long long size; 
+        unsigned int count; 
+        unsigned int size; 
+    } _characteristicTypes;
+    unsigned int _duration;
+    NSString *_guid;
     struct { 
         unsigned int timestamp : 1; 
         unsigned int duration : 1; 
@@ -20,42 +17,43 @@
         unsigned int resultCode : 1; 
         unsigned int resultType : 1; 
         unsigned int transportType : 1; 
-    } _characteristicTypes;
-    unsigned int _duration;
-    NSString *_guid;
     } _has;
     unsigned int _isClient;
     int _resultCode;
     unsigned int _resultType;
+    struct { 
+        unsigned int *list; 
+        unsigned int count; 
+        unsigned int size; 
     } _serviceTypes;
     unsigned long long _timestamp;
     unsigned int _transportType;
 }
 
-@property(readonly) unsigned int* characteristicTypes;
-@property(readonly) unsigned long long characteristicTypesCount;
-@property unsigned int duration;
-@property(retain) NSString * guid;
-@property bool hasDuration;
-@property(readonly) bool hasGuid;
-@property bool hasIsClient;
-@property bool hasResultCode;
-@property bool hasResultType;
-@property bool hasTimestamp;
-@property bool hasTransportType;
-@property unsigned int isClient;
-@property int resultCode;
-@property unsigned int resultType;
-@property(readonly) unsigned int* serviceTypes;
-@property(readonly) unsigned long long serviceTypesCount;
-@property unsigned long long timestamp;
-@property unsigned int transportType;
+@property (nonatomic, readonly) unsigned int*characteristicTypes;
+@property (nonatomic, readonly) unsigned int characteristicTypesCount;
+@property (nonatomic) unsigned int duration;
+@property (nonatomic, retain) NSString *guid;
+@property (nonatomic) BOOL hasDuration;
+@property (nonatomic, readonly) BOOL hasGuid;
+@property (nonatomic) BOOL hasIsClient;
+@property (nonatomic) BOOL hasResultCode;
+@property (nonatomic) BOOL hasResultType;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) BOOL hasTransportType;
+@property (nonatomic) unsigned int isClient;
+@property (nonatomic) int resultCode;
+@property (nonatomic) unsigned int resultType;
+@property (nonatomic, readonly) unsigned int*serviceTypes;
+@property (nonatomic, readonly) unsigned int serviceTypesCount;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) unsigned int transportType;
 
 - (void)addCharacteristicType:(unsigned int)arg1;
 - (void)addServiceType:(unsigned int)arg1;
-- (unsigned int)characteristicTypeAtIndex:(unsigned long long)arg1;
+- (unsigned int)characteristicTypeAtIndex:(unsigned int)arg1;
 - (unsigned int*)characteristicTypes;
-- (unsigned long long)characteristicTypesCount;
+- (unsigned int)characteristicTypesCount;
 - (void)clearCharacteristicTypes;
 - (void)clearServiceTypes;
 - (void)copyTo:(id)arg1;
@@ -65,36 +63,36 @@
 - (id)dictionaryRepresentation;
 - (unsigned int)duration;
 - (id)guid;
-- (bool)hasDuration;
-- (bool)hasGuid;
-- (bool)hasIsClient;
-- (bool)hasResultCode;
-- (bool)hasResultType;
-- (bool)hasTimestamp;
-- (bool)hasTransportType;
-- (unsigned long long)hash;
+- (BOOL)hasDuration;
+- (BOOL)hasGuid;
+- (BOOL)hasIsClient;
+- (BOOL)hasResultCode;
+- (BOOL)hasResultType;
+- (BOOL)hasTimestamp;
+- (BOOL)hasTransportType;
+- (unsigned int)hash;
 - (unsigned int)isClient;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (int)resultCode;
 - (unsigned int)resultType;
-- (unsigned int)serviceTypeAtIndex:(unsigned long long)arg1;
+- (unsigned int)serviceTypeAtIndex:(unsigned int)arg1;
 - (unsigned int*)serviceTypes;
-- (unsigned long long)serviceTypesCount;
-- (void)setCharacteristicTypes:(unsigned int*)arg1 count:(unsigned long long)arg2;
+- (unsigned int)serviceTypesCount;
+- (void)setCharacteristicTypes:(unsigned int*)arg1 count:(unsigned int)arg2;
 - (void)setDuration:(unsigned int)arg1;
 - (void)setGuid:(id)arg1;
-- (void)setHasDuration:(bool)arg1;
-- (void)setHasIsClient:(bool)arg1;
-- (void)setHasResultCode:(bool)arg1;
-- (void)setHasResultType:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
-- (void)setHasTransportType:(bool)arg1;
+- (void)setHasDuration:(BOOL)arg1;
+- (void)setHasIsClient:(BOOL)arg1;
+- (void)setHasResultCode:(BOOL)arg1;
+- (void)setHasResultType:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasTransportType:(BOOL)arg1;
 - (void)setIsClient:(unsigned int)arg1;
 - (void)setResultCode:(int)arg1;
 - (void)setResultType:(unsigned int)arg1;
-- (void)setServiceTypes:(unsigned int*)arg1 count:(unsigned long long)arg2;
+- (void)setServiceTypes:(unsigned int*)arg1 count:(unsigned int)arg2;
 - (void)setTimestamp:(unsigned long long)arg1;
 - (void)setTransportType:(unsigned int)arg1;
 - (unsigned long long)timestamp;

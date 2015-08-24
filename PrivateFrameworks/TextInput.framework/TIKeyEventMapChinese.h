@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/TextInput.framework/TextInput
  */
 
-@interface TIKeyEventMapChinese : TIKeyEventMap {
-}
+@interface TIKeyEventMapChinese : TIKeyEventMap
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
-- (bool)isURLOrEmailKeyboardInKeyboardState:(id)arg1;
-- (id)remapKeyWithString:(id)arg1 stringWithoutModifiers:(id)arg2 modifierFlags:(unsigned long long)arg3 keyboardState:(id)arg4;
+- (BOOL)isURLOrEmailKeyboardInKeyboardState:(id)arg1;
+- (id)remapKeyWithString:(id)arg1 stringWithoutModifiers:(id)arg2 modifierFlags:(unsigned int)arg3 keyboardState:(id)arg4;
 
 @end

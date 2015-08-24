@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSNumber, NSString;
-
 @interface TSKPicaFormatter : NSFormatter {
     NSNumber *mMaximum;
     NSNumber *mMinimum;
     NSString *mPicaSeparator;
 }
 
-@property(copy) NSNumber * maximum;
-@property(copy) NSNumber * minimum;
-@property(copy) NSString * picaSeparator;
+@property (nonatomic, copy) NSNumber *maximum;
+@property (nonatomic, copy) NSNumber *minimum;
+@property (nonatomic, copy) NSString *picaSeparator;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
-- (bool)getObjectValue:(id*)arg1 forString:(id)arg2 errorDescription:(id*)arg3;
+- (BOOL)getObjectValue:(id*)arg1 forString:(id)arg2 errorDescription:(id*)arg3;
 - (id)initWithPicaSeparator:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)maximum;
 - (id)minimum;
 - (id)picaSeparator;

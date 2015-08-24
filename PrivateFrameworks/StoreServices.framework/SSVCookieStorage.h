@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSObject<OS_dispatch_queue>, NSURL, SSSQLiteDatabase;
-
 @interface SSVCookieStorage : NSObject {
     SSSQLiteDatabase *_db;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSURL *_storageLocation;
 }
 
-@property(readonly) NSURL * storageLocation;
+@property (readonly) NSURL *storageLocation;
 
-+ (bool)_setupCookieDatabase:(id)arg1;
++ (BOOL)_setupCookieDatabase:(id)arg1;
 + (id)sharedInstance;
 + (id)sharedStorage;
 
 - (id)_allUserIdentifiers;
 - (void)_bindInsertStatement:(struct sqlite3_stmt { }*)arg1 forCookie:(id)arg2 userIdentifier:(id)arg3;
-- (bool)_bindStatement:(struct sqlite3_stmt { }*)arg1 withValues:(id)arg2;
+- (BOOL)_bindStatement:(struct sqlite3_stmt { }*)arg1 withValues:(id)arg2;
 - (id)_columnNameForCookieProperty:(id)arg1;
 - (id)_copyCookieDictionaryForURL:(id)arg1 userIdentifier:(id)arg2;
 - (id)_copyCookiesWithUserIdentifier:(id)arg1;

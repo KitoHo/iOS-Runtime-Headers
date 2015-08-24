@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/MusicCarDisplayUI.framework/MusicCarDisplayUI
  */
 
-@class NSArray, NSString, UIColor, UIFont;
-
 @interface MCDAndOthersLabel : UIView {
     NSString *_andOthers;
     UIFont *_font;
@@ -13,27 +11,27 @@
     NSString *_truncatedItemsString;
 }
 
-@property(readonly) double actualHeight;
-@property(retain) NSString * andOthers;
-@property(readonly) double desiredHeight;
-@property(retain) UIFont * font;
-@property(retain) NSArray * items;
-@property(retain) NSString * separator;
-@property(retain) UIColor * textColor;
+@property (nonatomic, readonly) float actualHeight;
+@property (nonatomic, retain) NSString *andOthers;
+@property (nonatomic, readonly) float desiredHeight;
+@property (nonatomic, retain) UIFont *font;
+@property (nonatomic, retain) NSArray *items;
+@property (nonatomic, retain) NSString *separator;
+@property (nonatomic, retain) UIColor *textColor;
 
 - (void).cxx_destruct;
-- (long long)_stringDrawingOptions;
+- (int)_stringDrawingOptions;
 - (id)_textAttributes;
 - (void)_truncateItemsToFit;
-- (double)actualHeight;
+- (float)actualHeight;
 - (id)andOthers;
-- (double)desiredHeight;
-- (void)drawRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (float)desiredHeight;
+- (void)drawRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (id)font;
 - (id)items;
 - (id)separator;
 - (void)setAndOthers:(id)arg1;
-- (void)setBounds:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)setBounds:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)setFont:(id)arg1;
 - (void)setItems:(id)arg1;
 - (void)setSeparator:(id)arg1;

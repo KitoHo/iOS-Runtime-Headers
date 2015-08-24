@@ -2,31 +2,29 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class GKFriendsDataSource, GKGame, NSArray, NSMutableDictionary, NSSet, NSString;
-
 @interface GKFriendsSplittingDataSource : GKSplittingDataSource {
     NSString *_achievementID;
     GKGame *_game;
     NSSet *_hiddenPlayers;
     NSString *_leaderboardID;
-    long long _maxSelectable;
+    int _maxSelectable;
     NSMutableDictionary *_pickerInfos;
 }
 
-@property(retain) NSString * achievementID;
-@property(retain) GKFriendsDataSource * friendsDataSource;
-@property(retain) GKGame * game;
-@property(retain) NSSet * hiddenPlayers;
-@property(retain) NSString * leaderboardID;
-@property long long maxSelectable;
-@property(retain) NSMutableDictionary * pickerInfos;
-@property(retain) NSArray * selectedPlayers;
+@property (nonatomic, retain) NSString *achievementID;
+@property (nonatomic, retain) GKFriendsDataSource *friendsDataSource;
+@property (nonatomic, retain) GKGame *game;
+@property (nonatomic, retain) NSSet *hiddenPlayers;
+@property (nonatomic, retain) NSString *leaderboardID;
+@property (nonatomic) int maxSelectable;
+@property (nonatomic, retain) NSMutableDictionary *pickerInfos;
+@property (nonatomic, retain) NSArray *selectedPlayers;
 
-- (bool)_changePickerInfo:(id)arg1 selected:(bool)arg2;
+- (BOOL)_changePickerInfo:(id)arg1 selected:(BOOL)arg2;
 - (id)achievementID;
 - (id)allPickerInfos;
-- (bool)canSelectIndexPath:(id)arg1;
-- (bool)canSelectPlayerInfo:(id)arg1;
+- (BOOL)canSelectIndexPath:(id)arg1;
+- (BOOL)canSelectPlayerInfo:(id)arg1;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (id)collectionView:(id)arg1 forPickerInfo:(id)arg2 forIndexPath:(id)arg3;
 - (void)collectionViewWillBecomeActive:(id)arg1;
@@ -42,7 +40,7 @@
 - (void)loadAchievedWithUpdateNotifier:(id)arg1;
 - (void)loadGamePlayersWithUpdateNotifier:(id)arg1;
 - (void)loadRanksWithUpdateNotifier:(id)arg1;
-- (long long)maxSelectable;
+- (int)maxSelectable;
 - (void)notifyPickerItemsChanged:(id)arg1;
 - (id)pickerInfos;
 - (id)playerInfoForPlayer:(id)arg1;
@@ -53,9 +51,9 @@
 - (void)setGame:(id)arg1;
 - (void)setHiddenPlayers:(id)arg1;
 - (void)setLeaderboardID:(id)arg1;
-- (void)setMaxSelectable:(long long)arg1;
+- (void)setMaxSelectable:(int)arg1;
 - (void)setPickerInfos:(id)arg1;
-- (void)setPlayers:(id)arg1 selected:(bool)arg2 deselectOthers:(bool)arg3;
+- (void)setPlayers:(id)arg1 selected:(BOOL)arg2 deselectOthers:(BOOL)arg3;
 - (void)setSelectedPlayers:(id)arg1;
 - (void)toggleSelectionAtIndexPath:(id)arg1;
 - (void)toggleSelectionForPlayer:(id)arg1;

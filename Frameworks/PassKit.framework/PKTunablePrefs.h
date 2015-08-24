@@ -2,38 +2,36 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class NSMutableDictionary, UIView, UIWindow;
-
 @interface PKTunablePrefs : NSObject {
     NSMutableDictionary *_prefs;
     UIView *_prefsContainerView;
     UIWindow *_window;
 }
 
-@property(retain) NSMutableDictionary * prefs;
-@property(retain) UIView * prefsContainerView;
-@property bool shouldShowUI;
-@property(retain) UIWindow * window;
+@property (retain) NSMutableDictionary *prefs;
+@property (retain) UIView *prefsContainerView;
+@property (nonatomic) BOOL shouldShowUI;
+@property (retain) UIWindow *window;
 
 + (id)sharedPrefs;
 
-- (void)addObserver:(id)arg1 forPref:(id)arg2 handler:(id)arg3;
-- (bool)canShowUI;
+- (void)addObserver:(id)arg1 forPref:(id)arg2 handler:(id /* block */)arg3;
+- (BOOL)canShowUI;
 - (void)dealloc;
 - (void)didChangeOrientation:(id)arg1;
 - (id)init;
 - (void)layoutWindow;
 - (id)prefs;
 - (id)prefsContainerView;
-- (void)registerSliderPref:(id)arg1 default:(double)arg2 minimumValue:(double)arg3 maximumValue:(double)arg4;
-- (void)registerSwitchPref:(id)arg1 default:(bool)arg2;
+- (void)registerSliderPref:(id)arg1 default:(float)arg2 minimumValue:(float)arg3 maximumValue:(float)arg4;
+- (void)registerSwitchPref:(id)arg1 default:(BOOL)arg2;
 - (void)restore:(id)arg1;
 - (void)save:(id)arg1;
 - (void)setPrefs:(id)arg1;
 - (void)setPrefsContainerView:(id)arg1;
-- (void)setShouldShowUI:(bool)arg1;
+- (void)setShouldShowUI:(BOOL)arg1;
 - (void)setWindow:(id)arg1;
-- (bool)shouldShowUI;
+- (BOOL)shouldShowUI;
 - (void)toggleShouldShowUI:(id)arg1;
 - (id)tripleTouchTapRecognizer;
 - (id)valueForPref:(id)arg1;

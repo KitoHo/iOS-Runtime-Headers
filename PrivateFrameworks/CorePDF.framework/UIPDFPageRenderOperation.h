@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/CorePDF.framework/CorePDF
  */
 
-@class UIPDFPageRenderJob;
-
 @interface UIPDFPageRenderOperation : NSOperation {
     UIPDFPageRenderJob *_job;
-    boolexecuting;
-    boolfinished;
+    BOOL executing;
+    BOOL finished;
 }
 
-@property(retain) UIPDFPageRenderJob * job;
+@property (retain) UIPDFPageRenderJob *job;
 
 - (void)completeOperation;
 - (void)dealloc;
 - (id)initWithJob:(id)arg1;
-- (bool)isConcurrent;
-- (bool)isExecuting;
-- (bool)isFinished;
+- (BOOL)isConcurrent;
+- (BOOL)isExecuting;
+- (BOOL)isFinished;
 - (id)job;
 - (void)main;
 - (void)setJob:(id)arg1;

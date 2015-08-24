@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/RadioUI.framework/RadioUI
  */
 
-@interface _RUTermsTextView : UITextView {
-}
+@interface _RUTermsTextView : UITextView
 
-- (bool)canBecomeFirstResponder;
+- (BOOL)canBecomeFirstResponder;
 
 @end

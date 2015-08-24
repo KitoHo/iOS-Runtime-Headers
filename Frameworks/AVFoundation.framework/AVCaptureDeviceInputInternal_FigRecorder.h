@@ -2,13 +2,11 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVCaptureDevice_FigRecorder, NSArray;
-
 @interface AVCaptureDeviceInputInternal_FigRecorder : NSObject {
+    BOOL _authorizedForCamera;
     AVCaptureDevice_FigRecorder *_device;
     NSArray *_ports;
-    bool_authorizedForCamera;
-    bool_ready;
+    BOOL _ready;
 }
 
 @end

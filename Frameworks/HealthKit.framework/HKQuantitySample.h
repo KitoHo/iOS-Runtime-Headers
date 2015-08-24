@@ -2,18 +2,24 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-@class HKQuantity, HKQuantityType;
-
-@interface HKQuantitySample : HKSample {
+@interface HKQuantitySample : HKSample <HDCoding> {
     HKQuantity *_quantity;
 }
 
-@property(readonly) HKQuantity * quantity;
-@property(readonly) HKQuantityType * quantityType;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) HKQuantity *quantity;
+@property (readonly) HKQuantityType *quantityType;
+@property (readonly) Class superclass;
 
-+ (id)quantitySampleWithType:(id)arg1 quantity:(id)arg2 startDate:(id)arg3 endDate:(id)arg4 metadata:(id)arg5;
+// Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
+
++ (BOOL)_isConcreteObjectClass;
++ (id)_quantitySampleWithUUID:(id)arg1 metadata:(id)arg2 sourceBundleIdentifier:(id)arg3 creationDate:(id)arg4 quantityType:(id)arg5 startDate:(id)arg6 endDate:(id)arg7 quantity:(id)arg8;
 + (id)quantitySampleWithType:(id)arg1 quantity:(id)arg2 startDate:(id)arg3 endDate:(id)arg4;
-+ (bool)supportsSecureCoding;
++ (id)quantitySampleWithType:(id)arg1 quantity:(id)arg2 startDate:(id)arg3 endDate:(id)arg4 metadata:(id)arg5;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)_setQuantity:(id)arg1;
@@ -23,5 +29,12 @@
 - (id)initWithCoder:(id)arg1;
 - (id)quantity;
 - (id)quantityType;
+
+// Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
+
++ (id)createWithCodable:(id)arg1;
+
+- (BOOL)addCodableRepresentationToCollection:(id)arg1;
+- (id)codableRepresentationForSync;
 
 @end

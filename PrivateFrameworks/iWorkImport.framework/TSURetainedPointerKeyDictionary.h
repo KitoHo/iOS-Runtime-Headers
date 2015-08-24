@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSURetainedPointerKeyDictionary : TSUNoCopyDictionary {
-}
+@interface TSURetainedPointerKeyDictionary : TSUNoCopyDictionary
 
-- (id)initWithCapacity:(unsigned long long)arg1;
+- (id)initWithCapacity:(unsigned int)arg1;
 
 @end

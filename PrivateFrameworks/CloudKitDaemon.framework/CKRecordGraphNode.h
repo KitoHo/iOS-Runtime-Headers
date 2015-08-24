@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKRecord, NSMutableSet;
-
 @interface CKRecordGraphNode : NSObject {
     NSMutableSet *_edges;
-    long long _indegree;
+    int _indegree;
     CKRecord *_record;
 }
 
-@property(copy) NSMutableSet * edges;
-@property long long indegree;
-@property(retain) CKRecord * record;
+@property (nonatomic, copy) NSMutableSet *edges;
+@property (nonatomic) int indegree;
+@property (nonatomic, retain) CKRecord *record;
 
 - (void).cxx_destruct;
 - (id)CKPropertiesDescription;
 - (id)description;
 - (id)edges;
-- (long long)indegree;
+- (int)indegree;
 - (id)init;
 - (id)record;
 - (void)setEdges:(id)arg1;
-- (void)setIndegree:(long long)arg1;
+- (void)setIndegree:(int)arg1;
 - (void)setRecord:(id)arg1;
 
 @end

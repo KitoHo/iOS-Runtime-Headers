@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/PowerlogLiteOperators.framework/PowerlogLiteOperators
  */
 
-@class NSDictionary, PLNSNotificationOperatorComposition, PLNSTimerOperatorComposition, PLXPCResponderOperatorComposition;
-
 @interface PLBLDService : PLService {
     double _appBreakdownThresholdPercent;
     PLNSNotificationOperatorComposition *_dailyTaskNotification;
@@ -13,12 +11,12 @@
     PLXPCResponderOperatorComposition *_xpcResponderUIBatteryForModels;
 }
 
-@property(readonly) double appBreakdownThresholdPercent;
-@property(retain) PLNSNotificationOperatorComposition * dailyTaskNotification;
-@property(readonly) NSDictionary * nonAppBundleIDsWhitelist;
-@property(retain) PLNSTimerOperatorComposition * runLoggingTimer;
-@property(retain) PLXPCResponderOperatorComposition * xpcResponderUIBattery;
-@property(retain) PLXPCResponderOperatorComposition * xpcResponderUIBatteryForModels;
+@property (readonly) double appBreakdownThresholdPercent;
+@property (retain) PLNSNotificationOperatorComposition *dailyTaskNotification;
+@property (readonly) NSDictionary *nonAppBundleIDsWhitelist;
+@property (retain) PLNSTimerOperatorComposition *runLoggingTimer;
+@property (retain) PLXPCResponderOperatorComposition *xpcResponderUIBattery;
+@property (retain) PLXPCResponderOperatorComposition *xpcResponderUIBatteryForModels;
 
 + (id)defaults;
 + (id)entryEventPointBUILogging;
@@ -30,6 +28,7 @@
 - (id)UIQueryResponse:(id)arg1;
 - (id)UIQueryResponseForModels:(id)arg1;
 - (void)addToDaemonTransformation:(id)arg1 withPluginEntry:(id)arg2;
+- (void)addToDaemonTransformationForGizmo:(id)arg1;
 - (id)aggregateResult:(id)arg1 withBucketLength:(double)arg2 inTimeIntervalRange:(struct _PLTimeIntervalRange { double x1; double x2; })arg3 queryType:(int)arg4 withValidBundle:(id)arg5 withDeletedApps:(id)arg6 withWebApps:(id)arg7 withDaemonTransformation:(id)arg8;
 - (id)aggregateStatsResultWithBucketLength:(double)arg1 inTimeIntervalRange:(struct _PLTimeIntervalRange { double x1; double x2; })arg2;
 - (double)appBreakdownThresholdPercent;
@@ -49,27 +48,27 @@
 - (id)init;
 - (void)initNonAppBundleIDsWhitelist;
 - (void)initOperatorDependancies;
-- (bool)isALSON;
-- (bool)isStringAValidBundleName:(id)arg1;
-- (bool)isStringAValidName:(id)arg1;
+- (BOOL)isALSON;
+- (BOOL)isStringAValidBundleName:(id)arg1;
+- (BOOL)isStringAValidName:(id)arg1;
 - (void)logEventPointBUI;
-- (void)logEventPointBUIForBLDRetail:(bool)arg1;
-- (void)logEventPointBUIWithUIData:(id)arg1 forBLDRetailData:(bool)arg2;
+- (void)logEventPointBUIForBLDRetail:(BOOL)arg1;
+- (void)logEventPointBUIWithUIData:(id)arg1 forBLDRetailData:(BOOL)arg2;
 - (id)nonAppBundleIDsWhitelist;
 - (void)qualifierTesting;
-- (bool)qualifierThresholdPass:(id)arg1 withQualifierRules:(id)arg2 forQualifierEntryKey:(id)arg3;
+- (BOOL)qualifierThresholdPass:(id)arg1 withQualifierRules:(id)arg2 forQualifierEntryKey:(id)arg3;
 - (id)reaccountExchangeEntries:(id)arg1;
 - (id)recommendSetting:(double)arg1 inTimeIntervalRange:(struct _PLTimeIntervalRange { double x1; double x2; })arg2;
 - (id)reviseAppEnergyBreakdown:(id)arg1 withSumOfEnergyPercent:(int)arg2;
 - (id)runLoggingTimer;
 - (id)screenLock:(id)arg1;
 - (void)setDailyTaskNotification:(id)arg1;
-- (bool)setQualifier:(int)arg1 onBundle:(id)arg2;
+- (BOOL)setQualifier:(int)arg1 onBundle:(id)arg2;
 - (void)setQualifiersForAppArray:(id)arg1 withTotalEnergy:(double)arg2;
 - (void)setRunLoggingTimer:(id)arg1;
 - (void)setXpcResponderUIBattery:(id)arg1;
 - (void)setXpcResponderUIBatteryForModels:(id)arg1;
-- (bool)shouldAppBeDisplayed:(int)arg1 forQuery:(int)arg2;
+- (BOOL)shouldAppBeDisplayed:(int)arg1 forQuery:(int)arg2;
 - (void)storeBLDRetailResponse:(struct _PLTimeIntervalRange { double x1; double x2; })arg1 withArgs:(id)arg2 withKey:(id)arg3 withValidBundle:(id)arg4 withDeletedApps:(id)arg5 withWebApps:(id)arg6 withDaemonTransformation:(id)arg7;
 - (double)totalEnergyReturned:(id)arg1;
 - (void)trimQualifiers:(id)arg1 combineOne:(id)arg2 combineTwo:(id)arg3 combineInto:(id)arg4;

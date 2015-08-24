@@ -2,26 +2,24 @@
    Image: /System/Library/Frameworks/NewsstandKit.framework/NewsstandKit
  */
 
-@class NKLibrary, NSArray, NSDate, NSMapTable, NSMutableArray, NSMutableSet, NSString, NSURL;
-
 @interface NKIssue : NSObject {
     NSMutableArray *_assets;
     NSMapTable *_assetsByRequest;
     NSDate *_date;
     NSString *_directory;
+    BOOL _foundContent;
+    BOOL _isDecodingValid;
     NKLibrary *_library;
     NSString *_name;
     NSMutableSet *_resolvedAssets;
-    bool_foundContent;
-    bool_isDecodingValid;
 }
 
-@property(copy,readonly) NSURL * contentURL;
-@property(copy) NSDate * date;
-@property(copy) NSString * directory;
-@property(copy,readonly) NSArray * downloadingAssets;
-@property(copy) NSString * name;
-@property(readonly) long long status;
+@property (readonly, copy) NSURL *contentURL;
+@property (copy) NSDate *date;
+@property (copy) NSString *directory;
+@property (readonly, copy) NSArray *downloadingAssets;
+@property (copy) NSString *name;
+@property (readonly) int status;
 
 - (void)_assetChanged:(id)arg1;
 - (id)_assetsForRequest:(id)arg1;
@@ -29,7 +27,7 @@
 - (id)_commonInit;
 - (id)_directory;
 - (id)_initWithName:(id)arg1 date:(id)arg2 directory:(id)arg3;
-- (bool)_isDecodingValid;
+- (BOOL)_isDecodingValid;
 - (id)_library;
 - (void)_markAssetAsResolved:(id)arg1;
 - (void)_setLibrary:(id)arg1;
@@ -47,6 +45,6 @@
 - (void)setDate:(id)arg1;
 - (void)setDirectory:(id)arg1;
 - (void)setName:(id)arg1;
-- (long long)status;
+- (int)status;
 
 @end

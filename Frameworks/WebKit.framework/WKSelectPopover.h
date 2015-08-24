@@ -2,14 +2,9 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-@class WKContentView;
-
 @interface WKSelectPopover : WKFormRotatingAccessoryPopover <WKFormControl> {
     struct RetainPtr<WKSelectTableViewController> { 
         void *m_ptr; 
-    struct RetainPtr<UIKeyboard> { 
-        void *m_ptr; 
-    } _keyboard;
     } _tableViewController;
     WKContentView *_view;
 }
@@ -21,6 +16,6 @@
 - (void)controlEndEditing;
 - (id)controlView;
 - (void)dealloc;
-- (id)initWithView:(id)arg1 hasGroups:(bool)arg2;
+- (id)initWithView:(id)arg1 hasGroups:(BOOL)arg2;
 
 @end

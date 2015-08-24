@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIView;
-
 @interface UIToolbarButtonBadge : UIView {
     UIView *_alternate;
     UIView *_background;
@@ -11,10 +9,10 @@
 }
 
 - (void)dealloc;
-- (id)initWithValue:(id)arg1 blinks:(bool)arg2;
+- (id)initWithValue:(id)arg1 blinks:(BOOL)arg2;
 - (void)layoutSubviews;
-- (void)setBlinks:(bool)arg1;
+- (void)setBlinks:(BOOL)arg1;
 - (void)setValue:(id)arg1;
-- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
+- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
 
 @end

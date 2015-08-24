@@ -2,34 +2,32 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UISpringBoardHostedView, UIView;
-
 @interface UIRemoteSheetInfo : NSObject {
     void *_context;
     id _delegate;
     UISpringBoardHostedView *_remoteView;
-    long long _returnCode;
+    int _returnCode;
     SEL _selector;
     UIView *_sheetView;
 }
 
-@property void* context;
-@property id delegate;
-@property(retain) UISpringBoardHostedView * remoteView;
-@property long long returnCode;
-@property SEL selector;
-@property(retain) UIView * sheetView;
+@property (nonatomic) void*context;
+@property (nonatomic) id delegate;
+@property (nonatomic, retain) UISpringBoardHostedView *remoteView;
+@property (nonatomic) int returnCode;
+@property (nonatomic) SEL selector;
+@property (nonatomic, retain) UIView *sheetView;
 
 - (void*)context;
 - (void)dealloc;
 - (id)delegate;
 - (id)remoteView;
-- (long long)returnCode;
+- (int)returnCode;
 - (SEL)selector;
 - (void)setContext:(void*)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setRemoteView:(id)arg1;
-- (void)setReturnCode:(long long)arg1;
+- (void)setReturnCode:(int)arg1;
 - (void)setSelector:(SEL)arg1;
 - (void)setSheetView:(id)arg1;
 - (id)sheetView;

@@ -2,41 +2,35 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSString, UIPopoverController, UIViewController;
-
 @interface _UITextServiceSession : NSObject <UIPopoverControllerDelegate> {
-    id _dismissedHandler;
+    BOOL _dismissed;
+    id /* block */ _dismissedHandler;
+    BOOL _isTextEffectsWindow;
     UIViewController *_modalViewController;
     UIPopoverController *_popoverController;
-    long long _type;
-    bool_dismissed;
-    bool_isTextEffectsWindow;
+    int _type;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(copy) id dismissedHandler;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, copy) id /* block */ dismissedHandler;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-+ (bool)canShowTextServices;
-+ (id)showServiceForText:(id)arg1 type:(long long)arg2 fromRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg3 inView:(id)arg4;
-+ (id)textServiceSessionForType:(long long)arg1;
++ (BOOL)canShowTextServices;
++ (id)showServiceForText:(id)arg1 type:(int)arg2 fromRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg3 inView:(id)arg4;
++ (id)textServiceSessionForType:(int)arg1;
 
 - (void)_endSession;
 - (void)dealloc;
-- (void)dismissTextServiceAnimated:(bool)arg1;
-- (id)dismissedHandler;
+- (void)dismissTextServiceAnimated:(BOOL)arg1;
+- (id /* block */)dismissedHandler;
 - (id)init;
-- (id)initWithType:(long long)arg1;
-- (bool)isDisplaying;
+- (id)initWithType:(int)arg1;
+- (BOOL)isDisplaying;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
 - (void)sessionDidDismiss;
-- (void)setDismissedHandler:(id)arg1;
-- (long long)type;
+- (void)setDismissedHandler:(id /* block */)arg1;
+- (int)type;
 
 @end

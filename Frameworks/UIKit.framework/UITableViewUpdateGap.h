@@ -2,27 +2,25 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSArray, NSMutableArray, UIUpdateItem;
-
 @interface UITableViewUpdateGap : NSObject {
-    struct { 
-        unsigned int hasAutomaticAnimationItems : 1; 
     NSMutableArray *_deleteItems;
     UIUpdateItem *_firstUpdateItem;
+    struct { 
+        unsigned int hasAutomaticAnimationItems : 1; 
     } _gapFlags;
     NSMutableArray *_insertItems;
     UIUpdateItem *_lastUpdateItem;
 }
 
-@property(readonly) NSArray * deleteItems;
-@property(retain) UIUpdateItem * firstUpdateItem;
-@property(readonly) bool hasAutomaticAnimationItems;
-@property(readonly) bool hasInserts;
-@property(readonly) NSArray * insertItems;
-@property(readonly) bool isDeleteBasedGap;
-@property(readonly) bool isSectionBasedGap;
-@property(retain) UIUpdateItem * lastUpdateItem;
-@property(readonly) NSArray * updateItems;
+@property (nonatomic, readonly) NSArray *deleteItems;
+@property (nonatomic, retain) UIUpdateItem *firstUpdateItem;
+@property (nonatomic, readonly) BOOL hasAutomaticAnimationItems;
+@property (nonatomic, readonly) BOOL hasInserts;
+@property (nonatomic, readonly) NSArray *insertItems;
+@property (nonatomic, readonly) BOOL isDeleteBasedGap;
+@property (nonatomic, readonly) BOOL isSectionBasedGap;
+@property (nonatomic, retain) UIUpdateItem *lastUpdateItem;
+@property (nonatomic, readonly) NSArray *updateItems;
 
 + (id)gapWithUpdateItem:(id)arg1;
 
@@ -31,12 +29,12 @@
 - (id)deleteItems;
 - (id)description;
 - (id)firstUpdateItem;
-- (bool)hasAutomaticAnimationItems;
-- (bool)hasInserts;
+- (BOOL)hasAutomaticAnimationItems;
+- (BOOL)hasInserts;
 - (id)init;
 - (id)insertItems;
-- (bool)isDeleteBasedGap;
-- (bool)isSectionBasedGap;
+- (BOOL)isDeleteBasedGap;
+- (BOOL)isSectionBasedGap;
 - (id)lastUpdateItem;
 - (void)setFirstUpdateItem:(id)arg1;
 - (void)setLastUpdateItem:(id)arg1;

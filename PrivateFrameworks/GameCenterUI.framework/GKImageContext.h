@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-@class UIImage;
-
 @interface GKImageContext : NSObject {
-    struct CGSize { 
-        double width; 
-        double height; 
     struct CGContext { } *_CGContext;
-    double _scale;
+    float _scale;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _size;
 }
 
-@property(readonly) struct CGContext { }* CGContext;
-@property(readonly) UIImage * image;
-@property(readonly) double scale;
-@property struct CGSize { double x1; double x2; } size;
+@property (nonatomic, readonly) struct CGContext { }*CGContext;
+@property (nonatomic, readonly) UIImage *image;
+@property (nonatomic, readonly) float scale;
+@property (nonatomic) struct CGSize { float x1; float x2; } size;
 
-+ (id)drawWithSize:(struct CGSize { double x1; double x2; })arg1 scale:(double)arg2 options:(unsigned int)arg3 usingBlock:(id)arg4;
++ (id)drawWithSize:(struct CGSize { float x1; float x2; })arg1 scale:(float)arg2 options:(unsigned int)arg3 usingBlock:(id /* block */)arg4;
 + (id)imageFromRawPixelsAtURL:(id)arg1;
 
 - (struct CGContext { }*)CGContext;
 - (void)dealloc;
 - (id)image;
-- (id)initWithSize:(struct CGSize { double x1; double x2; })arg1 scale:(double)arg2 options:(unsigned int)arg3 data:(void*)arg4;
-- (id)initWithSize:(struct CGSize { double x1; double x2; })arg1 scale:(double)arg2 options:(unsigned int)arg3;
-- (double)scale;
-- (void)setSize:(struct CGSize { double x1; double x2; })arg1;
-- (struct CGSize { double x1; double x2; })size;
-- (bool)writeRawPixelsToURL:(id)arg1 error:(id*)arg2;
+- (id)initWithSize:(struct CGSize { float x1; float x2; })arg1 scale:(float)arg2 options:(unsigned int)arg3;
+- (id)initWithSize:(struct CGSize { float x1; float x2; })arg1 scale:(float)arg2 options:(unsigned int)arg3 data:(void*)arg4;
+- (float)scale;
+- (void)setSize:(struct CGSize { float x1; float x2; })arg1;
+- (struct CGSize { float x1; float x2; })size;
+- (BOOL)writeRawPixelsToURL:(id)arg1 error:(id*)arg2;
 
 @end

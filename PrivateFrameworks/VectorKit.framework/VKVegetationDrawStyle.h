@@ -2,15 +2,14 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@interface VKVegetationDrawStyle : VKRenderStyle {
-}
+@interface VKVegetationDrawStyle : VKRenderStyle
 
-@property(readonly) float brightness;
-@property(readonly) bool visible;
+@property (nonatomic, readonly) float brightness;
+@property (nonatomic, readonly) BOOL visible;
 
 + (int)renderStyleID;
 
 - (float)brightness;
-- (bool)visible;
+- (BOOL)visible;
 
 @end

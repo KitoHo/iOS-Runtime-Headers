@@ -2,8 +2,6 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSData;
-
 @interface AWDWifiMetricWiFiTetheredDeviceOUI : PBCodable <NSCopying> {
     struct { 
         unsigned int timestamp : 1; 
@@ -12,23 +10,23 @@
     unsigned long long _timestamp;
 }
 
-@property(readonly) bool hasTetheredOUI;
-@property bool hasTimestamp;
-@property(retain) NSData * tetheredOUI;
-@property unsigned long long timestamp;
+@property (nonatomic, readonly) BOOL hasTetheredOUI;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic, retain) NSData *tetheredOUI;
+@property (nonatomic) unsigned long long timestamp;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasTetheredOUI;
-- (bool)hasTimestamp;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasTetheredOUI;
+- (BOOL)hasTimestamp;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
-- (void)setHasTimestamp:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
 - (void)setTetheredOUI:(id)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;
 - (id)tetheredOUI;

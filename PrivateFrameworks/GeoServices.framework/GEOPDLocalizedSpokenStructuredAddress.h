@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOStructuredAddress, NSString;
-
 @interface GEOPDLocalizedSpokenStructuredAddress : PBCodable <NSCopying> {
     NSString *_locale;
     GEOStructuredAddress *_spokenStructuredAddress;
 }
 
-@property(readonly) bool hasLocale;
-@property(readonly) bool hasSpokenStructuredAddress;
-@property(retain) NSString * locale;
-@property(retain) GEOStructuredAddress * spokenStructuredAddress;
+@property (nonatomic, readonly) BOOL hasLocale;
+@property (nonatomic, readonly) BOOL hasSpokenStructuredAddress;
+@property (nonatomic, retain) NSString *locale;
+@property (nonatomic, retain) GEOStructuredAddress *spokenStructuredAddress;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasLocale;
-- (bool)hasSpokenStructuredAddress;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasLocale;
+- (BOOL)hasSpokenStructuredAddress;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)locale;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setLocale:(id)arg1;
 - (void)setSpokenStructuredAddress:(id)arg1;
 - (id)spokenStructuredAddress;

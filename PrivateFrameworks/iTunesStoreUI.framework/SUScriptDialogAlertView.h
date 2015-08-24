@@ -2,17 +2,14 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSString;
+@interface SUScriptDialogAlertView : UIAlertView <SUScriptNativeObject>
 
-@interface SUScriptDialogAlertView : UIAlertView <SUScriptNativeObject> {
-}
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
-
-- (bool)clearsWeakScriptReferences;
+- (BOOL)clearsWeakScriptReferences;
 - (void)dealloc;
 
 @end

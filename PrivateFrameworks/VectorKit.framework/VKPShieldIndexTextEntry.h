@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class NSMutableArray, NSString;
-
 @interface VKPShieldIndexTextEntry : PBCodable <NSCopying> {
+    NSString *_artworkIdentifier;
     struct { 
         unsigned int shieldType : 1; 
-    NSString *_artworkIdentifier;
     } _has;
     NSMutableArray *_shieldTexts;
     int _shieldType;
 }
 
-@property(retain) NSString * artworkIdentifier;
-@property(readonly) bool hasArtworkIdentifier;
-@property bool hasShieldType;
-@property(retain) NSMutableArray * shieldTexts;
-@property int shieldType;
+@property (nonatomic, retain) NSString *artworkIdentifier;
+@property (nonatomic, readonly) BOOL hasArtworkIdentifier;
+@property (nonatomic) BOOL hasShieldType;
+@property (nonatomic, retain) NSMutableArray *shieldTexts;
+@property (nonatomic) int shieldType;
 
 - (void)addShieldText:(id)arg1;
 - (id)artworkIdentifier;
@@ -27,19 +25,19 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasArtworkIdentifier;
-- (bool)hasShieldType;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasArtworkIdentifier;
+- (BOOL)hasShieldType;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setArtworkIdentifier:(id)arg1;
-- (void)setHasShieldType:(bool)arg1;
+- (void)setHasShieldType:(BOOL)arg1;
 - (void)setShieldTexts:(id)arg1;
 - (void)setShieldType:(int)arg1;
-- (id)shieldTextAtIndex:(unsigned long long)arg1;
+- (id)shieldTextAtIndex:(unsigned int)arg1;
 - (id)shieldTexts;
-- (unsigned long long)shieldTextsCount;
+- (unsigned int)shieldTextsCount;
 - (int)shieldType;
 - (void)writeTo:(id)arg1;
 

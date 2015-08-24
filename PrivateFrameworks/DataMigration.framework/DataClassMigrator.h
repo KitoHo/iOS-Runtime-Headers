@@ -2,34 +2,32 @@
    Image: /System/Library/PrivateFrameworks/DataMigration.framework/DataMigration
  */
 
-@class NSDictionary;
-
 @interface DataClassMigrator : NSObject {
     NSDictionary *_context;
-    bool_didUpgrade;
+    BOOL _didUpgrade;
 }
 
-@property(retain) NSDictionary * context;
-@property(readonly) bool didMigrateBackupFromDifferentDevice;
-@property(readonly) bool didRestoreFromBackup;
-@property(readonly) bool didRestoreFromCloudBackup;
-@property bool didUpgrade;
-@property(readonly) bool shouldPreserveSettingsAfterRestore;
-@property(readonly) bool wasPasscodeSetInBackup;
+@property (nonatomic, retain) NSDictionary *context;
+@property (nonatomic, readonly) BOOL didMigrateBackupFromDifferentDevice;
+@property (nonatomic, readonly) BOOL didRestoreFromBackup;
+@property (nonatomic, readonly) BOOL didRestoreFromCloudBackup;
+@property (nonatomic) BOOL didUpgrade;
+@property (nonatomic, readonly) BOOL shouldPreserveSettingsAfterRestore;
+@property (nonatomic, readonly) BOOL wasPasscodeSetInBackup;
 
 - (void).cxx_destruct;
 - (id)context;
 - (id)dataClassName;
-- (bool)didMigrateBackupFromDifferentDevice;
-- (bool)didRestoreFromBackup;
-- (bool)didRestoreFromCloudBackup;
-- (bool)didUpgrade;
+- (BOOL)didMigrateBackupFromDifferentDevice;
+- (BOOL)didRestoreFromBackup;
+- (BOOL)didRestoreFromCloudBackup;
+- (BOOL)didUpgrade;
 - (float)estimatedDuration;
 - (float)migrationProgress;
-- (bool)performMigration;
+- (BOOL)performMigration;
 - (void)setContext:(id)arg1;
-- (void)setDidUpgrade:(bool)arg1;
-- (bool)shouldPreserveSettingsAfterRestore;
-- (bool)wasPasscodeSetInBackup;
+- (void)setDidUpgrade:(BOOL)arg1;
+- (BOOL)shouldPreserveSettingsAfterRestore;
+- (BOOL)wasPasscodeSetInBackup;
 
 @end

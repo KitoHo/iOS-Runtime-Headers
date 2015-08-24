@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSMutableArray;
-
 @interface TSUPerformanceTestHarness : NSObject {
+    BOOL mPassed;
+    int mPassingTests;
+    BOOL mQuiet;
     struct timeval { 
-        long long tv_sec; 
+        int tv_sec; 
         int tv_usec; 
-    boolmPassed;
-    boolmQuiet;
-    long long mPassingTests;
     } mSetupTime;
     NSMutableArray *mTestCases;
-    long long mTotalTests;
+    int mTotalTests;
 }
 
-@property(readonly) bool passed;
-@property(readonly) long long passingTestCount;
-@property bool quiet;
-@property(readonly) long long testCount;
+@property (nonatomic, readonly) BOOL passed;
+@property (nonatomic, readonly) int passingTestCount;
+@property (nonatomic) BOOL quiet;
+@property (nonatomic, readonly) int testCount;
 
 + (id)harness;
 
@@ -30,16 +28,16 @@
 - (void)p_writeConsoleMessagesToDirectory:(id)arg1;
 - (void)p_writeCsvResultsToDirectory:(id)arg1;
 - (void)p_writeSystemConfigurationToDirectory:(id)arg1;
-- (bool)passed;
-- (long long)passingTestCount;
-- (bool)quiet;
+- (BOOL)passed;
+- (int)passingTestCount;
+- (BOOL)quiet;
 - (void)report;
-- (void)runTestWithName:(id)arg1 selector:(SEL)arg2 goalTime:(double)arg3 precision:(double)arg4;
 - (void)runTestWithName:(id)arg1 selector:(SEL)arg2 goalTime:(double)arg3;
-- (bool)runTests;
-- (void)setQuiet:(bool)arg1;
+- (void)runTestWithName:(id)arg1 selector:(SEL)arg2 goalTime:(double)arg3 precision:(double)arg4;
+- (BOOL)runTests;
+- (void)setQuiet:(BOOL)arg1;
 - (void)setup;
-- (long long)testCount;
+- (int)testCount;
 - (void)testSuite;
 - (id)testWithName:(id)arg1 selector:(SEL)arg2 goalTime:(double)arg3;
 

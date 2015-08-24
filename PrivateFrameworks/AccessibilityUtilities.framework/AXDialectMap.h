@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities
  */
 
-@class AXLangMap, AXLanguageManager, NSCharacterSet, NSLocale, NSString;
-
 @interface AXDialectMap : NSObject {
     AXLangMap *_langMap;
     NSLocale *_locale;
@@ -13,29 +11,29 @@
     NSString *_voiceName;
 }
 
-@property(readonly) AXLanguageManager * langManager;
-@property AXLangMap * langMap;
-@property(readonly) NSString * languageNameAndLocaleInCurrentLocale;
-@property(readonly) NSString * languageNameAndLocaleInNativeLocale;
-@property(readonly) NSString * languageNameInCurrentLocale;
-@property(readonly) NSString * languageNameInNativeLocale;
-@property(retain) NSLocale * locale;
-@property(readonly) NSString * localeNameInCurrentLocale;
-@property(readonly) NSString * regionID;
-@property(retain) NSCharacterSet * secondaryLanguageRange;
-@property(retain) NSCharacterSet * speakableCharacters;
-@property(copy) NSString * specificLanguageID;
-@property(copy) NSString * voiceName;
+@property (nonatomic, readonly) AXLanguageManager *langManager;
+@property (nonatomic) AXLangMap *langMap;
+@property (nonatomic, readonly) NSString *languageNameAndLocaleInCurrentLocale;
+@property (nonatomic, readonly) NSString *languageNameAndLocaleInNativeLocale;
+@property (nonatomic, readonly) NSString *languageNameInCurrentLocale;
+@property (nonatomic, readonly) NSString *languageNameInNativeLocale;
+@property (nonatomic, retain) NSLocale *locale;
+@property (nonatomic, readonly) NSString *localeNameInCurrentLocale;
+@property (nonatomic, readonly) NSString *regionID;
+@property (nonatomic, retain) NSCharacterSet *secondaryLanguageRange;
+@property (nonatomic, retain) NSCharacterSet *speakableCharacters;
+@property (nonatomic, copy) NSString *specificLanguageID;
+@property (nonatomic, copy) NSString *voiceName;
 
 - (id)basicDescription;
-- (bool)canSpeakCharacter:(unsigned short)arg1;
-- (bool)canSpeakLongCharacter:(unsigned int)arg1;
-- (bool)canSpeakString:(id)arg1;
+- (BOOL)canSpeakCharacter:(unsigned short)arg1;
+- (BOOL)canSpeakLongCharacter:(unsigned long)arg1;
+- (BOOL)canSpeakString:(id)arg1;
 - (void)dealloc;
 - (id)debugDescription;
 - (id)description;
 - (id)initWithLocale:(id)arg1 voiceName:(id)arg2 specificLanguageID:(id)arg3 speakableCharacters:(id)arg4 secondaryLanguageRange:(id)arg5;
-- (bool)isDialectSecondaryForCharacter:(unsigned short)arg1;
+- (BOOL)isDialectSecondaryForCharacter:(unsigned short)arg1;
 - (id)langManager;
 - (id)langMap;
 - (id)languageNameAndLocaleInCurrentLocale;

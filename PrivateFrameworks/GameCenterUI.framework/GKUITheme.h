@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-@class GKNetworkImageSource, NSCache, UIImage;
-
 @interface GKUITheme : NSObject {
     NSCache *_resourceCache;
 }
 
-@property(readonly) double formSheetCornerRadius;
-@property(readonly) struct CGSize { double x1; double x2; } formSheetSize;
-@property(retain,readonly) GKNetworkImageSource * iconLeaderboardListSource;
-@property(retain,readonly) GKNetworkImageSource * iconLeaderboardSetListSource;
-@property(retain,readonly) UIImage * interactiveRatingStarsBackground;
-@property(retain,readonly) UIImage * interactiveRatingStarsForeground;
-@property(retain,readonly) GKNetworkImageSource * macGameIconSource;
-@property(retain,readonly) GKNetworkImageSource * photoDetailSource;
-@property(retain,readonly) GKNetworkImageSource * photoListSource;
-@property(retain,readonly) UIImage * ratingStarsBackgroundImage;
-@property(retain,readonly) UIImage * ratingStarsForegroundImage;
-@property(retain) NSCache * resourceCache;
-@property(readonly) GKNetworkImageSource * untreatedAchievementImageSource;
+@property (nonatomic, readonly) float formSheetCornerRadius;
+@property (nonatomic, readonly) struct CGSize { float x1; float x2; } formSheetSize;
+@property (nonatomic, readonly, retain) GKNetworkImageSource *iconLeaderboardListSource;
+@property (nonatomic, readonly, retain) GKNetworkImageSource *iconLeaderboardSetListSource;
+@property (nonatomic, readonly, retain) UIImage *interactiveRatingStarsBackground;
+@property (nonatomic, readonly, retain) UIImage *interactiveRatingStarsForeground;
+@property (nonatomic, readonly, retain) GKNetworkImageSource *macGameIconSource;
+@property (nonatomic, readonly, retain) GKNetworkImageSource *photoDetailSource;
+@property (nonatomic, readonly, retain) GKNetworkImageSource *photoListSource;
+@property (nonatomic, readonly, retain) UIImage *ratingStarsBackgroundImage;
+@property (nonatomic, readonly, retain) UIImage *ratingStarsForegroundImage;
+@property (nonatomic, retain) NSCache *resourceCache;
+@property (nonatomic, readonly) GKNetworkImageSource *untreatedAchievementImageSource;
 
 + (id)sharedTheme;
 
-- (id)_tabBarIconImageNamed:(id)arg1 selectedName:(id)arg2 selected:(bool)arg3;
+- (id)_tabBarIconImageNamed:(id)arg1 selectedName:(id)arg2 selected:(BOOL)arg3;
 - (id)achievementsDefaultIcon;
 - (id)achievementsNotStartedIcon;
 - (id)addPlayerButtonImage;
@@ -46,8 +44,8 @@
 - (id)defaultLeaderboardIcon;
 - (id)defaultPlayerPhoto;
 - (id)eventIconImage;
-- (double)formSheetCornerRadius;
-- (struct CGSize { double x1; double x2; })formSheetSize;
+- (float)formSheetCornerRadius;
+- (struct CGSize { float x1; float x2; })formSheetSize;
 - (id)iconLeaderboardListSource;
 - (id)iconLeaderboardSetListSource;
 - (id)imageNamed:(id)arg1;
@@ -64,15 +62,15 @@
 - (id)ratingStarsForegroundImage;
 - (id)removePlayerButtonImage;
 - (id)resourceCache;
-- (id)resourceForSelector:(SEL)arg1 missingHandler:(id)arg2;
-- (id)resourceWithName:(id)arg1 missingHandler:(id)arg2;
+- (id)resourceForSelector:(SEL)arg1 missingHandler:(id /* block */)arg2;
+- (id)resourceWithName:(id)arg1 missingHandler:(id /* block */)arg2;
 - (void)setResourceCache:(id)arg1;
 - (id)statusDotImage;
-- (id)tabbarIconChallengesSelected:(bool)arg1;
-- (id)tabbarIconFriendsSelected:(bool)arg1;
-- (id)tabbarIconGamesSelected:(bool)arg1;
-- (id)tabbarIconMeSelected:(bool)arg1;
-- (id)tabbarIconTurnsSelected:(bool)arg1;
+- (id)tabbarIconChallengesSelected:(BOOL)arg1;
+- (id)tabbarIconFriendsSelected:(BOOL)arg1;
+- (id)tabbarIconGamesSelected:(BOOL)arg1;
+- (id)tabbarIconMeSelected:(BOOL)arg1;
+- (id)tabbarIconTurnsSelected:(BOOL)arg1;
 - (id)untreatedAchievementImageSource;
 
 @end

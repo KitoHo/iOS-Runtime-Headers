@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSRegularExpression;
-
 @interface TSCERegexMatcher : NSObject {
     NSRegularExpression *mRegex;
 }
@@ -12,6 +10,6 @@
 
 - (void)dealloc;
 - (id)initWithStringToMatch:(id)arg1;
-- (bool)matches:(id)arg1;
+- (BOOL)matches:(id)arg1;
 
 @end

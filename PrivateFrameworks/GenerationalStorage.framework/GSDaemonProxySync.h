@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GenerationalStorage.framework/GenerationalStorage
  */
 
-@class NSError, NSObject<GSProtocol>, NSObject<OS_dispatch_group>;
-
 @interface GSDaemonProxySync : NSProxy <GSProtocol> {
     NSError *_error;
     NSObject<OS_dispatch_group> *_group;
@@ -12,8 +10,8 @@
     id _result;
 }
 
-@property(retain) NSError * error;
-@property(retain) id result;
+@property (nonatomic, retain) NSError *error;
+@property (nonatomic, retain) id result;
 
 + (id)proxy;
 
@@ -21,7 +19,7 @@
 - (id)error;
 - (void)finalize;
 - (void)forwardInvocation:(id)arg1;
-- (void)handleBoolResult:(bool)arg1 error:(id)arg2;
+- (void)handleBoolResult:(BOOL)arg1 error:(id)arg2;
 - (void)handleObjResult:(id)arg1 error:(id)arg2;
 - (id)initWithXPCObject:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;

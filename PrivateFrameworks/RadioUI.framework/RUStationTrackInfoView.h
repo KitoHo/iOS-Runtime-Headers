@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/RadioUI.framework/RadioUI
  */
 
-@class <RUStationTrackInfoViewDelegate>, MPAVItem, NSString, RUTrackDownloadView, UIButton, UIImageView, UILabel, UITapGestureRecognizer, UIViewController;
-
 @interface RUStationTrackInfoView : UIView <RUTrackDownloadViewDelegate> {
     UILabel *_albumLabel;
     UILabel *_artistLabel;
@@ -16,20 +14,20 @@
     RUTrackDownloadView *_trackDownloadView;
 }
 
-@property(setter=setAVItem:,retain) MPAVItem * avItem;
-@property(copy,readonly) NSString * debugDescription;
-@property <RUStationTrackInfoViewDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * stationHash;
-@property long long stationID;
-@property(readonly) Class superclass;
-@property UIViewController * trackDownloadPresentingViewController;
+@property (setter=setAVItem:, nonatomic, retain) MPAVItem *avItem;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <RUStationTrackInfoViewDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSString *stationHash;
+@property (nonatomic) long long stationID;
+@property (readonly) Class superclass;
+@property (nonatomic) UIViewController *trackDownloadPresentingViewController;
 
 + (id)_albumLabelFont;
 + (id)_artistLabelFont;
 + (id)_titleLabelFont;
-+ (double)defaultHeightForTraitCollection:(id)arg1;
++ (float)defaultHeightForTraitCollection:(id)arg1;
 
 - (void).cxx_destruct;
 - (void)_avItemAlbumStoreIDDidChangeNotification:(id)arg1;
@@ -43,7 +41,7 @@
 - (id)avItem;
 - (void)dealloc;
 - (id)delegate;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)layoutSubviews;
 - (void)setAVItem:(id)arg1;
 - (void)setDelegate:(id)arg1;

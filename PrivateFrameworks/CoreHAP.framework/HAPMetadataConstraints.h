@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CoreHAP.framework/CoreHAP
  */
 
-@class NSNumber;
-
 @interface HAPMetadataConstraints : NSObject {
     NSNumber *_maxLength;
     NSNumber *_maximumValue;
@@ -12,15 +10,15 @@
     NSNumber *_stepValue;
 }
 
-@property(retain) NSNumber * maxLength;
-@property(retain) NSNumber * maximumValue;
-@property(retain) NSNumber * minLength;
-@property(retain) NSNumber * minimumValue;
-@property(retain) NSNumber * stepValue;
+@property (nonatomic, retain) NSNumber *maxLength;
+@property (nonatomic, retain) NSNumber *maximumValue;
+@property (nonatomic, retain) NSNumber *minLength;
+@property (nonatomic, retain) NSNumber *minimumValue;
+@property (nonatomic, retain) NSNumber *stepValue;
 
 - (void).cxx_destruct;
 - (id)description;
-- (bool)isEqualToMetadataConstraints:(id)arg1;
+- (BOOL)isEqualToMetadataConstraints:(id)arg1;
 - (id)maxLength;
 - (id)maximumValue;
 - (id)minLength;

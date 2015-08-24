@@ -2,28 +2,15 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class AVAudioSessionMediaPlayerOnly, AVPixelBufferAttributeMediator, AVPlayerItem, AVPropertyStorage, AVWeakKeyValueObserverProxy, AVWeakReference, NSArray, NSDictionary, NSError, NSHashTable, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
-
 @interface AVPlayerInternal : NSObject {
-    struct CGSize { 
-        double width; 
-        double height; 
     AVWeakKeyValueObserverProxy *KVOProxy;
+    BOOL allowsOutOfBandTextTrackRendering;
     AVAudioSessionMediaPlayerOnly *audioSessionMediaPlayerOnly;
+    BOOL autoSwitchStreamVariants;
     NSHashTable *avPlayerLayers;
-    boolallowsOutOfBandTextTrackRendering;
-    boolautoSwitchStreamVariants;
-    boolhadAssociatedOnscreenPlayerLayerWhenSuspended;
-    boolhostApplicationInForeground;
-    booliapdExtendedModeIsActive;
-    boollogPerformanceData;
-    boolneedsToCreateFigPlayer;
-    boolpreparesItemsForPlaybackAsynchronously;
-    boolreevaluateBackgroundPlayback;
+    struct CGSize { 
+        float width; 
+        float height; 
     } cachedDisplaySize;
     NSDictionary *cachedFigMediaSelectionCriteriaProperty;
     NSMutableSet *closedCaptionLayers;
@@ -36,20 +23,27 @@
     struct OpaqueCMClock { } *figMasterClock;
     struct OpaqueFigPlaybackItem { } *figPlaybackItemToIdentifyNextCurrentItem;
     struct OpaqueFigPlayer { } *figPlayer;
+    BOOL hadAssociatedOnscreenPlayerLayerWhenSuspended;
+    BOOL hostApplicationInForeground;
+    BOOL iapdExtendedModeIsActive;
     NSMutableSet *items;
     NSObject<OS_dispatch_queue> *ivarAccessQueue;
     AVPlayerItem *lastItem;
     NSObject<OS_dispatch_queue> *layersQ;
+    BOOL logPerformanceData;
+    BOOL needsToCreateFigPlayer;
     int nextPrerollIDToGenerate;
     NSMutableDictionary *pendingFigPlayerProperties;
     int pendingPrerollID;
     AVPixelBufferAttributeMediator *pixelBufferAttributeMediator;
-    id prerollCompletionHandler;
+    BOOL preparesItemsForPlaybackAsynchronously;
+    id /* block */ prerollCompletionHandler;
     struct OpaqueFigSimpleMutex { } *prerollIDMutex;
     AVPropertyStorage *propertyStorage;
     struct OpaqueCMTimebase { } *proxyTimebase;
+    BOOL reevaluateBackgroundPlayback;
     NSObject<OS_dispatch_queue> *stateDispatchQueue;
-    long long status;
+    int status;
     NSMutableSet *subtitleLayers;
     NSDictionary *vibrationPattern;
     struct __CFDictionary { } *videoLayers;

@@ -2,32 +2,30 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSArray, NSString;
-
-@interface CKNotificationInfo : NSObject <NSSecureCoding, NSCopying> {
+@interface CKNotificationInfo : NSObject <NSCopying, NSSecureCoding> {
     NSString *_alertActionLocalizationKey;
     NSString *_alertBody;
     NSString *_alertLaunchImage;
     NSArray *_alertLocalizationArgs;
     NSString *_alertLocalizationKey;
     NSArray *_desiredKeys;
+    BOOL _shouldBadge;
+    BOOL _shouldSendContentAvailable;
     NSString *_soundName;
-    bool_shouldBadge;
-    bool_shouldSendContentAvailable;
 }
 
-@property(copy) NSString * alertActionLocalizationKey;
-@property(copy) NSString * alertBody;
-@property(copy) NSString * alertLaunchImage;
-@property(copy) NSArray * alertLocalizationArgs;
-@property(copy) NSString * alertLocalizationKey;
-@property(copy) NSArray * desiredKeys;
-@property bool shouldBadge;
-@property bool shouldSendContentAvailable;
-@property(copy) NSString * soundName;
+@property (nonatomic, copy) NSString *alertActionLocalizationKey;
+@property (nonatomic, copy) NSString *alertBody;
+@property (nonatomic, copy) NSString *alertLaunchImage;
+@property (nonatomic, copy) NSArray *alertLocalizationArgs;
+@property (nonatomic, copy) NSString *alertLocalizationKey;
+@property (nonatomic, copy) NSArray *desiredKeys;
+@property (nonatomic) BOOL shouldBadge;
+@property (nonatomic) BOOL shouldSendContentAvailable;
+@property (nonatomic, copy) NSString *soundName;
 
 + (id)notificationInfo;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)alertActionLocalizationKey;
@@ -46,11 +44,11 @@
 - (void)setAlertLocalizationArgs:(id)arg1;
 - (void)setAlertLocalizationKey:(id)arg1;
 - (void)setDesiredKeys:(id)arg1;
-- (void)setShouldBadge:(bool)arg1;
-- (void)setShouldSendContentAvailable:(bool)arg1;
+- (void)setShouldBadge:(BOOL)arg1;
+- (void)setShouldSendContentAvailable:(BOOL)arg1;
 - (void)setSoundName:(id)arg1;
-- (bool)shouldBadge;
-- (bool)shouldSendContentAvailable;
+- (BOOL)shouldBadge;
+- (BOOL)shouldSendContentAvailable;
 - (id)soundName;
 
 @end

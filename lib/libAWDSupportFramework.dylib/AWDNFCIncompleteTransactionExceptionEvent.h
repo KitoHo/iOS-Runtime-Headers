@@ -2,8 +2,6 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSData;
-
 @interface AWDNFCIncompleteTransactionExceptionEvent : PBCodable <NSCopying> {
     struct { 
         unsigned int timestamp : 1; 
@@ -12,23 +10,23 @@
     NSData *_uuidReference;
 }
 
-@property bool hasTimestamp;
-@property(readonly) bool hasUuidReference;
-@property unsigned long long timestamp;
-@property(retain) NSData * uuidReference;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic, readonly) BOOL hasUuidReference;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic, retain) NSData *uuidReference;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasTimestamp;
-- (bool)hasUuidReference;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasTimestamp;
+- (BOOL)hasUuidReference;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
-- (void)setHasTimestamp:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;
 - (void)setUuidReference:(id)arg1;
 - (unsigned long long)timestamp;

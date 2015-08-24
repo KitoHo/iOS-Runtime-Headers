@@ -2,21 +2,15 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class CLLocation, NSArray, NSDate, NSNumber, NSSet, NSString, NSURL;
-
 @interface PLSyncSaveJob : NSObject {
     NSDate *_cleanupBeforeDate;
-    id _finishedBlock;
+    BOOL _cleanupSyncState;
+    id /* block */ _finishedBlock;
     NSSet *albumURIs;
-    bool_cleanupSyncState;
-    boolisSyncComplete;
-    boolisVideo;
     NSDate *creationDate;
     NSArray *facesInfo;
+    BOOL isSyncComplete;
+    BOOL isVideo;
     CLLocation *location;
     NSDate *modificationDate;
     NSURL *originalAssetURL;
@@ -25,46 +19,46 @@
     NSString *uuid;
 }
 
-@property(copy) NSSet * albumURIs;
-@property(copy) NSDate * cleanupBeforeDate;
-@property bool cleanupSyncState;
-@property(copy) NSDate * creationDate;
-@property(retain) NSArray * facesInfo;
-@property(copy) id finishedBlock;
-@property bool isSyncComplete;
-@property bool isVideo;
-@property(copy) CLLocation * location;
-@property(copy) NSDate * modificationDate;
-@property(retain) NSURL * originalAssetURL;
-@property(retain) NSString * originalFileName;
-@property(retain) NSNumber * sortToken;
-@property(copy) NSString * uuid;
+@property (nonatomic, copy) NSSet *albumURIs;
+@property (nonatomic, copy) NSDate *cleanupBeforeDate;
+@property (nonatomic) BOOL cleanupSyncState;
+@property (nonatomic, copy) NSDate *creationDate;
+@property (nonatomic, retain) NSArray *facesInfo;
+@property (nonatomic, copy) id /* block */ finishedBlock;
+@property (nonatomic) BOOL isSyncComplete;
+@property (nonatomic) BOOL isVideo;
+@property (nonatomic, copy) CLLocation *location;
+@property (nonatomic, copy) NSDate *modificationDate;
+@property (nonatomic, retain) NSURL *originalAssetURL;
+@property (nonatomic, retain) NSString *originalFileName;
+@property (nonatomic, retain) NSNumber *sortToken;
+@property (nonatomic, copy) NSString *uuid;
 
 - (id)albumURIs;
 - (id)cleanupBeforeDate;
-- (bool)cleanupSyncState;
+- (BOOL)cleanupSyncState;
 - (id)creationDate;
 - (void)dealloc;
 - (id)description;
 - (id)facesInfo;
-- (id)finishedBlock;
+- (id /* block */)finishedBlock;
 - (id)initFromSerializedData:(id)arg1;
-- (bool)isSyncComplete;
-- (bool)isVideo;
+- (BOOL)isSyncComplete;
+- (BOOL)isVideo;
 - (id)location;
 - (id)modificationDate;
 - (id)originalAssetURL;
 - (id)originalFileName;
-- (void)processFacesWithBlock:(id)arg1;
+- (void)processFacesWithBlock:(id /* block */)arg1;
 - (id)serializedData;
 - (void)setAlbumURIs:(id)arg1;
 - (void)setCleanupBeforeDate:(id)arg1;
-- (void)setCleanupSyncState:(bool)arg1;
+- (void)setCleanupSyncState:(BOOL)arg1;
 - (void)setCreationDate:(id)arg1;
 - (void)setFacesInfo:(id)arg1;
-- (void)setFinishedBlock:(id)arg1;
-- (void)setIsSyncComplete:(bool)arg1;
-- (void)setIsVideo:(bool)arg1;
+- (void)setFinishedBlock:(id /* block */)arg1;
+- (void)setIsSyncComplete:(BOOL)arg1;
+- (void)setIsVideo:(BOOL)arg1;
 - (void)setLocation:(id)arg1;
 - (void)setModificationDate:(id)arg1;
 - (void)setOriginalAssetURL:(id)arg1;

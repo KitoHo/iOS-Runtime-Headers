@@ -2,9 +2,10 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOLatLng;
-
 @interface GEOLocation : PBCodable <NSCopying> {
+    int _altitude;
+    double _course;
+    double _courseAccuracy;
     struct { 
         unsigned int course : 1; 
         unsigned int courseAccuracy : 1; 
@@ -18,53 +19,49 @@
         unsigned int type : 1; 
         unsigned int isMatchedLocation : 1; 
         unsigned int isShifted : 1; 
-    int _altitude;
-    double _course;
-    double _courseAccuracy;
     } _has;
     double _heading;
     double _horizontalAccuracy;
+    BOOL _isMatchedLocation;
+    BOOL _isShifted;
     GEOLatLng *_latLng;
     double _speed;
     double _speedAccuracy;
     double _timestamp;
     int _type;
     double _verticalAccuracy;
-    bool_isMatchedLocation;
-    bool_isShifted;
 }
 
-@property int altitude;
-@property(readonly) struct { double x1; double x2; } coordinate;
-@property double course;
-@property double courseAccuracy;
-@property(readonly) bool hasAccurateCourse;
-@property bool hasAltitude;
-@property bool hasCourse;
-@property bool hasCourseAccuracy;
-@property bool hasHeading;
-@property bool hasHorizontalAccuracy;
-@property bool hasIsMatchedLocation;
-@property bool hasIsShifted;
-@property bool hasSpeed;
-@property bool hasSpeedAccuracy;
-@property bool hasTimestamp;
-@property bool hasType;
-@property bool hasVerticalAccuracy;
-@property double heading;
-@property double horizontalAccuracy;
-@property bool isMatchedLocation;
-@property bool isShifted;
-@property(retain) GEOLatLng * latLng;
-@property double speed;
-@property double speedAccuracy;
-@property double timestamp;
-@property int type;
-@property double verticalAccuracy;
+@property (nonatomic) int altitude;
+@property (nonatomic, readonly) struct { double x1; double x2; } coordinate;
+@property (nonatomic) double course;
+@property (nonatomic) double courseAccuracy;
+@property (nonatomic, readonly) BOOL hasAccurateCourse;
+@property (nonatomic) BOOL hasAltitude;
+@property (nonatomic) BOOL hasCourse;
+@property (nonatomic) BOOL hasCourseAccuracy;
+@property (nonatomic) BOOL hasHeading;
+@property (nonatomic) BOOL hasHorizontalAccuracy;
+@property (nonatomic) BOOL hasIsMatchedLocation;
+@property (nonatomic) BOOL hasIsShifted;
+@property (nonatomic) BOOL hasSpeed;
+@property (nonatomic) BOOL hasSpeedAccuracy;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) BOOL hasType;
+@property (nonatomic) BOOL hasVerticalAccuracy;
+@property (nonatomic) double heading;
+@property (nonatomic) double horizontalAccuracy;
+@property (nonatomic) BOOL isMatchedLocation;
+@property (nonatomic) BOOL isShifted;
+@property (nonatomic, retain) GEOLatLng *latLng;
+@property (nonatomic) double speed;
+@property (nonatomic) double speedAccuracy;
+@property (nonatomic) double timestamp;
+@property (nonatomic) int type;
+@property (nonatomic) double verticalAccuracy;
 
-+ (id)locationWithCLLocation:(id)arg1 course:(double)arg2;
+// Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
 
-- (id)_initWithCLClientLocation:(const struct { int x1; struct { double x_2_1_1; double x_2_1_2; } x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; int x11; double x12; int x13; struct { double x_14_1_1; double x_14_1_2; } x14; double x15; int x16; }*)arg1;
 - (int)altitude;
 - (struct { double x1; double x2; })coordinate;
 - (void)copyTo:(id)arg1;
@@ -74,54 +71,50 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasAccurateCourse;
-- (bool)hasAltitude;
-- (bool)hasCourse;
-- (bool)hasCourseAccuracy;
-- (bool)hasHeading;
-- (bool)hasHorizontalAccuracy;
-- (bool)hasIsMatchedLocation;
-- (bool)hasIsShifted;
-- (bool)hasSpeed;
-- (bool)hasSpeedAccuracy;
-- (bool)hasTimestamp;
-- (bool)hasType;
-- (bool)hasVerticalAccuracy;
-- (unsigned long long)hash;
+- (BOOL)hasAccurateCourse;
+- (BOOL)hasAltitude;
+- (BOOL)hasCourse;
+- (BOOL)hasCourseAccuracy;
+- (BOOL)hasHeading;
+- (BOOL)hasHorizontalAccuracy;
+- (BOOL)hasIsMatchedLocation;
+- (BOOL)hasIsShifted;
+- (BOOL)hasSpeed;
+- (BOOL)hasSpeedAccuracy;
+- (BOOL)hasTimestamp;
+- (BOOL)hasType;
+- (BOOL)hasVerticalAccuracy;
+- (unsigned int)hash;
 - (double)heading;
 - (double)horizontalAccuracy;
-- (id)initWithCLLocation:(id)arg1 course:(double)arg2;
-- (id)initWithCLLocation:(id)arg1 useMatchInfo:(bool)arg2;
-- (id)initWithCLLocation:(id)arg1;
-- (id)initWithCoreLocation:(id)arg1;
 - (id)initWithGEOCoordinate:(struct { double x1; double x2; })arg1;
 - (id)initWithLatitude:(double)arg1 longitude:(double)arg2;
 - (id)initWithLocation:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)isMatchedLocation;
-- (bool)isShifted;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isMatchedLocation;
+- (BOOL)isShifted;
 - (id)latLng;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setAltitude:(int)arg1;
 - (void)setCourse:(double)arg1;
 - (void)setCourseAccuracy:(double)arg1;
-- (void)setHasAltitude:(bool)arg1;
-- (void)setHasCourse:(bool)arg1;
-- (void)setHasCourseAccuracy:(bool)arg1;
-- (void)setHasHeading:(bool)arg1;
-- (void)setHasHorizontalAccuracy:(bool)arg1;
-- (void)setHasIsMatchedLocation:(bool)arg1;
-- (void)setHasIsShifted:(bool)arg1;
-- (void)setHasSpeed:(bool)arg1;
-- (void)setHasSpeedAccuracy:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
-- (void)setHasType:(bool)arg1;
-- (void)setHasVerticalAccuracy:(bool)arg1;
+- (void)setHasAltitude:(BOOL)arg1;
+- (void)setHasCourse:(BOOL)arg1;
+- (void)setHasCourseAccuracy:(BOOL)arg1;
+- (void)setHasHeading:(BOOL)arg1;
+- (void)setHasHorizontalAccuracy:(BOOL)arg1;
+- (void)setHasIsMatchedLocation:(BOOL)arg1;
+- (void)setHasIsShifted:(BOOL)arg1;
+- (void)setHasSpeed:(BOOL)arg1;
+- (void)setHasSpeedAccuracy:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasType:(BOOL)arg1;
+- (void)setHasVerticalAccuracy:(BOOL)arg1;
 - (void)setHeading:(double)arg1;
 - (void)setHorizontalAccuracy:(double)arg1;
-- (void)setIsMatchedLocation:(bool)arg1;
-- (void)setIsShifted:(bool)arg1;
+- (void)setIsMatchedLocation:(BOOL)arg1;
+- (void)setIsShifted:(BOOL)arg1;
 - (void)setLatLng:(id)arg1;
 - (void)setSpeed:(double)arg1;
 - (void)setSpeedAccuracy:(double)arg1;
@@ -134,5 +127,21 @@
 - (int)type;
 - (double)verticalAccuracy;
 - (void)writeTo:(id)arg1;
+
+// Image: /System/Library/Frameworks/CoreLocation.framework/CoreLocation
+
+- (id)_initWithCLClientLocation:(const struct { int x1; struct { double x_2_1_1; double x_2_1_2; } x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; int x11; double x12; int x13; struct { double x_14_1_1; double x_14_1_2; } x14; double x15; int x16; unsigned int x17; }*)arg1;
+
+// Image: /System/Library/Frameworks/MapKit.framework/MapKit
+
++ (id)locationWithCLLocation:(id)arg1 course:(double)arg2;
+
+- (id)initWithCLLocation:(id)arg1;
+- (id)initWithCLLocation:(id)arg1 course:(double)arg2;
+- (id)initWithCLLocation:(id)arg1 useMatchInfo:(BOOL)arg2;
+
+// Image: /System/Library/PrivateFrameworks/CoreRoutine.framework/CoreRoutine
+
+- (id)initWithCoreLocation:(id)arg1;
 
 @end

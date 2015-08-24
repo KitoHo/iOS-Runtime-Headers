@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/TouchRemote.framework/TouchRemote
  */
 
-@class NSMutableArray, NSObject<OS_dispatch_queue>;
-
 @interface TRBrowser : NSObject {
     NSObject<OS_dispatch_queue> *_accessQueue;
-    unsigned long long _browsingCount;
+    unsigned int _browsingCount;
     NSMutableArray *_services;
 }
 
@@ -18,7 +16,7 @@
 - (void)_XPCClientConnectionDidInterruptNotification:(id)arg1;
 - (id)_init;
 - (void)dealloc;
-- (void)getServicesWithCompletionHandler:(id)arg1;
+- (void)getServicesWithCompletionHandler:(id /* block */)arg1;
 - (id)init;
 - (void)startBrowsing;
 - (void)stopBrowsing;

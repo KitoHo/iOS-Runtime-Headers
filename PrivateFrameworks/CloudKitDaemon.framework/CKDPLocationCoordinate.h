@@ -2,9 +2,9 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPDate;
-
 @interface CKDPLocationCoordinate : PBCodable <NSCopying> {
+    double _altitude;
+    double _course;
     struct { 
         unsigned int altitude : 1; 
         unsigned int course : 1; 
@@ -13,8 +13,6 @@
         unsigned int longitude : 1; 
         unsigned int speed : 1; 
         unsigned int verticalAccuracy : 1; 
-    double _altitude;
-    double _course;
     } _has;
     double _horizontalAccuracy;
     double _latitude;
@@ -24,22 +22,22 @@
     double _verticalAccuracy;
 }
 
-@property double altitude;
-@property double course;
-@property bool hasAltitude;
-@property bool hasCourse;
-@property bool hasHorizontalAccuracy;
-@property bool hasLatitude;
-@property bool hasLongitude;
-@property bool hasSpeed;
-@property(readonly) bool hasTimestamp;
-@property bool hasVerticalAccuracy;
-@property double horizontalAccuracy;
-@property double latitude;
-@property double longitude;
-@property double speed;
-@property(retain) CKDPDate * timestamp;
-@property double verticalAccuracy;
+@property (nonatomic) double altitude;
+@property (nonatomic) double course;
+@property (nonatomic) BOOL hasAltitude;
+@property (nonatomic) BOOL hasCourse;
+@property (nonatomic) BOOL hasHorizontalAccuracy;
+@property (nonatomic) BOOL hasLatitude;
+@property (nonatomic) BOOL hasLongitude;
+@property (nonatomic) BOOL hasSpeed;
+@property (nonatomic, readonly) BOOL hasTimestamp;
+@property (nonatomic) BOOL hasVerticalAccuracy;
+@property (nonatomic) double horizontalAccuracy;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
+@property (nonatomic) double speed;
+@property (nonatomic, retain) CKDPDate *timestamp;
+@property (nonatomic) double verticalAccuracy;
 
 - (void).cxx_destruct;
 - (double)altitude;
@@ -48,30 +46,30 @@
 - (double)course;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasAltitude;
-- (bool)hasCourse;
-- (bool)hasHorizontalAccuracy;
-- (bool)hasLatitude;
-- (bool)hasLongitude;
-- (bool)hasSpeed;
-- (bool)hasTimestamp;
-- (bool)hasVerticalAccuracy;
-- (unsigned long long)hash;
+- (BOOL)hasAltitude;
+- (BOOL)hasCourse;
+- (BOOL)hasHorizontalAccuracy;
+- (BOOL)hasLatitude;
+- (BOOL)hasLongitude;
+- (BOOL)hasSpeed;
+- (BOOL)hasTimestamp;
+- (BOOL)hasVerticalAccuracy;
+- (unsigned int)hash;
 - (double)horizontalAccuracy;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (double)latitude;
 - (double)longitude;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setAltitude:(double)arg1;
 - (void)setCourse:(double)arg1;
-- (void)setHasAltitude:(bool)arg1;
-- (void)setHasCourse:(bool)arg1;
-- (void)setHasHorizontalAccuracy:(bool)arg1;
-- (void)setHasLatitude:(bool)arg1;
-- (void)setHasLongitude:(bool)arg1;
-- (void)setHasSpeed:(bool)arg1;
-- (void)setHasVerticalAccuracy:(bool)arg1;
+- (void)setHasAltitude:(BOOL)arg1;
+- (void)setHasCourse:(BOOL)arg1;
+- (void)setHasHorizontalAccuracy:(BOOL)arg1;
+- (void)setHasLatitude:(BOOL)arg1;
+- (void)setHasLongitude:(BOOL)arg1;
+- (void)setHasSpeed:(BOOL)arg1;
+- (void)setHasVerticalAccuracy:(BOOL)arg1;
 - (void)setHorizontalAccuracy:(double)arg1;
 - (void)setLatitude:(double)arg1;
 - (void)setLongitude:(double)arg1;

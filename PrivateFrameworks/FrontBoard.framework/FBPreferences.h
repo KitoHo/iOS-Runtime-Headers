@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/FrontBoard.framework/FrontBoard
  */
 
-@class NSMutableSet, NSObject<OS_dispatch_queue>;
-
 @interface FBPreferences : NSObject {
     NSMutableSet *_enabledLogNames;
     NSObject<OS_dispatch_queue> *_queue;
@@ -17,7 +15,7 @@
 - (id)description;
 - (id)enabledLogNames;
 - (id)init;
-- (bool)isLogEnabled:(id)arg1;
+- (BOOL)isLogEnabled:(id)arg1;
 - (void)reload;
 
 @end

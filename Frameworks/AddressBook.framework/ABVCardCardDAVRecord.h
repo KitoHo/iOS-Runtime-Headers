@@ -2,14 +2,13 @@
    Image: /System/Library/Frameworks/AddressBook.framework/AddressBook
  */
 
-@interface ABVCardCardDAVRecord : ABVCardRecord {
-}
+@interface ABVCardCardDAVRecord : ABVCardRecord
 
-+ (bool)includeABClipRectInVCardPhotos;
-+ (bool)includeImageURIInVCards;
-+ (bool)includeNotesInVCards;
-+ (bool)includeREVInVCards;
++ (BOOL)includeABClipRectInVCardPhotos;
++ (BOOL)includeImageURIInVCards;
++ (BOOL)includeNotesInVCards;
++ (BOOL)includeREVInVCards;
 
-- (bool)useThumbnailImageFormatIfAvailable;
+- (BOOL)useThumbnailImageFormatIfAvailable;
 
 @end

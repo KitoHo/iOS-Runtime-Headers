@@ -2,11 +2,10 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@interface PUPhotoStreamAlbumTableViewCell : UITableViewCell {
-}
+@interface PUPhotoStreamAlbumTableViewCell : UITableViewCell
 
-+ (double)cellHeight;
-+ (double)labelXOrigin;
++ (float)cellHeight;
++ (float)labelXOrigin;
 
 - (void)layoutSubviews;
 

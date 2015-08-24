@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class CXNamespace, NSMutableArray, NSMutableDictionary, OADBlipCollection, OADColorMap, OADColorScheme, OADFontScheme, OADStyleMatrix, OAVReadState, OAXClient, OAXTableStyleCache, OCPPackagePart;
-
 @interface OAXDrawingState : OCXReadState {
     OAXClient *mClient;
     OADColorMap *mColorMap;
@@ -31,16 +29,16 @@
     NSMutableArray *mTgtBulletBlips;
 }
 
-@property(retain) CXNamespace * OAXChartDrawingNamespace;
-@property(retain) CXNamespace * OAXChartNamespace;
-@property(retain) CXNamespace * OAXCompatNamespace;
-@property(retain) CXNamespace * OAXDrawing2010Namespace;
-@property(retain) CXNamespace * OAXLockedCanvasNamespace;
-@property(retain) CXNamespace * OAXMainNamespace;
-@property(retain) CXNamespace * OAXPictureNamespace;
-@property(retain) CXNamespace * OAXWordProcessingMLNamespace;
-@property(retain) NSMutableDictionary * sourceURLToTargetBlipIndexMap;
-@property(retain) NSMutableDictionary * sourceURLToTargetBulletBlipIndexMap;
+@property (nonatomic, retain) CXNamespace *OAXChartDrawingNamespace;
+@property (nonatomic, retain) CXNamespace *OAXChartNamespace;
+@property (nonatomic, retain) CXNamespace *OAXCompatNamespace;
+@property (nonatomic, retain) CXNamespace *OAXDrawing2010Namespace;
+@property (nonatomic, retain) CXNamespace *OAXLockedCanvasNamespace;
+@property (nonatomic, retain) CXNamespace *OAXMainNamespace;
+@property (nonatomic, retain) CXNamespace *OAXPictureNamespace;
+@property (nonatomic, retain) CXNamespace *OAXWordProcessingMLNamespace;
+@property (nonatomic, retain) NSMutableDictionary *sourceURLToTargetBlipIndexMap;
+@property (nonatomic, retain) NSMutableDictionary *sourceURLToTargetBulletBlipIndexMap;
 
 - (id)OAXChartDrawingNamespace;
 - (id)OAXChartNamespace;
@@ -59,11 +57,11 @@
 - (id)colorScheme;
 - (void)dealloc;
 - (id)documentState;
-- (id)drawableForShapeId:(unsigned int)arg1;
+- (id)drawableForShapeId:(unsigned long)arg1;
 - (id)fontScheme;
 - (id)init;
 - (id)initWithClient:(id)arg1;
-- (bool)isInsideGroup;
+- (BOOL)isInsideGroup;
 - (id)oavState;
 - (id)packagePart;
 - (id)peekGroup;
@@ -73,7 +71,7 @@
 - (void)setColorMap:(id)arg1;
 - (void)setColorScheme:(id)arg1;
 - (void)setDocumentState:(id)arg1;
-- (void)setDrawable:(id)arg1 forShapeId:(unsigned int)arg2;
+- (void)setDrawable:(id)arg1 forShapeId:(unsigned long)arg2;
 - (void)setFontScheme:(id)arg1;
 - (void)setOAXChartDrawingNamespace:(id)arg1;
 - (void)setOAXChartNamespace:(id)arg1;
@@ -91,13 +89,13 @@
 - (void)setTableStyleCache:(id)arg1;
 - (void)setTargetBlipCollection:(id)arg1;
 - (void)setTargetBulletBlipArray:(id)arg1;
-- (void)setVmlShapeId:(id)arg1 forDrawableId:(unsigned int)arg2;
+- (void)setVmlShapeId:(id)arg1 forDrawableId:(unsigned long)arg2;
 - (void)setupNSForXMLFormat:(int)arg1;
 - (id)sourceURLToTargetBlipIndexMap;
 - (id)sourceURLToTargetBulletBlipIndexMap;
 - (id)styleMatrix;
 - (id)tableStyleCache;
 - (id)targetBlipCollection;
-- (id)vmlShapeIdForDrawableId:(unsigned int)arg1;
+- (id)vmlShapeIdForDrawableId:(unsigned long)arg1;
 
 @end

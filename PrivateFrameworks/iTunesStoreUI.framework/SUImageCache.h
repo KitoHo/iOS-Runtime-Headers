@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class CPLRUDictionary;
-
 @interface SUImageCache : NSObject {
     CPLRUDictionary *_dictionary;
 }
@@ -12,7 +10,7 @@
 - (void)dealloc;
 - (id)imageForURL:(id)arg1 dataProvider:(id)arg2;
 - (id)init;
-- (id)initWithMaximumCapacity:(long long)arg1;
+- (id)initWithMaximumCapacity:(int)arg1;
 - (void)removeAllCachedImages;
 
 @end

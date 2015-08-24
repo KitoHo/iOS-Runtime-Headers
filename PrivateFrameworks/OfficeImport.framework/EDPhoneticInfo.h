@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class EDCollection, EDResources, NSString;
-
 @interface EDPhoneticInfo : NSObject <EDImmutableObject> {
-    boolmDoNotModify;
     int mAlign;
-    unsigned long long mFontIndex;
+    bool mDoNotModify;
+    unsigned int mFontIndex;
     EDResources *mResources;
     EDCollection *mRuns;
     NSString *mString;
     int mType;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)phoneticInfoWithResources:(id)arg1;
 
@@ -25,17 +23,17 @@
 - (void)appendString:(id)arg1;
 - (void)dealloc;
 - (id)font;
-- (unsigned long long)fontIndex;
-- (unsigned long long)hash;
+- (unsigned int)fontIndex;
+- (unsigned int)hash;
 - (id)initWithResources:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)isEqualToEDPhoneticInfo:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToEDPhoneticInfo:(id)arg1;
 - (void)prependString:(id)arg1;
 - (id)runs;
 - (void)setAlign:(int)arg1;
 - (void)setDoNotModify:(bool)arg1;
 - (void)setFont:(id)arg1;
-- (void)setFontIndex:(unsigned long long)arg1;
+- (void)setFontIndex:(unsigned int)arg1;
 - (void)setString:(id)arg1;
 - (void)setType:(int)arg1;
 - (id)string;

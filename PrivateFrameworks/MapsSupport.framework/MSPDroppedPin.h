@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/MapsSupport.framework/MapsSupport
  */
 
-@class GEOLatLng, GEOMapRegion, PBUnknownFields;
-
 @interface MSPDroppedPin : PBCodable <NSCopying> {
     GEOLatLng *_latLng;
     GEOMapRegion *_mapRegion;
     PBUnknownFields *_unknownFields;
 }
 
-@property(readonly) bool hasLatLng;
-@property(readonly) bool hasMapRegion;
-@property(retain) GEOLatLng * latLng;
-@property(retain) GEOMapRegion * mapRegion;
-@property(readonly) PBUnknownFields * unknownFields;
+@property (nonatomic, readonly) BOOL hasLatLng;
+@property (nonatomic, readonly) BOOL hasMapRegion;
+@property (nonatomic, retain) GEOLatLng *latLng;
+@property (nonatomic, retain) GEOMapRegion *mapRegion;
+@property (nonatomic, readonly) PBUnknownFields *unknownFields;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasLatLng;
-- (bool)hasMapRegion;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasLatLng;
+- (BOOL)hasMapRegion;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)latLng;
 - (id)mapRegion;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setLatLng:(id)arg1;
 - (void)setMapRegion:(id)arg1;
 - (id)unknownFields;

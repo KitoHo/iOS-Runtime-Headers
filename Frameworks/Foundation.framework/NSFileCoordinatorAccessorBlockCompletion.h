@@ -2,16 +2,12 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface NSFileCoordinatorAccessorBlockCompletion : NSObject {
-    id block;
+    id /* block */ block;
     int count;
 }
 
-+ (id)completionWithBlock:(id)arg1;
++ (id)completionWithBlock:(id /* block */)arg1;
 
 - (void)dealloc;
 - (void)decrement;

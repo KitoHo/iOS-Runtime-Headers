@@ -2,20 +2,18 @@
    Image: /System/Library/Frameworks/MediaToolbox.framework/MediaToolbox
  */
 
-@class CMNetworkActivityObserver, NSObject<OS_dispatch_queue>;
-
 @interface CMNetworkActivityMonitor : NSObject {
     CMNetworkActivityObserver *_cmObserver;
-    long long _monitoringActiveCount;
+    int _monitoringActiveCount;
+    BOOL _networkIsActive;
     NSObject<OS_dispatch_queue> *_queue;
-    long long _showingNetworkActivityCount;
-    bool_networkIsActive;
+    int _showingNetworkActivityCount;
 }
 
-@property(setter=setCMObserver:,retain) CMNetworkActivityObserver * cmObserver;
-@property long long monitoringActiveCount;
-@property bool networkIsActive;
-@property long long showingNetworkActivityCount;
+@property (setter=setCMObserver:, nonatomic, retain) CMNetworkActivityObserver *cmObserver;
+@property (nonatomic) int monitoringActiveCount;
+@property (nonatomic) BOOL networkIsActive;
+@property (nonatomic) int showingNetworkActivityCount;
 
 + (id)sharedActivityMonitor;
 
@@ -24,12 +22,12 @@
 - (void)dealloc;
 - (void)endMonitoring;
 - (id)init;
-- (long long)monitoringActiveCount;
-- (bool)networkIsActive;
+- (int)monitoringActiveCount;
+- (BOOL)networkIsActive;
 - (void)setCMObserver:(id)arg1;
-- (void)setMonitoringActiveCount:(long long)arg1;
-- (void)setNetworkIsActive:(bool)arg1;
-- (void)setShowingNetworkActivityCount:(long long)arg1;
-- (long long)showingNetworkActivityCount;
+- (void)setMonitoringActiveCount:(int)arg1;
+- (void)setNetworkIsActive:(BOOL)arg1;
+- (void)setShowingNetworkActivityCount:(int)arg1;
+- (int)showingNetworkActivityCount;
 
 @end

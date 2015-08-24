@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSData;
-
 @interface CKDPMescalSessionInfoRequest : PBRequest <NSCopying> {
     NSData *_requestData;
 }
 
-@property(readonly) bool hasRequestData;
-@property(retain) NSData * requestData;
+@property (nonatomic, readonly) BOOL hasRequestData;
+@property (nonatomic, retain) NSData *requestData;
 
 + (id)options;
 
@@ -18,11 +16,11 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasRequestData;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasRequestData;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)requestData;
 - (void)setRequestData:(id)arg1;
 - (void)writeTo:(id)arg1;

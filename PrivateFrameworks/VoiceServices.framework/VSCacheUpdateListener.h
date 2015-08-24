@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/VoiceServices.framework/VoiceServices
  */
 
-@class NSDictionary, NSLock, NSMutableArray, NSTimer;
-
 @interface VSCacheUpdateListener : NSObject {
     NSDictionary *_dataProviders;
     NSTimer *_flushTimer;
+    BOOL _isListening;
     NSLock *_lock;
     NSMutableArray *_updateRequestQueue;
-    bool_isListening;
 }
 
 + (id)sharedListener;

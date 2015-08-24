@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/ImageCapture.framework/ImageCapture
  */
 
-@class NSMutableData, NSObject<OS_dispatch_semaphore>, NSTimer, PTPTCPIPTransport;
-
 @interface PTPTCPIPConnection : NSObject {
     unsigned int _bytesReceived;
     unsigned int _bytesSent;
@@ -23,12 +21,12 @@
 - (void)dealloc;
 - (void)handleCanAcceptBytes;
 - (void)handleEndEncountered;
-- (void)handleErrorOccurred:(struct { long long x1; int x2; })arg1;
+- (void)handleErrorOccurred:(struct { int x1; int x2; })arg1;
 - (void)handleHasBytesAvailable;
 - (void)inactivityTimerCallBack:(id)arg1;
 - (id)initWithNativeSocket:(int)arg1 transport:(id)arg2;
-- (id)initWithSocketToHost:(id)arg1 port:(unsigned int)arg2 transport:(id)arg3;
-- (bool)open;
-- (bool)writeData:(id)arg1;
+- (id)initWithSocketToHost:(id)arg1 port:(unsigned long)arg2 transport:(id)arg3;
+- (BOOL)open;
+- (BOOL)writeData:(id)arg1;
 
 @end

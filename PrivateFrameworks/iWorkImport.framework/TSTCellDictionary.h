@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSUIntegerKeyDictionary;
-
 @interface TSTCellDictionary : NSObject {
-    struct _opaque_pthread_rwlock_t { 
-        long long __sig; 
-        BOOL __opaque[192]; 
     TSUIntegerKeyDictionary *mDict;
+    struct _opaque_pthread_rwlock_t { 
+        long __sig; 
+        BOOL __opaque[124]; 
     } mDictRWLock;
 }
 
 - (id)allCells;
-- (void)applyBlockToAllCells:(id)arg1;
+- (void)applyBlockToAllCells:(id /* block */)arg1;
 - (id)cellAtCellID:(struct { unsigned short x1; unsigned char x2; unsigned char x3; })arg1;
 - (void)dealloc;
 - (id)init;

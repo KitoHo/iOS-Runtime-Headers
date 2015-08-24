@@ -2,26 +2,23 @@
    Image: /System/Library/PrivateFrameworks/BaseBoard.framework/BaseBoard
  */
 
-@class CAMediaTimingFunction;
+@interface BSMutableSpringAnimationSettings : BSSpringAnimationSettings
 
-@interface BSMutableSpringAnimationSettings : BSSpringAnimationSettings {
-}
-
-@property double damping;
-@property double delay;
-@property double epsilon;
-@property double frameInterval;
-@property double mass;
-@property double stiffness;
-@property(retain) CAMediaTimingFunction * timingFunction;
+@property (nonatomic) float damping;
+@property (nonatomic) double delay;
+@property (nonatomic) float epsilon;
+@property (nonatomic) double frameInterval;
+@property (nonatomic) float mass;
+@property (nonatomic) float stiffness;
+@property (nonatomic, retain) CAMediaTimingFunction *timingFunction;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)setDamping:(double)arg1;
+- (void)setDamping:(float)arg1;
 - (void)setDelay:(double)arg1;
-- (void)setEpsilon:(double)arg1;
+- (void)setEpsilon:(float)arg1;
 - (void)setFrameInterval:(double)arg1;
-- (void)setMass:(double)arg1;
-- (void)setStiffness:(double)arg1;
+- (void)setMass:(float)arg1;
+- (void)setStiffness:(float)arg1;
 - (void)setTimingFunction:(id)arg1;
 
 @end

@@ -2,36 +2,34 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSNumber, NSString, SUScriptMediaItem;
-
 @interface SUScriptMusicPlayerController : SUScriptObject {
     NSString *_playerType;
 }
 
-@property(readonly) double currentPlaybackTime;
-@property(readonly) SUScriptMediaItem * nowPlayingItem;
-@property(readonly) NSString * playbackState;
-@property(readonly) NSString * playbackStateInterrupted;
-@property(readonly) NSString * playbackStatePaused;
-@property(readonly) NSString * playbackStatePlaying;
-@property(readonly) NSString * playbackStateSeekingBackward;
-@property(readonly) NSString * playbackStateSeekingForward;
-@property(readonly) NSString * playbackStateStopped;
-@property(readonly) NSString * playerType;
-@property(copy) NSString * repeatMode;
-@property(readonly) NSString * repeatModeAll;
-@property(readonly) NSString * repeatModeDefault;
-@property(readonly) NSString * repeatModeNone;
-@property(readonly) NSString * repeatModeOne;
-@property(copy) NSString * shuffleMode;
-@property(readonly) NSString * shuffleModeAlbums;
-@property(readonly) NSString * shuffleModeDefault;
-@property(readonly) NSString * shuffleModeOff;
-@property(readonly) NSString * shuffleModeSongs;
-@property(retain) NSNumber * volume;
+@property (readonly) double currentPlaybackTime;
+@property (readonly) SUScriptMediaItem *nowPlayingItem;
+@property (readonly) NSString *playbackState;
+@property (readonly) NSString *playbackStateInterrupted;
+@property (readonly) NSString *playbackStatePaused;
+@property (readonly) NSString *playbackStatePlaying;
+@property (readonly) NSString *playbackStateSeekingBackward;
+@property (readonly) NSString *playbackStateSeekingForward;
+@property (readonly) NSString *playbackStateStopped;
+@property (readonly) NSString *playerType;
+@property (copy) NSString *repeatMode;
+@property (readonly) NSString *repeatModeAll;
+@property (readonly) NSString *repeatModeDefault;
+@property (readonly) NSString *repeatModeNone;
+@property (readonly) NSString *repeatModeOne;
+@property (copy) NSString *shuffleMode;
+@property (readonly) NSString *shuffleModeAlbums;
+@property (readonly) NSString *shuffleModeDefault;
+@property (readonly) NSString *shuffleModeOff;
+@property (readonly) NSString *shuffleModeSongs;
+@property (retain) NSNumber *volume;
 
 + (void)initialize;
-+ (id)scriptPlaybackStateForNativePlaybackState:(long long)arg1;
++ (id)scriptPlaybackStateForNativePlaybackState:(int)arg1;
 + (id)webScriptNameForKeyName:(id)arg1;
 + (id)webScriptNameForSelector:(SEL)arg1;
 

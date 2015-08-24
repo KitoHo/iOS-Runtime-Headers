@@ -2,24 +2,21 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class IMMessage, NSArray;
+@interface CKMessagePartChatItem : CKBalloonChatItem
 
-@interface CKMessagePartChatItem : CKBalloonChatItem {
-}
+@property (nonatomic, readonly) BOOL color;
+@property (nonatomic, readonly, retain) IMMessage *message;
+@property (nonatomic, readonly, copy) NSArray *pasteboardItems;
 
-@property(readonly) BOOL color;
-@property(retain,readonly) IMMessage * message;
-@property(copy,readonly) NSArray * pasteboardItems;
-
-- (bool)canCopy;
-- (bool)canForward;
-- (bool)canSendAsTextMessage;
+- (BOOL)canCopy;
+- (BOOL)canForward;
+- (BOOL)canSendAsTextMessage;
 - (BOOL)color;
 - (id)composition;
 - (void)configureBalloonView:(id)arg1;
 - (id)description;
-- (bool)failed;
-- (bool)isFromMe;
+- (BOOL)failed;
+- (BOOL)isFromMe;
 - (id)message;
 - (id)pasteboardItems;
 - (id)sender;

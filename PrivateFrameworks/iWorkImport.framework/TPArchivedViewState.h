@@ -2,49 +2,52 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSMutableDictionary, NSString, TSKSelection, TSPObject<TSKModel>;
-
 @interface TPArchivedViewState : TSPObject {
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    struct CGPoint { 
-        double x; 
-        double y; 
+    TSWPSelection *_bodySelection;
+    BOOL _changeTrackingPaused;
     NSMutableDictionary *_chartUIState;
+    BOOL _hasShowsCTDeletions;
+    BOOL _hasShowsCTMarkup;
+    BOOL _inspectorHidden;
+    BOOL _layoutBordersVisible;
+    BOOL _masterDrawablesSelectable;
+    BOOL _rulerVisible;
     NSString *_selectedInspectorSwitchSegmentIdentifier;
-    TSKSelection *_selection;
-    TSPObject<TSKModel> *_selectionModel;
-    double _viewScale;
+    TSKSelectionPath *_selectionPath;
+    BOOL _showUserDefinedGuides;
+    BOOL _showsActivitySidebar;
+    BOOL _showsCTDeletions;
+    BOOL _showsCTMarkup;
+    BOOL _showsComments;
+    BOOL _showsPageNavigator;
+    float _viewScale;
     int _viewScaleMode;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _visibleRect;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _windowFrame;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _wordCountHUDPosition;
     int _wordCountHUDType;
-    bool_inspectorHidden;
-    bool_layoutBordersVisible;
-    bool_masterDrawablesSelectable;
-    bool_rulerVisible;
-    bool_showUserDefinedGuides;
-    bool_showsActivitySidebar;
-    bool_showsComments;
-    bool_showsPageNavigator;
-    bool_wordCountHUDVisible;
+    BOOL _wordCountHUDVisible;
 }
 
 - (id).cxx_construct;
@@ -53,6 +56,6 @@
 - (id)initFromUnarchiver:(id)arg1;
 - (void)readViewStateWithConsumer:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (bool)showsComments;
+- (BOOL)showsComments;
 
 @end

@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/CloudPhotoLibrary.framework/CloudPhotoLibrary
  */
 
-@class NSMutableArray, NSObject<OS_dispatch_queue>;
-
 @interface CPLBackgroundUploadsTask : CPLEngineSyncTask {
-    unsigned long long _failedUploadedResourcesCount;
+    unsigned int _failedUploadedResourcesCount;
+    BOOL _hasBadErrors;
+    BOOL _hasResetQueue;
     NSObject<OS_dispatch_queue> *_lock;
+    BOOL _shouldStop;
     double _start;
-    unsigned long long _successfullyUploadedResourcesCount;
-    unsigned long long _total;
+    unsigned int _successfullyUploadedResourcesCount;
+    unsigned int _total;
     NSMutableArray *_uploadTasks;
-    bool_hasBadErrors;
-    bool_hasResetQueue;
-    bool_shouldStop;
 }
 
 - (void).cxx_destruct;
@@ -26,6 +24,7 @@
 - (void)launch;
 - (void)pause;
 - (void)resume;
+- (void)taskDidFinishWithError:(id)arg1;
 - (id)taskIdentifier;
 
 @end

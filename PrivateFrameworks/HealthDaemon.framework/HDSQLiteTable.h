@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
  */
 
-@class NSMutableArray, NSString;
-
 @interface HDSQLiteTable : NSObject {
     NSMutableArray *_columns;
     NSMutableArray *_tableConstraints;
     NSString *_tableName;
 }
 
-@property(copy) NSString * tableName;
+@property (nonatomic, copy) NSString *tableName;
 
 + (id)SQLToAddColumnWithSQL:(id)arg1 toTableNamed:(id)arg2;
 + (id)SQLToDropTableNamed:(id)arg1;
@@ -20,12 +18,12 @@
 
 - (void).cxx_destruct;
 - (id)_columnNamed:(id)arg1;
-- (unsigned long long)_indexOfColumnNamed:(id)arg1;
+- (unsigned int)_indexOfColumnNamed:(id)arg1;
 - (id)_initWithTableSQL:(id)arg1;
 - (id)columnNames;
 - (id)creationSQL;
-- (bool)removeColumn:(id)arg1;
-- (bool)renameColumn:(id)arg1 to:(id)arg2;
+- (BOOL)removeColumn:(id)arg1;
+- (BOOL)renameColumn:(id)arg1 to:(id)arg2;
 - (void)setTableName:(id)arg1;
 - (id)tableName;
 

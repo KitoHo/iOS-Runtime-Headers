@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableArray, NSMutableDictionary, NSMutableSet;
-
 @interface OCXContentTypes : NSObject {
     NSMutableDictionary *mContentTypeCountMap;
     NSMutableDictionary *mContentTypeObjectMap;
@@ -15,11 +13,11 @@
 
 - (void)addContentTypeForContentType:(id)arg1 extension:(id)arg2;
 - (id)addContentTypeForKey:(id)arg1 contentType:(id)arg2 path:(id)arg3;
-- (bool)containsContentType:(id)arg1 withKey:(id)arg2;
-- (bool)containsContentType:(id)arg1;
+- (BOOL)containsContentType:(id)arg1;
+- (BOOL)containsContentType:(id)arg1 withKey:(id)arg2;
 - (void)dealloc;
 - (id)init;
-- (bool)isLastEntryContentType:(id)arg1;
+- (BOOL)isLastEntryContentType:(id)arg1;
 - (id)pathForContentType:(id)arg1;
 - (id)pathForKey:(id)arg1;
 - (id)pathForMainDocument;

@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/CommunicationsSetupUI.framework/CommunicationsSetupUI
  */
 
-@class IMAccount;
-
 @interface CNFRegSecureAccountWebViewController : CNFRegAuthorizedAccountWebViewController {
     IMAccount *_account;
-    unsigned long long _signinFailureCount;
-    bool_gotNewCredential;
-    bool_triedGettingNewCredentials;
+    BOOL _gotNewCredential;
+    unsigned int _signinFailureCount;
+    BOOL _triedGettingNewCredentials;
 }
 
-@property(retain) IMAccount * account;
+@property (nonatomic, retain) IMAccount *account;
 
 - (void)_handleTimeout;
 - (void)_incrementSigninFailureCount;
@@ -29,7 +27,7 @@
 - (void)doHandoffWithStatus:(int)arg1 appleID:(id)arg2 authID:(id)arg3 authToken:(id)arg4;
 - (id)initWithRegController:(id)arg1 account:(id)arg2;
 - (void)setAccount:(id)arg1;
-- (void)viewDidAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

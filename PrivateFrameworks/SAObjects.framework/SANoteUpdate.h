@@ -2,13 +2,10 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString, NSURL;
+@interface SANoteUpdate : SADomainCommand
 
-@interface SANoteUpdate : SADomainCommand {
-}
-
-@property(copy) NSString * contentsToAppend;
-@property(copy) NSURL * identifier;
+@property (nonatomic, copy) NSString *contentsToAppend;
+@property (nonatomic, copy) NSURL *identifier;
 
 + (id)update;
 + (id)updateWithDictionary:(id)arg1 context:(id)arg2;
@@ -17,7 +14,7 @@
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)identifier;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setContentsToAppend:(id)arg1;
 - (void)setIdentifier:(id)arg1;
 

@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSData;
-
 @interface CKDPMescalSignatureRequest : PBRequest <NSCopying> {
     NSData *_mescalData;
 }
 
-@property(readonly) bool hasMescalData;
-@property(retain) NSData * mescalData;
+@property (nonatomic, readonly) BOOL hasMescalData;
+@property (nonatomic, retain) NSData *mescalData;
 
 + (id)options;
 
@@ -18,12 +16,12 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasMescalData;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasMescalData;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)mescalData;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (unsigned int)requestTypeCode;
 - (Class)responseClass;
 - (void)setMescalData:(id)arg1;

@@ -2,59 +2,47 @@
    Image: /System/Library/Frameworks/SceneKit.framework/SceneKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class SCNNode, UIGestureRecognizer;
-
 @interface SCNCameraControlEventHandler : SCNEventHandler {
-    struct CGPoint { 
-        double x; 
-        double y; 
-    union C3DMatrix4x4 { 
-        float components[16]; 
-        /* Warning: Unrecognized filer type: ']' using 'void*' */ void*m[4]; 
-    union C3DMatrix4x4 { 
-        float components[16]; 
-        /* Warning: Unrecognized filer type: ']' using 'void*' */ void*m[4]; 
-    struct C3DSphere { 
-        /* Warning: Unrecognized filer type: '}' using 'void*' */ void*vector; 
+    unsigned int _alternateMode;
+    unsigned int _automaticCameraTarget;
     struct SCNVector3 { 
         float x; 
         float y; 
         float z; 
-    struct SCNVector3 { 
-        float x; 
-        float y; 
-        float z; 
-    struct CGPoint { 
-        double x; 
-        double y; 
-    struct CGPoint { 
-        double x; 
-        double y; 
-     /* Encoded args for previous method: v40@0:816q32 */
-     /* Encoded args for previous method: 16@0:8 */
-    unsigned int _hasCheckedIfViewingAnObject : 1;
-    unsigned int _isViewingAnObject : 1;
-    unsigned int _isViewedObjectSphereComputed : 1;
-    unsigned int _automaticCameraTarget : 1;
-    unsigned int _inertia : 1;
-    unsigned int _alternateMode : 1;
-    unsigned int _upDirIsSet : 1;
-    unsigned int _gimbalLockMode : 1;
-    unsigned int _inertiaRunning : 1;
     } _cameraTarget;
+    void_clickOrigin;
     id _dReserved;
     SCNNode *_freeViewCameraNode;
-    double _friction;
+    float _friction;
+    unsigned int _gimbalLockMode;
+    struct SCNVector3 { 
+        float x; 
+        float y; 
+        float z; 
     } _gimbalLockVector;
+    unsigned int _hasCheckedIfViewingAnObject;
+    unsigned int _inertia;
+    unsigned int _inertiaRunning;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _inertiaVelocity;
+    union C3DMatrix4x4 { 
+        float components[16]; 
+        /* Warning: Unrecognized filer type: ']' using 'void*' */ void*m[4]; 
     } _initialMatrix;
+    union C3DMatrix4x4 { 
+        float components[16]; 
+        /* Warning: Unrecognized filer type: ']' using 'void*' */ void*m[4]; 
     } _initialMatrixForRoll;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _initialPoint;
     float _initialZoom;
+    BOOL _isDraggingWithOneFinger;
+    unsigned int _isViewedObjectSphereComputed;
+    unsigned int _isViewingAnObject;
     int _lastGestureFingerCount;
     double _lastSimulationTime;
     int _mode;
@@ -68,26 +56,30 @@
     UIGestureRecognizer *_rotateGesture;
     float _savedZfar;
     float _savedZnear;
-    long long _stickyAxis;
+    int _stickyAxis;
     UIGestureRecognizer *_tapGesture;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _totalDragWithInertia;
+    void_upDir;
+    unsigned int _upDirIsSet;
+    struct C3DSphere { 
+        /* Warning: Unrecognized filer type: '}' using 'void*' */ void*vector; 
     } _viewedObjectSphere;
     float _zoomFactor;
-    bool_isDraggingWithOneFinger;
-    /* Warning: Unrecognized filer type: '' using 'void*' */ void*_clickOrigin;
-    /* Warning: Unrecognized filer type: '' using 'void*' */ void*_upDir;
 }
 
-@property bool automaticCameraTarget;
+@property BOOL automaticCameraTarget;
 @property struct SCNVector3 { float x1; float x2; float x3; } cameraTarget;
-@property bool enableInertia;
-@property double friction;
-@property bool gimbalLockMode;
+@property BOOL enableInertia;
+@property float friction;
+@property BOOL gimbalLockMode;
 @property struct SCNVector3 { float x1; float x2; float x3; } gimbalLockVector;
-@property long long stickyAxis;
+@property int stickyAxis;
 
-- (void)_beginTranslateAtLocation:(struct CGPoint { double x1; double x2; })arg1;
-- (bool)_freeCameraActivated;
+- (void)_beginTranslateAtLocation:(struct CGPoint { float x1; float x2; })arg1;
+- (BOOL)_freeCameraActivated;
 - (void)_handleDoubleTap:(id)arg1;
 - (void)_handlePan:(id)arg1;
 - (void)_handlePinch:(id)arg1;
@@ -97,53 +89,53 @@
 - (void)_onInertiaTimer;
 - (void)_prepareFreeViewCamera;
 - (void)_resetFreeViewCamera;
-- (void)_rotateWithDrag:(struct CGPoint { double x1; double x2; })arg1 mode:(long long)arg2 stickyAxis:(long long)arg3;
-- (void)_startBrowsingIfNeeded:(struct CGPoint { double x1; double x2; })arg1;
+- (void)_rotateWithDrag:(struct CGPoint { float x1; float x2; })arg1 mode:(int)arg2 stickyAxis:(int)arg3;
+- (void)_startBrowsingIfNeeded:(struct CGPoint { float x1; float x2; })arg1;
 - (void)_stopInertiaIfNeeded;
 - (void)_switchToFreeViewCamera;
-- (void)_translateTo:(struct CGPoint { double x1; double x2; })arg1;
+- (void)_translateTo:(struct CGPoint { float x1; float x2; })arg1;
 - (float)_translationCoef;
-- (bool)automaticCameraTarget;
+- (BOOL)automaticCameraTarget;
 - (void)beginGesture:(id)arg1;
 - (void)cameraDidChange;
 - (struct SCNVector3 { float x1; float x2; float x3; })cameraTarget;
 - (void)cameraWillChange;
-- (bool)computeBoundingSphereOmittingFloorsForNode:(struct __C3DNode { }*)arg1 sphere:(struct C3DSphere { }*)arg2;
+- (BOOL)computeBoundingSphereOmittingFloorsForNode:(struct __C3DNode { }*)arg1 sphere:(struct C3DSphere { }*)arg2;
 - (void)dealloc;
-- (bool)enableInertia;
-- (void)endDraggingWithVelocity:(struct CGPoint { double x1; double x2; })arg1;
-- (double)friction;
-- (/* Warning: Unrecognized filer type: '1' using 'void*' */ void*)frontVector;
-- (bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
-- (bool)gestureRecognizerShouldBegin:(id)arg1;
+- (BOOL)enableInertia;
+- (void)endDraggingWithVelocity:(struct CGPoint { float x1; float x2; })arg1;
+- (float)friction;
+- (void)frontVector;
+- (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
 - (id)gestureRecognizers;
-- (bool)gimbalLockMode;
+- (BOOL)gimbalLockMode;
 - (struct SCNVector3 { float x1; float x2; float x3; })gimbalLockVector;
 - (id)init;
-- (bool)isViewingAnObject;
+- (BOOL)isViewingAnObject;
 - (void)panWithGestureRecognizer:(id)arg1;
 - (void)pinchWithGestureRecognizer:(id)arg1;
-- (void)rotateOf:(double)arg1;
+- (void)rotateOf:(float)arg1;
 - (void)rotateWithGestureRecognizer:(id)arg1;
-- (void)rotateWithVector:(long long)arg1 mode:(/* Warning: Unrecognized filer type: '' using 'void*' */ void*)arg2;
+- (void)rotateWithVector:(void *)arg1 mode:(void *)arg2; // needs 2 arg types, found 1: int
 - (void)sceneDidChange;
 - (void)sceneWillChange;
-- (void)setAutomaticCameraTarget:(bool)arg1;
+- (void)setAutomaticCameraTarget:(BOOL)arg1;
 - (void)setCameraTarget:(struct SCNVector3 { float x1; float x2; float x3; })arg1;
-- (void)setEnableInertia:(bool)arg1;
-- (void)setFriction:(double)arg1;
-- (void)setGimbalLockMode:(bool)arg1;
+- (void)setEnableInertia:(BOOL)arg1;
+- (void)setFriction:(float)arg1;
+- (void)setGimbalLockMode:(BOOL)arg1;
 - (void)setGimbalLockVector:(struct SCNVector3 { float x1; float x2; float x3; })arg1;
-- (void)setStickyAxis:(long long)arg1;
-- (void)setZoomFactor:(double)arg1;
-- (long long)stickyAxis;
+- (void)setStickyAxis:(int)arg1;
+- (void)setZoomFactor:(float)arg1;
+- (int)stickyAxis;
 - (void)translateByX:(float)arg1 Y:(float)arg2 Z:(float)arg3;
 - (void)updateCameraTargetIfNeeded;
 - (void)viewWillDraw;
 - (struct C3DSphere { })viewedObjectSphere;
-- (bool)wantsRedraw;
-- (void)zoomBy:(float)arg1 animate:(bool)arg2;
+- (BOOL)wantsRedraw;
 - (void)zoomBy:(float)arg1;
-- (double)zoomFactor;
+- (void)zoomBy:(float)arg1 animate:(BOOL)arg2;
+- (float)zoomFactor;
 
 @end

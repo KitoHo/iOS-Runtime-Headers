@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/MessageUI.framework/MessageUI
  */
 
-@class NSMutableSet;
-
 @interface _MFCountableMatchesContext : NSObject {
-    long long _maxCount;
+    int _maxCount;
     struct __CFDictionary { } *_peopleCount;
     NSMutableSet *_popularPeople;
 }
 
-@property long long maxCount;
+@property (nonatomic) int maxCount;
 
-- (void)countInstances:(id)arg1 usingPredicate:(id)arg2;
+- (void)countInstances:(id)arg1 usingPredicate:(id /* block */)arg2;
 - (void)dealloc;
 - (id)highestMatches;
 - (id)init;
-- (long long)maxCount;
-- (void)setMaxCount:(long long)arg1;
+- (int)maxCount;
+- (void)setMaxCount:(int)arg1;
 
 @end

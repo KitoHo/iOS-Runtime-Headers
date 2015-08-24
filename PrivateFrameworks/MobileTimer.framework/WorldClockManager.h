@@ -2,36 +2,41 @@
    Image: /System/Library/PrivateFrameworks/MobileTimer.framework/MobileTimer
  */
 
-@class NSArray, NSDate, NSMutableArray, NSTimer;
-
 @interface WorldClockManager : NSObject {
     NSMutableArray *_cities;
+    BOOL _dirty;
     NSTimer *_weatherUpdateTimer;
-    bool_dirty;
     NSDate *lastModified;
 }
 
-@property(retain,readonly) NSArray * cities;
-@property(retain) NSDate * lastModified;
+@property (nonatomic, readonly, retain) NSArray *cities;
+@property (nonatomic, retain) NSDate *lastModified;
 
 + (id)sharedManager;
 
-- (unsigned long long)addCity:(id)arg1;
-- (bool)canAddCity;
-- (bool)checkIfCitiesModified;
+- (void)_notifyNano;
+- (unsigned int)addCity:(id)arg1;
+- (void)addDefaultCitiesIfNeeded;
+- (BOOL)canAddCity;
+- (BOOL)checkIfCitiesModified;
 - (id)cities;
 - (id)cityWithIdUrl:(id)arg1;
 - (void)dealloc;
+- (id)fixUpCityProperties:(id)arg1;
 - (id)lastModified;
 - (void)loadCities;
-- (void)moveCityFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)moveCityFromIndex:(unsigned int)arg1 toIndex:(unsigned int)arg2;
+- (void)pushCityPropertiesToPreferences;
 - (void)removeAllCities;
 - (void)removeCity:(id)arg1;
-- (void)removeCityAtIndex:(unsigned long long)arg1;
+- (void)removeCityAtIndex:(unsigned int)arg1;
 - (void)saveCities;
 - (void)setLastModified:(id)arg1;
-- (void)updateWeatherDataForCities:(id)arg1 withCompletion:(id)arg2;
-- (void)updateWeatherDataWithCompletion:(id)arg1;
+- (void)updateWeatherDataForCities:(id)arg1 withCompletion:(id /* block */)arg2;
+- (void)updateWeatherDataWithCompletion:(id /* block */)arg1;
 - (id)weatherReachabilityURL;
+- (id)worldClockCityFromPersistenceArray:(id)arg1;
+- (id)worldClockCityFromPersistenceDictionary:(id)arg1;
+- (id)worldClockCityFromPersistenceRepresentation:(id)arg1;
 
 @end

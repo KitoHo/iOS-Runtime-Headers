@@ -2,43 +2,41 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOComposedRoute, GEOComposedRouteStep, GEOStep;
-
 @interface GEOComposedRouteStep : NSObject {
-    struct _NSRange { 
-        unsigned long long location; 
-        unsigned long long length; 
-    struct _NSRange { 
-        unsigned long long location; 
-        unsigned long long length; 
     GEOComposedRoute *_composedRoute;
     GEOStep *_geoStep;
+    struct _NSRange { 
+        unsigned int location; 
+        unsigned int length; 
     } _maneuverPointRange;
+    struct _NSRange { 
+        unsigned int location; 
+        unsigned int length; 
     } _pointRange;
-    long long _routeLegType;
-    unsigned long long _stepIndex;
+    int _routeLegType;
+    unsigned int _stepIndex;
 }
 
-@property GEOComposedRoute * composedRoute;
-@property(readonly) unsigned int distance;
-@property(readonly) unsigned int duration;
-@property(readonly) struct { double x1; double x2; } endGeoCoordinate;
-@property(readonly) unsigned int endPointIndex;
-@property(readonly) GEOStep * geoStep;
-@property(readonly) bool hasDuration;
-@property(readonly) bool isUncertainArrival;
-@property(readonly) unsigned int maneuverEndPointIndex;
-@property(readonly) struct _NSRange { unsigned long long x1; unsigned long long x2; } maneuverPointRange;
-@property(readonly) unsigned int maneuverStartPointIndex;
-@property(getter=getNextStep,readonly) GEOComposedRouteStep * nextStep;
-@property(readonly) unsigned int pointCount;
-@property(readonly) struct _NSRange { unsigned long long x1; unsigned long long x2; } pointRange;
-@property(getter=getPreviousStep,readonly) GEOComposedRouteStep * previousStep;
-@property(readonly) long long routeLegType;
-@property(readonly) struct { double x1; double x2; } startGeoCoordinate;
-@property(readonly) unsigned int startPointIndex;
-@property(readonly) unsigned long long stepIndex;
-@property(readonly) int transportType;
+@property (nonatomic) GEOComposedRoute *composedRoute;
+@property (nonatomic, readonly) unsigned int distance;
+@property (nonatomic, readonly) unsigned int duration;
+@property (nonatomic, readonly) struct { double x1; double x2; } endGeoCoordinate;
+@property (nonatomic, readonly) unsigned int endPointIndex;
+@property (nonatomic, readonly) GEOStep *geoStep;
+@property (nonatomic, readonly) BOOL hasDuration;
+@property (nonatomic, readonly) BOOL isUncertainArrival;
+@property (nonatomic, readonly) unsigned int maneuverEndPointIndex;
+@property (nonatomic, readonly) struct _NSRange { unsigned int x1; unsigned int x2; } maneuverPointRange;
+@property (nonatomic, readonly) unsigned int maneuverStartPointIndex;
+@property (getter=getNextStep, nonatomic, readonly) GEOComposedRouteStep *nextStep;
+@property (nonatomic, readonly) unsigned int pointCount;
+@property (nonatomic, readonly) struct _NSRange { unsigned int x1; unsigned int x2; } pointRange;
+@property (getter=getPreviousStep, nonatomic, readonly) GEOComposedRouteStep *previousStep;
+@property (nonatomic, readonly) int routeLegType;
+@property (nonatomic, readonly) struct { double x1; double x2; } startGeoCoordinate;
+@property (nonatomic, readonly) unsigned int startPointIndex;
+@property (nonatomic, readonly) unsigned int stepIndex;
+@property (nonatomic, readonly) int transportType;
 
 - (id)composedRoute;
 - (void)dealloc;
@@ -51,20 +49,20 @@
 - (id)geoStep;
 - (id)getNextStep;
 - (id)getPreviousStep;
-- (bool)hasDuration;
-- (id)initWithComposedRoute:(id)arg1 GEOStep:(id)arg2 routeLegType:(long long)arg3 stepIndex:(unsigned long long)arg4 pointRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg5 maneuverPointRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg6;
-- (id)initWithComposedRoute:(id)arg1 routeLegType:(long long)arg2 stepIndex:(unsigned long long)arg3 pointRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg4;
-- (bool)isUncertainArrival;
+- (BOOL)hasDuration;
+- (id)initWithComposedRoute:(id)arg1 GEOStep:(id)arg2 routeLegType:(int)arg3 stepIndex:(unsigned int)arg4 pointRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg5 maneuverPointRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg6;
+- (id)initWithComposedRoute:(id)arg1 routeLegType:(int)arg2 stepIndex:(unsigned int)arg3 pointRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg4;
+- (BOOL)isUncertainArrival;
 - (unsigned int)maneuverEndPointIndex;
-- (struct _NSRange { unsigned long long x1; unsigned long long x2; })maneuverPointRange;
+- (struct _NSRange { unsigned int x1; unsigned int x2; })maneuverPointRange;
 - (unsigned int)maneuverStartPointIndex;
 - (unsigned int)pointCount;
-- (struct _NSRange { unsigned long long x1; unsigned long long x2; })pointRange;
-- (long long)routeLegType;
+- (struct _NSRange { unsigned int x1; unsigned int x2; })pointRange;
+- (int)routeLegType;
 - (void)setComposedRoute:(id)arg1;
 - (struct { double x1; double x2; })startGeoCoordinate;
 - (unsigned int)startPointIndex;
-- (unsigned long long)stepIndex;
+- (unsigned int)stepIndex;
 - (int)transportType;
 
 @end

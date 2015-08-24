@@ -2,40 +2,38 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@class MCProfile, NSArray, NSDictionary, NSString;
-
 @interface MCPayload : NSObject {
     NSString *_UUID;
     NSString *_displayName;
     NSString *_identifier;
+    BOOL _mustInstallNonInteractively;
     NSString *_organization;
     NSString *_payloadDescription;
     NSString *_persistentResourceID;
     MCProfile *_profile;
     NSString *_type;
-    long long _version;
-    bool_mustInstallNonInteractively;
+    int _version;
 }
 
-@property(retain,readonly) NSString * UUID;
-@property(retain) NSString * displayName;
-@property(retain,readonly) NSString * friendlyName;
-@property(retain,readonly) NSString * identifier;
-@property(retain,readonly) NSArray * installationWarnings;
-@property bool mustInstallNonInteractively;
-@property(retain,readonly) NSString * organization;
-@property(retain,readonly) NSString * payloadDescription;
-@property(retain) NSString * persistentResourceID;
-@property(readonly) MCProfile * profile;
-@property(readonly) NSDictionary * restrictions;
-@property(retain,readonly) NSString * type;
-@property(readonly) long long version;
+@property (nonatomic, readonly, retain) NSString *UUID;
+@property (nonatomic, retain) NSString *displayName;
+@property (nonatomic, readonly, retain) NSString *friendlyName;
+@property (nonatomic, readonly, retain) NSString *identifier;
+@property (nonatomic, readonly, retain) NSArray *installationWarnings;
+@property (nonatomic) BOOL mustInstallNonInteractively;
+@property (nonatomic, readonly, retain) NSString *organization;
+@property (nonatomic, readonly, retain) NSString *payloadDescription;
+@property (nonatomic, retain) NSString *persistentResourceID;
+@property (nonatomic, readonly) MCProfile *profile;
+@property (nonatomic, readonly) NSDictionary *restrictions;
+@property (nonatomic, readonly, retain) NSString *type;
+@property (nonatomic, readonly) int version;
 
 + (id)badFieldTypeErrorWithField:(id)arg1;
-+ (id)badFieldValueErrorWithField:(id)arg1 underlyingError:(id)arg2;
 + (id)badFieldValueErrorWithField:(id)arg1;
-+ (id)localizedDescriptionForPayloadCount:(unsigned long long)arg1;
-+ (id)localizedParenthesizedFormDescriptionForPayloadCount:(unsigned long long)arg1;
++ (id)badFieldValueErrorWithField:(id)arg1 underlyingError:(id)arg2;
++ (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
++ (id)localizedParenthesizedFormDescriptionForPayloadCount:(unsigned int)arg1;
 + (id)localizedPluralForm;
 + (id)localizedSingularForm;
 + (id)missingFieldErrorWithField:(id)arg1 underlyingError:(id)arg2;
@@ -53,7 +51,7 @@
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id*)arg3;
 - (id)installationWarnings;
 - (id)malformedPayloadErrorWithError:(id)arg1;
-- (bool)mustInstallNonInteractively;
+- (BOOL)mustInstallNonInteractively;
 - (id)organization;
 - (id)payloadDescription;
 - (id)payloadDescriptionKeyValueSections;
@@ -61,7 +59,7 @@
 - (id)profile;
 - (id)restrictions;
 - (void)setDisplayName:(id)arg1;
-- (void)setMustInstallNonInteractively:(bool)arg1;
+- (void)setMustInstallNonInteractively:(BOOL)arg1;
 - (void)setPersistentResourceID:(id)arg1;
 - (id)stubDictionary;
 - (id)subtitle1Description;
@@ -70,6 +68,6 @@
 - (id)subtitle2Label;
 - (id)title;
 - (id)type;
-- (long long)version;
+- (int)version;
 
 @end

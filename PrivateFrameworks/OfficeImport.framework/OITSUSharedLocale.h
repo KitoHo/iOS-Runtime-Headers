@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSArray;
-
 @interface OITSUSharedLocale : NSObject {
     struct __CFLocale { } *mCurrentLocale;
     NSArray *mObserverObjects;
@@ -21,6 +19,6 @@
 - (id)init;
 - (oneway void)release;
 - (id)retain;
-- (unsigned long long)retainCount;
+- (unsigned int)retainCount;
 
 @end

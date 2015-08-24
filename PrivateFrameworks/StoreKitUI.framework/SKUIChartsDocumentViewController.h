@@ -2,34 +2,33 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSMutableArray, NSString, SKUIChartColumnsView, SKUIChartsTemplateViewElement;
-
 @interface SKUIChartsDocumentViewController : SKUIViewController <SKUIDocumentViewController> {
     SKUIChartColumnsView *_chartsView;
     NSMutableArray *_columnViewControllers;
     SKUIChartsTemplateViewElement *_templateElement;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-+ (bool)_shouldForwardViewWillTransitionToSize;
++ (BOOL)_shouldForwardViewWillTransitionToSize;
 
 - (void).cxx_destruct;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })_chartInsets;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })_chartInsets;
 - (id)_columnViewControllers;
 - (id)_newColumnViewControllersWithReusableViewControllers:(id)arg1;
-- (long long)_visibleColumnCountForWidth:(double)arg1;
+- (int)_visibleColumnCountForWidth:(float)arg1;
 - (id)contentScrollView;
 - (void)documentDidUpdate:(id)arg1;
+- (void)documentMediaQueriesDidUpdate:(id)arg1;
 - (id)initWithTemplateElement:(id)arg1;
 - (void)loadView;
-- (struct CGSize { double x1; double x2; })sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize { double x1; double x2; })arg2;
-- (void)skui_viewWillAppear:(bool)arg1;
-- (void)viewWillAppear:(bool)arg1;
+- (struct CGSize { float x1; float x2; })sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize { float x1; float x2; })arg2;
+- (void)skui_viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 - (void)viewWillLayoutSubviews;
-- (void)viewWillTransitionToSize:(struct CGSize { double x1; double x2; })arg1 withTransitionCoordinator:(id)arg2;
+- (void)viewWillTransitionToSize:(struct CGSize { float x1; float x2; })arg1 withTransitionCoordinator:(id)arg2;
 
 @end

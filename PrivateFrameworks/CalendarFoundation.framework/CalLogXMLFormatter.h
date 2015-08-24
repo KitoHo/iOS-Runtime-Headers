@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/CalendarFoundation.framework/CalendarFoundation
  */
 
-@class NSString;
-
 @interface CalLogXMLFormatter : NSObject <CalLogFormatter> {
-    bool_shouldPrettyPrint;
-    bool_useTinyElementNames;
+    BOOL _shouldPrettyPrint;
+    BOOL _useTinyElementNames;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property bool shouldPrettyPrint;
-@property(readonly) Class superclass;
-@property bool useTinyElementNames;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) BOOL shouldPrettyPrint;
+@property (readonly) Class superclass;
+@property (nonatomic) BOOL useTinyElementNames;
 
 - (id)init;
 - (id)newFormattedString:(id)arg1;
-- (void)setShouldPrettyPrint:(bool)arg1;
-- (void)setUseTinyElementNames:(bool)arg1;
-- (bool)shouldPrettyPrint;
-- (bool)useTinyElementNames;
+- (void)setShouldPrettyPrint:(BOOL)arg1;
+- (void)setUseTinyElementNames:(BOOL)arg1;
+- (BOOL)shouldPrettyPrint;
+- (BOOL)useTinyElementNames;
 
 @end

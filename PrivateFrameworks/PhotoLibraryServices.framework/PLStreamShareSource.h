@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSData, NSString, NSURL;
-
 @interface PLStreamShareSource : NSObject {
     NSString *_fileExtension;
     NSData *_mediaData;
-    long long _mediaType;
+    int _mediaType;
     NSURL *_mediaURL;
 }
 
-@property(retain) NSString * fileExtension;
-@property(retain) NSData * mediaData;
-@property long long mediaType;
-@property(retain) NSURL * mediaURL;
+@property (nonatomic, retain) NSString *fileExtension;
+@property (nonatomic, retain) NSData *mediaData;
+@property (nonatomic) int mediaType;
+@property (nonatomic, retain) NSURL *mediaURL;
 
 - (id)fileExtension;
 - (id)initWithDictionary:(id)arg1;
 - (id)mediaData;
-- (long long)mediaType;
+- (int)mediaType;
 - (id)mediaURL;
 - (id)serializedDictionary;
 - (void)setFileExtension:(id)arg1;
 - (void)setMediaData:(id)arg1;
-- (void)setMediaType:(long long)arg1;
+- (void)setMediaType:(int)arg1;
 - (void)setMediaURL:(id)arg1;
 
 @end

@@ -2,14 +2,13 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface UIAddToReadingListActivity : UIActivity {
-}
+@interface UIAddToReadingListActivity : UIActivity
 
 - (id)_activityImage;
 - (void)_addToReadingList:(id)arg1 withTitle:(id)arg2;
 - (id)activityTitle;
 - (id)activityType;
-- (bool)canPerformWithActivityItems:(id)arg1;
+- (BOOL)canPerformWithActivityItems:(id)arg1;
 - (void)performActivity;
 - (void)prepareWithActivityItems:(id)arg1;
 

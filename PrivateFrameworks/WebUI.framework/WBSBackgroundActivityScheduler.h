@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class NSString;
-
 @interface WBSBackgroundActivityScheduler : NSObject {
     NSString *_identifier;
     double _interval;
+    BOOL _isScheduled;
+    BOOL _repeats;
+    BOOL _shouldUpdateCriteriaWhenActivityCompletes;
     double _tolerance;
-    bool_isScheduled;
-    bool_repeats;
-    bool_shouldUpdateCriteriaWhenActivityCompletes;
 }
 
-@property(copy,readonly) NSString * identifier;
-@property double interval;
-@property bool repeats;
-@property double tolerance;
+@property (nonatomic, readonly, copy) NSString *identifier;
+@property (nonatomic) double interval;
+@property (nonatomic) BOOL repeats;
+@property (nonatomic) double tolerance;
 
 - (void).cxx_destruct;
 - (id)_criteria;
@@ -24,10 +22,10 @@
 - (id)initWithIdentifier:(id)arg1;
 - (double)interval;
 - (void)invalidate;
-- (bool)repeats;
-- (void)scheduleWithBlock:(id)arg1;
+- (BOOL)repeats;
+- (void)scheduleWithBlock:(id /* block */)arg1;
 - (void)setInterval:(double)arg1;
-- (void)setRepeats:(bool)arg1;
+- (void)setRepeats:(BOOL)arg1;
 - (void)setTolerance:(double)arg1;
 - (double)tolerance;
 

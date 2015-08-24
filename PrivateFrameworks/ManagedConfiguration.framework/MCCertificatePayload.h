@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@class NSData, NSDate, NSString;
-
 @interface MCCertificatePayload : MCPayload {
     NSData *_certificatePersistentID;
     NSString *_installedOnDeviceID;
 }
 
-@property(retain) NSData * certificatePersistentID;
-@property(retain,readonly) NSDate * expiry;
-@property(copy) NSString * installedOnDeviceID;
-@property(readonly) bool isIdentity;
-@property(readonly) bool isRoot;
-@property(readonly) bool isSigned;
+@property (nonatomic, retain) NSData *certificatePersistentID;
+@property (nonatomic, readonly, retain) NSDate *expiry;
+@property (nonatomic, copy) NSString *installedOnDeviceID;
+@property (nonatomic, readonly) BOOL isIdentity;
+@property (nonatomic, readonly) BOOL isRoot;
+@property (nonatomic, readonly) BOOL isSigned;
 
 - (void).cxx_destruct;
 - (id)certificatePersistentID;
@@ -24,9 +22,9 @@
 - (id)expiry;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id*)arg3;
 - (id)installedOnDeviceID;
-- (bool)isIdentity;
-- (bool)isRoot;
-- (bool)isSigned;
+- (BOOL)isIdentity;
+- (BOOL)isRoot;
+- (BOOL)isSigned;
 - (void)setCertificatePersistentID:(id)arg1;
 - (void)setInstalledOnDeviceID:(id)arg1;
 - (id)stubDictionary;

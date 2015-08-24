@@ -2,59 +2,57 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSArray, NSDictionary, NSSet;
-
 @interface CKFetchRecordsOperationInfo : CKDatabaseOperationInfo <NSSecureCoding> {
-    unsigned long long _URLOptions;
+    unsigned int _URLOptions;
     NSSet *_assetFieldNamesToPublishURLs;
     NSArray *_desiredKeys;
     NSDictionary *_desiredPackageFileIndices;
+    BOOL _isFetchCurrentUserOperation;
     NSArray *_recordIDs;
     NSDictionary *_recordIDsToVersionETags;
-    unsigned long long _requestedTTL;
+    unsigned int _requestedTTL;
+    BOOL _shouldFetchAssetContent;
     NSDictionary *_signaturesOfAssetsByRecordIDAndKey;
     NSDictionary *_webSharingIdentityDataByRecordID;
-    bool_isFetchCurrentUserOperation;
-    bool_shouldFetchAssetContent;
 }
 
-@property unsigned long long URLOptions;
-@property(retain) NSSet * assetFieldNamesToPublishURLs;
-@property(retain) NSArray * desiredKeys;
-@property(retain) NSDictionary * desiredPackageFileIndices;
-@property bool isFetchCurrentUserOperation;
-@property(retain) NSArray * recordIDs;
-@property(retain) NSDictionary * recordIDsToVersionETags;
-@property unsigned long long requestedTTL;
-@property bool shouldFetchAssetContent;
-@property(retain) NSDictionary * signaturesOfAssetsByRecordIDAndKey;
-@property(retain) NSDictionary * webSharingIdentityDataByRecordID;
+@property (nonatomic) unsigned int URLOptions;
+@property (nonatomic, retain) NSSet *assetFieldNamesToPublishURLs;
+@property (nonatomic, retain) NSArray *desiredKeys;
+@property (nonatomic, retain) NSDictionary *desiredPackageFileIndices;
+@property (nonatomic) BOOL isFetchCurrentUserOperation;
+@property (nonatomic, retain) NSArray *recordIDs;
+@property (nonatomic, retain) NSDictionary *recordIDsToVersionETags;
+@property (nonatomic) unsigned int requestedTTL;
+@property (nonatomic) BOOL shouldFetchAssetContent;
+@property (nonatomic, retain) NSDictionary *signaturesOfAssetsByRecordIDAndKey;
+@property (nonatomic, retain) NSDictionary *webSharingIdentityDataByRecordID;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (unsigned long long)URLOptions;
+- (unsigned int)URLOptions;
 - (id)assetFieldNamesToPublishURLs;
 - (id)desiredKeys;
 - (id)desiredPackageFileIndices;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (bool)isFetchCurrentUserOperation;
+- (BOOL)isFetchCurrentUserOperation;
 - (id)recordIDs;
 - (id)recordIDsToVersionETags;
-- (unsigned long long)requestedTTL;
+- (unsigned int)requestedTTL;
 - (void)setAssetFieldNamesToPublishURLs:(id)arg1;
 - (void)setDesiredKeys:(id)arg1;
 - (void)setDesiredPackageFileIndices:(id)arg1;
-- (void)setIsFetchCurrentUserOperation:(bool)arg1;
+- (void)setIsFetchCurrentUserOperation:(BOOL)arg1;
 - (void)setRecordIDs:(id)arg1;
 - (void)setRecordIDsToVersionETags:(id)arg1;
-- (void)setRequestedTTL:(unsigned long long)arg1;
-- (void)setShouldFetchAssetContent:(bool)arg1;
+- (void)setRequestedTTL:(unsigned int)arg1;
+- (void)setShouldFetchAssetContent:(BOOL)arg1;
 - (void)setSignaturesOfAssetsByRecordIDAndKey:(id)arg1;
-- (void)setURLOptions:(unsigned long long)arg1;
+- (void)setURLOptions:(unsigned int)arg1;
 - (void)setWebSharingIdentityDataByRecordID:(id)arg1;
-- (bool)shouldFetchAssetContent;
+- (BOOL)shouldFetchAssetContent;
 - (id)signaturesOfAssetsByRecordIDAndKey;
 - (id)webSharingIdentityDataByRecordID;
 

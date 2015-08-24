@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/AVKit.framework/AVKit
  */
 
-@class AVPlayerController, NSTimer;
-
 @interface AVPlayerControllerTimeResolver : NSObject <NSCoding> {
     double _currentTime;
     double _interval;
@@ -13,16 +11,16 @@
 }
 
 @property double currentTime;
-@property(getter=isCurrentTimeAtEndOfSeekableTimeRanges,readonly) bool currentTimeAtEndOfSeekableTimeRanges;
+@property (getter=isCurrentTimeAtEndOfSeekableTimeRanges, readonly) BOOL currentTimeAtEndOfSeekableTimeRanges;
 @property double currentTimeWithinEndTimes;
 @property double interval;
-@property(retain) AVPlayerController * playerController;
-@property(readonly) double remainingTime;
-@property(readonly) double remainingTimeWithinEndTimes;
+@property (retain) AVPlayerController *playerController;
+@property (readonly) double remainingTime;
+@property (readonly) double remainingTimeWithinEndTimes;
 @property double resolution;
-@property(getter=isThirtySecondsBeforeCurrentTimeWithinSeekableTimeRanges,readonly) bool thirtySecondsBeforeCurrentTimeWithinSeekableTimeRanges;
+@property (getter=isThirtySecondsBeforeCurrentTimeWithinSeekableTimeRanges, readonly) BOOL thirtySecondsBeforeCurrentTimeWithinSeekableTimeRanges;
 
-+ (bool)automaticallyNotifiesObserversOfCurrentTime;
++ (BOOL)automaticallyNotifiesObserversOfCurrentTime;
 + (id)keyPathsForValuesAffectingCurrentTimeAtEndOfSeekableTimeRanges;
 + (id)keyPathsForValuesAffectingCurrentTimeWithinEndTimes;
 + (id)keyPathsForValuesAffectingRemainingTime;
@@ -37,8 +35,8 @@
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (double)interval;
-- (bool)isCurrentTimeAtEndOfSeekableTimeRanges;
-- (bool)isThirtySecondsBeforeCurrentTimeWithinSeekableTimeRanges;
+- (BOOL)isCurrentTimeAtEndOfSeekableTimeRanges;
+- (BOOL)isThirtySecondsBeforeCurrentTimeWithinSeekableTimeRanges;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4;
 - (id)playerController;
 - (double)remainingTime;

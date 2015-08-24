@@ -2,25 +2,27 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSData, NSMutableArray;
-
 @interface GEODirectionsFeedback : PBCodable <NSCopying> {
     NSData *_directionResponseID;
-    struct { double x1; unsigned int x2; boolx3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; } *_stepFeedbacks;
-    unsigned long long _stepFeedbacksCount;
-    unsigned long long _stepFeedbacksSpace;
+    struct { double x1; unsigned int x2; BOOL x3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; } *_stepFeedbacks;
+    unsigned int _stepFeedbacksCount;
+    unsigned int _stepFeedbacksSpace;
+    NSMutableArray *_trafficRerouteFeedbacks;
     NSMutableArray *_traversedRouteIDs;
 }
 
-@property(retain) NSData * directionResponseID;
-@property(readonly) bool hasDirectionResponseID;
-@property(readonly) struct { double x1; unsigned int x2; boolx3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; }* stepFeedbacks;
-@property(readonly) unsigned long long stepFeedbacksCount;
-@property(retain) NSMutableArray * traversedRouteIDs;
+@property (nonatomic, retain) NSData *directionResponseID;
+@property (nonatomic, readonly) BOOL hasDirectionResponseID;
+@property (nonatomic, readonly) struct { double x1; unsigned int x2; BOOL x3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; }*stepFeedbacks;
+@property (nonatomic, readonly) unsigned int stepFeedbacksCount;
+@property (nonatomic, retain) NSMutableArray *trafficRerouteFeedbacks;
+@property (nonatomic, retain) NSMutableArray *traversedRouteIDs;
 
-- (void)addStepFeedback:(struct { double x1; unsigned int x2; boolx3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; })arg1;
+- (void)addStepFeedback:(struct { double x1; unsigned int x2; BOOL x3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; })arg1;
+- (void)addTrafficRerouteFeedback:(id)arg1;
 - (void)addTraversedRouteIDs:(id)arg1;
 - (void)clearStepFeedbacks;
+- (void)clearTrafficRerouteFeedbacks;
 - (void)clearTraversedRouteIDs;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -28,20 +30,24 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)directionResponseID;
-- (bool)hasDirectionResponseID;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasDirectionResponseID;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setDirectionResponseID:(id)arg1;
-- (void)setStepFeedbacks:(struct { double x1; unsigned int x2; boolx3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; }*)arg1 count:(unsigned long long)arg2;
+- (void)setStepFeedbacks:(struct { double x1; unsigned int x2; BOOL x3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; }*)arg1 count:(unsigned int)arg2;
+- (void)setTrafficRerouteFeedbacks:(id)arg1;
 - (void)setTraversedRouteIDs:(id)arg1;
-- (struct { double x1; unsigned int x2; boolx3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; })stepFeedbackAtIndex:(unsigned long long)arg1;
-- (struct { double x1; unsigned int x2; boolx3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; }*)stepFeedbacks;
-- (unsigned long long)stepFeedbacksCount;
+- (struct { double x1; unsigned int x2; BOOL x3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; })stepFeedbackAtIndex:(unsigned int)arg1;
+- (struct { double x1; unsigned int x2; BOOL x3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; }*)stepFeedbacks;
+- (unsigned int)stepFeedbacksCount;
+- (id)trafficRerouteFeedbackAtIndex:(unsigned int)arg1;
+- (id)trafficRerouteFeedbacks;
+- (unsigned int)trafficRerouteFeedbacksCount;
 - (id)traversedRouteIDs;
-- (id)traversedRouteIDsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)traversedRouteIDsCount;
+- (id)traversedRouteIDsAtIndex:(unsigned int)arg1;
+- (unsigned int)traversedRouteIDsCount;
 - (void)writeTo:(id)arg1;
 
 @end

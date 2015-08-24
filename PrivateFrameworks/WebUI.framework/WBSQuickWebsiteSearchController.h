@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class NSArray, NSMutableDictionary, NSObject<OS_dispatch_queue>;
-
 @interface WBSQuickWebsiteSearchController : NSObject {
-    struct unique_ptr<SafariShared::CoalescedAsynchronousWriter, std::__1::default_delete<SafariShared::CoalescedAsynchronousWriter> > { 
-        struct __compressed_pair<SafariShared::CoalescedAsynchronousWriter *, std::__1::default_delete<SafariShared::CoalescedAsynchronousWriter> > { 
-            struct CoalescedAsynchronousWriter {} *__first_; 
-        } __ptr_; 
     NSMutableDictionary *_hostSetsByOpenSearchDescriptionDocumentURLString;
     NSMutableDictionary *_openSearchDescriptionsByDescriptionDocumentURLString;
     NSMutableDictionary *_quickWebsiteSearchProvidersByHost;
     NSObject<OS_dispatch_queue> *_quickWebsiteSearchProvidersBySourcePageURLStringAccessQueue;
+    BOOL _quickWebsiteSearchProvidersLoadedFromDisk;
+    struct unique_ptr<SafariShared::CoalescedAsynchronousWriter, std::__1::default_delete<SafariShared::CoalescedAsynchronousWriter> > { 
+        struct __compressed_pair<SafariShared::CoalescedAsynchronousWriter *, std::__1::default_delete<SafariShared::CoalescedAsynchronousWriter> > { 
+            struct CoalescedAsynchronousWriter {} *__first_; 
+        } __ptr_; 
     } _writer;
-    bool_quickWebsiteSearchProvidersLoadedFromDisk;
 }
 
-@property(readonly) NSArray * quickWebsiteSearchHosts;
-@property bool quickWebsiteSearchProvidersLoadedFromDisk;
+@property (nonatomic, readonly) NSArray *quickWebsiteSearchHosts;
+@property BOOL quickWebsiteSearchProvidersLoadedFromDisk;
 
 + (id)sharedController;
 
@@ -30,13 +28,13 @@
 - (void)_didFinishLoadingFromDisk;
 - (void)_loadFromDisk;
 - (void)_pruneUnusedQuickWebsiteSearchProviders;
-- (bool)_quickWebsiteSearchProviderHasSearchURLTemplateStringOnAccessQueue:(id)arg1;
+- (BOOL)_quickWebsiteSearchProviderHasSearchURLTemplateStringOnAccessQueue:(id)arg1;
 - (void)_removeHost:(id)arg1 fromOpenSearchDescriptionWithDocumentURL:(id)arg2;
-- (void)_resetCachedDataWithCompletionHandler:(id)arg1;
+- (void)_resetCachedDataWithCompletionHandler:(id /* block */)arg1;
 - (void)_saveToDiskSoon;
 - (id)_searchDescriptionsURL;
 - (void)_sendNotification:(id)arg1 forQuickWebsiteSearchProvider:(id)arg2;
-- (bool)_shouldRemoveQuickWebsiteSearchProvider:(id)arg1;
+- (BOOL)_shouldRemoveQuickWebsiteSearchProvider:(id)arg1;
 - (void)beginLoadingFromDiskIfNeeded;
 - (void)clear;
 - (void)didPerformSearchWithProvider:(id)arg1;
@@ -46,13 +44,13 @@
 - (id)providerForSourcePageURLString:(id)arg1;
 - (id)providersMatchingQueryString:(id)arg1;
 - (id)quickWebsiteSearchHosts;
-- (bool)quickWebsiteSearchProvidersLoadedFromDisk;
+- (BOOL)quickWebsiteSearchProvidersLoadedFromDisk;
 - (void)removeProviderWithHost:(id)arg1;
 - (void)removeProvidersAddedAfterDate:(id)arg1 beforeDate:(id)arg2;
 - (void)removeProvidersWithHosts:(id)arg1;
 - (void)savePendingChangesBeforeTermination;
 - (void)setOpenSearchDescriptionURLString:(id)arg1 forSourcePageURLString:(id)arg2;
-- (void)setQuickWebsiteSearchProvidersLoadedFromDisk:(bool)arg1;
+- (void)setQuickWebsiteSearchProvidersLoadedFromDisk:(BOOL)arg1;
 - (void)setSearchURLTemplateStringFromForm:(id)arg1 forSourcePageURLString:(id)arg2;
 
 @end

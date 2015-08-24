@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/HomeKitDaemon.framework/HomeKitDaemon
  */
 
-@class HMDHome, HMMessageDispatcher, NSDate, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSUUID;
-
 @interface HMDTrigger : NSObject <HMMessageReceiver, NSSecureCoding> {
+    BOOL _active;
     NSMutableArray *_currentActionSets;
     HMDHome *_home;
     NSDate *_mostRecentFireDate;
@@ -12,38 +11,38 @@
     NSString *_name;
     NSUUID *_uuid;
     NSObject<OS_dispatch_queue> *_workQueue;
-    bool_active;
 }
 
-@property bool active;
-@property(retain) NSMutableArray * currentActionSets;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property HMDHome * home;
-@property(readonly) NSObject<OS_dispatch_queue> * messageReceiveQueue;
-@property(readonly) NSUUID * messageTargetUUID;
-@property(copy) NSDate * mostRecentFireDate;
-@property(retain) HMMessageDispatcher * msgDispatcher;
-@property(retain) NSString * name;
-@property(readonly) Class superclass;
-@property(retain) NSUUID * uuid;
-@property(retain) NSObject<OS_dispatch_queue> * workQueue;
+@property (nonatomic) BOOL active;
+@property (nonatomic, retain) NSMutableArray *currentActionSets;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) HMDHome *home;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property (nonatomic, readonly) NSUUID *messageTargetUUID;
+@property (nonatomic, copy) NSDate *mostRecentFireDate;
+@property (nonatomic, retain) HMMessageDispatcher *msgDispatcher;
+@property (nonatomic, retain) NSString *name;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSUUID *uuid;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *workQueue;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (id)_activate:(bool)arg1;
+- (id)_activate:(BOOL)arg1;
 - (void)_handleActivateTriggerRequest:(id)arg1;
 - (void)_handleRenameRequest:(id)arg1;
 - (void)_handleUpdateActionSetRequest:(id)arg1;
 - (void)_registerForMessages;
-- (id)_updateActionSets:(id)arg1 add:(bool)arg2;
+- (id)_updateActionSets:(id)arg1 add:(BOOL)arg2;
 - (id)actionSets;
-- (bool)active;
+- (BOOL)active;
 - (void)checkForNoActions;
 - (void)configure:(id)arg1 messageDispatcher:(id)arg2 queue:(id)arg3;
 - (id)currentActionSets;
+- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)home;
 - (id)initWithCoder:(id)arg1;
@@ -56,7 +55,7 @@
 - (id)name;
 - (void)reEvaluate;
 - (void)removeActionSet:(id)arg1;
-- (void)setActive:(bool)arg1;
+- (void)setActive:(BOOL)arg1;
 - (void)setCurrentActionSets:(id)arg1;
 - (void)setHome:(id)arg1;
 - (void)setMostRecentFireDate:(id)arg1;

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class NSString, NSURL;
-
 @interface WBSAutomaticReadingListWebFeedItem : WBSAutomaticReadingListItem {
     NSString *_feedURLString;
     NSURL *_homepageURL;
@@ -11,21 +9,21 @@
     NSString *_title;
 }
 
-@property(copy) NSString * feedURLString;
-@property(copy) NSURL * homepageURL;
-@property(copy) NSString * originatorProfileImageURLString;
-@property(copy) NSString * title;
+@property (nonatomic, copy) NSString *feedURLString;
+@property (nonatomic, copy) NSURL *homepageURL;
+@property (nonatomic, copy) NSString *originatorProfileImageURLString;
+@property (nonatomic, copy) NSString *title;
 
 - (void).cxx_destruct;
 - (id)biggerOriginatorProfileImageURL;
 - (id)continuousBannerDisplayString;
 - (id)continuousBannerTitle;
 - (id)displayString;
-- (struct _NSRange { unsigned long long x1; unsigned long long x2; })emphasizedTextRange;
+- (struct _NSRange { unsigned int x1; unsigned int x2; })emphasizedTextRange;
 - (id)feedURLString;
 - (id)homepageURL;
 - (id)initWithDictionary:(id)arg1 socialSourceAccountIdentifier:(id)arg2;
-- (bool)isAcceptableOriginatorProfileImage:(id)arg1;
+- (BOOL)isAcceptableOriginatorProfileImage:(id)arg1;
 - (id)originatorProfileImageURL;
 - (id)originatorProfileImageURLString;
 - (id)originatorProfileURL;

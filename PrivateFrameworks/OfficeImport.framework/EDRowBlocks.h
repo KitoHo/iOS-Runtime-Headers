@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class EDCollection, EDWorksheet, NSMutableArray, NSRecursiveLock, NSString;
-
 @interface EDRowBlocks : NSObject <TSUFlushable> {
     NSString *mFileName;
     EDCollection *mFormulas;
@@ -15,30 +13,30 @@
     EDWorksheet *mWorksheet;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (struct EDCellHeader { unsigned int x1; unsigned int x2; }*)cellWithRowNumber:(unsigned int)arg1 columnNumber:(int)arg2;
 - (Class)classForFormulaType:(unsigned char)arg1;
 - (void)dealloc;
-- (unsigned long long)expectedIndexOfRowBlockForRowNumber:(unsigned int)arg1;
+- (unsigned int)expectedIndexOfRowBlockForRowNumber:(unsigned int)arg1;
 - (id)fileNameForPersistingRowBlocks;
 - (void)flush;
 - (unsigned char)formulaTypeForFormula:(id)arg1;
 - (id)formulas;
-- (unsigned long long)indexOfRowBlockForRowNumber:(unsigned int)arg1;
+- (unsigned int)indexOfRowBlockForRowNumber:(unsigned int)arg1;
 - (id)initWithWorksheet:(id)arg1;
 - (void)load;
 - (void)lock;
 - (unsigned int)maxPopulatedColumn;
 - (unsigned int)maxPopulatedRow;
-- (void)removeRowBlockAtIndex:(unsigned long long)arg1;
-- (id)rowBlockAtIndex:(unsigned long long)arg1;
-- (unsigned long long)rowBlockCount;
-- (id)rowBlockForRowNumber:(unsigned int)arg1 currentRowBlock:(id)arg2 createIfNil:(bool)arg3;
+- (void)removeRowBlockAtIndex:(unsigned int)arg1;
+- (id)rowBlockAtIndex:(unsigned int)arg1;
+- (unsigned int)rowBlockCount;
 - (id)rowBlockForRowNumber:(unsigned int)arg1 currentRowBlock:(id)arg2;
+- (id)rowBlockForRowNumber:(unsigned int)arg1 currentRowBlock:(id)arg2 createIfNil:(bool)arg3;
 - (void)save;
 - (bool)spaceForRowNumber:(unsigned int)arg1 rowBlock:(id)arg2;
 - (void)unlock;

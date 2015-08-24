@@ -2,45 +2,34 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSXPCListener;
-
 @interface CKDCloudDatabaseServer : NSObject <NSXPCListenerDelegate> {
+    NSOperationQueue *_clientTeardownQueue;
     NSMutableArray *_connectedClients;
-    NSObject<OS_dispatch_queue> *_lowDiskQueue;
-    NSObject<OS_dispatch_source> *_lowDiskSource;
-    NSObject<OS_dispatch_source> *_lowDiskTimer;
     NSObject<OS_dispatch_source> *_sighandlerSource;
     NSXPCListener *_xpcListener;
 }
 
-@property(retain) NSMutableArray * connectedClients;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) NSObject<OS_dispatch_queue> * lowDiskQueue;
-@property(retain) NSObject<OS_dispatch_source> * lowDiskSource;
-@property(retain) NSObject<OS_dispatch_source> * lowDiskTimer;
-@property(retain) NSObject<OS_dispatch_source> * sighandlerSource;
-@property(readonly) Class superclass;
-@property(retain) NSXPCListener * xpcListener;
+@property (nonatomic, retain) NSOperationQueue *clientTeardownQueue;
+@property (nonatomic, retain) NSMutableArray *connectedClients;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NSObject<OS_dispatch_source> *sighandlerSource;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSXPCListener *xpcListener;
 
 + (id)sharedServer;
 
 - (void).cxx_destruct;
-- (void)_didReceiveLowDiskNotification;
 - (id)allClients;
+- (id)clientTeardownQueue;
 - (id)connectedClients;
 - (void)dealloc;
 - (id)init;
-- (bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
-- (id)lowDiskQueue;
-- (id)lowDiskSource;
-- (id)lowDiskTimer;
+- (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)resume;
+- (void)setClientTeardownQueue:(id)arg1;
 - (void)setConnectedClients:(id)arg1;
-- (void)setLowDiskQueue:(id)arg1;
-- (void)setLowDiskSource:(id)arg1;
-- (void)setLowDiskTimer:(id)arg1;
 - (void)setSighandlerSource:(id)arg1;
 - (void)setXpcListener:(id)arg1;
 - (id)sighandlerSource;

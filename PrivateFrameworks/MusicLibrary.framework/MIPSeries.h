@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@class NSString;
-
 @interface MIPSeries : PBCodable <NSCopying> {
     struct { 
         unsigned int storeId : 1; 
@@ -13,26 +11,27 @@
     long long _storeId;
 }
 
-@property(readonly) bool hasName;
-@property(readonly) bool hasSortName;
-@property bool hasStoreId;
-@property(retain) NSString * name;
-@property(retain) NSString * sortName;
-@property long long storeId;
+@property (nonatomic, readonly) BOOL hasName;
+@property (nonatomic, readonly) BOOL hasSortName;
+@property (nonatomic) BOOL hasStoreId;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *sortName;
+@property (nonatomic) long long storeId;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasName;
-- (bool)hasSortName;
-- (bool)hasStoreId;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasName;
+- (BOOL)hasSortName;
+- (BOOL)hasStoreId;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)mergeFrom:(id)arg1;
 - (id)name;
-- (bool)readFrom:(id)arg1;
-- (void)setHasStoreId:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasStoreId:(BOOL)arg1;
 - (void)setName:(id)arg1;
 - (void)setSortName:(id)arg1;
 - (void)setStoreId:(long long)arg1;

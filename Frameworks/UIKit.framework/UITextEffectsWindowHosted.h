@@ -2,15 +2,14 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface UITextEffectsWindowHosted : UITextEffectsWindow {
-}
+@interface UITextEffectsWindowHosted : UITextEffectsWindow
 
-- (bool)_isClippedByScreenJail;
-- (bool)_isConstrainedByScreenJail;
-- (bool)_isOffsetByScreenJail;
-- (bool)_isRotatedByScreenJail;
-- (bool)_isScaledByScreenJail;
-- (bool)_isWindowServerHostingManaged;
-- (bool)_usesWindowServerHitTesting;
+- (BOOL)_isClippedByScreenJail;
+- (BOOL)_isConstrainedByScreenJail;
+- (BOOL)_isOffsetByScreenJail;
+- (BOOL)_isRotatedByScreenJail;
+- (BOOL)_isScaledByScreenJail;
+- (BOOL)_isWindowServerHostingManaged;
+- (BOOL)_usesWindowServerHitTesting;
 
 @end

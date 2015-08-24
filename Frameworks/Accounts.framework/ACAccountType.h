@@ -2,48 +2,46 @@
    Image: /System/Library/Frameworks/Accounts.framework/Accounts
  */
 
-@class ACAccountStore, NSSet, NSString, NSURL;
-
 @interface ACAccountType : NSObject <NSSecureCoding> {
     NSSet *_accessKeys;
     ACAccountStore *_accountStore;
     NSString *_accountTypeDescription;
     NSString *_credentialProtectionPolicy;
     NSString *_credentialType;
+    BOOL _encryptAccountProperties;
     NSString *_identifier;
     NSURL *_objectID;
     NSString *_owningBundleID;
     NSString *_owningTeamID;
     NSSet *_supportedDataclasses;
     int _supportsAuthentication;
+    BOOL _supportsMultipleAccounts;
     NSSet *_syncableDataclasses;
     int _visibility;
-    bool_encryptAccountProperties;
-    bool_supportsMultipleAccounts;
 }
 
-@property(readonly) bool accessGranted;
-@property(readonly) NSSet * accessKeys;
-@property ACAccountStore * accountStore;
-@property(readonly) NSString * accountTypeDescription;
-@property(copy) id credentialProtectionPolicy;
-@property(retain) NSString * credentialType;
-@property(readonly) bool encryptAccountProperties;
-@property(readonly) NSString * fullDescription;
-@property(readonly) NSString * identifier;
-@property(retain) NSURL * objectID;
-@property(retain) NSString * owningBundleID;
-@property(retain) NSString * owningTeamID;
-@property(readonly) NSSet * supportedDataclasses;
-@property int supportsAuthentication;
-@property bool supportsMultipleAccounts;
-@property(readonly) NSSet * syncableDataclasses;
-@property int visibility;
+@property (nonatomic, readonly) BOOL accessGranted;
+@property (nonatomic, readonly) NSSet *accessKeys;
+@property (nonatomic) ACAccountStore *accountStore;
+@property (nonatomic, readonly) NSString *accountTypeDescription;
+@property (nonatomic, copy) id credentialProtectionPolicy;
+@property (nonatomic, retain) NSString *credentialType;
+@property (nonatomic, readonly) BOOL encryptAccountProperties;
+@property (nonatomic, readonly) NSString *fullDescription;
+@property (nonatomic, readonly) NSString *identifier;
+@property (nonatomic, retain) NSURL *objectID;
+@property (nonatomic, retain) NSString *owningBundleID;
+@property (nonatomic, retain) NSString *owningTeamID;
+@property (nonatomic, readonly) NSSet *supportedDataclasses;
+@property (nonatomic) int supportsAuthentication;
+@property (nonatomic) BOOL supportsMultipleAccounts;
+@property (nonatomic, readonly) NSSet *syncableDataclasses;
+@property (nonatomic) int visibility;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (bool)accessGranted;
+- (BOOL)accessGranted;
 - (id)accessKeys;
 - (id)accountStore;
 - (id)accountTypeDescription;
@@ -52,13 +50,13 @@
 - (id)credentialType;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (bool)encryptAccountProperties;
+- (BOOL)encryptAccountProperties;
 - (id)fullDescription;
 - (id)identifier;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithIdentifier:(id)arg1 description:(id)arg2;
-- (id)initWithManagedAccountType:(id)arg1 accountStore:(id)arg2;
 - (id)initWithManagedAccountType:(id)arg1;
+- (id)initWithManagedAccountType:(id)arg1 accountStore:(id)arg2;
 - (id)objectID;
 - (id)owningBundleID;
 - (id)owningTeamID;
@@ -71,11 +69,11 @@
 - (void)setOwningBundleID:(id)arg1;
 - (void)setOwningTeamID:(id)arg1;
 - (void)setSupportsAuthentication:(int)arg1;
-- (void)setSupportsMultipleAccounts:(bool)arg1;
+- (void)setSupportsMultipleAccounts:(BOOL)arg1;
 - (void)setVisibility:(int)arg1;
 - (id)supportedDataclasses;
 - (int)supportsAuthentication;
-- (bool)supportsMultipleAccounts;
+- (BOOL)supportsMultipleAccounts;
 - (id)syncableDataclasses;
 - (int)visibility;
 

@@ -2,14 +2,10 @@
    Image: /System/Library/Frameworks/CFNetwork.framework/CFNetwork
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
 @interface _NSCFTranslatedFileURLProtocol : NSURLProtocol {
+    const struct CFURLProtocolInstanceCallbacks { int x1; int (*x2)(); int (*x3)(); int (*x4)(); int (*x5)(); int (*x6)(); int (*x7)(); int (*x8)(); int (*x9)(); int (*x10)(); int (*x11)(); int (*x12)(); int (*x13)(); void *x14; } *_callbacks;
     struct CFURLProtocolClient { 
-        long long version; 
+        int version; 
         void *client; 
         int (*retain)(); 
         int (*release)(); 
@@ -21,18 +17,17 @@
         int (*didFinishLoading)(); 
         int (*didFail)(); 
         int (*didReceiveAuthenticationChallenge)(); 
-    const struct CFURLProtocolInstanceCallbacks { long long x1; int (*x2)(); int (*x3)(); int (*x4)(); int (*x5)(); int (*x6)(); int (*x7)(); int (*x8)(); int (*x9)(); int (*x10)(); int (*x11)(); int (*x12)(); int (*x13)(); void *x14; } *_callbacks;
     } _cfurlClient;
     const void *_info;
 }
 
-+ (const struct CFURLProtocolImplementation { long long x1; void *x2; int (*x3)(); int (*x4)(); int (*x5)(); int (*x6)(); int (*x7)(); int (*x8)(); int (*x9)(); }*)pimpl;
-+ (bool)canInitWithRequest:(id)arg1;
++ (BOOL)canInitWithRequest:(id)arg1;
 + (id)canonicalRequestForRequest:(id)arg1;
-+ (bool)requestIsCacheEquivalent:(id)arg1 toRequest:(id)arg2;
++ (const struct CFURLProtocolImplementation { int x1; void *x2; int (*x3)(); int (*x4)(); int (*x5)(); int (*x6)(); int (*x7)(); int (*x8)(); int (*x9)(); }*)pimpl;
++ (BOOL)requestIsCacheEquivalent:(id)arg1 toRequest:(id)arg2;
 
-- (struct CFURLProtocolClient { long long x1; void *x2; int (*x3)(); int (*x4)(); int (*x5)(); int (*x6)(); int (*x7)(); int (*x8)(); int (*x9)(); int (*x10)(); int (*x11)(); int (*x12)(); }*)cfurlClient;
 - (id).cxx_construct;
+- (struct CFURLProtocolClient { int x1; void *x2; int (*x3)(); int (*x4)(); int (*x5)(); int (*x6)(); int (*x7)(); int (*x8)(); int (*x9)(); int (*x10)(); int (*x11)(); int (*x12)(); }*)cfurlClient;
 - (void)dealloc;
 - (id)initWithRequest:(id)arg1 cachedResponse:(id)arg2 client:(id)arg3;
 - (void)startLoading;

@@ -2,37 +2,35 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class GKTurnBasedExchangeReplyInternal, GKTurnBasedMatch, GKTurnBasedParticipant, NSData, NSDate, NSString;
-
 @interface GKTurnBasedExchangeReply : NSObject {
     GKTurnBasedExchangeReplyInternal *_internal;
     GKTurnBasedMatch *_matchWeak;
     GKTurnBasedParticipant *_recipient;
 }
 
-@property(retain) NSData * data;
-@property(retain) GKTurnBasedExchangeReplyInternal * internal;
-@property GKTurnBasedMatch * match;
-@property(readonly) NSString * message;
-@property(retain) GKTurnBasedParticipant * recipient;
-@property(readonly) NSDate * replyDate;
+@property (nonatomic, retain) NSData *data;
+@property (retain) GKTurnBasedExchangeReplyInternal *internal;
+@property (nonatomic) GKTurnBasedMatch *match;
+@property (nonatomic, readonly) NSString *message;
+@property (nonatomic, retain) GKTurnBasedParticipant *recipient;
+@property (nonatomic, readonly) NSDate *replyDate;
 
 + (id)instanceMethodSignatureForSelector:(SEL)arg1;
-+ (bool)instancesRespondToSelector:(SEL)arg1;
++ (BOOL)instancesRespondToSelector:(SEL)arg1;
 
 - (void)dealloc;
 - (id)description;
 - (id)forwardingTargetForSelector:(SEL)arg1;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
 - (id)initWithInternalRepresentation:(id)arg1;
 - (id)internal;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)match;
 - (id)message;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (id)recipient;
-- (bool)respondsToSelector:(SEL)arg1;
+- (BOOL)respondsToSelector:(SEL)arg1;
 - (void)setInternal:(id)arg1;
 - (void)setMatch:(id)arg1;
 - (void)setRecipient:(id)arg1;

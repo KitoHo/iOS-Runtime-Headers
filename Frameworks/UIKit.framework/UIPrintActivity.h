@@ -2,21 +2,18 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIViewController;
-
 @interface UIPrintActivity : UIActivity {
     UIViewController *_wrapperViewController;
 }
 
-@property(retain) UIViewController * wrapperViewController;
+@property (retain) UIViewController *wrapperViewController;
 
 - (id)_activityImage;
-- (void)_cleanup;
 - (id)_embeddedActivityViewController;
-- (void)activityDidFinish:(bool)arg1;
+- (void)activityDidFinish:(BOOL)arg1;
 - (id)activityTitle;
 - (id)activityType;
-- (bool)canPerformWithActivityItems:(id)arg1;
+- (BOOL)canPerformWithActivityItems:(id)arg1;
 - (void)cancelPrintOptions;
 - (void)dealloc;
 - (void)performActivity;

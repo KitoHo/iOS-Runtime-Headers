@@ -2,14 +2,16 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class CKContainer, CKOperationInfo, CKPlaceholderOperation, NSArray, NSError, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
-
 @interface CKOperation : NSOperation {
+    BOOL _allowsCellularAccess;
     NSObject<OS_dispatch_queue> *_callbackQueue;
     CKContainer *_container;
     id _context;
     NSString *_deviceIdentifier;
     NSError *_error;
+    BOOL _isDiscretionary;
+    BOOL _isExecuting;
+    BOOL _isFinished;
     NSString *_operationID;
     NSString *_parentSectionID;
     CKPlaceholderOperation *_placeholderOperation;
@@ -17,37 +19,35 @@
     NSString *_sectionID;
     NSString *_sourceApplicationBundleIdentifier;
     NSString *_sourceApplicationSecondaryIdentifier;
+    CKTimeLogger *_timeLogger;
     NSObject<OS_dispatch_source> *_timeoutSource;
-    long long _usesBackgroundSessionOverride;
-    bool_allowsCellularAccess;
-    bool_isDiscretionary;
-    bool_isExecuting;
-    bool_isFinished;
+    int _usesBackgroundSessionOverride;
 }
 
-@property bool allowsCellularAccess;
-@property(retain) NSObject<OS_dispatch_queue> * callbackQueue;
-@property(retain) CKContainer * container;
-@property(readonly) id context;
-@property(retain) NSString * deviceIdentifier;
-@property(retain) NSError * error;
-@property bool isDiscretionary;
-@property bool isExecuting;
-@property bool isFinished;
-@property(retain) NSString * operationID;
-@property(readonly) CKOperationInfo * operationInfo;
-@property(readonly) NSString * parentSectionID;
-@property(retain) CKPlaceholderOperation * placeholderOperation;
-@property(retain) NSArray * requestUUIDs;
-@property(retain) NSString * sectionID;
-@property(retain) NSString * sourceApplicationBundleIdentifier;
-@property(retain) NSString * sourceApplicationSecondaryIdentifier;
-@property(retain) NSObject<OS_dispatch_source> * timeoutSource;
-@property bool usesBackgroundSession;
-@property long long usesBackgroundSessionOverride;
+@property (nonatomic) BOOL allowsCellularAccess;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *callbackQueue;
+@property (nonatomic, retain) CKContainer *container;
+@property (nonatomic, readonly) id context;
+@property (nonatomic, retain) NSString *deviceIdentifier;
+@property (nonatomic, retain) NSError *error;
+@property (nonatomic) BOOL isDiscretionary;
+@property (nonatomic) BOOL isExecuting;
+@property (nonatomic) BOOL isFinished;
+@property (nonatomic, retain) NSString *operationID;
+@property (nonatomic, readonly) CKOperationInfo *operationInfo;
+@property (nonatomic, readonly) NSString *parentSectionID;
+@property (nonatomic, retain) CKPlaceholderOperation *placeholderOperation;
+@property (nonatomic, retain) NSArray *requestUUIDs;
+@property (nonatomic, retain) NSString *sectionID;
+@property (nonatomic, retain) NSString *sourceApplicationBundleIdentifier;
+@property (nonatomic, retain) NSString *sourceApplicationSecondaryIdentifier;
+@property (nonatomic, retain) CKTimeLogger *timeLogger;
+@property (nonatomic, retain) NSObject<OS_dispatch_source> *timeoutSource;
+@property (nonatomic) BOOL usesBackgroundSession;
+@property (nonatomic) int usesBackgroundSessionOverride;
 
 - (void).cxx_destruct;
-- (bool)CKOperationShouldRun:(id*)arg1;
+- (BOOL)CKOperationShouldRun:(id*)arg1;
 - (id)CKPropertiesDescription;
 - (void)_finishInternalOnCallbackQueueWithError:(id)arg1;
 - (void)_finishOnCallbackQueueWithError:(id)arg1;
@@ -55,7 +55,7 @@
 - (void)_handleProgressCallback:(id)arg1;
 - (void)_installTimeoutSource;
 - (void)_uninstallTimeoutSource;
-- (bool)allowsCellularAccess;
+- (BOOL)allowsCellularAccess;
 - (id)callbackQueue;
 - (void)cancel;
 - (id)container;
@@ -68,10 +68,10 @@
 - (void)fillOutOperationInfo:(id)arg1;
 - (void)finishWithError:(id)arg1;
 - (id)init;
-- (bool)isConcurrent;
-- (bool)isDiscretionary;
-- (bool)isExecuting;
-- (bool)isFinished;
+- (BOOL)isConcurrent;
+- (BOOL)isDiscretionary;
+- (BOOL)isExecuting;
+- (BOOL)isFinished;
 - (void)main;
 - (id)operationID;
 - (id)operationInfo;
@@ -82,28 +82,30 @@
 - (void)processOperationResult:(id)arg1;
 - (id)requestUUIDs;
 - (id)sectionID;
-- (void)setAllowsCellularAccess:(bool)arg1;
+- (void)setAllowsCellularAccess:(BOOL)arg1;
 - (void)setCallbackQueue:(id)arg1;
 - (void)setContainer:(id)arg1;
 - (void)setDeviceIdentifier:(id)arg1;
 - (void)setError:(id)arg1;
-- (void)setIsDiscretionary:(bool)arg1;
-- (void)setIsExecuting:(bool)arg1;
-- (void)setIsFinished:(bool)arg1;
+- (void)setIsDiscretionary:(BOOL)arg1;
+- (void)setIsExecuting:(BOOL)arg1;
+- (void)setIsFinished:(BOOL)arg1;
 - (void)setOperationID:(id)arg1;
 - (void)setPlaceholderOperation:(id)arg1;
 - (void)setRequestUUIDs:(id)arg1;
 - (void)setSectionID:(id)arg1;
 - (void)setSourceApplicationBundleIdentifier:(id)arg1;
 - (void)setSourceApplicationSecondaryIdentifier:(id)arg1;
+- (void)setTimeLogger:(id)arg1;
 - (void)setTimeoutSource:(id)arg1;
-- (void)setUsesBackgroundSession:(bool)arg1;
-- (void)setUsesBackgroundSessionOverride:(long long)arg1;
+- (void)setUsesBackgroundSession:(BOOL)arg1;
+- (void)setUsesBackgroundSessionOverride:(int)arg1;
 - (id)sourceApplicationBundleIdentifier;
 - (id)sourceApplicationSecondaryIdentifier;
 - (void)start;
+- (id)timeLogger;
 - (id)timeoutSource;
-- (bool)usesBackgroundSession;
-- (long long)usesBackgroundSessionOverride;
+- (BOOL)usesBackgroundSession;
+- (int)usesBackgroundSessionOverride;
 
 @end

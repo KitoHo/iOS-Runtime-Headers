@@ -5,41 +5,47 @@
 @interface WebAVVideoLayer : CALayer <AVVideoLayer> {
     struct RetainPtr<WebAVPlayerController> { 
         void *m_ptr; 
+    } _avPlayerController;
     struct RetainPtr<AVPlayerViewController> { 
         void *m_ptr; 
+    } _avPlayerViewController;
+    BOOL _readyForDisplay;
+    int _videoLayerGravity;
     struct CGRect { 
         struct CGPoint { 
-            double x; 
-            double y; 
+            float x; 
+            float y; 
         } origin; 
         struct CGSize { 
-            double width; 
-            double height; 
+            float width; 
+            float height; 
         } size; 
-    } _avPlayerController;
-    } _avPlayerViewController;
-    long long _videoLayerGravity;
     } _videoRect;
-    bool_readyForDisplay;
+    struct RetainPtr<CALayer> { 
+        void *m_ptr; 
+    } _videoSublayer;
 }
 
-@property(getter=isReadyForDisplay) bool readyForDisplay;
-@property long long videoLayerGravity;
-@property struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } videoRect;
+@property (getter=isReadyForDisplay, nonatomic) BOOL readyForDisplay;
+@property (nonatomic) int videoLayerGravity;
+@property (nonatomic) struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } videoRect;
+@property (nonatomic, retain) CALayer *videoSublayer;
 
 + (id)videoLayer;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)init;
-- (bool)isReadyForDisplay;
-- (void)setBounds:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (BOOL)isReadyForDisplay;
+- (void)setBounds:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)setPlayerController:(id)arg1;
 - (void)setPlayerViewController:(id)arg1;
-- (void)setReadyForDisplay:(bool)arg1;
-- (void)setVideoLayerGravity:(long long)arg1;
-- (void)setVideoRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (long long)videoLayerGravity;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })videoRect;
+- (void)setReadyForDisplay:(BOOL)arg1;
+- (void)setVideoLayerGravity:(int)arg1;
+- (void)setVideoRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (void)setVideoSublayer:(id)arg1;
+- (int)videoLayerGravity;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })videoRect;
+- (id)videoSublayer;
 
 @end

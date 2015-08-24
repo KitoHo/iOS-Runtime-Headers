@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray;
-
 @interface GEOStateTimingFeedbackCollection : PBCodable <NSCopying> {
-    struct { 
-        unsigned long long _high; 
-        unsigned long long _low; 
+    double _durationInOldState;
     struct { 
         unsigned int sessionID : 1; 
         unsigned int durationInOldState : 1; 
-    double _durationInOldState;
     } _has;
+    struct { 
+        unsigned long long _high; 
+        unsigned long long _low; 
     } _sessionID;
     NSMutableArray *_stateTransitions;
 }
 
-@property double durationInOldState;
-@property bool hasDurationInOldState;
-@property bool hasSessionID;
-@property struct { unsigned long long x1; unsigned long long x2; } sessionID;
-@property(retain) NSMutableArray * stateTransitions;
+@property (nonatomic) double durationInOldState;
+@property (nonatomic) BOOL hasDurationInOldState;
+@property (nonatomic) BOOL hasSessionID;
+@property (nonatomic) struct { unsigned long long x1; unsigned long long x2; } sessionID;
+@property (nonatomic, retain) NSMutableArray *stateTransitions;
 
 - (void)addStateTransition:(id)arg1;
 - (void)clearStateTransitions;
@@ -31,21 +29,21 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (double)durationInOldState;
-- (bool)hasDurationInOldState;
-- (bool)hasSessionID;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasDurationInOldState;
+- (BOOL)hasSessionID;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (struct { unsigned long long x1; unsigned long long x2; })sessionID;
 - (void)setDurationInOldState:(double)arg1;
-- (void)setHasDurationInOldState:(bool)arg1;
-- (void)setHasSessionID:(bool)arg1;
+- (void)setHasDurationInOldState:(BOOL)arg1;
+- (void)setHasSessionID:(BOOL)arg1;
 - (void)setSessionID:(struct { unsigned long long x1; unsigned long long x2; })arg1;
 - (void)setStateTransitions:(id)arg1;
-- (id)stateTransitionAtIndex:(unsigned long long)arg1;
+- (id)stateTransitionAtIndex:(unsigned int)arg1;
 - (id)stateTransitions;
-- (unsigned long long)stateTransitionsCount;
+- (unsigned int)stateTransitionsCount;
 - (void)writeTo:(id)arg1;
 
 @end

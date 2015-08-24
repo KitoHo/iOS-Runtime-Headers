@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/MediaPlayerUI.framework/MediaPlayerUI
  */
 
-@class MPUExtrasContext, NSLayoutConstraint, UIView, UIViewController, UIViewController<MPUExtrasVideoPlaybackViewController>;
-
 @interface MPUExtrasFeatureContainerViewController : UIViewController {
-    double _collectionViewHeight;
+    float _collectionViewHeight;
     MPUExtrasContext *_context;
     UIView *_menuBarView;
     NSLayoutConstraint *_overlayViewAdjustmentConstraint;
     UIViewController<MPUExtrasVideoPlaybackViewController> *_videoPlaybackViewController;
 }
 
-@property double collectionViewHeight;
-@property(readonly) MPUExtrasContext * context;
-@property UIView * menuBarView;
-@property(retain) UIViewController * videoPlaybackViewController;
+@property (nonatomic) float collectionViewHeight;
+@property (nonatomic, readonly) MPUExtrasContext *context;
+@property (nonatomic) UIView *menuBarView;
+@property (nonatomic, retain) UIViewController *videoPlaybackViewController;
 
 - (void).cxx_destruct;
 - (void)_menuBarHeightChange:(id)arg1;
-- (double)collectionViewHeight;
+- (float)collectionViewHeight;
 - (id)context;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;
 - (id)menuBarView;
-- (void)setCollectionViewHeight:(double)arg1;
+- (void)setCollectionViewHeight:(float)arg1;
 - (void)setMenuBarView:(id)arg1;
 - (void)setVideoPlaybackViewController:(id)arg1;
 - (id)videoPlaybackViewController;

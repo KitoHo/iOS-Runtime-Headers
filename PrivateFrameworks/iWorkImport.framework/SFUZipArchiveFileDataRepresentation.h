@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString, SFUFileDataRepresentation;
-
 @interface SFUZipArchiveFileDataRepresentation : SFUDataRepresentation <SFUZipArchiveDataRepresentation> {
     int mFd;
     SFUFileDataRepresentation *mFileRepresentation;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (id)bufferedInputStreamWithOffset:(long long)arg1 length:(long long)arg2;
 - (long long)dataLength;
 - (void)dealloc;
-- (bool)hasSameLocationAs:(id)arg1;
+- (BOOL)hasSameLocationAs:(id)arg1;
 - (id)initWithPath:(id)arg1;
 - (id)inputStream;
 - (id)inputStreamWithOffset:(long long)arg1 length:(long long)arg2;
-- (bool)isEncrypted;
-- (bool)isReadable;
+- (BOOL)isEncrypted;
+- (BOOL)isReadable;
 - (id)path;
 
 @end

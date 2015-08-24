@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/CloudDocs.framework/CloudDocs
  */
 
-@class <NSObject>, NSMutableDictionary;
-
 @interface BRContainerCache : NSObject {
     <NSObject> *_containerStatusObserver;
     NSMutableDictionary *_containersByID;
-    bool_didFetchAllContainers;
+    BOOL _didFetchAllContainers;
+    struct br_pacer_t { } *_invalidationPacer;
 }
 
 + (id)containerCache;

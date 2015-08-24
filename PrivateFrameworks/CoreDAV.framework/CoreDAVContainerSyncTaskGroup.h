@@ -2,18 +2,18 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class <CoreDAVLocalDBInfoProvider>, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSURL;
-
-@interface CoreDAVContainerSyncTaskGroup : CoreDAVTaskGroup <CoreDAVDeleteTaskDelegate, CoreDAVPutTaskDelegate, CoreDAVGetTaskDelegate> {
+@interface CoreDAVContainerSyncTaskGroup : CoreDAVTaskGroup <CoreDAVDeleteTaskDelegate, CoreDAVGetTaskDelegate, CoreDAVPutTaskDelegate> {
     NSMutableArray *_actions;
+    BOOL _actionsOnly;
     NSURL *_addMemberURL;
     Class _appSpecificDataItemClass;
     NSString *_bulkChangeCheckCTag;
     NSDictionary *_bulkRequests;
+    BOOL _ensureUpdatedCTag;
     NSURL *_folderURL;
     NSMutableArray *_localItemURLOrder;
-    unsigned long long _maxIndependentTasks;
-    unsigned long long _multiGetBatchSize;
+    unsigned int _maxIndependentTasks;
+    unsigned int _multiGetBatchSize;
     NSString *_nextCTag;
     NSString *_nextSyncToken;
     int _phase;
@@ -21,35 +21,33 @@
     NSString *_previousSyncToken;
     NSMutableDictionary *_remainingHREFsToModDeleteActions;
     NSMutableDictionary *_remainingUUIDsToAddActions;
+    BOOL _syncItemOrder;
     NSMutableSet *_syncReportDeletedURLs;
     NSMutableArray *_unsubmittedTasks;
     NSMutableDictionary *_urlToETag;
-    bool_actionsOnly;
-    bool_ensureUpdatedCTag;
-    bool_syncItemOrder;
-    bool_useMultiGet;
-    bool_useSyncCollection;
+    BOOL _useMultiGet;
+    BOOL _useSyncCollection;
 }
 
-@property bool actionsOnly;
-@property(retain) NSURL * addMemberURL;
-@property(retain) NSString * bulkChangeCheckCTag;
-@property(retain) NSDictionary * bulkRequests;
-@property(copy,readonly) NSString * debugDescription;
-@property <CoreDAVLocalDBInfoProvider> * delegate;
-@property(copy,readonly) NSString * description;
-@property bool ensureUpdatedCTag;
-@property(readonly) NSURL * folderURL;
-@property(readonly) unsigned long long hash;
-@property(readonly) NSArray * localItemURLOrder;
-@property unsigned long long maxIndependentTasks;
-@property unsigned long long multiGetBatchSize;
-@property(retain) NSString * nextCTag;
-@property(retain) NSString * previousCTag;
-@property(retain) NSString * previousSyncToken;
-@property(readonly) Class superclass;
-@property bool useMultiGet;
-@property bool useSyncCollection;
+@property (nonatomic) BOOL actionsOnly;
+@property (nonatomic, retain) NSURL *addMemberURL;
+@property (nonatomic, retain) NSString *bulkChangeCheckCTag;
+@property (nonatomic, retain) NSDictionary *bulkRequests;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <CoreDAVLocalDBInfoProvider> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) BOOL ensureUpdatedCTag;
+@property (nonatomic, readonly) NSURL *folderURL;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) NSArray *localItemURLOrder;
+@property (nonatomic) unsigned int maxIndependentTasks;
+@property (nonatomic) unsigned int multiGetBatchSize;
+@property (nonatomic, retain) NSString *nextCTag;
+@property (nonatomic, retain) NSString *previousCTag;
+@property (nonatomic, retain) NSString *previousSyncToken;
+@property (readonly) Class superclass;
+@property (nonatomic) BOOL useMultiGet;
+@property (nonatomic) BOOL useSyncCollection;
 
 - (void)_bulkChange;
 - (void)_bulkChangeTask:(id)arg1 didFinishWithError:(id)arg2;
@@ -62,10 +60,10 @@
 - (void)_postTask:(id)arg1 didFinishWithError:(id)arg2;
 - (void)_pushActions;
 - (void)_sendNextBatch;
-- (unsigned long long)_submitTasks;
+- (unsigned int)_submitTasks;
 - (void)_syncReportTask:(id)arg1 didFinishWithError:(id)arg2;
 - (void)_tearDownAllUnsubmittedTasks;
-- (bool)actionsOnly;
+- (BOOL)actionsOnly;
 - (id)addMemberURL;
 - (void)applyAdditionalPropertiesFromPostTask:(id)arg1;
 - (void)applyAdditionalPropertiesFromPutTask:(id)arg1;
@@ -85,40 +83,40 @@
 - (void)deleteResourceURLs:(id)arg1;
 - (void)deleteTask:(id)arg1 completedWithError:(id)arg2;
 - (id)description;
-- (bool)ensureUpdatedCTag;
+- (BOOL)ensureUpdatedCTag;
 - (id)folderURL;
 - (void)getTask:(id)arg1 data:(id)arg2 error:(id)arg3;
-- (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousSyncToken:(id)arg3 actions:(id)arg4 syncItemOrder:(bool)arg5 context:(id)arg6 accountInfoProvider:(id)arg7 taskManager:(id)arg8;
-- (bool)isWhitelistedError:(id)arg1;
+- (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousSyncToken:(id)arg3 actions:(id)arg4 syncItemOrder:(BOOL)arg5 context:(id)arg6 accountInfoProvider:(id)arg7 taskManager:(id)arg8;
+- (BOOL)isWhitelistedError:(id)arg1;
 - (id)localItemURLOrder;
-- (unsigned long long)maxIndependentTasks;
-- (unsigned long long)multiGetBatchSize;
+- (unsigned int)maxIndependentTasks;
+- (unsigned int)multiGetBatchSize;
 - (id)nextCTag;
 - (id)previousCTag;
 - (id)previousSyncToken;
 - (void)propFindTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
 - (void)putTask:(id)arg1 completedWithNewETag:(id)arg2 error:(id)arg3;
 - (void)receivedPropertiesToValues:(id)arg1 forURL:(id)arg2;
-- (void)setActionsOnly:(bool)arg1;
+- (void)setActionsOnly:(BOOL)arg1;
 - (void)setAddMemberURL:(id)arg1;
 - (void)setBulkChangeCheckCTag:(id)arg1;
 - (void)setBulkRequests:(id)arg1;
-- (void)setEnsureUpdatedCTag:(bool)arg1;
-- (void)setMaxIndependentTasks:(unsigned long long)arg1;
-- (void)setMultiGetBatchSize:(unsigned long long)arg1;
+- (void)setEnsureUpdatedCTag:(BOOL)arg1;
+- (void)setMaxIndependentTasks:(unsigned int)arg1;
+- (void)setMultiGetBatchSize:(unsigned int)arg1;
 - (void)setNextCTag:(id)arg1;
 - (void)setPreviousCTag:(id)arg1;
 - (void)setPreviousSyncToken:(id)arg1;
-- (void)setUseMultiGet:(bool)arg1;
-- (void)setUseSyncCollection:(bool)arg1;
-- (bool)shouldDownloadResource:(id)arg1 localETag:(id)arg2 serverETag:(id)arg3;
-- (bool)shouldFetchMoreETags;
-- (bool)shouldFetchResourceWithEtag:(id)arg1 propertiesToValues:(id)arg2;
+- (void)setUseMultiGet:(BOOL)arg1;
+- (void)setUseSyncCollection:(BOOL)arg1;
+- (BOOL)shouldDownloadResource:(id)arg1 localETag:(id)arg2 serverETag:(id)arg3;
+- (BOOL)shouldFetchMoreETags;
+- (BOOL)shouldFetchResourceWithEtag:(id)arg1 propertiesToValues:(id)arg2;
 - (void)startTaskGroup;
 - (void)syncAway;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (void)taskGroupWillCancelWithError:(id)arg1;
-- (bool)useMultiGet;
-- (bool)useSyncCollection;
+- (BOOL)useMultiGet;
+- (BOOL)useSyncCollection;
 
 @end

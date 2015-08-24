@@ -2,22 +2,20 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class NSString;
-
-@interface MPMediaQuerySection : NSObject <NSSecureCoding, NSCopying> {
+@interface MPMediaQuerySection : NSObject <NSCopying, NSSecureCoding> {
     struct _NSRange { 
-        unsigned long long location; 
-        unsigned long long length; 
+        unsigned int location; 
+        unsigned int length; 
     } _range;
-    unsigned long long _sectionIndexTitleIndex;
+    unsigned int _sectionIndexTitleIndex;
     NSString *_title;
 }
 
-@property struct _NSRange { unsigned long long x1; unsigned long long x2; } range;
-@property unsigned long long sectionIndexTitleIndex;
-@property(copy) NSString * title;
+@property (nonatomic) struct _NSRange { unsigned int x1; unsigned int x2; } range;
+@property (nonatomic) unsigned int sectionIndexTitleIndex;
+@property (nonatomic, copy) NSString *title;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)_init;
@@ -26,10 +24,10 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (struct _NSRange { unsigned long long x1; unsigned long long x2; })range;
-- (unsigned long long)sectionIndexTitleIndex;
-- (void)setRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1;
-- (void)setSectionIndexTitleIndex:(unsigned long long)arg1;
+- (struct _NSRange { unsigned int x1; unsigned int x2; })range;
+- (unsigned int)sectionIndexTitleIndex;
+- (void)setRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1;
+- (void)setSectionIndexTitleIndex:(unsigned int)arg1;
 - (void)setTitle:(id)arg1;
 - (id)title;
 

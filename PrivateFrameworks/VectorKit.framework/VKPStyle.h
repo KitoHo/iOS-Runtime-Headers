@@ -2,38 +2,36 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class NSData, NSMutableArray, NSString, VKPStyleProperties;
-
 @interface VKPStyle : PBCodable <NSCopying> {
-    struct { 
-        unsigned int *list; 
-        unsigned long long count; 
-        unsigned long long size; 
     NSMutableArray *_attributes;
     NSData *_contents;
+    struct { 
+        unsigned int *list; 
+        unsigned int count; 
+        unsigned int size; 
     } _inherits;
     NSString *_name;
     VKPStyleProperties *_properties;
     NSMutableArray *_zooms;
 }
 
-@property(retain) NSMutableArray * attributes;
-@property(retain) NSData * contents;
-@property(readonly) bool hasContents;
-@property(readonly) bool hasName;
-@property(readonly) bool hasProperties;
-@property(readonly) unsigned int* inherits;
-@property(readonly) unsigned long long inheritsCount;
-@property(retain) NSString * name;
-@property(retain) VKPStyleProperties * properties;
-@property(retain) NSMutableArray * zooms;
+@property (nonatomic, retain) NSMutableArray *attributes;
+@property (nonatomic, retain) NSData *contents;
+@property (nonatomic, readonly) BOOL hasContents;
+@property (nonatomic, readonly) BOOL hasName;
+@property (nonatomic, readonly) BOOL hasProperties;
+@property (nonatomic, readonly) unsigned int*inherits;
+@property (nonatomic, readonly) unsigned int inheritsCount;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) VKPStyleProperties *properties;
+@property (nonatomic, retain) NSMutableArray *zooms;
 
 - (void)addAttributes:(id)arg1;
 - (void)addInherit:(unsigned int)arg1;
 - (void)addZooms:(id)arg1;
 - (id)attributes;
-- (id)attributesAtIndex:(unsigned long long)arg1;
-- (unsigned long long)attributesCount;
+- (id)attributesAtIndex:(unsigned int)arg1;
+- (unsigned int)attributesCount;
 - (void)clearAttributes;
 - (void)clearInherits;
 - (void)clearZooms;
@@ -43,27 +41,27 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasContents;
-- (bool)hasName;
-- (bool)hasProperties;
-- (unsigned long long)hash;
-- (unsigned int)inheritAtIndex:(unsigned long long)arg1;
+- (BOOL)hasContents;
+- (BOOL)hasName;
+- (BOOL)hasProperties;
+- (unsigned int)hash;
+- (unsigned int)inheritAtIndex:(unsigned int)arg1;
 - (unsigned int*)inherits;
-- (unsigned long long)inheritsCount;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)inheritsCount;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)name;
 - (id)properties;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setAttributes:(id)arg1;
 - (void)setContents:(id)arg1;
-- (void)setInherits:(unsigned int*)arg1 count:(unsigned long long)arg2;
+- (void)setInherits:(unsigned int*)arg1 count:(unsigned int)arg2;
 - (void)setName:(id)arg1;
 - (void)setProperties:(id)arg1;
 - (void)setZooms:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (id)zooms;
-- (id)zoomsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)zoomsCount;
+- (id)zoomsAtIndex:(unsigned int)arg1;
+- (unsigned int)zoomsCount;
 
 @end

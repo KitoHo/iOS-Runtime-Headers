@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSString;
-
 @interface SUScriptMenuItem : SUScriptObject {
+    BOOL _enabled;
     NSString *_title;
     id _userInfo;
-    bool_enabled;
 }
 
-@property bool enabled;
-@property(retain) NSString * title;
-@property(retain) id userInfo;
+@property BOOL enabled;
+@property (retain) NSString *title;
+@property (retain) id userInfo;
 
 + (void)initialize;
 + (id)webScriptNameForKeyName:(id)arg1;
@@ -21,10 +19,10 @@
 - (void)_sendDidChange;
 - (id)attributeKeys;
 - (void)dealloc;
-- (bool)enabled;
+- (BOOL)enabled;
 - (id)init;
 - (id)scriptAttributeKeys;
-- (void)setEnabled:(bool)arg1;
+- (void)setEnabled:(BOOL)arg1;
 - (void)setTitle:(id)arg1;
 - (void)setUserInfo:(id)arg1;
 - (id)title;

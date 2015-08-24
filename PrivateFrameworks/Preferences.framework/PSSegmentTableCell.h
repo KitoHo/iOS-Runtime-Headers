@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class NSArray, NSDictionary;
-
 @interface PSSegmentTableCell : PSControlTableCell {
     NSDictionary *_titleDict;
     NSArray *_values;
 }
 
-- (bool)canReload;
+- (BOOL)canReload;
 - (id)controlValue;
 - (void)dealloc;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 - (void)layoutSubviews;
 - (id)newControl;
 - (void)prepareForReuse;

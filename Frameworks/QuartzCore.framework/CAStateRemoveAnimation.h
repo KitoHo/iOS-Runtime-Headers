@@ -2,13 +2,11 @@
    Image: /System/Library/Frameworks/QuartzCore.framework/QuartzCore
  */
 
-@class NSString;
-
 @interface CAStateRemoveAnimation : CAStateElement {
     NSString *_key;
 }
 
-@property(copy) NSString * key;
+@property (nonatomic, copy) NSString *key;
 
 - (id)CAMLTypeForKey:(id)arg1;
 - (void)apply:(id)arg1;
@@ -20,7 +18,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)key;
 - (id)keyPath;
-- (bool)matches:(id)arg1;
+- (BOOL)matches:(id)arg1;
 - (void)setKey:(id)arg1;
 
 @end

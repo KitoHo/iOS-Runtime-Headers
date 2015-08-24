@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/SyncedDefaults.framework/SyncedDefaults
  */
 
-@class NSMutableDictionary;
-
 @interface SYDJournal : NSObject {
-    boolreadonly;
     NSMutableDictionary *journal;
+    BOOL readonly;
     NSMutableDictionary *store;
 }
 
@@ -19,6 +17,6 @@
 - (id)initWithMutableStore:(id)arg1;
 - (id)initWithStore:(id)arg1;
 - (long long)maximumChangeCount;
-- (bool)removeChangesUntilChangeCount:(long long)arg1;
+- (BOOL)removeChangesUntilChangeCount:(long long)arg1;
 
 @end

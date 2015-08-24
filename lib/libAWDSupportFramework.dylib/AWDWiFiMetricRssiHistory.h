@@ -4,20 +4,20 @@
 
 @interface AWDWiFiMetricRssiHistory : PBCodable <NSCopying> {
     struct { 
-        int *list; 
-        unsigned long long count; 
-        unsigned long long size; 
-    struct { 
         unsigned int timestamp : 1; 
     } _has;
+    struct { 
+        int *list; 
+        unsigned int count; 
+        unsigned int size; 
     } _rssiHistorys;
     unsigned long long _timestamp;
 }
 
-@property bool hasTimestamp;
-@property(readonly) int* rssiHistorys;
-@property(readonly) unsigned long long rssiHistorysCount;
-@property unsigned long long timestamp;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic, readonly) int*rssiHistorys;
+@property (nonatomic, readonly) unsigned int rssiHistorysCount;
+@property (nonatomic) unsigned long long timestamp;
 
 - (void)addRssiHistory:(int)arg1;
 - (void)clearRssiHistorys;
@@ -26,16 +26,16 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasTimestamp;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasTimestamp;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
-- (int)rssiHistoryAtIndex:(unsigned long long)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (int)rssiHistoryAtIndex:(unsigned int)arg1;
 - (int*)rssiHistorys;
-- (unsigned long long)rssiHistorysCount;
-- (void)setHasTimestamp:(bool)arg1;
-- (void)setRssiHistorys:(int*)arg1 count:(unsigned long long)arg2;
+- (unsigned int)rssiHistorysCount;
+- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setRssiHistorys:(int*)arg1 count:(unsigned int)arg2;
 - (void)setTimestamp:(unsigned long long)arg1;
 - (unsigned long long)timestamp;
 - (void)writeTo:(id)arg1;

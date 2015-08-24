@@ -2,38 +2,38 @@
    Image: /System/Library/PrivateFrameworks/CellularPlanManager.framework/CellularPlanManager
  */
 
-@class CTCellularPlanExtProperties, CTCellularPlanProfile, CTCellularPlanSubscription, NSArray, NSData, NSString;
-
 @interface CTCellularPlan : NSObject <NSCopying, NSSecureCoding> {
     CTCellularPlanExtProperties *_extendedProperties;
+    NSString *_phoneNumber;
     CTCellularPlanProfile *_profile;
     CTCellularPlanSubscription *_subscription;
 }
 
-@property(readonly) int accountStatus;
-@property(readonly) NSString * accountURL;
-@property(readonly) bool autoRenew;
-@property(readonly) double billingEndDate;
-@property(readonly) double billingStartDate;
-@property(readonly) NSString * carrierName;
-@property(readonly) NSArray * dataUsage;
-@property(retain) CTCellularPlanExtProperties * extendedProperties;
-@property(readonly) NSString * iccid;
-@property(readonly) bool isSelected;
-@property(readonly) NSString * planDescription;
-@property(readonly) int planStatus;
-@property(readonly) int planType;
-@property(retain) CTCellularPlanProfile * profile;
-@property(readonly) NSData * profileId;
-@property(readonly) int status;
-@property(retain) CTCellularPlanSubscription * subscription;
-@property(readonly) double timestamp;
+@property (nonatomic, readonly) int accountStatus;
+@property (nonatomic, readonly) NSString *accountURL;
+@property (nonatomic, readonly) BOOL autoRenew;
+@property (nonatomic, readonly) double billingEndDate;
+@property (nonatomic, readonly) double billingStartDate;
+@property (nonatomic, readonly) NSString *carrierName;
+@property (nonatomic, readonly) NSArray *dataUsage;
+@property (nonatomic, retain) CTCellularPlanExtProperties *extendedProperties;
+@property (nonatomic, readonly) NSString *iccid;
+@property (nonatomic, readonly) BOOL isSelected;
+@property (nonatomic, retain) NSString *phoneNumber;
+@property (nonatomic, readonly) NSString *planDescription;
+@property (nonatomic, readonly) int planStatus;
+@property (nonatomic, readonly) int planType;
+@property (nonatomic, retain) CTCellularPlanProfile *profile;
+@property (nonatomic, readonly) NSData *profileId;
+@property (nonatomic, readonly) int status;
+@property (nonatomic, retain) CTCellularPlanSubscription *subscription;
+@property (nonatomic, readonly) double timestamp;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (int)accountStatus;
 - (id)accountURL;
-- (bool)autoRenew;
+- (BOOL)autoRenew;
 - (double)billingEndDate;
 - (double)billingStartDate;
 - (id)carrierName;
@@ -47,13 +47,15 @@
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithProfile:(id)arg1 subscription:(id)arg2;
-- (bool)isSelected;
+- (BOOL)isSelected;
+- (id)phoneNumber;
 - (id)planDescription;
 - (int)planStatus;
 - (int)planType;
 - (id)profile;
 - (id)profileId;
 - (void)setExtendedProperties:(id)arg1;
+- (void)setPhoneNumber:(id)arg1;
 - (void)setProfile:(id)arg1;
 - (void)setSubscription:(id)arg1;
 - (int)status;

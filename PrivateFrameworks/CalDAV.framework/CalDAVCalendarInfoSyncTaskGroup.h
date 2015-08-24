@@ -3,14 +3,14 @@
  */
 
 @interface CalDAVCalendarInfoSyncTaskGroup : CoreDAVContainerInfoSyncTaskGroup {
-    bool_fetchSharees;
+    BOOL _fetchSharees;
 }
 
-@property bool fetchSharees;
+@property (nonatomic) BOOL fetchSharees;
 
 - (Class)containerItemClass;
 - (id)copyContainerParserMappings;
-- (bool)fetchSharees;
-- (void)setFetchSharees:(bool)arg1;
+- (BOOL)fetchSharees;
+- (void)setFetchSharees:(BOOL)arg1;
 
 @end

@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/IDSFoundation.framework/IDSFoundation
  */
 
-@class IMWeakReference, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>;
-
 @interface IDSBaseSocketPairConnection : NSObject {
-    long long _bytesReceived;
+    long _bytesReceived;
     int _connectedSocket;
     IMWeakReference *_delegate;
     double _lastDateCheck;
@@ -15,21 +13,21 @@
     NSObject<OS_dispatch_queue> *_readQueue;
     NSObject<OS_dispatch_source> *_readSource;
     NSObject<OS_dispatch_source> *_writeSource;
-    bool_writeSourceIsResumed;
+    BOOL _writeSourceIsResumed;
 }
 
-@property(readonly) int socket;
+@property (nonatomic, readonly) int socket;
 
-- (void)_callDelegatesWithBlock:(id)arg1;
+- (void)_callDelegatesWithBlock:(id /* block */)arg1;
 - (void)_processBytesAvailable;
 - (void)_sendToConnectedSocket;
 - (void)_setupWriteSource;
 - (void)dealloc;
 - (void)endSession;
 - (id)initWithQueue:(id)arg1 delegate:(id)arg2;
-- (id)initWithSocket:(int)arg1 queue:(id)arg2 delegate:(id)arg3 start:(bool)arg4;
 - (id)initWithSocket:(int)arg1 queue:(id)arg2 delegate:(id)arg3;
-- (bool)sendData:(id)arg1;
+- (id)initWithSocket:(int)arg1 queue:(id)arg2 delegate:(id)arg3 start:(BOOL)arg4;
+- (BOOL)sendData:(id)arg1;
 - (void)setDestination:(id)arg1;
 - (int)socket;
 - (void)start;

@@ -2,12 +2,11 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@interface PKPassPaymentCardFrontFaceView : PKPassFrontFaceView {
-}
+@interface PKPassPaymentCardFrontFaceView : PKPassFrontFaceView
 
 - (id)shortFaceTemplate;
 - (id)shortScrunchedFaceTemplate;
-- (bool)showsShare;
+- (BOOL)showsShare;
 - (id)tallFaceTemplate;
 
 @end

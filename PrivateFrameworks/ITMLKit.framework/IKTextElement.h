@@ -2,42 +2,39 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@class NSArray, NSAttributedString, NSMutableArray, UIColor;
-
 @interface IKTextElement : IKViewElement {
-    NSAttributedString *_text;
+    IKViewElementFactory *_elementFactory;
     NSMutableArray *_textBadges;
-    unsigned long long _textStyle;
+    IKTextParser *_textParser;
+    unsigned int _textStyle;
 }
 
-@property(readonly) unsigned long long alignment;
-@property(readonly) NSArray * badges;
-@property(readonly) UIColor * color;
-@property(readonly) long long maxLines;
-@property(retain,readonly) NSAttributedString * text;
-@property(retain) NSMutableArray * textBadges;
-@property(readonly) unsigned long long textStyle;
+@property (nonatomic, readonly) unsigned int alignment;
+@property (nonatomic, readonly) NSArray *badges;
+@property (nonatomic, readonly) UIColor *color;
+@property (nonatomic, readonly) int maxLines;
+@property (nonatomic, readonly, retain) NSAttributedString *text;
+@property (nonatomic, readonly) unsigned int textStyle;
 
-+ (bool)shouldParseChildDOMElements;
+// Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
+
++ (BOOL)shouldParseChildDOMElements;
 
 - (void).cxx_destruct;
-- (id)_attributedStringFromNode:(id)arg1 elementFactory:(id)arg2;
-- (id)_stringFromDateElement:(id)arg1;
-- (id)_stringFromDurationElement:(id)arg1;
-- (id)_stringFromNumberElement:(id)arg1;
-- (unsigned long long)_styleForTagName:(id)arg1;
+- (unsigned int)_styleForTagName:(id)arg1;
 - (id)accessibilityText;
-- (unsigned long long)alignment;
-- (id)attributedStringWithFont:(id)arg1 foregroundColor:(id)arg2 textAlignment:(long long)arg3;
+- (unsigned int)alignment;
 - (id)attributedStringWithFont:(id)arg1;
+- (id)attributedStringWithFont:(id)arg1 foregroundColor:(id)arg2 textAlignment:(int)arg3;
 - (id)badges;
 - (id)color;
 - (id)initWithDOMElement:(id)arg1 parent:(id)arg2 elementFactory:(id)arg3;
-- (long long)maxLines;
-- (void)setTextBadges:(id)arg1;
+- (int)maxLines;
 - (id)text;
+- (unsigned int)textStyle;
+
+// Image: /System/Library/PrivateFrameworks/MediaPlayerUI.framework/MediaPlayerUI
+
 - (id)textAttributes;
-- (id)textBadges;
-- (unsigned long long)textStyle;
 
 @end

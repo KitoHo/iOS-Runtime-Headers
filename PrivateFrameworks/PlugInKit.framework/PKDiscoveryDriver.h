@@ -2,46 +2,40 @@
    Image: /System/Library/PrivateFrameworks/PlugInKit.framework/PlugInKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSDictionary, NSSet, NSString;
-
 @interface PKDiscoveryDriver : NSObject <LSApplicationWorkspaceObserverProtocol> {
     int _annotationNotifyToken;
     NSDictionary *_attributes;
-    unsigned long long _flags;
+    unsigned int _flags;
     NSSet *_lastResults;
-    id _report;
+    id /* block */ _report;
 }
 
 @property int annotationNotifyToken;
-@property(retain) NSDictionary * attributes;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property unsigned long long flags;
-@property(readonly) unsigned long long hash;
-@property(retain) NSSet * lastResults;
-@property(copy) id report;
-@property(readonly) Class superclass;
+@property (retain) NSDictionary *attributes;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property unsigned int flags;
+@property (readonly) unsigned int hash;
+@property (retain) NSSet *lastResults;
+@property (copy) id /* block */ report;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (int)annotationNotifyToken;
 - (id)attributes;
 - (void)cancel;
 - (void)dealloc;
-- (unsigned long long)flags;
-- (id)initWithAttributes:(id)arg1 flags:(unsigned long long)arg2 report:(id)arg3;
+- (unsigned int)flags;
+- (id)initWithAttributes:(id)arg1 flags:(unsigned int)arg2 report:(id /* block */)arg3;
 - (id)lastResults;
-- (void)performWithPreviousResults:(id)arg1 forceNotify:(bool)arg2;
+- (void)performWithPreviousResults:(id)arg1 forceNotify:(BOOL)arg2;
 - (void)pluginsDidInstall:(id)arg1;
 - (void)pluginsDidUninstall:(id)arg1;
-- (id)report;
+- (id /* block */)report;
 - (void)setAnnotationNotifyToken:(int)arg1;
 - (void)setAttributes:(id)arg1;
-- (void)setFlags:(unsigned long long)arg1;
+- (void)setFlags:(unsigned int)arg1;
 - (void)setLastResults:(id)arg1;
-- (void)setReport:(id)arg1;
+- (void)setReport:(id /* block */)arg1;
 
 @end

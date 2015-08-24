@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/ResponseKit.framework/ResponseKit
  */
 
-@class NSDictionary, NSString;
-
 @interface RKSynonymizer : NSObject {
     NSString *_context;
     NSString *_keyboardLanguage;
@@ -23,7 +21,7 @@
 - (void)dealloc;
 - (id)initWithSynonymLanguage:(id)arg1 keyboardLanguage:(id)arg2 context:(id)arg3 synonymDictionary:(id)arg4 wordIDDictionary:(id)arg5;
 - (id)preferredSynonymFromSynonyms:(id)arg1 forString:(id)arg2;
-- (bool)scoreForString:(id)arg1 score:(double*)arg2;
+- (BOOL)scoreForString:(id)arg1 score:(double*)arg2;
 - (id)synonymForString:(id)arg1;
 - (id)synonymsForString:(id)arg1;
 

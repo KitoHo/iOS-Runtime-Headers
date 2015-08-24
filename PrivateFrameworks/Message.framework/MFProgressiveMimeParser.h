@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class MFMimePart, NSArray, NSData, NSMutableData;
-
 @interface MFProgressiveMimeParser : NSObject {
+    id _context;
+    NSData *_currentBoundary;
+    MFMimePart *_currentPart;
+    unsigned int _cursor;
+    NSMutableData *_data;
+    id _delegate;
+    unsigned int _lastLength;
     struct { 
         unsigned int delegateBeganMimePart : 1; 
         unsigned int delegateFinishedMimePart : 1; 
         unsigned int delegateBeganData : 1; 
         unsigned int delegateFailed : 1; 
         unsigned int state : 3; 
-    id _context;
-    NSData *_currentBoundary;
-    MFMimePart *_currentPart;
-    unsigned long long _cursor;
-    NSMutableData *_data;
-    id _delegate;
-    unsigned long long _lastLength;
     } _parserFlags;
     NSArray *_preserveHeaders;
     MFMimePart *_topLevelPart;

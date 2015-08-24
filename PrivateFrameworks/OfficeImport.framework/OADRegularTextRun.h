@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableString;
-
 @interface OADRegularTextRun : OADTextRun {
     NSMutableString *mText;
 }
 
-- (unsigned long long)characterCount;
+- (unsigned int)characterCount;
 - (void)dealloc;
 - (id)init;
-- (bool)isEmpty;
+- (BOOL)isEmpty;
 - (id)text;
 
 @end

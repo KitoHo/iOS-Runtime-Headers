@@ -3,13 +3,13 @@
  */
 
 @interface GEOETAResultByType : PBCodable <NSCopying> {
+    unsigned int _distance;
     struct { 
         unsigned int distance : 1; 
         unsigned int historicTravelTime : 1; 
         unsigned int status : 1; 
         unsigned int transportType : 1; 
         unsigned int travelTimeBestEstimate : 1; 
-    unsigned int _distance;
     } _has;
     unsigned int _historicTravelTime;
     int _status;
@@ -17,38 +17,38 @@
     unsigned int _travelTimeBestEstimate;
 }
 
-@property unsigned int distance;
-@property bool hasDistance;
-@property bool hasHistoricTravelTime;
-@property bool hasStatus;
-@property bool hasTransportType;
-@property bool hasTravelTimeBestEstimate;
-@property unsigned int historicTravelTime;
-@property int status;
-@property int transportType;
-@property unsigned int travelTimeBestEstimate;
+@property (nonatomic) unsigned int distance;
+@property (nonatomic) BOOL hasDistance;
+@property (nonatomic) BOOL hasHistoricTravelTime;
+@property (nonatomic) BOOL hasStatus;
+@property (nonatomic) BOOL hasTransportType;
+@property (nonatomic) BOOL hasTravelTimeBestEstimate;
+@property (nonatomic) unsigned int historicTravelTime;
+@property (nonatomic) int status;
+@property (nonatomic) int transportType;
+@property (nonatomic) unsigned int travelTimeBestEstimate;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (unsigned int)distance;
-- (bool)hasDistance;
-- (bool)hasHistoricTravelTime;
-- (bool)hasStatus;
-- (bool)hasTransportType;
-- (bool)hasTravelTimeBestEstimate;
-- (unsigned long long)hash;
+- (BOOL)hasDistance;
+- (BOOL)hasHistoricTravelTime;
+- (BOOL)hasStatus;
+- (BOOL)hasTransportType;
+- (BOOL)hasTravelTimeBestEstimate;
+- (unsigned int)hash;
 - (unsigned int)historicTravelTime;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setDistance:(unsigned int)arg1;
-- (void)setHasDistance:(bool)arg1;
-- (void)setHasHistoricTravelTime:(bool)arg1;
-- (void)setHasStatus:(bool)arg1;
-- (void)setHasTransportType:(bool)arg1;
-- (void)setHasTravelTimeBestEstimate:(bool)arg1;
+- (void)setHasDistance:(BOOL)arg1;
+- (void)setHasHistoricTravelTime:(BOOL)arg1;
+- (void)setHasStatus:(BOOL)arg1;
+- (void)setHasTransportType:(BOOL)arg1;
+- (void)setHasTravelTimeBestEstimate:(BOOL)arg1;
 - (void)setHistoricTravelTime:(unsigned int)arg1;
 - (void)setStatus:(int)arg1;
 - (void)setTransportType:(int)arg1;

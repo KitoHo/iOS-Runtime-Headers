@@ -2,24 +2,22 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSString;
-
 @interface PUPhotoEditToolControllerSpec : PUViewControllerSpec <PUPhotoEditLayoutDynamicAdaptable> {
-    long long _layoutOrientation;
+    int _layoutOrientation;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) long long layoutOrientation;
-@property(readonly) double standardBottomBarHeight;
-@property(readonly) double standardSideBarWidth;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) int layoutOrientation;
+@property (nonatomic, readonly) float standardBottomBarHeight;
+@property (nonatomic, readonly) float standardSideBarWidth;
+@property (readonly) Class superclass;
 
-- (long long)layoutOrientation;
-- (void)setLayoutOrientation:(long long)arg1 withTransitionCoordinator:(id)arg2;
-- (void)setLayoutOrientation:(long long)arg1;
-- (double)standardBottomBarHeight;
-- (double)standardSideBarWidth;
+- (int)layoutOrientation;
+- (void)setLayoutOrientation:(int)arg1;
+- (void)setLayoutOrientation:(int)arg1 withTransitionCoordinator:(id)arg2;
+- (float)standardBottomBarHeight;
+- (float)standardSideBarWidth;
 
 @end

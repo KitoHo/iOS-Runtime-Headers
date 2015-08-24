@@ -2,27 +2,26 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@class UILabel, UITextView;
-
 @interface ABPropertyNoteCell : ABPropertyCell {
     UILabel *_labelLabel;
     UITextView *_textView;
 }
 
-@property(readonly) UILabel * labelLabel;
-@property(retain) UITextView * textView;
+@property (nonatomic, readonly) UILabel *labelLabel;
+@property (nonatomic, retain) UITextView *textView;
 
-- (double)bottomBaselineConstant;
+- (float)bottomBaselineConstant;
 - (void)dealloc;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (id)labelLabel;
 - (id)labelView;
 - (void)performDefaultAction;
-- (void)setAllowsEditing:(bool)arg1;
+- (void)setAllowsEditing:(BOOL)arg1;
+- (void)setContactStyle:(id)arg1;
 - (void)setLabelTextAttributes:(id)arg1;
 - (void)setTextView:(id)arg1;
 - (void)setValueTextAttributes:(id)arg1;
-- (bool)shouldPerformDefaultAction;
+- (BOOL)shouldPerformDefaultAction;
 - (id)textView;
 - (void)textViewChanged:(id)arg1;
 - (void)textViewEditingDidEnd:(id)arg1;

@@ -2,34 +2,32 @@
    Image: /System/Library/PrivateFrameworks/CalendarUIKit.framework/CalendarUIKit
  */
 
-@class NSArray, NSMutableArray;
-
 @interface CUIKSingleDayTimelineLayoutPartition : NSObject {
-    double _initialLeftBoundary;
-    double _rightBoundary;
+    float _initialLeftBoundary;
+    float _rightBoundary;
     NSMutableArray *_stackOfOccurrences;
     double _topBoundaryTime;
 }
 
-@property(readonly) double freeSpaceLeftBoundary;
-@property(readonly) double freeSpaceWidth;
-@property double initialLeftBoundary;
-@property double rightBoundary;
-@property(readonly) NSArray * stackedOccurrences;
-@property double topBoundaryTime;
+@property (nonatomic, readonly) float freeSpaceLeftBoundary;
+@property (nonatomic, readonly) float freeSpaceWidth;
+@property (nonatomic) float initialLeftBoundary;
+@property (nonatomic) float rightBoundary;
+@property (nonatomic, readonly) NSArray *stackedOccurrences;
+@property (nonatomic) double topBoundaryTime;
 
 - (void).cxx_destruct;
 - (id)description;
-- (double)freeSpaceLeftBoundary;
-- (double)freeSpaceWidth;
+- (float)freeSpaceLeftBoundary;
+- (float)freeSpaceWidth;
 - (id)init;
-- (double)initialLeftBoundary;
+- (float)initialLeftBoundary;
 - (id)peekOccurrence;
 - (void)popOccurrence;
 - (void)pushOccurrence:(id)arg1;
-- (double)rightBoundary;
-- (void)setInitialLeftBoundary:(double)arg1;
-- (void)setRightBoundary:(double)arg1;
+- (float)rightBoundary;
+- (void)setInitialLeftBoundary:(float)arg1;
+- (void)setRightBoundary:(float)arg1;
 - (void)setTopBoundaryTime:(double)arg1;
 - (id)stackedOccurrences;
 - (double)topBoundaryTime;

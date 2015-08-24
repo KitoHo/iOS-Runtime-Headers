@@ -9,20 +9,20 @@
     int _type;
 }
 
-@property bool hasType;
-@property int type;
+@property (nonatomic) BOOL hasType;
+@property (nonatomic) int type;
 
 - (id)_prettyDictionaryRepresentation;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasType;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasType;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
-- (void)setHasType:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasType:(BOOL)arg1;
 - (void)setType:(int)arg1;
 - (int)type;
 - (void)writeTo:(id)arg1;

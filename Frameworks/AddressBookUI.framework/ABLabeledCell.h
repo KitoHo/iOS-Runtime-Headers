@@ -2,45 +2,43 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@class NSDictionary, NSString, UIImageView, UILabel, UIView, UIView<ABText>;
-
 @interface ABLabeledCell : ABContactCell {
     UIImageView *_chevron;
     NSDictionary *_labelTextAttributes;
     NSDictionary *_valueTextAttributes;
 }
 
-@property(readonly) double bottomBaselineConstant;
-@property(readonly) UIImageView * chevron;
-@property(readonly) double chevronWidth;
-@property(readonly) NSString * labelString;
-@property(copy) NSDictionary * labelTextAttributes;
-@property(readonly) UIView<ABText> * labelView;
-@property(readonly) UIView * rightMostView;
-@property(readonly) UILabel * standardLabelView;
-@property(readonly) UILabel * standardValueView;
-@property(readonly) double topBaselineConstant;
-@property(readonly) NSString * valueString;
-@property(copy) NSDictionary * valueTextAttributes;
-@property(readonly) UIView<ABText> * valueView;
+@property (nonatomic, readonly) float bottomBaselineConstant;
+@property (nonatomic, readonly) UIImageView *chevron;
+@property (nonatomic, readonly) float chevronWidth;
+@property (nonatomic, readonly) NSString *labelString;
+@property (nonatomic, copy) NSDictionary *labelTextAttributes;
+@property (nonatomic, readonly) UIView<ABText> *labelView;
+@property (nonatomic, readonly) UIView *rightMostView;
+@property (nonatomic, readonly) UILabel *standardLabelView;
+@property (nonatomic, readonly) UILabel *standardValueView;
+@property (nonatomic, readonly) float topBaselineConstant;
+@property (nonatomic, readonly) NSString *valueString;
+@property (nonatomic, copy) NSDictionary *valueTextAttributes;
+@property (nonatomic, readonly) UIView<ABText> *valueView;
 
-+ (bool)wantsChevron;
-+ (bool)wantsHorizontalLayout;
-+ (bool)wantsStandardConstraints;
++ (BOOL)wantsChevron;
++ (BOOL)wantsHorizontalLayout;
++ (BOOL)wantsStandardConstraints;
 
-- (double)bottomBaselineConstant;
+- (float)bottomBaselineConstant;
 - (id)chevron;
-- (double)chevronWidth;
+- (float)chevronWidth;
 - (id)constantConstraints;
 - (id)constantConstraintsForHorizontalLayout;
 - (id)constantConstraintsForStandardLayout;
 - (id)constantConstraintsForVerticalLayout;
 - (void)dealloc;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (id)labelString;
 - (id)labelTextAttributes;
 - (id)labelView;
-- (double)minCellHeight;
+- (float)minCellHeight;
 - (id)rightMostView;
 - (void)setBackgroundColor:(id)arg1;
 - (void)setLabelTextAttributes:(id)arg1;
@@ -48,7 +46,7 @@
 - (id)standardLabelView;
 - (id)standardValueView;
 - (void)tintColorDidChange;
-- (double)topBaselineConstant;
+- (float)topBaselineConstant;
 - (id)valueString;
 - (id)valueTextAttributes;
 - (id)valueView;

@@ -2,32 +2,30 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOTimeCheckpoints;
-
 @interface GEOETAStep : PBCodable <NSCopying> {
+    unsigned int _distanceRemaining;
+    unsigned int _expectedTime;
     struct { 
         unsigned int distanceRemaining : 1; 
         unsigned int expectedTime : 1; 
         unsigned int stepID : 1; 
         unsigned int zilchPointIndex : 1; 
-    unsigned int _distanceRemaining;
-    unsigned int _expectedTime;
     } _has;
     unsigned int _stepID;
     GEOTimeCheckpoints *_timeCheckpoints;
     int _zilchPointIndex;
 }
 
-@property unsigned int distanceRemaining;
-@property unsigned int expectedTime;
-@property bool hasDistanceRemaining;
-@property bool hasExpectedTime;
-@property bool hasStepID;
-@property(readonly) bool hasTimeCheckpoints;
-@property bool hasZilchPointIndex;
-@property unsigned int stepID;
-@property(retain) GEOTimeCheckpoints * timeCheckpoints;
-@property int zilchPointIndex;
+@property (nonatomic) unsigned int distanceRemaining;
+@property (nonatomic) unsigned int expectedTime;
+@property (nonatomic) BOOL hasDistanceRemaining;
+@property (nonatomic) BOOL hasExpectedTime;
+@property (nonatomic) BOOL hasStepID;
+@property (nonatomic, readonly) BOOL hasTimeCheckpoints;
+@property (nonatomic) BOOL hasZilchPointIndex;
+@property (nonatomic) unsigned int stepID;
+@property (nonatomic, retain) GEOTimeCheckpoints *timeCheckpoints;
+@property (nonatomic) int zilchPointIndex;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -36,21 +34,21 @@
 - (id)dictionaryRepresentation;
 - (unsigned int)distanceRemaining;
 - (unsigned int)expectedTime;
-- (bool)hasDistanceRemaining;
-- (bool)hasExpectedTime;
-- (bool)hasStepID;
-- (bool)hasTimeCheckpoints;
-- (bool)hasZilchPointIndex;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasDistanceRemaining;
+- (BOOL)hasExpectedTime;
+- (BOOL)hasStepID;
+- (BOOL)hasTimeCheckpoints;
+- (BOOL)hasZilchPointIndex;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setDistanceRemaining:(unsigned int)arg1;
 - (void)setExpectedTime:(unsigned int)arg1;
-- (void)setHasDistanceRemaining:(bool)arg1;
-- (void)setHasExpectedTime:(bool)arg1;
-- (void)setHasStepID:(bool)arg1;
-- (void)setHasZilchPointIndex:(bool)arg1;
+- (void)setHasDistanceRemaining:(BOOL)arg1;
+- (void)setHasExpectedTime:(BOOL)arg1;
+- (void)setHasStepID:(BOOL)arg1;
+- (void)setHasZilchPointIndex:(BOOL)arg1;
 - (void)setStepID:(unsigned int)arg1;
 - (void)setTimeCheckpoints:(id)arg1;
 - (void)setZilchPointIndex:(int)arg1;

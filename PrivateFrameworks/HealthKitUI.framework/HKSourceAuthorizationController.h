@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/HealthKitUI.framework/HealthKitUI
  */
 
-@class HKHealthStore, HKSource, NSArray, NSMutableSet;
-
 @interface HKSourceAuthorizationController : NSObject {
     HKHealthStore *_healthStore;
     NSArray *_orderedTypesForReading;
@@ -13,28 +11,28 @@
     NSMutableSet *_typesEnabledForSharing;
 }
 
-@property(readonly) HKHealthStore * healthStore;
-@property(retain) NSArray * orderedTypesForReading;
-@property(retain) NSArray * orderedTypesForSharing;
-@property(readonly) HKSource * source;
-@property(retain) NSMutableSet * typesEnabledForReading;
-@property(retain) NSMutableSet * typesEnabledForSharing;
+@property (nonatomic, readonly) HKHealthStore *healthStore;
+@property (nonatomic, retain) NSArray *orderedTypesForReading;
+@property (nonatomic, retain) NSArray *orderedTypesForSharing;
+@property (nonatomic, readonly) HKSource *source;
+@property (nonatomic, retain) NSMutableSet *typesEnabledForReading;
+@property (nonatomic, retain) NSMutableSet *typesEnabledForSharing;
 
 - (void).cxx_destruct;
-- (long long)_authorizationStatusWithType:(id)arg1;
-- (id)_enabledTypesInSection:(long long)arg1;
+- (int)_authorizationStatusWithType:(id)arg1;
+- (id)_enabledTypesInSection:(int)arg1;
 - (void)_reload;
 - (void)_setAuthorizationStatuses:(id)arg1;
 - (void)_updateAuthorizationStatusWithTypes:(id)arg1;
 - (void)commitAuthorizationStatuses;
-- (unsigned long long)countOfTypesInSection:(long long)arg1;
+- (unsigned int)countOfTypesInSection:(int)arg1;
 - (id)healthStore;
 - (id)initWithHealthStore:(id)arg1 source:(id)arg2;
-- (bool)isTypeEnabled:(id)arg1 inSection:(long long)arg2;
+- (BOOL)isTypeEnabled:(id)arg1 inSection:(int)arg2;
 - (id)orderedTypesForReading;
 - (id)orderedTypesForSharing;
 - (void)reload;
-- (void)setEnabled:(bool)arg1 forType:(id)arg2 inSection:(long long)arg3 commit:(bool)arg4;
+- (void)setEnabled:(BOOL)arg1 forType:(id)arg2 inSection:(int)arg3 commit:(BOOL)arg4;
 - (void)setOrderedTypesForReading:(id)arg1;
 - (void)setOrderedTypesForSharing:(id)arg1;
 - (void)setTypesEnabledForReading:(id)arg1;
@@ -42,6 +40,6 @@
 - (id)source;
 - (id)typesEnabledForReading;
 - (id)typesEnabledForSharing;
-- (id)typesInSection:(long long)arg1;
+- (id)typesInSection:(int)arg1;
 
 @end

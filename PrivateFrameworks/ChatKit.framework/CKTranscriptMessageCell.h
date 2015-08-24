@@ -2,32 +2,32 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class CKBalloonImageView, UIButton, UIImage;
-
 @interface CKTranscriptMessageCell : CKTranscriptCell {
     CKBalloonImageView *_contactImageView;
     UIButton *_failureButton;
-    bool_wantsContactImageLayout;
+    BOOL _wantsContactImageLayout;
 }
 
-@property(retain) UIImage * contactImage;
-@property(retain) CKBalloonImageView * contactImageView;
-@property bool failed;
-@property(retain) UIButton * failureButton;
-@property bool wantsContactImageLayout;
+@property (nonatomic, retain) UIImage *contactImage;
+@property (nonatomic, retain) CKBalloonImageView *contactImageView;
+@property (nonatomic) BOOL failed;
+@property (nonatomic, retain) UIButton *failureButton;
+@property (nonatomic) BOOL wantsContactImageLayout;
+
++ (float)failureButtonWidthPlusSpacing;
 
 - (id)contactImage;
 - (id)contactImageView;
 - (void)dealloc;
 - (id)description;
-- (bool)failed;
+- (BOOL)failed;
 - (id)failureButton;
 - (void)layoutSubviewsForContents;
 - (void)setContactImage:(id)arg1;
 - (void)setContactImageView:(id)arg1;
-- (void)setFailed:(bool)arg1;
+- (void)setFailed:(BOOL)arg1;
 - (void)setFailureButton:(id)arg1;
-- (void)setWantsContactImageLayout:(bool)arg1;
-- (bool)wantsContactImageLayout;
+- (void)setWantsContactImageLayout:(BOOL)arg1;
+- (BOOL)wantsContactImageLayout;
 
 @end

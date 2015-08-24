@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSMutableArray, TSCH3DGLStatisticsData;
-
 @interface TSCH3DGLStatistics : NSObject {
     NSMutableArray *mFrames;
-    unsigned long long mLifespan;
+    unsigned int mLifespan;
 }
 
-@property(readonly) TSCH3DGLStatisticsData * allFramesStatistics;
-@property(readonly) TSCH3DGLStatisticsData * currentFrameStatistics;
+@property (nonatomic, readonly) TSCH3DGLStatisticsData *allFramesStatistics;
+@property (nonatomic, readonly) TSCH3DGLStatisticsData *currentFrameStatistics;
 
 - (void)activateShader:(id)arg1;
 - (id)allFramesStatistics;

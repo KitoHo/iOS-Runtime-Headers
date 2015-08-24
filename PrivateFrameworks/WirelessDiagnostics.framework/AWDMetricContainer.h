@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/WirelessDiagnostics.framework/WirelessDiagnostics
  */
 
-@class PBCodable;
-
 @interface AWDMetricContainer : NSObject {
     PBCodable *_metric;
-    unsigned int _metricId;
+    unsigned long _metricId;
 }
 
-@property(retain) PBCodable * metric;
-@property(readonly) unsigned int metricId;
+@property (nonatomic, retain) PBCodable *metric;
+@property (nonatomic, readonly) unsigned long metricId;
 
 - (void)dealloc;
-- (id)initWithMetricId:(unsigned int)arg1;
+- (id)initWithMetricId:(unsigned long)arg1;
 - (id)metric;
-- (unsigned int)metricId;
+- (unsigned long)metricId;
 - (void)setMetric:(id)arg1;
 
 @end

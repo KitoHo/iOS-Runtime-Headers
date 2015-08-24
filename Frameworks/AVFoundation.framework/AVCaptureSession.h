@@ -2,25 +2,23 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVCaptureSessionInternal, NSArray, NSString;
-
 @interface AVCaptureSession : NSObject {
     AVCaptureSessionInternal *_internal;
 }
 
-@property bool automaticallyConfiguresApplicationAudioSession;
-@property(readonly) NSArray * inputs;
-@property(getter=isInterrupted,readonly) bool interrupted;
-@property(readonly) struct OpaqueCMClock { }* masterClock;
-@property(readonly) NSArray * outputs;
-@property(getter=isRunning,readonly) bool running;
-@property(copy) NSString * sessionPreset;
-@property bool usesApplicationAudioSession;
+@property (nonatomic) BOOL automaticallyConfiguresApplicationAudioSession;
+@property (nonatomic, readonly) NSArray *inputs;
+@property (getter=isInterrupted, nonatomic, readonly) BOOL interrupted;
+@property (nonatomic, readonly) struct OpaqueCMClock { }*masterClock;
+@property (nonatomic, readonly) NSArray *outputs;
+@property (getter=isRunning, nonatomic, readonly) BOOL running;
+@property (nonatomic, copy) NSString *sessionPreset;
+@property (nonatomic) BOOL usesApplicationAudioSession;
 
 + (id)allSessionPresets;
 + (id)alloc;
-+ (bool)automaticallyNotifiesObserversOfMasterClock;
-+ (bool)automaticallyNotifiesObserversOfRunning;
++ (BOOL)automaticallyNotifiesObserversOfMasterClock;
++ (BOOL)automaticallyNotifiesObserversOfRunning;
 + (id)dotString;
 + (void)initialize;
 + (id)publicSessionPresets;
@@ -31,16 +29,17 @@
 - (void)_addVideoPreviewLayer:(id)arg1;
 - (void)_addVideoPreviewLayerWithNoConnection:(id)arg1;
 - (void)_beginConfiguration;
-- (bool)_buildAndRunGraph;
-- (bool)_canAddConnection:(id)arg1 failureReason:(id*)arg2;
-- (bool)_canAddInput:(id)arg1 failureReason:(id*)arg2;
-- (bool)_canAddOutput:(id)arg1 failureReason:(id*)arg2;
-- (bool)_canAddVideoPreviewLayer:(id)arg1 failureReason:(id*)arg2;
+- (BOOL)_buildAndRunGraph;
+- (BOOL)_canAddConnection:(id)arg1 failureReason:(id*)arg2;
+- (BOOL)_canAddInput:(id)arg1 failureReason:(id*)arg2;
+- (BOOL)_canAddOutput:(id)arg1 failureReason:(id*)arg2;
+- (BOOL)_canAddVideoPreviewLayer:(id)arg1 failureReason:(id*)arg2;
 - (void)_commitConfiguration;
 - (id)_connectionsForNewInputPort:(id)arg1;
 - (id)_connectionsForNewOutput:(id)arg1;
 - (id)_connectionsForNewVideoPreviewLayer:(id)arg1;
-- (int)_createFigCaptureSession;
+- (long)_createFigCaptureSession;
+- (void)_determineMasterClock;
 - (id)_figCaptureSessionConfiguration;
 - (void)_handleConfigurationCommittedNotificationWithPayload:(id)arg1;
 - (void)_handleConfigurationDidBecomeLiveNotificationWithPayload:(id)arg1;
@@ -48,7 +47,7 @@
 - (void)_handleDidStopRunningNotificationWithPayload:(id)arg1;
 - (void)_handleNotification:(id)arg1 payload:(id)arg2;
 - (void)_handleServerConnectionDiedNotification;
-- (void)_makeConfigurationLive:(id)arg1 masterClock:(struct OpaqueCMClock { }*)arg2;
+- (void)_makeConfigurationLive:(id)arg1;
 - (void)_notifyMediaServerdDied;
 - (void)_notifySessionStarted;
 - (void)_notifySessionStopped;
@@ -58,13 +57,13 @@
 - (void)_removeConnection:(id)arg1;
 - (void)_removeConnectionsForInputPort:(id)arg1;
 - (void)_removeVideoPreviewLayer:(id)arg1;
-- (void)_setInterrupted:(bool)arg1;
+- (void)_setInterrupted:(BOOL)arg1;
 - (void)_setMasterClock:(struct OpaqueCMClock { }*)arg1;
-- (void)_setRunning:(bool)arg1;
-- (bool)_startFigCaptureSession;
+- (void)_setRunning:(BOOL)arg1;
+- (BOOL)_startFigCaptureSession;
 - (void)_stopAndTearDownGraph;
 - (id)_stopError;
-- (bool)_stopFigCaptureSession;
+- (BOOL)_stopFigCaptureSession;
 - (void)_teardownFigCaptureSession;
 - (void)_updateActiveConnections;
 - (void)_updateDeviceActiveFormats;
@@ -73,22 +72,22 @@
 - (void)addInputWithNoConnections:(id)arg1;
 - (void)addOutput:(id)arg1;
 - (void)addOutputWithNoConnections:(id)arg1;
-- (bool)automaticallyConfiguresApplicationAudioSession;
+- (BOOL)automaticallyConfiguresApplicationAudioSession;
 - (void)beginConfiguration;
-- (bool)canAddConnection:(id)arg1;
-- (bool)canAddInput:(id)arg1;
-- (bool)canAddOutput:(id)arg1;
-- (bool)canSetSessionPreset:(id)arg1;
+- (BOOL)canAddConnection:(id)arg1;
+- (BOOL)canAddInput:(id)arg1;
+- (BOOL)canAddOutput:(id)arg1;
+- (BOOL)canSetSessionPreset:(id)arg1;
 - (void)commitConfiguration;
 - (void)dealloc;
 - (id)description;
 - (id)init;
 - (id)inputs;
-- (bool)isBeingConfigured;
-- (bool)isInterrupted;
-- (bool)isRunning;
+- (BOOL)isBeingConfigured;
+- (BOOL)isInterrupted;
+- (BOOL)isRunning;
 - (struct OpaqueCMClock { }*)masterClock;
-- (bool)notifiesOnMainThread;
+- (BOOL)notifiesOnMainThread;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4;
 - (id)outputs;
 - (void)removeConnection:(id)arg1;
@@ -96,13 +95,13 @@
 - (void)removeOutput:(id)arg1;
 - (id)sessionPreset;
 - (id)sessionVideoCaptureDevices;
-- (void)setAutomaticallyConfiguresApplicationAudioSession:(bool)arg1;
+- (void)setAutomaticallyConfiguresApplicationAudioSession:(BOOL)arg1;
 - (void)setSessionPreset:(id)arg1;
-- (void)setUsesApplicationAudioSession:(bool)arg1;
+- (void)setUsesApplicationAudioSession:(BOOL)arg1;
 - (void)startRunning;
 - (void)stopRunning;
-- (bool)usesApplicationAudioSession;
+- (BOOL)usesApplicationAudioSession;
 - (id)valueForUndefinedKey:(id)arg1;
-- (bool)videoHDREnabledForDevice:(id)arg1 format:(id)arg2 sessionPreset:(id)arg3;
+- (BOOL)videoHDREnabledForDevice:(id)arg1 format:(id)arg2 sessionPreset:(id)arg3;
 
 @end

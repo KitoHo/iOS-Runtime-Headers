@@ -3,16 +3,22 @@
  */
 
 @interface UIAlertControllerDescriptor : NSObject {
-    bool_hasMessage;
-    bool_hasTitle;
+    BOOL _hasMessage;
+    BOOL _hasTitle;
 }
 
-@property bool hasMessage;
-@property bool hasTitle;
+@property BOOL hasMessage;
+@property BOOL hasTitle;
 
-- (bool)hasMessage;
-- (bool)hasTitle;
-- (void)setHasMessage:(bool)arg1;
-- (void)setHasTitle:(bool)arg1;
+// Image: /System/Library/Frameworks/UIKit.framework/UIKit
+
+- (BOOL)hasMessage;
+- (BOOL)hasTitle;
+- (void)setHasMessage:(BOOL)arg1;
+- (void)setHasTitle:(BOOL)arg1;
+
+// Image: /System/Library/PrivateFrameworks/FuseUI.framework/FuseUI
+
+- (BOOL)isEqual:(id)arg1;
 
 @end

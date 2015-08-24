@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADShapeGeometry, OADTextBody;
-
 @interface OADShape : OADGraphic {
     OADShapeGeometry *mGeometry;
     OADTextBody *mTextBody;
@@ -15,7 +13,7 @@
 - (void)flattenProperties;
 - (id)geometry;
 - (id)init;
-- (bool)isTextBox;
+- (BOOL)isTextBox;
 - (void)removeUnnecessaryOverrides;
 - (void)setGeometry:(id)arg1;
 - (void)setParentTextListStyle:(id)arg1;

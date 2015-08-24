@@ -13,25 +13,25 @@
     int _width;
 }
 
-@property bool hasSpeed;
-@property bool hasWidth;
-@property int speed;
-@property int vertexCount;
-@property int vertexOffset;
-@property int width;
+@property (nonatomic) BOOL hasSpeed;
+@property (nonatomic) BOOL hasWidth;
+@property (nonatomic) int speed;
+@property (nonatomic) int vertexCount;
+@property (nonatomic) int vertexOffset;
+@property (nonatomic) int width;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasSpeed;
-- (bool)hasWidth;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasSpeed;
+- (BOOL)hasWidth;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
-- (void)setHasSpeed:(bool)arg1;
-- (void)setHasWidth:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasSpeed:(BOOL)arg1;
+- (void)setHasWidth:(BOOL)arg1;
 - (void)setSpeed:(int)arg1;
 - (void)setVertexCount:(int)arg1;
 - (void)setVertexOffset:(int)arg1;

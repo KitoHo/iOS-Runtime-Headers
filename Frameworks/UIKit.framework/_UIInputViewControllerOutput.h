@@ -2,40 +2,50 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString, TIKeyboardOutput;
-
 @interface _UIInputViewControllerOutput : NSObject <NSCopying, NSSecureCoding> {
-    TIKeyboardOutput *_keyboardOutput;
-    long long _positionOffset;
+    NSArray *_keyboardOutputs;
     NSString *_primaryLanguage;
-    bool_shouldAdvanceInputMode;
-    bool_shouldDismiss;
+    BOOL _requiresInputManagerSync;
+    BOOL _shouldAdvanceInputMode;
+    BOOL _shouldAdvanceResponder;
+    BOOL _shouldDismiss;
+    BOOL _shouldPostReturnKeyNotification;
 }
 
-@property(retain) TIKeyboardOutput * keyboardOutput;
-@property long long positionOffset;
-@property(copy) NSString * primaryLanguage;
-@property bool shouldAdvanceInputMode;
-@property bool shouldDismiss;
+@property (nonatomic, retain) NSArray *keyboardOutputs;
+@property (nonatomic, copy) NSString *primaryLanguage;
+@property (nonatomic) BOOL requiresInputManagerSync;
+@property (nonatomic) BOOL shouldAdvanceInputMode;
+@property (nonatomic) BOOL shouldAdvanceResponder;
+@property (nonatomic) BOOL shouldDismiss;
+@property (nonatomic) BOOL shouldPostReturnKeyNotification;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
+- (id)_currentKeyboardOutput;
+- (void)_pushNewKeyboardOutput;
+- (void)adjustTextPositionByCharacterOffset:(int)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)createKeyboardOutputIfNecessary;
 - (void)dealloc;
+- (void)deleteBackward;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (id)keyboardOutput;
-- (long long)positionOffset;
+- (void)insertText:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (id)keyboardOutputs;
 - (id)primaryLanguage;
-- (void)setKeyboardOutput:(id)arg1;
-- (void)setPositionOffset:(long long)arg1;
+- (BOOL)requiresInputManagerSync;
+- (void)setKeyboardOutputs:(id)arg1;
 - (void)setPrimaryLanguage:(id)arg1;
-- (void)setShouldAdvanceInputMode:(bool)arg1;
-- (void)setShouldDismiss:(bool)arg1;
-- (bool)shouldAdvanceInputMode;
-- (bool)shouldDismiss;
+- (void)setRequiresInputManagerSync:(BOOL)arg1;
+- (void)setShouldAdvanceInputMode:(BOOL)arg1;
+- (void)setShouldAdvanceResponder:(BOOL)arg1;
+- (void)setShouldDismiss:(BOOL)arg1;
+- (void)setShouldPostReturnKeyNotification:(BOOL)arg1;
+- (BOOL)shouldAdvanceInputMode;
+- (BOOL)shouldAdvanceResponder;
+- (BOOL)shouldDismiss;
+- (BOOL)shouldPostReturnKeyNotification;
 
 @end

@@ -2,34 +2,37 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSExpression, NSPredicate;
-
 @interface NSSubqueryExpression : NSExpression {
     NSExpression *_collection;
     NSPredicate *_subpredicate;
     NSExpression *_variableExpression;
 }
 
-+ (bool)supportsSecureCoding;
+// Image: /System/Library/Frameworks/Foundation.framework/Foundation
+
++ (BOOL)supportsSecureCoding;
 
 - (id)_expressionWithSubstitutionVariables:(id)arg1;
-- (bool)_shouldUseParensWithDescription;
-- (void)acceptVisitor:(id)arg1 flags:(unsigned long long)arg2;
+- (BOOL)_shouldUseParensWithDescription;
+- (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
 - (void)allowEvaluation;
 - (id)collection;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithExpression:(id)arg1 usingIteratorExpression:(id)arg2 predicate:(id)arg3;
 - (id)initWithExpression:(id)arg1 usingIteratorVariable:(id)arg2 predicate:(id)arg3;
-- (bool)isEqual:(id)arg1;
-- (id)minimalFormInContext:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)predicate;
 - (id)predicateFormat;
 - (id)variable;
 - (id)variableExpression;
+
+// Image: /System/Library/Frameworks/CoreData.framework/CoreData
+
+- (id)minimalFormInContext:(id)arg1;
 
 @end

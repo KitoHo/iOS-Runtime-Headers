@@ -2,28 +2,26 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class UIView;
-
 @interface SKUISimpleCollectionViewCell : UICollectionViewCell {
-    struct UIEdgeInsets { 
-        double top; 
-        double left; 
-        double bottom; 
-        double right; 
     UIView *_contentChildView;
+    struct UIEdgeInsets { 
+        float top; 
+        float left; 
+        float bottom; 
+        float right; 
     } _contentInsets;
 }
 
-@property(retain) UIView * contentChildView;
-@property struct UIEdgeInsets { double x1; double x2; double x3; double x4; } contentInsets;
+@property (nonatomic, retain) UIView *contentChildView;
+@property (nonatomic) struct UIEdgeInsets { float x1; float x2; float x3; float x4; } contentInsets;
 
 - (void).cxx_destruct;
 - (void)applyLayoutAttributes:(id)arg1;
 - (id)contentChildView;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })contentInsets;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })contentInsets;
 - (void)layoutSubviews;
 - (void)setBackgroundColor:(id)arg1;
 - (void)setContentChildView:(id)arg1;
-- (void)setContentInsets:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; })arg1;
+- (void)setContentInsets:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg1;
 
 @end

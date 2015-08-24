@@ -2,19 +2,19 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class CKRecordID, NSString;
-
-@interface CKDiscoveredUserInfo : NSObject <NSSecureCoding, NSCopying> {
+@interface CKDiscoveredUserInfo : NSObject <NSCopying, NSSecureCoding> {
     NSString *_firstName;
     NSString *_lastName;
+    void *_oldDisplayContact;
     CKRecordID *_userRecordID;
 }
 
-@property(copy) NSString * firstName;
-@property(copy) NSString * lastName;
-@property(copy) CKRecordID * userRecordID;
+@property (nonatomic, copy) NSString *firstName;
+@property (nonatomic, copy) NSString *lastName;
+@property (nonatomic, readonly) void*oldDisplayContact;
+@property (nonatomic, copy) CKRecordID *userRecordID;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)CKPropertiesDescription;
@@ -22,11 +22,12 @@
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)firstName;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithUserRecordID:(id)arg1 firstName:(id)arg2 lastName:(id)arg3;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)lastName;
+- (void*)oldDisplayContact;
 - (void)setFirstName:(id)arg1;
 - (void)setLastName:(id)arg1;
 - (void)setUserRecordID:(id)arg1;

@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/RadioUI.framework/RadioUI
  */
 
-@class NSAttributedString, UILabel, _UIBackdropView;
-
 @interface RUTableSectionHeaderView : UITableViewHeaderFooterView {
-    double _backdropTransitionWeighting;
+    float _backdropTransitionWeighting;
     _UIBackdropView *_backdropView;
     UILabel *_titleLabel;
 }
 
-@property(copy) NSAttributedString * attributedTitle;
-@property double backdropTransitionWeighting;
+@property (nonatomic, copy) NSAttributedString *attributedTitle;
+@property (nonatomic) float backdropTransitionWeighting;
 
 - (void).cxx_destruct;
 - (id)attributedTitle;
-- (double)backdropTransitionWeighting;
+- (float)backdropTransitionWeighting;
 - (id)initWithReuseIdentifier:(id)arg1;
 - (void)layoutSubviews;
 - (void)setAttributedTitle:(id)arg1;
-- (void)setBackdropTransitionWeighting:(double)arg1;
-- (void)setTableViewStyle:(long long)arg1;
+- (void)setBackdropTransitionWeighting:(float)arg1;
+- (void)setTableViewStyle:(int)arg1;
 
 @end

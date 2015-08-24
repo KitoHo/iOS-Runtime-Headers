@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class ACAccount, ACAccountStore;
-
 @interface CKDBackingiOSAccount : CKDBackingAccount {
     ACAccountStore *_accountStore;
     ACAccount *_parentAppleAccount;
 }
 
-@property(readonly) ACAccountStore * accountStore;
-@property(readonly) ACAccount * ckAccount;
-@property(retain) ACAccount * parentAppleAccount;
+@property (nonatomic, readonly) ACAccountStore *accountStore;
+@property (nonatomic, readonly) ACAccount *ckAccount;
+@property (nonatomic, retain) ACAccount *parentAppleAccount;
 
 + (id)accountWithIdentifier:(id)arg1 inStore:(id)arg2;
-+ (void)determineCloudKitInfoFromEmail:(id)arg1 password:(id)arg2 completion:(id)arg3;
++ (void)determineCloudKitInfoFromEmail:(id)arg1 password:(id)arg2 completion:(id /* block */)arg3;
 + (id)primaryAccountInStore:(id)arg1;
 
 - (void).cxx_destruct;
 - (id)_initWithParentAccount:(id)arg1 inStore:(id)arg2;
 - (id)accountPropertiesForDataclass:(id)arg1;
 - (id)accountStore;
-- (bool)allowsCellularAccess;
+- (BOOL)allowsCellularAccess;
 - (id)ckAccount;
 - (id)cloudKitAuthToken;
-- (bool)cloudKitIsEnabled;
-- (bool)cloudPhotosIsEnabled;
+- (BOOL)cloudKitIsEnabled;
+- (BOOL)cloudPhotosIsEnabled;
 - (id)dsid;
 - (id)iCloudAuthToken;
 - (id)identifier;

@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/RemoteUI.framework/RemoteUI
  */
 
-@class <RUIParserDelegate>, NSURL, RUIParser;
-
 @interface RUILoader : RUIHTTPRequest {
+    BOOL _allowNonSecureHTTP;
     RUIParser *_parser;
     <RUIParserDelegate> *_parserDelegate;
     NSURL *_url;
-    bool_allowNonSecureHTTP;
 }
 
-@property bool allowNonSecureHTTP;
-@property <RUIParserDelegate> * parserDelegate;
+@property (nonatomic) BOOL allowNonSecureHTTP;
+@property (nonatomic) <RUIParserDelegate> *parserDelegate;
 
 - (void).cxx_destruct;
 - (id)URL;
 - (void)_finishLoad;
 - (void)allWebViewsFinishedLoading;
-- (bool)allowNonSecureHTTP;
-- (bool)anyWebViewLoading;
+- (BOOL)allowNonSecureHTTP;
+- (BOOL)anyWebViewLoading;
 - (void)cancel;
 - (id)connection:(id)arg1 willSendRequest:(id)arg2 redirectResponse:(id)arg3;
 - (void)dealloc;
@@ -31,8 +29,8 @@
 - (void)loadXMLUIWithURL:(id)arg1;
 - (void)parseData:(id)arg1;
 - (id)parserDelegate;
-- (bool)receivedValidResponse:(id)arg1;
-- (void)setAllowNonSecureHTTP:(bool)arg1;
+- (BOOL)receivedValidResponse:(id)arg1;
+- (void)setAllowNonSecureHTTP:(BOOL)arg1;
 - (void)setParserDelegate:(id)arg1;
 - (void)webViewFinishedLoading;
 

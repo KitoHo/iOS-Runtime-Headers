@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/LegacyGameKit.framework/LegacyGameKit
  */
 
-@class GKPeerPickerViewController;
-
 @interface GKPeerPickerControllerInternal : NSObject {
-    unsigned long long _connectionTypesMask;
+    unsigned int _connectionTypesMask;
     id _delegate;
     GKPeerPickerViewController *_pickerViewController;
 }

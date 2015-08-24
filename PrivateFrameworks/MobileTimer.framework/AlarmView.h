@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/MobileTimer.framework/MobileTimer
  */
 
-@class DigitalClockLabel, NSString, UIFont, UILabel, UISwitch, UIView;
-
 @interface AlarmView : UIView <MTDateLabelObserver> {
     UILabel *_detailLabel;
     UISwitch *_enabledSwitch;
@@ -15,31 +13,31 @@
     NSString *_repeatText;
     UILabel *_secondaryDesignatorLabel;
     UIView *_singleStyleDetailContainer;
-    long long _style;
+    int _style;
     DigitalClockLabel *_timeLabel;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain,readonly) UILabel * detailLabel;
-@property(readonly) UISwitch * enabledSwitch;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * name;
-@property(retain) UIFont * nameFont;
-@property(retain,readonly) UILabel * nameLabel;
-@property(retain) UIFont * repeatFont;
-@property(retain,readonly) UILabel * repeatLabel;
-@property(copy) NSString * repeatText;
-@property(retain,readonly) UILabel * secondaryDesignatorLabel;
-@property long long style;
-@property(readonly) Class superclass;
-@property(readonly) DigitalClockLabel * timeLabel;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly, retain) UILabel *detailLabel;
+@property (nonatomic, readonly) UISwitch *enabledSwitch;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, retain) UIFont *nameFont;
+@property (nonatomic, readonly, retain) UILabel *nameLabel;
+@property (nonatomic, retain) UIFont *repeatFont;
+@property (nonatomic, readonly, retain) UILabel *repeatLabel;
+@property (nonatomic, copy) NSString *repeatText;
+@property (nonatomic, readonly, retain) UILabel *secondaryDesignatorLabel;
+@property (nonatomic) int style;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) DigitalClockLabel *timeLabel;
 
 - (void)dateLabel:(id)arg1 timeDesignatorDidChange:(id)arg2;
 - (void)dealloc;
 - (id)detailLabel;
 - (id)enabledSwitch;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)layoutSubviews;
 - (id)name;
 - (id)nameFont;
@@ -48,13 +46,13 @@
 - (id)repeatLabel;
 - (id)repeatText;
 - (id)secondaryDesignatorLabel;
-- (void)setName:(id)arg1 andRepeatText:(id)arg2 textColor:(id)arg3;
 - (void)setName:(id)arg1;
+- (void)setName:(id)arg1 andRepeatText:(id)arg2 textColor:(id)arg3;
 - (void)setNameFont:(id)arg1;
 - (void)setRepeatFont:(id)arg1;
 - (void)setRepeatText:(id)arg1;
-- (void)setStyle:(long long)arg1;
-- (long long)style;
+- (void)setStyle:(int)arg1;
+- (int)style;
 - (id)timeLabel;
 
 @end

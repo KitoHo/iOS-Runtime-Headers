@@ -2,18 +2,16 @@
    Image: /System/Library/Frameworks/Social.framework/Social
  */
 
-@class NSXPCConnection, SLDatabase;
-
 @interface SLRemoteSession : NSObject {
     NSXPCConnection *_connection;
     SLDatabase *_database;
 }
 
-@property(retain) NSXPCConnection * connection;
-@property(retain) SLDatabase * database;
+@property (nonatomic, retain) NSXPCConnection *connection;
+@property (nonatomic, retain) SLDatabase *database;
 
 - (void).cxx_destruct;
-- (bool)clientHasEntitlement:(id)arg1;
+- (BOOL)clientHasEntitlement:(id)arg1;
 - (id)connection;
 - (id)database;
 - (id)initWithConnection:(id)arg1 database:(id)arg2;

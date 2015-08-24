@@ -2,40 +2,34 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class MPMediaQuery, NSNumber, NSString;
-
 @interface MPStoreCompletionOfferingLookupItem : NSObject {
     MPMediaQuery *_albumItemsQuery;
-    id _responseBlock;
+    id /* block */ _responseBlock;
     NSNumber *_storeLookupID;
-    unsigned long long _tokenID;
-    bool_wantsArtwork;
+    unsigned int _tokenID;
+    BOOL _wantsArtwork;
 }
 
-@property(readonly) MPMediaQuery * albumItemsQuery;
-@property(copy,readonly) id responseBlock;
-@property(readonly) NSNumber * storeLookupID;
-@property(readonly) NSString * storeLookupIDString;
-@property(readonly) unsigned long long tokenID;
-@property(readonly) bool wantsArtwork;
+@property (nonatomic, readonly) MPMediaQuery *albumItemsQuery;
+@property (nonatomic, readonly, copy) id /* block */ responseBlock;
+@property (nonatomic, readonly) NSNumber *storeLookupID;
+@property (nonatomic, readonly) NSString *storeLookupIDString;
+@property (nonatomic, readonly) unsigned int tokenID;
+@property (nonatomic, readonly) BOOL wantsArtwork;
 
 + (id)storeLookupIDForAlbumItemsQuery:(id)arg1;
 
 - (void).cxx_destruct;
 - (id)_specificationForArtworkSizesToRequest;
 - (id)albumItemsQuery;
-- (id)initWithAlbumItemsQuery:(id)arg1 tokenID:(long long)arg2 wantsArtwork:(bool)arg3 responseBlock:(id)arg4;
+- (id)initWithAlbumItemsQuery:(id)arg1 tokenID:(int)arg2 wantsArtwork:(BOOL)arg3 responseBlock:(id /* block */)arg4;
 - (id)lookupRequestForAlbumWithRepresentativeItem:(id)arg1;
 - (id)lookupRequestForStorePlaylistIdentifier:(id)arg1;
 - (id)newLookupRequest;
-- (id)responseBlock;
+- (id /* block */)responseBlock;
 - (id)storeLookupID;
 - (id)storeLookupIDString;
-- (unsigned long long)tokenID;
-- (bool)wantsArtwork;
+- (unsigned int)tokenID;
+- (BOOL)wantsArtwork;
 
 @end

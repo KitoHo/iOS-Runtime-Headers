@@ -2,14 +2,8 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSArray, NSMutableArray, NSObject<OS_dispatch_semaphore>, VKModelObject, VKStyleManager, VKWorld;
-
 @interface VKModelObject : NSObject {
+    BOOL _active;
     struct map<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer> >, std::__1::less<md::CommandBufferId>, std::__1::allocator<std::__1::pair<const md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer> > > > > { 
         struct __tree<std::__1::__value_type<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer> > >, std::__1::__map_value_compare<md::CommandBufferId, std::__1::__value_type<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer> > >, std::__1::less<md::CommandBufferId>, true>, std::__1::allocator<std::__1::__value_type<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer> > > > > { 
             struct __tree_node<std::__1::__value_type<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer> > >, void *> {} *__begin_node_; 
@@ -19,9 +13,15 @@
                 } __first_; 
             } __pair1_; 
             struct __compressed_pair<unsigned long, std::__1::__map_value_compare<md::CommandBufferId, std::__1::__value_type<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer> > >, std::__1::less<md::CommandBufferId>, true> > { 
-                unsigned long long __first_; 
+                unsigned long __first_; 
             } __pair3_; 
         } __tree_; 
+    } _commandBuffers;
+    NSObject<OS_dispatch_semaphore> *_drawReady;
+    unsigned int _needsDisplay;
+    unsigned int _needsLayout;
+    NSMutableArray *_submodels;
+    VKModelObject *_supermodel;
     struct CommandBufferIdSet { 
         struct vector<md::CommandBufferId, std::__1::allocator<md::CommandBufferId> > { 
             unsigned char *__begin_; 
@@ -30,22 +30,15 @@
                 unsigned char *__first_; 
             } __end_cap_; 
         } _ids; 
-    } _commandBuffers;
-    NSObject<OS_dispatch_semaphore> *_drawReady;
-    unsigned int _needsDisplay;
-    unsigned int _needsLayout;
-    NSMutableArray *_submodels;
-    VKModelObject *_supermodel;
     } _supportedPassIds;
     VKWorld *_world;
-    bool_active;
 }
 
-@property(getter=isActive) bool active;
-@property(readonly) VKStyleManager * styleManager;
-@property(readonly) NSArray * submodels;
-@property(readonly) VKModelObject * supermodel;
-@property VKWorld * world;
+@property (getter=isActive, nonatomic) BOOL active;
+@property (nonatomic, readonly) VKStyleManager *styleManager;
+@property (nonatomic, readonly) NSArray *submodels;
+@property (nonatomic, readonly) VKModelObject *supermodel;
+@property (nonatomic) VKWorld *world;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
@@ -54,25 +47,25 @@
 - (void)clearCommandBuffers;
 - (void)dealloc;
 - (void)didMoveToSupermodel;
-- (void)didReceiveMemoryWarning;
+- (void)didReceiveMemoryWarning:(BOOL)arg1;
 - (void)didRemoveFromSuperModel;
 - (void)gglLayoutScene:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue { int (**x1)(); struct shared_ptr<ggl::RenderQueue> { struct RenderQueue {} *x_2_1_1; struct __shared_weak_count {} *x_2_1_2; } x2; }*)arg3;
 - (void)gglLayoutSceneIfNeeded:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue { int (**x1)(); struct shared_ptr<ggl::RenderQueue> { struct RenderQueue {} *x_2_1_1; struct __shared_weak_count {} *x_2_1_2; } x2; }*)arg3 dispatchQueue:(id)arg4;
 - (id)init;
-- (bool)isActive;
+- (BOOL)isActive;
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
 - (void)lockCommandBuffers:(struct RenderQueue { int (**x1)(); struct shared_ptr<ggl::RenderQueue> { struct RenderQueue {} *x_2_1_1; struct __shared_weak_count {} *x_2_1_2; } x2; }*)arg1;
 - (void)removeFromSupermodel;
 - (void)removeSubmodel:(id)arg1;
 - (void)reset;
 - (void)runAnimation:(id)arg1;
-- (void)setActive:(bool)arg1;
+- (void)setActive:(BOOL)arg1;
 - (void)setNeedsDisplay;
 - (void)setNeedsLayout;
 - (void)setSupermodel:(id)arg1;
 - (void)setSupportedPasses:(const struct CommandBufferIdSet { struct vector<md::CommandBufferId, std::__1::allocator<md::CommandBufferId> > { unsigned char *x_1_1_1; unsigned char *x_1_1_2; struct __compressed_pair<md::CommandBufferId *, std::__1::allocator<md::CommandBufferId> > { unsigned char *x_3_2_1; } x_1_1_3; } x1; }*)arg1;
 - (void)setWorld:(id)arg1;
-- (bool)shouldLayoutWithoutStyleManager;
+- (BOOL)shouldLayoutWithoutStyleManager;
 - (id)styleManager;
 - (id)submodels;
 - (id)supermodel;

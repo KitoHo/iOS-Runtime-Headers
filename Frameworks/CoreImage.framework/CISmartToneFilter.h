@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIContext, CIImage, NSNumber;
-
 @interface CISmartToneFilter : CIFilter {
     CIContext *_cubeContext;
     CIImage *_cubeImage;
@@ -17,18 +15,18 @@
     NSNumber *inputUseCube;
 }
 
-@property(retain) NSNumber * inputBlack;
-@property(retain) NSNumber * inputBrightness;
-@property(retain) NSNumber * inputContrast;
-@property(retain) NSNumber * inputExposure;
-@property(retain) NSNumber * inputHighlights;
-@property(retain) CIImage * inputImage;
-@property(retain) NSNumber * inputShadows;
-@property(retain) NSNumber * inputUseCube;
+@property (nonatomic, retain) NSNumber *inputBlack;
+@property (nonatomic, retain) NSNumber *inputBrightness;
+@property (nonatomic, retain) NSNumber *inputContrast;
+@property (nonatomic, retain) NSNumber *inputExposure;
+@property (nonatomic, retain) NSNumber *inputHighlights;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, retain) NSNumber *inputShadows;
+@property (nonatomic, retain) NSNumber *inputUseCube;
 
 + (id)customAttributes;
 
-- (bool)_isIdentity;
+- (BOOL)_isIdentity;
 - (id)_kernelBneg;
 - (id)_kernelBpos;
 - (id)_kernelC;

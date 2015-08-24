@@ -2,26 +2,23 @@
    Image: /System/Library/PrivateFrameworks/HomeKitDaemon.framework/HomeKitDaemon
  */
 
-@class NSMutableDictionary, NSString;
-
 @interface HMDAdminEnforcementMessageFilter : HMDMessageFilter {
     NSMutableDictionary *_adminsOfHomes;
     NSString *_localAdminName;
     NSMutableDictionary *_objectsContainedInHomes;
 }
 
-@property(retain) NSMutableDictionary * adminsOfHomes;
-@property(retain) NSString * localAdminName;
-@property(retain) NSMutableDictionary * objectsContainedInHomes;
+@property (nonatomic, retain) NSMutableDictionary *adminsOfHomes;
+@property (nonatomic, retain) NSString *localAdminName;
+@property (nonatomic, retain) NSMutableDictionary *objectsContainedInHomes;
 
-+ (bool)isWhitelistedMessage:(id)arg1;
++ (BOOL)isWhitelistedMessage:(id)arg1;
 
 - (void).cxx_destruct;
-- (bool)acceptMessage:(id)arg1 target:(id)arg2 errorReason:(id*)arg3;
+- (BOOL)acceptMessage:(id)arg1 target:(id)arg2 errorReason:(id*)arg3;
 - (void)addHomeWithUUID:(id)arg1 administratorName:(id)arg2;
 - (void)addObjectWithUUID:(id)arg1 containedInHome:(id)arg2;
 - (id)adminsOfHomes;
-- (id)homeUUIDForTargetUUIDForMessage:(id)arg1;
 - (id)initWithName:(id)arg1;
 - (id)localAdminName;
 - (id)localAdministratorName;

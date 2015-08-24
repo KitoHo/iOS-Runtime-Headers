@@ -2,24 +2,23 @@
    Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
  */
 
-@class HKObject;
-
 @interface _HDDataDeletionJournalEntry : HDJournalEntry {
     HKObject *_dataObject;
-    bool_restrictSource;
+    BOOL _restrictSource;
 }
 
-@property(readonly) HKObject * dataObject;
-@property(readonly) bool restrictSource;
+@property (nonatomic, readonly) HKObject *dataObject;
+@property (nonatomic, readonly) BOOL restrictSource;
 
-+ (bool)supportsSecureCoding;
++ (void)applyEntries:(id)arg1 withDaemon:(id)arg2;
++ (int)behavior;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (bool)applyWithDaemon:(id)arg1;
 - (id)dataObject;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithDataObject:(id)arg1 restrictSource:(bool)arg2;
-- (bool)restrictSource;
+- (id)initWithDataObject:(id)arg1 restrictSource:(BOOL)arg2;
+- (BOOL)restrictSource;
 
 @end

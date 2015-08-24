@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@class ML3MusicLibrary, NSDictionary;
-
 @interface ML3ExportItem : NSObject {
     Class _entityClass;
     ML3MusicLibrary *_library;
@@ -11,9 +9,9 @@
     NSDictionary *_properties;
 }
 
-@property(readonly) Class entityClass;
-@property(readonly) ML3MusicLibrary * library;
-@property(readonly) long long persistentId;
+@property (nonatomic, readonly) Class entityClass;
+@property (nonatomic, readonly) ML3MusicLibrary *library;
+@property (nonatomic, readonly) long long persistentId;
 
 + (unsigned int*)allExportPropertyKeysForEntityClass:(Class)arg1 returnedCount:(unsigned int*)arg2;
 
@@ -26,11 +24,11 @@
 - (id)description;
 - (Class)entityClass;
 - (id)exportData;
-- (bool)hasValueForProperty:(unsigned int)arg1;
+- (BOOL)hasValueForProperty:(unsigned int)arg1;
 - (id)initWithPersistentId:(long long)arg1 entityClass:(Class)arg2 library:(id)arg3;
-- (id)initWithPersistentId:(long long)arg1 entityClass:(Class)arg2 propertyKeysToExport:(unsigned int*)arg3 numKeys:(unsigned int)arg4 library:(id)arg5;
 - (id)initWithPersistentId:(long long)arg1 entityClass:(id)arg2 properties:(id)arg3 library:(id)arg4;
-- (bool)isValid;
+- (id)initWithPersistentId:(long long)arg1 entityClass:(Class)arg2 propertyKeysToExport:(unsigned int*)arg3 numKeys:(unsigned int)arg4 library:(id)arg5;
+- (BOOL)isValid;
 - (id)library;
 - (int)longValueForProperty:(unsigned int)arg1;
 - (long long)longlongValueForProperty:(unsigned int)arg1;

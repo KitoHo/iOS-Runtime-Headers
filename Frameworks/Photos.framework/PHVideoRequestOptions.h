@@ -2,37 +2,33 @@
    Image: /System/Library/Frameworks/Photos.framework/Photos
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface PHVideoRequestOptions : NSObject {
-    long long _deliveryMode;
-    id _progressHandler;
-    long long _version;
-    bool_networkAccessAllowed;
-    bool_streamingAllowed;
+    int _deliveryMode;
+    BOOL _networkAccessAllowed;
+    id /* block */ _progressHandler;
+    BOOL _streamingAllowed;
+    int _version;
 }
 
-@property long long deliveryMode;
-@property(getter=isNetworkAccessAllowed) bool networkAccessAllowed;
-@property(copy) id progressHandler;
-@property(getter=isStreamingAllowed) bool streamingAllowed;
-@property long long version;
+@property (nonatomic) int deliveryMode;
+@property (getter=isNetworkAccessAllowed, nonatomic) BOOL networkAccessAllowed;
+@property (nonatomic, copy) id /* block */ progressHandler;
+@property (getter=isStreamingAllowed, nonatomic) BOOL streamingAllowed;
+@property (nonatomic) int version;
 
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (long long)deliveryMode;
+- (int)deliveryMode;
 - (id)description;
 - (id)init;
-- (bool)isNetworkAccessAllowed;
-- (bool)isStreamingAllowed;
-- (id)progressHandler;
-- (void)setDeliveryMode:(long long)arg1;
-- (void)setNetworkAccessAllowed:(bool)arg1;
-- (void)setProgressHandler:(id)arg1;
-- (void)setStreamingAllowed:(bool)arg1;
-- (void)setVersion:(long long)arg1;
-- (long long)version;
+- (BOOL)isNetworkAccessAllowed;
+- (BOOL)isStreamingAllowed;
+- (id /* block */)progressHandler;
+- (void)setDeliveryMode:(int)arg1;
+- (void)setNetworkAccessAllowed:(BOOL)arg1;
+- (void)setProgressHandler:(id /* block */)arg1;
+- (void)setStreamingAllowed:(BOOL)arg1;
+- (void)setVersion:(int)arg1;
+- (int)version;
 
 @end

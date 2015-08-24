@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIView;
-
 @interface UIStatusBarBatteryItemView : UIStatusBarItemView {
     UIView *_accessoryView;
     int _capacity;
@@ -11,13 +9,13 @@
 }
 
 - (id)_accessoryImage;
-- (double)_batteryYOffsetWithBackground:(id)arg1;
-- (bool)_needsAccessoryImage;
+- (struct CGSize { float x1; float x2; })_batteryOffsetWithBackground:(id)arg1;
+- (BOOL)_needsAccessoryImage;
 - (void)_updateAccessoryImage;
 - (id)contentsImage;
 - (void)dealloc;
-- (double)extraRightPadding;
-- (double)legibilityStrength;
-- (bool)updateForNewData:(id)arg1 actions:(int)arg2;
+- (float)extraRightPadding;
+- (float)legibilityStrength;
+- (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
 
 @end

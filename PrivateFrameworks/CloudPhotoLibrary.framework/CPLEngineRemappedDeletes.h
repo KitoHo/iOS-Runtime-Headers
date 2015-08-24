@@ -2,19 +2,16 @@
    Image: /System/Library/PrivateFrameworks/CloudPhotoLibrary.framework/CloudPhotoLibrary
  */
 
-@class CPLPlatformObject, NSString;
+@interface CPLEngineRemappedDeletes : CPLEngineStorage <CPLAbstractObject>
 
-@interface CPLEngineRemappedDeletes : CPLEngineStorage <CPLAbstractObject> {
-}
-
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) CPLPlatformObject * platformObject;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) CPLPlatformObject *platformObject;
+@property (readonly) Class superclass;
 
 - (void)discardDeleteForRemappedRecordWithIdentifier:(id)arg1;
-- (bool)resetWithError:(id*)arg1;
-- (void)scheduleDeleteForRemappedRecordWithIdentifier:(id)arg1 realIdentifier:(id)arg2 asap:(bool)arg3;
+- (BOOL)resetWithError:(id*)arg1;
+- (void)scheduleDeleteForRemappedRecordWithIdentifier:(id)arg1 realIdentifier:(id)arg2 asap:(BOOL)arg3;
 
 @end

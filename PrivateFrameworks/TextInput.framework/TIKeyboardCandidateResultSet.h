@@ -2,84 +2,82 @@
    Image: /System/Library/PrivateFrameworks/TextInput.framework/TextInput
  */
 
-@class NSArray, NSDictionary, TIKeyboardCandidate, TIKeyboardIntermediateText;
-
 @interface TIKeyboardCandidateResultSet : NSObject <NSCopying, NSSecureCoding> {
     TIKeyboardCandidate *_acceptedCandidate;
-    unsigned long long _batchCandidateLocation;
+    unsigned int _batchCandidateLocation;
     NSArray *_candidates;
     TIKeyboardCandidate *_defaultCandidate;
-    unsigned long long _generatedCandidateCount;
+    BOOL _excludedExtensionCandidates;
+    unsigned int _generatedCandidateCount;
     NSDictionary *_indexTitles;
-    unsigned long long _initialSelectedIndex;
+    unsigned int _initialSelectedIndex;
     NSArray *_initiallyHiddenCandidates;
-    unsigned long long _selectedHiddenCandidateIndex;
+    unsigned int _selectedHiddenCandidateIndex;
     NSDictionary *_showExtensionCandidates;
     NSDictionary *_sortMethodGroups;
     NSArray *_sortMethods;
     TIKeyboardIntermediateText *_uncommittedText;
-    bool_excludedExtensionCandidates;
 }
 
-@property(retain) TIKeyboardCandidate * acceptedCandidate;
-@property unsigned long long batchCandidateLocation;
-@property(retain) NSArray * candidates;
-@property(copy) TIKeyboardCandidate * defaultCandidate;
-@property bool excludedExtensionCandidates;
-@property(readonly) TIKeyboardCandidate * firstCandidate;
-@property unsigned long long generatedCandidateCount;
-@property(readonly) bool hasCandidates;
-@property(readonly) bool hasMetadata;
-@property(retain) NSDictionary * indexTitles;
-@property unsigned long long initialSelectedIndex;
-@property(retain) NSArray * initiallyHiddenCandidates;
-@property(readonly) bool isDummySet;
-@property unsigned long long selectedHiddenCandidateIndex;
-@property(retain) NSDictionary * showExtensionCandidates;
-@property(retain) NSDictionary * sortMethodGroups;
-@property(retain) NSArray * sortMethods;
-@property(retain) TIKeyboardIntermediateText * uncommittedText;
+@property (nonatomic, retain) TIKeyboardCandidate *acceptedCandidate;
+@property (nonatomic) unsigned int batchCandidateLocation;
+@property (nonatomic, retain) NSArray *candidates;
+@property (nonatomic, copy) TIKeyboardCandidate *defaultCandidate;
+@property (nonatomic) BOOL excludedExtensionCandidates;
+@property (nonatomic, readonly) TIKeyboardCandidate *firstCandidate;
+@property (nonatomic) unsigned int generatedCandidateCount;
+@property (nonatomic, readonly) BOOL hasCandidates;
+@property (nonatomic, readonly) BOOL hasMetadata;
+@property (nonatomic, retain) NSDictionary *indexTitles;
+@property (nonatomic) unsigned int initialSelectedIndex;
+@property (nonatomic, retain) NSArray *initiallyHiddenCandidates;
+@property (nonatomic, readonly) BOOL isDummySet;
+@property (nonatomic) unsigned int selectedHiddenCandidateIndex;
+@property (nonatomic, retain) NSDictionary *showExtensionCandidates;
+@property (nonatomic, retain) NSDictionary *sortMethodGroups;
+@property (nonatomic, retain) NSArray *sortMethods;
+@property (nonatomic, retain) TIKeyboardIntermediateText *uncommittedText;
+
+// Image: /System/Library/PrivateFrameworks/TextInput.framework/TextInput
 
 + (id)dummySet;
-+ (id)setWithCandidates:(id)arg1 initialSelectedIndex:(unsigned long long)arg2 defaultCandidate:(id)arg3 sortMethods:(id)arg4 sortMethodGroups:(id)arg5 indexTitles:(id)arg6 showExtensionCandidates:(id)arg7 initiallyHiddenCandidates:(id)arg8 selectedHiddenCandidateIndex:(unsigned long long)arg9 excludedExtensionCandidates:(bool)arg10;
 + (id)setWithCandidates:(id)arg1;
-+ (bool)supportsSecureCoding;
++ (id)setWithCandidates:(id)arg1 initialSelectedIndex:(unsigned int)arg2 defaultCandidate:(id)arg3 sortMethods:(id)arg4 sortMethodGroups:(id)arg5 indexTitles:(id)arg6 showExtensionCandidates:(id)arg7 initiallyHiddenCandidates:(id)arg8 selectedHiddenCandidateIndex:(unsigned int)arg9 excludedExtensionCandidates:(BOOL)arg10;
++ (BOOL)supportsSecureCoding;
 
 - (id)acceptedCandidate;
-- (unsigned long long)batchCandidateLocation;
-- (id)candidateGroupsForSortIndex:(long long)arg1;
+- (unsigned int)batchCandidateLocation;
 - (id)candidates;
-- (bool)candidatesForSortIndexShowAlternativeText:(long long)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)defaultCandidate;
 - (void)encodeWithCoder:(id)arg1;
-- (bool)excludedExtensionCandidates;
+- (BOOL)excludedExtensionCandidates;
 - (id)firstCandidate;
-- (unsigned long long)generatedCandidateCount;
-- (bool)hasCandidates;
-- (bool)hasMetadata;
+- (unsigned int)generatedCandidateCount;
+- (BOOL)hasCandidates;
+- (BOOL)hasMetadata;
 - (id)indexTitles;
-- (id)initWithCandidates:(id)arg1 initialSelectedIndex:(unsigned long long)arg2 defaultCandidate:(id)arg3 sortMethods:(id)arg4 sortMethodGroups:(id)arg5 indexTitles:(id)arg6 showExtensionCandidates:(id)arg7 initiallyHiddenCandidates:(id)arg8 selectedHiddenCandidateIndex:(unsigned long long)arg9 excludedExtensionCandidates:(bool)arg10;
+- (id)initWithCandidates:(id)arg1 initialSelectedIndex:(unsigned int)arg2 defaultCandidate:(id)arg3 sortMethods:(id)arg4 sortMethodGroups:(id)arg5 indexTitles:(id)arg6 showExtensionCandidates:(id)arg7 initiallyHiddenCandidates:(id)arg8 selectedHiddenCandidateIndex:(unsigned int)arg9 excludedExtensionCandidates:(BOOL)arg10;
 - (id)initWithCoder:(id)arg1;
-- (unsigned long long)initialSelectedIndex;
+- (unsigned int)initialSelectedIndex;
 - (id)initiallyHiddenCandidates;
-- (bool)isDummySet;
-- (bool)isEqual:(id)arg1;
-- (bool)isSubsetOf:(id)arg1;
-- (unsigned long long)positionInCandidateList:(id)arg1;
-- (unsigned long long)selectedHiddenCandidateIndex;
+- (BOOL)isDummySet;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isSubsetOf:(id)arg1;
+- (unsigned int)positionInCandidateList:(id)arg1;
+- (unsigned int)selectedHiddenCandidateIndex;
 - (void)setAcceptedCandidate:(id)arg1;
-- (void)setBatchCandidateLocation:(unsigned long long)arg1;
+- (void)setBatchCandidateLocation:(unsigned int)arg1;
 - (id)setByAppendingSet:(id)arg1;
 - (void)setCandidates:(id)arg1;
 - (void)setDefaultCandidate:(id)arg1;
-- (void)setExcludedExtensionCandidates:(bool)arg1;
-- (void)setGeneratedCandidateCount:(unsigned long long)arg1;
+- (void)setExcludedExtensionCandidates:(BOOL)arg1;
+- (void)setGeneratedCandidateCount:(unsigned int)arg1;
 - (void)setIndexTitles:(id)arg1;
-- (void)setInitialSelectedIndex:(unsigned long long)arg1;
+- (void)setInitialSelectedIndex:(unsigned int)arg1;
 - (void)setInitiallyHiddenCandidates:(id)arg1;
-- (void)setSelectedHiddenCandidateIndex:(unsigned long long)arg1;
+- (void)setSelectedHiddenCandidateIndex:(unsigned int)arg1;
 - (void)setShowExtensionCandidates:(id)arg1;
 - (void)setSortMethodGroups:(id)arg1;
 - (void)setSortMethods:(id)arg1;
@@ -88,5 +86,10 @@
 - (id)sortMethodGroups;
 - (id)sortMethods;
 - (id)uncommittedText;
+
+// Image: /System/Library/Frameworks/UIKit.framework/UIKit
+
+- (id)candidateGroupsForSortIndex:(int)arg1;
+- (BOOL)candidatesForSortIndexShowAlternativeText:(int)arg1;
 
 @end

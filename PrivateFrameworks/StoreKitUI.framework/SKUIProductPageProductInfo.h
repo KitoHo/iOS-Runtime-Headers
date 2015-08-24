@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSMutableArray;
-
 @interface SKUIProductPageProductInfo : NSObject {
     NSMutableArray *_labels;
     NSMutableArray *_values;
 }
 
-@property(readonly) long long numberOfEntries;
+@property (nonatomic, readonly) int numberOfEntries;
 
 - (void).cxx_destruct;
-- (void)enumerateEntriesWithBlock:(id)arg1;
+- (void)enumerateEntriesWithBlock:(id /* block */)arg1;
 - (id)initWithInfoSectionDictionaries:(id)arg1;
-- (long long)numberOfEntries;
+- (int)numberOfEntries;
 
 @end

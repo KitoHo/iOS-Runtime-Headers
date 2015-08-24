@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class NSCalendar, NSObject<OS_dispatch_queue>;
-
 @interface WBSHistorySessionIntervalCache : NSObject {
+    NSCalendar *_calendar;
     struct Vector<double, 0, WTF::CrashOnOverflow> { 
         double *m_buffer; 
         unsigned int m_capacity; 
         unsigned int m_size; 
-    NSCalendar *_calendar;
     } _intervalCache;
     NSObject<OS_dispatch_queue> *_queue;
 }

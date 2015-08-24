@@ -2,25 +2,23 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSArray;
-
 @interface _UICollectionViewTrackedValue : NSObject {
-    long long _currentIndex;
-    double _trackedValue;
+    int _currentIndex;
+    BOOL _isAccumulating;
+    float _trackedValue;
     NSArray *_values;
-    long long _valuesCount;
-    bool_isAccumulating;
+    int _valuesCount;
 }
 
-@property bool isAccumulating;
-@property double trackedValue;
+@property (nonatomic) BOOL isAccumulating;
+@property (nonatomic) float trackedValue;
 
-- (void)addValue:(double)arg1;
+- (void)addValue:(float)arg1;
 - (id)init;
-- (bool)isAccumulating;
-- (void)setIsAccumulating:(bool)arg1;
-- (void)setTrackedValue:(double)arg1;
-- (double)speed;
-- (double)trackedValue;
+- (BOOL)isAccumulating;
+- (void)setIsAccumulating:(BOOL)arg1;
+- (void)setTrackedValue:(float)arg1;
+- (float)speed;
+- (float)trackedValue;
 
 @end

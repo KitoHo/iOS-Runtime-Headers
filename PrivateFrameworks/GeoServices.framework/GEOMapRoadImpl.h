@@ -2,12 +2,7 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOMapAccess, NSString;
-
 @interface GEOMapRoadImpl : NSObject <GEOMapRoad> {
-    struct shared_ptr<geo::MapEdgeRoad> { 
-        struct MapEdgeRoad {} *__ptr_; 
-        struct __shared_weak_count {} *__cntrl_; 
     struct vector<GEOLocationCoordinate2D, std::__1::allocator<GEOLocationCoordinate2D> > { 
         struct { /* ? */ } *__begin_; 
         struct { /* ? */ } *__end_; 
@@ -15,27 +10,30 @@
             struct { /* ? */ } *__first_; 
         } __end_cap_; 
     } _coords;
+    struct shared_ptr<geo::MapEdgeRoad> { 
+        struct MapEdgeRoad {} *__ptr_; 
+        struct __shared_weak_count {} *__cntrl_; 
     } _edge;
     GEOMapAccess *_map;
 }
 
-@property(readonly) unsigned long long coordinateCount;
-@property(readonly) struct { double x1; double x2; }* coordinates;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) int formOfWay;
-@property(readonly) unsigned long long hash;
-@property(readonly) double length;
-@property(readonly) int roadClass;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) unsigned long coordinateCount;
+@property (nonatomic, readonly) struct { double x1; double x2; }*coordinates;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) int formOfWay;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) double length;
+@property (nonatomic, readonly) int roadClass;
+@property (readonly) Class superclass;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (unsigned long long)coordinateCount;
+- (unsigned long)coordinateCount;
 - (struct { double x1; double x2; }*)coordinates;
 - (void)dealloc;
 - (id)description;
-- (id)findRoadsFrom:(id)arg1 completionHandler:(id)arg2;
+- (id)findRoadsFrom:(id /* block */)arg1 completionHandler:(id /* block */)arg2;
 - (int)formOfWay;
 - (id)initWithMap:(id)arg1 edge:(struct shared_ptr<geo::MapEdgeRoad> { struct MapEdgeRoad {} *x1; struct __shared_weak_count {} *x2; })arg2;
 - (double)length;

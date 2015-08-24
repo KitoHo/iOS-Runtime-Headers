@@ -2,14 +2,13 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@interface PUTudouActivity : PUPublishingActivity {
-}
+@interface PUTudouActivity : PUPublishingActivity
 
 - (id)_activityImage;
 - (id)_activitySettingsImage;
 - (id)activityTitle;
 - (id)activityType;
-- (bool)canPerformWithActivityItems:(id)arg1;
+- (BOOL)canPerformWithActivityItems:(id)arg1;
 - (id)publishingBundle;
 
 @end

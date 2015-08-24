@@ -2,60 +2,58 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class <SKUIStackedBarDelegate>, NSArray, UIView, _UIBackdropView;
-
 @interface SKUIStackedBar : UIView {
+    BOOL _alwaysShowsBackButton;
     _UIBackdropView *_backdropView;
     NSArray *_cells;
     <SKUIStackedBarDelegate> *_delegate;
+    BOOL _hidesStatusBar;
     NSArray *_items;
+    BOOL _lastItemExpanded;
     UIView *_maskView;
-    double _newOffset;
-    double _offset;
+    float _newOffset;
+    float _offset;
+    BOOL _splitViewStyle;
     UIView *_wrapperView;
-    bool_alwaysShowsBackButton;
-    bool_hidesStatusBar;
-    bool_lastItemExpanded;
-    bool_splitViewStyle;
-    bool_zeroHeightWhenFirstChildExpanded;
+    BOOL _zeroHeightWhenFirstChildExpanded;
 }
 
-@property bool alwaysShowsBackButton;
-@property <SKUIStackedBarDelegate> * delegate;
-@property bool hidesStatusBar;
-@property(retain) NSArray * items;
-@property bool lastItemExpanded;
-@property double offset;
-@property bool splitViewStyle;
-@property bool zeroHeightWhenFirstChildExpanded;
+@property (nonatomic) BOOL alwaysShowsBackButton;
+@property <SKUIStackedBarDelegate> *delegate;
+@property (nonatomic) BOOL hidesStatusBar;
+@property (nonatomic, retain) NSArray *items;
+@property (nonatomic) BOOL lastItemExpanded;
+@property (nonatomic) float offset;
+@property (nonatomic) BOOL splitViewStyle;
+@property (nonatomic) BOOL zeroHeightWhenFirstChildExpanded;
 
 - (void).cxx_destruct;
 - (void)_backAction:(id)arg1;
 - (void)_buttonAction:(id)arg1;
 - (void)_reload;
 - (void)_resetNewOffset;
-- (void)_selectItemAtIndex:(long long)arg1;
-- (bool)alwaysShowsBackButton;
+- (void)_selectItemAtIndex:(int)arg1;
+- (BOOL)alwaysShowsBackButton;
 - (void)animateToFullSizeIfNecessary;
 - (id)delegate;
-- (bool)hidesStatusBar;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (BOOL)hidesStatusBar;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (id)items;
-- (bool)lastItemExpanded;
+- (BOOL)lastItemExpanded;
 - (void)layoutSubviews;
-- (double)offset;
-- (void)setAlwaysShowsBackButton:(bool)arg1;
+- (float)offset;
+- (void)setAlwaysShowsBackButton:(BOOL)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setHidesStatusBar:(bool)arg1;
+- (void)setHidesStatusBar:(BOOL)arg1;
 - (void)setItems:(id)arg1;
-- (void)setLastItemExpanded:(bool)arg1 animated:(bool)arg2;
-- (void)setLastItemExpanded:(bool)arg1;
-- (void)setOffset:(double)arg1;
-- (void)setSplitViewStyle:(bool)arg1;
-- (void)setZeroHeightWhenFirstChildExpanded:(bool)arg1;
-- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
+- (void)setLastItemExpanded:(BOOL)arg1;
+- (void)setLastItemExpanded:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setOffset:(float)arg1;
+- (void)setSplitViewStyle:(BOOL)arg1;
+- (void)setZeroHeightWhenFirstChildExpanded:(BOOL)arg1;
+- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
 - (void)sizeToFit;
-- (bool)splitViewStyle;
-- (bool)zeroHeightWhenFirstChildExpanded;
+- (BOOL)splitViewStyle;
+- (BOOL)zeroHeightWhenFirstChildExpanded;
 
 @end

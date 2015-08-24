@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSObject<OS_dispatch_queue>;
-
 @interface TSKLowPriorityThreadDispatcher : TSKThreadDispatcher {
     NSObject<OS_dispatch_queue> *_queue;
     int _suspendCount;
 }
 
-@property(getter=isSuspended,readonly) bool suspended;
+@property (getter=isSuspended, readonly) BOOL suspended;
 
 + (id)_singletonAlloc;
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
@@ -18,12 +16,12 @@
 - (id)autorelease;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)init;
-- (bool)isSuspended;
+- (BOOL)isSuspended;
 - (id)p_dispatchQueue;
 - (oneway void)release;
 - (void)resume;
 - (id)retain;
-- (unsigned long long)retainCount;
+- (unsigned int)retainCount;
 - (void)suspend;
 
 @end

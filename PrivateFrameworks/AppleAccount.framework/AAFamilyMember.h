@@ -2,12 +2,16 @@
    Image: /System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount
  */
 
-@class NSDate, NSNumber, NSString;
-
 @interface AAFamilyMember : NSObject {
     NSString *_appleID;
+    BOOL _areParentalControlsEnabled;
     NSString *_firstName;
     NSString *_iTunesNotLinkedMessage;
+    BOOL _isAskToBuyEnabled;
+    BOOL _isChild;
+    BOOL _isMe;
+    BOOL _isOrganizer;
+    BOOL _isSharingPurchases;
     NSDate *_joinDate;
     NSString *_lastName;
     NSString *_linkediTunesAppleID;
@@ -15,41 +19,35 @@
     NSNumber *_personID;
     NSString *_personIDHash;
     NSString *_title;
-    bool_areParentalControlsEnabled;
-    bool_isAskToBuyEnabled;
-    bool_isChild;
-    bool_isMe;
-    bool_isOrganizer;
-    bool_isSharingPurchases;
 }
 
-@property(copy) NSString * appleID;
-@property bool areParentalControlsEnabled;
-@property(copy) NSString * firstName;
-@property(copy) NSString * iTunesNotLinkedMessage;
-@property bool isAskToBuyEnabled;
-@property bool isChild;
-@property bool isMe;
-@property bool isOrganizer;
-@property bool isSharingPurchases;
-@property(copy) NSDate * joinDate;
-@property(copy) NSString * lastName;
-@property(copy) NSString * linkediTunesAppleID;
-@property(copy) NSNumber * linkediTunesDSID;
-@property(copy) NSNumber * personID;
-@property(copy) NSString * personIDHash;
-@property(copy) NSString * title;
+@property (nonatomic, copy) NSString *appleID;
+@property (nonatomic) BOOL areParentalControlsEnabled;
+@property (nonatomic, copy) NSString *firstName;
+@property (nonatomic, copy) NSString *iTunesNotLinkedMessage;
+@property (nonatomic) BOOL isAskToBuyEnabled;
+@property (nonatomic) BOOL isChild;
+@property (nonatomic) BOOL isMe;
+@property (nonatomic) BOOL isOrganizer;
+@property (nonatomic) BOOL isSharingPurchases;
+@property (nonatomic, copy) NSDate *joinDate;
+@property (nonatomic, copy) NSString *lastName;
+@property (nonatomic, copy) NSString *linkediTunesAppleID;
+@property (nonatomic, copy) NSNumber *linkediTunesDSID;
+@property (nonatomic, copy) NSNumber *personID;
+@property (nonatomic, copy) NSString *personIDHash;
+@property (nonatomic, copy) NSString *title;
 
 - (void).cxx_destruct;
 - (id)appleID;
-- (bool)areParentalControlsEnabled;
+- (BOOL)areParentalControlsEnabled;
 - (id)firstName;
 - (id)iTunesNotLinkedMessage;
-- (bool)isAskToBuyEnabled;
-- (bool)isChild;
-- (bool)isMe;
-- (bool)isOrganizer;
-- (bool)isSharingPurchases;
+- (BOOL)isAskToBuyEnabled;
+- (BOOL)isChild;
+- (BOOL)isMe;
+- (BOOL)isOrganizer;
+- (BOOL)isSharingPurchases;
 - (id)joinDate;
 - (id)lastName;
 - (id)linkediTunesAppleID;
@@ -57,14 +55,14 @@
 - (id)personID;
 - (id)personIDHash;
 - (void)setAppleID:(id)arg1;
-- (void)setAreParentalControlsEnabled:(bool)arg1;
+- (void)setAreParentalControlsEnabled:(BOOL)arg1;
 - (void)setFirstName:(id)arg1;
 - (void)setITunesNotLinkedMessage:(id)arg1;
-- (void)setIsAskToBuyEnabled:(bool)arg1;
-- (void)setIsChild:(bool)arg1;
-- (void)setIsMe:(bool)arg1;
-- (void)setIsOrganizer:(bool)arg1;
-- (void)setIsSharingPurchases:(bool)arg1;
+- (void)setIsAskToBuyEnabled:(BOOL)arg1;
+- (void)setIsChild:(BOOL)arg1;
+- (void)setIsMe:(BOOL)arg1;
+- (void)setIsOrganizer:(BOOL)arg1;
+- (void)setIsSharingPurchases:(BOOL)arg1;
 - (void)setJoinDate:(id)arg1;
 - (void)setLastName:(id)arg1;
 - (void)setLinkediTunesAppleID:(id)arg1;

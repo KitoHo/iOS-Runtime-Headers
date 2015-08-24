@@ -2,31 +2,29 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSDictionary, NSString;
-
 @interface UIUserNotificationCategory : NSObject <NSCopying, NSMutableCopying, NSSecureCoding> {
     NSDictionary *_actionsByContext;
     NSString *_identifier;
 }
 
-@property(copy) NSDictionary * actionsByContext;
-@property(copy) NSString * identifier;
+@property (nonatomic, copy) NSDictionary *actionsByContext;
+@property (nonatomic, copy) NSString *identifier;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
-- (unsigned long long)_maximumActionsForContext:(unsigned long long)arg1;
+- (unsigned int)_maximumActionsForContext:(unsigned int)arg1;
 - (id)actions;
 - (id)actionsByContext;
-- (id)actionsForContext:(unsigned long long)arg1;
+- (id)actionsForContext:(unsigned int)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)identifier;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithIdentifier:(id)arg1 actionsByContext:(id)arg2;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone { }*)arg1;
 - (void)setActionsByContext:(id)arg1;
 - (void)setIdentifier:(id)arg1;

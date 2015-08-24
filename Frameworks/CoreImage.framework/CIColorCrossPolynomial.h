@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIImage, CIVector;
-
 @interface CIColorCrossPolynomial : CIFilter {
     CIVector *inputBlueCoefficients;
     CIVector *inputCoefficients;
@@ -12,14 +10,14 @@
     CIVector *inputRedCoefficients;
 }
 
-@property(retain) CIVector * inputBlueCoefficients;
-@property(retain) CIVector * inputGreenCoefficients;
-@property(retain) CIImage * inputImage;
-@property(retain) CIVector * inputRedCoefficients;
+@property (nonatomic, retain) CIVector *inputBlueCoefficients;
+@property (nonatomic, retain) CIVector *inputGreenCoefficients;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, retain) CIVector *inputRedCoefficients;
 
 + (id)customAttributes;
 
-- (bool)_isIdentity;
+- (BOOL)_isIdentity;
 - (id)_kernel;
 - (id)inputBlueCoefficients;
 - (id)inputGreenCoefficients;

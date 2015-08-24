@@ -2,26 +2,24 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class EKEventStore, NSArray, NSData, NSMutableArray;
-
 @interface EKICSPreviewModel : NSObject {
     int _actionsState;
     NSData *_data;
     EKEventStore *_destStore;
     NSMutableArray *_importedEvents;
-    unsigned long long _options;
+    unsigned int _options;
     EKEventStore *_tempStore;
     NSMutableArray *_unimportedEvents;
 }
 
-@property(readonly) int actionsState;
-@property(readonly) NSArray * allEvents;
-@property(readonly) EKEventStore * eventStore;
-@property(readonly) unsigned long long importedEventCount;
-@property(readonly) NSArray * importedEvents;
-@property(readonly) unsigned long long totalEventCount;
-@property(readonly) unsigned long long unimportedEventCount;
-@property(readonly) NSArray * unimportedEvents;
+@property (nonatomic, readonly) int actionsState;
+@property (nonatomic, readonly) NSArray *allEvents;
+@property (nonatomic, readonly) EKEventStore *eventStore;
+@property (nonatomic, readonly) unsigned int importedEventCount;
+@property (nonatomic, readonly) NSArray *importedEvents;
+@property (nonatomic, readonly) unsigned int totalEventCount;
+@property (nonatomic, readonly) unsigned int unimportedEventCount;
+@property (nonatomic, readonly) NSArray *unimportedEvents;
 
 - (void).cxx_destruct;
 - (int)actionsState;
@@ -29,11 +27,11 @@
 - (id)eventStore;
 - (id)importAllIntoCalendar:(id)arg1;
 - (id)importEvent:(id)arg1 intoCalendar:(id)arg2;
-- (unsigned long long)importedEventCount;
+- (unsigned int)importedEventCount;
 - (id)importedEvents;
-- (id)initWithICSData:(id)arg1 eventStore:(id)arg2 options:(unsigned long long)arg3;
-- (unsigned long long)totalEventCount;
-- (unsigned long long)unimportedEventCount;
+- (id)initWithICSData:(id)arg1 eventStore:(id)arg2 options:(unsigned int)arg3;
+- (unsigned int)totalEventCount;
+- (unsigned int)unimportedEventCount;
 - (id)unimportedEvents;
 
 @end

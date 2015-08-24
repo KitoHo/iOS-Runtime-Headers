@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface UIStatusBarAdornmentWindow : UIWindow {
-}
+@interface UIStatusBarAdornmentWindow : UIWindow
 
-- (bool)_shouldZoom;
+- (BOOL)_shouldZoom;
 
 @end

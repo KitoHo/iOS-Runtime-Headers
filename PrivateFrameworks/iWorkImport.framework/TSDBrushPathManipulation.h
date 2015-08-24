@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSMutableArray, NSMutableDictionary;
-
 @interface TSDBrushPathManipulation : TSDPathManipulation {
-    boolmSplitAtSharpAngles;
     struct CGPath { } *mBrushStroke;
     NSMutableArray *mMiddleSections;
-    double mRepeatLength;
+    float mRepeatLength;
     NSMutableDictionary *mSections;
-    double mSmallLimitWidth;
+    float mSmallLimitWidth;
     NSMutableArray *mSmallSections;
+    BOOL mSplitAtSharpAngles;
 }
 
 @end

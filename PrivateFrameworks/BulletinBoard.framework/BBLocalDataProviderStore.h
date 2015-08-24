@@ -2,9 +2,7 @@
    Image: /System/Library/PrivateFrameworks/BulletinBoard.framework/BulletinBoard
  */
 
-@class <BBDataProviderStoreDelegate>, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
-
-@interface BBLocalDataProviderStore : NSObject <BBLocalDataProviderFactoryStore, BBDataProviderStore> {
+@interface BBLocalDataProviderStore : NSObject <BBDataProviderStore, BBLocalDataProviderFactoryStore> {
     NSMutableDictionary *_dataProvidersBySectionID;
     NSMutableDictionary *_dataProvidersByUniversalSectionID;
     <BBDataProviderStoreDelegate> *_delegate;
@@ -13,13 +11,13 @@
     NSObject<OS_dispatch_queue> *_serverQueue;
 }
 
-@property(retain) NSMutableDictionary * dataProvidersBySectionID;
-@property(retain) NSMutableDictionary * dataProvidersByUniversalSectionID;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) NSMutableArray * localFactories;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) NSMutableDictionary *dataProvidersBySectionID;
+@property (nonatomic, retain) NSMutableDictionary *dataProvidersByUniversalSectionID;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NSMutableArray *localFactories;
+@property (readonly) Class superclass;
 
 + (id)localDataProviderStoreWithDelegate:(id)arg1 dataProviderQueue:(id)arg2;
 
@@ -30,17 +28,18 @@
 - (void)_queue_removeDataProvider:(id)arg1;
 - (void)addDataProvider:(id)arg1;
 - (void)addParentSectionInfo:(id)arg1 displayName:(id)arg2 icon:(id)arg3;
+- (void)addParentSectionInfo:(id)arg1 displayName:(id)arg2 icon:(id)arg3 unversalSectionID:(id)arg4;
 - (id)dataProviderForSectionID:(id)arg1;
 - (id)dataProviderForUniversalSectionID:(id)arg1;
 - (id)dataProvidersBySectionID;
 - (id)dataProvidersByUniversalSectionID;
 - (void)dealloc;
 - (id)debugDescription;
-- (id)debugDescriptionWithChildren:(unsigned long long)arg1;
+- (id)debugDescriptionWithChildren:(unsigned int)arg1;
 - (id)initWithDelegate:(id)arg1 dataProviderQueue:(id)arg2;
 - (void)loadAllDataProviders;
 - (id)localFactories;
-- (void)performBlockOnDataProviders:(id)arg1;
+- (void)performBlockOnDataProviders:(id /* block */)arg1;
 - (void)removeDataProvider:(id)arg1;
 - (void)removeDataProviderWithSectionID:(id)arg1;
 - (void)setDataProvidersBySectionID:(id)arg1;

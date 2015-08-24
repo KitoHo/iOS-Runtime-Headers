@@ -2,23 +2,21 @@
    Image: /System/Library/Frameworks/CFNetwork.framework/CFNetwork
  */
 
-@class NSObject<OS_dispatch_queue>, NSString;
-
 @interface __NSHostExtraIvars : NSObject {
-    boolstartedResolving;
     NSObject<OS_dispatch_queue> *cacheAccessQueue;
     NSObject<OS_dispatch_queue> *callbackQueue;
     NSObject<OS_dispatch_queue> *resolveQueue;
     int resolveType;
+    BOOL startedResolving;
     NSString *thingToResolve;
 }
 
-@property(readonly) NSObject<OS_dispatch_queue> * cacheAccessQueue;
-@property(readonly) NSObject<OS_dispatch_queue> * callbackQueue;
-@property(readonly) NSObject<OS_dispatch_queue> * resolveQueue;
-@property int resolveType;
-@property bool startedResolving;
-@property(retain) NSString * thingToResolve;
+@property (readonly) NSObject<OS_dispatch_queue> *cacheAccessQueue;
+@property (readonly) NSObject<OS_dispatch_queue> *callbackQueue;
+@property (readonly) NSObject<OS_dispatch_queue> *resolveQueue;
+@property (nonatomic) int resolveType;
+@property BOOL startedResolving;
+@property (nonatomic, retain) NSString *thingToResolve;
 
 - (id)cacheAccessQueue;
 - (id)callbackQueue;
@@ -29,9 +27,9 @@
 - (id)resolveQueue;
 - (int)resolveType;
 - (void)setResolveType:(int)arg1;
-- (void)setStartedResolving:(bool)arg1;
+- (void)setStartedResolving:(BOOL)arg1;
 - (void)setThingToResolve:(id)arg1;
-- (bool)startedResolving;
+- (BOOL)startedResolving;
 - (id)thingToResolve;
 
 @end

@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADColor, OADPattern;
-
 @interface OADPatternFill : OADFill {
-    boolmIsBgColorOverridden;
-    boolmIsFgColorOverridden;
-    boolmIsPatternOverridden;
     OADColor *mBgColor;
     OADColor *mFgColor;
+    BOOL mIsBgColorOverridden;
+    BOOL mIsFgColorOverridden;
+    BOOL mIsPatternOverridden;
     OADPattern *mPattern;
 }
 
@@ -19,12 +17,12 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)fgColor;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithDefaults;
-- (bool)isBgColorOverridden;
-- (bool)isEqual:(id)arg1;
-- (bool)isFgColorOverridden;
-- (bool)isPatternOverridden;
+- (BOOL)isBgColorOverridden;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isFgColorOverridden;
+- (BOOL)isPatternOverridden;
 - (id)namedImageDataWithBlipCollection:(id)arg1;
 - (id)pattern;
 - (void)setBgColor:(id)arg1;

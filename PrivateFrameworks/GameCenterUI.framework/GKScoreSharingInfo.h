@@ -2,28 +2,26 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-@class GKGame, GKLeaderboard, GKPlayer, UIImage;
-
 @interface GKScoreSharingInfo : NSObject <NSCoding, NSSecureCoding> {
     UIImage *_badgeImage;
+    BOOL _complete;
     GKGame *_game;
     UIImage *_iconImage;
     GKLeaderboard *_leaderboardCategory;
     GKPlayer *_player;
-    bool_complete;
 }
 
-@property(retain) UIImage * badgeImage;
-@property bool complete;
-@property(retain) GKGame * game;
-@property(retain) UIImage * iconImage;
-@property(retain) GKLeaderboard * leaderboardCategory;
-@property(retain) GKPlayer * player;
+@property (nonatomic, retain) UIImage *badgeImage;
+@property (nonatomic) BOOL complete;
+@property (nonatomic, retain) GKGame *game;
+@property (nonatomic, retain) UIImage *iconImage;
+@property (nonatomic, retain) GKLeaderboard *leaderboardCategory;
+@property (nonatomic, retain) GKPlayer *player;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)badgeImage;
-- (bool)complete;
+- (BOOL)complete;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)game;
@@ -35,7 +33,7 @@
 - (id)operationThatBlocksUntilLoaded;
 - (id)player;
 - (void)setBadgeImage:(id)arg1;
-- (void)setComplete:(bool)arg1;
+- (void)setComplete:(BOOL)arg1;
 - (void)setGame:(id)arg1;
 - (void)setIconImage:(id)arg1;
 - (void)setLeaderboardCategory:(id)arg1;

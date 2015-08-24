@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@interface MFMailMessageLibraryMigrator : NSObject {
-}
+@interface MFMailMessageLibraryMigrator : NSObject
 
-- (bool)migrateWithSQLiteConnection:(id)arg1;
+- (BOOL)migrateWithSQLiteConnection:(id)arg1;
 
 @end

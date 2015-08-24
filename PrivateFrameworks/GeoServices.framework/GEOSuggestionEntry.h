@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOLatLng, NSData, NSMutableArray, NSString;
-
 @interface GEOSuggestionEntry : PBCodable <NSCopying> {
     NSString *_calloutTitle;
     NSMutableArray *_displayLines;
@@ -13,24 +11,24 @@
     NSString *_searchQueryDisplayString;
     NSData *_suggestionEntryMetadata;
     struct { unsigned int x1; unsigned int x2; unsigned int x3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; } *_textHighlights;
-    unsigned long long _textHighlightsCount;
-    unsigned long long _textHighlightsSpace;
+    unsigned int _textHighlightsCount;
+    unsigned int _textHighlightsSpace;
 }
 
-@property(retain) NSString * calloutTitle;
-@property(retain) NSMutableArray * displayLines;
-@property(readonly) bool hasCalloutTitle;
-@property(readonly) bool hasIconID;
-@property(readonly) bool hasLatlng;
-@property(readonly) bool hasSearchQueryDisplayString;
-@property(readonly) bool hasSuggestionEntryMetadata;
-@property(retain) NSString * iconID;
-@property(retain) GEOLatLng * latlng;
-@property(retain) NSMutableArray * namedFeatures;
-@property(retain) NSString * searchQueryDisplayString;
-@property(retain) NSData * suggestionEntryMetadata;
-@property(readonly) struct { unsigned int x1; unsigned int x2; unsigned int x3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; }* textHighlights;
-@property(readonly) unsigned long long textHighlightsCount;
+@property (nonatomic, retain) NSString *calloutTitle;
+@property (nonatomic, retain) NSMutableArray *displayLines;
+@property (nonatomic, readonly) BOOL hasCalloutTitle;
+@property (nonatomic, readonly) BOOL hasIconID;
+@property (nonatomic, readonly) BOOL hasLatlng;
+@property (nonatomic, readonly) BOOL hasSearchQueryDisplayString;
+@property (nonatomic, readonly) BOOL hasSuggestionEntryMetadata;
+@property (nonatomic, retain) NSString *iconID;
+@property (nonatomic, retain) GEOLatLng *latlng;
+@property (nonatomic, retain) NSMutableArray *namedFeatures;
+@property (nonatomic, retain) NSString *searchQueryDisplayString;
+@property (nonatomic, retain) NSData *suggestionEntryMetadata;
+@property (nonatomic, readonly) struct { unsigned int x1; unsigned int x2; unsigned int x3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; }*textHighlights;
+@property (nonatomic, readonly) unsigned int textHighlightsCount;
 
 - (void)addDisplayLine:(id)arg1;
 - (void)addNamedFeature:(id)arg1;
@@ -44,23 +42,23 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (id)displayLineAtIndex:(unsigned long long)arg1;
+- (id)displayLineAtIndex:(unsigned int)arg1;
 - (id)displayLines;
-- (unsigned long long)displayLinesCount;
-- (bool)hasCalloutTitle;
-- (bool)hasIconID;
-- (bool)hasLatlng;
-- (bool)hasSearchQueryDisplayString;
-- (bool)hasSuggestionEntryMetadata;
-- (unsigned long long)hash;
+- (unsigned int)displayLinesCount;
+- (BOOL)hasCalloutTitle;
+- (BOOL)hasIconID;
+- (BOOL)hasLatlng;
+- (BOOL)hasSearchQueryDisplayString;
+- (BOOL)hasSuggestionEntryMetadata;
+- (unsigned int)hash;
 - (id)iconID;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)latlng;
 - (void)mergeFrom:(id)arg1;
-- (id)namedFeatureAtIndex:(unsigned long long)arg1;
+- (id)namedFeatureAtIndex:(unsigned int)arg1;
 - (id)namedFeatures;
-- (unsigned long long)namedFeaturesCount;
-- (bool)readFrom:(id)arg1;
+- (unsigned int)namedFeaturesCount;
+- (BOOL)readFrom:(id)arg1;
 - (id)searchQueryDisplayString;
 - (void)setCalloutTitle:(id)arg1;
 - (void)setDisplayLines:(id)arg1;
@@ -69,11 +67,11 @@
 - (void)setNamedFeatures:(id)arg1;
 - (void)setSearchQueryDisplayString:(id)arg1;
 - (void)setSuggestionEntryMetadata:(id)arg1;
-- (void)setTextHighlights:(struct { unsigned int x1; unsigned int x2; unsigned int x3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; }*)arg1 count:(unsigned long long)arg2;
+- (void)setTextHighlights:(struct { unsigned int x1; unsigned int x2; unsigned int x3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; }*)arg1 count:(unsigned int)arg2;
 - (id)suggestionEntryMetadata;
 - (struct { unsigned int x1; unsigned int x2; unsigned int x3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; }*)textHighlights;
-- (struct { unsigned int x1; unsigned int x2; unsigned int x3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; })textHighlightsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)textHighlightsCount;
+- (struct { unsigned int x1; unsigned int x2; unsigned int x3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 1; unsigned int x_4_1_3 : 1; } x4; })textHighlightsAtIndex:(unsigned int)arg1;
+- (unsigned int)textHighlightsCount;
 - (void)writeTo:(id)arg1;
 
 @end

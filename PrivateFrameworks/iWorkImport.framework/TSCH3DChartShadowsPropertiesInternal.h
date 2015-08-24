@@ -2,9 +2,12 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSObject<TSCH3DShadowsRenderer>, TSCH3DCamera, TSCH3DDataBufferResource;
-
 @interface TSCH3DChartShadowsPropertiesInternal : NSObject {
+    TSCH3DCamera *mCamera;
+    BOOL mEnabled;
+    TSCH3DDataBufferResource *mFadecoords;
+    TSCH3DDataBufferResource *mQuad;
+    NSObject<TSCH3DShadowsRenderer> *mRenderer;
     struct box<glm::detail::tvec3<float> > { 
         struct tvec3<float> { 
             union { 
@@ -40,39 +43,34 @@
                 float p; 
             } ; 
         } mMax; 
-    boolmEnabled;
-    TSCH3DCamera *mCamera;
-    TSCH3DDataBufferResource *mFadecoords;
-    TSCH3DDataBufferResource *mQuad;
-    NSObject<TSCH3DShadowsRenderer> *mRenderer;
     } mShadowPlanePadding;
     TSCH3DDataBufferResource *mTexcoords;
 }
 
-@property(retain) TSCH3DCamera * camera;
-@property bool enabled;
-@property(retain) TSCH3DDataBufferResource * fadecoords;
-@property(retain) TSCH3DDataBufferResource * quad;
-@property(readonly) NSObject<TSCH3DShadowsRenderer> * renderer;
-@property(readonly) bool shadowPlaneValid;
-@property(retain) TSCH3DDataBufferResource * texcoords;
+@property (nonatomic, retain) TSCH3DCamera *camera;
+@property (nonatomic) BOOL enabled;
+@property (nonatomic, retain) TSCH3DDataBufferResource *fadecoords;
+@property (nonatomic, retain) TSCH3DDataBufferResource *quad;
+@property (nonatomic, readonly) NSObject<TSCH3DShadowsRenderer> *renderer;
+@property (nonatomic, readonly) BOOL shadowPlaneValid;
+@property (nonatomic, retain) TSCH3DDataBufferResource *texcoords;
 
 - (id).cxx_construct;
 - (id)camera;
 - (void)dealloc;
-- (bool)enabled;
+- (BOOL)enabled;
 - (id)fadecoords;
 - (id)initWithCamera:(id)arg1 renderer:(id)arg2;
 - (void)invalidate;
 - (id)quad;
 - (id)renderer;
 - (void)setCamera:(id)arg1;
-- (void)setEnabled:(bool)arg1;
+- (void)setEnabled:(BOOL)arg1;
 - (void)setFadecoords:(id)arg1;
 - (void)setQuad:(id)arg1;
 - (void)setTexcoords:(id)arg1;
 - (void)setupResources;
-- (bool)shadowPlaneValid;
+- (BOOL)shadowPlaneValid;
 - (id)texcoords;
 
 @end

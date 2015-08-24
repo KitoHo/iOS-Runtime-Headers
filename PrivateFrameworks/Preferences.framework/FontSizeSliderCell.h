@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class UILabel;
-
 @interface FontSizeSliderCell : PSSliderTableCell {
     UILabel *_largeSizeLabel;
     UILabel *_smallSizeLabel;
@@ -11,7 +9,7 @@
 }
 
 - (void)dealloc;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 - (void)layoutSubviews;
 - (id)newControl;
 

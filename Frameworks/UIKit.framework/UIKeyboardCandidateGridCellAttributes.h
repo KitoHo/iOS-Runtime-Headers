@@ -2,77 +2,75 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSIndexPath;
-
 @interface UIKeyboardCandidateGridCellAttributes : UICollectionViewLayoutAttributes {
+    NSIndexPath *_candidateIndexPath;
+    unsigned int _candidateNumber;
+    int _candidatesVisualStyle;
+    BOOL _dummy;
+    unsigned int _edges;
+    BOOL _emphasizedAppearance;
+    BOOL _groupHeader;
+    BOOL _groupShowsAlternativeText;
+    BOOL _needsPaddingForIndexScrubber;
+    unsigned int _rowIndex;
+    struct CGSize { 
+        float width; 
+        float height; 
+    } _rowSize;
+    BOOL _secondaryCandidateAppearance;
     struct { 
         unsigned int idiom : 6; 
         unsigned int landscape : 1; 
         unsigned int split : 1; 
         unsigned int appearance : 8; 
         unsigned int rendering : 16; 
-    struct CGSize { 
-        double width; 
-        double height; 
-    NSIndexPath *_candidateIndexPath;
-    unsigned long long _candidateNumber;
-    int _candidatesVisualStyle;
-    unsigned long long _edges;
-    unsigned long long _rowIndex;
-    } _rowSize;
     } _visualStyling;
-    bool_dummy;
-    bool_emphasizedAppearance;
-    bool_groupHeader;
-    bool_groupShowsAlternativeText;
-    bool_needsPaddingForIndexScrubber;
-    bool_secondaryCandidateAppearance;
 }
 
-@property(retain) NSIndexPath * candidateIndexPath;
-@property unsigned long long candidateNumber;
-@property int candidatesVisualStyle;
-@property bool dummy;
-@property unsigned long long edges;
-@property bool emphasizedAppearance;
-@property bool groupHeader;
-@property bool groupShowsAlternativeText;
-@property bool needsPaddingForIndexScrubber;
-@property unsigned long long rowIndex;
-@property struct CGSize { double x1; double x2; } rowSize;
-@property bool secondaryCandidateAppearance;
-@property struct { unsigned int x1 : 6; unsigned int x2 : 1; unsigned int x3 : 1; unsigned int x4 : 8; unsigned int x5 : 16; } visualStyling;
+@property (nonatomic, retain) NSIndexPath *candidateIndexPath;
+@property (nonatomic) unsigned int candidateNumber;
+@property (nonatomic) int candidatesVisualStyle;
+@property (nonatomic) BOOL dummy;
+@property (nonatomic) unsigned int edges;
+@property (nonatomic) BOOL emphasizedAppearance;
+@property (nonatomic) BOOL groupHeader;
+@property (nonatomic) BOOL groupShowsAlternativeText;
+@property (nonatomic) BOOL needsPaddingForIndexScrubber;
+@property (nonatomic) unsigned int rowIndex;
+@property (nonatomic) struct CGSize { float x1; float x2; } rowSize;
+@property (nonatomic) BOOL secondaryCandidateAppearance;
+@property (nonatomic) struct { unsigned int x1 : 6; unsigned int x2 : 1; unsigned int x3 : 1; unsigned int x4 : 8; unsigned int x5 : 16; } visualStyling;
 
 - (id)candidateIndexPath;
-- (unsigned long long)candidateNumber;
+- (unsigned int)candidateNumber;
 - (int)candidatesVisualStyle;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
-- (bool)dummy;
-- (unsigned long long)edges;
-- (bool)emphasizedAppearance;
-- (bool)groupHeader;
-- (bool)groupShowsAlternativeText;
+- (BOOL)dummy;
+- (unsigned int)edges;
+- (BOOL)emphasizedAppearance;
+- (BOOL)groupHeader;
+- (BOOL)groupShowsAlternativeText;
 - (id)init;
-- (bool)isEqual:(id)arg1;
-- (bool)needsPaddingForIndexScrubber;
-- (unsigned long long)representedElementCategory;
-- (unsigned long long)rowIndex;
-- (struct CGSize { double x1; double x2; })rowSize;
-- (bool)secondaryCandidateAppearance;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)needsPaddingForIndexScrubber;
+- (unsigned int)representedElementCategory;
+- (unsigned int)rowIndex;
+- (struct CGSize { float x1; float x2; })rowSize;
+- (BOOL)secondaryCandidateAppearance;
 - (void)setCandidateIndexPath:(id)arg1;
-- (void)setCandidateNumber:(unsigned long long)arg1;
+- (void)setCandidateNumber:(unsigned int)arg1;
 - (void)setCandidatesVisualStyle:(int)arg1;
-- (void)setDummy:(bool)arg1;
-- (void)setEdges:(unsigned long long)arg1;
-- (void)setEmphasizedAppearance:(bool)arg1;
-- (void)setGroupHeader:(bool)arg1;
-- (void)setGroupShowsAlternativeText:(bool)arg1;
-- (void)setNeedsPaddingForIndexScrubber:(bool)arg1;
-- (void)setRowIndex:(unsigned long long)arg1;
-- (void)setRowSize:(struct CGSize { double x1; double x2; })arg1;
-- (void)setSecondaryCandidateAppearance:(bool)arg1;
+- (void)setDummy:(BOOL)arg1;
+- (void)setEdges:(unsigned int)arg1;
+- (void)setEmphasizedAppearance:(BOOL)arg1;
+- (void)setGroupHeader:(BOOL)arg1;
+- (void)setGroupShowsAlternativeText:(BOOL)arg1;
+- (void)setNeedsPaddingForIndexScrubber:(BOOL)arg1;
+- (void)setRowIndex:(unsigned int)arg1;
+- (void)setRowSize:(struct CGSize { float x1; float x2; })arg1;
+- (void)setSecondaryCandidateAppearance:(BOOL)arg1;
 - (void)setVisualStyling:(struct { unsigned int x1 : 6; unsigned int x2 : 1; unsigned int x3 : 1; unsigned int x4 : 8; unsigned int x5 : 16; })arg1;
 - (struct { unsigned int x1 : 6; unsigned int x2 : 1; unsigned int x3 : 1; unsigned int x4 : 8; unsigned int x5 : 16; })visualStyling;
 

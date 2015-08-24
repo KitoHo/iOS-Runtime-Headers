@@ -2,15 +2,13 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVMediaSelectionGroupInternal, AVMediaSelectionOption, NSArray;
-
 @interface AVMediaSelectionGroup : NSObject <NSCopying> {
     AVMediaSelectionGroupInternal *_mediaSelectionGroup;
 }
 
-@property(readonly) bool allowsEmptySelection;
-@property(readonly) AVMediaSelectionOption * defaultOption;
-@property(readonly) NSArray * options;
+@property (nonatomic, readonly) BOOL allowsEmptySelection;
+@property (nonatomic, readonly) AVMediaSelectionOption *defaultOption;
+@property (nonatomic, readonly) NSArray *options;
 
 + (id)mediaSelectionGroupWithAsset:(id)arg1 dictionary:(id)arg2;
 + (id)mediaSelectionOptionsFromArray:(id)arg1 filteredAndSortedAccordingToPreferredLanguages:(id)arg2;
@@ -21,11 +19,11 @@
 
 - (id)_groupID;
 - (id)_groupMediaType;
-- (bool)_isStreamingGroup;
-- (bool)_matchesGroupID:(id)arg1 mediaType:(id)arg2;
-- (id)_optionWithID:(id)arg1 displaysNonForcedSubtitles:(bool)arg2;
+- (BOOL)_isStreamingGroup;
+- (BOOL)_matchesGroupID:(id)arg1 mediaType:(id)arg2;
+- (id)_optionWithID:(id)arg1 displaysNonForcedSubtitles:(BOOL)arg2;
 - (id)_weakReference;
-- (bool)allowsEmptySelection;
+- (BOOL)allowsEmptySelection;
 - (id)asset;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;

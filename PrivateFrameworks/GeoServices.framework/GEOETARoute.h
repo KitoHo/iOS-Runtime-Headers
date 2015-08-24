@@ -2,26 +2,16 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSData, NSMutableArray;
-
 @interface GEOETARoute : PBCodable <NSCopying> {
-    struct { 
-        unsigned int *list; 
-        unsigned long long count; 
-        unsigned long long size; 
-    struct { 
-        unsigned int *list; 
-        unsigned long long count; 
-        unsigned long long size; 
-    struct { 
-        unsigned int *list; 
-        unsigned long long count; 
-        unsigned long long size; 
     struct { 
         unsigned int historicTravelTime : 1; 
         unsigned int routeNoLongerValid : 1; 
     } _has;
     unsigned int _historicTravelTime;
+    struct { 
+        unsigned int *list; 
+        unsigned int count; 
+        unsigned int size; 
     } _incidentEndOffsetsInETARoutes;
     NSMutableArray *_incidentsOffReRoutes;
     NSMutableArray *_incidentsOnETARoutes;
@@ -29,34 +19,42 @@
     NSMutableArray *_invalidSectionZilchPoints;
     NSMutableArray *_reroutedRoutes;
     NSData *_routeID;
+    BOOL _routeNoLongerValid;
     NSMutableArray *_steps;
+    struct { 
+        unsigned int *list; 
+        unsigned int count; 
+        unsigned int size; 
     } _trafficColorOffsets;
+    struct { 
+        unsigned int *list; 
+        unsigned int count; 
+        unsigned int size; 
     } _trafficColors;
     NSData *_zilchPoints;
-    bool_routeNoLongerValid;
 }
 
-@property(readonly) double expectedTime;
-@property bool hasHistoricTravelTime;
-@property(readonly) bool hasRouteID;
-@property bool hasRouteNoLongerValid;
-@property(readonly) bool hasZilchPoints;
-@property unsigned int historicTravelTime;
-@property(readonly) unsigned int* incidentEndOffsetsInETARoutes;
-@property(readonly) unsigned long long incidentEndOffsetsInETARoutesCount;
-@property(retain) NSMutableArray * incidentsOffReRoutes;
-@property(retain) NSMutableArray * incidentsOnETARoutes;
-@property(retain) NSMutableArray * incidentsOnReRoutes;
-@property(retain) NSMutableArray * invalidSectionZilchPoints;
-@property(retain) NSMutableArray * reroutedRoutes;
-@property(retain) NSData * routeID;
-@property bool routeNoLongerValid;
-@property(retain) NSMutableArray * steps;
-@property(readonly) unsigned int* trafficColorOffsets;
-@property(readonly) unsigned long long trafficColorOffsetsCount;
-@property(readonly) unsigned int* trafficColors;
-@property(readonly) unsigned long long trafficColorsCount;
-@property(retain) NSData * zilchPoints;
+@property (nonatomic, readonly) double expectedTime;
+@property (nonatomic) BOOL hasHistoricTravelTime;
+@property (nonatomic, readonly) BOOL hasRouteID;
+@property (nonatomic) BOOL hasRouteNoLongerValid;
+@property (nonatomic, readonly) BOOL hasZilchPoints;
+@property (nonatomic) unsigned int historicTravelTime;
+@property (nonatomic, readonly) unsigned int*incidentEndOffsetsInETARoutes;
+@property (nonatomic, readonly) unsigned int incidentEndOffsetsInETARoutesCount;
+@property (nonatomic, retain) NSMutableArray *incidentsOffReRoutes;
+@property (nonatomic, retain) NSMutableArray *incidentsOnETARoutes;
+@property (nonatomic, retain) NSMutableArray *incidentsOnReRoutes;
+@property (nonatomic, retain) NSMutableArray *invalidSectionZilchPoints;
+@property (nonatomic, retain) NSMutableArray *reroutedRoutes;
+@property (nonatomic, retain) NSData *routeID;
+@property (nonatomic) BOOL routeNoLongerValid;
+@property (nonatomic, retain) NSMutableArray *steps;
+@property (nonatomic, readonly) unsigned int*trafficColorOffsets;
+@property (nonatomic, readonly) unsigned int trafficColorOffsetsCount;
+@property (nonatomic, readonly) unsigned int*trafficColors;
+@property (nonatomic, readonly) unsigned int trafficColorsCount;
+@property (nonatomic, retain) NSData *zilchPoints;
 
 - (void)addIncidentEndOffsetsInETARoute:(unsigned int)arg1;
 - (void)addIncidentsOffReRoutes:(id)arg1;
@@ -82,60 +80,60 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (double)expectedTime;
-- (bool)hasHistoricTravelTime;
-- (bool)hasRouteID;
-- (bool)hasRouteNoLongerValid;
-- (bool)hasZilchPoints;
-- (unsigned long long)hash;
+- (BOOL)hasHistoricTravelTime;
+- (BOOL)hasRouteID;
+- (BOOL)hasRouteNoLongerValid;
+- (BOOL)hasZilchPoints;
+- (unsigned int)hash;
 - (unsigned int)historicTravelTime;
-- (unsigned int)incidentEndOffsetsInETARouteAtIndex:(unsigned long long)arg1;
+- (unsigned int)incidentEndOffsetsInETARouteAtIndex:(unsigned int)arg1;
 - (unsigned int*)incidentEndOffsetsInETARoutes;
-- (unsigned long long)incidentEndOffsetsInETARoutesCount;
+- (unsigned int)incidentEndOffsetsInETARoutesCount;
 - (id)incidentsOffReRoutes;
-- (id)incidentsOffReRoutesAtIndex:(unsigned long long)arg1;
-- (unsigned long long)incidentsOffReRoutesCount;
-- (id)incidentsOnETARouteAtIndex:(unsigned long long)arg1;
+- (id)incidentsOffReRoutesAtIndex:(unsigned int)arg1;
+- (unsigned int)incidentsOffReRoutesCount;
+- (id)incidentsOnETARouteAtIndex:(unsigned int)arg1;
 - (id)incidentsOnETARoutes;
-- (unsigned long long)incidentsOnETARoutesCount;
+- (unsigned int)incidentsOnETARoutesCount;
 - (id)incidentsOnReRoutes;
-- (id)incidentsOnReRoutesAtIndex:(unsigned long long)arg1;
-- (unsigned long long)incidentsOnReRoutesCount;
+- (id)incidentsOnReRoutesAtIndex:(unsigned int)arg1;
+- (unsigned int)incidentsOnReRoutesCount;
 - (id)invalidSectionZilchPoints;
-- (id)invalidSectionZilchPointsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)invalidSectionZilchPointsCount;
-- (bool)isEqual:(id)arg1;
+- (id)invalidSectionZilchPointsAtIndex:(unsigned int)arg1;
+- (unsigned int)invalidSectionZilchPointsCount;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (double)remainingTimeAlongRoute:(unsigned int)arg1 currentStepRemainingDistance:(double)arg2;
-- (id)reroutedRouteAtIndex:(unsigned long long)arg1;
+- (id)reroutedRouteAtIndex:(unsigned int)arg1;
 - (id)reroutedRoutes;
-- (unsigned long long)reroutedRoutesCount;
+- (unsigned int)reroutedRoutesCount;
 - (id)routeID;
-- (bool)routeNoLongerValid;
-- (void)setHasHistoricTravelTime:(bool)arg1;
-- (void)setHasRouteNoLongerValid:(bool)arg1;
+- (BOOL)routeNoLongerValid;
+- (void)setHasHistoricTravelTime:(BOOL)arg1;
+- (void)setHasRouteNoLongerValid:(BOOL)arg1;
 - (void)setHistoricTravelTime:(unsigned int)arg1;
-- (void)setIncidentEndOffsetsInETARoutes:(unsigned int*)arg1 count:(unsigned long long)arg2;
+- (void)setIncidentEndOffsetsInETARoutes:(unsigned int*)arg1 count:(unsigned int)arg2;
 - (void)setIncidentsOffReRoutes:(id)arg1;
 - (void)setIncidentsOnETARoutes:(id)arg1;
 - (void)setIncidentsOnReRoutes:(id)arg1;
 - (void)setInvalidSectionZilchPoints:(id)arg1;
 - (void)setReroutedRoutes:(id)arg1;
 - (void)setRouteID:(id)arg1;
-- (void)setRouteNoLongerValid:(bool)arg1;
+- (void)setRouteNoLongerValid:(BOOL)arg1;
 - (void)setSteps:(id)arg1;
-- (void)setTrafficColorOffsets:(unsigned int*)arg1 count:(unsigned long long)arg2;
-- (void)setTrafficColors:(unsigned int*)arg1 count:(unsigned long long)arg2;
+- (void)setTrafficColorOffsets:(unsigned int*)arg1 count:(unsigned int)arg2;
+- (void)setTrafficColors:(unsigned int*)arg1 count:(unsigned int)arg2;
 - (void)setZilchPoints:(id)arg1;
-- (id)stepAtIndex:(unsigned long long)arg1;
+- (id)stepAtIndex:(unsigned int)arg1;
 - (id)steps;
-- (unsigned long long)stepsCount;
-- (unsigned int)trafficColorAtIndex:(unsigned long long)arg1;
-- (unsigned int)trafficColorOffsetAtIndex:(unsigned long long)arg1;
+- (unsigned int)stepsCount;
+- (unsigned int)trafficColorAtIndex:(unsigned int)arg1;
+- (unsigned int)trafficColorOffsetAtIndex:(unsigned int)arg1;
 - (unsigned int*)trafficColorOffsets;
-- (unsigned long long)trafficColorOffsetsCount;
+- (unsigned int)trafficColorOffsetsCount;
 - (unsigned int*)trafficColors;
-- (unsigned long long)trafficColorsCount;
+- (unsigned int)trafficColorsCount;
 - (void)writeTo:(id)arg1;
 - (id)zilchPoints;
 

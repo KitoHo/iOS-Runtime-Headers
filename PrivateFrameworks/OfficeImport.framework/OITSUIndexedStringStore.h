@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableArray, NSMutableDictionary;
-
 @interface OITSUIndexedStringStore : NSObject {
     NSMutableDictionary *_indexByString;
     int _lock;
     NSMutableArray *_stringByIndex;
 }
 
-- (unsigned long long)count;
+- (unsigned int)count;
 - (void)dealloc;
-- (unsigned long long)indexForString:(id)arg1;
+- (unsigned int)indexForString:(id)arg1;
 - (id)init;
-- (id)stringForIndex:(unsigned long long)arg1;
+- (id)stringForIndex:(unsigned int)arg1;
 
 @end

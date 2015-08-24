@@ -2,8 +2,7 @@
    Image: /System/Library/PrivateFrameworks/WebKitLegacy.framework/WebKitLegacy
  */
 
-@interface WebDatabaseManager : NSObject {
-}
+@interface WebDatabaseManager : NSObject
 
 + (void)didFinishLastTransaction;
 + (void)endBackgroundTask;
@@ -15,8 +14,8 @@
 
 - (id)databasesWithOrigin:(id)arg1;
 - (void)deleteAllDatabases;
-- (bool)deleteDatabase:(id)arg1 withOrigin:(id)arg2;
-- (bool)deleteOrigin:(id)arg1;
+- (BOOL)deleteDatabase:(id)arg1 withOrigin:(id)arg2;
+- (BOOL)deleteOrigin:(id)arg1;
 - (id)detailsForDatabase:(id)arg1 withOrigin:(id)arg2;
 - (id)init;
 - (id)origins;

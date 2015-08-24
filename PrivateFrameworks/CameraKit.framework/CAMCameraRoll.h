@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/CameraKit.framework/CameraKit
  */
 
-@class NSDate, NSMutableDictionary, NSMutableSet, PHAssetCollection, PHFetchResult;
-
 @interface CAMCameraRoll : NSObject {
     NSMutableSet *__cachedChangeObservers;
+    BOOL __hasLoadedCameraRollFrameworks;
+    BOOL __hasPendingSessionAssets;
     NSMutableDictionary *__inflightAssets;
     NSMutableSet *__sessionAssetUUIDs;
     PHFetchResult *__userLibraryAssetsFetchResult;
     PHAssetCollection *__weakAssetCollection;
     PHFetchResult *__weakAssetCollectionFetchResult;
+    BOOL __weakAssetCollectionLoaded;
+    BOOL _changeNotificationsEnabled;
     NSDate *_sessionIdentifier;
-    bool__hasLoadedCameraRollFrameworks;
-    bool__hasPendingSessionAssets;
-    bool__weakAssetCollectionLoaded;
-    bool_changeNotificationsEnabled;
 }
 
-@property(readonly) NSMutableSet * _cachedChangeObservers;
-@property(readonly) bool _hasLoadedCameraRollFrameworks;
-@property(readonly) bool _hasPendingSessionAssets;
-@property(readonly) NSMutableDictionary * _inflightAssets;
-@property(readonly) NSMutableSet * _sessionAssetUUIDs;
-@property(readonly) PHFetchResult * _userLibraryAssetsFetchResult;
-@property(readonly) PHAssetCollection * _weakAssetCollection;
-@property(readonly) PHFetchResult * _weakAssetCollectionFetchResult;
-@property(getter=_isWeakAssetCollectionLoaded,readonly) bool _weakAssetCollectionLoaded;
-@property bool changeNotificationsEnabled;
-@property(readonly) NSDate * sessionIdentifier;
+@property (nonatomic, readonly) NSMutableSet *_cachedChangeObservers;
+@property (nonatomic, readonly) BOOL _hasLoadedCameraRollFrameworks;
+@property (nonatomic, readonly) BOOL _hasPendingSessionAssets;
+@property (nonatomic, readonly) NSMutableDictionary *_inflightAssets;
+@property (nonatomic, readonly) NSMutableSet *_sessionAssetUUIDs;
+@property (nonatomic, readonly) PHFetchResult *_userLibraryAssetsFetchResult;
+@property (nonatomic, readonly) PHAssetCollection *_weakAssetCollection;
+@property (nonatomic, readonly) PHFetchResult *_weakAssetCollectionFetchResult;
+@property (getter=_isWeakAssetCollectionLoaded, nonatomic, readonly) BOOL _weakAssetCollectionLoaded;
+@property (nonatomic) BOOL changeNotificationsEnabled;
+@property (nonatomic, readonly) NSDate *sessionIdentifier;
 
 + (id)sharedCameraRoll;
 
@@ -36,11 +34,11 @@
 - (id)_cachedChangeObservers;
 - (void)_ensureFetchedSessionAssets;
 - (void)_ensureWeakAssetCollection;
-- (bool)_hasLoadedCameraRollFrameworks;
-- (bool)_hasPendingSessionAssets;
+- (BOOL)_hasLoadedCameraRollFrameworks;
+- (BOOL)_hasPendingSessionAssets;
 - (id)_inflightAssets;
 - (void)_invalidateAssetCollection;
-- (bool)_isWeakAssetCollectionLoaded;
+- (BOOL)_isWeakAssetCollectionLoaded;
 - (void)_registerAllChangeNotificationObservers;
 - (void)_registerChangeNotificationObserver:(id)arg1;
 - (void)_reloadSessionAssets;
@@ -59,21 +57,21 @@
 - (void)addInflightAsset:(id)arg1;
 - (void)addSessionAsset:(id)arg1;
 - (id)album;
-- (bool)changeNotificationsEnabled;
+- (BOOL)changeNotificationsEnabled;
 - (void)dealloc;
 - (id)fetchResultContainingAssetCollection;
 - (void)finishSession;
-- (bool)hasInflightAssets;
+- (BOOL)hasInflightAssets;
 - (id)init;
-- (bool)isCameraSessionActive;
+- (BOOL)isCameraSessionActive;
 - (void)preflightCameraRollFrameworks;
 - (id)realizedWeakAssetCollection;
 - (void)removeChangeNotificationsObserver:(id)arg1;
 - (void)removeInflightAsset:(id)arg1;
 - (id)sessionIdentifier;
-- (void)setChangeNotificationsEnabled:(bool)arg1;
+- (void)setChangeNotificationsEnabled:(BOOL)arg1;
 - (void)startNewSession;
 - (void)startNewSessionWithIdentifier:(id)arg1;
-- (bool)updateFromChanges:(id)arg1;
+- (BOOL)updateFromChanges:(id)arg1;
 
 @end

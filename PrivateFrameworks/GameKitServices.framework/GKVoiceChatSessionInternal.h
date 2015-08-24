@@ -2,13 +2,12 @@
    Image: /System/Library/PrivateFrameworks/GameKitServices.framework/GameKitServices
  */
 
-@class <GKVoiceChatSessionDelegate>, GKInterfaceListener, GKRWLock, GKSessionInternal, GKVoiceChatServiceFocus, NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, VoiceChatSessionRoster;
-
-@interface GKVoiceChatSessionInternal : NSObject <InterfaceListenerDelegate, GKSessionVoiceChatDelegate, GKVoiceChatClient, VideoConferenceSpeakingDelegate> {
+@interface GKVoiceChatSessionInternal : NSObject <GKSessionVoiceChatDelegate, GKVoiceChatClient, InterfaceListenerDelegate, VideoConferenceSpeakingDelegate> {
     unsigned int _conferenceID;
     NSMutableArray *_connectedFocusPeers;
     NSMutableArray *_connectedPeers;
     NSMutableArray *_connectedVoicePeers;
+    BOOL _currentWifiState;
     NSMutableArray *_focusPausedPeers;
     GKSessionInternal *_gkSession;
     NSMutableArray *_mutedPeers;
@@ -23,33 +22,28 @@
     unsigned int _sessionState;
     GKVoiceChatServiceFocus *_vcService;
     GKInterfaceListener *_wifiListener;
-    bool_currentWifiState;
-    boolactiveSession;
-    boolfocusCallbacks;
-    boolisUsingSuppression;
-    boolneedsRecalculateGoodChannels;
+    BOOL activeSession;
     unsigned int congestionState;
     <GKVoiceChatSessionDelegate> *delegate;
+    BOOL focusCallbacks;
     int goodChannels;
+    BOOL isUsingSuppression;
+    BOOL needsRecalculateGoodChannels;
     float sessionVolume;
     unsigned int talkingPeersLimit;
 }
 
-@property(getter=isActiveSession) bool activeSession;
-@property(readonly) unsigned int conferenceID;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * debugDescription;
-@property <GKVoiceChatSessionDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) unsigned long long hash;
-@property bool isUsingSuppression;
-@property(readonly) NSArray * peerList;
-@property(readonly) NSString * sessionName;
+@property (getter=isActiveSession) BOOL activeSession;
+@property (nonatomic, readonly) unsigned int conferenceID;
+@property (readonly, copy) NSString *debugDescription;
+@property <GKVoiceChatSessionDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property BOOL isUsingSuppression;
+@property (readonly) NSArray *peerList;
+@property (nonatomic, readonly) NSString *sessionName;
 @property float sessionVolume;
-@property(readonly) Class superclass;
-@property(readonly) Class superclass;
+@property (readonly) Class superclass;
 @property unsigned int talkingPeersLimit;
 
 + (void)brokenHash:(id)arg1 response:(char *)arg2;
@@ -66,7 +60,7 @@
 - (void)didStartSpeaking:(id)arg1;
 - (void)didStopSpeaking:(id)arg1;
 - (id)encodePeerID:(id)arg1;
-- (bool)getMuteStateForPeer:(id)arg1;
+- (BOOL)getMuteStateForPeer:(id)arg1;
 - (int)goodChannels;
 - (void)handlePeerDisconnected:(id)arg1;
 - (void)informClientVoiceChatConnecting:(id)arg1;
@@ -77,10 +71,10 @@
 - (void)informClientVoiceChatSilent:(id)arg1;
 - (void)informClientVoiceChatSpeaking:(id)arg1;
 - (id)initWithGKSession:(id)arg1 publicWrapper:(id)arg2 sessionName:(id)arg3;
-- (void)interfaceStateDidChangeWithWifiUp:(bool)arg1 cellUp:(bool)arg2;
-- (bool)isActiveSession;
-- (bool)isEqual:(id)arg1;
-- (bool)isUsingSuppression;
+- (void)interfaceStateDidChangeWithWifiUp:(BOOL)arg1 cellUp:(BOOL)arg2;
+- (BOOL)isActiveSession;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isUsingSuppression;
 - (void)lossRate:(float)arg1 forParticipantID:(id)arg2;
 - (void)networkStateDidChange;
 - (void)parseConnectedPeers:(id)arg1;
@@ -98,10 +92,10 @@
 - (void)session:(id)arg1 peer:(id)arg2 didChangeState:(int)arg3;
 - (id)sessionName;
 - (float)sessionVolume;
-- (void)setActiveSession:(bool)arg1;
+- (void)setActiveSession:(BOOL)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setIsUsingSuppression:(bool)arg1;
-- (void)setMute:(bool)arg1 forPeer:(id)arg2;
+- (void)setIsUsingSuppression:(BOOL)arg1;
+- (void)setMute:(BOOL)arg1 forPeer:(id)arg2;
 - (void)setSessionVolume:(float)arg1;
 - (void)setTalkingPeersLimit:(unsigned int)arg1;
 - (void)startSession;
@@ -116,7 +110,7 @@
 - (void)updatedMutedPeers:(id)arg1 forPeer:(id)arg2;
 - (void)updatedSubscribedBeaconList:(id)arg1;
 - (void)voiceChatService:(id)arg1 didNotStartWithParticipantID:(id)arg2 error:(id)arg3;
-- (void)voiceChatService:(id)arg1 didReceiveInvitationFromParticipantID:(id)arg2 callID:(unsigned int)arg3;
+- (void)voiceChatService:(id)arg1 didReceiveInvitationFromParticipantID:(id)arg2 callID:(unsigned long)arg3;
 - (void)voiceChatService:(id)arg1 didStartWithParticipantID:(id)arg2;
 - (void)voiceChatService:(id)arg1 didStopWithParticipantID:(id)arg2 error:(id)arg3;
 - (void)voiceChatService:(id)arg1 sendData:(id)arg2 toParticipantID:(id)arg3;

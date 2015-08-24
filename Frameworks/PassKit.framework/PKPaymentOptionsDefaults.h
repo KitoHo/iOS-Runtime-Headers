@@ -2,30 +2,42 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class CNContact, NSString;
-
-@interface PKPaymentOptionsDefaults : NSObject {
+@interface PKPaymentOptionsDefaults : NSObject <PKPassbookSettingsOptionsDelegate> {
+    NSDictionary *_defaultBillingAddresses;
 }
 
-@property(retain) CNContact * defaultBillingAddress;
-@property(retain) CNContact * defaultContactEmail;
-@property(retain) CNContact * defaultContactPhone;
-@property(retain) NSString * defaultPaymentPassIdentifier;
-@property(retain) CNContact * defaultShippingAddress;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic, retain) NSDictionary *defaultBillingAddresses;
+@property (nonatomic, retain) CNContact *defaultContactEmail;
+@property (nonatomic, retain) CNContact *defaultContactName;
+@property (nonatomic, retain) CNContact *defaultContactPhone;
+@property (nonatomic, retain) NSString *defaultPaymentPassIdentifier;
+@property (nonatomic, retain) CNContact *defaultShippingAddress;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)defaults;
 
 - (id)_contactForKeychainKey:(id)arg1;
 - (void)_keychainData:(id*)arg1 forKey:(id)arg2;
+- (id)_rawDefaultBillingAddresses;
+- (void)_setContact:(id)arg1 forKeychainKey:(id)arg2;
 - (void)_setContact:(id)arg1 propertyID:(int)arg2 forKeychainKey:(id)arg3;
 - (void)_setKeychainData:(id)arg1 forKey:(id)arg2;
-- (id)defaultBillingAddress;
+- (id)defaultBillingAddressForPaymentPass:(id)arg1;
+- (id)defaultBillingAddresses;
 - (id)defaultContactEmail;
+- (id)defaultContactName;
 - (id)defaultContactPhone;
 - (id)defaultPaymentPassIdentifier;
 - (id)defaultShippingAddress;
-- (void)setDefaultBillingAddress:(id)arg1;
+- (void)deleteDefaultBillingAddress:(id)arg1;
+- (id)init;
+- (void)setDefaultBillingAddress:(id)arg1 forPaymentPass:(id)arg2;
+- (void)setDefaultBillingAddresses:(id)arg1;
 - (void)setDefaultContactEmail:(id)arg1;
+- (void)setDefaultContactName:(id)arg1;
 - (void)setDefaultContactPhone:(id)arg1;
 - (void)setDefaultPaymentPassIdentifier:(id)arg1;
 - (void)setDefaultShippingAddress:(id)arg1;

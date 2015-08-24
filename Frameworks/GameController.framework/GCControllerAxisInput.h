@@ -2,28 +2,25 @@
    Image: /System/Library/Frameworks/GameController.framework/GameController
  */
 
-@class GCControllerButtonInput;
+@interface GCControllerAxisInput : GCControllerElement
 
-@interface GCControllerAxisInput : GCControllerElement {
-}
+@property (getter=isDigital, nonatomic, readonly) BOOL digital;
+@property (getter=isFlipped, nonatomic, readonly) BOOL flipped;
+@property (nonatomic, readonly) GCControllerButtonInput *negative;
+@property (nonatomic, readonly) GCControllerButtonInput *positive;
+@property (readonly) float value;
+@property (copy) id /* block */ valueChangedHandler;
 
-@property(getter=isDigital,readonly) bool digital;
-@property(getter=isFlipped,readonly) bool flipped;
-@property(readonly) GCControllerButtonInput * negative;
-@property(readonly) GCControllerButtonInput * positive;
-@property(readonly) float value;
-@property(copy) id valueChangedHandler;
-
-- (bool)_setValue:(float)arg1;
+- (BOOL)_setValue:(float)arg1;
 - (id)description;
-- (bool)isAnalog;
-- (bool)isDigital;
-- (bool)isFlipped;
+- (BOOL)isAnalog;
+- (BOOL)isDigital;
+- (BOOL)isFlipped;
 - (id)negative;
 - (id)positive;
-- (bool)setHIDValue:(struct __IOHIDValue { }*)arg1;
-- (void)setValueChangedHandler:(id)arg1;
+- (BOOL)setHIDValue:(struct __IOHIDValue { }*)arg1;
+- (void)setValueChangedHandler:(id /* block */)arg1;
 - (float)value;
-- (id)valueChangedHandler;
+- (id /* block */)valueChangedHandler;
 
 @end

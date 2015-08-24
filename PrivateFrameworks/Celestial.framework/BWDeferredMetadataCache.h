@@ -13,18 +13,18 @@
         struct __CFDictionary {} *metadataDict; 
         short useCount; 
         short age; 
-    } _cache[5];
+    } _cache;
     struct OpaqueFigSimpleMutex { } *_lock;
     int _numberOfExpectedSampleBuffersForEachPTS;
     struct OpaqueFigCaptureStream { } *_stream;
 }
 
-@property int numberOfExpectedSampleBuffersForEachPTS;
+@property (nonatomic) int numberOfExpectedSampleBuffersForEachPTS;
 
-- (void)addMetadataAttachmentToSampleBuffer:(struct opaqueCMSampleBuffer { }*)arg1;
+- (void)addMetadataAttachmentToSampleBuffer:(struct opaqueCMSampleBuffer { }*)arg1 withDutyCycleMetadataCache:(id)arg2;
 - (void)dealloc;
 - (void)flush;
-- (id)initWithCaptureStream:(struct OpaqueFigCaptureStream { }*)arg1 atomicTransactions:(bool)arg2;
+- (id)initWithCaptureStream:(struct OpaqueFigCaptureStream { }*)arg1 atomicTransactions:(BOOL)arg2;
 - (int)numberOfExpectedSampleBuffersForEachPTS;
 - (void)setNumberOfExpectedSampleBuffersForEachPTS:(int)arg1;
 

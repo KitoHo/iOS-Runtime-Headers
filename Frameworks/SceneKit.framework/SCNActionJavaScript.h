@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/SceneKit.framework/SceneKit
  */
 
-@class NSString;
-
 @interface SCNActionJavaScript : SCNAction {
     NSString *_script;
 }
@@ -15,7 +13,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithString:(id)arg1;
-- (bool)isCustom;
+- (BOOL)isCustom;
 - (id)reversedAction;
 
 @end

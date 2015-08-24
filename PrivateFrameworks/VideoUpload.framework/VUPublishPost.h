@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/VideoUpload.framework/VideoUpload
  */
 
-@class <VUPublishPostDelegate>;
-
 @interface VUPublishPost : NSObject {
+    BOOL _allowsCellularAccessForUploads;
     <VUPublishPostDelegate> *_delegate;
-    bool_allowsCellularAccessForUploads;
 }
 
-@property bool allowsCellularAccessForUploads;
+@property (nonatomic) BOOL allowsCellularAccessForUploads;
 
 - (void).cxx_destruct;
-- (bool)allowsCellularAccessForUploads;
+- (BOOL)allowsCellularAccessForUploads;
 - (id)initWithDelegate:(id)arg1;
-- (void)setAllowsCellularAccessForUploads:(bool)arg1;
+- (void)setAllowsCellularAccessForUploads:(BOOL)arg1;
 - (void)startUpload;
 
 @end

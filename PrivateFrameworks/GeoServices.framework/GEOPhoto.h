@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray, NSString;
-
 @interface GEOPhoto : PBCodable <NSCopying> {
     struct { 
         unsigned int photoType : 1; 
@@ -13,14 +11,14 @@
     NSString *_uid;
 }
 
-@property bool hasPhotoType;
-@property(readonly) bool hasUid;
-@property(retain) NSMutableArray * photoInfos;
-@property int photoType;
-@property(retain) NSString * uid;
+@property (nonatomic) BOOL hasPhotoType;
+@property (nonatomic, readonly) BOOL hasUid;
+@property (nonatomic, retain) NSMutableArray *photoInfos;
+@property (nonatomic) int photoType;
+@property (nonatomic, retain) NSString *uid;
 
-+ (id)photoWithYelpUserJSON:(id)arg1;
-
+- (id)_bestURLForSize:(int)arg1;
+- (id)_photoInfoForSize:(int)arg1 includeSmallerSizes:(BOOL)arg2;
 - (void)addPhotoInfo:(id)arg1;
 - (void)clearPhotoInfos;
 - (void)copyTo:(id)arg1;
@@ -28,18 +26,18 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasPhotoType;
-- (bool)hasUid;
-- (unsigned long long)hash;
+- (BOOL)hasPhotoType;
+- (BOOL)hasUid;
+- (unsigned int)hash;
 - (id)initWithPlaceDataPhoto:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (id)photoInfoAtIndex:(unsigned long long)arg1;
+- (id)photoInfoAtIndex:(unsigned int)arg1;
 - (id)photoInfos;
-- (unsigned long long)photoInfosCount;
+- (unsigned int)photoInfosCount;
 - (int)photoType;
-- (bool)readFrom:(id)arg1;
-- (void)setHasPhotoType:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasPhotoType:(BOOL)arg1;
 - (void)setPhotoInfos:(id)arg1;
 - (void)setPhotoType:(int)arg1;
 - (void)setUid:(id)arg1;

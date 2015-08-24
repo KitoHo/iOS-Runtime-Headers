@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSObject<NSLocking>, NSString, OITSUFlushingManager;
-
 @interface OITSUFlushableObject : NSObject <TSUFlushable> {
     OITSUFlushingManager *_flushingManager;
     NSObject<NSLocking> *_flushingManagerIvarLock;
@@ -11,16 +9,16 @@
     int _retainCount;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
 
 - (void)dealloc;
 - (void)flush;
-- (bool)hasFlushableContent;
+- (BOOL)hasFlushableContent;
 - (id)init;
 - (id)ownerAutoreleasedAccess;
 - (void)ownerDidAccess;
@@ -29,7 +27,7 @@
 - (void)ownerWillAccess;
 - (oneway void)release;
 - (id)retain;
-- (unsigned long long)retainCount;
+- (unsigned int)retainCount;
 - (void)unload;
 
 @end

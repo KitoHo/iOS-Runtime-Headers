@@ -2,99 +2,97 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class KNAnimatedBuild, NSArray, NSDictionary, NSString, TSDGLState, TSDRep;
-
 @interface KNAnimationPluginContext : NSObject <KNAnimationPluginContext> {
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
     TSDGLState *_GLState;
     KNAnimatedBuild *_animatedBuild;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _boundingRect;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _boundingRectOnCanvas;
-    unsigned long long _direction;
+    unsigned int _direction;
     double _duration;
+    BOOL _isMotionBlurred;
+    BOOL _isPreview;
+    BOOL _isWarmingUp;
     NSArray *_magicMoveMatches;
     double _percent;
-    long long _rendererType;
+    int _rendererType;
     TSDRep *_rep;
     NSArray *_textures;
     NSDictionary *_transitionAttributes;
-    bool_isMotionBlurred;
-    bool_isPreview;
-    bool_isWarmingUp;
 }
 
-@property(retain) TSDGLState * GLState;
-@property KNAnimatedBuild * animatedBuild;
-@property struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } boundingRect;
-@property struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } boundingRectOnCanvas;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property unsigned long long direction;
-@property double duration;
-@property(readonly) unsigned long long hash;
-@property(readonly) bool isBuild;
-@property(readonly) bool isFrameRenderer;
-@property(readonly) bool isMagicMove;
-@property bool isMotionBlurred;
-@property bool isPreview;
-@property(readonly) bool isTransition;
-@property bool isWarmingUp;
-@property NSArray * magicMoveMatches;
-@property double percent;
-@property long long rendererType;
-@property TSDRep * rep;
-@property(readonly) Class superclass;
-@property(retain) NSArray * textures;
-@property NSDictionary * transitionAttributes;
+@property (nonatomic, retain) TSDGLState *GLState;
+@property (nonatomic) KNAnimatedBuild *animatedBuild;
+@property (nonatomic) struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } boundingRect;
+@property (nonatomic) struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } boundingRectOnCanvas;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) unsigned int direction;
+@property (nonatomic) double duration;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) BOOL isBuild;
+@property (nonatomic, readonly) BOOL isFrameRenderer;
+@property (nonatomic, readonly) BOOL isMagicMove;
+@property (nonatomic) BOOL isMotionBlurred;
+@property (nonatomic) BOOL isPreview;
+@property (nonatomic, readonly) BOOL isTransition;
+@property (nonatomic) BOOL isWarmingUp;
+@property (nonatomic) NSArray *magicMoveMatches;
+@property (nonatomic) double percent;
+@property (nonatomic) int rendererType;
+@property (nonatomic) TSDRep *rep;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSArray *textures;
+@property (nonatomic) NSDictionary *transitionAttributes;
 
 - (id)GLState;
 - (id)animatedBuild;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })boundingRect;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })boundingRectOnCanvas;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })boundingRect;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })boundingRectOnCanvas;
 - (void)dealloc;
 - (id)description;
-- (unsigned long long)direction;
+- (unsigned int)direction;
 - (double)duration;
-- (bool)isBuild;
-- (bool)isFrameRenderer;
-- (bool)isMagicMove;
-- (bool)isMotionBlurred;
-- (bool)isPreview;
-- (bool)isTransition;
-- (bool)isWarmingUp;
+- (BOOL)isBuild;
+- (BOOL)isFrameRenderer;
+- (BOOL)isMagicMove;
+- (BOOL)isMotionBlurred;
+- (BOOL)isPreview;
+- (BOOL)isTransition;
+- (BOOL)isWarmingUp;
 - (id)magicMoveMatches;
 - (double)percent;
-- (long long)rendererType;
+- (int)rendererType;
 - (id)rep;
 - (void)setAnimatedBuild:(id)arg1;
-- (void)setBoundingRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (void)setBoundingRectOnCanvas:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (void)setDirection:(unsigned long long)arg1;
+- (void)setBoundingRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (void)setBoundingRectOnCanvas:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (void)setDirection:(unsigned int)arg1;
 - (void)setDuration:(double)arg1;
 - (void)setGLState:(id)arg1;
-- (void)setIsMotionBlurred:(bool)arg1;
-- (void)setIsPreview:(bool)arg1;
-- (void)setIsWarmingUp:(bool)arg1;
+- (void)setIsMotionBlurred:(BOOL)arg1;
+- (void)setIsPreview:(BOOL)arg1;
+- (void)setIsWarmingUp:(BOOL)arg1;
 - (void)setMagicMoveMatches:(id)arg1;
 - (void)setPercent:(double)arg1;
-- (void)setRendererType:(long long)arg1;
+- (void)setRendererType:(int)arg1;
 - (void)setRep:(id)arg1;
 - (void)setTextures:(id)arg1;
 - (void)setTransitionAttributes:(id)arg1;

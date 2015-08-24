@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class _UIBackdropViewSettings, _UIVisualEffectConfig;
-
 @interface UIVisualEffect : NSObject <NSCopying, NSSecureCoding> {
     _UIVisualEffectConfig *_effectConfig;
     _UIBackdropViewSettings *_effectSettings;
 }
 
-@property(readonly) _UIVisualEffectConfig * effectConfig;
-@property(readonly) _UIBackdropViewSettings * effectSettings;
+@property (nonatomic, readonly) _UIVisualEffectConfig *effectConfig;
+@property (nonatomic, readonly) _UIBackdropViewSettings *effectSettings;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)effectConfig;

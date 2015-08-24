@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/RadioUI.framework/RadioUI
  */
 
-@class <RUTermsViewControllerDelegate>, NSString;
-
 @interface RUTermsViewController : UIViewController {
     unsigned long long _currentTermsVersion;
     <RUTermsViewControllerDelegate> *_delegate;
     NSString *_terms;
 }
 
-@property(readonly) unsigned long long currentTermsVersion;
-@property <RUTermsViewControllerDelegate> * delegate;
+@property (nonatomic, readonly) unsigned long long currentTermsVersion;
+@property (nonatomic) <RUTermsViewControllerDelegate> *delegate;
 
 - (void).cxx_destruct;
 - (void)_acceptAction:(id)arg1;
@@ -23,8 +21,8 @@
 - (id)initWithCurrentTermsVersion:(unsigned long long)arg1 terms:(id)arg2;
 - (void)loadView;
 - (void)setDelegate:(id)arg1;
-- (bool)shouldAutorotate;
-- (unsigned long long)supportedInterfaceOrientations;
-- (void)viewDidAppear:(bool)arg1;
+- (BOOL)shouldAutorotate;
+- (unsigned int)supportedInterfaceOrientations;
+- (void)viewDidAppear:(BOOL)arg1;
 
 @end

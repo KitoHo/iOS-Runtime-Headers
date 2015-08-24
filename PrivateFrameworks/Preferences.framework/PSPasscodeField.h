@@ -2,50 +2,50 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class <PSPasscodeFieldDelegate>, NSMutableArray, NSMutableString, NSString;
-
 @interface PSPasscodeField : UIView <UIKeyInput> {
     NSMutableArray *_dashViews;
     <PSPasscodeFieldDelegate> *_delegate;
     NSMutableArray *_digitViews;
     NSMutableArray *_dotViews;
-    unsigned long long _numberOfEntryFields;
+    unsigned int _numberOfEntryFields;
+    BOOL _securePasscodeEntry;
     NSMutableString *_stringValue;
-    bool_securePasscodeEntry;
 }
 
-@property long long autocapitalizationType;
-@property long long autocorrectionType;
-@property(copy,readonly) NSString * debugDescription;
-@property <PSPasscodeFieldDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property bool enablesReturnKeyAutomatically;
-@property(readonly) unsigned long long hash;
-@property long long keyboardAppearance;
-@property long long keyboardType;
-@property(readonly) unsigned long long numberOfEntryFields;
-@property long long returnKeyType;
-@property bool securePasscodeEntry;
-@property(getter=isSecureTextEntry) bool secureTextEntry;
-@property long long spellCheckingType;
-@property(readonly) Class superclass;
+@property (nonatomic) int autocapitalizationType;
+@property (nonatomic) int autocorrectionType;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <PSPasscodeFieldDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) BOOL enablesReturnKeyAutomatically;
+@property (readonly) unsigned int hash;
+@property (nonatomic) int keyboardAppearance;
+@property (nonatomic) int keyboardType;
+@property (nonatomic, readonly) unsigned int numberOfEntryFields;
+@property (nonatomic) int returnKeyType;
+@property (nonatomic) BOOL securePasscodeEntry;
+@property (getter=isSecureTextEntry, nonatomic) BOOL secureTextEntry;
+@property (nonatomic) int spellCheckingType;
+@property (readonly) Class superclass;
 
-- (bool)becomeFirstResponder;
-- (bool)canBecomeFirstResponder;
+- (BOOL)becomeFirstResponder;
+- (BOOL)canBecomeFirstResponder;
 - (void)dealloc;
 - (id)delegate;
 - (void)deleteBackward;
-- (bool)hasText;
-- (id)initWithNumberOfEntryFields:(unsigned long long)arg1;
+- (BOOL)hasText;
+- (id)initWithNumberOfEntryFields:(unsigned int)arg1;
 - (void)insertText:(id)arg1;
-- (bool)isSecureTextEntry;
-- (long long)keyboardType;
+- (BOOL)isSecureTextEntry;
+- (int)keyboardAppearance;
+- (int)keyboardType;
 - (void)layoutSubviews;
-- (unsigned long long)numberOfEntryFields;
-- (bool)securePasscodeEntry;
+- (unsigned int)numberOfEntryFields;
+- (void)passcodeFieldTapped:(id)arg1;
+- (BOOL)securePasscodeEntry;
 - (void)setDelegate:(id)arg1;
-- (void)setSecurePasscodeEntry:(bool)arg1;
-- (void)setSecureTextEntry:(bool)arg1;
+- (void)setSecurePasscodeEntry:(BOOL)arg1;
+- (void)setSecureTextEntry:(BOOL)arg1;
 - (void)setStringValue:(id)arg1;
 - (id)stringValue;
 

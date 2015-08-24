@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSMutableArray;
-
 @interface CKDPShareRetrieveResponse : PBCodable <NSCopying> {
     NSMutableArray *_shares;
 }
 
-@property(retain) NSMutableArray * shares;
+@property (nonatomic, retain) NSMutableArray *shares;
 
 - (void).cxx_destruct;
 - (void)addShare:(id)arg1;
@@ -17,14 +15,14 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setShares:(id)arg1;
-- (id)shareAtIndex:(unsigned long long)arg1;
+- (id)shareAtIndex:(unsigned int)arg1;
 - (id)shares;
-- (unsigned long long)sharesCount;
+- (unsigned int)sharesCount;
 - (void)writeTo:(id)arg1;
 
 @end

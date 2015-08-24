@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-@class GKAchievement, GKGame, GKPlayer, UIImage;
-
 @interface GKAchievementSharingInfo : NSObject <NSCoding, NSSecureCoding> {
     GKAchievement *_achievement;
     UIImage *_badgeImage;
+    BOOL _complete;
     GKGame *_game;
     UIImage *_iconImage;
     GKPlayer *_player;
-    bool_complete;
 }
 
-@property(retain) GKAchievement * achievement;
-@property(retain) UIImage * badgeImage;
-@property bool complete;
-@property(retain) GKGame * game;
-@property(retain) UIImage * iconImage;
-@property(retain) GKPlayer * player;
+@property (nonatomic, retain) GKAchievement *achievement;
+@property (nonatomic, retain) UIImage *badgeImage;
+@property (nonatomic) BOOL complete;
+@property (nonatomic, retain) GKGame *game;
+@property (nonatomic, retain) UIImage *iconImage;
+@property (nonatomic, retain) GKPlayer *player;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)achievement;
 - (id)badgeImage;
-- (bool)complete;
+- (BOOL)complete;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)game;
@@ -36,7 +34,7 @@
 - (id)player;
 - (void)setAchievement:(id)arg1;
 - (void)setBadgeImage:(id)arg1;
-- (void)setComplete:(bool)arg1;
+- (void)setComplete:(BOOL)arg1;
 - (void)setGame:(id)arg1;
 - (void)setIconImage:(id)arg1;
 - (void)setPlayer:(id)arg1;

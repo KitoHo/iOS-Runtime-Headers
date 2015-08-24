@@ -2,42 +2,36 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class UIView;
-
 @interface SKUIScalingFlipView : UIView {
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
     UIView *_backView;
-    id _completionBlock;
-    long long _direction;
+    id /* block */ _completionBlock;
+    int _direction;
     double _duration;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _fromFrame;
     UIView *_frontView;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _toFrame;
 }
 
-@property long long direction;
-@property double duration;
+@property (nonatomic) int direction;
+@property (nonatomic) double duration;
 
 - (void).cxx_destruct;
 - (id)_backLayerAnimation;
@@ -45,12 +39,12 @@
 - (id)_inputColorAnimation;
 - (id)_positionAnimation;
 - (id)_timingFunction;
-- (void)animationDidStop:(id)arg1 finished:(bool)arg2;
-- (long long)direction;
+- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (int)direction;
 - (double)duration;
 - (id)initWithFrontView:(id)arg1 backView:(id)arg2;
-- (void)performFlipWithCompletionBlock:(id)arg1;
-- (void)setDirection:(long long)arg1;
+- (void)performFlipWithCompletionBlock:(id /* block */)arg1;
+- (void)setDirection:(int)arg1;
 - (void)setDuration:(double)arg1;
 
 @end

@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class NSMutableArray, VKPGlobalProperties, VKPMatchingTree;
-
 @interface VKPSheet : PBCodable <NSCopying> {
+    VKPGlobalProperties *_globalProperties;
     struct { 
         unsigned int mapTypeSupport : 1; 
         unsigned int matchingTreeVersion : 1; 
         unsigned int version : 1; 
-    VKPGlobalProperties *_globalProperties;
     } _has;
     unsigned int _mapTypeSupport;
     NSMutableArray *_matchingGraphNodes;
@@ -19,18 +17,18 @@
     unsigned int _version;
 }
 
-@property(retain) VKPGlobalProperties * globalProperties;
-@property(readonly) bool hasGlobalProperties;
-@property bool hasMapTypeSupport;
-@property(readonly) bool hasMatchingTree;
-@property bool hasMatchingTreeVersion;
-@property bool hasVersion;
-@property unsigned int mapTypeSupport;
-@property(retain) NSMutableArray * matchingGraphNodes;
-@property(retain) VKPMatchingTree * matchingTree;
-@property unsigned int matchingTreeVersion;
-@property(retain) NSMutableArray * styles;
-@property unsigned int version;
+@property (nonatomic, retain) VKPGlobalProperties *globalProperties;
+@property (nonatomic, readonly) BOOL hasGlobalProperties;
+@property (nonatomic) BOOL hasMapTypeSupport;
+@property (nonatomic, readonly) BOOL hasMatchingTree;
+@property (nonatomic) BOOL hasMatchingTreeVersion;
+@property (nonatomic) BOOL hasVersion;
+@property (nonatomic) unsigned int mapTypeSupport;
+@property (nonatomic, retain) NSMutableArray *matchingGraphNodes;
+@property (nonatomic, retain) VKPMatchingTree *matchingTree;
+@property (nonatomic) unsigned int matchingTreeVersion;
+@property (nonatomic, retain) NSMutableArray *styles;
+@property (nonatomic) unsigned int version;
 
 - (void)addMatchingGraphNodes:(id)arg1;
 - (void)addStyle:(id)arg1;
@@ -42,34 +40,34 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)globalProperties;
-- (bool)hasGlobalProperties;
-- (bool)hasMapTypeSupport;
-- (bool)hasMatchingTree;
-- (bool)hasMatchingTreeVersion;
-- (bool)hasVersion;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasGlobalProperties;
+- (BOOL)hasMapTypeSupport;
+- (BOOL)hasMatchingTree;
+- (BOOL)hasMatchingTreeVersion;
+- (BOOL)hasVersion;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (unsigned int)mapTypeSupport;
 - (id)matchingGraphNodes;
-- (id)matchingGraphNodesAtIndex:(unsigned long long)arg1;
-- (unsigned long long)matchingGraphNodesCount;
+- (id)matchingGraphNodesAtIndex:(unsigned int)arg1;
+- (unsigned int)matchingGraphNodesCount;
 - (id)matchingTree;
 - (unsigned int)matchingTreeVersion;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setGlobalProperties:(id)arg1;
-- (void)setHasMapTypeSupport:(bool)arg1;
-- (void)setHasMatchingTreeVersion:(bool)arg1;
-- (void)setHasVersion:(bool)arg1;
+- (void)setHasMapTypeSupport:(BOOL)arg1;
+- (void)setHasMatchingTreeVersion:(BOOL)arg1;
+- (void)setHasVersion:(BOOL)arg1;
 - (void)setMapTypeSupport:(unsigned int)arg1;
 - (void)setMatchingGraphNodes:(id)arg1;
 - (void)setMatchingTree:(id)arg1;
 - (void)setMatchingTreeVersion:(unsigned int)arg1;
 - (void)setStyles:(id)arg1;
 - (void)setVersion:(unsigned int)arg1;
-- (id)styleAtIndex:(unsigned long long)arg1;
+- (id)styleAtIndex:(unsigned int)arg1;
 - (id)styles;
-- (unsigned long long)stylesCount;
+- (unsigned int)stylesCount;
 - (unsigned int)version;
 - (void)writeTo:(id)arg1;
 

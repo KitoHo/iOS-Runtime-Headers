@@ -2,13 +2,13 @@
    Image: /System/Library/PrivateFrameworks/Stocks.framework/Stocks
  */
 
-@class NSArray, NSDate, NSMutableDictionary, NSTimeZone, Stock;
-
 @interface StockChartData : NSObject {
-    long long _chartInterval;
+    int _chartInterval;
     double _expirationTime;
+    BOOL _hasVolume;
     NSMutableDictionary *_imageSetCache;
     NSArray *_interestingIndexes;
+    BOOL _isUnavailable;
     NSMutableDictionary *_labelPlacementCache;
     NSDate *_marketCloseDate;
     NSDate *_marketOpenDate;
@@ -22,52 +22,50 @@
     NSMutableDictionary *_xAxisLabelInfoCache;
     int _yAxisFractionDigits;
     NSMutableDictionary *_yAxisLabelInfoCache;
-    bool_hasVolume;
-    bool_isUnavailable;
 }
 
-@property long long chartInterval;
-@property double expirationTime;
-@property bool hasVolume;
-@property(retain) NSArray * interestingIndexes;
-@property bool isUnavailable;
-@property(retain) NSDate * marketCloseDate;
-@property(retain) NSDate * marketOpenDate;
-@property(retain) NSTimeZone * marketTimeZone;
-@property struct { double x1; double x2; unsigned long long x3; }* maxValue;
-@property struct { double x1; double x2; unsigned long long x3; }* minValue;
-@property float previousClosePrice;
-@property Stock * stock;
-@property(readonly) unsigned int stockValueCount;
-@property(readonly) struct { double x1; double x2; unsigned long long x3; }* stockValues;
-@property int yAxisFractionDigits;
+@property (nonatomic) int chartInterval;
+@property (nonatomic) double expirationTime;
+@property (nonatomic) BOOL hasVolume;
+@property (nonatomic, retain) NSArray *interestingIndexes;
+@property (nonatomic) BOOL isUnavailable;
+@property (nonatomic, retain) NSDate *marketCloseDate;
+@property (nonatomic, retain) NSDate *marketOpenDate;
+@property (nonatomic, retain) NSTimeZone *marketTimeZone;
+@property (nonatomic) struct { double x1; double x2; unsigned long long x3; }*maxValue;
+@property (nonatomic) struct { double x1; double x2; unsigned long long x3; }*minValue;
+@property (nonatomic) float previousClosePrice;
+@property (nonatomic) Stock *stock;
+@property (readonly) unsigned int stockValueCount;
+@property (readonly) struct { double x1; double x2; unsigned long long x3; }*stockValues;
+@property (nonatomic) int yAxisFractionDigits;
 
 - (void).cxx_destruct;
 - (struct { double x1; double x2; unsigned long long x3; }*)allocateStockValuesWithCount:(unsigned int)arg1;
-- (long long)chartInterval;
+- (int)chartInterval;
 - (void)clearAllImageSets;
 - (void)dealloc;
 - (id)description;
 - (double)expirationTime;
-- (bool)hasVolume;
+- (BOOL)hasVolume;
 - (id)imageSetForDisplayMode:(id)arg1;
-- (id)initWithStock:(id)arg1 interval:(long long)arg2;
+- (id)initWithStock:(id)arg1 interval:(int)arg2;
 - (id)interestingIndexes;
-- (bool)isUnavailable;
-- (long long)labelPlacementForDisplayMode:(id)arg1;
+- (BOOL)isUnavailable;
+- (int)labelPlacementForDisplayMode:(id)arg1;
 - (id)marketCloseDate;
 - (id)marketOpenDate;
 - (id)marketTimeZone;
 - (struct { double x1; double x2; unsigned long long x3; }*)maxValue;
 - (struct { double x1; double x2; unsigned long long x3; }*)minValue;
 - (float)previousClosePrice;
-- (void)setChartInterval:(long long)arg1;
+- (void)setChartInterval:(int)arg1;
 - (void)setExpirationTime:(double)arg1;
-- (void)setHasVolume:(bool)arg1;
+- (void)setHasVolume:(BOOL)arg1;
 - (void)setImageSet:(id)arg1 forDisplayMode:(id)arg2;
 - (void)setInterestingIndexes:(id)arg1;
-- (void)setIsUnavailable:(bool)arg1;
-- (void)setLabelPlacement:(long long)arg1 forDisplayMode:(id)arg2;
+- (void)setIsUnavailable:(BOOL)arg1;
+- (void)setLabelPlacement:(int)arg1 forDisplayMode:(id)arg2;
 - (void)setMarketCloseDate:(id)arg1;
 - (void)setMarketOpenDate:(id)arg1;
 - (void)setMarketTimeZone:(id)arg1;

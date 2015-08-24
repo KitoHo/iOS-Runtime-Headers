@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/CorePDF.framework/CorePDF
  */
 
-@interface CPImageRegion : CPGraphicRegion {
-}
+@interface CPImageRegion : CPGraphicRegion
 
 - (void)accept:(id)arg1;
-- (bool)isImageRegion;
+- (BOOL)isImageRegion;
 
 @end

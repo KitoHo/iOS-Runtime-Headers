@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSData;
-
 @interface GEOOriginalRoute : PBCodable <NSCopying> {
     struct { 
         unsigned int originalRoutePurpose : 1; 
@@ -13,29 +11,29 @@
     NSData *_routeHandle;
 }
 
-@property(readonly) bool hasOriginalDirectionsResponseID;
-@property bool hasOriginalRoutePurpose;
-@property(readonly) bool hasRouteHandle;
-@property(retain) NSData * originalDirectionsResponseID;
-@property int originalRoutePurpose;
-@property(retain) NSData * routeHandle;
+@property (nonatomic, readonly) BOOL hasOriginalDirectionsResponseID;
+@property (nonatomic) BOOL hasOriginalRoutePurpose;
+@property (nonatomic, readonly) BOOL hasRouteHandle;
+@property (nonatomic, retain) NSData *originalDirectionsResponseID;
+@property (nonatomic) int originalRoutePurpose;
+@property (nonatomic, retain) NSData *routeHandle;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasOriginalDirectionsResponseID;
-- (bool)hasOriginalRoutePurpose;
-- (bool)hasRouteHandle;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasOriginalDirectionsResponseID;
+- (BOOL)hasOriginalRoutePurpose;
+- (BOOL)hasRouteHandle;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)originalDirectionsResponseID;
 - (int)originalRoutePurpose;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)routeHandle;
-- (void)setHasOriginalRoutePurpose:(bool)arg1;
+- (void)setHasOriginalRoutePurpose:(BOOL)arg1;
 - (void)setOriginalDirectionsResponseID:(id)arg1;
 - (void)setOriginalRoutePurpose:(int)arg1;
 - (void)setRouteHandle:(id)arg1;

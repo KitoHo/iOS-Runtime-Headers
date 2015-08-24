@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/CameraKit.framework/CameraKit
  */
 
-@class CAMCameraView;
-
 @interface PLPreviewOverlayView : UIView {
     CAMCameraView *cameraView;
 }
 
-@property CAMCameraView * cameraView;
+@property (nonatomic) CAMCameraView *cameraView;
 
 - (id)cameraView;
-- (bool)pointInside:(struct CGPoint { double x1; double x2; })arg1 withEvent:(id)arg2;
+- (BOOL)pointInside:(struct CGPoint { float x1; float x2; })arg1 withEvent:(id)arg2;
 - (void)setCameraView:(id)arg1;
 
 @end

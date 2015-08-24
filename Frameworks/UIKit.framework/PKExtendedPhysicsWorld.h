@@ -2,14 +2,13 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface PKExtendedPhysicsWorld : PKPhysicsWorld {
-}
+@interface PKExtendedPhysicsWorld : PKPhysicsWorld
 
-@property bool debugEnabled;
+@property (nonatomic) BOOL debugEnabled;
 
-- (bool)debugEnabled;
+- (BOOL)debugEnabled;
 - (id)debugPaths;
-- (void)setDebugEnabled:(bool)arg1;
-- (bool)supportsDebug;
+- (void)setDebugEnabled:(BOOL)arg1;
+- (BOOL)supportsDebug;
 
 @end

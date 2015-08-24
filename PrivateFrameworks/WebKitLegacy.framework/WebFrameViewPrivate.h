@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/WebKitLegacy.framework/WebKitLegacy
  */
 
-@class WAKScrollView, WebFrame;
-
 @interface WebFrameViewPrivate : NSObject {
-    boolincludedInWebKitStatistics;
     WAKScrollView *frameScrollView;
+    BOOL includedInWebKitStatistics;
     WebFrame *webFrame;
 }
 

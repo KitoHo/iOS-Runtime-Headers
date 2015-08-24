@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEONameInfo;
-
 @interface GEORouteName : PBCodable <NSCopying> {
     struct { 
         unsigned int lastZilchStitchedIndex : 1; 
@@ -12,28 +10,33 @@
     GEONameInfo *_nameInfo;
 }
 
-@property bool hasLastZilchStitchedIndex;
-@property(readonly) bool hasNameInfo;
-@property int lastZilchStitchedIndex;
-@property(retain) GEONameInfo * nameInfo;
+@property (nonatomic) BOOL hasLastZilchStitchedIndex;
+@property (nonatomic, readonly) BOOL hasNameInfo;
+@property (nonatomic) int lastZilchStitchedIndex;
+@property (nonatomic, retain) GEONameInfo *nameInfo;
 
-- (struct CGImage { }*)_mapKitImage;
+// Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
+
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasLastZilchStitchedIndex;
-- (bool)hasNameInfo;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasLastZilchStitchedIndex;
+- (BOOL)hasNameInfo;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (int)lastZilchStitchedIndex;
 - (void)mergeFrom:(id)arg1;
 - (id)nameInfo;
-- (bool)readFrom:(id)arg1;
-- (void)setHasLastZilchStitchedIndex:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasLastZilchStitchedIndex:(BOOL)arg1;
 - (void)setLastZilchStitchedIndex:(int)arg1;
 - (void)setNameInfo:(id)arg1;
 - (void)writeTo:(id)arg1;
+
+// Image: /System/Library/Frameworks/MapKit.framework/MapKit
+
+- (struct CGImage { }*)_mapKitImage;
 
 @end

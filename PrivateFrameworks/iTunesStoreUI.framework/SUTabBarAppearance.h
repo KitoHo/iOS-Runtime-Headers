@@ -2,41 +2,39 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSMutableDictionary, UIImage;
-
 @interface SUTabBarAppearance : NSObject <NSCopying> {
     UIImage *_backgroundImage;
     UIImage *_dividerImage;
     UIImage *_selectedDividerImage;
     UIImage *_selectionIndicatorImage;
-    double _tabBarButtonSpacing;
-    double _tabBarButtonWidth;
+    float _tabBarButtonSpacing;
+    float _tabBarButtonWidth;
     NSMutableDictionary *_titleTextAttributes;
 }
 
-@property(retain) UIImage * backgroundImage;
-@property(retain) UIImage * dividerImage;
-@property(retain) UIImage * selectedDividerImage;
-@property(retain) UIImage * selectionIndicatorImage;
-@property double tabBarButtonSpacing;
-@property double tabBarButtonWidth;
+@property (nonatomic, retain) UIImage *backgroundImage;
+@property (nonatomic, retain) UIImage *dividerImage;
+@property (nonatomic, retain) UIImage *selectedDividerImage;
+@property (nonatomic, retain) UIImage *selectionIndicatorImage;
+@property (nonatomic) float tabBarButtonSpacing;
+@property (nonatomic) float tabBarButtonWidth;
 
 - (id)backgroundImage;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)dividerImage;
-- (void)enumerateTitleTextAttributesUsingBlock:(id)arg1;
+- (void)enumerateTitleTextAttributesUsingBlock:(id /* block */)arg1;
 - (id)selectedDividerImage;
 - (id)selectionIndicatorImage;
 - (void)setBackgroundImage:(id)arg1;
 - (void)setDividerImage:(id)arg1;
 - (void)setSelectedDividerImage:(id)arg1;
 - (void)setSelectionIndicatorImage:(id)arg1;
-- (void)setTabBarButtonSpacing:(double)arg1;
-- (void)setTabBarButtonWidth:(double)arg1;
-- (void)setTitleTextAttributes:(id)arg1 forState:(unsigned long long)arg2;
-- (double)tabBarButtonSpacing;
-- (double)tabBarButtonWidth;
-- (id)titleTextAttributesForState:(unsigned long long)arg1;
+- (void)setTabBarButtonSpacing:(float)arg1;
+- (void)setTabBarButtonWidth:(float)arg1;
+- (void)setTitleTextAttributes:(id)arg1 forState:(unsigned int)arg2;
+- (float)tabBarButtonSpacing;
+- (float)tabBarButtonWidth;
+- (id)titleTextAttributesForState:(unsigned int)arg1;
 
 @end

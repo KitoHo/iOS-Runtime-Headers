@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class EDResources, OADGraphicProperties;
-
 @interface CHDDataLabel : NSObject {
-    boolmIsPositionAffineTransform;
-    boolmShowBubbleSize;
-    boolmShowCategoryName;
-    boolmShowLeaderLines;
-    boolmShowLegendKey;
-    boolmShowPercent;
-    boolmShowSeriesName;
-    boolmShowValue;
-    unsigned long long mContentFormatId;
+    unsigned int mContentFormatId;
     OADGraphicProperties *mGraphicProperties;
+    bool mIsPositionAffineTransform;
     int mPosition;
     EDResources *mResources;
     double mRotation;
-    unsigned long long mStringIndex;
+    bool mShowBubbleSize;
+    bool mShowCategoryName;
+    bool mShowLeaderLines;
+    bool mShowLegendKey;
+    bool mShowPercent;
+    bool mShowSeriesName;
+    bool mShowValue;
+    unsigned int mStringIndex;
 }
 
 + (id)dataLabelWithResources:(id)arg1;
 
 - (id)contentFormat;
-- (unsigned long long)contentFormatId;
+- (unsigned int)contentFormatId;
 - (void)dealloc;
 - (id)graphicProperties;
 - (id)initWithResources:(id)arg1;
@@ -39,7 +37,7 @@
 - (int)position;
 - (double)rotationAngle;
 - (void)setContentFormat:(id)arg1;
-- (void)setContentFormatId:(unsigned long long)arg1;
+- (void)setContentFormatId:(unsigned int)arg1;
 - (void)setGraphicProperties:(id)arg1;
 - (void)setIsPositionAffineTransform:(bool)arg1;
 - (void)setPosition:(int)arg1;
@@ -52,8 +50,8 @@
 - (void)setShowSeriesName:(bool)arg1;
 - (void)setShowValue:(bool)arg1;
 - (void)setString:(id)arg1;
-- (void)setStringIndex:(unsigned long long)arg1;
+- (void)setStringIndex:(unsigned int)arg1;
 - (id)string;
-- (unsigned long long)stringIndex;
+- (unsigned int)stringIndex;
 
 @end

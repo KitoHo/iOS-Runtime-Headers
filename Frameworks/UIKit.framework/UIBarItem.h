@@ -2,43 +2,41 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString, UIImage;
-
 @interface UIBarItem : NSObject <UIAppearance> {
-    bool_hasCustomizableInstanceAppearanceModifications;
-    bool_shouldArchiveUIAppearanceTags;
+    BOOL _hasCustomizableInstanceAppearanceModifications;
+    BOOL _shouldArchiveUIAppearanceTags;
 }
 
-@property(setter=_setHasCustomizableInstanceAppearanceModifications:) bool _hasCustomizableInstanceAppearanceModifications;
-@property(setter=_setShouldArchiveUIAppearanceTags:) bool _shouldArchiveUIAppearanceTags;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(getter=isEnabled) bool enabled;
-@property(readonly) unsigned long long hash;
-@property(retain) UIImage * image;
-@property struct UIEdgeInsets { double x1; double x2; double x3; double x4; } imageInsets;
-@property(retain) UIImage * landscapeImagePhone;
-@property struct UIEdgeInsets { double x1; double x2; double x3; double x4; } landscapeImagePhoneInsets;
-@property(readonly) Class superclass;
-@property long long tag;
-@property(copy) NSString * title;
+@property (setter=_setHasCustomizableInstanceAppearanceModifications:, nonatomic) BOOL _hasCustomizableInstanceAppearanceModifications;
+@property (setter=_setShouldArchiveUIAppearanceTags:, nonatomic) BOOL _shouldArchiveUIAppearanceTags;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (getter=isEnabled, nonatomic) BOOL enabled;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) UIImage *image;
+@property (nonatomic) struct UIEdgeInsets { float x1; float x2; float x3; float x4; } imageInsets;
+@property (nonatomic, retain) UIImage *landscapeImagePhone;
+@property (nonatomic) struct UIEdgeInsets { float x1; float x2; float x3; float x4; } landscapeImagePhoneInsets;
+@property (readonly) Class superclass;
+@property (nonatomic) int tag;
+@property (nonatomic, copy) NSString *title;
 
 + (id)_appearanceBlindViewClasses;
 + (id)_appearanceRecorder;
 + (id)_appearanceRecorderWhenContainedIn:(Class)arg1;
 + (id)_appearanceWhenContainedIn:(id)arg1;
 + (id)appearance;
-+ (id)appearanceForTraitCollection:(id)arg1 whenContainedIn:(Class)arg2;
 + (id)appearanceForTraitCollection:(id)arg1;
++ (id)appearanceForTraitCollection:(id)arg1 whenContainedIn:(Class)arg2;
 + (id)appearanceWhenContainedIn:(Class)arg1;
 
-- (bool)_hasCustomizableInstanceAppearanceModifications;
-- (void)_setHasCustomizableInstanceAppearanceModifications:(bool)arg1;
-- (void)_setShouldArchiveUIAppearanceTags:(bool)arg1;
-- (bool)_shouldArchiveUIAppearanceTags;
+- (BOOL)_hasCustomizableInstanceAppearanceModifications;
+- (void)_setHasCustomizableInstanceAppearanceModifications:(BOOL)arg1;
+- (void)_setShouldArchiveUIAppearanceTags:(BOOL)arg1;
+- (BOOL)_shouldArchiveUIAppearanceTags;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)setTitleTextAttributes:(id)arg1 forState:(unsigned long long)arg2;
-- (id)titleTextAttributesForState:(unsigned long long)arg1;
+- (void)setTitleTextAttributes:(id)arg1 forState:(unsigned int)arg2;
+- (id)titleTextAttributesForState:(unsigned int)arg1;
 
 @end

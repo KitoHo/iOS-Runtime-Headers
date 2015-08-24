@@ -2,32 +2,36 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class NSAttributedString, NSMutableArray, UILabel;
-
 @interface MKPlaceAttributionCell : ABContactCell {
     UILabel *_label;
+    NSArray *_marginConstraints;
     NSMutableArray *_scaledConstraints;
 }
 
-@property(retain) NSAttributedString * attributionString;
-@property(retain) UILabel * label;
-@property(retain) NSMutableArray * scaledConstraints;
+@property (nonatomic, retain) NSAttributedString *attributionString;
+@property (nonatomic, retain) UILabel *label;
+@property (nonatomic, retain) NSArray *marginConstraints;
+@property (nonatomic, retain) NSMutableArray *scaledConstraints;
 
 + (id)fontForLabel;
-+ (double)intrinsicContentHeight;
++ (float)intrinsicContentHeight;
 
 - (void).cxx_destruct;
 - (id)attributionString;
 - (void)contentSizeDidChange;
 - (void)dealloc;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (id)label;
+- (void)layoutMarginsDidChange;
+- (id)marginConstraints;
+- (void)refreshMarginConstraints;
 - (id)scaledConstraints;
 - (void)setAttributionString:(id)arg1;
 - (void)setLabel:(id)arg1;
+- (void)setMarginConstraints:(id)arg1;
 - (void)setScaledConstraints:(id)arg1;
 - (void)tintColorDidChange;
 - (void)updateConstraints;
-- (id)updatedAttributionStringFromString:(id)arg1 updateColorOnly:(bool)arg2;
+- (id)updatedAttributionStringFromString:(id)arg1 updateColorOnly:(BOOL)arg2;
 
 @end

@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/AccountsUI.framework/AccountsUI
  */
 
-@class ACUILinkButton;
-
 @interface _ACUILinkButtonFooterView : UIView <PSHeaderFooterView> {
-    long long _desiredTextAlignment;
+    int _desiredTextAlignment;
     ACUILinkButton *_linkButton;
 }
 
 - (void).cxx_destruct;
 - (id)initWithSpecifier:(id)arg1;
 - (void)layoutSubviews;
-- (double)preferredHeightForWidth:(double)arg1;
+- (float)preferredHeightForWidth:(float)arg1;
 
 @end

@@ -2,15 +2,13 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSArray, NSSQLAdapter, NSSQLStatement;
-
 @interface NSSQLConnection : NSObject {
     NSSQLAdapter *_adapter;
     NSArray *_columnsToFetch;
     NSArray *_metadataColumns;
     NSSQLStatement *_sqlStatement;
-    bool_transactionIsOpen;
-    bool_useSyntaxColoredLogging;
+    BOOL _transactionIsOpen;
+    BOOL _useSyntaxColoredLogging;
 }
 
 + (void)initialize;
@@ -25,7 +23,10 @@
 - (void)awake;
 - (void)beginTransaction;
 - (void)bindTempTableForBindIntarray:(id)arg1;
-- (bool)canConnect;
+- (void)cacheStatement:(id)arg1 forRequestWithIdentifier:(id)arg2;
+- (id)cachedStatementForRequestWithIdentifier:(id)arg1;
+- (BOOL)canConnect;
+- (void)clearCachedStatementForRequestWithIdentifier:(id)arg1;
 - (id)columnsToFetch;
 - (void)commitTransaction;
 - (void)connect;
@@ -35,13 +36,14 @@
 - (id)createMapOfEntityNameToPKMaxForEntitiesFromPKTable:(id)arg1;
 - (id)createMapOfEntityNameToPKMaxForEntitiesFromUBRangeTable:(id)arg1;
 - (void)createMetadata;
-- (void)createPrimaryKeyTableForModel:(id)arg1 knownEmpty:(bool)arg2;
+- (void)createPrimaryKeyTableForModel:(id)arg1 knownEmpty:(BOOL)arg2;
 - (void)createSchema;
 - (void)createTableForEntity:(id)arg1;
 - (void)createTablesForEntities:(id)arg1;
-- (bool)databaseIsEmpty;
+- (BOOL)databaseIsEmpty;
 - (void)dealloc;
 - (void)deleteRow:(id)arg1;
+- (id)deleteTransactionEntriesAfterPeerState:(id)arg1 forStoreName:(id)arg2;
 - (id)describeResults;
 - (void)didCreateSchema;
 - (void)disconnect;
@@ -58,13 +60,13 @@
 - (void)finalize;
 - (void)forceTransactionClosed;
 - (long long)generatePrimaryKeysForEntity:(id)arg1 batch:(unsigned int)arg2;
-- (bool)hasMetadataTable;
-- (bool)hasOpenTransaction;
-- (bool)hasPrimaryKeyTable;
+- (BOOL)hasMetadataTable;
+- (BOOL)hasOpenTransaction;
+- (BOOL)hasPrimaryKeyTable;
 - (id)initWithAdapter:(id)arg1;
 - (void)insertRow:(id)arg1;
-- (bool)isFetchInProgress;
-- (bool)isOpen;
+- (BOOL)isFetchInProgress;
+- (BOOL)isOpen;
 - (id)metadataColumns;
 - (id)newFetchUUIDSForSubentitiesRootedAt:(id)arg1;
 - (id)newFetchedArray;
@@ -76,9 +78,9 @@
 - (void)resetSQLStatement;
 - (void)rollbackTransaction;
 - (void)saveMetadata:(id)arg1;
-- (void)selectAttributes:(id)arg1 fetchRequest:(id)arg2 lock:(bool)arg3 entity:(id)arg4;
+- (void)selectAttributes:(id)arg1 fetchRequest:(id)arg2 lock:(BOOL)arg3 entity:(id)arg4;
 - (void)setColumnsToFetch:(id)arg1;
-- (void)setExclusiveLockingMode:(bool)arg1;
+- (void)setExclusiveLockingMode:(BOOL)arg1;
 - (void)setUbiquityTableValue:(id)arg1 forKey:(id)arg2;
 - (void)sleep;
 - (id)sqlStatement;

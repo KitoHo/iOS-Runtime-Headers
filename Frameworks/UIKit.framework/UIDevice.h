@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString, NSUUID;
-
 @interface UIDevice : NSObject {
+    float _batteryLevel;
     struct { 
         unsigned int batteryMonitoringEnabled : 1; 
         unsigned int proximityMonitoringEnabled : 1; 
@@ -12,85 +11,98 @@
         unsigned int orientation : 3; 
         unsigned int batteryState : 2; 
         unsigned int proximityState : 1; 
-    float _batteryLevel;
     } _deviceFlags;
-    long long _numDeviceOrientationObservers;
+    int _numDeviceOrientationObservers;
 }
 
-@property(setter=_setBacklightLevel:) float _backlightLevel;
-@property(readonly) float batteryLevel;
-@property(getter=isBatteryMonitoringEnabled) bool batteryMonitoringEnabled;
-@property(readonly) long long batteryState;
-@property(retain,readonly) NSString * buildVersion;
-@property(getter=isGeneratingDeviceOrientationNotifications,readonly) bool generatesDeviceOrientationNotifications;
-@property(retain,readonly) NSUUID * identifierForVendor;
-@property(retain,readonly) NSString * localizedModel;
-@property(retain,readonly) NSString * model;
-@property(getter=isMultitaskingSupported,readonly) bool multitaskingSupported;
-@property(retain,readonly) NSString * name;
-@property long long orientation;
-@property(readonly) long long orientation;
-@property(getter=isProximityMonitoringEnabled) bool proximityMonitoringEnabled;
-@property(readonly) bool proximityState;
-@property(retain,readonly) NSString * systemName;
-@property(retain,readonly) NSString * systemVersion;
-@property(readonly) long long userInterfaceIdiom;
+@property (setter=_setBacklightLevel:, nonatomic) float _backlightLevel;
+@property (nonatomic, readonly) float batteryLevel;
+@property (getter=isBatteryMonitoringEnabled, nonatomic) BOOL batteryMonitoringEnabled;
+@property (nonatomic, readonly) int batteryState;
+@property (nonatomic, readonly, retain) NSString *buildVersion;
+@property (getter=isGeneratingDeviceOrientationNotifications, nonatomic, readonly) BOOL generatesDeviceOrientationNotifications;
+@property (nonatomic, readonly, retain) NSUUID *identifierForVendor;
+@property (nonatomic, readonly, retain) NSString *localizedModel;
+@property (nonatomic, readonly, retain) NSString *model;
+@property (getter=isMultitaskingSupported, nonatomic, readonly) BOOL multitaskingSupported;
+@property (nonatomic, readonly, retain) NSString *name;
+@property (nonatomic) int orientation;
+@property (nonatomic, readonly) int orientation;
+@property (getter=isProximityMonitoringEnabled, nonatomic) BOOL proximityMonitoringEnabled;
+@property (nonatomic, readonly) BOOL proximityState;
+@property (nonatomic, readonly, retain) NSString *systemName;
+@property (nonatomic, readonly, retain) NSString *systemVersion;
+@property (nonatomic, readonly) int userInterfaceIdiom;
 
+// Image: /System/Library/Frameworks/UIKit.framework/UIKit
+
++ (BOOL)_isWatch;
++ (BOOL)_isWatchCompanion;
 + (id)currentDevice;
-+ (long long)currentDeviceOrientationAllowingAmbiguous:(bool)arg1;
++ (int)currentDeviceOrientationAllowingAmbiguous:(BOOL)arg1;
 + (id)modelSpecificLocalizedStringKeyForKey:(id)arg1;
-+ (id)platformString;
-+ (id)platformString;
 
 - (float)_backlightLevel;
 - (void)_clearGraphicsQualityOverride;
-- (id)_currentProduct;
 - (id)_deviceInfoForKey:(struct __CFString { }*)arg1;
-- (id)_deviceInfoForKey:(struct __CFString { }*)arg1;
-- (void)_enableDeviceOrientationEvents:(bool)arg1;
-- (long long)_graphicsQuality;
-- (long long)_graphicsQualityIncludingMediumN41:(bool)arg1;
-- (bool)_hasGraphicsQualityOverride;
-- (bool)_isTTYEnabled;
-- (long long)_keyboardGraphicsQuality;
-- (id)_mediumQualityProductsIncludingN41:(bool)arg1;
-- (void)_playSystemSound:(unsigned int)arg1;
-- (long long)_predictionGraphicsQuality;
+- (void)_enableDeviceOrientationEvents:(BOOL)arg1;
+- (int)_graphicsQuality;
+- (BOOL)_hasGraphicsQualityOverride;
+- (BOOL)_isTTYEnabled;
+- (int)_keyboardGraphicsQuality;
+- (void)_playSystemSound:(unsigned long)arg1;
+- (int)_predictionGraphicsQuality;
 - (void)_registerForSystemSounds:(id)arg1;
-- (void)_setActiveUserInterfaceIdiom:(long long)arg1;
+- (void)_setActiveUserInterfaceIdiom:(int)arg1;
 - (void)_setBacklightLevel:(float)arg1;
 - (void)_setBatteryLevel:(float)arg1;
-- (void)_setBatteryState:(long long)arg1;
-- (void)_setExpectsFaceContactInLandscape:(bool)arg1;
-- (void)_setGraphicsQualityOverride:(long long)arg1;
-- (void)_setProximityState:(bool)arg1;
+- (void)_setBatteryState:(int)arg1;
+- (void)_setExpectsFaceContactInLandscape:(BOOL)arg1;
+- (void)_setGraphicsQualityOverride:(int)arg1;
+- (void)_setProximityState:(BOOL)arg1;
 - (float)_softwareDimmingAlpha;
 - (void)_unregisterForSystemSounds:(id)arg1;
 - (void)_updateSystemSoundActiveStatus:(id)arg1;
 - (float)batteryLevel;
-- (long long)batteryState;
+- (int)batteryState;
 - (void)beginGeneratingDeviceOrientationNotifications;
 - (id)buildVersion;
 - (void)endGeneratingDeviceOrientationNotifications;
 - (id)identifierForVendor;
-- (bool)isBatteryMonitoringEnabled;
-- (bool)isGeneratingDeviceOrientationNotifications;
-- (bool)isMultitaskingSupported;
-- (bool)isProximityMonitoringEnabled;
+- (BOOL)isBatteryMonitoringEnabled;
+- (BOOL)isGeneratingDeviceOrientationNotifications;
+- (BOOL)isMultitaskingSupported;
+- (BOOL)isProximityMonitoringEnabled;
 - (id)localizedModel;
 - (id)model;
 - (id)name;
-- (long long)orientation;
+- (int)orientation;
 - (void)playInputClick;
-- (bool)proximityState;
-- (long long)sbf_bannerGraphicsQuality;
-- (long long)sbf_controlCenterGraphicsQuality;
-- (void)setBatteryMonitoringEnabled:(bool)arg1;
-- (void)setOrientation:(long long)arg1 animated:(bool)arg2;
-- (void)setOrientation:(long long)arg1;
-- (void)setProximityMonitoringEnabled:(bool)arg1;
+- (BOOL)proximityState;
+- (void)setBatteryMonitoringEnabled:(BOOL)arg1;
+- (void)setOrientation:(int)arg1;
+- (void)setOrientation:(int)arg1 animated:(BOOL)arg2;
+- (void)setProximityMonitoringEnabled:(BOOL)arg1;
 - (id)systemName;
 - (id)systemVersion;
-- (long long)userInterfaceIdiom;
+- (id)uniqueIdentifier;
+- (int)userInterfaceIdiom;
+
+// Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
+
++ (id)platformString;
+
+// Image: /System/Library/PrivateFrameworks/SpringBoardFoundation.framework/SpringBoardFoundation
+
+- (id)_currentProduct;
+- (id)_deviceInfoForKey:(struct __CFString { }*)arg1;
+- (int)_graphicsQualityIncludingMediumN41:(BOOL)arg1;
+- (id)_mediumQualityProductsIncludingN41:(BOOL)arg1;
+- (int)sbf_bannerGraphicsQuality;
+- (int)sbf_controlCenterGraphicsQuality;
+
+// Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
+
++ (id)platformString;
 
 @end

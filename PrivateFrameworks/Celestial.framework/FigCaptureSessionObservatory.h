@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class NSHashTable, NSMapTable, NSObject<OS_dispatch_queue>;
-
 @interface FigCaptureSessionObservatory : NSObject {
     NSMapTable *_captureSessionsStorage;
     long long _lastRunningIdentifier;
@@ -15,7 +13,7 @@
 + (id)sharedObservatory;
 
 - (void)_registerObserver:(id)arg1;
-- (void)_setRunning:(bool)arg1 forCaptureSession:(struct OpaqueFigCaptureSession { }*)arg2;
+- (void)_setRunning:(BOOL)arg1 forCaptureSession:(struct OpaqueFigCaptureSession { }*)arg2;
 - (void)captureSessionWasCreated:(void*)arg1;
 - (void)dealloc;
 - (id)init;

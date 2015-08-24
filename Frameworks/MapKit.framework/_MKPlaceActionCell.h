@@ -2,24 +2,28 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class NSMutableArray, UILabel;
-
 @interface _MKPlaceActionCell : UITableViewCell {
+    NSArray *_marginConstraints;
     NSMutableArray *_scaledConstraints;
     UILabel *_titleLabel;
 }
 
-@property(retain) NSMutableArray * scaledConstraints;
-@property(retain) UILabel * titleLabel;
+@property (nonatomic, retain) NSArray *marginConstraints;
+@property (nonatomic, retain) NSMutableArray *scaledConstraints;
+@property (nonatomic, retain) UILabel *titleLabel;
 
 + (id)fontForLabel;
-+ (double)intrinsicContentHeight;
++ (float)intrinsicContentHeight;
 
 - (void).cxx_destruct;
 - (void)contentSizeDidChange;
 - (void)dealloc;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (void)layoutMarginsDidChange;
+- (id)marginConstraints;
+- (void)refreshMarginConstraints;
 - (id)scaledConstraints;
+- (void)setMarginConstraints:(id)arg1;
 - (void)setScaledConstraints:(id)arg1;
 - (void)setTitleLabel:(id)arg1;
 - (void)tintColorDidChange;

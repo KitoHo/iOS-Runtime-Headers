@@ -2,57 +2,47 @@
    Image: /System/Library/PrivateFrameworks/MediaRemote.framework/MediaRemote
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSData, NSDictionary, NSMutableDictionary;
-
 @interface MRMediaRemoteOriginClient : NSObject {
-    id _commandHandlerBlock;
+    BOOL _canBeNowPlayingApp;
+    id /* block */ _commandHandlerBlock;
     NSMutableDictionary *_commandHandlerBlocks;
+    BOOL _isOverrideApp;
+    BOOL _keepAlive;
     int _notifyDidLaunchToken;
     int _notifyRestoreClientStateForLaunch;
-    NSData *_nowPlayingArtworkData;
+    MRNowPlayingArtwork *_nowPlayingArtwork;
     NSDictionary *_nowPlayingInfo;
     struct _MROrigin { } *_origin;
-    id _playbackStateRequestHandler;
     unsigned int _routeDiscoveryMode;
-    bool_canBeNowPlayingApp;
-    bool_isOverrideApp;
-    bool_keepAlive;
 }
 
-@property bool canBeNowPlayingApp;
-@property(copy,readonly) NSArray * commandHandlerBlocks;
-@property bool isOverrideApp;
-@property bool keepAlive;
-@property(retain) NSData * nowPlayingArtworkData;
-@property(retain) NSDictionary * nowPlayingInfo;
-@property(readonly) struct _MROrigin { }* origin;
-@property(copy) id playbackStateRequestHandler;
-@property unsigned int routeDiscoveryMode;
+@property (nonatomic) BOOL canBeNowPlayingApp;
+@property (nonatomic, readonly, copy) NSArray *commandHandlerBlocks;
+@property (nonatomic) BOOL isOverrideApp;
+@property (nonatomic) BOOL keepAlive;
+@property (nonatomic, retain) MRNowPlayingArtwork *nowPlayingArtwork;
+@property (nonatomic, retain) NSDictionary *nowPlayingInfo;
+@property (nonatomic, readonly) struct _MROrigin { }*origin;
+@property (nonatomic) unsigned int routeDiscoveryMode;
 
 - (void)_avSystemControllerServerConnectionDiedNotification:(id)arg1;
-- (void)addCommandHandlerBlock:(id)arg1 forKey:(id)arg2;
-- (bool)canBeNowPlayingApp;
+- (void)addCommandHandlerBlock:(id /* block */)arg1 forKey:(id)arg2;
+- (BOOL)canBeNowPlayingApp;
 - (id)commandHandlerBlocks;
 - (void)dealloc;
 - (id)initWithOrigin:(struct _MROrigin { }*)arg1;
-- (bool)isOverrideApp;
-- (bool)keepAlive;
-- (id)nowPlayingArtworkData;
+- (BOOL)isOverrideApp;
+- (BOOL)keepAlive;
+- (id)nowPlayingArtwork;
 - (id)nowPlayingInfo;
 - (struct _MROrigin { }*)origin;
-- (id)playbackStateRequestHandler;
 - (void)removeCommandHandlerBlockForKey:(id)arg1;
 - (unsigned int)routeDiscoveryMode;
-- (void)setCanBeNowPlayingApp:(bool)arg1;
-- (void)setIsOverrideApp:(bool)arg1;
-- (void)setKeepAlive:(bool)arg1;
-- (void)setNowPlayingArtworkData:(id)arg1;
+- (void)setCanBeNowPlayingApp:(BOOL)arg1;
+- (void)setIsOverrideApp:(BOOL)arg1;
+- (void)setKeepAlive:(BOOL)arg1;
+- (void)setNowPlayingArtwork:(id)arg1;
 - (void)setNowPlayingInfo:(id)arg1;
-- (void)setPlaybackStateRequestHandler:(id)arg1;
 - (void)setRouteDiscoveryMode:(unsigned int)arg1;
 
 @end

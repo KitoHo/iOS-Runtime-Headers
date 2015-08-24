@@ -2,39 +2,35 @@
    Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
  */
 
-@class DOMCSSStyleDeclaration, DOMElement, NSString;
+@interface DOMElement : DOMNode
 
-@interface DOMElement : DOMNode {
-}
-
-@property(readonly) unsigned int childElementCount;
-@property(copy) NSString * className;
-@property(readonly) int clientHeight;
-@property(readonly) int clientLeft;
-@property(readonly) int clientTop;
-@property(readonly) int clientWidth;
-@property(readonly) DOMElement * firstElementChild;
-@property(copy,readonly) NSString * innerText;
-@property(readonly) DOMElement * lastElementChild;
-@property(readonly) DOMElement * mf_containingQuoteBlockElement;
-@property(readonly) bool mf_isContainedInQuoteBlock;
-@property(readonly) bool mf_isContainedInTable;
-@property(readonly) DOMElement * nextElementSibling;
-@property(readonly) int offsetHeight;
-@property(readonly) int offsetLeft;
-@property(readonly) DOMElement * offsetParent;
-@property(readonly) int offsetTop;
-@property(readonly) int offsetWidth;
-@property(readonly) DOMElement * previousElementSibling;
-@property(readonly) int scrollHeight;
+@property (readonly) unsigned int childElementCount;
+@property (copy) NSString *className;
+@property (readonly) int clientHeight;
+@property (readonly) int clientLeft;
+@property (readonly) int clientTop;
+@property (readonly) int clientWidth;
+@property (readonly) DOMElement *firstElementChild;
+@property (readonly, copy) NSString *innerText;
+@property (readonly) DOMElement *lastElementChild;
+@property (readonly) DOMElement *mf_containingQuoteBlockElement;
+@property (readonly) BOOL mf_isContainedInQuoteBlock;
+@property (readonly) BOOL mf_isContainedInTable;
+@property (readonly) DOMElement *nextElementSibling;
+@property (readonly) int offsetHeight;
+@property (readonly) int offsetLeft;
+@property (readonly) DOMElement *offsetParent;
+@property (readonly) int offsetTop;
+@property (readonly) int offsetWidth;
+@property (readonly) DOMElement *previousElementSibling;
+@property (readonly) int scrollHeight;
 @property int scrollLeft;
 @property int scrollTop;
-@property(readonly) int scrollWidth;
-@property(readonly) DOMCSSStyleDeclaration * style;
-@property(copy,readonly) NSString * tagName;
+@property (readonly) int scrollWidth;
+@property (readonly) DOMCSSStyleDeclaration *style;
+@property (readonly, copy) NSString *tagName;
 
-+ (id)_DOMElementFromJSContext:(struct OpaqueJSContext { }*)arg1 value:(struct OpaqueJSValue { }*)arg2;
-+ (bool)isRichTextStyle:(id)arg1;
+// Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
 
 - (struct __CTFont { }*)_font;
 - (id)_getURLAttribute:(id)arg1;
@@ -46,7 +42,6 @@
 - (int)clientLeft;
 - (int)clientTop;
 - (int)clientWidth;
-- (bool)exceedsStructuralComplexity:(int)arg1;
 - (id)firstElementChild;
 - (void)focus;
 - (id)getAttribute:(id)arg1;
@@ -59,28 +54,13 @@
 - (id)getElementsByTagName:(id)arg1;
 - (id)getElementsByTagNameNS:(id)arg1 :(id)arg2;
 - (id)getElementsByTagNameNS:(id)arg1 localName:(id)arg2;
-- (void)getTextWritingDirection:(long long*)arg1 override:(bool*)arg2;
-- (bool)hasAttribute:(id)arg1;
-- (bool)hasAttributeNS:(id)arg1 :(id)arg2;
-- (bool)hasAttributeNS:(id)arg1 localName:(id)arg2;
-- (bool)hasCustomLineHeight;
-- (bool)hasMarginsOfZero;
-- (bool)inDocument;
+- (BOOL)hasAttribute:(id)arg1;
+- (BOOL)hasAttributeNS:(id)arg1 :(id)arg2;
+- (BOOL)hasAttributeNS:(id)arg1 localName:(id)arg2;
 - (id)innerText;
-- (bool)isFocused;
-- (bool)isHidden;
-- (bool)isRichTextElement;
-- (bool)isRichTextElementType;
+- (BOOL)isFocused;
 - (id)lastElementChild;
-- (bool)matches:(id)arg1;
-- (id)mf_computedBackgroundColor;
-- (id)mf_containingQuoteBlockElement;
-- (bool)mf_hasBackgroundColorOrImage;
-- (bool)mf_isContainedInAnyElementInSet:(id)arg1;
-- (bool)mf_isContainedInQuoteBlock;
-- (bool)mf_isContainedInTable;
-- (int)mf_quoteLevelDelta;
-- (void)mf_stripCSSStyle;
+- (BOOL)matches:(id)arg1;
 - (id)nextElementSibling;
 - (int)offsetHeight;
 - (int)offsetLeft;
@@ -90,7 +70,6 @@
 - (id)previousElementSibling;
 - (id)querySelector:(id)arg1;
 - (id)querySelectorAll:(id)arg1;
-- (void)recursivelyRemoveMailAttributes;
 - (void)remove;
 - (void)removeAttribute:(id)arg1;
 - (void)removeAttributeNS:(id)arg1 :(id)arg2;
@@ -99,12 +78,11 @@
 - (void)scrollByLines:(int)arg1;
 - (void)scrollByPages:(int)arg1;
 - (int)scrollHeight;
-- (void)scrollIntoView:(bool)arg1;
-- (void)scrollIntoViewIfNeeded:(bool)arg1;
+- (void)scrollIntoView:(BOOL)arg1;
+- (void)scrollIntoViewIfNeeded:(BOOL)arg1;
 - (int)scrollLeft;
 - (int)scrollTop;
 - (int)scrollWidth;
-- (bool)selectable;
 - (void)setAttribute:(id)arg1 :(id)arg2;
 - (void)setAttribute:(id)arg1 value:(id)arg2;
 - (void)setAttributeNS:(id)arg1 :(id)arg2 :(id)arg3;
@@ -117,9 +95,39 @@
 - (int)structuralComplexityContribution;
 - (id)style;
 - (id)tagName;
-- (id)tapHighlightColor;
-- (bool)touchCalloutEnabled;
-- (bool)webkitMatchesSelector:(id)arg1;
+- (BOOL)webkitMatchesSelector:(id)arg1;
 - (id)webkitRegionOverset;
+
+// Image: /System/Library/Frameworks/MessageUI.framework/MessageUI
+
++ (BOOL)isRichTextStyle:(id)arg1;
+
+- (BOOL)hasMarginsOfZero;
+- (BOOL)isRichTextElement;
+- (BOOL)isRichTextElementType;
+- (id)mf_computedBackgroundColor;
+- (id)mf_containingQuoteBlockElement;
+- (BOOL)mf_hasBackgroundColorOrImage;
+- (BOOL)mf_isContainedInAnyElementInSet:(id)arg1;
+- (BOOL)mf_isContainedInQuoteBlock;
+- (BOOL)mf_isContainedInTable;
+- (int)mf_quoteLevelDelta;
+- (void)mf_stripCSSStyle;
+- (void)recursivelyRemoveMailAttributes;
+
+// Image: /System/Library/Frameworks/UIKit.framework/UIKit
+
+- (BOOL)exceedsStructuralComplexity:(int)arg1;
+- (void)getTextWritingDirection:(int*)arg1 override:(BOOL*)arg2;
+- (BOOL)hasCustomLineHeight;
+- (BOOL)inDocument;
+- (BOOL)isHidden;
+- (BOOL)selectable;
+- (id)tapHighlightColor;
+- (BOOL)touchCalloutEnabled;
+
+// Image: /System/Library/PrivateFrameworks/WebKitLegacy.framework/WebKitLegacy
+
++ (id)_DOMElementFromJSContext:(struct OpaqueJSContext { }*)arg1 value:(struct OpaqueJSValue { }*)arg2;
 
 @end

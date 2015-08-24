@@ -2,13 +2,10 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, SAHAFilter;
+@interface SAHACommand : SADomainCommand
 
-@interface SAHACommand : SADomainCommand {
-}
-
-@property(copy) NSArray * actions;
-@property(retain) SAHAFilter * filter;
+@property (nonatomic, copy) NSArray *actions;
+@property (nonatomic, retain) SAHAFilter *filter;
 
 + (id)command;
 + (id)commandWithDictionary:(id)arg1 context:(id)arg2;
@@ -17,7 +14,7 @@
 - (id)encodedClassName;
 - (id)filter;
 - (id)groupIdentifier;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setActions:(id)arg1;
 - (void)setFilter:(id)arg1;
 

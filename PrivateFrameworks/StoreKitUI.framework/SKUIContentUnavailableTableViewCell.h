@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSString, _UIContentUnavailableView;
-
 @interface SKUIContentUnavailableTableViewCell : SKUITableViewCell {
     _UIContentUnavailableView *_view;
 }
 
-@property(copy) NSString * message;
-@property(copy) NSString * title;
+@property (nonatomic, copy) NSString *message;
+@property (nonatomic, copy) NSString *title;
 
 - (void).cxx_destruct;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (void)layoutSubviews;
 - (id)message;
 - (void)setMessage:(id)arg1;

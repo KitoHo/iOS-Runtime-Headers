@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSDictionary, NSMappedObjectStore, NSString;
-
 @interface NSPersistentStoreMap : NSObject {
     NSString *_databaseUUID;
     NSDictionary *_mappings;
@@ -17,7 +15,7 @@
 - (unsigned long long)_cheatAndLookAtCurrentValueOfnextPK64;
 - (void)_setMetadata:(id)arg1;
 - (id)_storeMetadataForSaving;
-- (id)_updatedMetadataWithSeed:(id)arg1 includeVersioning:(bool)arg2;
+- (id)_updatedMetadataWithSeed:(id)arg1 includeVersioning:(BOOL)arg2;
 - (void)addObject:(id)arg1 objectIDMap:(id)arg2;
 - (id)configurationName;
 - (id)dataForKey:(id)arg1;

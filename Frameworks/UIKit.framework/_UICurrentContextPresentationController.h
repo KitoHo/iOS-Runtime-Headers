@@ -2,14 +2,14 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface _UICurrentContextPresentationController : UIPresentationController {
-}
+@interface _UICurrentContextPresentationController : UIPresentationController
 
-- (struct { long long x1; long long x2; })__sizeClassPair;
+- (struct { int x1; int x2; })__sizeClassPair;
 - (id)_firstCurrentContextChildInWindow;
-- (bool)_shouldRespectDefinesPresentationContext;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })frameOfPresentedViewInContainerView;
-- (bool)shouldPresentInFullscreen;
-- (bool)shouldRemovePresentersView;
+- (BOOL)_shouldRespectDefinesPresentationContext;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })frameOfPresentedViewInContainerView;
+- (int)presentationStyle;
+- (BOOL)shouldPresentInFullscreen;
+- (BOOL)shouldRemovePresentersView;
 
 @end

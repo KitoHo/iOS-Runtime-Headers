@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOPDCanonicalLocationSearchResult, GEOPDGeocodingResult, GEOPDLocationDirectedSearchResult, GEOPDMerchantLookupResult, GEOPDPlaceLookupResult, GEOPDPlaceRefinementResult, GEOPDReverseGeocodingResult, GEOPDSearchResult, GEOPDSiriSearchResult;
-
 @interface GEOPDPlaceGlobalResult : PBCodable <NSCopying> {
+    GEOPDAutocompleteResult *_autocompleteResult;
     GEOPDCanonicalLocationSearchResult *_canonicalSearchResult;
     GEOPDGeocodingResult *_geocodingResult;
     GEOPDLocationDirectedSearchResult *_locationDirectedSearchResult;
@@ -16,25 +15,28 @@
     GEOPDSiriSearchResult *_siriSearchResult;
 }
 
-@property(retain) GEOPDCanonicalLocationSearchResult * canonicalSearchResult;
-@property(retain) GEOPDGeocodingResult * geocodingResult;
-@property(readonly) bool hasCanonicalSearchResult;
-@property(readonly) bool hasGeocodingResult;
-@property(readonly) bool hasLocationDirectedSearchResult;
-@property(readonly) bool hasMerchantLookupResult;
-@property(readonly) bool hasPlaceLookupResult;
-@property(readonly) bool hasPlaceRefinementResult;
-@property(readonly) bool hasReverseGeocodingResult;
-@property(readonly) bool hasSearchResult;
-@property(readonly) bool hasSiriSearchResult;
-@property(retain) GEOPDLocationDirectedSearchResult * locationDirectedSearchResult;
-@property(retain) GEOPDMerchantLookupResult * merchantLookupResult;
-@property(retain) GEOPDPlaceLookupResult * placeLookupResult;
-@property(retain) GEOPDPlaceRefinementResult * placeRefinementResult;
-@property(retain) GEOPDReverseGeocodingResult * reverseGeocodingResult;
-@property(retain) GEOPDSearchResult * searchResult;
-@property(retain) GEOPDSiriSearchResult * siriSearchResult;
+@property (nonatomic, retain) GEOPDAutocompleteResult *autocompleteResult;
+@property (nonatomic, retain) GEOPDCanonicalLocationSearchResult *canonicalSearchResult;
+@property (nonatomic, retain) GEOPDGeocodingResult *geocodingResult;
+@property (nonatomic, readonly) BOOL hasAutocompleteResult;
+@property (nonatomic, readonly) BOOL hasCanonicalSearchResult;
+@property (nonatomic, readonly) BOOL hasGeocodingResult;
+@property (nonatomic, readonly) BOOL hasLocationDirectedSearchResult;
+@property (nonatomic, readonly) BOOL hasMerchantLookupResult;
+@property (nonatomic, readonly) BOOL hasPlaceLookupResult;
+@property (nonatomic, readonly) BOOL hasPlaceRefinementResult;
+@property (nonatomic, readonly) BOOL hasReverseGeocodingResult;
+@property (nonatomic, readonly) BOOL hasSearchResult;
+@property (nonatomic, readonly) BOOL hasSiriSearchResult;
+@property (nonatomic, retain) GEOPDLocationDirectedSearchResult *locationDirectedSearchResult;
+@property (nonatomic, retain) GEOPDMerchantLookupResult *merchantLookupResult;
+@property (nonatomic, retain) GEOPDPlaceLookupResult *placeLookupResult;
+@property (nonatomic, retain) GEOPDPlaceRefinementResult *placeRefinementResult;
+@property (nonatomic, retain) GEOPDReverseGeocodingResult *reverseGeocodingResult;
+@property (nonatomic, retain) GEOPDSearchResult *searchResult;
+@property (nonatomic, retain) GEOPDSiriSearchResult *siriSearchResult;
 
+- (id)autocompleteResult;
 - (id)canonicalSearchResult;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -42,25 +44,27 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)geocodingResult;
-- (bool)hasCanonicalSearchResult;
-- (bool)hasGeocodingResult;
-- (bool)hasLocationDirectedSearchResult;
-- (bool)hasMerchantLookupResult;
-- (bool)hasPlaceLookupResult;
-- (bool)hasPlaceRefinementResult;
-- (bool)hasReverseGeocodingResult;
-- (bool)hasSearchResult;
-- (bool)hasSiriSearchResult;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasAutocompleteResult;
+- (BOOL)hasCanonicalSearchResult;
+- (BOOL)hasGeocodingResult;
+- (BOOL)hasLocationDirectedSearchResult;
+- (BOOL)hasMerchantLookupResult;
+- (BOOL)hasPlaceLookupResult;
+- (BOOL)hasPlaceRefinementResult;
+- (BOOL)hasReverseGeocodingResult;
+- (BOOL)hasSearchResult;
+- (BOOL)hasSiriSearchResult;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)locationDirectedSearchResult;
 - (id)merchantLookupResult;
 - (void)mergeFrom:(id)arg1;
 - (id)placeLookupResult;
 - (id)placeRefinementResult;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)reverseGeocodingResult;
 - (id)searchResult;
+- (void)setAutocompleteResult:(id)arg1;
 - (void)setCanonicalSearchResult:(id)arg1;
 - (void)setGeocodingResult:(id)arg1;
 - (void)setLocationDirectedSearchResult:(id)arg1;

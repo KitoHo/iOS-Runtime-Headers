@@ -2,15 +2,14 @@
    Image: /System/Library/PrivateFrameworks/CloudPhotoLibrary.framework/CloudPhotoLibrary
  */
 
-@interface CPLErrors : NSObject {
-}
+@interface CPLErrors : NSObject
 
-+ (id)cplErrorWithCode:(long long)arg1 description:(id)arg2 arguments:(char *)arg3;
-+ (id)cplErrorWithCode:(long long)arg1 description:(id)arg2;
-+ (id)cplErrorWithCode:(long long)arg1 underlyingError:(id)arg2 description:(id)arg3 arguments:(char *)arg4;
-+ (id)cplErrorWithCode:(long long)arg1 underlyingError:(id)arg2 description:(id)arg3;
-+ (id)cplErrorWithCode:(long long)arg1 underlyingError:(id)arg2 userInfo:(id)arg3 description:(id)arg4 arguments:(char *)arg5;
-+ (id)cplErrorWithCode:(long long)arg1 underlyingError:(id)arg2 userInfo:(id)arg3 description:(id)arg4;
++ (id)cplErrorWithCode:(int)arg1 description:(id)arg2;
++ (id)cplErrorWithCode:(int)arg1 description:(id)arg2 arguments:(void*)arg3;
++ (id)cplErrorWithCode:(int)arg1 underlyingError:(id)arg2 description:(id)arg3;
++ (id)cplErrorWithCode:(int)arg1 underlyingError:(id)arg2 description:(id)arg3 arguments:(void*)arg4;
++ (id)cplErrorWithCode:(int)arg1 underlyingError:(id)arg2 userInfo:(id)arg3 description:(id)arg4;
++ (id)cplErrorWithCode:(int)arg1 underlyingError:(id)arg2 userInfo:(id)arg3 description:(id)arg4 arguments:(void*)arg5;
 + (id)incorrectMachineStateErrorWithReason:(id)arg1;
 + (id)incorrectParametersErrorForParameter:(id)arg1;
 + (id)invalidClientCacheError;

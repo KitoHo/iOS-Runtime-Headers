@@ -2,34 +2,32 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@class <ABPropertyCellDelegate>, ABTransportButton, UILabel;
-
 @interface ABFaceTimeCell : ABLabeledCell {
     <ABPropertyCellDelegate> *_delegate;
     UILabel *_faceTimeLabel;
+    BOOL _isFaceTimeAudioAvailable;
     ABTransportButton *_transportIcon1;
     ABTransportButton *_transportIcon2;
-    bool_isFaceTimeAudioAvailable;
 }
 
-@property <ABPropertyCellDelegate> * delegate;
-@property(readonly) UILabel * faceTimeLabel;
-@property bool isFaceTimeAudioAvailable;
-@property(readonly) ABTransportButton * transportIcon1;
-@property(readonly) ABTransportButton * transportIcon2;
+@property (nonatomic) <ABPropertyCellDelegate> *delegate;
+@property (nonatomic, readonly) UILabel *faceTimeLabel;
+@property (nonatomic) BOOL isFaceTimeAudioAvailable;
+@property (nonatomic, readonly) ABTransportButton *transportIcon1;
+@property (nonatomic, readonly) ABTransportButton *transportIcon2;
 
 - (id)constantConstraints;
 - (void)dealloc;
 - (id)delegate;
 - (id)faceTimeLabel;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
-- (bool)isFaceTimeAudioAvailable;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (BOOL)isFaceTimeAudioAvailable;
 - (id)labelView;
-- (double)minCellHeight;
+- (float)minCellHeight;
 - (void)performDefaultAction;
 - (id)rightMostView;
 - (void)setDelegate:(id)arg1;
-- (void)setIsFaceTimeAudioAvailable:(bool)arg1;
+- (void)setIsFaceTimeAudioAvailable:(BOOL)arg1;
 - (void)tintColorDidChange;
 - (void)transportButtonClicked:(id)arg1;
 - (id)transportIcon1;

@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@interface PSUsageBundleCell : PSTableCell {
-}
+@interface PSUsageBundleCell : PSTableCell
 
-- (bool)canReload;
+- (BOOL)canReload;
 - (void)layoutSubviews;
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
 

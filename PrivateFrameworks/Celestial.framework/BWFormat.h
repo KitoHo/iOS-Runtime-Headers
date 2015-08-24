@@ -2,15 +2,14 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@interface BWFormat : NSObject {
-}
+@interface BWFormat : NSObject
 
-@property(readonly) struct opaqueCMFormatDescription { }* formatDescription;
-@property(readonly) unsigned int mediaType;
+@property (readonly) struct opaqueCMFormatDescription { }*formatDescription;
+@property (readonly) unsigned long mediaType;
 
 + (id)formatByResolvingRequirements:(id)arg1;
 
 - (struct opaqueCMFormatDescription { }*)formatDescription;
-- (unsigned int)mediaType;
+- (unsigned long)mediaType;
 
 @end

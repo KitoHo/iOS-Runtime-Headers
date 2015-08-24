@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/CellularPlanManager.framework/CellularPlanManager
  */
 
-@interface CTCellularPlanError : NSObject {
-}
+@interface CTCellularPlanError : NSObject
 
-+ (id)errorForCode:(long long)arg1 withDescription:(id)arg2;
-+ (id)errorForCode:(long long)arg1;
++ (id)errorForCode:(int)arg1;
++ (id)errorForCode:(int)arg1 withDescription:(id)arg2;
 
 @end

@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSOperationQueue, SKUIClientContext, SKUIRedeemConfiguration;
-
 @interface SKUIRedeemStepViewController : UIViewController {
     SKUIClientContext *_clientContext;
     SKUIRedeemConfiguration *_configuration;
     NSOperationQueue *_operationQueue;
 }
 
-@property(retain) SKUIClientContext * clientContext;
-@property(retain) SKUIRedeemConfiguration * configuration;
-@property(retain) NSOperationQueue * operationQueue;
-@property(readonly) bool shouldShowPassbookLearnMore;
+@property (nonatomic, retain) SKUIClientContext *clientContext;
+@property (nonatomic, retain) SKUIRedeemConfiguration *configuration;
+@property (nonatomic, retain) NSOperationQueue *operationQueue;
+@property (nonatomic, readonly) BOOL shouldShowPassbookLearnMore;
 
 - (void).cxx_destruct;
 - (id)clientContext;
@@ -22,6 +20,6 @@
 - (void)setClientContext:(id)arg1;
 - (void)setConfiguration:(id)arg1;
 - (void)setOperationQueue:(id)arg1;
-- (bool)shouldShowPassbookLearnMore;
+- (BOOL)shouldShowPassbookLearnMore;
 
 @end

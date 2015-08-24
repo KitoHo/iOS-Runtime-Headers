@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/IMFoundation.framework/IMFoundation
  */
 
-@class IMXMLParserContext, IMXMLParserFrame, NSMutableArray, NSString, NSXMLParser;
-
 @interface IMXMLParser : NSObject <NSXMLParserDelegate> {
     IMXMLParserContext *_context;
     struct __CFDictionary { } *_framespace;
@@ -13,17 +11,17 @@
     IMXMLParserFrame *_topFrame;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)sharedInstance;
 
 - (id)_newDataByTidyingData:(id)arg1;
 - (void)_setupTidy;
 - (void)_teardownTidy;
-- (bool)parseContext:(id)arg1;
+- (BOOL)parseContext:(id)arg1;
 - (void)parser:(id)arg1 didEndElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4;
 - (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;
 - (void)parser:(id)arg1 foundCharacters:(id)arg2;

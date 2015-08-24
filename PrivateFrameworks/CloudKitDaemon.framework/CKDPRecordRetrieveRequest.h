@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPRecordIdentifier, CKDPRecordRetrieveRequestRetrieveAssetURL, CKDPRequestedFields, NSString;
-
 @interface CKDPRecordRetrieveRequest : PBRequest <NSCopying> {
     NSString *_clientVersionETag;
     CKDPRecordRetrieveRequestRetrieveAssetURL *_getAssetURL;
@@ -12,16 +10,16 @@
     NSString *_versionETag;
 }
 
-@property(retain) NSString * clientVersionETag;
-@property(retain) CKDPRecordRetrieveRequestRetrieveAssetURL * getAssetURL;
-@property(readonly) bool hasClientVersionETag;
-@property(readonly) bool hasGetAssetURL;
-@property(readonly) bool hasRecordIdentifier;
-@property(readonly) bool hasRequestedFields;
-@property(readonly) bool hasVersionETag;
-@property(retain) CKDPRecordIdentifier * recordIdentifier;
-@property(retain) CKDPRequestedFields * requestedFields;
-@property(retain) NSString * versionETag;
+@property (nonatomic, retain) NSString *clientVersionETag;
+@property (nonatomic, retain) CKDPRecordRetrieveRequestRetrieveAssetURL *getAssetURL;
+@property (nonatomic, readonly) BOOL hasClientVersionETag;
+@property (nonatomic, readonly) BOOL hasGetAssetURL;
+@property (nonatomic, readonly) BOOL hasRecordIdentifier;
+@property (nonatomic, readonly) BOOL hasRequestedFields;
+@property (nonatomic, readonly) BOOL hasVersionETag;
+@property (nonatomic, retain) CKDPRecordIdentifier *recordIdentifier;
+@property (nonatomic, retain) CKDPRequestedFields *requestedFields;
+@property (nonatomic, retain) NSString *versionETag;
 
 + (id)options;
 
@@ -32,15 +30,15 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)getAssetURL;
-- (bool)hasClientVersionETag;
-- (bool)hasGetAssetURL;
-- (bool)hasRecordIdentifier;
-- (bool)hasRequestedFields;
-- (bool)hasVersionETag;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasClientVersionETag;
+- (BOOL)hasGetAssetURL;
+- (BOOL)hasRecordIdentifier;
+- (BOOL)hasRequestedFields;
+- (BOOL)hasVersionETag;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)recordIdentifier;
 - (unsigned int)requestTypeCode;
 - (id)requestedFields;

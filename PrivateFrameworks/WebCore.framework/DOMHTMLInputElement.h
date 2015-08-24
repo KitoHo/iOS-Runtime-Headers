@@ -2,52 +2,42 @@
    Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
  */
 
-@class DOMFileList, DOMHTMLFormElement, NSString, NSURL;
+@interface DOMHTMLInputElement : DOMHTMLElement
 
-@interface DOMHTMLInputElement : DOMHTMLElement {
-}
-
-@property(copy,readonly) NSURL * absoluteImageURL;
-@property(copy) NSString * accept;
-@property(copy) NSString * accessKey;
-@property(copy) NSString * align;
-@property(copy) NSString * alt;
-@property(copy,readonly) NSString * altDisplayString;
-@property bool autofocus;
-@property bool checked;
-@property bool defaultChecked;
-@property(copy) NSString * defaultValue;
-@property bool disabled;
-@property(retain) DOMFileList * files;
-@property(readonly) DOMHTMLFormElement * form;
-@property bool indeterminate;
+@property (readonly, copy) NSURL *absoluteImageURL;
+@property (copy) NSString *accept;
+@property (copy) NSString *accessKey;
+@property (copy) NSString *align;
+@property (copy) NSString *alt;
+@property (readonly, copy) NSString *altDisplayString;
+@property BOOL autofocus;
+@property BOOL checked;
+@property BOOL defaultChecked;
+@property (copy) NSString *defaultValue;
+@property BOOL disabled;
+@property (retain) DOMFileList *files;
+@property (readonly) DOMHTMLFormElement *form;
+@property BOOL indeterminate;
 @property int maxLength;
-@property bool multiple;
-@property(copy) NSString * name;
-@property bool readOnly;
+@property BOOL multiple;
+@property (copy) NSString *name;
+@property BOOL readOnly;
 @property int selectionEnd;
 @property int selectionStart;
-@property(copy) NSString * size;
-@property(copy) NSString * src;
-@property(copy) NSString * type;
-@property(copy) NSString * useMap;
-@property(copy) NSString * value;
-@property(readonly) bool willValidate;
+@property (copy) NSString *size;
+@property (copy) NSString *src;
+@property (copy) NSString *type;
+@property (copy) NSString *useMap;
+@property (copy) NSString *value;
+@property (readonly) BOOL willValidate;
 
-- (void)_accessoryClear;
+// Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
+
 - (int)_autocapitalizeType;
-- (bool)_isAutofilled;
-- (bool)_isEdited;
-- (bool)_isTextField;
-- (bool)_requiresAccessoryView;
-- (bool)_requiresInputView;
-- (void)_setAutofilled:(bool)arg1;
-- (void)_setAutofilled:(bool)arg1;
-- (void)_startAssistingDocumentView:(id)arg1;
-- (void)_stopAssistingDocumentView:(id)arg1;
-- (bool)_supportsAccessoryClear;
-- (bool)_supportsAutoFill;
-- (id)_textFormElement;
+- (BOOL)_isAutofilled;
+- (BOOL)_isEdited;
+- (BOOL)_isTextField;
+- (void)_setAutofilled:(BOOL)arg1;
 - (id)absoluteImageURL;
 - (id)accept;
 - (id)accessKey;
@@ -56,44 +46,35 @@
 - (id)altDisplayString;
 - (id)autocapitalize;
 - (id)autocomplete;
-- (bool)autocorrect;
-- (bool)autofocus;
-- (bool)checkValidity;
-- (bool)checked;
+- (BOOL)autocorrect;
+- (BOOL)autofocus;
+- (BOOL)checkValidity;
+- (BOOL)checked;
 - (void)click;
-- (id)createPeripheral;
-- (bool)defaultChecked;
+- (BOOL)defaultChecked;
 - (id)defaultValue;
 - (id)dirName;
-- (bool)disabled;
-- (id)endPosition;
+- (BOOL)disabled;
 - (id)files;
 - (id)form;
 - (id)formAction;
 - (id)formEnctype;
 - (id)formMethod;
-- (bool)formNoValidate;
+- (BOOL)formNoValidate;
 - (id)formTarget;
 - (unsigned int)height;
-- (bool)incremental;
-- (bool)indeterminate;
-- (bool)isAssistedDateType;
-- (bool)isEditing;
-- (bool)isLikelyToBeginPageLoad;
-- (bool)isSecure;
-- (bool)isTextControl;
-- (long long)keyboardType;
+- (BOOL)incremental;
+- (BOOL)indeterminate;
 - (id)labels;
 - (id)max;
 - (int)maxLength;
 - (id)min;
-- (bool)multiple;
+- (BOOL)multiple;
 - (id)name;
-- (bool)nodeCanBecomeFirstResponder;
 - (id)pattern;
 - (id)placeholder;
-- (bool)readOnly;
-- (bool)required;
+- (BOOL)readOnly;
+- (BOOL)required;
 - (void)select;
 - (id)selectionDirection;
 - (int)selectionEnd;
@@ -104,39 +85,38 @@
 - (void)setAlt:(id)arg1;
 - (void)setAutocapitalize:(id)arg1;
 - (void)setAutocomplete:(id)arg1;
-- (void)setAutocorrect:(bool)arg1;
-- (void)setAutofocus:(bool)arg1;
-- (void)setChecked:(bool)arg1;
+- (void)setAutocorrect:(BOOL)arg1;
+- (void)setAutofocus:(BOOL)arg1;
+- (void)setChecked:(BOOL)arg1;
 - (void)setCustomValidity:(id)arg1;
-- (void)setDefaultChecked:(bool)arg1;
+- (void)setDefaultChecked:(BOOL)arg1;
 - (void)setDefaultValue:(id)arg1;
 - (void)setDirName:(id)arg1;
-- (void)setDisabled:(bool)arg1;
+- (void)setDisabled:(BOOL)arg1;
 - (void)setFiles:(id)arg1;
 - (void)setFormAction:(id)arg1;
 - (void)setFormEnctype:(id)arg1;
 - (void)setFormMethod:(id)arg1;
-- (void)setFormNoValidate:(bool)arg1;
+- (void)setFormNoValidate:(BOOL)arg1;
 - (void)setFormTarget:(id)arg1;
 - (void)setHeight:(unsigned int)arg1;
-- (void)setIncremental:(bool)arg1;
-- (void)setIndeterminate:(bool)arg1;
+- (void)setIncremental:(BOOL)arg1;
+- (void)setIndeterminate:(BOOL)arg1;
 - (void)setMax:(id)arg1;
 - (void)setMaxLength:(int)arg1;
 - (void)setMin:(id)arg1;
-- (void)setMultiple:(bool)arg1;
+- (void)setMultiple:(BOOL)arg1;
 - (void)setName:(id)arg1;
 - (void)setPattern:(id)arg1;
 - (void)setPlaceholder:(id)arg1;
-- (void)setRangeText:(id)arg1 start:(unsigned int)arg2 end:(unsigned int)arg3 selectionMode:(id)arg4;
 - (void)setRangeText:(id)arg1;
-- (void)setReadOnly:(bool)arg1;
-- (void)setRequired:(bool)arg1;
+- (void)setRangeText:(id)arg1 start:(unsigned int)arg2 end:(unsigned int)arg3 selectionMode:(id)arg4;
+- (void)setReadOnly:(BOOL)arg1;
+- (void)setRequired:(BOOL)arg1;
 - (void)setSelectionDirection:(id)arg1;
 - (void)setSelectionEnd:(int)arg1;
 - (void)setSelectionRange:(int)arg1 end:(int)arg2;
 - (void)setSelectionStart:(int)arg1;
-- (void)setSelectionWithPoint:(struct CGPoint { double x1; double x2; })arg1;
 - (void)setSize:(id)arg1;
 - (void)setSrc:(id)arg1;
 - (void)setStep:(id)arg1;
@@ -151,13 +131,10 @@
 - (void)setWidth:(unsigned int)arg1;
 - (id)size;
 - (id)src;
-- (id)startPosition;
 - (id)step;
 - (void)stepDown:(int)arg1;
 - (void)stepUp:(int)arg1;
 - (int)structuralComplexityContribution;
-- (id)text;
-- (id)textInputTraits;
 - (id)type;
 - (id)useMap;
 - (id)validationMessage;
@@ -166,6 +143,34 @@
 - (double)valueAsDate;
 - (double)valueAsNumber;
 - (unsigned int)width;
-- (bool)willValidate;
+- (BOOL)willValidate;
+
+// Image: /System/Library/Frameworks/UIKit.framework/UIKit
+
+- (void)_accessoryClear;
+- (BOOL)_requiresAccessoryView;
+- (BOOL)_requiresInputView;
+- (void)_startAssistingDocumentView:(id)arg1;
+- (void)_stopAssistingDocumentView:(id)arg1;
+- (BOOL)_supportsAccessoryClear;
+- (BOOL)_supportsAutoFill;
+- (id)_textFormElement;
+- (id)createPeripheral;
+- (BOOL)isAssistedDateType;
+- (BOOL)isEditing;
+- (BOOL)isLikelyToBeginPageLoad;
+- (BOOL)isSecure;
+- (BOOL)isTextControl;
+- (int)keyboardType;
+- (BOOL)nodeCanBecomeFirstResponder;
+- (void)setSelectionWithPoint:(struct CGPoint { float x1; float x2; })arg1;
+- (id)text;
+- (id)textInputTraits;
+
+// Image: /System/Library/PrivateFrameworks/WebKitLegacy.framework/WebKitLegacy
+
+- (void)_setAutofilled:(BOOL)arg1;
+- (id)endPosition;
+- (id)startPosition;
 
 @end

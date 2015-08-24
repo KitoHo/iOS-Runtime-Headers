@@ -2,26 +2,23 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSString, SADistance, SAMovieV2ShowtimeSnippet;
+@interface SAMovieV2TheaterShowtimeListCell : SADomainObject
 
-@interface SAMovieV2TheaterShowtimeListCell : SADomainObject {
-}
-
-@property bool bookable;
-@property(copy) NSArray * displayableShowtimes;
-@property(retain) SADistance * relativeDistance;
-@property(retain) SAMovieV2ShowtimeSnippet * showtimeSnippet;
-@property(copy) NSString * theaterName;
+@property (nonatomic) BOOL bookable;
+@property (nonatomic, copy) NSArray *displayableShowtimes;
+@property (nonatomic, retain) SADistance *relativeDistance;
+@property (nonatomic, retain) SAMovieV2ShowtimeSnippet *showtimeSnippet;
+@property (nonatomic, copy) NSString *theaterName;
 
 + (id)theaterShowtimeListCell;
 + (id)theaterShowtimeListCellWithDictionary:(id)arg1 context:(id)arg2;
 
-- (bool)bookable;
+- (BOOL)bookable;
 - (id)displayableShowtimes;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)relativeDistance;
-- (void)setBookable:(bool)arg1;
+- (void)setBookable:(BOOL)arg1;
 - (void)setDisplayableShowtimes:(id)arg1;
 - (void)setRelativeDistance:(id)arg1;
 - (void)setShowtimeSnippet:(id)arg1;

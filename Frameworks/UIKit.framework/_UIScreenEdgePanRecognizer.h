@@ -2,91 +2,89 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class <_UIScreenEdgePanRecognizerDelegate>, NSString, UIDelayedAction, _UIScreenEdgePanRecognizerSettings;
-
 @interface _UIScreenEdgePanRecognizer : NSObject <_UISettingsKeyObserver> {
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    struct CGPoint { 
-        double x; 
-        double y; 
-    struct CGPoint { 
-        double x; 
-        double y; 
     <_UIScreenEdgePanRecognizerDelegate> *_delegate;
-    double _gestureRestrictionFactor;
-    long long _initialInterfaceOrientation;
+    float _gestureRestrictionFactor;
+    BOOL _hasDoneInitialBackProjectionTest;
+    BOOL _hasRecordedData;
+    int _initialInterfaceOrientation;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _initialTouchLocation;
     double _initialTouchTimestamp;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _lastTouchLocation;
     double _lastTouchTimestamp;
     UIDelayedAction *_recognitionTimer;
-    unsigned long long _recognizedRegion;
+    unsigned int _recognizedRegion;
+    BOOL _requiresFlatThumb;
+    BOOL _requiresLongPress;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _screenBounds;
     _UIScreenEdgePanRecognizerSettings *_settings;
-    long long _state;
-    unsigned long long _targetEdges;
-    unsigned long long _touchedRegion;
-    long long _type;
-    bool_hasDoneInitialBackProjectionTest;
-    bool_hasRecordedData;
-    bool_requiresFlatThumb;
-    bool_requiresLongPress;
-    bool_useGrapeFlags;
+    int _state;
+    unsigned int _targetEdges;
+    unsigned int _touchedRegion;
+    int _type;
+    BOOL _useGrapeFlags;
 }
 
-@property(readonly) struct CGPoint { double x1; double x2; } _lastTouchLocation;
-@property(copy,readonly) NSString * debugDescription;
-@property <_UIScreenEdgePanRecognizerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) unsigned long long recognizedRegion;
-@property bool requiresFlatThumb;
-@property(getter=isRequiringLongPress,readonly) bool requiringLongPress;
-@property struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } screenBounds;
-@property(retain) _UIScreenEdgePanRecognizerSettings * settings;
-@property bool shouldUseGrapeFlags;
-@property(readonly) long long state;
-@property(readonly) Class superclass;
-@property unsigned long long targetEdges;
+@property (nonatomic, readonly) struct CGPoint { float x1; float x2; } _lastTouchLocation;
+@property (readonly, copy) NSString *debugDescription;
+@property <_UIScreenEdgePanRecognizerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) unsigned int recognizedRegion;
+@property (nonatomic) BOOL requiresFlatThumb;
+@property (getter=isRequiringLongPress, nonatomic, readonly) BOOL requiringLongPress;
+@property (nonatomic) struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } screenBounds;
+@property (nonatomic, retain) _UIScreenEdgePanRecognizerSettings *settings;
+@property (nonatomic) BOOL shouldUseGrapeFlags;
+@property (nonatomic, readonly) int state;
+@property (readonly) Class superclass;
+@property (nonatomic) unsigned int targetEdges;
 
-+ (bool)_edgeSwipeNavigationGestureEnabled;
++ (BOOL)_edgeSwipeNavigationGestureEnabled;
 
 - (void)_createOrDestoryAnalysisWindowIfNeeded;
 - (void)_idleTimerElapsed:(id)arg1;
-- (void)_incorporateIncrementalSampleAtLocation:(struct CGPoint { double x1; double x2; })arg1 timestamp:(double)arg2 modifier:(long long)arg3 interfaceOrientation:(long long)arg4;
-- (void)_incorporateInitialTouchAtLocation:(struct CGPoint { double x1; double x2; })arg1 timestamp:(double)arg2 modifier:(long long)arg3 interfaceOrientation:(long long)arg4;
-- (struct CGPoint { double x1; double x2; })_lastTouchLocation;
+- (void)_incorporateIncrementalSampleAtLocation:(struct CGPoint { float x1; float x2; })arg1 timestamp:(double)arg2 modifier:(int)arg3 interfaceOrientation:(int)arg4;
+- (void)_incorporateInitialTouchAtLocation:(struct CGPoint { float x1; float x2; })arg1 timestamp:(double)arg2 modifier:(int)arg3 interfaceOrientation:(int)arg4;
+- (struct CGPoint { float x1; float x2; })_lastTouchLocation;
 - (void)_longPressTimerElapsed:(id)arg1;
-- (void)_setState:(long long)arg1;
-- (unsigned long long)_targetEdges;
-- (long long)_type;
+- (void)_setState:(int)arg1;
+- (unsigned int)_targetEdges;
+- (int)_type;
 - (void)dealloc;
 - (id)delegate;
-- (void)incorporateTouchSampleAtLocation:(struct CGPoint { double x1; double x2; })arg1 timestamp:(double)arg2 modifier:(long long)arg3 interfaceOrientation:(long long)arg4;
-- (id)initWithType:(long long)arg1;
-- (bool)isRequiringLongPress;
-- (unsigned long long)recognizedRegion;
-- (bool)requiresFlatThumb;
+- (void)incorporateTouchSampleAtLocation:(struct CGPoint { float x1; float x2; })arg1 timestamp:(double)arg2 modifier:(int)arg3 interfaceOrientation:(int)arg4;
+- (id)initWithType:(int)arg1;
+- (BOOL)isRequiringLongPress;
+- (unsigned int)recognizedRegion;
+- (BOOL)requiresFlatThumb;
 - (void)reset;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })screenBounds;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })screenBounds;
 - (void)setDelegate:(id)arg1;
-- (void)setRequiresFlatThumb:(bool)arg1;
-- (void)setScreenBounds:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)setRequiresFlatThumb:(BOOL)arg1;
+- (void)setScreenBounds:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)setSettings:(id)arg1;
-- (void)setShouldUseGrapeFlags:(bool)arg1;
-- (void)setTargetEdges:(unsigned long long)arg1;
-- (void)settings:(id)arg1 changedValueForKey:(id)arg2;
+- (void)setShouldUseGrapeFlags:(BOOL)arg1;
+- (void)setTargetEdges:(unsigned int)arg1;
 - (id)settings;
-- (bool)shouldUseGrapeFlags;
-- (long long)state;
-- (unsigned long long)targetEdges;
+- (void)settings:(id)arg1 changedValueForKey:(id)arg2;
+- (BOOL)shouldUseGrapeFlags;
+- (int)state;
+- (unsigned int)targetEdges;
 
 @end

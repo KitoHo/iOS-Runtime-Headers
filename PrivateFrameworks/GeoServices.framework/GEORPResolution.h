@@ -2,24 +2,28 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOMapRegion, NSMutableArray;
-
 @interface GEORPResolution : PBCodable <NSCopying> {
+    GEOMapRegion *_displayRegion;
     struct { 
         unsigned int resolutionDate : 1; 
-    GEOMapRegion *_displayRegion;
     } _has;
+    NSString *_localizedAlertText;
     NSMutableArray *_localizedChangeLists;
+    NSString *_localizedDescription;
     double _resolutionDate;
     NSMutableArray *_updatedPlaces;
 }
 
-@property(retain) GEOMapRegion * displayRegion;
-@property(readonly) bool hasDisplayRegion;
-@property bool hasResolutionDate;
-@property(retain) NSMutableArray * localizedChangeLists;
-@property double resolutionDate;
-@property(retain) NSMutableArray * updatedPlaces;
+@property (nonatomic, retain) GEOMapRegion *displayRegion;
+@property (nonatomic, readonly) BOOL hasDisplayRegion;
+@property (nonatomic, readonly) BOOL hasLocalizedAlertText;
+@property (nonatomic, readonly) BOOL hasLocalizedDescription;
+@property (nonatomic) BOOL hasResolutionDate;
+@property (nonatomic, retain) NSString *localizedAlertText;
+@property (nonatomic, retain) NSMutableArray *localizedChangeLists;
+@property (nonatomic, retain) NSString *localizedDescription;
+@property (nonatomic) double resolutionDate;
+@property (nonatomic, retain) NSMutableArray *updatedPlaces;
 
 - (void)addLocalizedChangeList:(id)arg1;
 - (void)addUpdatedPlace:(id)arg1;
@@ -31,24 +35,30 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)displayRegion;
-- (bool)hasDisplayRegion;
-- (bool)hasResolutionDate;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
-- (id)localizedChangeListAtIndex:(unsigned long long)arg1;
+- (BOOL)hasDisplayRegion;
+- (BOOL)hasLocalizedAlertText;
+- (BOOL)hasLocalizedDescription;
+- (BOOL)hasResolutionDate;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)localizedAlertText;
+- (id)localizedChangeListAtIndex:(unsigned int)arg1;
 - (id)localizedChangeLists;
-- (unsigned long long)localizedChangeListsCount;
+- (unsigned int)localizedChangeListsCount;
+- (id)localizedDescription;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (double)resolutionDate;
 - (void)setDisplayRegion:(id)arg1;
-- (void)setHasResolutionDate:(bool)arg1;
+- (void)setHasResolutionDate:(BOOL)arg1;
+- (void)setLocalizedAlertText:(id)arg1;
 - (void)setLocalizedChangeLists:(id)arg1;
+- (void)setLocalizedDescription:(id)arg1;
 - (void)setResolutionDate:(double)arg1;
 - (void)setUpdatedPlaces:(id)arg1;
-- (id)updatedPlaceAtIndex:(unsigned long long)arg1;
+- (id)updatedPlaceAtIndex:(unsigned int)arg1;
 - (id)updatedPlaces;
-- (unsigned long long)updatedPlacesCount;
+- (unsigned int)updatedPlacesCount;
 - (void)writeTo:(id)arg1;
 
 @end

@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/CloudPhotoLibrary.framework/CloudPhotoLibrary
  */
 
-@class NSString;
-
 @interface CPLIDMapping : NSObject {
     NSString *_cloudIdentifier;
+    BOOL _final;
     NSString *_localIdentifier;
-    bool_final;
 }
 
-@property(readonly) NSString * cloudIdentifier;
-@property(getter=isFinal,readonly) bool final;
-@property(readonly) NSString * localIdentifier;
+@property (nonatomic, readonly) NSString *cloudIdentifier;
+@property (getter=isFinal, nonatomic, readonly) BOOL final;
+@property (nonatomic, readonly) NSString *localIdentifier;
 
 - (void).cxx_destruct;
 - (id)cloudIdentifier;
-- (bool)isFinal;
+- (BOOL)isFinal;
 - (id)localIdentifier;
 
 @end

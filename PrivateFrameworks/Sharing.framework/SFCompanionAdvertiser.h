@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/Sharing.framework/Sharing
  */
 
-@class <SFCompanionAdvertiserDelegate>, NSData, NSString;
-
 @interface SFCompanionAdvertiser : NSObject {
     <SFCompanionAdvertiserDelegate> *_delegate;
     NSString *_serviceType;
-    bool_supportsStreams;
+    BOOL _supportsStreams;
 }
 
-@property <SFCompanionAdvertiserDelegate> * delegate;
-@property(readonly) NSData * serviceEndpointData;
-@property(copy,readonly) NSString * serviceType;
-@property bool supportsStreams;
+@property <SFCompanionAdvertiserDelegate> *delegate;
+@property (readonly) NSData *serviceEndpointData;
+@property (readonly, copy) NSString *serviceType;
+@property BOOL supportsStreams;
 
 - (void)dealloc;
 - (id)delegate;
-- (void)getContinuationStreamsWithEndpointData:(id)arg1 completionHandler:(id)arg2;
+- (void)getContinuationStreamsWithEndpointData:(id)arg1 completionHandler:(id /* block */)arg2;
 - (id)initWithServiceType:(id)arg1;
 - (id)serviceEndpointData;
 - (id)serviceType;
 - (void)setDelegate:(id)arg1;
-- (void)setSupportsStreams:(bool)arg1;
+- (void)setSupportsStreams:(BOOL)arg1;
 - (void)start;
 - (void)stop;
-- (bool)supportsStreams;
+- (BOOL)supportsStreams;
 
 @end

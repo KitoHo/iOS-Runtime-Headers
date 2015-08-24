@@ -2,13 +2,12 @@
    Image: /System/Library/PrivateFrameworks/RemoteUI.framework/RemoteUI
  */
 
-@interface RemoteUITableViewSubtitleAndValueLayoutManager : UITableViewCellLayoutManager {
-}
+@interface RemoteUITableViewSubtitleAndValueLayoutManager : UITableViewCellLayoutManager
 
 + (id)sharedManager;
 
-- (double)defaultDetailTextLabelFontSizeForCell:(id)arg1;
-- (double)defaultValueTextLabelFontSizeForCell:(id)arg1;
+- (float)defaultDetailTextLabelFontSizeForCell:(id)arg1;
+- (float)defaultValueTextLabelFontSizeForCell:(id)arg1;
 - (id)detailTextLabelForCell:(id)arg1;
 - (id)imageViewForCell:(id)arg1;
 - (void)layoutSubviewsOfCell:(id)arg1;

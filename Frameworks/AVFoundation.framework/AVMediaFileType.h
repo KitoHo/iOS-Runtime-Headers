@@ -2,20 +2,18 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class NSSet, NSString;
-
 @interface AVMediaFileType : NSObject <NSCopying> {
-    long long _supportsSampleReferencesOnce;
+    BOOL _supportsSampleReferences;
+    long _supportsSampleReferencesOnce;
     NSString *_uti;
-    bool_supportsSampleReferences;
 }
 
-@property(readonly) NSString * UTI;
-@property(readonly) unsigned int audioFileTypeID;
-@property(readonly) NSString * defaultFileExtension;
-@property(readonly) NSString * figFormatReaderFileFormat;
-@property(readonly) NSSet * supportedMediaTypes;
-@property(readonly) bool supportsSampleReferences;
+@property (nonatomic, readonly) NSString *UTI;
+@property (nonatomic, readonly) unsigned long audioFileTypeID;
+@property (nonatomic, readonly) NSString *defaultFileExtension;
+@property (nonatomic, readonly) NSString *figFormatReaderFileFormat;
+@property (nonatomic, readonly) NSSet *supportedMediaTypes;
+@property (nonatomic, readonly) BOOL supportsSampleReferences;
 
 + (id)_mediaFileTypeWithFileTypeIdentifier:(id)arg1 exceptionReason:(id*)arg2;
 + (id)allFileTypeIdentifiers;
@@ -24,7 +22,7 @@
 + (id)mediaFileTypeWithFileTypeIdentifier:(id)arg1;
 
 - (id)UTI;
-- (unsigned int)audioFileTypeID;
+- (unsigned long)audioFileTypeID;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)defaultFileExtension;
@@ -32,8 +30,8 @@
 - (id)figFormatReaderFileFormat;
 - (id)initWithFileTypeIdentifier:(id)arg1 exceptionReason:(id*)arg2;
 - (id)supportedMediaTypes;
-- (bool)supportsFormat:(struct opaqueCMFormatDescription { }*)arg1;
-- (bool)supportsOutputSettings:(id)arg1 reason:(id*)arg2;
-- (bool)supportsSampleReferences;
+- (BOOL)supportsFormat:(struct opaqueCMFormatDescription { }*)arg1;
+- (BOOL)supportsOutputSettings:(id)arg1 reason:(id*)arg2;
+- (BOOL)supportsSampleReferences;
 
 @end

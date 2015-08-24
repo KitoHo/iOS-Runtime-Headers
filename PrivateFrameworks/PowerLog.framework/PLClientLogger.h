@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/PowerLog.framework/PowerLog
  */
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSString;
-
 @interface PLClientLogger : NSObject {
+    BOOL _clientDebug;
     NSMutableDictionary *_pendingTaskCache;
     NSMutableDictionary *_permissionCache;
     NSObject<OS_dispatch_queue> *_permissionQueue;
@@ -12,17 +11,16 @@
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_xpc_object> *_xpcConnection;
     NSObject<OS_dispatch_queue> *_xpcConnectionQueue;
-    bool_clientDebug;
 }
 
-@property bool clientDebug;
-@property(retain) NSMutableDictionary * pendingTaskCache;
-@property(retain) NSMutableDictionary * permissionCache;
-@property(retain) NSObject<OS_dispatch_queue> * permissionQueue;
-@property(retain) NSString * processName;
-@property(retain) NSObject<OS_dispatch_queue> * workQueue;
-@property(retain) NSObject<OS_xpc_object> * xpcConnection;
-@property(retain) NSObject<OS_dispatch_queue> * xpcConnectionQueue;
+@property BOOL clientDebug;
+@property (retain) NSMutableDictionary *pendingTaskCache;
+@property (retain) NSMutableDictionary *permissionCache;
+@property (retain) NSObject<OS_dispatch_queue> *permissionQueue;
+@property (retain) NSString *processName;
+@property (retain) NSObject<OS_dispatch_queue> *workQueue;
+@property (nonatomic, retain) NSObject<OS_xpc_object> *xpcConnection;
+@property (retain) NSObject<OS_dispatch_queue> *xpcConnectionQueue;
 
 + (id)sharedInstance;
 
@@ -30,7 +28,7 @@
 - (void)addToPendingTaskCacheForType:(id)arg1 forClientID:(short)arg2 forKey:(id)arg3 withPayload:(id)arg4;
 - (id)buildMessageForClientID:(short)arg1 withKey:(id)arg2 withPayload:(id)arg3;
 - (short)cachedPermissionForClientID:(short)arg1 withKey:(id)arg2 withType:(id)arg3;
-- (bool)clientDebug;
+- (BOOL)clientDebug;
 - (id)init;
 - (void)logForClientID:(short)arg1 withKey:(id)arg2 withPayload:(id)arg3;
 - (void)logStateCaches;
@@ -43,7 +41,7 @@
 - (id)processName;
 - (id)queryForClientID:(short)arg1 withKey:(id)arg2 withPayload:(id)arg3;
 - (void)setCachePermission:(short)arg1 ForClientID:(short)arg2 withKey:(id)arg3 withType:(id)arg4;
-- (void)setClientDebug:(bool)arg1;
+- (void)setClientDebug:(BOOL)arg1;
 - (void)setPendingTaskCache:(id)arg1;
 - (void)setPermissionCache:(id)arg1;
 - (void)setPermissionQueue:(id)arg1;

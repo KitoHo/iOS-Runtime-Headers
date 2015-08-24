@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray;
-
 @interface GEOPDRawAttributeFilter : PBCodable <NSCopying> {
     NSMutableArray *_keys;
 }
 
-@property(retain) NSMutableArray * keys;
+@property (nonatomic, retain) NSMutableArray *keys;
 
 - (void)addKey:(id)arg1;
 - (void)clearKeys;
@@ -17,13 +15,13 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
-- (id)keyAtIndex:(unsigned long long)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)keyAtIndex:(unsigned int)arg1;
 - (id)keys;
-- (unsigned long long)keysCount;
+- (unsigned int)keysCount;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setKeys:(id)arg1;
 - (void)writeTo:(id)arg1;
 

@@ -2,35 +2,33 @@
    Image: /System/Library/PrivateFrameworks/WebKitLegacy.framework/WebKitLegacy
  */
 
-@class NSArray, NSString, NSTimer, WAKView, WebDataSource, WebEvent, WebPluginController;
-
 @interface WebHTMLViewPrivate : NSObject {
-    struct CGPoint { 
-        double x; 
-        double y; 
     NSTimer *autoscrollTimer;
     WebEvent *autoscrollTriggerEvent;
-    boolclosed;
-    booldrawingIntoLayer;
-    boolexposeInputContext;
-    boolhandlingMouseDownEvent;
-    boolignoringMouseDraggedEvents;
-    boolinScrollPositionChanged;
-    boolpaginateScreenContent;
-    boolprinting;
-    booltransparentBackground;
+    BOOL closed;
     WebDataSource *dataSource;
-    struct WebHTMLViewInterpretKeyEventsParameters { struct KeyboardEvent {} *x1; boolx2; boolx3; boolx4; boolx5; } *interpretKeyEventsParameters;
+    BOOL drawingIntoLayer;
+    BOOL exposeInputContext;
+    BOOL handlingMouseDownEvent;
+    BOOL ignoringMouseDraggedEvents;
+    BOOL inScrollPositionChanged;
+    struct WebHTMLViewInterpretKeyEventsParameters { struct KeyboardEvent {} *x1; bool x2; bool x3; bool x4; bool x5; } *interpretKeyEventsParameters;
     WebEvent *keyDownEvent;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } lastScrollPosition;
     WAKView *layerHostingView;
     WebEvent *mouseDownEvent;
     NSArray *pageRects;
+    BOOL paginateScreenContent;
     WebPluginController *pluginController;
+    BOOL printing;
     SEL selectorForDoCommandBySelector;
     NSString *toolTip;
     id trackingRectOwner;
     void *trackingRectUserData;
+    BOOL transparentBackground;
 }
 
 + (void)initialize;

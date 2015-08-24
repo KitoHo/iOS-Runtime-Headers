@@ -3,35 +3,59 @@
  */
 
 @interface UIAlertControllerVisualStyle : NSObject {
+    UIAlertControllerDescriptor *_descriptor;
+    UITraitCollection *_traitCollection;
 }
 
-- (double)_scaledMarginAboveMessageLabelFirstBaseline;
-- (double)_scaledMarginAboveTitleLabelFirstBaseline;
-- (double)_scaledMarginBelowLastLabelLastBaseline;
-- (double)_scaledMarginBelowMessageLabelLastBaseline;
-- (double)_scaledMarginBelowTitleLabelLastBaseline;
+@property (nonatomic, retain) UIAlertControllerDescriptor *descriptor;
+@property (nonatomic, retain) UITraitCollection *traitCollection;
+
+// Image: /System/Library/Frameworks/UIKit.framework/UIKit
+
+- (id)_detailMessageFont;
+- (float)_scaledMarginAboveMessageLabelFirstBaseline;
+- (float)_scaledMarginAboveTitleLabelFirstBaseline;
+- (float)_scaledMarginBelowLastLabelLastBaseline;
+- (float)_scaledMarginBelowMessageLabelLastBaseline;
+- (float)_scaledMarginBelowTitleLabelLastBaseline;
 - (id)actionHighlightedBackgroundView;
-- (double)backgroundCornerRadius;
+- (float)actionWidthForMinimumActionWidth:(float)arg1;
+- (float)backgroundCornerRadius;
 - (id)backgroundView;
+- (struct CGSize { float x1; float x2; })collectionViewOutsetSize;
 - (id)defaultActionBackgroundColorWhenSeparate;
 - (id)defaultActionFont;
+- (id)descriptor;
+- (id)dimmingView;
+- (id)disabledActionContentColor;
+- (BOOL)focusedActionAnimatesOnPresentationAndDismissal;
+- (BOOL)hideActionSeparators;
 - (id)highlightedActionContentColor;
-- (double)horizontalContentMargin;
-- (double)marginAboveMessageLabelFirstBaseline;
-- (double)marginAboveTitleLabelFirstBaseline;
-- (double)marginBelowLastLabelLastBaseline;
-- (double)marginBelowMessageLabelLastBaseline;
-- (double)marginBelowTitleLabelLastBaseline;
-- (long long)maximumNumberOfLinesInMessageLabel;
-- (long long)maximumNumberOfLinesInTitleLabel;
-- (double)maximumWidth;
+- (float)horizontalContentMargin;
+- (float)marginAboveMessageLabelFirstBaseline;
+- (float)marginAboveTitleLabelFirstBaseline;
+- (float)marginBelowLastLabelLastBaseline;
+- (float)marginBelowMessageLabelLastBaseline;
+- (float)marginBelowTitleLabelLastBaseline;
+- (int)maximumNumberOfLinesInMessageLabel;
+- (int)maximumNumberOfLinesInTitleLabel;
+- (float)maximumWidth;
 - (id)messageLabelColor;
 - (id)messageLabelFont;
-- (double)minimumActionHeight;
+- (float)minimumActionHeight;
+- (struct CGAffineTransform { float x1; float x2; float x3; float x4; float x5; float x6; })presentationAnimationStartTransform;
 - (id)regularActionFont;
+- (float)sectionDelimitingSeparatorDimension;
+- (void)setDescriptor:(id)arg1;
+- (void)setTraitCollection:(id)arg1;
 - (id)titleLabelColor;
 - (id)titleLabelFont;
-- (double)verticalContentMargin;
-- (double)visualAltitude;
+- (id)traitCollection;
+- (float)verticalContentMargin;
+- (float)visualAltitude;
+
+// Image: /System/Library/PrivateFrameworks/FuseUI.framework/FuseUI
+
+- (BOOL)isEqual:(id)arg1;
 
 @end

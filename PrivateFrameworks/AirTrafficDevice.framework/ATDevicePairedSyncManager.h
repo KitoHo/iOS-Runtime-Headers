@@ -2,28 +2,31 @@
    Image: /System/Library/PrivateFrameworks/AirTrafficDevice.framework/AirTrafficDevice
  */
 
-@class ATConcreteMessageLink, ATDeviceService, ATStatusMonitor, NSString;
-
-@interface ATDevicePairedSyncManager : NSObject <ATMessageLinkObserver, ATStatusMonitorObserver> {
+@interface ATDevicePairedSyncManager : NSObject <ATIDSServiceListener, ATMessageLinkObserver, ATSessionObserver, PSYProgressObserverDelegate> {
     ATDeviceService *_deviceService;
-    ATStatusMonitor *_statusMonitor;
-    ATConcreteMessageLink *_syncMessageLink;
-    bool_syncRequested;
+    ATIDSService *_idsService;
+    BOOL _initialSyncPhaseCompleted;
+    NSObject<OS_dispatch_queue> *_queue;
+    PSYProgressObserver *_syncProgressObserver;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property BOOL initialSyncPhaseCompleted;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (void)_reportSyncCompletedWithError:(id)arg1;
-- (void)connection:(id)arg1 updatedAssets:(id)arg2;
-- (void)connection:(id)arg1 updatedProgress:(id)arg2;
-- (id)init;
-- (void)messageLinkWasClosed:(id)arg1;
-- (void)messageLinkWasInitialized:(id)arg1;
-- (void)monitor:(id)arg1 didUpdateWithStatus:(id)arg2;
-- (void)run;
+- (void)handleDevicePairedNotification;
+- (void)handleDeviceUnPairedNotification;
+- (BOOL)hasRestriction;
+- (void)idsServiceDevicesDidChange:(id)arg1;
+- (id)initWithIDSService:(id)arg1;
+- (BOOL)initialSyncPhaseCompleted;
+- (void)progressObserver:(id)arg1 didFinishActivity:(id)arg2 withError:(id)arg3;
+- (void)progressObserverDidChangeProgress:(id)arg1;
+- (void)progressObserverDidChangeState:(id)arg1;
+- (void)setInitialSyncPhaseCompleted:(BOOL)arg1;
+- (void)start;
 
 @end

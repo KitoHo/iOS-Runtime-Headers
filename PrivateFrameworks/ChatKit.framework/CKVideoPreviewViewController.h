@@ -2,46 +2,44 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class <CKVideoPreviewViewControllerDelegate>, AVPlayer, AVPlayerItem, AVPlayerLayer;
-
 @interface CKVideoPreviewViewController : UIViewController {
     AVPlayer *_avPlayer;
     AVPlayerItem *_avPlayerItem;
     AVPlayerLayer *_avPlayerLayer;
+    BOOL _reachedEnd;
+    BOOL _redisplayStatusBar;
     <CKVideoPreviewViewControllerDelegate> *_videoPreviewDelegate;
-    bool_reachedEnd;
-    bool_redisplayStatusBar;
 }
 
-@property(retain) AVPlayer * avPlayer;
-@property(retain) AVPlayerItem * avPlayerItem;
-@property(retain) AVPlayerLayer * avPlayerLayer;
-@property(getter=isPlaying,readonly) bool playing;
-@property bool reachedEnd;
-@property bool redisplayStatusBar;
-@property <CKVideoPreviewViewControllerDelegate> * videoPreviewDelegate;
+@property (nonatomic, retain) AVPlayer *avPlayer;
+@property (nonatomic, retain) AVPlayerItem *avPlayerItem;
+@property (nonatomic, retain) AVPlayerLayer *avPlayerLayer;
+@property (getter=isPlaying, nonatomic, readonly) BOOL playing;
+@property (nonatomic) BOOL reachedEnd;
+@property (nonatomic) BOOL redisplayStatusBar;
+@property (nonatomic) <CKVideoPreviewViewControllerDelegate> *videoPreviewDelegate;
 
 - (id)avPlayer;
 - (id)avPlayerItem;
 - (id)avPlayerLayer;
 - (void)dealloc;
 - (id)init;
-- (bool)isPlaying;
+- (BOOL)isPlaying;
 - (void)loadView;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4;
 - (void)pause;
 - (void)play;
-- (bool)prefersStatusBarHidden;
-- (bool)reachedEnd;
-- (bool)redisplayStatusBar;
+- (BOOL)prefersStatusBarHidden;
+- (BOOL)reachedEnd;
+- (BOOL)redisplayStatusBar;
 - (void)setAvPlayer:(id)arg1;
 - (void)setAvPlayerItem:(id)arg1;
 - (void)setAvPlayerLayer:(id)arg1;
-- (void)setReachedEnd:(bool)arg1;
-- (void)setRedisplayStatusBar:(bool)arg1;
+- (void)setReachedEnd:(BOOL)arg1;
+- (void)setRedisplayStatusBar:(BOOL)arg1;
 - (void)setVideoFileURL:(id)arg1;
 - (void)setVideoPreviewDelegate:(id)arg1;
-- (bool)togglePlayPause;
+- (BOOL)togglePlayPause;
 - (void)videoDidReachEnd:(id)arg1;
 - (id)videoPreviewDelegate;
 

@@ -2,84 +2,92 @@
    Image: /System/Library/Frameworks/Photos.framework/Photos
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface PHImageRequestOptions : NSObject <NSCopying> {
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
+    BOOL _allowPlaceholder;
     double _aspectRatioHint;
-    long long _deliveryMode;
+    id /* block */ _cachingCompletedHandler;
+    BOOL _degradedFormatPreferJPEG;
+    BOOL _deliveryFirstResultAsynchronously;
+    int _deliveryMode;
     double _demoteFactor;
     double _downloadUpdateInterval;
-    long long _loadingMode;
+    int _loadingMode;
+    BOOL _memoryCachingAllowed;
+    BOOL _networkAccessAllowed;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _normalizedCropRect;
-    id _progressHandler;
-    long long _rank;
-    long long _resizeMode;
-    long long _version;
-    bool_allowPlaceholder;
-    bool_deliveryFirstResultAsynchronously;
-    bool_networkAccessAllowed;
-    bool_synchronous;
+    id /* block */ _progressHandler;
+    int _rank;
+    int _resizeMode;
+    BOOL _synchronous;
+    int _version;
 }
 
-@property bool allowPlaceholder;
-@property double aspectRatioHint;
-@property bool deliveryFirstResultAsynchronously;
-@property long long deliveryMode;
-@property double demoteFactor;
-@property double downloadUpdateInterval;
-@property long long loadingMode;
-@property(getter=isNetworkAccessAllowed) bool networkAccessAllowed;
-@property struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } normalizedCropRect;
-@property(copy) id progressHandler;
-@property long long rank;
-@property long long resizeMode;
-@property(getter=isSynchronous) bool synchronous;
-@property long long version;
+@property (nonatomic) BOOL allowPlaceholder;
+@property (nonatomic) double aspectRatioHint;
+@property (nonatomic, copy) id /* block */ cachingCompletedHandler;
+@property (nonatomic) BOOL degradedFormatPreferJPEG;
+@property (nonatomic) BOOL deliveryFirstResultAsynchronously;
+@property (nonatomic) int deliveryMode;
+@property (nonatomic) double demoteFactor;
+@property (nonatomic) double downloadUpdateInterval;
+@property (nonatomic) int loadingMode;
+@property (getter=isMemoryCachingAllowed, nonatomic) BOOL memoryCachingAllowed;
+@property (getter=isNetworkAccessAllowed, nonatomic) BOOL networkAccessAllowed;
+@property (nonatomic) struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } normalizedCropRect;
+@property (nonatomic, copy) id /* block */ progressHandler;
+@property (nonatomic) int rank;
+@property (nonatomic) int resizeMode;
+@property (getter=isSynchronous, nonatomic) BOOL synchronous;
+@property (nonatomic) int version;
 
 + (id)defaultOptionsAllowingPlaceholder;
 
 - (void).cxx_destruct;
-- (bool)allowPlaceholder;
+- (BOOL)allowPlaceholder;
 - (double)aspectRatioHint;
+- (id /* block */)cachingCompletedHandler;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (bool)deliveryFirstResultAsynchronously;
-- (long long)deliveryMode;
+- (BOOL)degradedFormatPreferJPEG;
+- (BOOL)deliveryFirstResultAsynchronously;
+- (int)deliveryMode;
 - (double)demoteFactor;
 - (id)description;
 - (double)downloadUpdateInterval;
 - (id)init;
-- (bool)isNetworkAccessAllowed;
-- (bool)isSynchronous;
-- (long long)loadingMode;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })normalizedCropRect;
-- (id)progressHandler;
-- (long long)rank;
-- (long long)resizeMode;
-- (void)setAllowPlaceholder:(bool)arg1;
+- (BOOL)isMemoryCachingAllowed;
+- (BOOL)isNetworkAccessAllowed;
+- (BOOL)isSynchronous;
+- (int)loadingMode;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })normalizedCropRect;
+- (id /* block */)progressHandler;
+- (int)rank;
+- (int)resizeMode;
+- (void)setAllowPlaceholder:(BOOL)arg1;
 - (void)setAspectRatioHint:(double)arg1;
-- (void)setDeliveryFirstResultAsynchronously:(bool)arg1;
-- (void)setDeliveryMode:(long long)arg1;
+- (void)setCachingCompletedHandler:(id /* block */)arg1;
+- (void)setDegradedFormatPreferJPEG:(BOOL)arg1;
+- (void)setDeliveryFirstResultAsynchronously:(BOOL)arg1;
+- (void)setDeliveryMode:(int)arg1;
 - (void)setDemoteFactor:(double)arg1;
 - (void)setDownloadUpdateInterval:(double)arg1;
-- (void)setLoadingMode:(long long)arg1;
-- (void)setNetworkAccessAllowed:(bool)arg1;
-- (void)setNormalizedCropRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (void)setProgressHandler:(id)arg1;
-- (void)setRank:(long long)arg1;
-- (void)setResizeMode:(long long)arg1;
-- (void)setSynchronous:(bool)arg1;
-- (void)setVersion:(long long)arg1;
-- (long long)version;
+- (void)setLoadingMode:(int)arg1;
+- (void)setMemoryCachingAllowed:(BOOL)arg1;
+- (void)setNetworkAccessAllowed:(BOOL)arg1;
+- (void)setNormalizedCropRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (void)setProgressHandler:(id /* block */)arg1;
+- (void)setRank:(int)arg1;
+- (void)setResizeMode:(int)arg1;
+- (void)setSynchronous:(BOOL)arg1;
+- (void)setVersion:(int)arg1;
+- (int)version;
 
 @end

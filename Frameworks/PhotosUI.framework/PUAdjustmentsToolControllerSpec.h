@@ -2,16 +2,15 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@interface PUAdjustmentsToolControllerSpec : PUPhotoEditToolControllerSpec {
-}
+@interface PUAdjustmentsToolControllerSpec : PUPhotoEditToolControllerSpec
 
-@property(readonly) long long visualSliderThumbnailCount;
-@property(readonly) double visualSliderThumbnailLongSide;
-@property(readonly) double visualSliderThumbnailShortSide;
+@property (nonatomic, readonly) int visualSliderThumbnailCount;
+@property (nonatomic, readonly) float visualSliderThumbnailLongSide;
+@property (nonatomic, readonly) float visualSliderThumbnailShortSide;
 
 - (id)newModeBarView;
-- (long long)visualSliderThumbnailCount;
-- (double)visualSliderThumbnailLongSide;
-- (double)visualSliderThumbnailShortSide;
+- (int)visualSliderThumbnailCount;
+- (float)visualSliderThumbnailLongSide;
+- (float)visualSliderThumbnailShortSide;
 
 @end

@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableArray, WDDocument;
-
 @interface WDRevisionAuthorTable : NSObject {
     NSMutableArray *mAuthors;
     WDDocument *mDocument;
 }
 
 - (void)addAuthor:(id)arg1;
-- (unsigned long long)authorAddLookup:(id)arg1;
-- (id)authorAt:(unsigned long long)arg1;
-- (unsigned long long)authorCount;
+- (unsigned int)authorAddLookup:(id)arg1;
+- (id)authorAt:(unsigned int)arg1;
+- (unsigned int)authorCount;
 - (id)authors;
 - (void)dealloc;
 - (id)initWithDocument:(id)arg1;

@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/VoiceServices.framework/VoiceServices
  */
 
-@class NSXPCConnection;
-
 @interface VSKeepAlive : NSObject {
-    long long _audioType;
+    BOOL _active;
+    int _audioType;
+    BOOL _keepAudioSessionActive;
     NSXPCConnection *_serverConnection;
-    bool_active;
-    bool_keepAudioSessionActive;
 }
 
-@property bool active;
-@property long long audioType;
-@property bool keepAudioSessionActive;
+@property (nonatomic) BOOL active;
+@property (nonatomic) int audioType;
+@property (nonatomic) BOOL keepAudioSessionActive;
 
 - (void).cxx_destruct;
 - (void)_ensureKeepAliveMaintenance;
 - (id)_remoteKeepAlive;
 - (id)_serverConnection;
-- (bool)active;
-- (long long)audioType;
+- (BOOL)active;
+- (int)audioType;
 - (void)dealloc;
-- (bool)keepAudioSessionActive;
-- (void)setActive:(bool)arg1;
-- (void)setAudioType:(long long)arg1;
-- (void)setKeepAudioSessionActive:(bool)arg1;
+- (BOOL)keepAudioSessionActive;
+- (void)setActive:(BOOL)arg1;
+- (void)setAudioType:(int)arg1;
+- (void)setKeepAudioSessionActive:(BOOL)arg1;
 
 @end

@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities
  */
 
-@class NSString;
-
 @interface AXAssertion : NSObject {
     NSString *_assertionType;
     NSString *_identifier;
 }
 
-@property(retain) NSString * assertionType;
-@property(retain) NSString * identifier;
+@property (nonatomic, retain) NSString *assertionType;
+@property (nonatomic, retain) NSString *identifier;
 
 + (id)assertionWithType:(id)arg1 identifier:(id)arg2;
 
-- (bool)_hasValidAssertionType;
+- (BOOL)_hasValidAssertionType;
 - (void)_notifyServerAssertionWasAcquired;
 - (void)_notifyServerAssertionWasRelinquished;
 - (id)assertionType;

@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPConfigurationFieldValue, NSString;
-
 @interface CKDPConfigurationField : PBCodable <NSCopying> {
     NSString *_name;
     CKDPConfigurationFieldValue *_value;
 }
 
-@property(readonly) bool hasName;
-@property(readonly) bool hasValue;
-@property(retain) NSString * name;
-@property(retain) CKDPConfigurationFieldValue * value;
+@property (nonatomic, readonly) BOOL hasName;
+@property (nonatomic, readonly) BOOL hasValue;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) CKDPConfigurationFieldValue *value;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasName;
-- (bool)hasValue;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasName;
+- (BOOL)hasValue;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)name;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setName:(id)arg1;
 - (void)setValue:(id)arg1;
 - (id)value;

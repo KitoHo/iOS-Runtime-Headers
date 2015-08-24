@@ -2,70 +2,68 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class CAFilter, UIImage, UIImageView, _UILegibilitySettings;
-
 @interface _UILegibilityView : UIView {
+    BOOL _hidesImage;
     UIImage *_image;
     CAFilter *_imageColorFilter;
     UIImageView *_imageView;
-    long long _options;
+    int _options;
     _UILegibilitySettings *_settings;
     UIImage *_shadowImage;
     CAFilter *_shadowImageColorFilter;
     UIImageView *_shadowImageView;
-    double _strength;
-    bool_hidesImage;
+    float _strength;
 }
 
-@property bool hidesImage;
-@property(retain) UIImage * image;
-@property(retain) CAFilter * imageColorFilter;
-@property(retain) UIImageView * imageView;
-@property long long options;
-@property(retain) _UILegibilitySettings * settings;
-@property(retain) UIImage * shadowImage;
-@property(retain) CAFilter * shadowImageColorFilter;
-@property(retain) UIImageView * shadowImageView;
-@property double strength;
-@property(readonly) long long style;
-@property(readonly) bool usesColorFilters;
+@property (nonatomic) BOOL hidesImage;
+@property (nonatomic, retain) UIImage *image;
+@property (nonatomic, retain) CAFilter *imageColorFilter;
+@property (nonatomic, retain) UIImageView *imageView;
+@property (nonatomic) int options;
+@property (nonatomic, retain) _UILegibilitySettings *settings;
+@property (nonatomic, retain) UIImage *shadowImage;
+@property (nonatomic, retain) CAFilter *shadowImageColorFilter;
+@property (nonatomic, retain) UIImageView *shadowImageView;
+@property (nonatomic) float strength;
+@property (nonatomic, readonly) int style;
+@property (nonatomic, readonly) BOOL usesColorFilters;
 
 - (void)dealloc;
 - (id)drawingColor;
-- (bool)hidesImage;
+- (BOOL)hidesImage;
 - (id)image;
 - (id)imageColorFilter;
 - (id)imageView;
-- (id)initWithSettings:(id)arg1 strength:(double)arg2 image:(id)arg3 shadowImage:(id)arg4 options:(long long)arg5;
-- (id)initWithSettings:(id)arg1 strength:(double)arg2 image:(id)arg3 shadowImage:(id)arg4;
-- (id)initWithSettings:(id)arg1 strength:(double)arg2 image:(id)arg3;
-- (id)initWithStyle:(long long)arg1 image:(id)arg2 shadowImage:(id)arg3;
-- (id)initWithStyle:(long long)arg1 image:(id)arg2;
+- (id)initWithSettings:(id)arg1 strength:(float)arg2 image:(id)arg3;
+- (id)initWithSettings:(id)arg1 strength:(float)arg2 image:(id)arg3 shadowImage:(id)arg4;
+- (id)initWithSettings:(id)arg1 strength:(float)arg2 image:(id)arg3 shadowImage:(id)arg4 options:(int)arg5;
+- (id)initWithStyle:(int)arg1 image:(id)arg2;
+- (id)initWithStyle:(int)arg1 image:(id)arg2 shadowImage:(id)arg3;
 - (void)layoutSubviews;
-- (long long)options;
-- (void)setHidesImage:(bool)arg1;
-- (void)setImage:(id)arg1 shadowImage:(id)arg2;
+- (int)options;
+- (void)setHidesImage:(BOOL)arg1;
 - (void)setImage:(id)arg1;
+- (void)setImage:(id)arg1 shadowImage:(id)arg2;
 - (void)setImageColorFilter:(id)arg1;
 - (void)setImageView:(id)arg1;
-- (void)setOptions:(long long)arg1;
-- (void)setSettings:(id)arg1 image:(id)arg2 shadowImage:(id)arg3;
+- (void)setOptions:(int)arg1;
 - (void)setSettings:(id)arg1;
+- (void)setSettings:(id)arg1 image:(id)arg2 shadowImage:(id)arg3;
 - (void)setShadowImage:(id)arg1;
 - (void)setShadowImageColorFilter:(id)arg1;
 - (void)setShadowImageView:(id)arg1;
-- (void)setStrength:(double)arg1;
-- (void)setStyle:(long long)arg1 image:(id)arg2 shadowImage:(id)arg3;
+- (void)setStrength:(float)arg1;
+- (void)setStyle:(int)arg1 image:(id)arg2 shadowImage:(id)arg3;
 - (id)settings;
 - (id)shadowImage;
 - (id)shadowImageColorFilter;
 - (id)shadowImageView;
-- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
-- (double)strength;
-- (long long)style;
+- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
+- (float)strength;
+- (int)style;
 - (void)updateForChangedSettings:(id)arg1;
 - (void)updateImage;
-- (bool)usesColorFilters;
-- (bool)usesSecondaryColor;
+- (BOOL)usesColorFilters;
+- (BOOL)usesSecondaryColor;
 
 @end

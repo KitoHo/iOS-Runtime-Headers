@@ -2,48 +2,46 @@
    Image: /System/Library/Frameworks/Photos.framework/Photos
  */
 
-@class NSDate, NSString;
-
 @interface PHAssetComment : PHObject {
+    BOOL _canBeDeletedByUser;
     NSString *_cloudGUID;
     NSDate *_commentClientDate;
     NSDate *_commentDate;
     NSString *_commentText;
     NSString *_commenterHashedPersonID;
-    bool_canBeDeletedByUser;
-    bool_isBatchComment;
-    bool_isCaption;
-    bool_isDeletable;
-    bool_isInterestingToUser;
-    bool_isLike;
-    bool_isMyComment;
+    BOOL _isBatchComment;
+    BOOL _isCaption;
+    BOOL _isDeletable;
+    BOOL _isInterestingToUser;
+    BOOL _isLike;
+    BOOL _isMyComment;
 }
 
-@property(readonly) bool canBeDeletedByUser;
-@property(readonly) NSString * cloudGUID;
-@property(readonly) NSDate * commentClientDate;
-@property(readonly) NSDate * commentDate;
-@property(readonly) NSString * commentText;
-@property(readonly) NSString * commenterDisplayName;
-@property(readonly) NSString * commenterEmail;
-@property(readonly) NSString * commenterFirstName;
-@property(readonly) NSString * commenterFullName;
-@property(readonly) NSString * commenterHashedPersonID;
-@property(readonly) NSString * commenterLastName;
-@property(readonly) bool isBatchComment;
-@property(readonly) bool isCaption;
-@property(readonly) bool isDeletable;
-@property(readonly) bool isInterestingForAlbumsSorting;
-@property(readonly) bool isInterestingToUser;
-@property(readonly) bool isLike;
-@property(readonly) bool isMyComment;
+@property (nonatomic, readonly) BOOL canBeDeletedByUser;
+@property (nonatomic, readonly) NSString *cloudGUID;
+@property (nonatomic, readonly) NSDate *commentClientDate;
+@property (nonatomic, readonly) NSDate *commentDate;
+@property (nonatomic, readonly) NSString *commentText;
+@property (nonatomic, readonly) NSString *commenterDisplayName;
+@property (nonatomic, readonly) NSString *commenterEmail;
+@property (nonatomic, readonly) NSString *commenterFirstName;
+@property (nonatomic, readonly) NSString *commenterFullName;
+@property (nonatomic, readonly) NSString *commenterHashedPersonID;
+@property (nonatomic, readonly) NSString *commenterLastName;
+@property (nonatomic, readonly) BOOL isBatchComment;
+@property (nonatomic, readonly) BOOL isCaption;
+@property (nonatomic, readonly) BOOL isDeletable;
+@property (nonatomic, readonly) BOOL isInterestingForAlbumsSorting;
+@property (nonatomic, readonly) BOOL isInterestingToUser;
+@property (nonatomic, readonly) BOOL isLike;
+@property (nonatomic, readonly) BOOL isMyComment;
 
 + (id)managedEntityName;
-+ (id)propertiesToFetchWithHint:(unsigned long long)arg1;
++ (id)propertiesToFetchWithHint:(unsigned int)arg1;
 
 - (void).cxx_destruct;
-- (bool)_isInterestingToUser:(id)arg1;
-- (bool)canBeDeletedByUser;
+- (BOOL)_isInterestingToUser:(id)arg1;
+- (BOOL)canBeDeletedByUser;
 - (Class)changeRequestClass;
 - (id)cloudGUID;
 - (id)commentClientDate;
@@ -55,14 +53,14 @@
 - (id)commenterFullName;
 - (id)commenterHashedPersonID;
 - (id)commenterLastName;
-- (id)initWithFetchDictionary:(id)arg1 propertyHint:(unsigned long long)arg2 photoLibrary:(id)arg3;
-- (bool)isBatchComment;
-- (bool)isCaption;
-- (bool)isDeletable;
-- (bool)isInterestingForAlbumsSorting;
-- (bool)isInterestingToUser;
-- (bool)isLike;
-- (bool)isMyComment;
-- (bool)shouldNotifyAsBulletinWithMediaStreamInfo:(id)arg1 asCaptionOnly:(bool*)arg2;
+- (id)initWithFetchDictionary:(id)arg1 propertyHint:(unsigned int)arg2 photoLibrary:(id)arg3;
+- (BOOL)isBatchComment;
+- (BOOL)isCaption;
+- (BOOL)isDeletable;
+- (BOOL)isInterestingForAlbumsSorting;
+- (BOOL)isInterestingToUser;
+- (BOOL)isLike;
+- (BOOL)isMyComment;
+- (BOOL)shouldNotifyAsBulletinWithMediaStreamInfo:(id)arg1 asCaptionOnly:(BOOL*)arg2;
 
 @end

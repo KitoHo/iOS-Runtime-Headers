@@ -2,12 +2,12 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@interface ML3Album : ML3Collection {
-}
+@interface ML3Album : ML3Collection
+
+// Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
 
 + (id)_albumArtistProtocolItemWithTrackProperties:(id)arg1 inLibrary:(id)arg2;
 + (id)allProperties;
-+ (id)artworkCacheIDProperty;
 + (id)countingQueryForBaseQuery:(id)arg1 countProperty:(id)arg2 forIdentifier:(long long)arg3;
 + (id)databaseTable;
 + (id)defaultOrderingTerms;
@@ -16,15 +16,19 @@
 + (id)joinClausesForProperty:(id)arg1;
 + (id)predisambiguatedProperties;
 + (id)propertiesForGroupingKey;
-+ (id)propertyForMPMediaEntityProperty:(id)arg1;
-+ (bool)propertyIsCountProperty:(id)arg1;
++ (id)propertiesForGroupingUniqueCollections;
++ (BOOL)propertyIsCountProperty:(id)arg1;
 + (id)protocolItemWithProperties:(id)arg1 inLibrary:(id)arg2;
-+ (long long)revisionTrackingCode;
++ (int)revisionTrackingCode;
 + (id)trackForeignPersistentID;
 
 - (id)multiverseIdentifier;
 - (id)protocolItem;
-- (void)updateRepresentativeItem:(id)arg1 inLibrary:(id)arg2 withArtworkToken:(id)arg3;
+- (void)updateRepresentativeItem:(id)arg1 inLibrary:(id)arg2;
 - (void)updateTrackValues:(id)arg1;
+
+// Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
+
++ (id)propertyForMPMediaEntityProperty:(id)arg1;
 
 @end

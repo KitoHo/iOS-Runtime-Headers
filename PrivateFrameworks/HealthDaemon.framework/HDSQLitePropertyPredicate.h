@@ -2,19 +2,18 @@
    Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
  */
 
-@class NSString;
-
 @interface HDSQLitePropertyPredicate : HDSQLitePredicate <NSCopying> {
     NSString *_property;
 }
 
-@property(readonly) NSString * property;
+@property (nonatomic, readonly) NSString *property;
 
 - (void).cxx_destruct;
 - (id)SQLJoinClausesForEntityClass:(Class)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isCompatibleWithPredicate:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)property;
 
 @end

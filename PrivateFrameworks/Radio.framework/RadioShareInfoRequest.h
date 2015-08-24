@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/Radio.framework/Radio
  */
 
-@class NSArray, NSString, SSURLConnectionRequest;
-
 @interface RadioShareInfoRequest : RadioRequest {
     NSArray *_acceptedMIMETypes;
     SSURLConnectionRequest *_request;
-    long long _shareType;
+    int _shareType;
     NSString *_stationHash;
     long long _stationID;
 }
 
-@property(copy) NSArray * acceptedMIMETypes;
+@property (nonatomic, copy) NSArray *acceptedMIMETypes;
 
 - (void).cxx_destruct;
 - (id)acceptedMIMETypes;
-- (id)initWithStation:(id)arg1 shareType:(long long)arg2;
+- (id)initWithStation:(id)arg1 shareType:(int)arg2;
 - (void)setAcceptedMIMETypes:(id)arg1;
-- (void)startWithCompletionHandler:(id)arg1;
-- (void)startWithShareInformationCompletionHandler:(id)arg1;
+- (void)startWithCompletionHandler:(id /* block */)arg1;
+- (void)startWithShareInformationCompletionHandler:(id /* block */)arg1;
 
 @end

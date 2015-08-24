@@ -2,47 +2,45 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@class ABPropertyBestFaceTimeQuery, NSArray;
-
-@interface ABContactAddFavoriteAction : ABPropertyAction <ABPropertyBestFaceTimeQueryDelegate> {
-    ABPropertyBestFaceTimeQuery *_bestFaceTimeQuery;
+@interface ABContactAddFavoriteAction : ABPropertyAction <ABPropertyBestIDSValueQueryDelegate> {
+    BOOL _allowFaceTimeAudioFavorites;
+    BOOL _allowFaceTimeFavorites;
+    BOOL _allowPhoneFavorites;
+    ABPropertyBestIDSValueQuery *_bestFaceTimeQuery;
     NSArray *_filteredPhoneItems;
-    bool_allowFaceTimeAudioFavorites;
-    bool_allowFaceTimeFavorites;
-    bool_allowPhoneFavorites;
-    bool_hasFaceTimeAudioFavorite;
-    bool_hasFaceTimeFavorite;
+    BOOL _hasFaceTimeAudioFavorite;
+    BOOL _hasFaceTimeFavorite;
 }
 
-@property bool allowFaceTimeAudioFavorites;
-@property bool allowFaceTimeFavorites;
-@property bool allowPhoneFavorites;
-@property(retain) ABPropertyBestFaceTimeQuery * bestFaceTimeQuery;
-@property(retain) NSArray * filteredPhoneItems;
-@property bool hasFaceTimeAudioFavorite;
-@property bool hasFaceTimeFavorite;
+@property (nonatomic) BOOL allowFaceTimeAudioFavorites;
+@property (nonatomic) BOOL allowFaceTimeFavorites;
+@property (nonatomic) BOOL allowPhoneFavorites;
+@property (nonatomic, retain) ABPropertyBestIDSValueQuery *bestFaceTimeQuery;
+@property (nonatomic, retain) NSArray *filteredPhoneItems;
+@property (nonatomic) BOOL hasFaceTimeAudioFavorite;
+@property (nonatomic) BOOL hasFaceTimeFavorite;
 
 - (void)_filterFavoritedItems;
 - (void)_queryFaceTimeStatus;
 - (void)_saveFavorite:(id)arg1 withType:(int)arg2;
-- (bool)allowFaceTimeAudioFavorites;
-- (bool)allowFaceTimeFavorites;
-- (bool)allowPhoneFavorites;
+- (BOOL)allowFaceTimeAudioFavorites;
+- (BOOL)allowFaceTimeFavorites;
+- (BOOL)allowPhoneFavorites;
 - (id)bestFaceTimeQuery;
-- (bool)canPerformAction;
+- (BOOL)canPerformAction;
 - (void)dealloc;
 - (id)filteredPhoneItems;
-- (bool)hasFaceTimeAudioFavorite;
-- (bool)hasFaceTimeFavorite;
+- (BOOL)hasFaceTimeAudioFavorite;
+- (BOOL)hasFaceTimeFavorite;
 - (id)initWithContact:(id)arg1 propertyItems:(id)arg2;
 - (void)performActionWithSender:(id)arg1;
 - (void)queryComplete;
-- (void)setAllowFaceTimeAudioFavorites:(bool)arg1;
-- (void)setAllowFaceTimeFavorites:(bool)arg1;
-- (void)setAllowPhoneFavorites:(bool)arg1;
+- (void)setAllowFaceTimeAudioFavorites:(BOOL)arg1;
+- (void)setAllowFaceTimeFavorites:(BOOL)arg1;
+- (void)setAllowPhoneFavorites:(BOOL)arg1;
 - (void)setBestFaceTimeQuery:(id)arg1;
 - (void)setFilteredPhoneItems:(id)arg1;
-- (void)setHasFaceTimeAudioFavorite:(bool)arg1;
-- (void)setHasFaceTimeFavorite:(bool)arg1;
+- (void)setHasFaceTimeAudioFavorite:(BOOL)arg1;
+- (void)setHasFaceTimeFavorite:(BOOL)arg1;
 
 @end

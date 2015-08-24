@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/MediaServices.framework/MediaServices
  */
 
-@interface MSVArtworkServiceRequest : NSObject <NSSecureCoding> {
-}
+@interface MSVArtworkServiceRequest : NSObject <NSSecureCoding>
 
-@property(readonly) Class operationClass;
+@property (nonatomic, readonly) Class operationClass;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSData, NSString, PKPaymentRequest;
-
 @interface PKPaymentAuthorizationRequest : NSObject <NSSecureCoding> {
     NSData *_credential;
+    BOOL _didSetNonce;
     NSData *_nonceData;
     NSString *_passUniqueIdentifier;
     PKPaymentRequest *_paymentRequest;
-    bool_didSetNonce;
 }
 
-@property(retain) NSData * credential;
-@property(retain) NSData * nonceData;
-@property(retain) NSString * passUniqueIdentifier;
-@property(retain) PKPaymentRequest * paymentRequest;
+@property (nonatomic, retain) NSData *credential;
+@property (nonatomic, retain) NSData *nonceData;
+@property (nonatomic, retain) NSString *passUniqueIdentifier;
+@property (nonatomic, retain) PKPaymentRequest *paymentRequest;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)credential;
 - (void)dealloc;

@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class GQDSStyle;
-
 @interface GQPSectionDrawable : NSObject {
     struct { 
-        long long location; 
-        long long length; 
+        int location; 
+        int length; 
     } mPageRange;
     GQDSStyle *mStyle;
 }

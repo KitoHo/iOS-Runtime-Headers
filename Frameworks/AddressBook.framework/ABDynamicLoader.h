@@ -2,10 +2,9 @@
    Image: /System/Library/Frameworks/AddressBook.framework/AddressBook
  */
 
-@interface ABDynamicLoader : NSObject {
-}
+@interface ABDynamicLoader : NSObject
 
-+ (bool)loadFrameworkAtPath:(id)arg1 andStoreHandle:(void**)arg2 bundle:(id*)arg3 logging:(bool)arg4;
-+ (bool)loadFrameworkAtPath:(id)arg1 andStoreHandle:(void**)arg2 bundle:(id*)arg3;
++ (BOOL)loadFrameworkAtPath:(id)arg1 andStoreHandle:(void**)arg2 bundle:(id*)arg3;
++ (BOOL)loadFrameworkAtPath:(id)arg1 andStoreHandle:(void**)arg2 bundle:(id*)arg3 logging:(BOOL)arg4;
 
 @end

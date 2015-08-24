@@ -2,23 +2,25 @@
    Image: /System/Library/Frameworks/Metal.framework/Metal
  */
 
-@class NSString;
-
 @interface MTLVertexAttribute : NSObject {
-    unsigned long long _attributeIndex;
+    BOOL _active;
+    unsigned int _attributeIndex;
+    unsigned int _attributeType;
     NSString *_name;
-    bool_active;
 }
 
-@property(getter=isActive,readonly) bool active;
-@property(readonly) unsigned long long attributeIndex;
-@property(readonly) NSString * name;
+@property (getter=isActive, readonly) BOOL active;
+@property (readonly) unsigned int attributeIndex;
+@property (readonly) unsigned int attributeType;
+@property (readonly) NSString *name;
 
-- (unsigned long long)attributeIndex;
+- (unsigned int)attributeIndex;
+- (unsigned int)attributeType;
 - (void)dealloc;
 - (id)description;
-- (id)initWithName:(id)arg1 attributeIndex:(unsigned long long)arg2 isActive:(bool)arg3;
-- (bool)isActive;
+- (id)initWithName:(id)arg1 attributeIndex:(unsigned int)arg2 attributeType:(unsigned int)arg3 isActive:(BOOL)arg4;
+- (BOOL)isActive;
 - (id)name;
+- (void)setAttributeType:(unsigned int)arg1;
 
 @end

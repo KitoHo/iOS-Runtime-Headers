@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@interface CKTranscriptChatItemRules : IMTranscriptChatItemRules {
-}
+@interface CKTranscriptChatItemRules : IMTranscriptChatItemRules
 
-- (id)chatItemForIMChatItem:(id)arg1;
-- (bool)shouldShowRaiseMessageStatus;
+- (BOOL)shouldShowRaiseMessageStatus;
 
 @end

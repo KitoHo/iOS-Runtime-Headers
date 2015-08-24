@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/AirTrafficDevice.framework/AirTrafficDevice
  */
 
-@class ATAssetManager, ATRestoreAssetLink, ATSession, ATStoreAssetLink, MSVXPCTransaction, NSObject<OS_dispatch_queue>, NSString;
-
-@interface ATRestoreManager : NSObject <ATEnvironmentMonitorObserver, ATSessionObserver, ATRestoreAssetLinkDelegate> {
+@interface ATRestoreManager : NSObject <ATEnvironmentMonitorObserver, ATRestoreAssetLinkDelegate, ATSessionObserver> {
     ATRestoreAssetLink *_applicationDataRestoreLink;
     ATAssetManager *_assetManager;
+    BOOL _cancelled;
     NSObject<OS_dispatch_queue> *_queue;
     ATRestoreAssetLink *_restoreLink;
     ATSession *_restoreSession;
     ATStoreAssetLink *_storeLink;
     MSVXPCTransaction *_xpcTransaction;
-    bool_cancelled;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)sharedManager;
 
@@ -28,7 +26,7 @@
 - (void)environmentMonitorDidChangeNetworkReachability:(id)arg1;
 - (id)init;
 - (void)restoreAssetLinkDidCancelRestore:(id)arg1;
-- (bool)restoreSessionActive;
+- (BOOL)restoreSessionActive;
 - (void)resume;
 - (void)sessionDidFinish:(id)arg1;
 

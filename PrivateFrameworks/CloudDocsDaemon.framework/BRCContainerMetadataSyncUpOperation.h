@@ -2,21 +2,16 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-@class BRCContainerScheduler, NSString;
+@interface BRCContainerMetadataSyncUpOperation : _BRCOperation <BRCOperationSubclass>
 
-@interface BRCContainerMetadataSyncUpOperation : BRCOperation <BRCOperationSubclass> {
-    BRCContainerScheduler *_scheduler;
-}
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
-
-- (void).cxx_destruct;
-- (id)initWithContainerScheduler:(id)arg1;
+- (id)initWithSession:(id)arg1;
 - (void)main;
-- (void)performAfterSavingRecords:(id)arg1;
-- (bool)shouldRetryForError:(id)arg1;
+- (void)performAfterSavingRecords:(id /* block */)arg1;
+- (BOOL)shouldRetryForError:(id)arg1;
 
 @end

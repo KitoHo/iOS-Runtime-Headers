@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class WDAnnotation, WDAnnotationData, WDCharacterRun;
-
 @interface WDAnnotation : WDRun {
-    boolmReferencePopertiesFixed;
     WDAnnotationData *mData;
     WDAnnotation *mOtherEndOfRangedAnnotation;
     WDCharacterRun *mReference;
+    BOOL mReferencePopertiesFixed;
     int mType;
 }
 
@@ -20,7 +18,7 @@
 - (id)otherEndOfRangedAnnotation;
 - (id)owner;
 - (id)reference;
-- (bool)referencePropertiesFixed;
+- (BOOL)referencePropertiesFixed;
 - (int)runType;
 - (void)setDate:(id)arg1;
 - (void)setOtherEndOfRangedAnnotation:(id)arg1;

@@ -3,42 +3,42 @@
  */
 
 @interface AirPlayImage : NSObject {
-    struct CGSize { 
-        double width; 
-        double height; 
-    struct CGSize { 
-        double width; 
-        double height; 
     struct CGImage { } *_image;
     int _imageOrientation;
     void *_ioSurface;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _scale;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _unadjustedSize;
 }
 
-@property(readonly) struct CGImage { }* CGImage;
-@property(readonly) int imageOrientation;
-@property(readonly) void* ioSurface;
-@property(readonly) id layerContents;
-@property struct CGSize { double x1; double x2; } scale;
-@property(readonly) struct CGSize { double x1; double x2; } size;
+@property (nonatomic, readonly) struct CGImage { }*CGImage;
+@property (nonatomic, readonly) int imageOrientation;
+@property (nonatomic, readonly) void*ioSurface;
+@property (nonatomic, readonly) id layerContents;
+@property (nonatomic) struct CGSize { float x1; float x2; } scale;
+@property (nonatomic, readonly) struct CGSize { float x1; float x2; } size;
 
 - (struct CGImage { }*)CGImage;
 - (void)_setCGImage:(struct CGImage { }*)arg1;
 - (void)_setIOSurface:(void*)arg1;
 - (void)_setImageOrientation:(int)arg1;
-- (struct CGSize { double x1; double x2; })_unadjustedContentSize;
-- (struct CGAffineTransform { double x1; double x2; double x3; double x4; double x5; double x6; })contentsTransformForLayer:(id)arg1;
+- (struct CGSize { float x1; float x2; })_unadjustedContentSize;
+- (struct CGAffineTransform { float x1; float x2; float x3; float x4; float x5; float x6; })contentsTransformForLayer:(id)arg1;
 - (void)dealloc;
 - (int)imageOrientation;
-- (id)initWithContentsOfFile:(id)arg1 decode:(bool)arg2;
 - (id)initWithContentsOfFile:(id)arg1;
-- (id)initWithData:(id)arg1 decode:(bool)arg2;
+- (id)initWithContentsOfFile:(id)arg1 decode:(BOOL)arg2;
 - (id)initWithData:(id)arg1;
+- (id)initWithData:(id)arg1 decode:(BOOL)arg2;
 - (void*)ioSurface;
 - (id)layerContents;
-- (struct CGSize { double x1; double x2; })scale;
-- (void)setScale:(struct CGSize { double x1; double x2; })arg1;
-- (struct CGSize { double x1; double x2; })size;
+- (struct CGSize { float x1; float x2; })scale;
+- (void)setScale:(struct CGSize { float x1; float x2; })arg1;
+- (struct CGSize { float x1; float x2; })size;
 
 @end

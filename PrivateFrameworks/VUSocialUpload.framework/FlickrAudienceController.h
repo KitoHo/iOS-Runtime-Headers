@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/VUSocialUpload.framework/VUSocialUpload
  */
 
-@class <FlickrComposeOptionViewDelegate>;
-
 @interface FlickrAudienceController : UITableViewController {
     int _audience;
     <FlickrComposeOptionViewDelegate> *_delegate;
 }
 
-@property int audience;
-@property <FlickrComposeOptionViewDelegate> * delegate;
+@property (nonatomic) int audience;
+@property (nonatomic) <FlickrComposeOptionViewDelegate> *delegate;
 
 + (id)titleForAudience:(int)arg1;
 
@@ -18,12 +16,12 @@
 - (int)audience;
 - (id)delegate;
 - (void)loadView;
-- (struct CGSize { double x1; double x2; })preferredContentSize;
+- (struct CGSize { float x1; float x2; })preferredContentSize;
 - (void)setAudience:(int)arg1;
 - (void)setDelegate:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 
 @end

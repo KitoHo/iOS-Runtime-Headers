@@ -2,47 +2,53 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSData, NSMutableArray;
-
 @interface CKDPRecordRetrieveChangesResponse : PBCodable <NSCopying> {
+    NSMutableArray *_changedRecords;
+    NSMutableArray *_changedShares;
+    NSData *_clientChangeToken;
     struct { 
         unsigned int status : 1; 
-    NSMutableArray *_changedRecords;
-    NSData *_clientChangeToken;
     } _has;
     int _status;
     NSData *_syncContinuationToken;
 }
 
-@property(retain) NSMutableArray * changedRecords;
-@property(retain) NSData * clientChangeToken;
-@property(readonly) bool hasClientChangeToken;
-@property bool hasStatus;
-@property(readonly) bool hasSyncContinuationToken;
-@property int status;
-@property(retain) NSData * syncContinuationToken;
+@property (nonatomic, retain) NSMutableArray *changedRecords;
+@property (nonatomic, retain) NSMutableArray *changedShares;
+@property (nonatomic, retain) NSData *clientChangeToken;
+@property (nonatomic, readonly) BOOL hasClientChangeToken;
+@property (nonatomic) BOOL hasStatus;
+@property (nonatomic, readonly) BOOL hasSyncContinuationToken;
+@property (nonatomic) int status;
+@property (nonatomic, retain) NSData *syncContinuationToken;
 
 - (void).cxx_destruct;
 - (void)addChangedRecord:(id)arg1;
-- (id)changedRecordAtIndex:(unsigned long long)arg1;
+- (void)addChangedShare:(id)arg1;
+- (id)changedRecordAtIndex:(unsigned int)arg1;
 - (id)changedRecords;
-- (unsigned long long)changedRecordsCount;
+- (unsigned int)changedRecordsCount;
+- (id)changedShareAtIndex:(unsigned int)arg1;
+- (id)changedShares;
+- (unsigned int)changedSharesCount;
 - (void)clearChangedRecords;
+- (void)clearChangedShares;
 - (id)clientChangeToken;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasClientChangeToken;
-- (bool)hasStatus;
-- (bool)hasSyncContinuationToken;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasClientChangeToken;
+- (BOOL)hasStatus;
+- (BOOL)hasSyncContinuationToken;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setChangedRecords:(id)arg1;
+- (void)setChangedShares:(id)arg1;
 - (void)setClientChangeToken:(id)arg1;
-- (void)setHasStatus:(bool)arg1;
+- (void)setHasStatus:(BOOL)arg1;
 - (void)setStatus:(int)arg1;
 - (void)setSyncContinuationToken:(id)arg1;
 - (int)status;

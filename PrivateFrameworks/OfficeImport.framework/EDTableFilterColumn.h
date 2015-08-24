@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableArray;
-
 @interface EDTableFilterColumn : NSObject {
-    unsigned long long mColumnIndex;
+    unsigned int mColumnIndex;
     NSMutableArray *mFilters;
     int mFiltersRelation;
 }
 
 - (void)addFilter:(id)arg1;
-- (unsigned long long)columnIndex;
+- (unsigned int)columnIndex;
 - (void)dealloc;
-- (id)filterAtIndex:(unsigned long long)arg1;
-- (unsigned long long)filterCount;
+- (id)filterAtIndex:(unsigned int)arg1;
+- (unsigned int)filterCount;
 - (int)filtersRelation;
 - (id)init;
-- (void)setColumnIndex:(unsigned long long)arg1;
+- (void)setColumnIndex:(unsigned int)arg1;
 - (void)setFiltersRelation:(int)arg1;
 
 @end

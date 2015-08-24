@@ -2,15 +2,13 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDAirPlayPhotoSessionStartedOnServer : PBCodable <NSCopying> {
+    NSString *_clientModel;
+    NSString *_clientVersion;
     struct { 
         unsigned int timestamp : 1; 
         unsigned int status : 1; 
         unsigned int transportType : 1; 
-    NSString *_clientModel;
-    NSString *_clientVersion;
     } _has;
     NSString *_sessionUUID;
     int _status;
@@ -18,18 +16,18 @@
     unsigned int _transportType;
 }
 
-@property(retain) NSString * clientModel;
-@property(retain) NSString * clientVersion;
-@property(readonly) bool hasClientModel;
-@property(readonly) bool hasClientVersion;
-@property(readonly) bool hasSessionUUID;
-@property bool hasStatus;
-@property bool hasTimestamp;
-@property bool hasTransportType;
-@property(retain) NSString * sessionUUID;
-@property int status;
-@property unsigned long long timestamp;
-@property unsigned int transportType;
+@property (nonatomic, retain) NSString *clientModel;
+@property (nonatomic, retain) NSString *clientVersion;
+@property (nonatomic, readonly) BOOL hasClientModel;
+@property (nonatomic, readonly) BOOL hasClientVersion;
+@property (nonatomic, readonly) BOOL hasSessionUUID;
+@property (nonatomic) BOOL hasStatus;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) BOOL hasTransportType;
+@property (nonatomic, retain) NSString *sessionUUID;
+@property (nonatomic) int status;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) unsigned int transportType;
 
 - (id)clientModel;
 - (id)clientVersion;
@@ -38,22 +36,22 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasClientModel;
-- (bool)hasClientVersion;
-- (bool)hasSessionUUID;
-- (bool)hasStatus;
-- (bool)hasTimestamp;
-- (bool)hasTransportType;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasClientModel;
+- (BOOL)hasClientVersion;
+- (BOOL)hasSessionUUID;
+- (BOOL)hasStatus;
+- (BOOL)hasTimestamp;
+- (BOOL)hasTransportType;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)sessionUUID;
 - (void)setClientModel:(id)arg1;
 - (void)setClientVersion:(id)arg1;
-- (void)setHasStatus:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
-- (void)setHasTransportType:(bool)arg1;
+- (void)setHasStatus:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasTransportType:(BOOL)arg1;
 - (void)setSessionUUID:(id)arg1;
 - (void)setStatus:(int)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;

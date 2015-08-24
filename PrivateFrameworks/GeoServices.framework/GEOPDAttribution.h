@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray, NSString;
-
 @interface GEOPDAttribution : PBCodable <NSCopying> {
     NSMutableArray *_attributionUrls;
     NSString *_externalComponentId;
@@ -11,24 +9,24 @@
     NSString *_vendorId;
 }
 
-@property(retain) NSMutableArray * attributionUrls;
-@property(retain) NSString * externalComponentId;
-@property(retain) NSString * externalItemId;
-@property(readonly) bool hasExternalComponentId;
-@property(readonly) bool hasExternalItemId;
-@property(readonly) bool hasVendorId;
-@property(retain) NSString * vendorId;
+@property (nonatomic, retain) NSMutableArray *attributionUrls;
+@property (nonatomic, retain) NSString *externalComponentId;
+@property (nonatomic, retain) NSString *externalItemId;
+@property (nonatomic, readonly) BOOL hasExternalComponentId;
+@property (nonatomic, readonly) BOOL hasExternalItemId;
+@property (nonatomic, readonly) BOOL hasVendorId;
+@property (nonatomic, retain) NSString *vendorId;
 
 + (id)attributionForPlaceDataEntity:(id)arg1;
 + (id)attributionForPlaceDataPhotos:(id)arg1;
 + (id)attributionForPlaceDataReview:(id)arg1;
 
 - (id)_attributionKey;
-- (bool)_isYelp;
+- (BOOL)_isYelp;
 - (void)addAttributionUrl:(id)arg1;
-- (id)attributionUrlAtIndex:(unsigned long long)arg1;
+- (id)attributionUrlAtIndex:(unsigned int)arg1;
 - (id)attributionUrls;
-- (unsigned long long)attributionUrlsCount;
+- (unsigned int)attributionUrlsCount;
 - (void)clearAttributionUrls;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -37,13 +35,13 @@
 - (id)dictionaryRepresentation;
 - (id)externalComponentId;
 - (id)externalItemId;
-- (bool)hasExternalComponentId;
-- (bool)hasExternalItemId;
-- (bool)hasVendorId;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasExternalComponentId;
+- (BOOL)hasExternalItemId;
+- (BOOL)hasVendorId;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setAttributionUrls:(id)arg1;
 - (void)setExternalComponentId:(id)arg1;
 - (void)setExternalItemId:(id)arg1;

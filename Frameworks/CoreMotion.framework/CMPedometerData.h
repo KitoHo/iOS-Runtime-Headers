@@ -2,27 +2,29 @@
    Image: /System/Library/Frameworks/CoreMotion.framework/CoreMotion
  */
 
-@class NSDate, NSNumber;
-
-@interface CMPedometerData : NSObject <NSSecureCoding, NSCopying> {
+@interface CMPedometerData : NSObject <NSCopying, NSSecureCoding> {
     NSNumber *fDistance;
     NSDate *fEndDate;
     NSNumber *fFloorAscended;
     NSNumber *fFloorDescended;
     NSNumber *fNumberOfSteps;
+    NSNumber *fPace;
     NSNumber *fRecordId;
+    NSUUID *fSourceId;
     NSDate *fStartDate;
 }
 
-@property(readonly) NSNumber * distance;
-@property(readonly) NSDate * endDate;
-@property(readonly) NSNumber * floorsAscended;
-@property(readonly) NSNumber * floorsDescended;
-@property(readonly) NSNumber * numberOfSteps;
-@property(readonly) long long recordId;
-@property(readonly) NSDate * startDate;
+@property (nonatomic, readonly) NSNumber *distance;
+@property (nonatomic, readonly) NSDate *endDate;
+@property (nonatomic, readonly) NSNumber *floorsAscended;
+@property (nonatomic, readonly) NSNumber *floorsDescended;
+@property (nonatomic, readonly) NSNumber *numberOfSteps;
+@property (nonatomic, readonly) NSNumber *pace;
+@property (nonatomic, readonly) int recordId;
+@property (nonatomic, readonly) NSUUID *sourceId;
+@property (nonatomic, readonly) NSDate *startDate;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
@@ -33,9 +35,11 @@
 - (id)floorsAscended;
 - (id)floorsDescended;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithStartDate:(double)arg1 endDate:(double)arg2 steps:(int)arg3 distance:(double)arg4 floorAscended:(int)arg5 floorDescended:(int)arg6 recordID:(int)arg7;
+- (id)initWithStartDate:(double)arg1 endDate:(double)arg2 steps:(int)arg3 distance:(double)arg4 floorAscended:(int)arg5 floorDescended:(int)arg6 recordID:(int)arg7 pace:(double)arg8 sourceId:(id)arg9;
 - (id)numberOfSteps;
-- (long long)recordId;
+- (id)pace;
+- (int)recordId;
+- (id)sourceId;
 - (id)startDate;
 
 @end

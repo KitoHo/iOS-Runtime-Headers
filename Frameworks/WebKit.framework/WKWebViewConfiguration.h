@@ -2,84 +2,86 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-@class NSString, WKPreferences, WKProcessPool, WKUserContentController, WKWebView, WKWebViewContentProviderRegistry, _WKVisitedLinkProvider, _WKWebsiteDataStore;
-
 @interface WKWebViewConfiguration : NSObject <NSCopying> {
-    struct LazyInitialized<WKProcessPool> { 
-        boolm_isInitialized; 
-        struct RetainPtr<WKProcessPool> { 
-            void *m_ptr; 
-        } m_value; 
-    struct LazyInitialized<WKPreferences> { 
-        boolm_isInitialized; 
-        struct RetainPtr<WKPreferences> { 
-            void *m_ptr; 
-        } m_value; 
-    struct LazyInitialized<WKUserContentController> { 
-        boolm_isInitialized; 
-        struct RetainPtr<WKUserContentController> { 
-            void *m_ptr; 
-        } m_value; 
-    struct LazyInitialized<_WKVisitedLinkProvider> { 
-        boolm_isInitialized; 
-        struct RetainPtr<_WKVisitedLinkProvider> { 
-            void *m_ptr; 
-        } m_value; 
-    struct LazyInitialized<_WKWebsiteDataStore> { 
-        boolm_isInitialized; 
-        struct RetainPtr<_WKWebsiteDataStore> { 
-            void *m_ptr; 
-        } m_value; 
-    struct WeakObjCPtr<WKWebView> { 
+    BOOL _allowsInlineMediaPlayback;
+    /* Warning: unhandled struct encoding: '{WeakObjCPtr<WKWebView>="m_weakReference"@}' */ struct WeakObjCPtr<WKWebView> { 
         id m_weakReference; 
-    struct WeakObjCPtr<WKWebView> { 
-        id m_weakReference; 
-    struct RetainPtr<NSString> { 
-        void *m_ptr; 
+    } _alternateWebViewForNavigationGestures;
     struct LazyInitialized<WKWebViewContentProviderRegistry> { 
-        boolm_isInitialized; 
+        bool m_isInitialized; 
         struct RetainPtr<WKWebViewContentProviderRegistry> { 
             void *m_ptr; 
         } m_value; 
-    } _alternateWebViewForNavigationGestures;
     } _contentProviderRegistry;
+    BOOL _featureCounterEnabled;
+    struct RetainPtr<NSString> { 
+        void *m_ptr; 
     } _groupIdentifier;
+    BOOL _mediaPlaybackAllowsAirPlay;
+    BOOL _mediaPlaybackRequiresUserAction;
+    struct LazyInitialized<WKPreferences> { 
+        bool m_isInitialized; 
+        struct RetainPtr<WKPreferences> { 
+            void *m_ptr; 
+        } m_value; 
     } _preferences;
+    struct LazyInitialized<WKProcessPool> { 
+        bool m_isInitialized; 
+        struct RetainPtr<WKProcessPool> { 
+            void *m_ptr; 
+        } m_value; 
     } _processPool;
+    /* Warning: unhandled struct encoding: '{WeakObjCPtr<WKWebView>="m_weakReference"@}' */ struct WeakObjCPtr<WKWebView> { 
+        id m_weakReference; 
     } _relatedWebView;
-    long long _selectionGranularity;
+    int _selectionGranularity;
+    BOOL _suppressesIncrementalRendering;
+    struct LazyInitialized<WKUserContentController> { 
+        bool m_isInitialized; 
+        struct RetainPtr<WKUserContentController> { 
+            void *m_ptr; 
+        } m_value; 
     } _userContentController;
+    struct LazyInitialized<_WKVisitedLinkProvider> { 
+        bool m_isInitialized; 
+        struct RetainPtr<_WKVisitedLinkProvider> { 
+            void *m_ptr; 
+        } m_value; 
     } _visitedLinkProvider;
+    struct LazyInitialized<_WKWebsiteDataStore> { 
+        bool m_isInitialized; 
+        struct RetainPtr<_WKWebsiteDataStore> { 
+            void *m_ptr; 
+        } m_value; 
     } _websiteDataStore;
-    bool_allowsInlineMediaPlayback;
-    bool_mediaPlaybackAllowsAirPlay;
-    bool_mediaPlaybackRequiresUserAction;
-    bool_suppressesIncrementalRendering;
 }
 
-@property(setter=_setAlternateWebViewForNavigationGestures:) WKWebView * _alternateWebViewForNavigationGestures;
-@property(setter=_setContentProviderRegistry:) WKWebViewContentProviderRegistry * _contentProviderRegistry;
-@property(setter=_setGroupIdentifier:,copy) NSString * _groupIdentifier;
-@property(setter=_setRelatedWebView:) WKWebView * _relatedWebView;
-@property(setter=_setVisitedLinkProvider:,retain) _WKVisitedLinkProvider * _visitedLinkProvider;
-@property(setter=_setWebsiteDataStore:,retain) _WKWebsiteDataStore * _websiteDataStore;
-@property bool allowsInlineMediaPlayback;
-@property bool mediaPlaybackAllowsAirPlay;
-@property bool mediaPlaybackRequiresUserAction;
-@property(retain) WKPreferences * preferences;
-@property(retain) WKProcessPool * processPool;
-@property long long selectionGranularity;
-@property bool suppressesIncrementalRendering;
-@property(retain) WKUserContentController * userContentController;
+@property (setter=_setAlternateWebViewForNavigationGestures:, nonatomic) WKWebView *_alternateWebViewForNavigationGestures;
+@property (setter=_setContentProviderRegistry:, nonatomic) WKWebViewContentProviderRegistry *_contentProviderRegistry;
+@property (setter=_setFeatureCounterEnabled:, nonatomic) BOOL _featureCounterEnabled;
+@property (setter=_setGroupIdentifier:, nonatomic, copy) NSString *_groupIdentifier;
+@property (setter=_setRelatedWebView:, nonatomic) WKWebView *_relatedWebView;
+@property (setter=_setVisitedLinkProvider:, nonatomic, retain) _WKVisitedLinkProvider *_visitedLinkProvider;
+@property (setter=_setWebsiteDataStore:, nonatomic, retain) _WKWebsiteDataStore *_websiteDataStore;
+@property (nonatomic) BOOL allowsInlineMediaPlayback;
+@property (nonatomic) BOOL mediaPlaybackAllowsAirPlay;
+@property (nonatomic) BOOL mediaPlaybackRequiresUserAction;
+@property (nonatomic, retain) WKPreferences *preferences;
+@property (nonatomic, retain) WKProcessPool *processPool;
+@property (nonatomic) int selectionGranularity;
+@property (nonatomic) BOOL suppressesIncrementalRendering;
+@property (nonatomic, retain) WKUserContentController *userContentController;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)_alternateWebViewForNavigationGestures;
 - (id)_contentProviderRegistry;
+- (BOOL)_featureCounterEnabled;
 - (id)_groupIdentifier;
 - (id)_relatedWebView;
 - (void)_setAlternateWebViewForNavigationGestures:(id)arg1;
 - (void)_setContentProviderRegistry:(id)arg1;
+- (void)_setFeatureCounterEnabled:(BOOL)arg1;
 - (void)_setGroupIdentifier:(id)arg1;
 - (void)_setRelatedWebView:(id)arg1;
 - (void)_setVisitedLinkProvider:(id)arg1;
@@ -87,24 +89,24 @@
 - (void)_validate;
 - (id)_visitedLinkProvider;
 - (id)_websiteDataStore;
-- (bool)allowsInlineMediaPlayback;
+- (BOOL)allowsInlineMediaPlayback;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)init;
-- (bool)mediaPlaybackAllowsAirPlay;
-- (bool)mediaPlaybackRequiresUserAction;
+- (BOOL)mediaPlaybackAllowsAirPlay;
+- (BOOL)mediaPlaybackRequiresUserAction;
 - (id)preferences;
 - (id)processPool;
-- (long long)selectionGranularity;
-- (void)setAllowsInlineMediaPlayback:(bool)arg1;
-- (void)setMediaPlaybackAllowsAirPlay:(bool)arg1;
-- (void)setMediaPlaybackRequiresUserAction:(bool)arg1;
+- (int)selectionGranularity;
+- (void)setAllowsInlineMediaPlayback:(BOOL)arg1;
+- (void)setMediaPlaybackAllowsAirPlay:(BOOL)arg1;
+- (void)setMediaPlaybackRequiresUserAction:(BOOL)arg1;
 - (void)setPreferences:(id)arg1;
 - (void)setProcessPool:(id)arg1;
-- (void)setSelectionGranularity:(long long)arg1;
-- (void)setSuppressesIncrementalRendering:(bool)arg1;
+- (void)setSelectionGranularity:(int)arg1;
+- (void)setSuppressesIncrementalRendering:(BOOL)arg1;
 - (void)setUserContentController:(id)arg1;
-- (bool)suppressesIncrementalRendering;
+- (BOOL)suppressesIncrementalRendering;
 - (id)userContentController;
 
 @end

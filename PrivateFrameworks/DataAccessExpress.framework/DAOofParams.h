@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/DataAccessExpress.framework/DataAccessExpress
  */
 
-@class NSDate, NSString;
-
 @interface DAOofParams : NSObject {
     NSDate *_endTime;
     NSString *_externalMessage;
@@ -13,23 +11,23 @@
     NSDate *_startTime;
 }
 
-@property(retain) NSDate * endTime;
-@property(retain) NSString * externalMessage;
-@property int externalState;
-@property(retain) NSString * message;
-@property int oofState;
-@property(retain) NSDate * startTime;
+@property (nonatomic, retain) NSDate *endTime;
+@property (nonatomic, retain) NSString *externalMessage;
+@property (nonatomic) int externalState;
+@property (nonatomic, retain) NSString *message;
+@property (nonatomic) int oofState;
+@property (nonatomic, retain) NSDate *startTime;
 
 - (void).cxx_destruct;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)dictionaryRepresentationForASSettingTask;
-- (void)enableOof:(bool)arg1 From:(id)arg2 to:(id)arg3 withMessage:(id)arg4;
+- (void)enableOof:(BOOL)arg1 From:(id)arg2 to:(id)arg3 withMessage:(id)arg4;
 - (id)endTime;
 - (id)externalMessage;
 - (int)externalState;
 - (id)initWithDictionary:(id)arg1;
-- (bool)isEnabled;
+- (BOOL)isEnabled;
 - (id)message;
 - (int)oofState;
 - (void)setEndTime:(id)arg1;

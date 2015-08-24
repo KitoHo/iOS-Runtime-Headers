@@ -2,22 +2,19 @@
    Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
  */
 
-@class DOMCSSStyleDeclaration, DOMElement, NSString;
+@interface DOMAttr : DOMNode
 
-@interface DOMAttr : DOMNode {
-}
+@property (readonly, copy) NSString *name;
+@property (readonly) DOMElement *ownerElement;
+@property (readonly) BOOL specified;
+@property (readonly) DOMCSSStyleDeclaration *style;
+@property (copy) NSString *value;
 
-@property(copy,readonly) NSString * name;
-@property(readonly) DOMElement * ownerElement;
-@property(readonly) bool specified;
-@property(readonly) DOMCSSStyleDeclaration * style;
-@property(copy) NSString * value;
-
-- (bool)isId;
+- (BOOL)isId;
 - (id)name;
 - (id)ownerElement;
 - (void)setValue:(id)arg1;
-- (bool)specified;
+- (BOOL)specified;
 - (id)style;
 - (id)value;
 

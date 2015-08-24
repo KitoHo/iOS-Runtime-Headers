@@ -2,23 +2,22 @@
    Image: /System/Library/Frameworks/Twitter.framework/Twitter
  */
 
-@interface TWTweetComposeViewController : UIViewController {
-}
+@interface TWTweetComposeViewController : UIViewController
 
-@property(copy) id completionHandler;
+@property (nonatomic, copy) id /* block */ completionHandler;
 
-+ (bool)canSendTweet;
++ (BOOL)canSendTweet;
 
-- (id)addDownSampledImageDataByProxyWithPreviewImage:(id)arg1;
-- (bool)addImage:(id)arg1;
-- (bool)addURL:(id)arg1;
-- (id)addURLWithProxyPreviewImage:(id)arg1;
-- (id)completionHandler;
+- (id /* block */)addDownSampledImageDataByProxyWithPreviewImage:(id)arg1;
+- (BOOL)addImage:(id)arg1;
+- (BOOL)addURL:(id)arg1;
+- (id /* block */)addURLWithProxyPreviewImage:(id)arg1;
+- (id /* block */)completionHandler;
 - (id)init;
-- (bool)removeAllImages;
-- (bool)removeAllURLs;
-- (void)setCompletionHandler:(id)arg1;
-- (bool)setInitialText:(id)arg1;
+- (BOOL)removeAllImages;
+- (BOOL)removeAllURLs;
+- (void)setCompletionHandler:(id /* block */)arg1;
+- (BOOL)setInitialText:(id)arg1;
 - (void)setLongitude:(double)arg1 latitude:(double)arg2 name:(id)arg3;
 
 @end

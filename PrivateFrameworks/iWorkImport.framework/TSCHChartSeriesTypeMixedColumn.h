@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCHChartSeriesTypeMixedColumn : TSCHChartSeriesTypeColumn {
-}
+@interface TSCHChartSeriesTypeMixedColumn : TSCHChartSeriesTypeColumn
 
-- (bool)chunkedBuildsIncludeInterceptValues;
+- (BOOL)chunkedBuildsIncludeInterceptValues;
 - (id)g_genericToSpecificPropertyMapMixedColumn;
 - (id)genericToSpecificPropertyMap;
 

@@ -2,13 +2,11 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSString;
-
 @interface NSRecursiveLock : NSObject <NSLocking> {
     void *_priv;
 }
 
-@property(copy) NSString * name;
+@property (copy) NSString *name;
 
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
 
@@ -16,12 +14,12 @@
 - (id)description;
 - (void)finalize;
 - (id)init;
-- (bool)isLocking;
+- (BOOL)isLocking;
 - (void)lock;
-- (bool)lockBeforeDate:(id)arg1;
+- (BOOL)lockBeforeDate:(id)arg1;
 - (id)name;
 - (void)setName:(id)arg1;
-- (bool)tryLock;
+- (BOOL)tryLock;
 - (void)unlock;
 
 @end

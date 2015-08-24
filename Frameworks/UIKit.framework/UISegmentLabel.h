@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UILabel;
-
 @interface UISegmentLabel : UILabel {
     UILabel *_associatedLabel;
 }
 
-@property UILabel * associatedLabel;
+@property (nonatomic) UILabel *associatedLabel;
 
 - (id)_associatedScalingLabel;
 - (id)_disabledFontColor;
-- (bool)_shouldAnimatePropertyWithKey:(id)arg1;
+- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
 - (id)associatedLabel;
 - (id)init;
 - (void)setAssociatedLabel:(id)arg1;

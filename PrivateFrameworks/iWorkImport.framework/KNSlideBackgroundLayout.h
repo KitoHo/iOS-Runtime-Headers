@@ -2,9 +2,9 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface KNSlideBackgroundLayout : TSDLayout {
-}
+@interface KNSlideBackgroundLayout : TSDLayout
 
-- (bool)shouldProvideGuidesDuringExclusiveAlignmentOperation;
+- (BOOL)isSelectable;
+- (BOOL)shouldProvideGuidesDuringExclusiveAlignmentOperation;
 
 @end

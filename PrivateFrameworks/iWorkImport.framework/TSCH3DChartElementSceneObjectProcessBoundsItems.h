@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCH3DChartElementSceneObjectProcessBoundsItems : TSCH3DChartElementSceneObjectProcessGeometryOnlyItems {
-}
+@interface TSCH3DChartElementSceneObjectProcessBoundsItems : TSCH3DChartElementSceneObjectProcessGeometryOnlyItems
 
-- (bool)useBoundsGeometry;
+- (BOOL)useBoundsGeometry;
 
 @end

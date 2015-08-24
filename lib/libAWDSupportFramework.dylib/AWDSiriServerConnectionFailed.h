@@ -2,28 +2,26 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDSiriServerConnectionFailed : PBCodable <NSCopying> {
+    int _connectionType;
+    long long _errorCode;
+    NSString *_errorDomain;
     struct { 
         unsigned int errorCode : 1; 
         unsigned int timestamp : 1; 
         unsigned int connectionType : 1; 
-    int _connectionType;
-    long long _errorCode;
-    NSString *_errorDomain;
     } _has;
     unsigned long long _timestamp;
 }
 
-@property int connectionType;
-@property long long errorCode;
-@property(retain) NSString * errorDomain;
-@property bool hasConnectionType;
-@property bool hasErrorCode;
-@property(readonly) bool hasErrorDomain;
-@property bool hasTimestamp;
-@property unsigned long long timestamp;
+@property (nonatomic) int connectionType;
+@property (nonatomic) long long errorCode;
+@property (nonatomic, retain) NSString *errorDomain;
+@property (nonatomic) BOOL hasConnectionType;
+@property (nonatomic) BOOL hasErrorCode;
+@property (nonatomic, readonly) BOOL hasErrorDomain;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
 
 - (int)connectionType;
 - (void)copyTo:(id)arg1;
@@ -33,20 +31,20 @@
 - (id)dictionaryRepresentation;
 - (long long)errorCode;
 - (id)errorDomain;
-- (bool)hasConnectionType;
-- (bool)hasErrorCode;
-- (bool)hasErrorDomain;
-- (bool)hasTimestamp;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasConnectionType;
+- (BOOL)hasErrorCode;
+- (BOOL)hasErrorDomain;
+- (BOOL)hasTimestamp;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setConnectionType:(int)arg1;
 - (void)setErrorCode:(long long)arg1;
 - (void)setErrorDomain:(id)arg1;
-- (void)setHasConnectionType:(bool)arg1;
-- (void)setHasErrorCode:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
+- (void)setHasConnectionType:(BOOL)arg1;
+- (void)setHasErrorCode:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;
 - (unsigned long long)timestamp;
 - (void)writeTo:(id)arg1;

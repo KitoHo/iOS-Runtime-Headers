@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSNumber, NSString;
-
 @interface PKLocation : NSObject <NSSecureCoding> {
     NSNumber *_altitude;
     NSNumber *_latitude;
@@ -13,11 +11,11 @@
     NSString *_relevantText;
 }
 
-@property(readonly) struct { double x1; double x2; } coordinate;
-@property(retain) NSString * name;
-@property(retain) NSString * relevantText;
+@property (nonatomic, readonly) struct { double x1; double x2; } coordinate;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *relevantText;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)CLLocation;
 - (double)altitude;
@@ -25,10 +23,10 @@
 - (void)dealloc;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (bool)hasAltitude;
-- (bool)hasEqualCoordinatesToLocation:(id)arg1;
+- (BOOL)hasAltitude;
+- (BOOL)hasEqualCoordinatesToLocation:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (double)latitude;
 - (double)longitude;
 - (double)maxDistance;

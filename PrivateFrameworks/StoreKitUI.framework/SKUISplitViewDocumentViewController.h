@@ -2,9 +2,7 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSString, SKUINavigationDocumentController, SKUISplitViewTemplateElement, UISplitViewController, UIViewController;
-
-@interface SKUISplitViewDocumentViewController : SKUIViewController <SKUINavigationDocumentDelegate, SKUIDocumentViewController> {
+@interface SKUISplitViewDocumentViewController : SKUIViewController <SKUIDocumentViewController, SKUINavigationDocumentDelegate> {
     UIViewController *_delayingPresentationViewController;
     SKUINavigationDocumentController *_leftNavigationDocumentController;
     SKUINavigationDocumentController *_rightNavigationDocumentController;
@@ -12,16 +10,16 @@
     SKUISplitViewTemplateElement *_templateElement;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-+ (bool)_shouldForwardViewWillTransitionToSize;
++ (BOOL)_shouldForwardViewWillTransitionToSize;
 
 - (void).cxx_destruct;
 - (id)_defaultBackgroundColor;
-- (bool)_isFullyPopulated;
+- (BOOL)_isFullyPopulated;
 - (void)_reloadSplitViewControllers;
 - (void)_skui_endDelayingPresentation;
 - (void)dealloc;
@@ -31,6 +29,6 @@
 - (id)leftBarButtonItemsForDocument:(id)arg1;
 - (void)loadView;
 - (void)navigationDocumentStackDidChange:(id)arg1;
-- (void)skui_viewWillAppear:(bool)arg1;
+- (void)skui_viewWillAppear:(BOOL)arg1;
 
 @end

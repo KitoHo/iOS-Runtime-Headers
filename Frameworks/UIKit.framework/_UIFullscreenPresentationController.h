@@ -2,34 +2,36 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIView;
-
 @interface _UIFullscreenPresentationController : _UICurrentContextPresentationController {
+    int _computedOrientation;
+    float _counterRotatedAngle;
     struct CGRect { 
         struct CGPoint { 
-            double x; 
-            double y; 
+            float x; 
+            float y; 
         } origin; 
         struct CGSize { 
-            double width; 
-            double height; 
+            float width; 
+            float height; 
         } size; 
-    double _counterRotatedAngle;
     } _counterRotatedOriginalBounds;
     UIView *_counterRotatedView;
+    int _originalOrientation;
 }
 
 - (void)_adjustOrientationIfNecessaryInWindow:(id)arg1 forViewController:(id)arg2 preservingViewController:(id)arg3;
+- (BOOL)_invokesDelegatesOnOrientationChange;
+- (void)_placeCounterRotationViewWithView:(id)arg1 inWindow:(id)arg2 fromOrientation:(int)arg3 toOrientation:(int)arg4 force:(BOOL)arg5;
 - (void)_removeCounterRotation;
 - (void)_setPresentedViewController:(id)arg1;
-- (bool)_shouldChangeStatusBarViewController;
-- (bool)_shouldRespectDefinesPresentationContext;
+- (BOOL)_shouldRespectDefinesPresentationContext;
 - (void)dealloc;
-- (void)dismissalTransitionDidEnd:(bool)arg1;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })frameOfPresentedViewInContainerView;
-- (void)presentationTransitionDidEnd:(bool)arg1;
-- (bool)shouldPresentInFullscreen;
-- (bool)shouldRemovePresentersView;
-- (void)transitionDidFinish:(bool)arg1;
+- (void)dismissalTransitionDidEnd:(BOOL)arg1;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })frameOfPresentedViewInContainerView;
+- (int)presentationStyle;
+- (void)presentationTransitionDidEnd:(BOOL)arg1;
+- (BOOL)shouldPresentInFullscreen;
+- (BOOL)shouldRemovePresentersView;
+- (void)transitionDidFinish:(BOOL)arg1;
 
 @end

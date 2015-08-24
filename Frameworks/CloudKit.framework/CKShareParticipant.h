@@ -2,73 +2,66 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class CKRecordID, NSString;
-
-@interface CKShareParticipant : NSObject <NSSecureCoding, NSCopying> {
-    long long _acceptanceStatus;
-    NSString *_emailAddress;
-    NSString *_firstName;
-    long long _itemPermission;
-    NSString *_lastName;
-    long long _listPermission;
-    long long _originalAcceptanceStatus;
-    long long _originalItemPermission;
-    long long _originalListPermission;
+@interface CKShareParticipant : NSObject <NSCopying, NSSecureCoding> {
+    int _acceptanceStatus;
+    BOOL _isCurrentUser;
+    int _originalAcceptanceStatus;
+    int _originalParticipantType;
+    int _originalPermission;
+    CKUserIdentity *_originalUserIdentity;
     NSString *_participantID;
-    CKRecordID *_userRecordID;
-    bool_isCurrentUser;
+    int _permission;
+    CKShareID *_shareID;
+    int _type;
+    CKUserIdentity *_userIdentity;
 }
 
-@property long long acceptanceStatus;
-@property(copy) NSString * emailAddress;
-@property(copy) NSString * firstName;
-@property bool isCurrentUser;
-@property long long itemPermission;
-@property(copy) NSString * lastName;
-@property long long listPermission;
-@property long long originalAcceptanceStatus;
-@property long long originalItemPermission;
-@property long long originalListPermission;
-@property(copy) NSString * participantID;
-@property(copy) CKRecordID * userRecordID;
+@property (nonatomic) int acceptanceStatus;
+@property (nonatomic) BOOL isCurrentUser;
+@property (nonatomic) int originalAcceptanceStatus;
+@property (nonatomic) int originalParticipantType;
+@property (nonatomic) int originalPermission;
+@property (nonatomic, retain) CKUserIdentity *originalUserIdentity;
+@property (nonatomic, retain) NSString *participantID;
+@property (nonatomic) int permission;
+@property (nonatomic, retain) CKShareID *shareID;
+@property (nonatomic) int type;
+@property (nonatomic, retain) CKUserIdentity *userIdentity;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)CKPropertiesDescription;
-- (id)_initWithUserRecordID:(id)arg1 participantID:(id)arg2 emailAddress:(id)arg3 acceptanceStatus:(long long)arg4 itemPermission:(long long)arg5 listPermission:(long long)arg6;
-- (long long)acceptanceStatus;
+- (int)acceptanceStatus;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)debugDescription;
 - (id)description;
-- (id)emailAddress;
 - (void)encodeWithCoder:(id)arg1;
-- (id)firstName;
-- (unsigned long long)hash;
-- (id)init;
+- (unsigned int)hash;
 - (id)initWithCoder:(id)arg1;
-- (bool)isCurrentUser;
-- (bool)isEqual:(id)arg1;
-- (bool)isEquivalentToParticipant:(id)arg1;
-- (long long)itemPermission;
-- (id)lastName;
-- (long long)listPermission;
-- (long long)originalAcceptanceStatus;
-- (long long)originalItemPermission;
-- (long long)originalListPermission;
+- (id)initWithUserIdentity:(id)arg1;
+- (BOOL)isCurrentUser;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEquivalentToParticipant:(id)arg1;
+- (int)originalAcceptanceStatus;
+- (int)originalParticipantType;
+- (int)originalPermission;
+- (id)originalUserIdentity;
 - (id)participantID;
-- (void)setAcceptanceStatus:(long long)arg1;
-- (void)setEmailAddress:(id)arg1;
-- (void)setFirstName:(id)arg1;
-- (void)setIsCurrentUser:(bool)arg1;
-- (void)setItemPermission:(long long)arg1;
-- (void)setLastName:(id)arg1;
-- (void)setListPermission:(long long)arg1;
-- (void)setOriginalAcceptanceStatus:(long long)arg1;
-- (void)setOriginalItemPermission:(long long)arg1;
-- (void)setOriginalListPermission:(long long)arg1;
+- (int)permission;
+- (void)setAcceptanceStatus:(int)arg1;
+- (void)setIsCurrentUser:(BOOL)arg1;
+- (void)setOriginalAcceptanceStatus:(int)arg1;
+- (void)setOriginalParticipantType:(int)arg1;
+- (void)setOriginalPermission:(int)arg1;
+- (void)setOriginalUserIdentity:(id)arg1;
 - (void)setParticipantID:(id)arg1;
-- (void)setUserRecordID:(id)arg1;
-- (id)userRecordID;
+- (void)setPermission:(int)arg1;
+- (void)setShareID:(id)arg1;
+- (void)setType:(int)arg1;
+- (void)setUserIdentity:(id)arg1;
+- (id)shareID;
+- (int)type;
+- (id)userIdentity;
 
 @end

@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCHChartAxisPaddingLayoutItem : TSCHChartLayoutItem {
-}
+@interface TSCHChartAxisPaddingLayoutItem : TSCHChartLayoutItem
 
-- (struct CGSize { double x1; double x2; })calcMinSize;
+- (struct CGSize { float x1; float x2; })calcMinSize;
 
 @end

@@ -2,48 +2,53 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSData, NSManagedObject, NSNumber, NSSet, NSString, PLAssetDescription, PLManagedAsset;
+@interface PLAdditionalAssetAttributes : PLManagedObject
 
-@interface PLAdditionalAssetAttributes : PLManagedObject {
-}
+@property (nonatomic, retain) PLManagedAsset *asset;
+@property (nonatomic, retain) PLAssetDescription *assetDescription;
+@property (nonatomic, retain) NSManagedObject *cloudMaster;
+@property (nonatomic, retain) NSSet *cloudResources;
+@property (nonatomic, retain) NSString *creatorBundleID;
+@property (nonatomic, retain) NSString *customCollectionName;
+@property (nonatomic, retain) NSString *customCollectionUUID;
+@property (nonatomic, retain) NSString *customMomentName;
+@property (nonatomic, retain) NSString *customMomentUUID;
+@property (nonatomic, retain) NSString *editorBundleID;
+@property (nonatomic, retain) NSString *exifTimestampString;
+@property (nonatomic, retain) NSNumber *externalUsageIntent;
+@property (nonatomic, retain) NSData *faceRegions;
+@property (nonatomic, retain) id importSessionID;
+@property (nonatomic, retain) NSSet *keywords;
+@property (nonatomic, retain) NSDate *lastUploadAttemptDate;
+@property (nonatomic, retain) NSNumber *locationHash;
+@property (nonatomic, retain) NSString *longDescription;
+@property (nonatomic, retain) id originalAssetsUUID;
+@property (nonatomic, retain) NSString *originalFilename;
+@property (nonatomic, retain) NSNumber *originalFilesize;
+@property (nonatomic, retain) NSData *originalHash;
+@property (nonatomic, retain) NSNumber *originalHeight;
+@property (nonatomic, retain) NSNumber *originalOrientation;
+@property (nonatomic, retain) NSString *originalPath;
+@property (nonatomic, retain) NSNumber *originalResourceChoice;
+@property (nonatomic, retain) NSNumber *originalWidth;
+@property (nonatomic, retain) NSSet *personReferences;
+@property (nonatomic, retain) NSString *publicGlobalUUID;
+@property (nonatomic, retain) NSData *reverseLocationData;
+@property (nonatomic, retain) NSNumber *reverseLocationDataIsValid;
+@property (nonatomic, retain) NSString *timeZoneName;
+@property (nonatomic, retain) NSNumber *timeZoneOffset;
+@property (nonatomic, retain) NSString *title;
+@property (nonatomic, retain) NSManagedObject *unmanagedAdjustment;
+@property (nonatomic, retain) NSNumber *uploadAttempts;
 
-@property(retain) PLManagedAsset * asset;
-@property(retain) PLAssetDescription * assetDescription;
-@property(retain) NSManagedObject * cloudMaster;
-@property(retain) NSSet * cloudResources;
-@property(retain) NSString * creatorBundleID;
-@property(retain) NSString * customCollectionName;
-@property(retain) NSString * customCollectionUUID;
-@property(retain) NSString * customMomentName;
-@property(retain) NSString * customMomentUUID;
-@property(retain) NSString * editorBundleID;
-@property(retain) NSString * exifTimestampString;
-@property(retain) NSNumber * externalUsageIntent;
-@property(retain) id importSessionID;
-@property(retain) NSSet * keywords;
-@property(retain) NSNumber * locationHash;
-@property(retain) NSString * longDescription;
-@property(retain) id originalAssetsUUID;
-@property(retain) NSString * originalFilename;
-@property(retain) NSNumber * originalFilesize;
-@property(retain) NSData * originalHash;
-@property(retain) NSNumber * originalHeight;
-@property(retain) NSNumber * originalOrientation;
-@property(retain) NSString * originalPath;
-@property(retain) NSNumber * originalResourceChoice;
-@property(retain) NSNumber * originalWidth;
-@property(retain) NSString * publicGlobalUUID;
-@property(retain) NSData * reverseLocationData;
-@property(retain) NSNumber * reverseLocationDataIsValid;
-@property(retain) NSString * timeZoneName;
-@property(retain) NSString * title;
-@property(retain) NSManagedObject * unmanagedAdjustment;
-@property(retain) NSNumber * uploadAttempts;
++ (id)listOfSyncedProperties;
 
+- (BOOL)_needToSetModificationDateOnAsset:(id)arg1;
 - (id)longDescription;
+- (BOOL)migrateReverseLocationDataFromKeyedArchiverFormat;
 - (void)setLongDescription:(id)arg1;
-- (bool)validateForInsert:(id*)arg1;
-- (bool)validateForUpdate:(id*)arg1;
+- (BOOL)validateForInsert:(id*)arg1;
+- (BOOL)validateForUpdate:(id*)arg1;
 - (void)willSave;
 
 @end

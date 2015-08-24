@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSArray, NSMutableDictionary, NSString, NSURL, SUClientInterface, SUGradient, SUPageSectionGroup, SUSearchFieldConfiguration, UIColor, UIImage;
-
 @interface SUSection : NSObject {
     SUClientInterface *_clientInterface;
     NSMutableDictionary *_dictionary;
@@ -15,55 +13,55 @@
     UIImage *_selectedMoreListImage;
 }
 
-@property(readonly) SUGradient * backgroundGradient;
-@property(readonly) long long defaultPNGStyle;
-@property(getter=isDefaultSection,readonly) bool defaultSection;
-@property(readonly) NSString * identifier;
-@property(retain) UIImage * image;
-@property(readonly) NSArray * itemImages;
-@property(readonly) NSArray * leftSectionButtons;
-@property(readonly) UIColor * loadingIndicatorColor;
-@property(readonly) UIColor * loadingTextColor;
-@property(readonly) UIColor * loadingTextShadowColor;
-@property(readonly) long long minimumNetworkType;
-@property(retain) UIImage * moreListImage;
-@property(readonly) SUPageSectionGroup * pageSectionGroup;
-@property(readonly) NSString * partnerHeader;
-@property(readonly) NSArray * rightSectionButtons;
-@property(retain) SUSearchFieldConfiguration * searchFieldConfiguration;
-@property(retain) UIImage * selectedImage;
-@property(retain) UIImage * selectedMoreListImage;
-@property(readonly) NSString * title;
-@property(getter=isTransient,readonly) bool transient;
-@property(readonly) long long type;
-@property(readonly) NSURL * url;
-@property(readonly) NSString * urlBagKey;
-@property(getter=isUsingLocalArtwork,readonly) bool usingLocalArtwork;
+@property (nonatomic, readonly) SUGradient *backgroundGradient;
+@property (nonatomic, readonly) int defaultPNGStyle;
+@property (getter=isDefaultSection, nonatomic, readonly) BOOL defaultSection;
+@property (nonatomic, readonly) NSString *identifier;
+@property (nonatomic, retain) UIImage *image;
+@property (nonatomic, readonly) NSArray *itemImages;
+@property (nonatomic, readonly) NSArray *leftSectionButtons;
+@property (nonatomic, readonly) UIColor *loadingIndicatorColor;
+@property (nonatomic, readonly) UIColor *loadingTextColor;
+@property (nonatomic, readonly) UIColor *loadingTextShadowColor;
+@property (nonatomic, readonly) int minimumNetworkType;
+@property (nonatomic, retain) UIImage *moreListImage;
+@property (nonatomic, readonly) SUPageSectionGroup *pageSectionGroup;
+@property (nonatomic, readonly) NSString *partnerHeader;
+@property (nonatomic, readonly) NSArray *rightSectionButtons;
+@property (nonatomic, retain) SUSearchFieldConfiguration *searchFieldConfiguration;
+@property (nonatomic, retain) UIImage *selectedImage;
+@property (nonatomic, retain) UIImage *selectedMoreListImage;
+@property (nonatomic, readonly) NSString *title;
+@property (getter=isTransient, nonatomic, readonly) BOOL transient;
+@property (nonatomic, readonly) int type;
+@property (nonatomic, readonly) NSURL *url;
+@property (nonatomic, readonly) NSString *urlBagKey;
+@property (getter=isUsingLocalArtwork, nonatomic, readonly) BOOL usingLocalArtwork;
 
 - (id)_colorForKey:(id)arg1;
 - (id)_imageBaseName;
-- (long long)_minimumNetworkTypeFromDictionary:(id)arg1;
+- (int)_minimumNetworkTypeFromDictionary:(id)arg1;
 - (id)_sectionButtonsForKey:(id)arg1;
-- (long long)_typeForString:(id)arg1;
+- (int)_typeForString:(id)arg1;
 - (id)backgroundGradient;
 - (void)dealloc;
-- (long long)defaultPNGStyle;
+- (int)defaultPNGStyle;
 - (id)description;
 - (id)identifier;
 - (id)image;
-- (id)imageForSectionButtonWithTag:(long long)arg1;
-- (id)initWithClientInterface:(id)arg1 sectionType:(long long)arg2 defaultPNGStyle:(long long)arg3;
+- (id)imageForSectionButtonWithTag:(int)arg1;
 - (id)initWithClientInterface:(id)arg1;
-- (bool)isDefaultSection;
-- (bool)isTransient;
-- (bool)isUsingLocalArtwork;
+- (id)initWithClientInterface:(id)arg1 sectionType:(int)arg2 defaultPNGStyle:(int)arg3;
+- (BOOL)isDefaultSection;
+- (BOOL)isTransient;
+- (BOOL)isUsingLocalArtwork;
 - (id)itemImages;
 - (id)leftSectionButtons;
-- (bool)loadFromDictionary:(id)arg1 searchField:(id)arg2;
+- (BOOL)loadFromDictionary:(id)arg1 searchField:(id)arg2;
 - (id)loadingIndicatorColor;
 - (id)loadingTextColor;
 - (id)loadingTextShadowColor;
-- (long long)minimumNetworkType;
+- (int)minimumNetworkType;
 - (id)moreListImage;
 - (id)pageSectionGroup;
 - (id)partnerHeader;
@@ -74,11 +72,11 @@
 - (void)setImage:(id)arg1;
 - (void)setMoreListImage:(id)arg1;
 - (void)setSearchFieldConfiguration:(id)arg1;
-- (void)setSectionButtonImage:(id)arg1 forTag:(long long)arg2;
+- (void)setSectionButtonImage:(id)arg1 forTag:(int)arg2;
 - (void)setSelectedImage:(id)arg1;
 - (void)setSelectedMoreListImage:(id)arg1;
 - (id)title;
-- (long long)type;
+- (int)type;
 - (id)url;
 - (id)urlBagKey;
 - (id)valueForProperty:(id)arg1;

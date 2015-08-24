@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class UIViewController;
-
 @interface PUWallpaperActivity : PUActivity {
     UIViewController *_wallpaperActivityViewController;
 }
@@ -13,7 +11,7 @@
 - (id)activityTitle;
 - (id)activityType;
 - (id)activityViewController;
-- (bool)canPerformWithActivityItems:(id)arg1;
+- (BOOL)canPerformWithActivityItems:(id)arg1;
 - (void)prepareWithActivityItems:(id)arg1;
 - (void)wallpaperImageViewControllerDidCancel:(id)arg1;
 - (void)wallpaperImageViewControllerDidCropWallpaper:(id)arg1;

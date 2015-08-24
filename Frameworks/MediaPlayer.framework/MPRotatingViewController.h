@@ -2,17 +2,13 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface MPRotatingViewController : UIViewController {
-    id _block;
+    id /* block */ _block;
 }
 
 - (void).cxx_destruct;
-- (id)initWithValidInterfaceOrientationsBlock:(id)arg1;
-- (bool)shouldAutorotate;
-- (unsigned long long)supportedInterfaceOrientations;
+- (id)initWithValidInterfaceOrientationsBlock:(id /* block */)arg1;
+- (BOOL)shouldAutorotate;
+- (unsigned int)supportedInterfaceOrientations;
 
 @end

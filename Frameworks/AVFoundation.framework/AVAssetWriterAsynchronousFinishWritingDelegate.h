@@ -2,32 +2,26 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class AVAssetWriterFigAssetWriterNotificationHandler, AVWeakReference, NSString;
-
 @interface AVAssetWriterAsynchronousFinishWritingDelegate : NSObject <AVAssetWriterFigAssetWriterNotificationHandlerDelegate, AVAssetWriterFinishWritingHelperDelegate> {
-    id _handler;
+    id /* block */ _handler;
     int _handlerCalled;
     AVAssetWriterFigAssetWriterNotificationHandler *_notificationHandler;
     AVWeakReference *_weakReferenceToHelper;
     AVWeakReference *_weakReferenceToSelf;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void)_callHandlerIfNotCalled;
 - (void)dealloc;
-- (void)didReceiveFigAssetWriterNotificationWithSuccess:(bool)arg1 error:(id)arg2;
+- (void)didReceiveFigAssetWriterNotificationWithSuccess:(BOOL)arg1 error:(id)arg2;
 - (void)finishWritingHelper:(id)arg1 didInitiateFinishWritingForFigAssetWriter:(struct OpaqueFigAssetWriter { }*)arg2;
 - (void)finishWritingHelperDidCancelFinishWriting:(id)arg1;
 - (void)finishWritingHelperDidFail:(id)arg1;
-- (id)initWithHandler:(id)arg1;
-- (bool)shouldHelperPrepareInputs;
+- (id)initWithHandler:(id /* block */)arg1;
+- (BOOL)shouldHelperPrepareInputs;
 
 @end

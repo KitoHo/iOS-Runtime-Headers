@@ -2,30 +2,28 @@
    Image: /System/Library/Frameworks/AddressBook.framework/AddressBook
  */
 
-@class NSArray, NSString;
-
 @interface ABNamePredicate : ABPredicate {
     void *_addressBook;
     NSArray *_groups;
+    BOOL _matchPersonOrCompanyNamesExclusively;
+    BOOL _matchPreferredName;
+    BOOL _matchWholeWords;
     NSString *_name;
     NSArray *_sources;
     struct __CFArray { } *_tokenizationSortKeys;
     void *_tokenizations;
-    bool_matchPersonOrCompanyNamesExclusively;
-    bool_matchPreferredName;
-    bool_matchWholeWords;
 }
 
-@property(copy) NSString * accountIdentifier;
-@property void* addressBook;
-@property void* group;
-@property(retain) NSArray * groups;
-@property bool matchPersonOrCompanyNamesExclusively;
-@property bool matchPreferredName;
-@property bool matchWholeWords;
-@property(copy) NSString * name;
-@property void* source;
-@property(retain) NSArray * sources;
+@property (nonatomic, copy) NSString *accountIdentifier;
+@property (nonatomic) void*addressBook;
+@property (nonatomic) void*group;
+@property (nonatomic, retain) NSArray *groups;
+@property (nonatomic) BOOL matchPersonOrCompanyNamesExclusively;
+@property (nonatomic) BOOL matchPreferredName;
+@property (nonatomic) BOOL matchWholeWords;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic) void*source;
+@property (nonatomic, retain) NSArray *sources;
 
 - (id)_personNameKeys;
 - (void)ab_bindStatement:(struct CPSqliteStatement { struct CPSqliteConnection {} *x1; struct sqlite3_stmt {} *x2; }*)arg1 withBindingOffset:(int*)arg2 predicateIdentifier:(int)arg3;
@@ -35,21 +33,21 @@
 - (void*)group;
 - (id)groups;
 - (id)init;
-- (bool)isValid;
-- (bool)matchPersonOrCompanyNamesExclusively;
-- (bool)matchPreferredName;
-- (bool)matchWholeWords;
+- (BOOL)isValid;
+- (BOOL)matchPersonOrCompanyNamesExclusively;
+- (BOOL)matchPreferredName;
+- (BOOL)matchWholeWords;
 - (id)name;
 - (id)predicateFormat;
-- (id)queryJoinsInCompound:(bool)arg1;
+- (id)queryJoinsInCompound:(BOOL)arg1;
 - (id)queryWhereString;
 - (void)setAccountIdentifier:(id)arg1;
 - (void)setAddressBook:(void*)arg1;
 - (void)setGroup:(void*)arg1;
 - (void)setGroups:(id)arg1;
-- (void)setMatchPersonOrCompanyNamesExclusively:(bool)arg1;
-- (void)setMatchPreferredName:(bool)arg1;
-- (void)setMatchWholeWords:(bool)arg1;
+- (void)setMatchPersonOrCompanyNamesExclusively:(BOOL)arg1;
+- (void)setMatchPreferredName:(BOOL)arg1;
+- (void)setMatchWholeWords:(BOOL)arg1;
 - (void)setName:(id)arg1;
 - (void)setSource:(void*)arg1;
 - (void)setSources:(id)arg1;

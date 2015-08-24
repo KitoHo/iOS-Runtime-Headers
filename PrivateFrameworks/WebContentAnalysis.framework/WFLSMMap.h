@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/WebContentAnalysis.framework/WebContentAnalysis
  */
 
-@class NSNumber;
-
 @interface WFLSMMap : NSObject {
     struct __LSMMap { } *map;
     NSNumber *threshold;
 }
 
-@property(copy) NSNumber * threshold;
+@property (copy) NSNumber *threshold;
 
 + (id)mapFromFilePath:(id)arg1;
 + (id)mapFromURL:(id)arg1;
@@ -23,7 +21,7 @@
 - (id)initWithMap:(struct __LSMMap { }*)arg1;
 - (id)initWithMapFromFilePath:(id)arg1;
 - (id)initWithMapFromURL:(id)arg1;
-- (long long)numberOfCategories;
+- (long)numberOfCategories;
 - (void)setThreshold:(id)arg1;
 - (id)threshold;
 - (id)wordDump:(id)arg1;

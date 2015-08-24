@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPCommentContent, CKDPCommentedOnId, NSString;
-
 @interface CKDPPostCommentRequest : PBRequest <NSCopying> {
     CKDPCommentContent *_commentContent;
     CKDPCommentedOnId *_identifier;
     NSString *_path;
 }
 
-@property(retain) CKDPCommentContent * commentContent;
-@property(readonly) bool hasCommentContent;
-@property(readonly) bool hasIdentifier;
-@property(readonly) bool hasPath;
-@property(retain) CKDPCommentedOnId * identifier;
-@property(retain) NSString * path;
+@property (nonatomic, retain) CKDPCommentContent *commentContent;
+@property (nonatomic, readonly) BOOL hasCommentContent;
+@property (nonatomic, readonly) BOOL hasIdentifier;
+@property (nonatomic, readonly) BOOL hasPath;
+@property (nonatomic, retain) CKDPCommentedOnId *identifier;
+@property (nonatomic, retain) NSString *path;
 
 + (id)options;
 
@@ -25,15 +23,15 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasCommentContent;
-- (bool)hasIdentifier;
-- (bool)hasPath;
-- (unsigned long long)hash;
+- (BOOL)hasCommentContent;
+- (BOOL)hasIdentifier;
+- (BOOL)hasPath;
+- (unsigned int)hash;
 - (id)identifier;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)path;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (unsigned int)requestTypeCode;
 - (Class)responseClass;
 - (void)setCommentContent:(id)arg1;

@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/FMFUI.framework/FMFUI
  */
 
-@class <FMFNoLocationViewDelegate>, NSLayoutConstraint, UIImage, UIImageView, UILabel, UIView;
-
 @interface FMFNoLocationView : UIView {
+    BOOL _blockLabelUpdates;
     UIView *_blur;
     NSLayoutConstraint *_bottomInsetConstraint;
     <FMFNoLocationViewDelegate> *_delegate;
@@ -14,35 +13,34 @@
     UIImageView *_offlineProfileImageView;
     UIImageView *_personImageView;
     NSLayoutConstraint *_topInsetConstraint;
-    bool_blockLabelUpdates;
 }
 
-@property bool blockLabelUpdates;
-@property(retain) UIView * blur;
-@property(retain) NSLayoutConstraint * bottomInsetConstraint;
-@property <FMFNoLocationViewDelegate> * delegate;
-@property(retain) UILabel * detailsLabel;
-@property(retain) UIView * insetView;
-@property(retain) UIImage * offlineProfileImage;
-@property(retain) UIImageView * offlineProfileImageView;
-@property(retain) UIImageView * personImageView;
-@property(retain) NSLayoutConstraint * topInsetConstraint;
+@property (nonatomic) BOOL blockLabelUpdates;
+@property (nonatomic, retain) UIView *blur;
+@property (nonatomic, retain) NSLayoutConstraint *bottomInsetConstraint;
+@property (nonatomic) <FMFNoLocationViewDelegate> *delegate;
+@property (nonatomic, retain) UILabel *detailsLabel;
+@property (nonatomic, retain) UIView *insetView;
+@property (nonatomic, retain) UIImage *offlineProfileImage;
+@property (nonatomic, retain) UIImageView *offlineProfileImageView;
+@property (nonatomic, retain) UIImageView *personImageView;
+@property (nonatomic, retain) NSLayoutConstraint *topInsetConstraint;
 
 - (void).cxx_destruct;
 - (void)addLayoutConstraints;
-- (bool)blockLabelUpdates;
+- (BOOL)blockLabelUpdates;
 - (id)blur;
 - (id)bottomInsetConstraint;
 - (void)dealloc;
 - (id)delegate;
 - (id)detailsLabel;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (id)insetView;
 - (id)offlineProfileImage;
 - (id)offlineProfileImageView;
 - (id)personImageView;
-- (void)setAlpha:(double)arg1;
-- (void)setBlockLabelUpdates:(bool)arg1;
+- (void)setAlpha:(float)arg1;
+- (void)setBlockLabelUpdates:(BOOL)arg1;
 - (void)setBlur:(id)arg1;
 - (void)setBottomInsetConstraint:(id)arg1;
 - (void)setDelegate:(id)arg1;

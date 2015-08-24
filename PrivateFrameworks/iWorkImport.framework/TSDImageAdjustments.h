@@ -2,68 +2,63 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
 @interface TSDImageAdjustments : NSObject <NSCopying, NSMutableCopying, TSDMixing> {
-    boolmEnhance;
-    boolmRepresentsSageAdjustments;
-    double mBottomLevel;
-    double mContrast;
-    double mDenoise;
-    double mExposure;
-    double mGamma;
-    double mHighlights;
-    double mSaturation;
-    double mShadows;
-    double mSharpness;
-    double mTemperature;
-    double mTint;
-    double mTopLevel;
+    float mBottomLevel;
+    float mContrast;
+    float mDenoise;
+    BOOL mEnhance;
+    float mExposure;
+    float mGamma;
+    float mHighlights;
+    BOOL mRepresentsSageAdjustments;
+    float mSaturation;
+    float mShadows;
+    float mSharpness;
+    float mTemperature;
+    float mTint;
+    float mTopLevel;
 }
 
-@property(readonly) double bottomLevel;
-@property(readonly) double contrast;
-@property(readonly) double denoise;
-@property(readonly) bool enhance;
-@property(readonly) double exposure;
-@property(readonly) double gamma;
-@property(readonly) double highlights;
-@property(readonly) bool representsSageAdjustments;
-@property(readonly) double saturation;
-@property(readonly) double shadows;
-@property(readonly) double sharpness;
-@property(readonly) double temperature;
-@property(readonly) double tint;
-@property(readonly) double topLevel;
+@property (nonatomic, readonly) float bottomLevel;
+@property (nonatomic, readonly) float contrast;
+@property (nonatomic, readonly) float denoise;
+@property (nonatomic, readonly) BOOL enhance;
+@property (nonatomic, readonly) float exposure;
+@property (nonatomic, readonly) float gamma;
+@property (nonatomic, readonly) float highlights;
+@property (nonatomic, readonly) BOOL representsSageAdjustments;
+@property (nonatomic, readonly) float saturation;
+@property (nonatomic, readonly) float shadows;
+@property (nonatomic, readonly) float sharpness;
+@property (nonatomic, readonly) float temperature;
+@property (nonatomic, readonly) float tint;
+@property (nonatomic, readonly) float topLevel;
 
-- (double)bottomLevel;
-- (double)contrast;
+- (float)bottomLevel;
+- (float)contrast;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (double)denoise;
+- (float)denoise;
 - (id)description;
-- (bool)enhance;
-- (double)exposure;
-- (double)gamma;
-- (unsigned long long)hash;
-- (double)highlights;
+- (BOOL)enhance;
+- (float)exposure;
+- (float)gamma;
+- (unsigned int)hash;
+- (float)highlights;
 - (void)i_initFromDefaultArchive;
 - (id)imageAdjustmentsWithoutEnhance;
 - (id)init;
-- (id)initWithArchive:(const struct ImageAdjustmentsArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; float x3; float x4; float x5; float x6; float x7; float x8; float x9; float x10; float x11; float x12; float x13; float x14; boolx15; boolx16; int x17; unsigned int x18[1]; }*)arg1 unarchiver:(id)arg2;
-- (bool)isEqual:(id)arg1;
-- (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
-- (long long)mixingTypeWithObject:(id)arg1;
+- (id)initWithArchive:(const struct ImageAdjustmentsArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; float x5; float x6; float x7; float x8; float x9; float x10; float x11; float x12; float x13; float x14; float x15; float x16; bool x17; bool x18; }*)arg1 unarchiver:(id)arg2;
+- (BOOL)isEqual:(id)arg1;
+- (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
+- (int)mixingTypeWithObject:(id)arg1 context:(id)arg2;
 - (id)mutableCopyWithZone:(struct _NSZone { }*)arg1;
-- (bool)representsSageAdjustments;
-- (double)saturation;
-- (void)saveToArchive:(struct ImageAdjustmentsArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; float x3; float x4; float x5; float x6; float x7; float x8; float x9; float x10; float x11; float x12; float x13; float x14; boolx15; boolx16; int x17; unsigned int x18[1]; }*)arg1 archiver:(id)arg2;
-- (double)shadows;
-- (double)sharpness;
-- (double)temperature;
-- (double)tint;
-- (double)topLevel;
+- (BOOL)representsSageAdjustments;
+- (float)saturation;
+- (void)saveToArchive:(struct ImageAdjustmentsArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; float x5; float x6; float x7; float x8; float x9; float x10; float x11; float x12; float x13; float x14; float x15; float x16; bool x17; bool x18; }*)arg1 archiver:(id)arg2;
+- (float)shadows;
+- (float)sharpness;
+- (float)temperature;
+- (float)tint;
+- (float)topLevel;
 
 @end

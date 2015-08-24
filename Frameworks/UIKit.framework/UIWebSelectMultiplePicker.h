@@ -2,26 +2,24 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class <UIWebSelectedItemPrivate>, DOMHTMLSelectElement, NSArray, NSString;
-
-@interface UIWebSelectMultiplePicker : UIPickerView <UIWebFormControl, UIPickerViewDataSource, UIPickerViewDelegate> {
+@interface UIWebSelectMultiplePicker : UIPickerView <UIPickerViewDataSource, UIPickerViewDelegate, UIWebFormControl> {
     NSArray *_cachedItems;
-    double _fontSize;
-    double _layoutWidth;
-    double _maximumTextWidth;
+    float _fontSize;
+    float _layoutWidth;
+    float _maximumTextWidth;
     DOMHTMLSelectElement *_selectionNode;
-    unsigned long long _singleSelectionIndex;
+    unsigned int _singleSelectionIndex;
     <UIWebSelectedItemPrivate> *_singleSelectionItem;
-    long long _textAlignment;
+    int _textAlignment;
 }
 
-@property(retain) NSArray * _cachedItems;
-@property(retain) DOMHTMLSelectElement * _selectionNode;
-@property(retain) <UIWebSelectedItemPrivate> * _singleSelectionItem;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) NSArray *_cachedItems;
+@property (nonatomic, retain) DOMHTMLSelectElement *_selectionNode;
+@property (nonatomic, retain) <UIWebSelectedItemPrivate> *_singleSelectionItem;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (id)_cachedItems;
 - (int)_itemIndexForRowIndex:(int)arg1;
@@ -31,12 +29,12 @@
 - (void)controlEndEditing;
 - (id)controlView;
 - (void)dealloc;
-- (id)initWithDOMHTMLSelectElement:(id)arg1 cachedItems:(id)arg2 singleSelectionItem:(id)arg3 singleSelectionIndex:(unsigned long long)arg4 multipleSelection:(bool)arg5;
+- (id)initWithDOMHTMLSelectElement:(id)arg1 cachedItems:(id)arg2 singleSelectionItem:(id)arg3 singleSelectionIndex:(unsigned int)arg4 multipleSelection:(BOOL)arg5;
 - (void)layoutSubviews;
-- (long long)numberOfComponentsInPickerView:(id)arg1;
-- (long long)pickerView:(id)arg1 numberOfRowsInComponent:(long long)arg2;
-- (void)pickerView:(id)arg1 row:(int)arg2 column:(int)arg3 checked:(bool)arg4;
-- (id)pickerView:(id)arg1 viewForRow:(long long)arg2 forComponent:(long long)arg3 reusingView:(id)arg4;
+- (int)numberOfComponentsInPickerView:(id)arg1;
+- (int)pickerView:(id)arg1 numberOfRowsInComponent:(int)arg2;
+- (void)pickerView:(id)arg1 row:(int)arg2 column:(int)arg3 checked:(BOOL)arg4;
+- (id)pickerView:(id)arg1 viewForRow:(int)arg2 forComponent:(int)arg3 reusingView:(id)arg4;
 - (void)set_cachedItems:(id)arg1;
 - (void)set_selectionNode:(id)arg1;
 - (void)set_singleSelectionItem:(id)arg1;

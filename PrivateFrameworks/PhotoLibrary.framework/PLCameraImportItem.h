@@ -2,43 +2,41 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-@class NSData, NSError, NSMutableDictionary, NSString, PLManagedAsset, UIImage;
-
 @interface PLCameraImportItem : NSObject {
     NSString *_basePath;
     NSString *_identifier;
     NSError *_importError;
+    BOOL _metadataRequested;
     NSString *_parentFolder;
     NSMutableDictionary *_representationsMapping;
+    BOOL _shouldImport;
     UIImage *_thumbnail;
     NSData *_thumbnailData;
+    BOOL _thumbnailRequested;
     int _thumbnailState;
-    bool_metadataRequested;
-    bool_shouldImport;
-    bool_thumbnailRequested;
     NSString *eventName;
     PLManagedAsset *importedAsset;
 }
 
-@property(retain) NSString * basePath;
-@property(retain) NSString * eventName;
-@property(readonly) NSString * identifier;
-@property(retain) NSError * importError;
-@property(retain) PLManagedAsset * importedAsset;
-@property(readonly) NSString * parentFolder;
-@property bool shouldImport;
-@property(readonly) UIImage * thumbnail;
-@property(retain) NSData * thumbnailData;
+@property (nonatomic, retain) NSString *basePath;
+@property (nonatomic, retain) NSString *eventName;
+@property (nonatomic, readonly) NSString *identifier;
+@property (nonatomic, retain) NSError *importError;
+@property (nonatomic, retain) PLManagedAsset *importedAsset;
+@property (nonatomic, readonly) NSString *parentFolder;
+@property (nonatomic) BOOL shouldImport;
+@property (nonatomic, readonly) UIImage *thumbnail;
+@property (nonatomic, retain) NSData *thumbnailData;
 
 - (void)_addRepresentation:(id)arg1;
 - (id)_fileExtensionForTypeWithSelector:(SEL)arg1;
-- (bool)_isTypeWithSelector:(SEL)arg1;
+- (BOOL)_isTypeWithSelector:(SEL)arg1;
 - (void)_removeRepresentation:(id)arg1;
 - (void)addRepresentationForCameraFile:(id)arg1;
 - (id)audioExtension;
 - (id)basePath;
-- (bool)canRequestMetadata;
-- (bool)canRequestThumbnail;
+- (BOOL)canRequestMetadata;
+- (BOOL)canRequestThumbnail;
 - (void)cancelThumbnailRequest;
 - (void)clearMetadata;
 - (void)clearThumbnail;
@@ -48,20 +46,20 @@
 - (id)eventName;
 - (id)fileExtensions;
 - (unsigned long long)fileSize;
-- (bool)hasAllMetadata;
+- (BOOL)hasAllMetadata;
 - (id)identifier;
 - (id)importError;
 - (id)importedAsset;
 - (id)initWithIdentifier:(id)arg1 parentFolder:(id)arg2;
-- (bool)isAudio;
-- (bool)isInDatabaseForce:(bool)arg1;
-- (bool)isJPEG;
-- (bool)isLocked;
-- (bool)isMovie;
-- (bool)isOnDisk;
-- (bool)isRaw;
-- (bool)isStandaloneMovie;
-- (bool)isStandalonePhoto;
+- (BOOL)isAudio;
+- (BOOL)isInDatabaseForce:(BOOL)arg1;
+- (BOOL)isJPEG;
+- (BOOL)isLocked;
+- (BOOL)isMovie;
+- (BOOL)isOnDisk;
+- (BOOL)isRaw;
+- (BOOL)isStandaloneMovie;
+- (BOOL)isStandalonePhoto;
 - (id)jpgExtension;
 - (void)markRepresentationsInDatabase;
 - (id)metadataForRepresentationWithFileExtension:(id)arg1;
@@ -78,11 +76,11 @@
 - (void)setEventName:(id)arg1;
 - (void)setImportError:(id)arg1;
 - (void)setImportedAsset:(id)arg1;
-- (void)setShouldImport:(bool)arg1;
+- (void)setShouldImport:(BOOL)arg1;
 - (void)setThumbnailData:(id)arg1;
 - (void)setThumbnailState:(int)arg1;
 - (void)setThumbnailWithImageRef:(struct CGImage { }*)arg1;
-- (bool)shouldImport;
+- (BOOL)shouldImport;
 - (id)thumbnail;
 - (id)thumbnailData;
 - (int)thumbnailState;

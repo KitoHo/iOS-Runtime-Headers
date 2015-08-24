@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPCommentedOnId, CKDPQuerySort, NSData, NSString;
-
 @interface CKDPGetCommentsRequest : PBRequest <NSCopying> {
+    NSData *_continuationMarker;
     struct { 
         unsigned int limit : 1; 
-    NSData *_continuationMarker;
     } _has;
     CKDPCommentedOnId *_identifier;
     unsigned int _limit;
@@ -15,16 +13,16 @@
     NSString *_path;
 }
 
-@property(retain) NSData * continuationMarker;
-@property(readonly) bool hasContinuationMarker;
-@property(readonly) bool hasIdentifier;
-@property bool hasLimit;
-@property(readonly) bool hasOrderBy;
-@property(readonly) bool hasPath;
-@property(retain) CKDPCommentedOnId * identifier;
-@property unsigned int limit;
-@property(retain) CKDPQuerySort * orderBy;
-@property(retain) NSString * path;
+@property (nonatomic, retain) NSData *continuationMarker;
+@property (nonatomic, readonly) BOOL hasContinuationMarker;
+@property (nonatomic, readonly) BOOL hasIdentifier;
+@property (nonatomic) BOOL hasLimit;
+@property (nonatomic, readonly) BOOL hasOrderBy;
+@property (nonatomic, readonly) BOOL hasPath;
+@property (nonatomic, retain) CKDPCommentedOnId *identifier;
+@property (nonatomic) unsigned int limit;
+@property (nonatomic, retain) CKDPQuerySort *orderBy;
+@property (nonatomic, retain) NSString *path;
 
 + (id)options;
 
@@ -34,23 +32,23 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasContinuationMarker;
-- (bool)hasIdentifier;
-- (bool)hasLimit;
-- (bool)hasOrderBy;
-- (bool)hasPath;
-- (unsigned long long)hash;
+- (BOOL)hasContinuationMarker;
+- (BOOL)hasIdentifier;
+- (BOOL)hasLimit;
+- (BOOL)hasOrderBy;
+- (BOOL)hasPath;
+- (unsigned int)hash;
 - (id)identifier;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (unsigned int)limit;
 - (void)mergeFrom:(id)arg1;
 - (id)orderBy;
 - (id)path;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (unsigned int)requestTypeCode;
 - (Class)responseClass;
 - (void)setContinuationMarker:(id)arg1;
-- (void)setHasLimit:(bool)arg1;
+- (void)setHasLimit:(BOOL)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setLimit:(unsigned int)arg1;
 - (void)setOrderBy:(id)arg1;

@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/ImageCapture.framework/ImageCapture
  */
 
-@class NSMutableArray, NSMutableData, NSString;
-
 @interface PTPDeviceInfoDataset : NSObject {
     NSMutableArray *_captureFormats;
     NSMutableData *_content;
     NSMutableArray *_devicePropertiesSupported;
     NSString *_deviceVersion;
+    BOOL _dirty;
     NSMutableArray *_eventsSupported;
     unsigned short _functionalMode;
     NSMutableArray *_imageFormats;
     NSString *_manufacturer;
     NSString *_model;
     NSMutableArray *_operationsSupported;
+    BOOL _readOnlyObject;
     NSString *_serialNumber;
     unsigned short _standardVersion;
     NSString *_vendorExtensionDescription;
-    unsigned int _vendorExtensionID;
+    unsigned long _vendorExtensionID;
     unsigned short _vendorExtensionVersion;
-    bool_dirty;
-    bool_readOnlyObject;
 }
 
 - (id)canonicalManufacturer;
@@ -54,12 +52,12 @@
 - (void)setSerialNumber:(id)arg1;
 - (void)setStandardVersion:(unsigned short)arg1;
 - (void)setVendorExtensionDescription:(id)arg1;
-- (void)setVendorExtensionID:(unsigned int)arg1;
+- (void)setVendorExtensionID:(unsigned long)arg1;
 - (void)setVendorExtensionVersion:(unsigned short)arg1;
 - (unsigned short)standardVersion;
 - (void)updateContent;
 - (id)vendorExtensionDescription;
-- (unsigned int)vendorExtensionID;
+- (unsigned long)vendorExtensionID;
 - (unsigned short)vendorExtensionVersion;
 
 @end

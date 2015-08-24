@@ -2,9 +2,7 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, NSCache, NSMutableDictionary, NSString, SKUIIPadDownloadsViewController, SKUIIPhoneDownloadsViewController, SKUIImageDataConsumer, SSDownloadManager, UIImage;
-
-@interface SKUIDownloadsViewController : SKUIViewController <SSDownloadManagerObserver, SKUIDownloadsChildViewControllerDelegate> {
+@interface SKUIDownloadsViewController : SKUIViewController <SKUIDownloadsChildViewControllerDelegate, SSDownloadManagerObserver> {
     SKUIImageDataConsumer *_consumer;
     SSDownloadManager *_downloadManager;
     NSArray *_downloads;
@@ -15,18 +13,18 @@
     UIImage *_nullImage;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-+ (long long)_sizeClassForSize:(struct CGSize { double x1; double x2; })arg1;
++ (int)_sizeClassForSize:(struct CGSize { float x1; float x2; })arg1;
 
 - (void).cxx_destruct;
 - (void)_reloadBadge;
 - (void)_reloadManagerFromServer;
 - (void)_reloadView;
-- (void)_reloadViewControllerWithSize:(struct CGSize { double x1; double x2; })arg1;
+- (void)_reloadViewControllerWithSize:(struct CGSize { float x1; float x2; })arg1;
 - (void)_setArtwork:(id)arg1 forURLString:(id)arg2;
 - (id)childViewController:(id)arg1 artworkForDownload:(id)arg2;
 - (void)childViewController:(id)arg1 performActionForDownload:(id)arg2;

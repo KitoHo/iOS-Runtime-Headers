@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class CKConversation, MFComposeRecipientTextView, UIButton, UIView, _UIBackdropView;
-
 @interface CKTranscriptGroupHeaderView : UIView {
     UIButton *_actionButton;
     _UIBackdropView *_backdropView;
@@ -12,19 +10,17 @@
     MFComposeRecipientTextView *_textView;
 }
 
-@property(retain) UIButton * actionButton;
-@property(retain) _UIBackdropView * backdropView;
-@property(retain) CKConversation * conversation;
-@property(retain) UIView * separator;
-@property(retain) MFComposeRecipientTextView * textView;
+@property (nonatomic, retain) UIButton *actionButton;
+@property (nonatomic, retain) _UIBackdropView *backdropView;
+@property (nonatomic, retain) CKConversation *conversation;
+@property (nonatomic, retain) UIView *separator;
+@property (nonatomic, retain) MFComposeRecipientTextView *textView;
 
-- (id)_groupHeaderComposeRecipients;
-- (void)_handleConversationRecipientsChanged:(id)arg1;
 - (id)actionButton;
 - (id)backdropView;
 - (id)conversation;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 conversation:(id)arg2;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1 conversation:(id)arg2;
 - (void)layoutSubviews;
 - (id)separator;
 - (void)setActionButton:(id)arg1;

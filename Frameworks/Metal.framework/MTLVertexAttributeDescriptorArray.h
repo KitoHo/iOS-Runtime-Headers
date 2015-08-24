@@ -2,14 +2,12 @@
    Image: /System/Library/Frameworks/Metal.framework/Metal
  */
 
-@class MTLVertexAttributeDescriptor;
-
 @interface MTLVertexAttributeDescriptorArray : NSObject {
-    MTLVertexAttributeDescriptor *_descriptors[31];
+    MTLVertexAttributeDescriptor *_descriptors;
 }
 
 - (void)dealloc;
-- (id)objectAtIndexedSubscript:(unsigned long long)arg1;
-- (void)setObject:(id)arg1 atIndexedSubscript:(unsigned long long)arg2;
+- (id)objectAtIndexedSubscript:(unsigned int)arg1;
+- (void)setObject:(id)arg1 atIndexedSubscript:(unsigned int)arg2;
 
 @end

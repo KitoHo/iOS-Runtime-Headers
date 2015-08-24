@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSObject<OS_dispatch_source>, NSString, SKUIActivityIndicatorView, SKUILayoutCache, SKUILoadingTemplateViewElement, SKUIViewElementLayoutContext;
-
 @interface SKUILoadingDocumentViewController : SKUIViewController <SKUIDocumentViewController> {
+    SKUIActivityIndicatorViewElement *_activityIndicatorElement;
     SKUIActivityIndicatorView *_activityIndicatorView;
     NSObject<OS_dispatch_source> *_delayTimer;
     SKUILayoutCache *_layoutCache;
@@ -12,21 +11,23 @@
     SKUIViewElementLayoutContext *_viewLayoutContext;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
+- (id)_activityIndicator;
 - (id)_layoutCache;
 - (void)_reloadViewStyling;
 - (void)_showActivityIndicator;
 - (id)_viewLayoutContext;
 - (void)dealloc;
 - (void)documentDidUpdate:(id)arg1;
+- (id)initWithActivityIndicatorElement:(id)arg1;
 - (id)initWithTemplateElement:(id)arg1;
 - (void)loadView;
-- (void)viewDidAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

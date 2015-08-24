@@ -2,32 +2,30 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class <EKRecurrenceChooserControllerDelegate>, EKRecurrenceMonthDayChooserController, EKRecurrenceOrdinalChooserController, UITableViewCell;
-
 @interface EKRecurrenceMonthlyChooserController : EKRecurrenceChooserController {
     <EKRecurrenceChooserControllerDelegate> *_delegate;
     EKRecurrenceMonthDayChooserController *_monthDayChooser;
     UITableViewCell *_onEachCell;
     UITableViewCell *_onTheCell;
     EKRecurrenceOrdinalChooserController *_ordinalChooser;
-    long long _selectedRow;
+    int _selectedRow;
 }
 
-@property bool prohibitsMultipleDaysInMonthlyRecurrence;
+@property (nonatomic) BOOL prohibitsMultipleDaysInMonthlyRecurrence;
 
 - (void).cxx_destruct;
 - (id)_currentChooser;
-- (void)_selectRow:(long long)arg1;
-- (id)cellForRow:(long long)arg1;
-- (bool)drawBackgroundForRow:(long long)arg1;
+- (void)_selectRow:(int)arg1;
+- (id)cellForRow:(int)arg1;
+- (BOOL)drawBackgroundForRow:(int)arg1;
 - (int)frequency;
-- (double)heightForRow:(long long)arg1;
+- (float)heightForRow:(int)arg1;
 - (id)initWithDate:(id)arg1;
-- (long long)numberOfRows;
-- (bool)prohibitsMultipleDaysInMonthlyRecurrence;
-- (void)rowTapped:(long long)arg1;
+- (int)numberOfRows;
+- (BOOL)prohibitsMultipleDaysInMonthlyRecurrence;
+- (void)rowTapped:(int)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setProhibitsMultipleDaysInMonthlyRecurrence:(bool)arg1;
+- (void)setProhibitsMultipleDaysInMonthlyRecurrence:(BOOL)arg1;
 - (void)updateFromRecurrenceRule:(id)arg1;
 - (void)updateRecurrenceRuleBuilder:(id)arg1;
 

@@ -2,57 +2,51 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSDictionary, NSMutableDictionary;
-
 @interface CKFetchRecordsOperation : CKDatabaseOperation {
     NSArray *_desiredKeys;
     NSDictionary *_desiredPackageFileIndices;
-    id _fetchRecordsCompletionBlock;
-    id _perRecordCompletionBlock;
-    id _perRecordProgressBlock;
+    id /* block */ _fetchRecordsCompletionBlock;
+    BOOL _isFetchCurrentUserOperation;
+    id /* block */ _perRecordCompletionBlock;
+    id /* block */ _perRecordProgressBlock;
     NSMutableDictionary *_recordErrors;
     NSArray *_recordIDs;
     NSMutableDictionary *_recordIDsToRecords;
     NSDictionary *_recordIDsToVersionETags;
+    BOOL _shouldFetchAssetContent;
     NSMutableDictionary *_signaturesOfAssetsByRecordIDAndKey;
     NSDictionary *_webSharingIdentityDataByRecordID;
-    bool_isFetchCurrentUserOperation;
-    bool_shouldFetchAssetContent;
 }
 
-@property(copy) NSArray * desiredKeys;
-@property(copy) NSDictionary * desiredPackageFileIndices;
-@property(copy) id fetchRecordsCompletionBlock;
-@property bool isFetchCurrentUserOperation;
-@property(copy) id perRecordCompletionBlock;
-@property(copy) id perRecordProgressBlock;
-@property(retain) NSMutableDictionary * recordErrors;
-@property(copy) NSArray * recordIDs;
-@property(retain) NSMutableDictionary * recordIDsToRecords;
-@property(retain) NSDictionary * recordIDsToVersionETags;
-@property bool shouldFetchAssetContent;
-@property(retain) NSMutableDictionary * signaturesOfAssetsByRecordIDAndKey;
-@property(retain) NSDictionary * webSharingIdentityDataByRecordID;
+@property (nonatomic, copy) NSArray *desiredKeys;
+@property (nonatomic, copy) NSDictionary *desiredPackageFileIndices;
+@property (nonatomic, copy) id /* block */ fetchRecordsCompletionBlock;
+@property (nonatomic) BOOL isFetchCurrentUserOperation;
+@property (nonatomic, copy) id /* block */ perRecordCompletionBlock;
+@property (nonatomic, copy) id /* block */ perRecordProgressBlock;
+@property (nonatomic, retain) NSMutableDictionary *recordErrors;
+@property (nonatomic, copy) NSArray *recordIDs;
+@property (nonatomic, retain) NSMutableDictionary *recordIDsToRecords;
+@property (nonatomic, retain) NSDictionary *recordIDsToVersionETags;
+@property (nonatomic) BOOL shouldFetchAssetContent;
+@property (nonatomic, retain) NSMutableDictionary *signaturesOfAssetsByRecordIDAndKey;
+@property (nonatomic, retain) NSDictionary *webSharingIdentityDataByRecordID;
 
 + (id)fetchCurrentUserRecordOperation;
 
 - (void).cxx_destruct;
-- (bool)CKOperationShouldRun:(id*)arg1;
+- (BOOL)CKOperationShouldRun:(id*)arg1;
 - (void)_finishOnCallbackQueueWithError:(id)arg1;
 - (void)_handleProgressCallback:(id)arg1;
 - (id)desiredKeys;
 - (id)desiredPackageFileIndices;
-- (id)fetchRecordsCompletionBlock;
+- (id /* block */)fetchRecordsCompletionBlock;
 - (void)fillOutOperationInfo:(id)arg1;
 - (id)init;
 - (id)initWithRecordIDs:(id)arg1;
-- (bool)isFetchCurrentUserOperation;
-- (id)perRecordCompletionBlock;
-- (id)perRecordProgressBlock;
+- (BOOL)isFetchCurrentUserOperation;
+- (id /* block */)perRecordCompletionBlock;
+- (id /* block */)perRecordProgressBlock;
 - (void)performCKOperation;
 - (id)recordErrors;
 - (id)recordIDs;
@@ -60,18 +54,18 @@
 - (id)recordIDsToVersionETags;
 - (void)setDesiredKeys:(id)arg1;
 - (void)setDesiredPackageFileIndices:(id)arg1;
-- (void)setFetchRecordsCompletionBlock:(id)arg1;
-- (void)setIsFetchCurrentUserOperation:(bool)arg1;
-- (void)setPerRecordCompletionBlock:(id)arg1;
-- (void)setPerRecordProgressBlock:(id)arg1;
+- (void)setFetchRecordsCompletionBlock:(id /* block */)arg1;
+- (void)setIsFetchCurrentUserOperation:(BOOL)arg1;
+- (void)setPerRecordCompletionBlock:(id /* block */)arg1;
+- (void)setPerRecordProgressBlock:(id /* block */)arg1;
 - (void)setRecordErrors:(id)arg1;
 - (void)setRecordIDs:(id)arg1;
 - (void)setRecordIDsToRecords:(id)arg1;
 - (void)setRecordIDsToVersionETags:(id)arg1;
-- (void)setShouldFetchAssetContent:(bool)arg1;
+- (void)setShouldFetchAssetContent:(BOOL)arg1;
 - (void)setSignaturesOfAssetsByRecordIDAndKey:(id)arg1;
 - (void)setWebSharingIdentityDataByRecordID:(id)arg1;
-- (bool)shouldFetchAssetContent;
+- (BOOL)shouldFetchAssetContent;
 - (id)signaturesOfAssetsByRecordIDAndKey;
 - (id)webSharingIdentityDataByRecordID;
 

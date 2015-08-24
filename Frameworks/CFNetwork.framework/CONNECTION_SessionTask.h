@@ -2,30 +2,20 @@
    Image: /System/Library/Frameworks/CFNetwork.framework/CFNetwork
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSMutableURLRequest, NSURLRequest, NSURLSession;
-
 @interface CONNECTION_SessionTask : NSObject {
+    struct __PerformanceTiming { } *__performanceTiming;
     struct __CFDictionary { } *_connectionProperties;
     struct _CFURLRequest { } *_currentRequest;
+    bool _is_cellular;
     Class _my_protocolForTask;
     NSMutableURLRequest *_nsCurrentRequest;
     NSURLRequest *_nsOriginalRequest;
     struct _CFURLRequest { } *_originalRequest;
     NSURLSession *_session;
     struct __CFDictionary { } *_socketProperties;
-    bool_is_cellular;
 }
 
-- (const struct XCookieStorage { int (**x1)(); struct __CFAllocator {} *x2; int x3; }*)_createXCookieStorage;
-- (const struct XCredentialStorage { int (**x1)(); struct __CFAllocator {} *x2; int x3; }*)_createXCredentialStorage;
-- (const struct XURLCache { int (**x1)(); struct __CFAllocator {} *x2; int x3; }*)_createXURLCache;
-- (struct __CFDictionary { }*)_additionalHeaders;
-- (unsigned long long)_allowedProtocolTypes;
+- (unsigned long)_allowedProtocolTypes;
 - (id)_allowsCellular;
 - (id)_backgroundTaskTimingData;
 - (id)_boundInterfaceIdentifier;
@@ -42,25 +32,28 @@
 - (struct __CFHTTPMessage { }*)_copyHTTPMessage;
 - (struct _CFURLRequest { }*)_copyOriginalCFURLRequest;
 - (struct __CFDictionary { }*)_copySocketStreamProperties;
+- (const struct XCookieStorage { int (**x1)(); struct __CFAllocator {} *x2; int x3; }*)_createXCookieStorage;
+- (const struct XCredentialStorage { int (**x1)(); struct __CFAllocator {} *x2; int x3; }*)_createXCredentialStorage;
+- (const struct XURLCache { int (**x1)(); struct __CFAllocator {} *x2; int x3; }*)_createXURLCache;
 - (struct _CFURLRequest { }*)_currentCFURLRequest;
 - (id)_disallowCellular;
 - (id)_expectedWorkload;
 - (void)_initializeTimingDataWithSessionConfiguration:(id)arg1;
 - (id)_networkServiceType;
-- (id)_performanceTiming;
+- (struct __PerformanceTiming { }*)_performanceTiming;
 - (unsigned char)_preventsIdleSystemSleep;
 - (id)_priorityValue;
 - (id)_prohibitAuthUI;
 - (id)_protocolForTask;
 - (struct __CFDictionary { }*)_proxySettings;
 - (void)_releasePreventIdleSleepAssertionIfAppropriate;
-- (long long)_requestPriority;
+- (long)_requestPriority;
 - (void)_setConnectionIsCellular:(bool)arg1;
 - (void)_setSocketProperties:(struct __CFDictionary { }*)arg1 connectionProperties:(struct __CFDictionary { }*)arg2;
 - (id)_shouldHandleCookies;
 - (unsigned char)_shouldPipelineHTTP;
 - (unsigned char)_shouldSkipPipelineProbe;
-- (bool)_shouldSkipPreferredClientCertificateLookup;
+- (BOOL)_shouldSkipPreferredClientCertificateLookup;
 - (unsigned char)_shouldUsePipelineHeuristics;
 - (struct __CFDictionary { }*)_sslSettings;
 - (unsigned char)_strictContentLength;

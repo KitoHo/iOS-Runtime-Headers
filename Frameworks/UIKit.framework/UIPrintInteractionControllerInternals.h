@@ -2,16 +2,15 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class PKPrintSettings, PKPrinter, UIPrintInfo, UIPrintPageRenderer, UIPrintPanelViewController, UIPrintPaper, UIPrintingProgress;
-
 @interface UIPrintInteractionControllerInternals : NSObject {
-    struct _NSRange { 
-        unsigned long long location; 
-        unsigned long long length; 
     UIPrintInfo *_activePrintInfo;
-    long long _currentPage;
+    int _currentPage;
     UIPrintPageRenderer *_formatterRenderer;
-    long long _pageCount;
+    BOOL _manualPrintPageEnabled;
+    int _pageCount;
+    struct _NSRange { 
+        unsigned int location; 
+        unsigned int length; 
     } _pageRange;
     UIPrintPaper *_paper;
     int _printInfoState;
@@ -19,8 +18,7 @@
     PKPrintSettings *_printSettings;
     PKPrinter *_printer;
     UIPrintingProgress *_printingProgress;
-    bool_manualPrintPageEnabled;
-    bool_supressNotifyDismissed;
+    BOOL _supressNotifyDismissed;
 }
 
 - (void)dealloc;

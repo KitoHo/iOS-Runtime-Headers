@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class CALayer, UIColor, UIImage, UIView;
-
 @interface _UISwitchInfo : NSObject {
     struct { 
         unsigned int on : 1; 
@@ -12,15 +10,15 @@
         unsigned int skipValueChangedAction : 1; 
     } _switchFlags;
     int imageState;
-    UIImage *images[8];
+    UIImage *images;
     UIView *leftEdgeView;
     CALayer *maskLayer;
     UIColor *onButtonColor;
-    double position;
+    float position;
     UIView *rightEdgeView;
 }
 
 - (void)dealloc;
-- (void)setMinimumTrackImage:(id)arg1 forStates:(unsigned long long)arg2;
+- (void)setMinimumTrackImage:(id)arg1 forStates:(unsigned int)arg2;
 
 @end

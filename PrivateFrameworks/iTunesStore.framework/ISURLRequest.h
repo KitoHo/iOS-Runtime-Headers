@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/iTunesStore.framework/iTunesStore
  */
 
-@class NSArray, NSData, NSDictionary, NSInputStream, NSLock, NSString, NSURL, SSMutableURLRequestProperties;
-
 @interface ISURLRequest : NSObject <NSCoding, NSCopying> {
     NSLock *_lock;
     SSMutableURLRequestProperties *_properties;
 }
 
-@property(retain) NSData * HTTPBody;
-@property(retain) NSInputStream * HTTPBodyStream;
-@property(retain) NSString * HTTPMethod;
-@property long long URLBagType;
-@property(retain) NSArray * URLs;
-@property long long allowedRetryCount;
-@property(retain) NSString * appleClientApplication;
-@property unsigned long long cachePolicy;
-@property(retain) NSDictionary * customHeaders;
+@property (retain) NSData *HTTPBody;
+@property (retain) NSInputStream *HTTPBodyStream;
+@property (retain) NSString *HTTPMethod;
+@property int URLBagType;
+@property (retain) NSArray *URLs;
+@property int allowedRetryCount;
+@property (retain) NSString *appleClientApplication;
+@property unsigned int cachePolicy;
+@property (retain) NSDictionary *customHeaders;
 @property long long expectedContentLength;
-@property(readonly) NSURL * primaryURL;
-@property(retain) NSDictionary * queryStringDictionary;
+@property (readonly) NSURL *primaryURL;
+@property (retain) NSDictionary *queryStringDictionary;
 @property double timeoutInterval;
 
 + (id)requestWithURL:(id)arg1;
@@ -28,12 +26,12 @@
 - (id)HTTPBody;
 - (id)HTTPBodyStream;
 - (id)HTTPMethod;
-- (long long)URLBagType;
+- (int)URLBagType;
 - (id)URLs;
 - (id)_initCommon;
-- (long long)allowedRetryCount;
+- (int)allowedRetryCount;
 - (id)appleClientApplication;
-- (unsigned long long)cachePolicy;
+- (unsigned int)cachePolicy;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)customHeaders;
 - (void)dealloc;
@@ -44,13 +42,13 @@
 - (id)initWithRequestProperties:(id)arg1;
 - (id)initWithURL:(id)arg1;
 - (id)initWithURLRequest:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)primaryURL;
 - (id)queryStringDictionary;
 - (id)requestProperties;
-- (void)setAllowedRetryCount:(long long)arg1;
+- (void)setAllowedRetryCount:(int)arg1;
 - (void)setAppleClientApplication:(id)arg1;
-- (void)setCachePolicy:(unsigned long long)arg1;
+- (void)setCachePolicy:(unsigned int)arg1;
 - (void)setCustomHeaders:(id)arg1;
 - (void)setExpectedContentLength:(long long)arg1;
 - (void)setHTTPBody:(id)arg1;
@@ -58,7 +56,7 @@
 - (void)setHTTPMethod:(id)arg1;
 - (void)setQueryStringDictionary:(id)arg1;
 - (void)setTimeoutInterval:(double)arg1;
-- (void)setURLBagType:(long long)arg1;
+- (void)setURLBagType:(int)arg1;
 - (void)setURLs:(id)arg1;
 - (void)setValue:(id)arg1 forHeaderField:(id)arg2;
 - (void)setValue:(id)arg1 forQueryStringParameter:(id)arg2;

@@ -2,28 +2,28 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSString;
-
 @interface GEOMapItemRoutineAttributes : PBCodable <NSCopying> {
+    double _eventDate;
+    NSString *_eventName;
     struct { 
         unsigned int eventDate : 1; 
         unsigned int loiType : 1; 
         unsigned int isEventAllDay : 1; 
-    double _eventDate;
-    NSString *_eventName;
     } _has;
+    BOOL _isEventAllDay;
     int _loiType;
-    bool_isEventAllDay;
 }
 
-@property double eventDate;
-@property(retain) NSString * eventName;
-@property bool hasEventDate;
-@property(readonly) bool hasEventName;
-@property bool hasIsEventAllDay;
-@property bool hasLoiType;
-@property bool isEventAllDay;
-@property int loiType;
+@property (nonatomic) double eventDate;
+@property (nonatomic, retain) NSString *eventName;
+@property (nonatomic) BOOL hasEventDate;
+@property (nonatomic, readonly) BOOL hasEventName;
+@property (nonatomic) BOOL hasIsEventAllDay;
+@property (nonatomic) BOOL hasLoiType;
+@property (nonatomic) BOOL isEventAllDay;
+@property (nonatomic) int loiType;
+
+// Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -32,24 +32,27 @@
 - (id)dictionaryRepresentation;
 - (double)eventDate;
 - (id)eventName;
-- (bool)hasEventDate;
-- (bool)hasEventName;
-- (bool)hasIsEventAllDay;
-- (bool)hasLoiType;
-- (unsigned long long)hash;
-- (id)initWithLOIType:(long long)arg1 event:(id)arg2;
-- (bool)isEqual:(id)arg1;
-- (bool)isEventAllDay;
+- (BOOL)hasEventDate;
+- (BOOL)hasEventName;
+- (BOOL)hasIsEventAllDay;
+- (BOOL)hasLoiType;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEventAllDay;
 - (int)loiType;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setEventDate:(double)arg1;
 - (void)setEventName:(id)arg1;
-- (void)setHasEventDate:(bool)arg1;
-- (void)setHasIsEventAllDay:(bool)arg1;
-- (void)setHasLoiType:(bool)arg1;
-- (void)setIsEventAllDay:(bool)arg1;
+- (void)setHasEventDate:(BOOL)arg1;
+- (void)setHasIsEventAllDay:(BOOL)arg1;
+- (void)setHasLoiType:(BOOL)arg1;
+- (void)setIsEventAllDay:(BOOL)arg1;
 - (void)setLoiType:(int)arg1;
 - (void)writeTo:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/CoreRoutine.framework/CoreRoutine
+
+- (id)initWithLOIType:(int)arg1 event:(id)arg2;
 
 @end

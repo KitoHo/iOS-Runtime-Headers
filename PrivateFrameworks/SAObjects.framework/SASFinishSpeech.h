@@ -2,20 +2,17 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSString;
+@interface SASFinishSpeech : SABaseCommand <SAServerBoundCommand>
 
-@interface SASFinishSpeech : SABaseCommand <SAServerBoundCommand> {
-}
-
-@property(copy) NSString * aceId;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(copy) NSString * endpoint;
-@property(readonly) unsigned long long hash;
-@property(copy) NSArray * orderedContext;
-@property long long packetCount;
-@property(copy) NSString * refId;
-@property(readonly) Class superclass;
+@property (nonatomic, copy) NSString *aceId;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, copy) NSString *endpoint;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSArray *orderedContext;
+@property (nonatomic) int packetCount;
+@property (nonatomic, copy) NSString *refId;
+@property (readonly) Class superclass;
 
 + (id)finishSpeech;
 + (id)finishSpeechWithDictionary:(id)arg1 context:(id)arg2;
@@ -24,9 +21,9 @@
 - (id)endpoint;
 - (id)groupIdentifier;
 - (id)orderedContext;
-- (long long)packetCount;
+- (int)packetCount;
 - (void)setEndpoint:(id)arg1;
 - (void)setOrderedContext:(id)arg1;
-- (void)setPacketCount:(long long)arg1;
+- (void)setPacketCount:(int)arg1;
 
 @end

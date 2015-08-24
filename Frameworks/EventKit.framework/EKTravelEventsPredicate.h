@@ -2,27 +2,25 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@class NSDate;
-
 @interface EKTravelEventsPredicate : EKPredicate {
     NSDate *_endDate;
     NSDate *_startDate;
 }
 
-@property(retain) NSDate * endDate;
-@property(retain) NSDate * startDate;
+@property (nonatomic, retain) NSDate *endDate;
+@property (nonatomic, retain) NSDate *startDate;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)defaultPropertiesToLoad;
 - (void)encodeWithCoder:(id)arg1;
 - (id)endDate;
-- (bool)evaluateWithObject:(id)arg1;
+- (BOOL)evaluateWithObject:(id)arg1;
 - (id)initWithCalendarIDs:(id)arg1 startDate:(id)arg2 endDate:(id)arg3;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)predicateFormat;
 - (void)setEndDate:(id)arg1;
 - (void)setStartDate:(id)arg1;

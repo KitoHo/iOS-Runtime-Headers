@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class UIView;
-
 @interface SUSnapshotView : UIView {
     UIView *_imageView;
 }
@@ -12,6 +10,6 @@
 - (void)_takeIOSurfaceSnapshotOfView:(id)arg1;
 - (void)dealloc;
 - (void)layoutSubviews;
-- (void)snapshotView:(id)arg1 usingIOSurface:(bool)arg2;
+- (void)snapshotView:(id)arg1 usingIOSurface:(BOOL)arg2;
 
 @end

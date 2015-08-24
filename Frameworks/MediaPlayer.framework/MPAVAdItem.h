@@ -2,11 +2,10 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@interface MPAVAdItem : MPAVItem {
-}
+@interface MPAVAdItem : MPAVItem
 
-- (bool)isAd;
-- (bool)isCloudItem;
-- (bool)supportsSettingCurrentTime;
+- (BOOL)isAd;
+- (BOOL)isCloudItem;
+- (BOOL)supportsSettingCurrentTime;
 
 @end

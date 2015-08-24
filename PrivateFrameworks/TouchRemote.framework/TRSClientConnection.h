@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/TouchRemote.framework/TouchRemote
  */
 
-@class NSObject<OS_dispatch_queue>, NSString;
-
 @interface TRSClientConnection : TRTCPConnection {
     NSObject<OS_dispatch_queue> *_accessQueue;
+    BOOL _authorized;
     NSString *_deviceIdentifier;
     NSObject<OS_dispatch_queue> *_packetEventQueue;
-    bool_authorized;
 }
 
 - (void).cxx_destruct;

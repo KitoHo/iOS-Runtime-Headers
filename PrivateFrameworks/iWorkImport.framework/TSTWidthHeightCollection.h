@@ -3,27 +3,27 @@
  */
 
 @interface TSTWidthHeightCollection : NSObject {
-    struct vector<std::__1::pair<TSUColumnRowCoordinate, double>, std::__1::allocator<std::__1::pair<TSUColumnRowCoordinate, double> > > { 
-        struct pair<TSUColumnRowCoordinate, double> {} *__begin_; 
-        struct pair<TSUColumnRowCoordinate, double> {} *__end_; 
-        struct __compressed_pair<std::__1::pair<TSUColumnRowCoordinate, double> *, std::__1::allocator<std::__1::pair<TSUColumnRowCoordinate, double> > > { 
-            struct pair<TSUColumnRowCoordinate, double> {} *__first_; 
+    struct vector<std::__1::pair<TSUColumnRowCoordinate, float>, std::__1::allocator<std::__1::pair<TSUColumnRowCoordinate, float> > > { 
+        struct pair<TSUColumnRowCoordinate, float> {} *__begin_; 
+        struct pair<TSUColumnRowCoordinate, float> {} *__end_; 
+        struct __compressed_pair<std::__1::pair<TSUColumnRowCoordinate, float> *, std::__1::allocator<std::__1::pair<TSUColumnRowCoordinate, float> > > { 
+            struct pair<TSUColumnRowCoordinate, float> {} *__first_; 
         } __end_cap_; 
+    } mFittingHeights;
     struct vector<TSUColumnRowCoordinate, std::__1::allocator<TSUColumnRowCoordinate> > { 
         struct { /* ? */ } *__begin_; 
         struct { /* ? */ } *__end_; 
         struct __compressed_pair<TSUColumnRowCoordinate *, std::__1::allocator<TSUColumnRowCoordinate> > { 
             struct { /* ? */ } *__first_; 
         } __end_cap_; 
-    } mFittingHeights;
     } mResetHeights;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)addFittingHeight:(double)arg1 forCellID:(struct { unsigned short x1; unsigned char x2; unsigned char x3; })arg2;
+- (void)addFittingHeight:(float)arg1 forCellID:(struct { unsigned short x1; unsigned char x2; unsigned char x3; })arg2;
 - (void)addResetHeightForCellID:(struct { unsigned short x1; unsigned char x2; unsigned char x3; })arg1;
-- (void)enumerateFittingHeightsUsingBlock:(id)arg1;
-- (void)enumerateResetHeightsUsingBlock:(id)arg1;
+- (void)enumerateFittingHeightsUsingBlock:(id /* block */)arg1;
+- (void)enumerateResetHeightsUsingBlock:(id /* block */)arg1;
 
 @end

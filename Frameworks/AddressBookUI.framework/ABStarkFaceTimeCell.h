@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@class <ABPropertyCellDelegate>, ABTransportButton, NSDictionary, UILabel;
-
 @interface ABStarkFaceTimeCell : ABContactCell {
     <ABPropertyCellDelegate> *_delegate;
     UILabel *_faceTimeLabel;
@@ -11,25 +9,25 @@
     ABTransportButton *_transportIcon;
 }
 
-@property <ABPropertyCellDelegate> * delegate;
-@property(retain) UILabel * faceTimeLabel;
-@property(copy) NSDictionary * labelTextAttributes;
-@property(readonly) ABTransportButton * transportIcon;
+@property (nonatomic) <ABPropertyCellDelegate> *delegate;
+@property (nonatomic, retain) UILabel *faceTimeLabel;
+@property (nonatomic, copy) NSDictionary *labelTextAttributes;
+@property (nonatomic, readonly) ABTransportButton *transportIcon;
 
-+ (bool)requiresConstraintBasedLayout;
++ (BOOL)requiresConstraintBasedLayout;
 
 - (id)constantConstraints;
 - (void)dealloc;
 - (id)delegate;
 - (id)faceTimeLabel;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (id)labelTextAttributes;
 - (void)performDefaultAction;
 - (void)setDelegate:(id)arg1;
 - (void)setFaceTimeLabel:(id)arg1;
-- (void)setHighlighted:(bool)arg1 animated:(bool)arg2;
+- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)setLabelTextAttributes:(id)arg1;
-- (void)setSelected:(bool)arg1 animated:(bool)arg2;
+- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)tintColorDidChange;
 - (void)transportButtonClicked:(id)arg1;
 - (id)transportIcon;

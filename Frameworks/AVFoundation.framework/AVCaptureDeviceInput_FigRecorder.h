@@ -2,19 +2,17 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVCaptureDeviceInputInternal_FigRecorder, AVCaptureDevice_FigRecorder;
-
 @interface AVCaptureDeviceInput_FigRecorder : AVCaptureInput_FigRecorder {
     AVCaptureDeviceInputInternal_FigRecorder *_internal;
 }
 
-@property(readonly) AVCaptureDevice_FigRecorder * device;
+@property (nonatomic, readonly) AVCaptureDevice_FigRecorder *device;
 
 + (id)deviceInputWithDevice:(id)arg1 error:(id*)arg2;
 + (void)initialize;
 
 - (void)_applyOverridesToCaptureOptions:(id)arg1;
-- (bool)_authorizedToUseDevice:(id)arg1;
+- (BOOL)_authorizedToUseDevice:(id)arg1;
 - (void)_checkForFigCameraAccess;
 - (int)_requestCameraRecordPermission;
 - (void)_setDevice:(id)arg1;
@@ -27,7 +25,7 @@
 - (void)handleNotification:(id)arg1 payload:(id)arg2;
 - (id)init;
 - (id)initWithDevice:(id)arg1 error:(id*)arg2;
-- (bool)isKindOfClass:(Class)arg1;
+- (BOOL)isKindOfClass:(Class)arg1;
 - (id)notReadyError;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4;
 - (id)ports;

@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSString;
-
 @interface PLPhotoEffect : NSObject {
     NSString *_CIFilterName;
     NSString *_displayName;
     NSString *_filterIdentifier;
 }
 
-@property(copy,readonly) NSString * CIFilterName;
-@property(copy,readonly) NSString * displayName;
-@property(copy,readonly) NSString * filterIdentifier;
-@property(readonly) long long latestVersion;
+@property (nonatomic, readonly, copy) NSString *CIFilterName;
+@property (nonatomic, readonly, copy) NSString *displayName;
+@property (nonatomic, readonly, copy) NSString *filterIdentifier;
+@property (nonatomic, readonly) int latestVersion;
 
 + (id)_effectWithIdentifier:(id)arg1 CIFilterName:(id)arg2 displayName:(id)arg3;
 + (id)allEffects;
 + (id)effectWithCIFilterName:(id)arg1;
 + (id)effectWithIdentifier:(id)arg1;
-+ (unsigned long long)indexOfEffectWithIdentifier:(id)arg1;
++ (unsigned int)indexOfEffectWithIdentifier:(id)arg1;
 
 - (id)CIFilterName;
 - (id)description;
 - (id)displayName;
 - (id)filterIdentifier;
-- (long long)latestVersion;
+- (int)latestVersion;
 - (id)newEffectFilter;
 
 @end

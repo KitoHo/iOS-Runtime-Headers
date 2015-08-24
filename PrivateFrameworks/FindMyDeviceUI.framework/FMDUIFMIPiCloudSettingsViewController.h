@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/FindMyDeviceUI.framework/FindMyDeviceUI
  */
 
-@class ACAccount, PSSpecifier, RemoteUIController, UIProgressHUD;
-
 @interface FMDUIFMIPiCloudSettingsViewController : PSListController {
     ACAccount *_account;
+    BOOL _activityInProgress;
+    BOOL _firstTimeSetup;
     PSSpecifier *_fmipSpecifier;
     UIProgressHUD *_hud;
     RemoteUIController *_ruiController;
     PSSpecifier *_sendLastLocationSpecifier;
-    bool_activityInProgress;
-    bool_firstTimeSetup;
-    bool_togglingFMIPSwitch;
+    BOOL _togglingFMIPSwitch;
 }
 
-@property(retain) ACAccount * account;
-@property bool activityInProgress;
-@property bool firstTimeSetup;
-@property(retain) PSSpecifier * fmipSpecifier;
-@property(retain) UIProgressHUD * hud;
-@property(retain) RemoteUIController * ruiController;
-@property(retain) PSSpecifier * sendLastLocationSpecifier;
-@property bool togglingFMIPSwitch;
+@property (nonatomic, retain) ACAccount *account;
+@property (nonatomic) BOOL activityInProgress;
+@property (nonatomic) BOOL firstTimeSetup;
+@property (nonatomic, retain) PSSpecifier *fmipSpecifier;
+@property (nonatomic, retain) UIProgressHUD *hud;
+@property (nonatomic, retain) RemoteUIController *ruiController;
+@property (nonatomic, retain) PSSpecifier *sendLastLocationSpecifier;
+@property (nonatomic) BOOL togglingFMIPSwitch;
 
 - (void).cxx_destruct;
 - (id)_clientInfoHeader;
@@ -41,30 +39,30 @@
 - (id)_specifierForSendLastLocation;
 - (id)_userAgentHeader;
 - (id)account;
-- (bool)activityInProgress;
-- (bool)firstTimeSetup;
+- (BOOL)activityInProgress;
+- (BOOL)firstTimeSetup;
 - (id)fmipSpecifier;
 - (void)hideActivityInProgressUI;
 - (void)hideActivityInProgressUIWithDelay:(double)arg1;
 - (id)hud;
 - (id)init;
-- (bool)isShowingActivityInProgressUI;
+- (BOOL)isShowingActivityInProgressUI;
 - (id)ruiController;
 - (id)sendLastLocationSpecifier;
 - (void)setAccount:(id)arg1;
-- (void)setActivityInProgress:(bool)arg1;
-- (void)setFirstTimeSetup:(bool)arg1;
+- (void)setActivityInProgress:(BOOL)arg1;
+- (void)setFirstTimeSetup:(BOOL)arg1;
 - (void)setFmipSpecifier:(id)arg1;
 - (void)setHud:(id)arg1;
 - (void)setRuiController:(id)arg1;
 - (void)setSendLastLocationSpecifier:(id)arg1;
-- (void)setTogglingFMIPSwitch:(bool)arg1;
+- (void)setTogglingFMIPSwitch:(BOOL)arg1;
 - (void)showActivityInProgressUIWithMessage:(id)arg1;
 - (id)specifiers;
-- (bool)togglingFMIPSwitch;
-- (void)viewDidAppear:(bool)arg1;
+- (BOOL)togglingFMIPSwitch;
+- (void)viewDidAppear:(BOOL)arg1;
 - (void)viewDidLoad;
-- (void)viewWillAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

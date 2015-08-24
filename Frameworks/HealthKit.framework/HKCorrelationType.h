@@ -2,11 +2,10 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-@interface HKCorrelationType : HKSampleType {
-}
+@interface HKCorrelationType : HKSampleType
 
-+ (void)_insertCode:(long long)arg1 forIdentifier:(id)arg2;
++ (void)_insertCode:(int)arg1 forIdentifier:(id)arg2;
 
-- (bool)_requiresAuthorization;
+- (BOOL)_requiresAuthorization;
 
 @end

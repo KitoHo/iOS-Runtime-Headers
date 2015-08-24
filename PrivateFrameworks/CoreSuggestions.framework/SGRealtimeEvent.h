@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/CoreSuggestions.framework/CoreSuggestions
  */
 
-@class NSString, SGEvent;
-
-@interface SGRealtimeEvent : NSObject <NSSecureCoding, NSCopying> {
+@interface SGRealtimeEvent : NSObject <NSCopying, NSSecureCoding> {
     SGEvent *_event;
     NSString *_eventIdentifier;
     int _state;
 }
 
-@property(readonly) SGEvent * event;
-@property(readonly) NSString * eventIdentifier;
-@property(readonly) int state;
+@property (nonatomic, readonly) SGEvent *event;
+@property (nonatomic, readonly) NSString *eventIdentifier;
+@property (nonatomic, readonly) int state;
 
 + (id)realtimeEventForCanceledEvent:(id)arg1 eventIdentifier:(id)arg2;
 + (id)realtimeEventForDuplicateEvent:(id)arg1;
 + (id)realtimeEventForNearDuplicateEvent:(id)arg1;
 + (id)realtimeEventForNewEvent:(id)arg1;
 + (id)realtimeEventUpdateToEvent:(id)arg1 withNewValues:(id)arg2;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -27,11 +25,11 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)event;
 - (id)eventIdentifier;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithState:(int)arg1 event:(id)arg2 eventIdentifier:(id)arg3;
-- (bool)isEqual:(id)arg1;
-- (bool)isEqualToRealtimeEvent:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToRealtimeEvent:(id)arg1;
 - (int)state;
 
 @end

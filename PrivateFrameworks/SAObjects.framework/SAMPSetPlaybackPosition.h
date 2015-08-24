@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@interface SAMPSetPlaybackPosition : SADomainCommand {
-}
+@interface SAMPSetPlaybackPosition : SADomainCommand
 
-@property int position;
+@property (nonatomic) int position;
 
 + (id)setPlaybackPosition;
 + (id)setPlaybackPositionWithDictionary:(id)arg1 context:(id)arg2;
@@ -13,7 +12,7 @@
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (int)position;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setPosition:(int)arg1;
 
 @end

@@ -3,46 +3,46 @@
  */
 
 @interface AWDCallHistoryDatabaseInfo : PBCodable <NSCopying> {
+    unsigned int _fetchLimit;
     struct { 
         unsigned int timestamp : 1; 
         unsigned int fetchLimit : 1; 
         unsigned int schema : 1; 
         unsigned int size : 1; 
-    unsigned int _fetchLimit;
     } _has;
     unsigned int _schema;
     unsigned int _size;
     unsigned long long _timestamp;
 }
 
-@property unsigned int fetchLimit;
-@property bool hasFetchLimit;
-@property bool hasSchema;
-@property bool hasSize;
-@property bool hasTimestamp;
-@property unsigned int schema;
-@property unsigned int size;
-@property unsigned long long timestamp;
+@property (nonatomic) unsigned int fetchLimit;
+@property (nonatomic) BOOL hasFetchLimit;
+@property (nonatomic) BOOL hasSchema;
+@property (nonatomic) BOOL hasSize;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) unsigned int schema;
+@property (nonatomic) unsigned int size;
+@property (nonatomic) unsigned long long timestamp;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (unsigned int)fetchLimit;
-- (bool)hasFetchLimit;
-- (bool)hasSchema;
-- (bool)hasSize;
-- (bool)hasTimestamp;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasFetchLimit;
+- (BOOL)hasSchema;
+- (BOOL)hasSize;
+- (BOOL)hasTimestamp;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (unsigned int)schema;
 - (void)setFetchLimit:(unsigned int)arg1;
-- (void)setHasFetchLimit:(bool)arg1;
-- (void)setHasSchema:(bool)arg1;
-- (void)setHasSize:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
+- (void)setHasFetchLimit:(BOOL)arg1;
+- (void)setHasSchema:(BOOL)arg1;
+- (void)setHasSize:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
 - (void)setSchema:(unsigned int)arg1;
 - (void)setSize:(unsigned int)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;

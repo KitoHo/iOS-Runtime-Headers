@@ -2,13 +2,12 @@
    Image: /System/Library/PrivateFrameworks/FrontBoard.framework/FrontBoard
  */
 
-@interface FBAppLibraryLogger : FBFileLogger {
-}
+@interface FBAppLibraryLogger : FBFileLogger
 
-- (void)_setEnabled:(bool)arg1;
-- (bool)isEnabled;
+- (void)_setEnabled:(BOOL)arg1;
+- (BOOL)isEnabled;
 - (int)maxLogSize;
 - (id)name;
-- (bool)shouldEnableOnInternalBuilds;
+- (BOOL)shouldEnableOnInternalBuilds;
 
 @end

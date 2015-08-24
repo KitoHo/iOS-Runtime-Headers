@@ -2,20 +2,17 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString;
+@interface SAUpdateReadingState : SABaseCommand <SAServerBoundCommand>
 
-@interface SAUpdateReadingState : SABaseCommand <SAServerBoundCommand> {
-}
-
-@property(copy) NSString * aceId;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * readingStateId;
-@property(copy) NSString * refId;
-@property(readonly) Class superclass;
-@property long long updatedGroupIndex;
-@property long long updatedItemIndex;
+@property (nonatomic, copy) NSString *aceId;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSString *readingStateId;
+@property (nonatomic, copy) NSString *refId;
+@property (readonly) Class superclass;
+@property (nonatomic) int updatedGroupIndex;
+@property (nonatomic) int updatedItemIndex;
 
 + (id)updateReadingState;
 + (id)updateReadingStateWithDictionary:(id)arg1 context:(id)arg2;
@@ -24,9 +21,9 @@
 - (id)groupIdentifier;
 - (id)readingStateId;
 - (void)setReadingStateId:(id)arg1;
-- (void)setUpdatedGroupIndex:(long long)arg1;
-- (void)setUpdatedItemIndex:(long long)arg1;
-- (long long)updatedGroupIndex;
-- (long long)updatedItemIndex;
+- (void)setUpdatedGroupIndex:(int)arg1;
+- (void)setUpdatedItemIndex:(int)arg1;
+- (int)updatedGroupIndex;
+- (int)updatedItemIndex;
 
 @end

@@ -2,29 +2,27 @@
    Image: /System/Library/Frameworks/CoreBluetooth.framework/CoreBluetooth
  */
 
-@class CBPeripheral, CBService, NSArray, NSData, NSNumber;
-
 @interface CBCharacteristic : CBAttribute {
     NSArray *_descriptors;
     NSNumber *_handle;
+    BOOL _isBroadcasted;
+    BOOL _isNotifying;
     CBPeripheral *_peripheral;
-    unsigned long long _properties;
+    unsigned int _properties;
     CBService *_service;
     NSData *_value;
     NSNumber *_valueHandle;
-    bool_isBroadcasted;
-    bool_isNotifying;
 }
 
-@property(retain) NSArray * descriptors;
-@property(readonly) NSNumber * handle;
-@property(readonly) bool isBroadcasted;
-@property bool isNotifying;
-@property(readonly) CBPeripheral * peripheral;
-@property(readonly) unsigned long long properties;
-@property CBService * service;
-@property(retain) NSData * value;
-@property(readonly) NSNumber * valueHandle;
+@property (retain) NSArray *descriptors;
+@property (nonatomic, readonly) NSNumber *handle;
+@property (readonly) BOOL isBroadcasted;
+@property BOOL isNotifying;
+@property (nonatomic, readonly) CBPeripheral *peripheral;
+@property (nonatomic, readonly) unsigned int properties;
+@property (nonatomic) CBService *service;
+@property (retain) NSData *value;
+@property (nonatomic, readonly) NSNumber *valueHandle;
 
 - (void)dealloc;
 - (id)description;
@@ -37,13 +35,13 @@
 - (id)handleValueWritten:(id)arg1;
 - (id)initWithService:(id)arg1 dictionary:(id)arg2;
 - (void)invalidate;
-- (bool)isBroadcasted;
-- (bool)isNotifying;
+- (BOOL)isBroadcasted;
+- (BOOL)isNotifying;
 - (id)peripheral;
-- (unsigned long long)properties;
+- (unsigned int)properties;
 - (id)service;
 - (void)setDescriptors:(id)arg1;
-- (void)setIsNotifying:(bool)arg1;
+- (void)setIsNotifying:(BOOL)arg1;
 - (void)setService:(id)arg1;
 - (void)setValue:(id)arg1;
 - (id)value;

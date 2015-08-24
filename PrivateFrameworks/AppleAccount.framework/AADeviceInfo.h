@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount
  */
 
-@class APSConnection, NSData, NSObject<OS_dispatch_semaphore>;
-
 @interface AADeviceInfo : NSObject {
     APSConnection *_apsConnection;
     NSData *_token;
+    BOOL _tokenDone;
     NSObject<OS_dispatch_semaphore> *_tokenSema;
-    bool_tokenDone;
 }
 
 + (id)apnsToken;
@@ -31,9 +29,10 @@
 - (id)deviceEnclosureColor;
 - (id)deviceInfoDictionary;
 - (id)deviceName;
-- (bool)hasCellularCapability;
+- (BOOL)hasCellularCapability;
 - (id)internationalMobileEquipmentIdentity;
 - (id)mobileEquipmentIdentifier;
+- (id)modelNumber;
 - (id)osName;
 - (id)osVersion;
 - (id)productType;

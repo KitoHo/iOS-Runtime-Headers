@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSMapTable, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSURL, NSUUID, TSPDatabase, TSPDocumentResourceDataProvider, TSPFinalizeHandlerQueue, TSPObjectContext;
-
 @interface TSPDatabaseReadCoordinator : TSPReadCoordinatorBase <TSPDatabaseReaderDelegate, TSPReadCoordinator> {
     NSMutableDictionary *_appRelativeDataDictionary;
     NSObject<OS_dispatch_queue> *_appRelativeDataQueue;
@@ -19,16 +17,18 @@
     NSURL *_packageURL;
 }
 
-@property(readonly) NSUUID * baseObjectUUID;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long fileFormatVersion;
-@property(readonly) unsigned long long hash;
-@property(readonly) bool isCrossAppPaste;
-@property(readonly) bool isCrossDocumentPaste;
-@property(readonly) bool isFromPasteboard;
-@property(readonly) bool isReadingFromDocument;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) NSUUID *baseObjectUUID;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) unsigned long long fileFormatVersion;
+@property (nonatomic, readonly) BOOL hasDocumentVersionUUID;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) BOOL isCrossAppPaste;
+@property (nonatomic, readonly) BOOL isCrossDocumentPaste;
+@property (nonatomic, readonly) BOOL isFromCopy;
+@property (nonatomic, readonly) BOOL isReadingFromDocument;
+@property (nonatomic, readonly) unsigned char packageIdentifier;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)baseObjectUUID;
@@ -43,18 +43,21 @@
 - (void)didReferenceExternalObject:(id)arg1 withIdentifier:(long long)arg2;
 - (void)didUpdateLazyReferenceDelegate:(id)arg1;
 - (id)documentResourceEntryForAppRelativePath:(id)arg1;
-- (bool)endReading;
-- (id)externalObjectForIdentifier:(long long)arg1 componentIdentifier:(long long)arg2 isReadFinished:(bool)arg3;
+- (BOOL)endReading;
+- (id)externalObjectForIdentifier:(long long)arg1 componentIdentifier:(long long)arg2 isReadFinished:(BOOL)arg3;
 - (unsigned long long)fileFormatVersion;
+- (BOOL)hasDocumentVersionUUID;
 - (id)init;
 - (id)initWithContext:(id)arg1 packageURL:(id)arg2 finalizeHandlerQueue:(id)arg3 documentResourceDataProvider:(id)arg4 error:(id*)arg5;
-- (bool)isReadingFromDocument;
-- (void)readComponent:(id)arg1 completionQueue:(id)arg2 completion:(id)arg3;
-- (void)readRootObjectWithCompletionQueue:(id)arg1 completion:(id)arg2;
-- (void)reader:(id)arg1 didFindExternalReferenceToObjectIdentifier:(long long)arg2 componentIdentifier:(long long)arg3 isWeak:(bool)arg4 allowUnknownObject:(bool)arg5 fromParentObject:(id)arg6 completion:(id)arg7;
-- (void)reader:(id)arg1 didFindExternalRepeatedReference:(id)arg2 isWeak:(bool)arg3 allowUnknownObject:(bool)arg4 fromParentObject:(id)arg5 completion:(id)arg6;
+- (BOOL)isReadingFromDocument;
+- (unsigned char)packageIdentifier;
+- (void)readComponent:(id)arg1 completionQueue:(id)arg2 completion:(id /* block */)arg3;
+- (void)readRootObjectWithCompletionQueue:(id)arg1 completion:(id /* block */)arg2;
+- (void)reader:(id)arg1 didFindExternalReferenceToObjectIdentifier:(long long)arg2 componentIdentifier:(long long)arg3 isWeak:(BOOL)arg4 allowUnknownObject:(BOOL)arg5 fromParentObject:(id)arg6 completion:(id /* block */)arg7;
+- (void)reader:(id)arg1 didFindExternalRepeatedReference:(id)arg2 isWeak:(BOOL)arg3 allowUnknownObject:(BOOL)arg4 fromParentObject:(id)arg5 completion:(id /* block */)arg6;
 - (void)reader:(id)arg1 didUnarchiveObject:(id)arg2;
 - (id)reader:(id)arg1 wantsDataForIdentifier:(long long)arg2;
-- (id)unarchivedObjectForIdentifier:(long long)arg1 isReadFinished:(bool)arg2;
+- (long long)reader:(id)arg1 wantsObjectIdentifierForUUID:(id)arg2;
+- (id)unarchivedObjectForIdentifier:(long long)arg1 isReadFinished:(BOOL)arg2;
 
 @end

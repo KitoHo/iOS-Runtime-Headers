@@ -2,15 +2,9 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class MFLock, NSMutableDictionary, NSMutableSet, NSString;
-
 @interface MFLibraryMessage : MFMailMessage {
     unsigned long long _conversationFlags;
-    id _deallocationHandler;
+    id /* block */ _deallocationHandler;
     unsigned int _libraryID;
     unsigned int _mailboxID;
     NSString *_messageID;
@@ -19,12 +13,12 @@
     MFLock *_metadataLock;
     unsigned int _originalMailboxID;
     NSString *_remoteID;
-    unsigned long long _size;
-    unsigned int _uid;
+    unsigned int _size;
+    unsigned long _uid;
     unsigned long long _uniqueRemoteId;
 }
 
-@property(copy) id deallocationHandler;
+@property (nonatomic, copy) id /* block */ deallocationHandler;
 
 + (id)messageWithLibraryID:(unsigned int)arg1;
 
@@ -33,23 +27,23 @@
 - (void)_updateUID;
 - (id)account;
 - (id)attachmentStorageLocation;
-- (bool)canBeDeleted;
+- (BOOL)canBeDeleted;
 - (void)commit;
-- (long long)compareByUidWithMessage:(id)arg1;
+- (int)compareByUidWithMessage:(id)arg1;
 - (unsigned long long)conversationFlags;
 - (id)copyMessageInfo;
 - (id)dataConsumerForMimePart:(id)arg1;
 - (id)dataPathForMimePart:(id)arg1;
 - (void)dealloc;
-- (id)deallocationHandler;
+- (id /* block */)deallocationHandler;
 - (id)description;
-- (bool)hasTemporaryUid;
-- (unsigned long long)hash;
+- (BOOL)hasTemporaryUid;
+- (unsigned int)hash;
 - (id)initWithLibraryID:(unsigned int)arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)isLibraryMessage;
-- (bool)isMessageContentsLocallyAvailable;
-- (bool)isPartial;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isLibraryMessage;
+- (BOOL)isMessageContentsLocallyAvailable;
+- (BOOL)isPartial;
 - (id)library;
 - (unsigned int)libraryID;
 - (id)mailbox;
@@ -62,7 +56,7 @@
 - (void)markAsReplied;
 - (void)markAsViewed;
 - (id)messageID;
-- (unsigned long long)messageSize;
+- (unsigned int)messageSize;
 - (id)messageStore;
 - (id)metadataValueForKey:(id)arg1;
 - (unsigned int)originalMailboxID;
@@ -72,26 +66,26 @@
 - (id)preferredEmailAddressToReplyWith;
 - (id)remoteID;
 - (void)setConversationFlags:(unsigned long long)arg1;
-- (void)setDeallocationHandler:(id)arg1;
+- (void)setDeallocationHandler:(id /* block */)arg1;
 - (void)setFlags:(unsigned long long)arg1;
-- (void)setHasTemporaryUid:(bool)arg1;
-- (void)setIsPartial:(bool)arg1;
+- (void)setHasTemporaryUid:(BOOL)arg1;
+- (void)setIsPartial:(BOOL)arg1;
 - (void)setLibraryID:(unsigned int)arg1;
 - (void)setMailboxID:(unsigned int)arg1;
-- (void)setMessageData:(id)arg1 isPartial:(bool)arg2;
+- (void)setMessageData:(id)arg1 isPartial:(BOOL)arg2;
 - (void)setMessageFlags:(unsigned long long)arg1;
 - (void)setMessageFlagsWithoutCommitting:(unsigned long long)arg1;
-- (void)setMessageSize:(unsigned long long)arg1;
+- (void)setMessageSize:(unsigned int)arg1;
 - (void)setMetadataValue:(id)arg1 forKey:(id)arg2;
 - (void)setMutableInfoFromMessage:(id)arg1;
 - (void)setOriginalMailboxID:(unsigned int)arg1;
-- (void)setPreferredEncoding:(unsigned int)arg1;
-- (void)setRemoteID:(const char *)arg1 flags:(unsigned long long)arg2 size:(unsigned int)arg3 mailboxID:(unsigned int)arg4 originalMailboxID:(unsigned int)arg5;
+- (void)setPreferredEncoding:(unsigned long)arg1;
 - (void)setRemoteID:(id)arg1;
+- (void)setRemoteID:(const char *)arg1 flags:(unsigned long long)arg2 size:(unsigned int)arg3 mailboxID:(unsigned int)arg4 originalMailboxID:(unsigned int)arg5;
 - (void)setSummary:(id)arg1;
-- (void)setUid:(unsigned int)arg1;
+- (void)setUid:(unsigned long)arg1;
 - (void)setUniqueRemoteId:(unsigned long long)arg1;
-- (unsigned int)uid;
+- (unsigned long)uid;
 - (unsigned long long)uniqueRemoteId;
 
 @end

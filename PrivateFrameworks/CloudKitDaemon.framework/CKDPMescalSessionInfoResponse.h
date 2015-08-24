@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSData;
-
 @interface CKDPMescalSessionInfoResponse : PBCodable <NSCopying> {
     struct { 
         unsigned int status : 1; 
@@ -12,24 +10,24 @@
     int _status;
 }
 
-@property(readonly) bool hasSessionInfo;
-@property bool hasStatus;
-@property(retain) NSData * sessionInfo;
-@property int status;
+@property (nonatomic, readonly) BOOL hasSessionInfo;
+@property (nonatomic) BOOL hasStatus;
+@property (nonatomic, retain) NSData *sessionInfo;
+@property (nonatomic) int status;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasSessionInfo;
-- (bool)hasStatus;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasSessionInfo;
+- (BOOL)hasStatus;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)sessionInfo;
-- (void)setHasStatus:(bool)arg1;
+- (void)setHasStatus:(BOOL)arg1;
 - (void)setSessionInfo:(id)arg1;
 - (void)setStatus:(int)arg1;
 - (int)status;

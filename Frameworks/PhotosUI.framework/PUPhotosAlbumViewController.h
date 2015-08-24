@@ -2,46 +2,57 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSString, PHAssetCollection, PHFetchResult, PUPhotosPickerViewController;
-
 @interface PUPhotosAlbumViewController : PUPhotosGridViewController <PUSectionedGridLayoutDelegate> {
+    BOOL __hasAccurateCounts;
+    BOOL __isCountingAssetTypes;
     PUPhotosPickerViewController *_activePhotosPickerViewController;
     struct NSObject { Class x1; } *_album;
     PHAssetCollection *_assetCollection;
 }
 
-@property(readonly) PHAssetCollection * assetCollection;
-@property(readonly) PHFetchResult * assetCollectionAssets;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (setter=_setHasAccurateCounts:, nonatomic) BOOL _hasAccurateCounts;
+@property (setter=_setCountingAssetTypes:, nonatomic) BOOL _isCountingAssetTypes;
+@property (nonatomic, retain) NSObject<PLAlbumProtocol> *album;
+@property (nonatomic, readonly) PHAssetCollection *assetCollection;
+@property (nonatomic, readonly) PHFetchResult *assetCollectionAssets;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
+- (void)_countAssetTypesIfNeeded;
 - (id)_globalHeaderTitle;
+- (BOOL)_hasAccurateCounts;
+- (BOOL)_isCountingAssetTypes;
+- (void)_setCountingAssetTypes:(BOOL)arg1;
+- (void)_setHasAccurateCounts:(BOOL)arg1;
+- (struct NSObject { Class x1; }*)album;
 - (id)assetCollection;
 - (id)assetCollectionAssets;
-- (bool)canBeginStackCollapseTransition;
+- (BOOL)canBeginStackCollapseTransition;
 - (void)configureGlobalFooterView:(id)arg1;
 - (void)configureGlobalHeaderView:(id)arg1;
-- (struct CGPoint { double x1; double x2; })contentOffsetForPreheating;
+- (struct CGPoint { float x1; float x2; })contentOffsetForPreheating;
 - (id)filterPredicateForAlbum:(struct NSObject { Class x1; }*)arg1;
-- (double)globalHeaderHeight;
+- (float)globalHeaderHeight;
 - (void)handleAddFromAction;
 - (void)handleAddToAlbum:(id)arg1 pickedAssets:(id)arg2;
-- (void)handleTransitionFade:(bool)arg1 animate:(bool)arg2;
+- (void)handleTransitionFade:(BOOL)arg1 animate:(BOOL)arg2;
 - (id)initWithSpec:(id)arg1;
-- (bool)isTrashBinViewController;
+- (BOOL)isTrashBinViewController;
 - (id)localizedTitleForAssets:(id)arg1;
 - (id)newGridLayout;
-- (bool)prepareForDismissingForced:(bool)arg1;
+- (BOOL)prepareForDismissingForced:(BOOL)arg1;
 - (id)sessionInfoForTransferredAssets:(id)arg1;
 - (void)setAlbum:(struct NSObject { Class x1; }*)arg1;
+- (void)setAlbum:(struct NSObject { Class x1; }*)arg1 existingFetchResults:(id)arg2;
 - (void)setAssetCollection:(id)arg1 fetchResultContainingAssetCollection:(id)arg2 filterPredicate:(id)arg3;
+- (void)setAssetCollection:(id)arg1 fetchResultContainingAssetCollection:(id)arg2 filterPredicate:(id)arg3 existingFetchResults:(id)arg4;
 - (void)setupScrubber;
 - (void)updateTitle;
-- (void)viewWillAppear:(bool)arg1;
-- (bool)wantsAssetCounts;
-- (bool)wantsGlobalFooter;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (BOOL)wantsGlobalFooter;
 
 @end

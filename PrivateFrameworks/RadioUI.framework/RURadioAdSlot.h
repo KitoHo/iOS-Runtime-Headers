@@ -2,46 +2,46 @@
    Image: /System/Library/PrivateFrameworks/RadioUI.framework/RadioUI
  */
 
-@class ADAdSlot, NSArray, NSData, NSString;
-
 @interface RURadioAdSlot : NSObject <ADAdSlotDelegate> {
+    NSObject<OS_dispatch_queue> *_accessQueue;
     ADAdSlot *_adSlot;
     NSArray *_adTracks;
+    BOOL _hasBegunPlayback;
 }
 
-@property(readonly) ADAdSlot * adSlot;
-@property(copy,readonly) NSArray * adTracks;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(copy) NSData * followingSongData;
-@property(getter=isGatewayAdSlot) bool gatewayAdSlot;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * identifier;
-@property(copy) NSData * previousSongData;
-@property(copy) NSData * stationData;
-@property(readonly) Class superclass;
-@property(readonly) bool wasPreparedAsStationEntryAdSlot;
+@property (nonatomic, readonly) ADAdSlot *adSlot;
+@property (nonatomic, readonly, copy) NSArray *adTracks;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, copy) NSData *followingSongData;
+@property (getter=isGatewayAdSlot, nonatomic) BOOL gatewayAdSlot;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic, copy) NSData *previousSongData;
+@property (nonatomic, copy) NSData *stationData;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) BOOL wasPreparedAsStationEntryAdSlot;
 
 - (void).cxx_destruct;
-- (void)adSlot:(id)arg1 didChangeSelectedAds:(id)arg2 previousAds:(id)arg3;
 - (id)adSlot;
+- (void)adSlot:(id)arg1 didChangeSelectedAds:(id)arg2 previousAds:(id)arg3;
 - (id)adTracks;
 - (void)dealloc;
-- (void)didFinishPlaybackOfAdTracks:(id)arg1 skippedCount:(long long)arg2;
+- (void)didFinishPlaybackOfAdTracks:(id)arg1 skippedCount:(int)arg2;
 - (id)followingSongData;
 - (id)identifier;
 - (id)init;
 - (id)initWithAdSlot:(id)arg1;
-- (bool)isGatewayAdSlot;
+- (BOOL)isGatewayAdSlot;
 - (id)previousSongData;
 - (void)setFollowingSongData:(id)arg1;
-- (void)setGatewayAdSlot:(bool)arg1;
+- (void)setGatewayAdSlot:(BOOL)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setPreviousSongData:(id)arg1;
 - (void)setStationData:(id)arg1;
-- (void)setWasPreparedAsStationEntryAdSlot:(bool)arg1;
+- (void)setWasPreparedAsStationEntryAdSlot:(BOOL)arg1;
 - (id)stationData;
-- (bool)wasPreparedAsStationEntryAdSlot;
-- (void)willBeginPlaybackOfAdTracks:(id)arg1 forSpaceType:(long long)arg2;
+- (BOOL)wasPreparedAsStationEntryAdSlot;
+- (void)willBeginPlaybackOfAdTracks:(id)arg1 forSpaceType:(int)arg2;
 
 @end

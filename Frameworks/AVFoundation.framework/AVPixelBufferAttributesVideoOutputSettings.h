@@ -2,28 +2,26 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class NSDictionary;
-
 @interface AVPixelBufferAttributesVideoOutputSettings : AVVideoOutputSettings <AVDecodedVideoSettingsForFig> {
     NSDictionary *_VTCleanApertureDictionary;
     NSDictionary *_VTPixelAspectRatioDictionary;
 }
 
-@property(readonly) NSDictionary * pixelBufferAttributes;
+@property (nonatomic, readonly) NSDictionary *pixelBufferAttributes;
 
 + (id)_videoOutputSettingsWithVideoSettingsDictionary:(id)arg1 exceptionReason:(id*)arg2;
 + (id)eligibleOutputSettingsDictionaryKeys;
 
-- (bool)canFullySpecifyOutputFormatReturningReason:(id*)arg1;
+- (BOOL)canFullySpecifyOutputFormatReturningReason:(id*)arg1;
 - (id)cleanApertureDictionary;
 - (void)dealloc;
-- (bool)encoderIsAvailableOnCurrentSystemReturningError:(id*)arg1;
+- (BOOL)encoderIsAvailableOnCurrentSystemReturningError:(id*)arg1;
 - (int)height;
 - (id)initWithPixelBufferAttributes:(id)arg1 exceptionReason:(id*)arg2;
 - (id)initWithTrustedPixelBufferAttributes:(id)arg1;
 - (id)pixelAspectRatioDictionary;
 - (id)pixelBufferAttributes;
 - (int)width;
-- (bool)willYieldCompressedSamples;
+- (BOOL)willYieldCompressedSamples;
 
 @end

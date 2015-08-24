@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSData, NSMutableDictionary;
-
 @interface PLPhotoBakedThumbnailsCollection : NSObject {
     NSMutableDictionary *_bakedThumbnails;
     NSData *_data;
 }
 
-+ (void)setTesting:(bool)arg1;
++ (void)setTesting:(BOOL)arg1;
 
 - (void)_parseDataWithContentsOfFile:(id)arg1;
 - (id)availableFormats;

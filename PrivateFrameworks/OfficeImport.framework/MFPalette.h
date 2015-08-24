@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableArray;
-
 @interface MFPalette : NSObject <MFObject> {
     NSMutableArray *m_colours;
 }
@@ -14,8 +12,8 @@
 - (id)getColour:(int)arg1;
 - (id)init;
 - (id)initWithColours:(id)arg1;
-- (bool)resize:(int)arg1;
+- (BOOL)resize:(int)arg1;
 - (int)selectInto:(id)arg1;
-- (bool)setEntries:(int)arg1 :(id)arg2;
+- (BOOL)setEntries:(int)arg1 :(id)arg2;
 
 @end

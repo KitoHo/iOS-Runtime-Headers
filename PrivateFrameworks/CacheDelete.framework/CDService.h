@@ -2,29 +2,31 @@
    Image: /System/Library/PrivateFrameworks/CacheDelete.framework/CacheDelete
  */
 
-@class NSString, NSXPCConnection, NSXPCListenerEndpoint;
-
 @interface CDService : NSObject {
     NSString *_ID;
+    NSSet *_desiredNotifications;
+    BOOL _doesPeriodic;
+    BOOL _doesPurge;
     NSXPCListenerEndpoint *_endpoint;
     NSXPCConnection *_xpcConn;
-    bool_doesPeriodic;
-    bool_doesPurge;
 }
 
-@property(retain) NSString * ID;
-@property bool doesPeriodic;
-@property bool doesPurge;
-@property(retain) NSXPCListenerEndpoint * endpoint;
-@property(retain) NSXPCConnection * xpcConn;
+@property (nonatomic, retain) NSString *ID;
+@property (nonatomic, retain) NSSet *desiredNotifications;
+@property BOOL doesPeriodic;
+@property BOOL doesPurge;
+@property (nonatomic, retain) NSXPCListenerEndpoint *endpoint;
+@property (nonatomic, retain) NSXPCConnection *xpcConn;
 
 - (void).cxx_destruct;
 - (id)ID;
-- (bool)doesPeriodic;
-- (bool)doesPurge;
+- (id)desiredNotifications;
+- (BOOL)doesPeriodic;
+- (BOOL)doesPurge;
 - (id)endpoint;
-- (void)setDoesPeriodic:(bool)arg1;
-- (void)setDoesPurge:(bool)arg1;
+- (void)setDesiredNotifications:(id)arg1;
+- (void)setDoesPeriodic:(BOOL)arg1;
+- (void)setDoesPurge:(BOOL)arg1;
 - (void)setEndpoint:(id)arg1;
 - (void)setID:(id)arg1;
 - (void)setXpcConn:(id)arg1;

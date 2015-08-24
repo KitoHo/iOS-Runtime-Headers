@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@interface SSKeyValueStoreTransaction : SSKeyValueStoreSession {
-}
+@interface SSKeyValueStoreTransaction : SSKeyValueStoreSession
 
 - (void)removeAccountFromDomain:(id)arg1;
-- (bool)setData:(id)arg1 forDomain:(id)arg2 key:(id)arg3;
-- (bool)setValue:(id)arg1 forDomain:(id)arg2 key:(id)arg3;
+- (BOOL)setData:(id)arg1 forDomain:(id)arg2 key:(id)arg3;
+- (BOOL)setValue:(id)arg1 forDomain:(id)arg2 key:(id)arg3;
 
 @end

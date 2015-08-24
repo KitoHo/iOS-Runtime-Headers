@@ -2,14 +2,12 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class <AVCaptureAudioDataOutputSampleBufferDelegate_FigRecorder>, AVCaptureAudioDataOutputInternal_FigRecorder, NSObject<OS_dispatch_queue>;
-
 @interface AVCaptureAudioDataOutput_FigRecorder : AVCaptureOutput_FigRecorder {
     AVCaptureAudioDataOutputInternal_FigRecorder *_internal;
 }
 
-@property(readonly) NSObject<OS_dispatch_queue> * sampleBufferCallbackQueue;
-@property(readonly) <AVCaptureAudioDataOutputSampleBufferDelegate_FigRecorder> * sampleBufferDelegate;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *sampleBufferCallbackQueue;
+@property (nonatomic, readonly) <AVCaptureAudioDataOutputSampleBufferDelegate_FigRecorder> *sampleBufferDelegate;
 
 + (void)initialize;
 
@@ -21,8 +19,8 @@
 - (void)didStopForSession:(id)arg1 error:(id)arg2;
 - (void)handleEnabledChangedForConnection:(id)arg1;
 - (id)init;
-- (bool)isKindOfClass:(Class)arg1;
-- (bool)isTheOnlyDataOutput;
+- (BOOL)isKindOfClass:(Class)arg1;
+- (BOOL)isTheOnlyDataOutput;
 - (id)recommendedAudioSettingsForAssetWriterWithOutputFileType:(id)arg1;
 - (id)sampleBufferCallbackQueue;
 - (id)sampleBufferDelegate;

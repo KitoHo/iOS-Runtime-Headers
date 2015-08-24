@@ -2,59 +2,56 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSLock, NSMutableArray, NSMutableDictionary, NSString;
-
-@interface GEOCountryConfiguration : NSObject <GEOResourceManifestTileGroupObserver> {
+@interface GEOCountryConfiguration : NSObject <GEOResourceManifestTileGroupObserver, _GEOCountryConfigurationServerProxyDelegate> {
     NSString *_countryCode;
     NSLock *_countryCodeLock;
+    BOOL _hasURLAuthenticationTimeToLive;
+    <_GEOCountryConfigurationServerProxy> *_serverProxy;
     NSMutableDictionary *_supportedFeatures;
     NSLock *_supportedFeaturesLock;
     NSMutableArray *_updateCompletionHandlers;
     double _urlAuthenticationTimeToLive;
-    bool_hasURLAuthenticationTimeToLive;
-    bool_isObservingReachability;
-    bool_isUpdating;
 }
 
-@property(copy) NSString * countryCode;
-@property(readonly) bool currentCountrySupportsCarIntegration;
-@property(readonly) bool currentCountrySupportsDirections;
-@property(readonly) bool currentCountrySupportsNavigation;
-@property(readonly) bool currentCountrySupportsRouteGenius;
-@property(readonly) bool currentCountrySupportsTraffic;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
-@property(readonly) double urlAuthenticationTimeToLive;
+@property (nonatomic, copy) NSString *countryCode;
+@property (nonatomic, readonly) BOOL currentCountrySupportsCarIntegration;
+@property (nonatomic, readonly) BOOL currentCountrySupportsDirections;
+@property (nonatomic, readonly) BOOL currentCountrySupportsNavigation;
+@property (nonatomic, readonly) BOOL currentCountrySupportsRouteGenius;
+@property (nonatomic, readonly) BOOL currentCountrySupportsTraffic;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) double urlAuthenticationTimeToLive;
 
++ (void)disableServerConnection;
++ (void)setUseLocalProxy:(BOOL)arg1;
 + (id)sharedConfiguration;
 
-- (void)_checkCountryProvidersWithOldCountryCode:(id)arg1 providers:(id)arg2;
-- (id)_countryDefaultForKey:(id)arg1 inCountry:(id)arg2 sourcePtr:(long long*)arg3;
-- (id)_defaultForKey:(id)arg1 inCountry:(id)arg2 defaultValue:(id)arg3 sourcePtr:(long long*)arg4;
-- (void)_determineCurrentCountryCode:(id)arg1;
-- (void)_notifyUpdateCompletionHandlers:(bool)arg1;
-- (void)_reachabilityChanged:(id)arg1;
+- (id)_countryDefaultForKey:(id)arg1 inCountry:(id)arg2 sourcePtr:(int*)arg3;
+- (id)_defaultForKey:(id)arg1 inCountry:(id)arg2 defaultValue:(id)arg3 sourcePtr:(int*)arg4;
 - (void)_resetSupportedFeatures;
-- (bool)countryCode:(id)arg1 supportsFeature:(long long)arg2;
+- (void)_updateCountryConfiguration:(id /* block */)arg1 callbackQueue:(id)arg2;
 - (id)countryCode;
-- (id)countryDefaultForKey:(id)arg1 sourcePtr:(long long*)arg2;
-- (id)countryDefaultForKey:(id)arg1;
-- (bool)currentCountrySupportsCarIntegration;
-- (bool)currentCountrySupportsDirections;
-- (bool)currentCountrySupportsFeature:(long long)arg1;
-- (bool)currentCountrySupportsNavigation;
-- (bool)currentCountrySupportsRouteGenius;
-- (bool)currentCountrySupportsTraffic;
+- (BOOL)countryCode:(id)arg1 supportsFeature:(int)arg2;
+- (BOOL)currentCountrySupportsCarIntegration;
+- (BOOL)currentCountrySupportsDirections;
+- (BOOL)currentCountrySupportsFeature:(int)arg1;
+- (BOOL)currentCountrySupportsNavigation;
+- (BOOL)currentCountrySupportsRouteGenius;
+- (BOOL)currentCountrySupportsTraffic;
 - (void)dealloc;
-- (id)defaultForKey:(id)arg1 defaultValue:(id)arg2 sourcePtr:(long long*)arg3;
 - (id)defaultForKey:(id)arg1 defaultValue:(id)arg2;
+- (id)defaultForKey:(id)arg1 defaultValue:(id)arg2 sourcePtr:(int*)arg3;
 - (id)init;
 - (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
+- (void)serverProxy:(id)arg1 countryCodeDidChange:(id)arg2;
+- (void)serverProxyProvidersDidChange:(id)arg1;
 - (void)setCountryCode:(id)arg1;
-- (void)updateCountryConfiguration:(id)arg1;
+- (void)updateCountryConfiguration:(id /* block */)arg1;
+- (void)updateCountryConfiguration:(id /* block */)arg1 callbackQueue:(id)arg2;
 - (void)updateProvidersForCurrentCountry;
 - (double)urlAuthenticationTimeToLive;
 

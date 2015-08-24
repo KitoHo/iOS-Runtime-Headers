@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-@interface PLImageViewWithAnimatedAnchor : UIImageView {
-}
+@interface PLImageViewWithAnimatedAnchor : UIImageView
 
-- (bool)_shouldAnimatePropertyWithKey:(id)arg1;
+- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
 
 @end

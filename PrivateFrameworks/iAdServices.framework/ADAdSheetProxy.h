@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/iAdServices.framework/iAdServices
  */
 
-@class <ADAdSheetProxyDelegate>, NSMutableSet, NSObject<OS_dispatch_queue>;
-
 @interface ADAdSheetProxy : NSObject {
     <ADAdSheetProxyDelegate> *_delegate;
     double _lastLaunchTimestamp;
     NSMutableSet *_launchAssertions;
     double _nextScheduledLaunch;
+    BOOL _openApplicationInProgress;
     NSObject<OS_dispatch_queue> *_proxyQueue;
-    long long _unexpectedTerminationCount;
-    bool_openApplicationInProgress;
-    bool_serviceLaunchThrottled;
-    bool_waitingForAdSheet;
+    BOOL _serviceLaunchThrottled;
+    int _unexpectedTerminationCount;
+    BOOL _waitingForAdSheet;
 }
 
-@property <ADAdSheetProxyDelegate> * delegate;
-@property double lastLaunchTimestamp;
-@property(retain) NSMutableSet * launchAssertions;
-@property double nextScheduledLaunch;
-@property bool openApplicationInProgress;
-@property(readonly) NSObject<OS_dispatch_queue> * proxyQueue;
-@property(readonly) double remainingLaunchBackoff;
-@property(readonly) bool serviceLaunchThrottled;
-@property long long unexpectedTerminationCount;
-@property bool waitingForAdSheet;
+@property (nonatomic) <ADAdSheetProxyDelegate> *delegate;
+@property (nonatomic) double lastLaunchTimestamp;
+@property (nonatomic, retain) NSMutableSet *launchAssertions;
+@property (nonatomic) double nextScheduledLaunch;
+@property (nonatomic) BOOL openApplicationInProgress;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *proxyQueue;
+@property (nonatomic, readonly) double remainingLaunchBackoff;
+@property (nonatomic, readonly) BOOL serviceLaunchThrottled;
+@property (nonatomic) int unexpectedTerminationCount;
+@property (nonatomic) BOOL waitingForAdSheet;
 
 + (id)sharedInstance;
 
@@ -37,22 +35,22 @@
 - (double)lastLaunchTimestamp;
 - (id)launchAssertions;
 - (double)nextScheduledLaunch;
-- (bool)openApplicationInProgress;
+- (BOOL)openApplicationInProgress;
 - (id)proxyQueue;
 - (void)releaseLaunchAssertion:(id)arg1;
 - (double)remainingLaunchBackoff;
 - (void)reportAdSheetUnexpectedTermination;
 - (void)resetAdSheetThrottle;
-- (bool)serviceLaunchThrottled;
+- (BOOL)serviceLaunchThrottled;
 - (void)setDelegate:(id)arg1;
 - (void)setLastLaunchTimestamp:(double)arg1;
 - (void)setLaunchAssertions:(id)arg1;
 - (void)setNextScheduledLaunch:(double)arg1;
-- (void)setOpenApplicationInProgress:(bool)arg1;
-- (void)setUnexpectedTerminationCount:(long long)arg1;
-- (void)setWaitingForAdSheet:(bool)arg1;
+- (void)setOpenApplicationInProgress:(BOOL)arg1;
+- (void)setUnexpectedTerminationCount:(int)arg1;
+- (void)setWaitingForAdSheet:(BOOL)arg1;
 - (void)takeLaunchAssertion:(id)arg1;
-- (long long)unexpectedTerminationCount;
-- (bool)waitingForAdSheet;
+- (int)unexpectedTerminationCount;
+- (BOOL)waitingForAdSheet;
 
 @end

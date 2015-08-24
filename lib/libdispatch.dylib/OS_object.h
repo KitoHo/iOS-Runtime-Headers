@@ -2,15 +2,14 @@
    Image: /usr/lib/system/libdispatch.dylib
  */
 
-@interface OS_object : NSObject {
-}
+@interface OS_object : NSObject
 
 - (void)_dispose;
 - (void)_xref_dispose;
-- (bool)allowsWeakReference;
+- (BOOL)allowsWeakReference;
 - (oneway void)release;
 - (id)retain;
-- (unsigned long long)retainCount;
-- (bool)retainWeakReference;
+- (unsigned int)retainCount;
+- (BOOL)retainWeakReference;
 
 @end

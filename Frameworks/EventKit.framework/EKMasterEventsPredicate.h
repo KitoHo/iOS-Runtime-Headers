@@ -2,10 +2,9 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@interface EKMasterEventsPredicate : EKPredicate {
-}
+@interface EKMasterEventsPredicate : EKPredicate
 
 + (id)predicateWithCalendarIDs:(id)arg1;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 @end

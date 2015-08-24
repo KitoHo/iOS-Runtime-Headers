@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class <SSDownloadManifestRequestDelegate>, NSString, NSURLRequest;
-
 @interface SSDownloadManifestRequest : SSRequest <SSXPCCoding> {
-    long long _manifestFormat;
+    int _manifestFormat;
+    BOOL _shouldHideUserPrompts;
     NSURLRequest *_urlRequest;
-    bool_shouldHideUserPrompts;
 }
 
-@property(readonly) NSURLRequest * URLRequest;
-@property(copy,readonly) NSString * debugDescription;
-@property <SSDownloadManifestRequestDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property long long manifestFormat;
-@property bool shouldHideUserPrompts;
-@property(readonly) Class superclass;
+@property (readonly) NSURLRequest *URLRequest;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <SSDownloadManifestRequestDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property int manifestFormat;
+@property BOOL shouldHideUserPrompts;
+@property (readonly) Class superclass;
 
 - (id)URLRequest;
 - (id)copyXPCEncoding;
@@ -25,12 +23,12 @@
 - (id)init;
 - (id)initWithURLRequest:(id)arg1;
 - (id)initWithXPCEncoding:(id)arg1;
-- (long long)manifestFormat;
-- (void)setManifestFormat:(long long)arg1;
-- (void)setShouldHideUserPrompts:(bool)arg1;
-- (bool)shouldHideUserPrompts;
-- (bool)start;
-- (void)startWithCompletionBlock:(id)arg1;
-- (void)startWithManifestResponseBlock:(id)arg1;
+- (int)manifestFormat;
+- (void)setManifestFormat:(int)arg1;
+- (void)setShouldHideUserPrompts:(BOOL)arg1;
+- (BOOL)shouldHideUserPrompts;
+- (BOOL)start;
+- (void)startWithCompletionBlock:(id /* block */)arg1;
+- (void)startWithManifestResponseBlock:(id /* block */)arg1;
 
 @end

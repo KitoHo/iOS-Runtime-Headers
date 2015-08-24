@@ -2,14 +2,11 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSIndexPath;
+@interface UIKBCandidateCollectionView : UICollectionView
 
-@interface UIKBCandidateCollectionView : UICollectionView {
-}
+@property (nonatomic, readonly) NSIndexPath *selectedItemIndexPath;
 
-@property(readonly) NSIndexPath * selectedItemIndexPath;
-
-- (bool)_selectAndScrollToItemAtIndexPath:(id)arg1 animated:(bool)arg2 scrollPosition:(unsigned long long)arg3;
+- (BOOL)_selectAndScrollToItemAtIndexPath:(id)arg1 animated:(BOOL)arg2 scrollPosition:(unsigned int)arg3;
 - (void)configureAsCandidatesBar;
 - (id)selectedItemIndexPath;
 

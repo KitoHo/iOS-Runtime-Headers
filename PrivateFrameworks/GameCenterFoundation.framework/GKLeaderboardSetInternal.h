@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class NSDictionary, NSString;
-
 @interface GKLeaderboardSetInternal : GKInternalRepresentation {
     NSString *_groupIdentifier;
     NSDictionary *_icons;
@@ -12,26 +10,26 @@
     NSString *_title;
 }
 
-@property(retain) NSString * groupIdentifier;
-@property(retain) NSDictionary * icons;
-@property(retain) NSString * identifier;
-@property(retain) NSDictionary * leaderboardIdentifiers;
-@property(retain) NSString * setIdentifier;
-@property(retain) NSString * title;
+@property (nonatomic, retain) NSString *groupIdentifier;
+@property (nonatomic, retain) NSDictionary *icons;
+@property (nonatomic, retain) NSString *identifier;
+@property (nonatomic, retain) NSDictionary *leaderboardIdentifiers;
+@property (nonatomic, retain) NSString *setIdentifier;
+@property (nonatomic, retain) NSString *title;
 
 + (id)secureCodedPropertyKeys;
 
 - (void)dealloc;
 - (id)groupIdentifier;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)icons;
 - (id)identifier;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)leaderboardIdentifiers;
 - (void)setGroupIdentifier:(id)arg1;
 - (void)setIcons:(id)arg1;
-- (void)setIdentifier:(id)arg1;
 - (id)setIdentifier;
+- (void)setIdentifier:(id)arg1;
 - (void)setLeaderboardIdentifiers:(id)arg1;
 - (void)setSetIdentifier:(id)arg1;
 - (void)setTitle:(id)arg1;

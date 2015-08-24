@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/RemoteUI.framework/RemoteUI
  */
 
-@class NSMutableData, NSString, NSURLConnection, NSURLRequest;
-
 @interface RUIHTTPRequest : NSObject <NSURLConnectionDataDelegate> {
     NSURLConnection *_connection;
     id _delegate;
+    BOOL _invalidResponse;
     NSMutableData *_rawData;
     NSURLRequest *_request;
-    bool_invalidResponse;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property id delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) id delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-+ (bool)anyRequestLoading;
++ (BOOL)anyRequestLoading;
 + (id)invalidResponseError;
 + (id)nonSecureConnectionNotAllowedError;
 + (id)safeBaseURL;
@@ -37,11 +35,11 @@
 - (void)didParseData;
 - (void)failWithError:(id)arg1;
 - (id)init;
-- (bool)isLoading;
+- (BOOL)isLoading;
 - (void)loadRequest:(id)arg1;
 - (void)loadStatusChanged;
 - (void)parseData:(id)arg1;
-- (bool)receivedValidResponse:(id)arg1;
+- (BOOL)receivedValidResponse:(id)arg1;
 - (id)request;
 - (void)setDelegate:(id)arg1;
 - (void)willParseData;

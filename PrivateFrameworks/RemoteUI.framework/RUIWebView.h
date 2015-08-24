@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/RemoteUI.framework/RemoteUI
  */
 
-@class NSString, NSURL, UIWebView;
-
 @interface RUIWebView : RUIElement <UIWebViewDelegate> {
     NSURL *_baseURL;
     id _delegate;
@@ -11,13 +9,13 @@
     UIWebView *_webView;
 }
 
-@property(retain) NSURL * baseURL;
-@property(copy,readonly) NSString * debugDescription;
-@property id delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * html;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) NSURL *baseURL;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) id delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSString *html;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)baseURL;
@@ -29,9 +27,9 @@
 - (void)setHtml:(id)arg1;
 - (id)sourceURL;
 - (id)userStyleSheet;
-- (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
-- (bool)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(long long)arg3;
 - (id)webView;
+- (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
+- (BOOL)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(int)arg3;
 - (void)webViewDidFinishLoad:(id)arg1;
 
 @end

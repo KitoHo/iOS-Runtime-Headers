@@ -2,21 +2,18 @@
    Image: /System/Library/PrivateFrameworks/SiriUI.framework/SiriUI
  */
 
-@class NSString, SiriUISnippetViewController;
+@interface SiriUIClearBackgroundCell : UICollectionViewCell <SiriUIReusableView>
 
-@interface SiriUIClearBackgroundCell : UICollectionViewCell <SiriUIReusableView> {
-}
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) SiriUISnippetViewController *snippetViewController;
+@property (readonly) Class superclass;
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property SiriUISnippetViewController * snippetViewController;
-@property(readonly) Class superclass;
-
-+ (double)defaultHeight;
++ (float)defaultHeight;
 + (id)elementKind;
 + (id)reuseIdentifier;
 
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 
 @end

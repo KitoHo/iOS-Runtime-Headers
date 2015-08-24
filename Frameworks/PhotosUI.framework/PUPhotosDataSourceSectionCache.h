@@ -2,25 +2,26 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSDictionary, PHFetchResult;
-
 @interface PUPhotosDataSourceSectionCache : NSObject {
     NSDictionary *_assetCollectionToSection;
     PHFetchResult *_collectionListFetchResult;
-    long long _estimatedPhotosCount;
-    long long _estimatedVideosCount;
+    int _estimatedOtherCount;
+    int _estimatedPhotosCount;
+    int _estimatedVideosCount;
 }
 
-@property(readonly) NSDictionary * assetCollectionToSection;
-@property(readonly) PHFetchResult * collectionListFetchResult;
-@property(readonly) long long estimatedPhotosCount;
-@property(readonly) long long estimatedVideosCount;
+@property (nonatomic, readonly) NSDictionary *assetCollectionToSection;
+@property (nonatomic, readonly) PHFetchResult *collectionListFetchResult;
+@property (nonatomic, readonly) int estimatedOtherCount;
+@property (nonatomic, readonly) int estimatedPhotosCount;
+@property (nonatomic, readonly) int estimatedVideosCount;
 
 - (void).cxx_destruct;
 - (id)assetCollectionToSection;
 - (id)collectionListFetchResult;
-- (long long)estimatedPhotosCount;
-- (long long)estimatedVideosCount;
+- (int)estimatedOtherCount;
+- (int)estimatedPhotosCount;
+- (int)estimatedVideosCount;
 - (id)initWithCollectionListFetchResult:(id)arg1;
 
 @end

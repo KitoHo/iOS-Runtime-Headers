@@ -2,30 +2,28 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class NSObject<OS_dispatch_queue>;
-
 @interface MPNetworkPlayabilityMonitor : NSObject {
-    long long _effectiveNetworkTypeForCloudPlayback;
+    int _effectiveNetworkTypeForCloudPlayback;
     double _lastAverageBitrate;
-    long long _networkType;
+    int _networkType;
     NSObject<OS_dispatch_queue> *_queue;
 }
 
-@property(readonly) long long effectiveNetworkTypeForPlayback;
-@property(readonly) double lastAverageBitrate;
-@property(readonly) long long networkType;
+@property (nonatomic, readonly) int effectiveNetworkTypeForPlayback;
+@property (nonatomic, readonly) double lastAverageBitrate;
+@property (nonatomic, readonly) int networkType;
 
 + (id)sharedNetworkPlayabilityMonitor;
 
 - (void).cxx_destruct;
 - (void)_networkTypeDidChangeNotification:(id)arg1;
-- (long long)_onQueueEffectiveNetworkTypeForAverageBitrate:(double)arg1;
+- (int)_onQueueEffectiveNetworkTypeForAverageBitrate:(double)arg1;
 - (void)_onQueueUpdateEffectiveNetworkTypesForPlayback;
 - (void)adjustEffectiveNetworkTypeUsingPreviouslyPlayedItem:(id)arg1;
 - (void)dealloc;
-- (long long)effectiveNetworkTypeForPlayback;
+- (int)effectiveNetworkTypeForPlayback;
 - (id)init;
 - (double)lastAverageBitrate;
-- (long long)networkType;
+- (int)networkType;
 
 @end

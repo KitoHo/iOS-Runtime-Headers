@@ -2,15 +2,12 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSArray;
-
 @interface TPAppDelegate : TSABaseApplicationDelegate {
-    bool_appDoneLaunching;
-    bool_cachedBidiIsSupported;
-    bool_newDocumentOnLaunch;
+    BOOL _appDoneLaunching;
+    BOOL _cachedBidiIsSupported;
 }
 
-@property(readonly) NSArray * wordDocumentTypes;
+@property (nonatomic, readonly) NSArray *wordDocumentTypes;
 
 + (id)sharedDelegate;
 
@@ -30,14 +27,24 @@
 - (id)previewImageNameForDocumentType:(id)arg1;
 - (id)previewImageNameForEncryptedNativeDocument;
 - (id)previewImageNameForNativeDocument;
-- (bool)supportsRTL;
-- (bool)supportsScrollingInPhoneCommentUI;
-- (bool)tableHeaderInspectorShowsRepeatHeaderRowsSwitch;
+- (id)stringForCloseDocument;
+- (id)stringForCollaboratorConflict;
+- (id)stringForCollaboratorConflictDetails;
+- (id)stringForCollaboratorConflictWithKeepDetails;
+- (id)stringForCollaboratorsBlockedWhileOffline;
+- (id)stringForDocumentUpdated;
+- (id)stringForDocumentUpdatedByOwner;
+- (id)stringForDocumentUpdatedTitle;
+- (id)stringForRemoteVersionRestorationAlertMessage;
+- (id)stringForRemoteVersionRestorationWithUnsavedChangesAlertMessage;
+- (id)stringForUpdatingDocument;
+- (BOOL)supportsRTL;
+- (BOOL)tableHeaderInspectorShowsRepeatHeaderRowsSwitch;
 - (id)tangierEditingFormatDocumentType;
 - (id)templateDocumentType;
 - (id)templateSFFDocumentType;
 - (id)templateTypeDisplayName;
-- (bool)textInspectorShowsMoreSubpane;
+- (BOOL)textInspectorShowsMoreSubpane;
 - (id)wordDocumentTypes;
 
 @end

@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, SKUINavigationBarViewElement, SKUIViewElement;
-
 @interface SKUIExploreTemplateElement : SKUIViewElement {
-    bool_usesSplits;
+    BOOL _usesSplits;
 }
 
-@property(readonly) NSArray * childViewElements;
-@property(readonly) SKUIViewElement * leftSplit;
-@property(readonly) SKUINavigationBarViewElement * navigationBarElement;
-@property(readonly) SKUIViewElement * rightSplit;
-@property(readonly) bool usesSplits;
+@property (nonatomic, readonly) NSArray *childViewElements;
+@property (nonatomic, readonly) SKUIViewElement *leftSplit;
+@property (nonatomic, readonly) SKUINavigationBarViewElement *navigationBarElement;
+@property (nonatomic, readonly) SKUIViewElement *rightSplit;
+@property (nonatomic, readonly) BOOL usesSplits;
 
 - (void)_getLeftSplit:(id*)arg1 rightSplit:(id*)arg2;
 - (id)childViewElements;
@@ -20,6 +18,6 @@
 - (id)leftSplit;
 - (id)navigationBarElement;
 - (id)rightSplit;
-- (bool)usesSplits;
+- (BOOL)usesSplits;
 
 @end

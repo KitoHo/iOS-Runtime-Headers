@@ -2,19 +2,20 @@
    Image: /System/Library/Frameworks/CoreBluetooth.framework/CoreBluetooth
  */
 
-@class <CBScalablePipeManagerDelegate>, CBXpcConnection, NSHashTable, NSMutableSet, NSSet;
-
 @interface CBScalablePipeManager : NSObject <CBXpcConnectionDelegate> {
     CBXpcConnection *_connection;
     <CBScalablePipeManagerDelegate> *_delegate;
     NSMutableSet *_identifiers;
     NSHashTable *_pipes;
-    long long _state;
-    bool_connectionIsFinalized;
+    int _state;
 }
 
-@property(readonly) NSSet * identifiers;
-@property(readonly) long long state;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) NSSet *identifiers;
+@property (readonly) int state;
+@property (readonly) Class superclass;
 
 - (void)dealloc;
 - (void)handleDataAvailable:(id)arg1;
@@ -25,15 +26,15 @@
 - (void)handlePipeDisconnected:(id)arg1;
 - (void)handleStateUpdated:(id)arg1;
 - (id)identifiers;
-- (id)initWithDelegate:(id)arg1 queue:(id)arg2;
 - (id)initWithDelegate:(id)arg1;
-- (bool)isMsgAllowedWhenOff:(int)arg1;
+- (id)initWithDelegate:(id)arg1 queue:(id)arg2;
+- (BOOL)isMsgAllowedWhenOff:(int)arg1;
 - (void)orphanPipes;
 - (id)pipeForName:(id)arg1 identifier:(id)arg2;
-- (void)registerEndpoint:(id)arg1 type:(long long)arg2 priority:(long long)arg3;
+- (void)registerEndpoint:(id)arg1 type:(int)arg2 priority:(int)arg3;
 - (oneway void)release;
-- (bool)sendMsg:(int)arg1 args:(id)arg2;
-- (long long)state;
+- (BOOL)sendMsg:(int)arg1 args:(id)arg2;
+- (int)state;
 - (void)unregisterAllEndpoints;
 - (void)unregisterEndpoint:(id)arg1;
 - (void)xpcConnection:(id)arg1 didReceiveMsg:(unsigned short)arg2 args:(id)arg3;

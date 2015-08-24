@@ -3,30 +3,30 @@
  */
 
 @interface PdrParameters : PBCodable <NSCopying> {
+    float _biasVariancePerSecond;
+    float _gyroVariance;
     struct { 
         unsigned int biasVariancePerSecond : 1; 
         unsigned int gyroVariance : 1; 
         unsigned int magnetometerReliability : 1; 
         unsigned int omegaVariancePerSecond : 1; 
         unsigned int pdrVsWifi : 1; 
-    float _biasVariancePerSecond;
-    float _gyroVariance;
     } _has;
     float _magnetometerReliability;
     float _omegaVariancePerSecond;
     float _pdrVsWifi;
 }
 
-@property float biasVariancePerSecond;
-@property float gyroVariance;
-@property bool hasBiasVariancePerSecond;
-@property bool hasGyroVariance;
-@property bool hasMagnetometerReliability;
-@property bool hasOmegaVariancePerSecond;
-@property bool hasPdrVsWifi;
-@property float magnetometerReliability;
-@property float omegaVariancePerSecond;
-@property float pdrVsWifi;
+@property (nonatomic) float biasVariancePerSecond;
+@property (nonatomic) float gyroVariance;
+@property (nonatomic) BOOL hasBiasVariancePerSecond;
+@property (nonatomic) BOOL hasGyroVariance;
+@property (nonatomic) BOOL hasMagnetometerReliability;
+@property (nonatomic) BOOL hasOmegaVariancePerSecond;
+@property (nonatomic) BOOL hasPdrVsWifi;
+@property (nonatomic) float magnetometerReliability;
+@property (nonatomic) float omegaVariancePerSecond;
+@property (nonatomic) float pdrVsWifi;
 
 - (float)biasVariancePerSecond;
 - (void)copyTo:(id)arg1;
@@ -34,25 +34,25 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (float)gyroVariance;
-- (bool)hasBiasVariancePerSecond;
-- (bool)hasGyroVariance;
-- (bool)hasMagnetometerReliability;
-- (bool)hasOmegaVariancePerSecond;
-- (bool)hasPdrVsWifi;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasBiasVariancePerSecond;
+- (BOOL)hasGyroVariance;
+- (BOOL)hasMagnetometerReliability;
+- (BOOL)hasOmegaVariancePerSecond;
+- (BOOL)hasPdrVsWifi;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (float)magnetometerReliability;
 - (void)mergeFrom:(id)arg1;
 - (float)omegaVariancePerSecond;
 - (float)pdrVsWifi;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setBiasVariancePerSecond:(float)arg1;
 - (void)setGyroVariance:(float)arg1;
-- (void)setHasBiasVariancePerSecond:(bool)arg1;
-- (void)setHasGyroVariance:(bool)arg1;
-- (void)setHasMagnetometerReliability:(bool)arg1;
-- (void)setHasOmegaVariancePerSecond:(bool)arg1;
-- (void)setHasPdrVsWifi:(bool)arg1;
+- (void)setHasBiasVariancePerSecond:(BOOL)arg1;
+- (void)setHasGyroVariance:(BOOL)arg1;
+- (void)setHasMagnetometerReliability:(BOOL)arg1;
+- (void)setHasOmegaVariancePerSecond:(BOOL)arg1;
+- (void)setHasPdrVsWifi:(BOOL)arg1;
 - (void)setMagnetometerReliability:(float)arg1;
 - (void)setOmegaVariancePerSecond:(float)arg1;
 - (void)setPdrVsWifi:(float)arg1;

@@ -3,17 +3,21 @@
  */
 
 @interface CKDAppContainerIntersectionMetadata : NSObject {
-    long long _tokenRegistered;
-    long long _usesAPSPublicToken;
+    int _darkWakeEnabled;
+    int _tokenRegistered;
+    int _usesAPSPublicToken;
 }
 
-@property long long tokenRegistered;
-@property long long usesAPSPublicToken;
+@property (nonatomic) int darkWakeEnabled;
+@property (nonatomic) int tokenRegistered;
+@property (nonatomic) int usesAPSPublicToken;
 
+- (int)darkWakeEnabled;
 - (id)init;
-- (void)setTokenRegistered:(long long)arg1;
-- (void)setUsesAPSPublicToken:(long long)arg1;
-- (long long)tokenRegistered;
-- (long long)usesAPSPublicToken;
+- (void)setDarkWakeEnabled:(int)arg1;
+- (void)setTokenRegistered:(int)arg1;
+- (void)setUsesAPSPublicToken:(int)arg1;
+- (int)tokenRegistered;
+- (int)usesAPSPublicToken;
 
 @end

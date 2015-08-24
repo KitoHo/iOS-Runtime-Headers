@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class SUGradient, SUGradientView, SULoadingView;
-
 @interface SUPlaceholderViewController : SUViewController {
     SUGradient *_backgroundGradient;
     SUGradient *_defaultBackgroundGradient;
     SUGradientView *_gradientView;
+    BOOL _hideLoadingView;
     SULoadingView *_loadingView;
-    bool_hideLoadingView;
 }
 
-@property(copy) SUGradient * backgroundGradient;
-@property(copy) SUGradient * defaultBackgroundGradient;
-@property(readonly) SULoadingView * loadingView;
-@property bool shouldShowLoadingView;
+@property (nonatomic, copy) SUGradient *backgroundGradient;
+@property (nonatomic, copy) SUGradient *defaultBackgroundGradient;
+@property (nonatomic, readonly) SULoadingView *loadingView;
+@property (nonatomic) BOOL shouldShowLoadingView;
 
 - (void)_bagDidLoadNotification:(id)arg1;
 - (id)_copyActiveGradient;
@@ -33,9 +31,9 @@
 - (void)parentViewControllerHierarchyDidChange;
 - (void)setBackgroundGradient:(id)arg1;
 - (void)setDefaultBackgroundGradient:(id)arg1;
-- (void)setLoading:(bool)arg1;
+- (void)setLoading:(BOOL)arg1;
 - (void)setScriptProperties:(id)arg1;
-- (void)setShouldShowLoadingView:(bool)arg1;
-- (bool)shouldShowLoadingView;
+- (void)setShouldShowLoadingView:(BOOL)arg1;
+- (BOOL)shouldShowLoadingView;
 
 @end

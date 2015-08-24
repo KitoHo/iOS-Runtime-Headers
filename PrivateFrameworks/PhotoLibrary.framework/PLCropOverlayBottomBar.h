@@ -2,45 +2,43 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-@class CAMBottomBar, PLCropOverlayPreviewBottomBar, PLCropOverlayWallpaperBottomBar;
-
 @interface PLCropOverlayBottomBar : UIView {
     CAMBottomBar *_cameraBottomBar;
+    BOOL _inPopover;
+    BOOL _playingVideo;
     PLCropOverlayPreviewBottomBar *_previewBottomBar;
-    long long _style;
+    int _style;
     PLCropOverlayWallpaperBottomBar *_wallpaperBottomBar;
-    bool_inPopover;
-    bool_playingVideo;
 }
 
-@property(retain) CAMBottomBar * cameraBottomBar;
-@property(getter=isInPopover) bool inPopover;
-@property(getter=isPlayingVideo) bool playingVideo;
-@property(retain) PLCropOverlayPreviewBottomBar * previewBottomBar;
-@property long long style;
-@property(retain) PLCropOverlayWallpaperBottomBar * wallpaperBottomBar;
+@property (nonatomic, retain) CAMBottomBar *cameraBottomBar;
+@property (getter=isInPopover, nonatomic) BOOL inPopover;
+@property (getter=isPlayingVideo, nonatomic) BOOL playingVideo;
+@property (nonatomic, retain) PLCropOverlayPreviewBottomBar *previewBottomBar;
+@property (nonatomic) int style;
+@property (nonatomic, retain) PLCropOverlayWallpaperBottomBar *wallpaperBottomBar;
 
 - (void)_commonPLCropOverlayBottomBarInitialization;
-- (bool)_isEditingStyle:(long long)arg1;
+- (BOOL)_isEditingStyle:(int)arg1;
 - (void)_updateBottomBars;
 - (void)_updatePreviewBottomBarForPlaybackState;
 - (void)_updateStyle;
 - (id)cameraBottomBar;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (bool)isInPopover;
-- (bool)isPlayingVideo;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (BOOL)isInPopover;
+- (BOOL)isPlayingVideo;
 - (void)layoutSubviews;
 - (id)previewBottomBar;
 - (void)setCameraBottomBar:(id)arg1;
-- (void)setInPopover:(bool)arg1;
-- (void)setPlayingVideo:(bool)arg1;
+- (void)setInPopover:(BOOL)arg1;
+- (void)setPlayingVideo:(BOOL)arg1;
 - (void)setPreviewBottomBar:(id)arg1;
-- (void)setStyle:(long long)arg1 animated:(bool)arg2;
-- (void)setStyle:(long long)arg1;
+- (void)setStyle:(int)arg1;
+- (void)setStyle:(int)arg1 animated:(BOOL)arg2;
 - (void)setWallpaperBottomBar:(id)arg1;
-- (long long)style;
+- (int)style;
 - (void)togglePlaybackState;
 - (id)wallpaperBottomBar;
 

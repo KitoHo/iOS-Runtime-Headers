@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/MobileTimer.framework/MobileTimer
  */
 
-@interface FullscreenSmallAnalogClockView : AnalogClockView {
-}
+@interface FullscreenSmallAnalogClockView : AnalogClockView
 
-+ (double)faceRadius;
-+ (bool)shouldCacheImageOnDiskForType:(int)arg1 dayTime:(bool)arg2;
++ (float)faceRadius;
++ (BOOL)shouldCacheImageOnDiskForType:(int)arg1 dayTime:(BOOL)arg2;
 + (int)style;
 
 @end

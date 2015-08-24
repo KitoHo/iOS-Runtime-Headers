@@ -2,25 +2,23 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString;
-
 @interface UIKeyboardEmoji : NSObject {
     NSString *_emojiString;
-    bool_hasDingbat;
+    unsigned int _variantMask;
 }
 
-@property(retain) NSString * emojiString;
-@property bool hasDingbat;
+@property (nonatomic, retain) NSString *emojiString;
+@property unsigned int variantMask;
 
-+ (id)emojiWithString:(id)arg1 hasDingbat:(bool)arg2;
++ (id)emojiWithString:(id)arg1 withVariantMask:(unsigned int)arg2;
 
 - (void)dealloc;
 - (id)emojiString;
-- (bool)hasDingbat;
-- (id)initWithString:(id)arg1 hasDingbat:(bool)arg2;
-- (bool)isEqual:(id)arg1;
+- (id)initWithString:(id)arg1 withVariantMask:(unsigned int)arg2;
+- (BOOL)isEqual:(id)arg1;
 - (id)key;
 - (void)setEmojiString:(id)arg1;
-- (void)setHasDingbat:(bool)arg1;
+- (void)setVariantMask:(unsigned int)arg1;
+- (unsigned int)variantMask;
 
 @end

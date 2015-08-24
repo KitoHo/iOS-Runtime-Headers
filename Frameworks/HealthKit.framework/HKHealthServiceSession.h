@@ -2,44 +2,38 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class HKHealthService, NSArray, NSLock;
-
 @interface HKHealthServiceSession : NSObject {
-    id _characteristicsHandler;
+    id /* block */ _characteristicsHandler;
     NSArray *_interestedTransitoryKeys;
     NSLock *_propertyLock;
     HKHealthService *_service;
-    id _sessionHandler;
-    unsigned long long _sessionIdentifier;
-    id _transitoryDataHandler;
+    id /* block */ _sessionHandler;
+    unsigned int _sessionIdentifier;
+    id /* block */ _transitoryDataHandler;
 }
 
-@property(copy) id characteristicsHandler;
-@property(retain) NSArray * interestedTransitoryKeys;
-@property(retain) NSLock * propertyLock;
-@property(readonly) HKHealthService * service;
-@property(copy) id sessionHandler;
-@property unsigned long long sessionIdentifier;
-@property(copy) id transitoryDataHandler;
+@property (nonatomic, copy) id /* block */ characteristicsHandler;
+@property (retain) NSArray *interestedTransitoryKeys;
+@property (nonatomic, retain) NSLock *propertyLock;
+@property (nonatomic, readonly) HKHealthService *service;
+@property (nonatomic, copy) id /* block */ sessionHandler;
+@property (nonatomic) unsigned int sessionIdentifier;
+@property (copy) id /* block */ transitoryDataHandler;
 
 - (void).cxx_destruct;
-- (id)characteristicsHandler;
+- (id /* block */)characteristicsHandler;
 - (id)initWithService:(id)arg1;
 - (id)interestedTransitoryKeys;
 - (id)propertyLock;
 - (id)service;
-- (id)sessionHandler;
-- (unsigned long long)sessionIdentifier;
-- (void)setCharacteristicsHandler:(id)arg1;
+- (id /* block */)sessionHandler;
+- (unsigned int)sessionIdentifier;
+- (void)setCharacteristicsHandler:(id /* block */)arg1;
 - (void)setInterestedTransitoryKeys:(id)arg1;
 - (void)setPropertyLock:(id)arg1;
-- (void)setSessionHandler:(id)arg1;
-- (void)setSessionIdentifier:(unsigned long long)arg1;
-- (void)setTransitoryDataHandler:(id)arg1;
-- (id)transitoryDataHandler;
+- (void)setSessionHandler:(id /* block */)arg1;
+- (void)setSessionIdentifier:(unsigned int)arg1;
+- (void)setTransitoryDataHandler:(id /* block */)arg1;
+- (id /* block */)transitoryDataHandler;
 
 @end

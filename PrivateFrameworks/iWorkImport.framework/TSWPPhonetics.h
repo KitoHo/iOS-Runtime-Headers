@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSDictionary;
-
 @interface TSWPPhonetics : NSObject {
     NSDictionary *_transcribers;
 }
@@ -19,7 +17,7 @@
 - (id)pronunciationForBaseText:(id)arg1 locale:(id)arg2 inputLanguage:(id)arg3;
 - (oneway void)release;
 - (id)retain;
-- (unsigned long long)retainCount;
+- (unsigned int)retainCount;
 - (id)transcriberWithIdentifier:(id)arg1;
 
 @end

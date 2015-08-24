@@ -2,8 +2,7 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCHChartSeriesTypeLine3D : TSCHChartSeriesTypeLine {
-}
+@interface TSCHChartSeriesTypeLine3D : TSCHChartSeriesTypeLine
 
 + (Class)sceneObjectClass;
 
@@ -11,8 +10,8 @@
 - (id)genericToSpecificPropertyMap;
 - (int)legendBadgeType;
 - (id)propertiesForReferenceColors;
-- (bool)supportsLineConnectionStyle;
-- (bool)supportsLineTypeNone;
-- (bool)supportsSymbolDrawing;
+- (BOOL)supportsLineConnectionStyle;
+- (BOOL)supportsLineTypeNone;
+- (BOOL)supportsSymbolDrawing;
 
 @end

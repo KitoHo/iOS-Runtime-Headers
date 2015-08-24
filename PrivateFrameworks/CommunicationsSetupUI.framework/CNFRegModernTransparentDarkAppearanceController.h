@@ -2,26 +2,25 @@
    Image: /System/Library/PrivateFrameworks/CommunicationsSetupUI.framework/CommunicationsSetupUI
  */
 
-@interface CNFRegModernTransparentDarkAppearanceController : CNFRegModernAppearanceController {
-}
+@interface CNFRegModernTransparentDarkAppearanceController : CNFRegModernAppearanceController
 
 - (id)customBackgroundColor;
-- (long long)keyboardAppearance;
-- (long long)modalPresentationStyle;
-- (long long)navigationBarActivityIndicatorStyle;
+- (int)keyboardAppearance;
+- (int)modalPresentationStyle;
+- (int)navigationBarActivityIndicatorStyle;
 - (id)navigationBarBackgroundImage;
-- (long long)navigationBarStyle;
+- (int)navigationBarStyle;
 - (id)navigationBarTintColor;
-- (bool)navigationBarTranslucent;
+- (BOOL)navigationBarTranslucent;
 - (id)splashEntryFieldLabelTextColor;
 - (id)splashEntryFieldTextColor;
 - (id)splashEntryPlaceholderTextColor;
-- (bool)splashScreenShowsIcon;
+- (BOOL)splashScreenShowsIcon;
 - (id)splashSignInFieldsBackgroundColor;
 - (id)splashSignInFieldsBorderColor;
-- (long long)splashSignInProgressIndicatorColor;
+- (int)splashSignInProgressIndicatorColor;
 - (id)splashTitleLabelTextColor;
-- (bool)styleUsesCustomTableStyle;
+- (BOOL)styleUsesCustomTableStyle;
 - (id)tableBackgroundColor;
 - (id)tableCellBackgroundColor;
 - (id)tableCellCheckmarkImageDisabled;
@@ -34,7 +33,7 @@
 - (id)tableFooterTextColor;
 - (id)tableHeaderTextColor;
 - (id)tableSeparatorColor;
-- (long long)tableSeparatorStyle;
+- (int)tableSeparatorStyle;
 - (id)userInteractionColor;
 
 @end

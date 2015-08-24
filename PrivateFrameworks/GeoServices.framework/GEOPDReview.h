@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOPDRating, GEOPDUser, NSMutableArray, NSString;
-
 @interface GEOPDReview : PBCodable <NSCopying> {
     struct { 
         unsigned int reviewTime : 1; 
@@ -15,15 +13,15 @@
     NSMutableArray *_snippets;
 }
 
-@property(readonly) bool hasRating;
-@property(readonly) bool hasReviewId;
-@property bool hasReviewTime;
-@property(readonly) bool hasReviewer;
-@property(retain) GEOPDRating * rating;
-@property(retain) NSString * reviewId;
-@property double reviewTime;
-@property(retain) GEOPDUser * reviewer;
-@property(retain) NSMutableArray * snippets;
+@property (nonatomic, readonly) BOOL hasRating;
+@property (nonatomic, readonly) BOOL hasReviewId;
+@property (nonatomic) BOOL hasReviewTime;
+@property (nonatomic, readonly) BOOL hasReviewer;
+@property (nonatomic, retain) GEOPDRating *rating;
+@property (nonatomic, retain) NSString *reviewId;
+@property (nonatomic) double reviewTime;
+@property (nonatomic, retain) GEOPDUser *reviewer;
+@property (nonatomic, retain) NSMutableArray *snippets;
 
 - (void)addSnippet:(id)arg1;
 - (id)bestLocalizedSnippet;
@@ -33,27 +31,27 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasRating;
-- (bool)hasReviewId;
-- (bool)hasReviewTime;
-- (bool)hasReviewer;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasRating;
+- (BOOL)hasReviewId;
+- (BOOL)hasReviewTime;
+- (BOOL)hasReviewer;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)rating;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)reviewId;
 - (double)reviewTime;
 - (id)reviewer;
-- (void)setHasReviewTime:(bool)arg1;
+- (void)setHasReviewTime:(BOOL)arg1;
 - (void)setRating:(id)arg1;
 - (void)setReviewId:(id)arg1;
 - (void)setReviewTime:(double)arg1;
 - (void)setReviewer:(id)arg1;
 - (void)setSnippets:(id)arg1;
-- (id)snippetAtIndex:(unsigned long long)arg1;
+- (id)snippetAtIndex:(unsigned int)arg1;
 - (id)snippets;
-- (unsigned long long)snippetsCount;
+- (unsigned int)snippetsCount;
 - (void)writeTo:(id)arg1;
 
 @end

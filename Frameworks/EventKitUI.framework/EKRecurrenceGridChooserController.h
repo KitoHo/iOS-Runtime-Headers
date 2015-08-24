@@ -2,29 +2,27 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class EKUIDividedGridViewTableViewCell, NSString;
-
 @interface EKRecurrenceGridChooserController : EKRecurrenceChooserController <EKUIDividedGridViewControllerDelegate> {
     EKUIDividedGridViewTableViewCell *_tableViewCell;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)allCells;
-- (id)cellForRow:(long long)arg1;
+- (id)cellForRow:(int)arg1;
 - (id)cellLabels;
-- (void)dividedGridViewController:(id)arg1 didSelectCell:(id)arg2 atIndex:(long long)arg3;
+- (void)dividedGridViewController:(id)arg1 didSelectCell:(id)arg2 atIndex:(int)arg3;
 - (void)dividedGridViewControllerDidLayout:(id)arg1;
-- (bool)drawBackgroundForRow:(long long)arg1;
-- (long long)gridViewType;
-- (double)heightForRow:(long long)arg1;
+- (BOOL)drawBackgroundForRow:(int)arg1;
+- (int)gridViewType;
+- (float)heightForRow:(int)arg1;
 - (void)prepareForDisplay;
 - (void)refreshCells;
-- (void)selectCell:(id)arg1 atIndex:(long long)arg2;
+- (void)selectCell:(id)arg1 atIndex:(int)arg2;
 - (id)tableViewCell;
 
 @end

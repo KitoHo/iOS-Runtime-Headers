@@ -2,13 +2,11 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class CALayer, NSArray;
-
 @interface AVVideoCompositionCoreAnimationToolInternal : NSObject {
     CALayer *animationLayer;
     int auxiliaryTrackID;
     NSArray *postProcessingVideoLayers;
-    long long way;
+    int way;
 }
 
 @end

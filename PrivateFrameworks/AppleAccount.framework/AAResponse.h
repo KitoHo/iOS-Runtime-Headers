@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount
  */
 
-@class NSData, NSDictionary, NSError, NSHTTPURLResponse, NSNumber, NSString;
-
 @interface AAResponse : NSObject {
     NSData *_data;
     NSError *_error;
     NSHTTPURLResponse *_httpResponse;
     NSNumber *_maxAge;
     NSDictionary *_responseDictionary;
-    long long _statusCode;
+    int _statusCode;
 }
 
-@property(readonly) NSData * data;
-@property(retain) NSError * error;
-@property(readonly) NSNumber * maxAge;
-@property(readonly) NSString * protocolVersion;
-@property(readonly) NSDictionary * responseDictionary;
-@property(readonly) long long statusCode;
+@property (nonatomic, readonly) NSData *data;
+@property (nonatomic, retain) NSError *error;
+@property (nonatomic, readonly) NSNumber *maxAge;
+@property (nonatomic, readonly) NSString *protocolVersion;
+@property (nonatomic, readonly) NSDictionary *responseDictionary;
+@property (nonatomic, readonly) int statusCode;
 
 - (void).cxx_destruct;
 - (id)_deviceSpecificLocalizedString:(id)arg1;
@@ -26,12 +24,12 @@
 - (id)_stringWithDescriptionForResponseError:(id)arg1;
 - (id)data;
 - (id)error;
-- (id)initWithHTTPResponse:(id)arg1 data:(id)arg2 bodyIsPlist:(bool)arg3;
 - (id)initWithHTTPResponse:(id)arg1 data:(id)arg2;
+- (id)initWithHTTPResponse:(id)arg1 data:(id)arg2 bodyIsPlist:(BOOL)arg3;
 - (id)maxAge;
 - (id)protocolVersion;
 - (id)responseDictionary;
 - (void)setError:(id)arg1;
-- (long long)statusCode;
+- (int)statusCode;
 
 @end

@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@interface OADFooterField : OADTextField {
-}
+@interface OADFooterField : OADTextField
 
-- (bool)isEmpty;
+- (BOOL)isEmpty;
 
 @end

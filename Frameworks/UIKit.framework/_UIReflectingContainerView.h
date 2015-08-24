@@ -2,11 +2,10 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface _UIReflectingContainerView : UIView {
-}
+@interface _UIReflectingContainerView : UIView
 
 + (Class)layerClass;
 
-- (bool)_shouldAnimatePropertyWithKey:(id)arg1;
+- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
 
 @end

@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSNumber, NSString;
-
 @interface SSFamilyMember : NSObject <SSXPCCoding> {
     NSString *_firstName;
     NSString *_iCloudAccountName;
     NSNumber *_iCloudIdentifier;
     NSNumber *_iTunesIdentifier;
     NSString *_lastName;
-    bool_me;
-    bool_sharingPurchases;
+    BOOL _me;
+    BOOL _sharingPurchases;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) NSString * firstName;
-@property(readonly) unsigned long long hash;
-@property(retain) NSString * iCloudAccountName;
-@property(retain) NSNumber * iCloudIdentifier;
-@property(retain) NSNumber * iTunesIdentifier;
-@property(retain) NSString * lastName;
-@property(getter=isMe) bool me;
-@property(getter=isSharingPurchases) bool sharingPurchases;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSString *firstName;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NSString *iCloudAccountName;
+@property (nonatomic, retain) NSNumber *iCloudIdentifier;
+@property (nonatomic, retain) NSNumber *iTunesIdentifier;
+@property (nonatomic, retain) NSString *lastName;
+@property (getter=isMe, nonatomic) BOOL me;
+@property (getter=isSharingPurchases, nonatomic) BOOL sharingPurchases;
+@property (readonly) Class superclass;
 
 - (id)copyXPCEncoding;
 - (id)description;
@@ -34,8 +32,8 @@
 - (id)iTunesIdentifier;
 - (id)initWithCacheRepresentation:(id)arg1;
 - (id)initWithXPCEncoding:(id)arg1;
-- (bool)isMe;
-- (bool)isSharingPurchases;
+- (BOOL)isMe;
+- (BOOL)isSharingPurchases;
 - (id)lastName;
 - (id)newCacheRepresentation;
 - (void)setFirstName:(id)arg1;
@@ -43,7 +41,7 @@
 - (void)setICloudIdentifier:(id)arg1;
 - (void)setITunesIdentifier:(id)arg1;
 - (void)setLastName:(id)arg1;
-- (void)setMe:(bool)arg1;
-- (void)setSharingPurchases:(bool)arg1;
+- (void)setMe:(BOOL)arg1;
+- (void)setSharingPurchases:(BOOL)arg1;
 
 @end

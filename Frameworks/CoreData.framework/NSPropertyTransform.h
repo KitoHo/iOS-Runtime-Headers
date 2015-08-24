@@ -2,19 +2,17 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSExpression, NSPropertyTransform, NSString;
-
 @interface NSPropertyTransform : NSObject {
     NSPropertyTransform *_prerequisiteTransform;
     NSString *_propertyName;
+    BOOL _replaceMissingValueOnly;
     NSExpression *_valueExpression;
-    bool_replaceMissingValueOnly;
 }
 
-@property(retain) NSPropertyTransform * prerequisiteTransform;
-@property(retain) NSString * propertyName;
-@property bool replaceMissingValueOnly;
-@property(retain) NSExpression * valueExpression;
+@property (nonatomic, retain) NSPropertyTransform *prerequisiteTransform;
+@property (nonatomic, retain) NSString *propertyName;
+@property BOOL replaceMissingValueOnly;
+@property (nonatomic, retain) NSExpression *valueExpression;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
@@ -22,13 +20,13 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithPropertyName:(id)arg1 valueExpression:(id)arg2;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)prerequisiteTransform;
 - (id)propertyName;
-- (bool)replaceMissingValueOnly;
+- (BOOL)replaceMissingValueOnly;
 - (void)setPrerequisiteTransform:(id)arg1;
 - (void)setPropertyName:(id)arg1;
-- (void)setReplaceMissingValueOnly:(bool)arg1;
+- (void)setReplaceMissingValueOnly:(BOOL)arg1;
 - (void)setValueExpression:(id)arg1;
 - (id)valueExpression;
 

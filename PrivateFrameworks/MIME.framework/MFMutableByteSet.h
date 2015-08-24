@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/MIME.framework/MIME
  */
 
-@interface MFMutableByteSet : MFByteSet {
-}
+@interface MFMutableByteSet : MFByteSet
 
-- (void)addBytesInRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1;
+- (void)addBytesInRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1;
 - (void)invert;
-- (void)removeBytesInRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1;
+- (void)removeBytesInRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1;
 
 @end

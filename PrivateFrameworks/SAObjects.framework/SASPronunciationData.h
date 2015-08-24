@@ -2,21 +2,18 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSLocale, NSString;
+@interface SASPronunciationData : AceObject <SAAceSerializable>
 
-@interface SASPronunciationData : AceObject <SAAceSerializable> {
-}
-
-@property(copy) NSString * apgId;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy) NSLocale * language;
-@property(copy) NSString * orthography;
-@property(readonly) Class superclass;
-@property long long tokenOffset;
-@property(copy) NSArray * ttsPronunciations;
-@property(copy) NSString * ttsVersion;
+@property (nonatomic, copy) NSString *apgId;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSLocale *language;
+@property (nonatomic, copy) NSString *orthography;
+@property (readonly) Class superclass;
+@property (nonatomic) int tokenOffset;
+@property (nonatomic, copy) NSArray *ttsPronunciations;
+@property (nonatomic, copy) NSString *ttsVersion;
 
 + (id)pronunciationData;
 + (id)pronunciationDataWithDictionary:(id)arg1 context:(id)arg2;
@@ -29,10 +26,10 @@
 - (void)setApgId:(id)arg1;
 - (void)setLanguage:(id)arg1;
 - (void)setOrthography:(id)arg1;
-- (void)setTokenOffset:(long long)arg1;
+- (void)setTokenOffset:(int)arg1;
 - (void)setTtsPronunciations:(id)arg1;
 - (void)setTtsVersion:(id)arg1;
-- (long long)tokenOffset;
+- (int)tokenOffset;
 - (id)ttsPronunciations;
 - (id)ttsVersion;
 

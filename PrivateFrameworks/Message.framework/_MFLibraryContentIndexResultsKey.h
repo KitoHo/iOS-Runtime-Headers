@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class MFMessageCriterion, NSIndexSet;
-
 @interface _MFLibraryContentIndexResultsKey : NSObject {
     MFMessageCriterion *_criterion;
     NSIndexSet *_mailboxIDs;
 }
 
-@property(retain) MFMessageCriterion * criterion;
-@property(copy) NSIndexSet * mailboxIDs;
+@property (nonatomic, retain) MFMessageCriterion *criterion;
+@property (nonatomic, copy) NSIndexSet *mailboxIDs;
 
 - (id)criterion;
 - (void)dealloc;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)mailboxIDs;
 - (void)setCriterion:(id)arg1;
 - (void)setMailboxIDs:(id)arg1;

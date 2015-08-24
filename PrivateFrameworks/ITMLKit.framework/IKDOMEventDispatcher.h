@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@interface IKDOMEventDispatcher : NSObject {
-}
+@interface IKDOMEventDispatcher : NSObject
 
 + (id)sharedInstance;
 
-- (bool)_runPhase:(long long)arg1 event:(id)arg2 nodeEn:(id)arg3;
-- (bool)dispatchEvent:(id)arg1;
+- (BOOL)_runPhase:(int)arg1 event:(id)arg2 nodeEn:(id)arg3;
+- (BOOL)dispatchEvent:(id)arg1;
 
 @end

@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableArray;
-
 @interface WMTableColumnInfo : NSObject {
     NSMutableArray *mStopArray;
 }
 
 - (unsigned int)columnSpan:(float)arg1 at:(unsigned int)arg2;
-- (unsigned long long)count;
+- (unsigned int)count;
 - (void)dealloc;
 - (id)initWithStopArray:(id)arg1;
 - (void)mergeStopArray:(id)arg1;

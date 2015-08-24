@@ -2,23 +2,25 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class NSError;
-
 @interface PKPaymentAuthorizationInvalidDataParam : PKPaymentAuthorizationParam {
-    long long _dataType;
+    BOOL _animated;
+    int _dataType;
     NSError *_error;
-    bool_animated;
+    int _status;
 }
 
-@property bool animated;
-@property long long dataType;
-@property(retain) NSError * error;
+@property (nonatomic) BOOL animated;
+@property (nonatomic) int dataType;
+@property (nonatomic, retain) NSError *error;
+@property (nonatomic) int status;
 
-- (bool)animated;
-- (long long)dataType;
+- (BOOL)animated;
+- (int)dataType;
 - (id)error;
-- (void)setAnimated:(bool)arg1;
-- (void)setDataType:(long long)arg1;
+- (void)setAnimated:(BOOL)arg1;
+- (void)setDataType:(int)arg1;
 - (void)setError:(id)arg1;
+- (void)setStatus:(int)arg1;
+- (int)status;
 
 @end

@@ -4,33 +4,33 @@
 
 @interface FBProcessState : NSObject <NSCopying> {
     int _effectiveVisibility;
+    BOOL _foreground;
     int _pid;
+    BOOL _running;
     int _taskState;
     int _visibility;
-    bool_foreground;
-    bool_running;
 }
 
-@property int effectiveVisibility;
-@property(getter=isForeground) bool foreground;
-@property int pid;
-@property(getter=isRunning) bool running;
-@property int taskState;
-@property int visibility;
+@property (nonatomic) int effectiveVisibility;
+@property (getter=isForeground, nonatomic) BOOL foreground;
+@property (nonatomic) int pid;
+@property (getter=isRunning, nonatomic) BOOL running;
+@property (nonatomic) int taskState;
+@property (nonatomic) int visibility;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (int)effectiveVisibility;
 - (id)init;
 - (id)initWithPid:(int)arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)isForeground;
-- (bool)isRunning;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isForeground;
+- (BOOL)isRunning;
 - (int)pid;
 - (void)setEffectiveVisibility:(int)arg1;
-- (void)setForeground:(bool)arg1;
+- (void)setForeground:(BOOL)arg1;
 - (void)setPid:(int)arg1;
-- (void)setRunning:(bool)arg1;
+- (void)setRunning:(BOOL)arg1;
 - (void)setTaskState:(int)arg1;
 - (void)setVisibility:(int)arg1;
 - (int)taskState;

@@ -4,7 +4,7 @@
 
 @interface GLKTextureInfo : NSObject <NSCopying> {
     int alphaState;
-    boolcontainsMipmaps;
+    BOOL containsMipmaps;
     unsigned int height;
     unsigned int name;
     unsigned int target;
@@ -12,16 +12,16 @@
     unsigned int width;
 }
 
-@property(readonly) int alphaState;
-@property(readonly) bool containsMipmaps;
-@property(readonly) unsigned int height;
-@property(readonly) unsigned int name;
-@property(readonly) unsigned int target;
-@property(readonly) int textureOrigin;
-@property(readonly) unsigned int width;
+@property (readonly) int alphaState;
+@property (readonly) BOOL containsMipmaps;
+@property (readonly) unsigned int height;
+@property (readonly) unsigned int name;
+@property (readonly) unsigned int target;
+@property (readonly) int textureOrigin;
+@property (readonly) unsigned int width;
 
 - (int)alphaState;
-- (bool)containsMipmaps;
+- (BOOL)containsMipmaps;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;

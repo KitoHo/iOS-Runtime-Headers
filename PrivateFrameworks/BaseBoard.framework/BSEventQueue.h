@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/BaseBoard.framework/BaseBoard
  */
 
-@class BSEventQueueEvent, NSArray, NSHashTable, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
-
 @interface BSEventQueue : NSObject {
     NSMutableArray *_eventQueue;
     NSHashTable *_eventQueueLocks;
@@ -12,21 +10,21 @@
     NSObject<OS_dispatch_queue> *_queue;
 }
 
-@property(retain) BSEventQueueEvent * executingEvent;
-@property(copy) NSString * name;
-@property(copy,readonly) NSArray * pendingEvents;
-@property(retain) NSObject<OS_dispatch_queue> * queue;
+@property (nonatomic, retain) BSEventQueueEvent *executingEvent;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, readonly, copy) NSArray *pendingEvents;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *queue;
 
 - (void)_addEventQueueLock:(id)arg1;
 - (void)_executeOrPendEvents:(id)arg1 position:(int)arg2;
 - (void)_noteQueueDidLock;
 - (void)_noteQueueDidUnlock;
-- (void)_noteWillCancelEventsWithName:(id)arg1 count:(unsigned long long)arg2;
+- (void)_noteWillCancelEventsWithName:(id)arg1 count:(unsigned int)arg2;
 - (void)_noteWillExecuteEvent:(id)arg1;
 - (void)_noteWillPendEvents:(id)arg1 atPosition:(int)arg2;
 - (void)_processNextEvent;
 - (void)_removeEventQueueLock:(id)arg1;
-- (bool)_shouldProcessEvent:(id)arg1 enqueuedDuringExecutionOfEvent:(id)arg2;
+- (BOOL)_shouldProcessEvent:(id)arg1 enqueuedDuringExecutionOfEvent:(id)arg2;
 - (id)acquireLockForReason:(id)arg1;
 - (void)cancelEventsWithName:(id)arg1;
 - (void)dealloc;
@@ -37,11 +35,11 @@
 - (void)flushAllEvents;
 - (void)flushEvents:(id)arg1;
 - (void)flushPendingEvents;
-- (bool)hasEventWithName:(id)arg1;
-- (bool)hasEventWithPrefix:(id)arg1;
+- (BOOL)hasEventWithName:(id)arg1;
+- (BOOL)hasEventWithPrefix:(id)arg1;
 - (id)init;
 - (id)initWithName:(id)arg1 onQueue:(id)arg2;
-- (bool)isLocked;
+- (BOOL)isLocked;
 - (id)name;
 - (id)pendingEvents;
 - (id)queue;

@@ -2,51 +2,62 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSURL, _UIDocumentPickerContainerModel, _UIDocumentPickerSortOrderView, _UIDocumentPickerViewServiceViewController;
-
-@interface _UIDocumentPickerDocumentTableViewController : UITableViewController {
+@interface _UIDocumentPickerDocumentTableViewController : UITableViewController <_UIDocumentPickerContainedViewController> {
+    UIActivityIndicatorView *_initialActivityView;
     _UIDocumentPickerContainerModel *_model;
     id _monitoringToken;
     NSURL *_observedURL;
-    _UIDocumentPickerViewServiceViewController *_serviceViewController;
+    BOOL _shouldHideSortBar;
     _UIDocumentPickerSortOrderView *_sortView;
-    bool_shouldHideSortBar;
+    BOOL _updatesMayAnimate;
+    _UIDocumentPickerViewServiceViewController *_weak_serviceViewController;
 }
 
-@property(retain) _UIDocumentPickerContainerModel * model;
-@property(retain) id monitoringToken;
-@property(retain) NSURL * observedURL;
-@property _UIDocumentPickerViewServiceViewController * serviceViewController;
-@property bool shouldHideSortBar;
-@property(retain) _UIDocumentPickerSortOrderView * sortView;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) UIActivityIndicatorView *initialActivityView;
+@property (nonatomic, retain) _UIDocumentPickerContainerModel *model;
+@property (nonatomic, retain) id monitoringToken;
+@property (nonatomic, retain) NSURL *observedURL;
+@property (nonatomic) _UIDocumentPickerViewServiceViewController *serviceViewController;
+@property (nonatomic) BOOL shouldHideSortBar;
+@property (nonatomic, retain) _UIDocumentPickerSortOrderView *sortView;
+@property (readonly) Class superclass;
+@property (nonatomic) BOOL updatesMayAnimate;
 
 - (void)_dynamicTypeSizeChanged:(id)arg1;
-- (void)_sortViewChanged:(id)arg1;
+- (void)_unlockAnimations;
 - (void)containersChangedWithSnapshot:(id)arg1 differences:(id)arg2;
 - (void)dealloc;
-- (void)didMoveToParentViewController:(id)arg1;
 - (id)initWithModel:(id)arg1;
+- (id)initialActivityView;
 - (id)model;
 - (id)monitoringToken;
-- (long long)numberOfSectionsInTableView:(id)arg1;
+- (int)numberOfSectionsInTableView:(id)arg1;
 - (id)observedURL;
+- (void)scrollSortViewToVisible;
 - (id)serviceViewController;
+- (void)setInitialActivityView:(id)arg1;
 - (void)setModel:(id)arg1;
-- (void)setMonitoring:(bool)arg1;
+- (void)setMonitoring:(BOOL)arg1;
 - (void)setMonitoringToken:(id)arg1;
 - (void)setObservedURL:(id)arg1;
 - (void)setServiceViewController:(id)arg1;
-- (void)setShouldHideSortBar:(bool)arg1;
+- (void)setShouldHideSortBar:(BOOL)arg1;
 - (void)setSortView:(id)arg1;
-- (bool)shouldHideSortBar;
+- (void)setUpdatesMayAnimate:(BOOL)arg1;
+- (BOOL)shouldHideSortBar;
 - (id)sortView;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
-- (bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (BOOL)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
+- (void)updateEstimatedRowHeight;
+- (BOOL)updatesMayAnimate;
 - (void)viewDidLayoutSubviews;
-- (void)viewWillAppear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 - (void)willMoveToParentViewController:(id)arg1;
 
 @end

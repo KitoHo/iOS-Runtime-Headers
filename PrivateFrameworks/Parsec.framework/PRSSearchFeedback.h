@@ -2,52 +2,65 @@
    Image: /System/Library/PrivateFrameworks/Parsec.framework/Parsec
  */
 
-@class NSString, NSURLRequest;
-
 @interface PRSSearchFeedback : PRSFeedback {
-    long long _delta;
-    long long _delta_ref;
+    BOOL _cached;
+    NSDictionary *_client_error;
+    NSString *_connectionType;
+    int _delta;
+    int _delta_ref;
+    BOOL _error;
     NSString *_error_code;
-    long long _latency;
-    long long _ttfb;
-    long long _type;
+    int _latency;
+    long long _responseSize;
+    NSArray *_serverStatus;
+    int _ttfb;
+    int _type;
     NSURLRequest *_urlRequest;
-    bool_cached;
-    bool_error;
 }
 
-@property bool cached;
-@property long long delta;
-@property long long delta_ref;
-@property bool error;
-@property(retain) NSString * error_code;
-@property long long latency;
-@property long long ttfb;
-@property(retain) NSURLRequest * urlRequest;
+@property (nonatomic) BOOL cached;
+@property (nonatomic, retain) NSDictionary *client_error;
+@property (readonly) NSString *connectionType;
+@property (nonatomic) int delta;
+@property (nonatomic) int delta_ref;
+@property (nonatomic) BOOL error;
+@property (nonatomic, retain) NSString *error_code;
+@property (nonatomic) int latency;
+@property (nonatomic) long long responseSize;
+@property (nonatomic, retain) NSArray *serverStatus;
+@property (nonatomic) int ttfb;
+@property (nonatomic, retain) NSURLRequest *urlRequest;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (bool)cached;
-- (long long)delta;
-- (long long)delta_ref;
+- (BOOL)cached;
+- (id)client_error;
+- (id)connectionType;
+- (int)delta;
+- (int)delta_ref;
 - (void)encodeWithCoder:(id)arg1;
-- (bool)error;
+- (BOOL)error;
 - (id)error_code;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFeedback:(id)arg1;
-- (id)initWithInput:(id)arg1 type:(long long)arg2 timestamp:(long long)arg3;
-- (long long)latency;
+- (id)initWithInput:(id)arg1 type:(int)arg2 timestamp:(int)arg3 connectionType:(id)arg4;
+- (int)latency;
 - (id)plist;
-- (void)setCached:(bool)arg1;
-- (void)setDelta:(long long)arg1;
-- (void)setDelta_ref:(long long)arg1;
-- (void)setError:(bool)arg1;
+- (long long)responseSize;
+- (id)serverStatus;
+- (void)setCached:(BOOL)arg1;
+- (void)setClient_error:(id)arg1;
+- (void)setDelta:(int)arg1;
+- (void)setDelta_ref:(int)arg1;
+- (void)setError:(BOOL)arg1;
 - (void)setError_code:(id)arg1;
-- (void)setLatency:(long long)arg1;
-- (void)setTtfb:(long long)arg1;
+- (void)setLatency:(int)arg1;
+- (void)setResponseSize:(long long)arg1;
+- (void)setServerStatus:(id)arg1;
+- (void)setTtfb:(int)arg1;
 - (void)setUrlRequest:(id)arg1;
-- (long long)ttfb;
+- (int)ttfb;
 - (id)type;
 - (id)urlRequest;
 - (void)validate;

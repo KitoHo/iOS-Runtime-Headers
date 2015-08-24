@@ -2,9 +2,7 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class <PKCodeAcquisitionDelegate>, NSMutableData, NSSet, NSString, NSURLConnection, PKCaptureSession, PKReticleView, UILabel, UINavigationBar, UIProgressView;
-
-@interface PKCodeAcquisitionViewController : UIViewController <PKCaptureDelegate, NSURLConnectionDataDelegate, UIGestureRecognizerDelegate> {
+@interface PKCodeAcquisitionViewController : UIViewController <NSURLConnectionDataDelegate, PKCaptureDelegate, UIGestureRecognizerDelegate> {
     UILabel *_captionLabel;
     PKCaptureSession *_captureSession;
     <PKCodeAcquisitionDelegate> *_delegate;
@@ -19,39 +17,39 @@
     NSSet *_supportedBarcodeTypes;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <PKCodeAcquisitionDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <PKCodeAcquisitionDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void)_cleanupDownload;
-- (void)_handleDownloadFailureWithReason:(id)arg1 errorToDisplay:(id)arg2;
 - (void)_handleDownloadFailureWithReason:(id)arg1;
+- (void)_handleDownloadFailureWithReason:(id)arg1 errorToDisplay:(id)arg2;
 - (void)_handleDownloadedPass:(id)arg1;
 - (void)_handleFoundCode:(id)arg1;
 - (void)_handleSingleTap:(id)arg1;
 - (void)_restartCaptureSession;
-- (void)_setCaptureUIState:(long long)arg1 animated:(bool)arg2;
+- (void)_setCaptureUIState:(int)arg1 animated:(BOOL)arg2;
 - (void)cancel;
 - (void)captureOutput:(id)arg1 didOutputMetadataObjects:(id)arg2 fromConnection:(id)arg3;
-- (void)captureSession:(id)arg1 isRunning:(bool)arg2;
+- (void)captureSession:(id)arg1 isRunning:(BOOL)arg2;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)dealloc;
 - (id)delegate;
-- (bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (id)init;
 - (void)setDelegate:(id)arg1;
-- (bool)shouldAutorotate;
-- (unsigned long long)supportedInterfaceOrientations;
-- (void)viewDidAppear:(bool)arg1;
-- (void)viewDidDisappear:(bool)arg1;
+- (BOOL)shouldAutorotate;
+- (unsigned int)supportedInterfaceOrientations;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
-- (void)viewWillAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

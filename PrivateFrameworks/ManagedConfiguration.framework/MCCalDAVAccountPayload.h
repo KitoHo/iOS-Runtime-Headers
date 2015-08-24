@@ -2,27 +2,29 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@class NSString;
-
 @interface MCCalDAVAccountPayload : MCPayload {
     NSString *_accountDescription;
     NSString *_accountPersistentUUID;
     NSString *_hostname;
     NSString *_password;
     int _port;
+    NSNumber *_portNum;
     NSString *_principalURL;
+    BOOL _useSSL;
+    NSNumber *_useSSLNum;
     NSString *_username;
-    bool_useSSL;
 }
 
-@property(retain,readonly) NSString * accountDescription;
-@property(copy) NSString * accountPersistentUUID;
-@property(retain,readonly) NSString * hostname;
-@property(copy) NSString * password;
-@property(readonly) int port;
-@property(retain,readonly) NSString * principalURL;
-@property(readonly) bool useSSL;
-@property(copy) NSString * username;
+@property (nonatomic, readonly, retain) NSString *accountDescription;
+@property (nonatomic, copy) NSString *accountPersistentUUID;
+@property (nonatomic, readonly, retain) NSString *hostname;
+@property (nonatomic, copy) NSString *password;
+@property (nonatomic, readonly) int port;
+@property (nonatomic, readonly) NSNumber *portNum;
+@property (nonatomic, readonly, retain) NSString *principalURL;
+@property (nonatomic, readonly) BOOL useSSL;
+@property (nonatomic, readonly) NSNumber *useSSLNum;
+@property (nonatomic, copy) NSString *username;
 
 + (id)localizedPluralForm;
 + (id)localizedSingularForm;
@@ -37,6 +39,7 @@
 - (id)password;
 - (id)payloadDescriptionKeyValueSections;
 - (int)port;
+- (id)portNum;
 - (id)principalURL;
 - (void)setAccountPersistentUUID:(id)arg1;
 - (void)setPassword:(id)arg1;
@@ -47,7 +50,8 @@
 - (id)subtitle2Description;
 - (id)subtitle2Label;
 - (id)title;
-- (bool)useSSL;
+- (BOOL)useSSL;
+- (id)useSSLNum;
 - (id)username;
 
 @end

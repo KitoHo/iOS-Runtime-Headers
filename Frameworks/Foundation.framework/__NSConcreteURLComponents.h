@@ -2,19 +2,22 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSNumber, NSString;
-
 @interface __NSConcreteURLComponents : NSURLComponents <NSCopying> {
+    NSString *_fragmentComponent;
+    unsigned int _fragmentComponentValid;
+    NSString *_hostComponent;
+    unsigned int _hostComponentValid;
+    int _lock;
     struct _URIParseInfo { 
-        long long userinfoNameOffset; 
-        long long userinfoPasswordOffset; 
-        long long hostOffset; 
-        long long portOffset; 
-        long long pathOffset; 
-        long long paramOffset; 
-        long long queryOffset; 
-        long long fragmentOffset; 
-        long long endOffset; 
+        int userinfoNameOffset; 
+        int userinfoPasswordOffset; 
+        int hostOffset; 
+        int portOffset; 
+        int pathOffset; 
+        int paramOffset; 
+        int queryOffset; 
+        int fragmentOffset; 
+        int endOffset; 
         unsigned int schemeExists : 1; 
         unsigned int authorityExists : 1; 
         unsigned int userinfoNameExists : 1; 
@@ -24,28 +27,23 @@
         unsigned int paramExists : 1; 
         unsigned int queryExists : 1; 
         unsigned int fragmentExists : 1; 
-    unsigned int _schemeComponentValid : 1;
-    unsigned int _userComponentValid : 1;
-    unsigned int _passwordComponentValid : 1;
-    unsigned int _hostComponentValid : 1;
-    unsigned int _portComponentValid : 1;
-    unsigned int _pathComponentValid : 1;
-    unsigned int _queryComponentValid : 1;
-    unsigned int _fragmentComponentValid : 1;
-    NSString *_fragmentComponent;
-    NSString *_hostComponent;
-    int _lock;
     } _parseInfo;
     NSString *_passwordComponent;
+    unsigned int _passwordComponentValid;
     NSString *_pathComponent;
+    unsigned int _pathComponentValid;
     NSNumber *_portComponent;
+    unsigned int _portComponentValid;
     NSString *_queryComponent;
+    unsigned int _queryComponentValid;
     NSString *_schemeComponent;
+    unsigned int _schemeComponentValid;
     NSString *_urlString;
     NSString *_userComponent;
+    unsigned int _userComponentValid;
 }
 
-+ (bool)automaticallyNotifiesObserversForKey:(id)arg1;
++ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 
 - (id)URL;
 - (id)URLRelativeToURL:(id)arg1;
@@ -55,12 +53,12 @@
 - (void)finalize;
 - (id)fragment;
 - (void)freeIvars;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)host;
 - (id)init;
 - (id)initWithString:(id)arg1;
-- (id)initWithURL:(id)arg1 resolvingAgainstBaseURL:(bool)arg2;
-- (bool)isEqual:(id)arg1;
+- (id)initWithURL:(id)arg1 resolvingAgainstBaseURL:(BOOL)arg2;
+- (BOOL)isEqual:(id)arg1;
 - (id)password;
 - (id)path;
 - (id)percentEncodedFragment;

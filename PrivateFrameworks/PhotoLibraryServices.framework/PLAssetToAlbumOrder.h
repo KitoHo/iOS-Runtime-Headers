@@ -2,28 +2,20 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSString, PLManagedAlbum, PLManagedAsset;
+@interface PLAssetToAlbumOrder : PLManagedObject <PLOrderKeyObject>
 
-@interface PLAssetToAlbumOrder : PLManagedObject <PLOrderKeyObject> {
-    bool_isSpecial;
-}
-
-@property(retain) PLManagedAlbum * album;
-@property(retain) PLManagedAsset * asset;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property bool isSpecial;
-@property long long orderValue;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) PLManagedAlbum *album;
+@property (nonatomic, retain) PLManagedAsset *asset;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) long long orderValue;
+@property (readonly) Class superclass;
 
 + (id)newAssetOrderForAsset:(id)arg1 album:(id)arg2;
 
 - (id)childManagedObject;
-- (id)description;
 - (void)didSave;
-- (bool)isSpecial;
 - (id)secondaryOrderSortKey;
-- (void)setIsSpecial:(bool)arg1;
 
 @end

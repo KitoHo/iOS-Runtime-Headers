@@ -2,14 +2,12 @@
    Image: /System/Library/Frameworks/SceneKit.framework/SceneKit
  */
 
-@class SCNView;
-
 @interface SCNEventHandler : NSObject {
     id _reserved;
     SCNView *_view;
 }
 
-@property(readonly) SCNView * view;
+@property (readonly) SCNView *view;
 
 - (void)cameraDidChange;
 - (void)cameraWillChange;
@@ -22,6 +20,6 @@
 - (id)view;
 - (void)viewDidDraw;
 - (void)viewWillDraw;
-- (bool)wantsRedraw;
+- (BOOL)wantsRedraw;
 
 @end

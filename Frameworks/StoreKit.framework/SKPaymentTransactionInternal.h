@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/StoreKit.framework/StoreKit
  */
 
-@class NSArray, NSData, NSDate, NSError, NSString, SKPayment, SKPaymentTransaction;
-
 @interface SKPaymentTransactionInternal : NSObject {
     NSArray *_downloads;
     NSError *_error;
@@ -13,7 +11,7 @@
     NSDate *_transactionDate;
     NSString *_transactionIdentifier;
     NSData *_transactionReceipt;
-    long long _transactionState;
+    int _transactionState;
 }
 
 - (void)dealloc;

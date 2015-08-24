@@ -2,9 +2,9 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface _UIOverCurrentContextPresentationController : _UICurrentContextPresentationController {
-}
+@interface _UIOverCurrentContextPresentationController : _UICurrentContextPresentationController
 
-- (bool)shouldRemovePresentersView;
+- (int)presentationStyle;
+- (BOOL)shouldRemovePresentersView;
 
 @end

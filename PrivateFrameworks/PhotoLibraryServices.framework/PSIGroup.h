@@ -2,42 +2,39 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSMutableString, NSString;
-
 @interface PSIGroup : PSIReusableObject {
-    struct _NSRange { 
-        unsigned long long location; 
-        unsigned long long length; 
     struct __CFArray { } *_assetIds;
     short _category;
-    unsigned long long _compressedRanges[2];
+    unsigned long long _compressedRanges;
     NSMutableString *_contentString;
     unsigned long long _groupId;
     unsigned long long _owningGroupId;
-    unsigned long long _tokenRangesCount;
-    } _tokenRanges[8];
+    struct _NSRange { 
+        unsigned int location; 
+        unsigned int length; 
+    } _tokenRanges;
+    unsigned int _tokenRangesCount;
 }
 
-@property(retain) struct __CFArray { }* assetIds;
-@property short category;
-@property(retain,readonly) NSString * contentString;
-@property unsigned long long groupId;
-@property unsigned long long owningGroupId;
+@property (nonatomic, retain) struct __CFArray { }*assetIds;
+@property (nonatomic) short category;
+@property (nonatomic, readonly, retain) NSString *contentString;
+@property (nonatomic) unsigned long long groupId;
+@property (nonatomic) unsigned long long owningGroupId;
 
-+ (void)_getTokenRanges:(struct _NSRange { unsigned long long x1; unsigned long long x2; }[8])arg1 fromCompressedRanges:(unsigned long long[2])arg2;
-+ (void)getCompressedRanges:(unsigned long long[2])arg1 fromTokenRanges:(id)arg2;
-+ (id)newTokenRangesFromCompressedRanges:(unsigned long long[2])arg1;
++ (void)_getTokenRanges:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1 fromCompressedRanges:(unsigned long long)arg2;
++ (void)getCompressedRanges:(unsigned long long)arg1 fromTokenRanges:(struct { int x1; int x2; }*)arg2 count:(long)arg3;
 
 - (struct __CFArray { }*)assetIds;
 - (short)category;
-- (long long)compareToGroup:(id)arg1;
+- (int)compareToGroup:(id)arg1;
 - (id)contentString;
 - (void)dealloc;
 - (id)description;
 - (unsigned long long)groupId;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (unsigned long long)owningGroupId;
 - (void)prepareForReuse;
 - (void)prepareFromStatement:(struct sqlite3_stmt { }*)arg1;
@@ -45,7 +42,7 @@
 - (void)setCategory:(short)arg1;
 - (void)setGroupId:(unsigned long long)arg1;
 - (void)setOwningGroupId:(unsigned long long)arg1;
-- (struct _NSRange { unsigned long long x1; unsigned long long x2; })tokenRangeAtIndex:(unsigned long long)arg1;
-- (unsigned long long)tokenRangesCount;
+- (struct _NSRange { unsigned int x1; unsigned int x2; })tokenRangeAtIndex:(unsigned int)arg1;
+- (unsigned int)tokenRangesCount;
 
 @end

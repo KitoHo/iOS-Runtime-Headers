@@ -2,9 +2,7 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOVoltaireSimpleTileRequester, NSMutableArray, NSString, NSThread, NSTimer;
-
-@interface GEOVoltaireTileRequester : GEOTileRequester <GEOVoltaireMultiTileDownloaderDelegate, GEOTileRequesterDelegate, GEOResourceManifestTileGroupObserver> {
+@interface GEOVoltaireTileRequester : GEOTileRequester <GEOResourceManifestTileGroupObserver, GEOTileRequesterDelegate, GEOVoltaireMultiTileDownloaderDelegate> {
     NSMutableArray *_activeDownloads;
     NSTimer *_activeTileGroupTimeoutTimer;
     NSMutableArray *_errors;
@@ -12,16 +10,16 @@
     NSThread *_startThread;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-+ (unsigned long long)expiringTilesetsCount;
++ (unsigned int)expiringTilesetsCount;
 + (Class)multiDownloaderClass;
 + (struct { unsigned int x1; double x2; }*)newExpiringTilesets;
 + (Class)simpleRequesterClass;
-+ (bool)skipNetworkForKeysWhenPreloading:(id)arg1;
++ (BOOL)skipNetworkForKeysWhenPreloading:(id)arg1;
 + (unsigned char)tileProviderIdentifier;
 
 - (void)_failedToReceiveActiveTileGroup:(id)arg1;
@@ -29,7 +27,7 @@
 - (void)cancel;
 - (void)cleanup;
 - (void)dealloc;
-- (id)multiTileURLStringForTileKey:(struct _GEOTileKey { unsigned int x1 : 6; unsigned int x2 : 26; unsigned int x3 : 26; unsigned int x4 : 6; unsigned int x5 : 8; unsigned int x6 : 8; unsigned int x7 : 8; unsigned int x8 : 1; unsigned int x9 : 7; unsigned char x10[4]; }*)arg1 useStatusCodes:(bool*)arg2;
+- (id)multiTileURLStringForTileKey:(struct _GEOTileKey { unsigned int x1 : 6; unsigned int x2 : 26; unsigned int x3 : 26; unsigned int x4 : 6; unsigned int x5 : 8; unsigned int x6 : 8; unsigned int x7 : 8; unsigned int x8 : 1; unsigned int x9 : 7; unsigned char x10[4]; }*)arg1 useStatusCodes:(BOOL*)arg2;
 - (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
 - (void)start;

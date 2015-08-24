@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@class <IKAppDataStoring>, NSMutableDictionary, NSObject<OS_dispatch_queue>;
-
 @interface IKJSStorage : IKJSObject <IKJSStorage> {
-    unsigned int _usesExternalDataStore : 1;
     <IKAppDataStoring> *_appStorage;
     NSMutableDictionary *_storageDict;
     NSObject<OS_dispatch_queue> *_storageQueue;
+    unsigned int _usesExternalDataStore;
 }
 
-@property <IKAppDataStoring> * appStorage;
-@property(readonly) unsigned long long length;
-@property(retain) NSMutableDictionary * storageDict;
-@property(retain) NSObject<OS_dispatch_queue> * storageQueue;
+@property (nonatomic) <IKAppDataStoring> *appStorage;
+@property (nonatomic, readonly) unsigned int length;
+@property (nonatomic, retain) NSMutableDictionary *storageDict;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *storageQueue;
 
 - (void).cxx_destruct;
 - (void)_verifyExternalDataStoreForKey:(id)arg1;
@@ -22,8 +20,8 @@
 - (void)clear;
 - (id)getItem:(id)arg1;
 - (id)initWithAppContext:(id)arg1 appStorage:(id)arg2;
-- (id)key:(unsigned long long)arg1;
-- (unsigned long long)length;
+- (id)key:(unsigned int)arg1;
+- (unsigned int)length;
 - (void)removeItem:(id)arg1;
 - (void)setAppStorage:(id)arg1;
 - (void)setItem:(id)arg1 :(id)arg2;

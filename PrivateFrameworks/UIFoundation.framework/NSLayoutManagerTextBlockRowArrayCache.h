@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/UIFoundation.framework/UIFoundation
  */
 
-@class NSArray;
-
 @interface NSLayoutManagerTextBlockRowArrayCache : NSObject {
-    struct _NSRange { 
-        unsigned long long location; 
-        unsigned long long length; 
-    double _containerWidth;
+    BOOL _collapseBorders;
+    float _containerWidth;
     NSArray *_rowArray;
+    struct _NSRange { 
+        unsigned int location; 
+        unsigned int length; 
     } _rowCharRange;
-    bool_collapseBorders;
 }
 
 - (void)dealloc;
-- (id)initWithRowCharRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1 containerWidth:(double)arg2 rowArray:(id)arg3 collapseBorders:(bool)arg4;
+- (id)initWithRowCharRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1 containerWidth:(float)arg2 rowArray:(id)arg3 collapseBorders:(BOOL)arg4;
 
 @end

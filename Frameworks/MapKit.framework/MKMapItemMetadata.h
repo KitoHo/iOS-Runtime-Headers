@@ -2,32 +2,29 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class GEOBusiness, MKYelpDeal, NSMutableDictionary, NSString;
-
 @interface MKMapItemMetadata : NSObject {
     GEOBusiness *_business;
+    <MKMapItemVendorDeal> *_deal;
+    BOOL _hasCheckedForVendorDeal;
     NSMutableDictionary *_imageCache;
-    MKYelpDeal *_yelpDeal;
-    bool_hasCheckedForYelpDeal;
 }
 
-@property(readonly) GEOBusiness * business;
-@property bool hasCheckedForYelpDeal;
-@property(retain) NSMutableDictionary * imageCache;
-@property(retain) MKYelpDeal * yelpDeal;
-@property(readonly) NSString * yelpID;
+@property (nonatomic, readonly) GEOBusiness *business;
+@property (nonatomic, retain) <MKMapItemVendorDeal> *deal;
+@property (nonatomic) BOOL hasCheckedForVendorDeal;
+@property (nonatomic, retain) NSMutableDictionary *imageCache;
 
 - (void).cxx_destruct;
 - (void)addImage:(id)arg1 forURL:(id)arg2;
 - (id)business;
-- (bool)hasCheckedForYelpDeal;
+- (id)deal;
+- (id)description;
+- (BOOL)hasCheckedForVendorDeal;
 - (id)imageCache;
 - (id)imageForURL:(id)arg1;
 - (id)initWithBusiness:(id)arg1;
-- (void)setHasCheckedForYelpDeal:(bool)arg1;
+- (void)setDeal:(id)arg1;
+- (void)setHasCheckedForVendorDeal:(BOOL)arg1;
 - (void)setImageCache:(id)arg1;
-- (void)setYelpDeal:(id)arg1;
-- (id)yelpDeal;
-- (id)yelpID;
 
 @end

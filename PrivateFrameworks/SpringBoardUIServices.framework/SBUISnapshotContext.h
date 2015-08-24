@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardUIServices.framework/SpringBoardUIServices
  */
 
-@class NSString, UIScreen;
-
 @interface SBUISnapshotContext : NSObject <BSXPCCoding> {
+    BOOL _excludesNotificationCenter;
     UIScreen *_screen;
-    bool_excludesNotificationCenter;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property bool excludesNotificationCenter;
-@property(readonly) unsigned long long hash;
-@property(retain) UIScreen * screen;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) BOOL excludesNotificationCenter;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) UIScreen *screen;
+@property (readonly) Class superclass;
 
 + (id)snapshotContextForScreen:(id)arg1;
 
 - (void)dealloc;
 - (void)encodeWithXPCDictionary:(id)arg1;
-- (bool)excludesNotificationCenter;
+- (BOOL)excludesNotificationCenter;
 - (id)initWithScreen:(id)arg1;
 - (id)initWithXPCDictionary:(id)arg1;
 - (id)screen;
-- (void)setExcludesNotificationCenter:(bool)arg1;
+- (void)setExcludesNotificationCenter:(BOOL)arg1;
 - (void)setScreen:(id)arg1;
 
 @end

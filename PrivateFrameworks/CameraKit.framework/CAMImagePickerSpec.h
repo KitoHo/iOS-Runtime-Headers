@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/CameraKit.framework/CameraKit
  */
 
-@interface CAMImagePickerSpec : CAMCameraSpec {
-}
+@interface CAMImagePickerSpec : CAMCameraSpec
 
 + (id)specForPad;
 + (id)specForPhone;
 
-- (bool)isCameraApp;
+- (BOOL)isCameraApp;
 
 @end

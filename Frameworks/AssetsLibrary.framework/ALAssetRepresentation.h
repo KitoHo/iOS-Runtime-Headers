@@ -2,39 +2,37 @@
    Image: /System/Library/Frameworks/AssetsLibrary.framework/AssetsLibrary
  */
 
-@class ALAssetRepresentationPrivate;
-
 @interface ALAssetRepresentation : NSObject {
+    BOOL _ignoreRead;
     id _internal;
-    bool_ignoreRead;
 }
 
-@property bool ignoreRead;
-@property(retain) ALAssetRepresentationPrivate * internal;
+@property BOOL ignoreRead;
+@property (nonatomic, retain) ALAssetRepresentationPrivate *internal;
 
 + (void)_enableImageDataUsesMap;
 
-- (struct CGImage { }*)CGImageWithOptions:(id)arg1 format:(int)arg2 bakeInOrientation:(int)arg3;
 - (struct CGImage { }*)CGImageWithOptions:(id)arg1;
+- (struct CGImage { }*)CGImageWithOptions:(id)arg1 format:(int)arg2 bakeInOrientation:(int)arg3;
 - (id)UTI;
 - (int)_fileDescriptor;
 - (id)_imageData;
 - (struct CGImage { }*)_largeDisplayableImageForFormat:(int)arg1;
 - (void)dealloc;
 - (id)description;
-- (struct CGSize { double x1; double x2; })dimensions;
+- (struct CGSize { float x1; float x2; })dimensions;
 - (id)filename;
 - (struct CGImage { }*)fullResolutionImage;
 - (struct CGImage { }*)fullScreenImage;
-- (unsigned long long)getBytes:(char *)arg1 fromOffset:(long long)arg2 length:(unsigned long long)arg3 error:(id*)arg4;
-- (bool)ignoreRead;
+- (unsigned int)getBytes:(char *)arg1 fromOffset:(long long)arg2 length:(unsigned int)arg3 error:(id*)arg4;
+- (BOOL)ignoreRead;
 - (id)initWithManagedAsset:(id)arg1 sidecar:(id)arg2 extension:(id)arg3 library:(id)arg4;
 - (id)internal;
-- (bool)isValid;
+- (BOOL)isValid;
 - (id)metadata;
-- (long long)orientation;
+- (int)orientation;
 - (float)scale;
-- (void)setIgnoreRead:(bool)arg1;
+- (void)setIgnoreRead:(BOOL)arg1;
 - (void)setInternal:(id)arg1;
 - (long long)size;
 - (id)url;

@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@class NSMutableArray, NSString;
-
 @interface MIPMultiverseIdentifier : PBCodable <NSCopying> {
+    long long _accountId;
     struct { 
         unsigned int accountId : 1; 
         unsigned int purchaseHistoryId : 1; 
@@ -12,7 +11,6 @@
         unsigned int storeId : 1; 
         unsigned int mediaObjectType : 1; 
         unsigned int mediaType : 1; 
-    long long _accountId;
     } _has;
     NSMutableArray *_libraryIdentifiers;
     int _mediaObjectType;
@@ -23,21 +21,21 @@
     long long _storeId;
 }
 
-@property long long accountId;
-@property bool hasAccountId;
-@property bool hasMediaObjectType;
-@property bool hasMediaType;
-@property(readonly) bool hasName;
-@property bool hasPurchaseHistoryId;
-@property bool hasSagaId;
-@property bool hasStoreId;
-@property(retain) NSMutableArray * libraryIdentifiers;
-@property int mediaObjectType;
-@property int mediaType;
-@property(retain) NSString * name;
-@property long long purchaseHistoryId;
-@property long long sagaId;
-@property long long storeId;
+@property (nonatomic) long long accountId;
+@property (nonatomic) BOOL hasAccountId;
+@property (nonatomic) BOOL hasMediaObjectType;
+@property (nonatomic) BOOL hasMediaType;
+@property (nonatomic, readonly) BOOL hasName;
+@property (nonatomic) BOOL hasPurchaseHistoryId;
+@property (nonatomic) BOOL hasSagaId;
+@property (nonatomic) BOOL hasStoreId;
+@property (nonatomic, retain) NSMutableArray *libraryIdentifiers;
+@property (nonatomic) int mediaObjectType;
+@property (nonatomic) int mediaType;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic) long long purchaseHistoryId;
+@property (nonatomic) long long sagaId;
+@property (nonatomic) long long storeId;
 
 - (void).cxx_destruct;
 - (long long)accountId;
@@ -47,31 +45,32 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasAccountId;
-- (bool)hasMediaObjectType;
-- (bool)hasMediaType;
-- (bool)hasName;
-- (bool)hasPurchaseHistoryId;
-- (bool)hasSagaId;
-- (bool)hasStoreId;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasAccountId;
+- (BOOL)hasMediaObjectType;
+- (BOOL)hasMediaType;
+- (BOOL)hasName;
+- (BOOL)hasPurchaseHistoryId;
+- (BOOL)hasSagaId;
+- (BOOL)hasStoreId;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)libraryIdentifiers;
-- (id)libraryIdentifiersAtIndex:(unsigned long long)arg1;
-- (unsigned long long)libraryIdentifiersCount;
+- (id)libraryIdentifiersAtIndex:(unsigned int)arg1;
+- (unsigned int)libraryIdentifiersCount;
 - (int)mediaObjectType;
 - (int)mediaType;
+- (void)mergeFrom:(id)arg1;
 - (id)name;
 - (long long)purchaseHistoryId;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (long long)sagaId;
 - (void)setAccountId:(long long)arg1;
-- (void)setHasAccountId:(bool)arg1;
-- (void)setHasMediaObjectType:(bool)arg1;
-- (void)setHasMediaType:(bool)arg1;
-- (void)setHasPurchaseHistoryId:(bool)arg1;
-- (void)setHasSagaId:(bool)arg1;
-- (void)setHasStoreId:(bool)arg1;
+- (void)setHasAccountId:(BOOL)arg1;
+- (void)setHasMediaObjectType:(BOOL)arg1;
+- (void)setHasMediaType:(BOOL)arg1;
+- (void)setHasPurchaseHistoryId:(BOOL)arg1;
+- (void)setHasSagaId:(BOOL)arg1;
+- (void)setHasStoreId:(BOOL)arg1;
 - (void)setLibraryIdentifiers:(id)arg1;
 - (void)setMediaObjectType:(int)arg1;
 - (void)setMediaType:(int)arg1;

@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-@interface PLPhotosMusicPlayer : NSObject {
-}
+@interface PLPhotosMusicPlayer : NSObject
 
 + (void)continueMusic;
-+ (void)pauseMusic:(bool)arg1;
-+ (void)setShouldRepeatMusic:(bool)arg1;
++ (void)pauseMusic:(BOOL)arg1;
++ (void)setShouldRepeatMusic:(BOOL)arg1;
 + (void)startMusicForAlbum:(struct NSObject { Class x1; }*)arg1;
 + (void)startMusicWithSettings:(id)arg1;
 + (void)stopMusic;

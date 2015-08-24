@@ -2,36 +2,30 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSMutableArray;
-
 @interface UIKeyboardSplitControlMenu : UIKeyboardMenuView {
-    struct CGSize { 
-        double width; 
-        double height; 
-    id _finishSplitTransitionBlock;
+    id /* block */ _finishSplitTransitionBlock;
     NSMutableArray *m_menuOptions;
+    struct CGSize { 
+        float width; 
+        float height; 
     } m_preferredSize;
 }
 
-@property(copy) id finishSplitTransitionBlock;
+@property (nonatomic, copy) id /* block */ finishSplitTransitionBlock;
 
 + (id)activeInstance;
 + (id)sharedInstance;
 
 - (void)dealloc;
-- (long long)defaultSelectedIndex;
+- (int)defaultSelectedIndex;
 - (void)didFinishSplitTransition;
 - (void)didSelectItemAtIndex:(int)arg1;
-- (id)finishSplitTransitionBlock;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (long long)numberOfItems;
-- (struct CGSize { double x1; double x2; })preferredSize;
-- (void)setFinishSplitTransitionBlock:(id)arg1;
-- (void)setSplitAndUndocked:(bool)arg1;
+- (id /* block */)finishSplitTransitionBlock;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (int)numberOfItems;
+- (struct CGSize { float x1; float x2; })preferredSize;
+- (void)setFinishSplitTransitionBlock:(id /* block */)arg1;
+- (void)setSplitAndUndocked:(BOOL)arg1;
 - (id)titleForItemAtIndex:(int)arg1;
 
 @end

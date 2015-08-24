@@ -2,9 +2,9 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOPDAttribution, GEOPDSource, NSMutableArray;
-
 @interface GEOPDComponent : PBCodable <NSCopying> {
+    GEOPDAttribution *_attribution;
+    int _cacheControl;
     struct { 
         unsigned int timestampFirstSeen : 1; 
         unsigned int cacheControl : 1; 
@@ -14,8 +14,6 @@
         unsigned int type : 1; 
         unsigned int valuesAvailable : 1; 
         unsigned int version : 1; 
-    GEOPDAttribution *_attribution;
-    int _cacheControl;
     } _has;
     GEOPDSource *_source;
     int _startIndex;
@@ -29,28 +27,28 @@
     NSMutableArray *_versionDomains;
 }
 
-@property(retain) GEOPDAttribution * attribution;
-@property int cacheControl;
-@property(readonly) bool hasAttribution;
-@property bool hasCacheControl;
-@property(readonly) bool hasSource;
-@property bool hasStartIndex;
-@property bool hasStatus;
-@property bool hasTimestampFirstSeen;
-@property bool hasTtl;
-@property bool hasType;
-@property bool hasValuesAvailable;
-@property bool hasVersion;
-@property(retain) GEOPDSource * source;
-@property int startIndex;
-@property int status;
-@property double timestampFirstSeen;
-@property unsigned int ttl;
-@property int type;
-@property(retain) NSMutableArray * values;
-@property int valuesAvailable;
-@property unsigned int version;
-@property(retain) NSMutableArray * versionDomains;
+@property (nonatomic, retain) GEOPDAttribution *attribution;
+@property (nonatomic) int cacheControl;
+@property (nonatomic, readonly) BOOL hasAttribution;
+@property (nonatomic) BOOL hasCacheControl;
+@property (nonatomic, readonly) BOOL hasSource;
+@property (nonatomic) BOOL hasStartIndex;
+@property (nonatomic) BOOL hasStatus;
+@property (nonatomic) BOOL hasTimestampFirstSeen;
+@property (nonatomic) BOOL hasTtl;
+@property (nonatomic) BOOL hasType;
+@property (nonatomic) BOOL hasValuesAvailable;
+@property (nonatomic) BOOL hasVersion;
+@property (nonatomic, retain) GEOPDSource *source;
+@property (nonatomic) int startIndex;
+@property (nonatomic) int status;
+@property (nonatomic) double timestampFirstSeen;
+@property (nonatomic) unsigned int ttl;
+@property (nonatomic) int type;
+@property (nonatomic, retain) NSMutableArray *values;
+@property (nonatomic) int valuesAvailable;
+@property (nonatomic) unsigned int version;
+@property (nonatomic, retain) NSMutableArray *versionDomains;
 
 - (void)addValue:(id)arg1;
 - (void)addVersionDomain:(id)arg1;
@@ -63,30 +61,30 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasAttribution;
-- (bool)hasCacheControl;
-- (bool)hasSource;
-- (bool)hasStartIndex;
-- (bool)hasStatus;
-- (bool)hasTimestampFirstSeen;
-- (bool)hasTtl;
-- (bool)hasType;
-- (bool)hasValuesAvailable;
-- (bool)hasVersion;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasAttribution;
+- (BOOL)hasCacheControl;
+- (BOOL)hasSource;
+- (BOOL)hasStartIndex;
+- (BOOL)hasStatus;
+- (BOOL)hasTimestampFirstSeen;
+- (BOOL)hasTtl;
+- (BOOL)hasType;
+- (BOOL)hasValuesAvailable;
+- (BOOL)hasVersion;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setAttribution:(id)arg1;
 - (void)setCacheControl:(int)arg1;
-- (void)setHasCacheControl:(bool)arg1;
-- (void)setHasStartIndex:(bool)arg1;
-- (void)setHasStatus:(bool)arg1;
-- (void)setHasTimestampFirstSeen:(bool)arg1;
-- (void)setHasTtl:(bool)arg1;
-- (void)setHasType:(bool)arg1;
-- (void)setHasValuesAvailable:(bool)arg1;
-- (void)setHasVersion:(bool)arg1;
+- (void)setHasCacheControl:(BOOL)arg1;
+- (void)setHasStartIndex:(BOOL)arg1;
+- (void)setHasStatus:(BOOL)arg1;
+- (void)setHasTimestampFirstSeen:(BOOL)arg1;
+- (void)setHasTtl:(BOOL)arg1;
+- (void)setHasType:(BOOL)arg1;
+- (void)setHasValuesAvailable:(BOOL)arg1;
+- (void)setHasVersion:(BOOL)arg1;
 - (void)setSource:(id)arg1;
 - (void)setStartIndex:(int)arg1;
 - (void)setStatus:(int)arg1;
@@ -103,14 +101,14 @@
 - (double)timestampFirstSeen;
 - (unsigned int)ttl;
 - (int)type;
-- (id)valueAtIndex:(unsigned long long)arg1;
+- (id)valueAtIndex:(unsigned int)arg1;
 - (id)values;
 - (int)valuesAvailable;
-- (unsigned long long)valuesCount;
+- (unsigned int)valuesCount;
 - (unsigned int)version;
-- (id)versionDomainAtIndex:(unsigned long long)arg1;
+- (id)versionDomainAtIndex:(unsigned int)arg1;
 - (id)versionDomains;
-- (unsigned long long)versionDomainsCount;
+- (unsigned int)versionDomainsCount;
 - (void)writeTo:(id)arg1;
 
 @end

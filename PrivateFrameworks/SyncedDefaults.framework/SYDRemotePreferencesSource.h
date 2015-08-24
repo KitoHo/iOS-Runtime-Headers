@@ -2,19 +2,13 @@
    Image: /System/Library/PrivateFrameworks/SyncedDefaults.framework/SyncedDefaults
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, SYDClient;
-
 @interface SYDRemotePreferencesSource : NSObject {
-    long long _generationCount;
+    BOOL _forceNextSynchronization;
+    long _generationCount;
     double _lastAccess;
-    long long _lastGenerationFromDisk;
+    long _lastGenerationFromDisk;
     NSObject<OS_dispatch_source> *_memoryWarningSource;
     NSObject<OS_dispatch_queue> *_protectionQueue;
-    bool_forceNextSynchronization;
     struct __CFDictionary { } *cache;
     SYDClient *client;
     struct __CFDictionary { } *configurationDictionary;
@@ -23,7 +17,7 @@
     long long initialSyncChangeCount;
     unsigned char isInitialSync;
     struct __CFString { } *preferenceID;
-    id registrationBlock;
+    id /* block */ registrationBlock;
     NSObject<OS_dispatch_queue> *registrationQueue;
     long long storageChangeCount;
     struct __CFURL { } *urlOnDisk;
@@ -34,7 +28,7 @@
 + (void)initialize;
 + (void)migrateSyncedDefaultsForBundleIdentifier:(id)arg1;
 + (void)noteAccountChanges:(id)arg1;
-+ (void)resetAllApplicationsWithCompletionHandler:(id)arg1;
++ (void)resetAllApplicationsWithCompletionHandler:(id /* block */)arg1;
 
 - (void)_cachePlistFromDisk;
 - (void)_createMemoryWarningSource;
@@ -43,7 +37,7 @@
 - (void)_storeConfiguration:(struct __CFDictionary { }*)arg1;
 - (unsigned char)_synchronizeForced:(unsigned char)arg1;
 - (id)_warningSource;
-- (long long)configurationValueForKey:(struct __CFString { }*)arg1;
+- (long)configurationValueForKey:(struct __CFString { }*)arg1;
 - (struct __CFDictionary { }*)copyConfigurationDictionary;
 - (struct __CFDictionary { }*)copyDictionary;
 - (id)copyExternalChangesWithChangeCount:(long long*)arg1;
@@ -51,22 +45,22 @@
 - (void)dealloc;
 - (void)discardExternalChangesForChangeCount:(long long)arg1;
 - (void)finalize;
-- (long long)generationCount;
+- (long)generationCount;
 - (void*)getValueForKey:(struct __CFString { }*)arg1;
 - (unsigned char)hasExternalChanges;
-- (id)initWithApplicationID:(struct __CFString { }*)arg1 shared:(bool)arg2;
-- (id)initWithApplicationID:(struct __CFString { }*)arg1 storeID:(struct __CFString { }*)arg2 shared:(bool)arg3 additionalSource:(bool)arg4;
-- (id)initWithApplicationID:(struct __CFString { }*)arg1 storeID:(struct __CFString { }*)arg2 shared:(bool)arg3;
+- (id)initWithApplicationID:(struct __CFString { }*)arg1 shared:(BOOL)arg2;
+- (id)initWithApplicationID:(struct __CFString { }*)arg1 storeID:(struct __CFString { }*)arg2 shared:(BOOL)arg3;
+- (id)initWithApplicationID:(struct __CFString { }*)arg1 storeID:(struct __CFString { }*)arg2 shared:(BOOL)arg3 additionalSource:(BOOL)arg4;
 - (unsigned char)isInitialSync;
-- (long long)maximumDataLengthPerKey;
-- (long long)maximumKeyCount;
-- (long long)maximumKeyLength;
-- (long long)maximumTotalDataLength;
+- (long)maximumDataLengthPerKey;
+- (long)maximumKeyCount;
+- (long)maximumKeyLength;
+- (long)maximumTotalDataLength;
 - (void)registerForSynchronizedDefaults;
 - (void)scheduleRemoteSynchronization;
 - (id)serverSideDebugDescription;
 - (void)setValue:(void*)arg1 forKey:(struct __CFString { }*)arg2;
-- (void)synchronizationWithCompletionHandler:(id)arg1;
+- (void)synchronizationWithCompletionHandler:(id /* block */)arg1;
 - (unsigned char)synchronize;
 - (unsigned char)synchronizeForced:(unsigned char)arg1;
 - (void)unregisterForSynchronizedDefaults;

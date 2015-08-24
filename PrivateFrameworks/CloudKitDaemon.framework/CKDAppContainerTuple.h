@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKContainerID, NSString;
-
 @interface CKDAppContainerTuple : NSObject <NSCopying> {
     NSString *_applicationBundleID;
     CKContainerID *_containerID;
 }
 
-@property(retain) NSString * applicationBundleID;
-@property(retain) CKContainerID * containerID;
+@property (nonatomic, retain) NSString *applicationBundleID;
+@property (nonatomic, retain) CKContainerID *containerID;
 
 - (void).cxx_destruct;
 - (id)CKPropertiesDescription;
@@ -18,9 +16,9 @@
 - (id)containerID;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithApplicationBundleID:(id)arg1 containerID:(id)arg2;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)setApplicationBundleID:(id)arg1;
 - (void)setContainerID:(id)arg1;
 

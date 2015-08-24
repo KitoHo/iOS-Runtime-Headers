@@ -2,27 +2,25 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@class ABMultiCellContentView;
-
 @interface ABMultiCell : ABChameleonCell {
     ABMultiCellContentView *_abMultiCellContentView;
-    bool_editingDisabled;
+    BOOL _editingDisabled;
 }
 
-@property(getter=isEditingDisabled) bool editingDisabled;
-@property(retain) ABMultiCellContentView * multiCellContentView;
+@property (getter=isEditingDisabled, nonatomic) BOOL editingDisabled;
+@property (nonatomic, retain) ABMultiCellContentView *multiCellContentView;
 
 - (void)_addMultiCellContentViewIfNeeded;
-- (bool)_shouldSwallowTouches:(id)arg1 withEvent:(id)arg2;
+- (BOOL)_shouldSwallowTouches:(id)arg1 withEvent:(id)arg2;
 - (void)dealloc;
-- (bool)isEditingDisabled;
+- (BOOL)isEditingDisabled;
 - (void)layoutSubviews;
 - (id)multiCellContentView;
 - (void)setAbCellStyle:(int)arg1;
-- (void)setEditing:(bool)arg1 animated:(bool)arg2;
-- (void)setEditingDisabled:(bool)arg1;
+- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setEditingDisabled:(BOOL)arg1;
 - (void)setMultiCellContentView:(id)arg1;
-- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
+- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;

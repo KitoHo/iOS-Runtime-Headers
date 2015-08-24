@@ -2,12 +2,7 @@
    Image: /System/Library/PrivateFrameworks/CoreThemeDefinition.framework/CoreThemeDefinition
  */
 
-@class TDThemeDirection, TDThemeDrawingLayer, TDThemeElement, TDThemeIdiom, TDThemePart, TDThemePresentationState, TDThemeSize, TDThemeState, TDThemeUISizeClass, TDThemeValue;
-
 @interface TDRenditionKeySpec : NSManagedObject <TDElementAttributes> {
-    struct _renditionkeytoken { 
-        unsigned short identifier; 
-        unsigned short value; 
     unsigned int _dimension1;
     unsigned int _dimension2;
     unsigned int _graphicsClass;
@@ -15,27 +10,30 @@
     unsigned int _nameIdentifier;
     unsigned int _scaleFactor;
     struct _renditionkeytoken { unsigned short x1; unsigned short x2; } *_scratchKey;
-    } _stackScratchKey[16];
+    struct _renditionkeytoken { 
+        unsigned short identifier; 
+        unsigned short value; 
+    } _stackScratchKey;
     unsigned int _subtype;
 }
 
-@property(retain) TDThemeDirection * direction;
-@property(retain) TDThemeElement * element;
-@property(retain) TDThemeIdiom * idiom;
-@property(retain) TDThemeDrawingLayer * layer;
-@property(retain) TDThemePart * part;
-@property(retain) TDThemePresentationState * presentationState;
-@property(retain) TDThemeState * previousState;
-@property(retain) TDThemeValue * previousValue;
-@property(retain) TDThemeSize * size;
-@property(retain) TDThemeUISizeClass * sizeClassHorizontal;
-@property(retain) TDThemeUISizeClass * sizeClassVertical;
-@property(retain) TDThemeState * state;
-@property(retain) TDThemeValue * value;
+@property (nonatomic, retain) TDThemeDirection *direction;
+@property (nonatomic, retain) TDThemeElement *element;
+@property (nonatomic, retain) TDThemeIdiom *idiom;
+@property (nonatomic, retain) TDThemeDrawingLayer *layer;
+@property (nonatomic, retain) TDThemePart *part;
+@property (nonatomic, retain) TDThemePresentationState *presentationState;
+@property (nonatomic, retain) TDThemeState *previousState;
+@property (nonatomic, retain) TDThemeValue *previousValue;
+@property (nonatomic, retain) TDThemeSize *size;
+@property (nonatomic, retain) TDThemeUISizeClass *sizeClassHorizontal;
+@property (nonatomic, retain) TDThemeUISizeClass *sizeClassVertical;
+@property (nonatomic, retain) TDThemeState *state;
+@property (nonatomic, retain) TDThemeValue *value;
 
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
 
-- (long long)attributeCount;
+- (int)attributeCount;
 - (void)copyAttributesInto:(id)arg1;
 - (id)copyDataFromAttributes;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;

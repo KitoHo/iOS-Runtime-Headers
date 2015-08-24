@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADImageFill;
-
 @interface OADImageProperties : OADGraphicProperties {
     OADImageFill *mImageFill;
 }
@@ -11,7 +9,7 @@
 + (id)defaultProperties;
 
 - (void)dealloc;
-- (bool)hasImageFill;
+- (BOOL)hasImageFill;
 - (id)imageFill;
 - (void)setImageFill:(id)arg1;
 

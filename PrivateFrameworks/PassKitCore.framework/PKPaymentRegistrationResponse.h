@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSArray, NSNumber, NSString, NSURL;
-
 @interface PKPaymentRegistrationResponse : PKPaymentWebServiceResponse {
     NSURL *_brokerURL;
     NSNumber *_cardsOnFile;
@@ -11,16 +9,20 @@
     NSString *_deviceIdentifier;
     NSNumber *_maxCards;
     NSURL *_paymentServicesURL;
+    NSString *_primaryRegion;
+    NSDictionary *_regions;
     NSURL *_trustedServiceManagerURL;
 }
 
-@property(retain) NSURL * brokerURL;
-@property(retain) NSNumber * cardsOnFile;
-@property(retain) NSArray * certificates;
-@property(retain) NSString * deviceIdentifier;
-@property(retain) NSNumber * maxCards;
-@property(retain) NSURL * paymentServicesURL;
-@property(retain) NSURL * trustedServiceManagerURL;
+@property (nonatomic, retain) NSURL *brokerURL;
+@property (nonatomic, retain) NSNumber *cardsOnFile;
+@property (nonatomic, retain) NSArray *certificates;
+@property (nonatomic, retain) NSString *deviceIdentifier;
+@property (nonatomic, retain) NSNumber *maxCards;
+@property (nonatomic, retain) NSURL *paymentServicesURL;
+@property (nonatomic, readonly) NSString *primaryRegion;
+@property (nonatomic, retain) NSDictionary *regions;
+@property (nonatomic, retain) NSURL *trustedServiceManagerURL;
 
 - (id)brokerURL;
 - (id)cardsOnFile;
@@ -30,12 +32,15 @@
 - (id)initWithData:(id)arg1;
 - (id)maxCards;
 - (id)paymentServicesURL;
+- (id)primaryRegion;
+- (id)regions;
 - (void)setBrokerURL:(id)arg1;
 - (void)setCardsOnFile:(id)arg1;
 - (void)setCertificates:(id)arg1;
 - (void)setDeviceIdentifier:(id)arg1;
 - (void)setMaxCards:(id)arg1;
 - (void)setPaymentServicesURL:(id)arg1;
+- (void)setRegions:(id)arg1;
 - (void)setTrustedServiceManagerURL:(id)arg1;
 - (id)trustedServiceManagerURL;
 

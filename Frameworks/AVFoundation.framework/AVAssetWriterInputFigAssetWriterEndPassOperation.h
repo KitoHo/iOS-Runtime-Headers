@@ -2,37 +2,31 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class AVAssetWriterInputPassDescription, NSError;
-
 @interface AVAssetWriterInputFigAssetWriterEndPassOperation : NSObject {
-    id _completionBlock;
+    id /* block */ _completionBlock;
     NSError *_error;
     struct OpaqueFigAssetWriter { } *_figAssetWriter;
     AVAssetWriterInputPassDescription *_nextPassDescription;
+    BOOL _succeeded;
     int _trackID;
-    bool_succeeded;
 }
 
-@property(copy) id completionBlock;
-@property(readonly) AVAssetWriterInputPassDescription * descriptionForNextPass;
-@property(readonly) NSError * error;
-@property(readonly) bool succeeded;
+@property (nonatomic, copy) id /* block */ completionBlock;
+@property (nonatomic, readonly) AVAssetWriterInputPassDescription *descriptionForNextPass;
+@property (nonatomic, readonly) NSError *error;
+@property (nonatomic, readonly) BOOL succeeded;
 
-- (void)_markOperationAsCompletedWithSuccess:(bool)arg1 error:(id)arg2;
-- (void)_notifyWhetherMorePassesAreNeeded:(bool)arg1 timeRanges:(id)arg2 forTrackWithID:(int)arg3;
-- (id)completionBlock;
+- (void)_markOperationAsCompletedWithSuccess:(BOOL)arg1 error:(id)arg2;
+- (void)_notifyWhetherMorePassesAreNeeded:(BOOL)arg1 timeRanges:(id)arg2 forTrackWithID:(int)arg3;
+- (id /* block */)completionBlock;
 - (void)dealloc;
 - (id)descriptionForNextPass;
 - (id)error;
 - (void)finalize;
 - (id)init;
 - (id)initWithFigAssetWriter:(struct OpaqueFigAssetWriter { }*)arg1 trackID:(int)arg2;
-- (void)setCompletionBlock:(id)arg1;
+- (void)setCompletionBlock:(id /* block */)arg1;
 - (void)start;
-- (bool)succeeded;
+- (BOOL)succeeded;
 
 @end

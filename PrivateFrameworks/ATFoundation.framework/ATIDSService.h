@@ -2,40 +2,43 @@
    Image: /System/Library/PrivateFrameworks/ATFoundation.framework/ATFoundation
  */
 
-@class ATIDSConnectionState, IDSService, MSVXPCTransaction, NSObject<OS_dispatch_queue>, NSString;
-
-@interface ATIDSService : ATMessageLinkListener <IDSServiceDelegate, ATSocketDelegate> {
-    ATIDSConnectionState *_connectionState;
+@interface ATIDSService : ATMessageLinkListener <ATSocketDelegate, IDSServiceDelegate> {
+    ATIDSConnectionInfo *_connectionInfo;
+    NSMutableArray *_listeners;
     NSObject<OS_dispatch_queue> *_queue;
     IDSService *_service;
-    MSVXPCTransaction *_xpcTransaction;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-+ (long long)openSocketPriorityFromATPendingChangePriority:(int)arg1;
++ (int)openSocketPriorityFromATPendingChangePriority:(int)arg1;
 
 - (void).cxx_destruct;
 - (void)_cancelPendingConnectionRequests;
-- (void)_connectToDevice:(id)arg1 withPriority:(long long)arg2;
-- (id)_connectionStateForDevice:(id)arg1;
+- (void)_connect;
 - (id)_messageTypeToString:(int)arg1;
-- (void)_scheduleReconnectToDevice:(id)arg1;
-- (void)_sendWakeupToDevice:(id)arg1;
+- (void)_scheduleConnectWithPriority:(int)arg1;
+- (void)_scheduleReconnect;
+- (void)_sendWakeup;
+- (void)addListener:(id)arg1;
 - (id)deviceForId:(id)arg1;
-- (bool)hasPairedDevice;
+- (BOOL)hasPairedDevice;
 - (id)initWithServiceName:(id)arg1;
 - (id)pairedDevice;
-- (void)requestConnectionToPairedDeviceWithPriority:(long long)arg1;
-- (void)sendMessage:(int)arg1 withData:(id)arg2 toDevice:(id)arg3 withCompletion:(id)arg4;
+- (void)removeListener:(id)arg1;
+- (void)requestConnectionToPairedDeviceWithPriority:(int)arg1;
+- (void)service:(id)arg1 account:(id)arg2 identifier:(id)arg3 didSendWithSuccess:(BOOL)arg4 error:(id)arg5;
+- (void)service:(id)arg1 account:(id)arg2 identifier:(id)arg3 hasBeenDeliveredWithContext:(id)arg4;
 - (void)service:(id)arg1 account:(id)arg2 incomingUnhandledProtobuf:(id)arg3 fromID:(id)arg4 context:(id)arg5;
 - (void)service:(id)arg1 devicesChanged:(id)arg2;
-- (void)socket:(id)arg1 hasDataAvailable:(id)arg2;
+- (void)service:(id)arg1 nearbyDevicesChanged:(id)arg2;
+- (void)setPreferWifi:(BOOL)arg1;
+- (void)socket:(id)arg1 hasDataAvailable:(const char *)arg2 length:(long)arg3;
 - (void)socketDidClose:(id)arg1;
-- (bool)start;
+- (BOOL)start;
 - (void)stop;
 
 @end

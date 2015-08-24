@@ -2,28 +2,26 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSIndexSet, NSObject;
-
 @interface NSKeyValueChangeDictionary : NSDictionary {
-    struct { 
-        unsigned long long kind; 
+    /* Warning: unhandled struct encoding: '{?="kind"I"oldValue"@"NSObject""newValue"@"NSObject""indexes"@"NSIndexSet""extraData"@}' */ struct { 
+        unsigned int kind; 
         NSObject *oldValue; 
         NSObject *newValue; 
         NSIndexSet *indexes; 
         id extraData; 
     } _details;
+    BOOL _isPriorNotification;
+    BOOL _isRetainingObjects;
     NSObject *_originalObservable;
-    bool_isPriorNotification;
-    bool_isRetainingObjects;
 }
 
-- (unsigned long long)count;
+- (unsigned int)count;
 - (void)dealloc;
-- (id)initWithDetailsNoCopy:(struct { unsigned long long x1; id x2; id x3; id x4; id x5; })arg1 originalObservable:(id)arg2 isPriorNotification:(bool)arg3;
+- (id)initWithDetailsNoCopy:(struct { unsigned int x1; id x2; id x3; })arg1 originalObservable:(id)arg2 isPriorNotification:(BOOL)arg3;
 - (id)keyEnumerator;
 - (id)objectForKey:(id)arg1;
 - (void)retainObjects;
-- (void)setDetailsNoCopy:(struct { unsigned long long x1; id x2; id x3; id x4; id x5; })arg1 originalObservable:(id)arg2;
+- (void)setDetailsNoCopy:(struct { unsigned int x1; id x2; id x3; })arg1 originalObservable:(id)arg2;
 - (void)setOriginalObservable:(id)arg1;
 
 @end

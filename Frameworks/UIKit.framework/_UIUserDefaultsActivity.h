@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSArray, UINavigationController, UIViewController, _UIActivityUserDefaults;
-
 @interface _UIUserDefaultsActivity : UIActivity {
     NSArray *_availableActivities;
     UINavigationController *_navigationController;
@@ -11,21 +9,21 @@
     UIViewController *_userDefaultsViewController;
 }
 
-@property(copy) NSArray * availableActivities;
-@property(retain) UINavigationController * navigationController;
-@property(retain) _UIActivityUserDefaults * userDefaults;
-@property(retain) UIViewController * userDefaultsViewController;
+@property (nonatomic, copy) NSArray *availableActivities;
+@property (nonatomic, retain) UINavigationController *navigationController;
+@property (nonatomic, retain) _UIActivityUserDefaults *userDefaults;
+@property (nonatomic, retain) UIViewController *userDefaultsViewController;
 
 - (id)_activityImage;
 - (void)_cleanup;
 - (void)_prepareActivityViewControllerIfNeeded;
 - (void)_settingsViewControllerDidDismiss:(id)arg1;
-- (void)activityDidFinish:(bool)arg1 items:(id)arg2 error:(id)arg3;
+- (void)activityDidFinish:(BOOL)arg1 items:(id)arg2 error:(id)arg3;
 - (id)activityTitle;
 - (id)activityType;
 - (id)activityViewController;
 - (id)availableActivities;
-- (bool)canPerformWithActivityItems:(id)arg1;
+- (BOOL)canPerformWithActivityItems:(id)arg1;
 - (void)dealloc;
 - (id)initWithUserDefaults:(id)arg1;
 - (id)navigationController;

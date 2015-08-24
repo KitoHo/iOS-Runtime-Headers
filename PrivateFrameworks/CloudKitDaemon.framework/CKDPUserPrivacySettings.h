@@ -3,27 +3,27 @@
  */
 
 @interface CKDPUserPrivacySettings : PBCodable <NSCopying> {
+    BOOL _discoverable;
     struct { 
         unsigned int discoverable : 1; 
     } _has;
-    bool_discoverable;
 }
 
-@property bool discoverable;
-@property bool hasDiscoverable;
+@property (nonatomic) BOOL discoverable;
+@property (nonatomic) BOOL hasDiscoverable;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)discoverable;
-- (bool)hasDiscoverable;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)discoverable;
+- (BOOL)hasDiscoverable;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
-- (void)setDiscoverable:(bool)arg1;
-- (void)setHasDiscoverable:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setDiscoverable:(BOOL)arg1;
+- (void)setHasDiscoverable:(BOOL)arg1;
 - (void)writeTo:(id)arg1;
 
 @end

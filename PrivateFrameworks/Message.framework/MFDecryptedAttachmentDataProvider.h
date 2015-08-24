@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class MFMailMessage, NSString;
-
 @interface MFDecryptedAttachmentDataProvider : NSObject <MFAttachmentDataProvider> {
     MFMailMessage *_message;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void)dealloc;
-- (bool)fetchDataForAttachment:(id)arg1 withDataConsumer:(id)arg2 error:(id*)arg3;
+- (BOOL)fetchDataForAttachment:(id)arg1 withDataConsumer:(id)arg2 error:(id*)arg3;
 - (id)fetchLocalDataForAttachment:(id)arg1;
 - (id)initWithDecryptedMessage:(id)arg1;
 - (id)messageForAttachment:(id)arg1;

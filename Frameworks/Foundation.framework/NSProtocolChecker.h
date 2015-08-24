@@ -2,20 +2,18 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSObject, Protocol;
+@interface NSProtocolChecker : NSProxy
 
-@interface NSProtocolChecker : NSProxy {
-}
+@property (readonly) Protocol *protocol;
+@property (readonly, retain) NSObject *target;
 
-@property(readonly) Protocol * protocol;
-@property(retain,readonly) NSObject * target;
+// Image: /System/Library/Frameworks/Foundation.framework/Foundation
 
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
 + (id)protocolCheckerWithTarget:(id)arg1 protocol:(id)arg2;
 
-- (id)_imMethodSignatureForSelector:(SEL)arg1;
 - (const char *)_localClassNameForClass;
-- (bool)conformsToProtocol:(id)arg1;
+- (BOOL)conformsToProtocol:(id)arg1;
 - (void)doesNotRecognizeSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;
 - (id)forwardingTargetForSelector:(SEL)arg1;
@@ -23,7 +21,11 @@
 - (struct objc_method_description { SEL x1; char *x2; }*)methodDescriptionForSelector:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (id)protocol;
-- (bool)respondsToSelector:(SEL)arg1;
+- (BOOL)respondsToSelector:(SEL)arg1;
 - (id)target;
+
+// Image: /System/Library/PrivateFrameworks/IMFoundation.framework/IMFoundation
+
+- (id)_imMethodSignatureForSelector:(SEL)arg1;
 
 @end

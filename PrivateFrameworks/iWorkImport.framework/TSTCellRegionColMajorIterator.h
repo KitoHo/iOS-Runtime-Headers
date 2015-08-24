@@ -2,26 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString;
-
 @interface TSTCellRegionColMajorIterator : NSObject <TSTCellRegionIterating> {
-    struct set<TSUColumnRowRect, TSTCellRangeColumnMajorLess, std::__1::allocator<TSUColumnRowRect> > { 
-        struct __tree<TSUColumnRowRect, TSTCellRangeColumnMajorLess, std::__1::allocator<TSUColumnRowRect> > { 
-            struct __tree_node<TSUColumnRowRect, void *> {} *__begin_node_; 
-            struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *> *>, std::__1::allocator<std::__1::__tree_node<TSUColumnRowRect, void *> > > { 
-                struct __tree_end_node<std::__1::__tree_node_base<void *> *> { 
-                    struct __tree_node_base<void *> {} *__left_; 
-                } __first_; 
-            } __pair1_; 
-            struct __compressed_pair<unsigned long, TSTCellRangeColumnMajorLess> { 
-                unsigned long long __first_; 
-            } __pair3_; 
-        } __tree_; 
-    struct { 
-        unsigned short row; 
-        unsigned char column; 
-        unsigned char reserved; 
-    struct { 
+    struct TSUColumnRowRect { 
         struct { 
             unsigned short row; 
             unsigned char column; 
@@ -32,14 +14,30 @@
             unsigned short numberOfRows; 
         } size; 
     } mBoundingCellRange;
+    struct { 
+        unsigned short row; 
+        unsigned char column; 
+        unsigned char reserved; 
     } mCellID;
+    struct set<TSUColumnRowRect, TSTCellRangeColumnMajorLess, std::__1::allocator<TSUColumnRowRect> > { 
+        struct __tree<TSUColumnRowRect, TSTCellRangeColumnMajorLess, std::__1::allocator<TSUColumnRowRect> > { 
+            struct __tree_node<TSUColumnRowRect, void *> {} *__begin_node_; 
+            struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *> *>, std::__1::allocator<std::__1::__tree_node<TSUColumnRowRect, void *> > > { 
+                struct __tree_end_node<std::__1::__tree_node_base<void *> *> { 
+                    struct __tree_node_base<void *> {} *__left_; 
+                } __first_; 
+            } __pair1_; 
+            struct __compressed_pair<unsigned long, TSTCellRangeColumnMajorLess> { 
+                unsigned long __first_; 
+            } __pair3_; 
+        } __tree_; 
     } mCellRangeSet;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;

@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/CoreUI.framework/CoreUI
  */
 
-@class NSArray;
-
 @interface _CUIKeyTestOrganizer : NSObject {
-    struct _renditionkeytoken { 
-        unsigned short identifier; 
-        unsigned short value; 
-    struct _renditionkeytoken { 
-        unsigned short identifier; 
-        unsigned short value; 
-    unsigned long long chooseCount;
-    unsigned long long flexAttributesCount;
+    unsigned int chooseCount;
+    unsigned int flexAttributesCount;
     NSArray *orderedNonZeroFlexibleAttributes;
-    } originalKey[16];
-    unsigned long long subchooseCount;
-    } testKey[16];
+    struct _renditionkeytoken { 
+        unsigned short identifier; 
+        unsigned short value; 
+    } originalKey;
+    unsigned int subchooseCount;
+    struct _renditionkeytoken { 
+        unsigned short identifier; 
+        unsigned short value; 
+    } testKey;
 }
 
-- (unsigned long long)_attributeToBumpIndex;
+- (unsigned int)_attributeToBumpIndex;
 - (void)_bumpTestKey;
-- (bool)_bumpTestKeyAttributeIndex:(unsigned long long)arg1;
+- (BOOL)_bumpTestKeyAttributeIndex:(unsigned int)arg1;
 - (id)_nonZeroFlexibleAttributesInKey:(const struct _renditionkeytoken { unsigned short x1; unsigned short x2; }*)arg1;
 - (void)dealloc;
 - (id)initWithRenditionKey:(const struct _renditionkeytoken { unsigned short x1; unsigned short x2; }*)arg1;

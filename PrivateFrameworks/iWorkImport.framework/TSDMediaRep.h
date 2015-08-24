@@ -2,57 +2,33 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class CALayer, CAShapeLayer, TSDFrameRep, TSDMediaInfo, TSDMediaLayout;
-
 @interface TSDMediaRep : TSDStyledRep {
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    boolmIsZooming;
     CALayer *mFrameMaskLayer;
     TSDFrameRep *mFrameRep;
+    BOOL mIsZooming;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } mLastPictureFrameLayerRect;
     CAShapeLayer *mMaskLayer;
     CAShapeLayer *mStrokeLayer;
     CALayer *mTapToReplaceLayer;
 }
 
-@property(readonly) TSDMediaInfo * mediaInfo;
-@property(readonly) TSDMediaLayout * mediaLayout;
-@property(readonly) bool shouldShowMediaReplaceUI;
+@property (nonatomic, readonly) TSDMediaInfo *mediaInfo;
+@property (nonatomic, readonly) TSDMediaLayout *mediaLayout;
 
-- (id)additionalLayersOverLayer;
-- (bool)canResetMediaSize;
-- (id)commandToResetMediaToInsertedSize;
-- (id)commandToResetMediaToRawPixelSize;
-- (id)commandToResetToSize:(struct CGSize { double x1; double x2; })arg1;
-- (id)currentReplaceButtonHighlightedImage;
-- (id)currentReplaceButtonImage;
 - (void)dealloc;
-- (void)didEndZooming;
-- (bool)i_shouldRenderStroke:(id)arg1;
+- (BOOL)i_shouldRenderStroke:(id)arg1;
 - (void)i_updateFrameRep;
-- (bool)isPlaceholder;
+- (BOOL)isPlaceholder;
 - (id)mediaInfo;
 - (id)mediaLayout;
-- (id)overlayLayers;
-- (void)p_addLayerForReplaceButtonToArray:(id)arg1;
-- (struct CGSize { double x1; double x2; })p_replaceButtonSize;
-- (struct CGPoint { double x1; double x2; })p_scaledPositionOfImageReplaceKnob;
-- (id)p_tapToReplaceLayer;
-- (void)p_updateTapToReplaceLayerPosition;
-- (void)processChangedProperty:(int)arg1;
-- (bool)replaceButtonContainsPoint:(struct CGPoint { double x1; double x2; })arg1;
-- (bool)shouldAllowReplacementFromDrop;
-- (bool)shouldAllowReplacementFromPaste;
-- (bool)shouldShowMediaReplaceUI;
-- (id)visibleMediaReplaceButtonLayer;
-- (void)willBeginZooming;
 
 @end

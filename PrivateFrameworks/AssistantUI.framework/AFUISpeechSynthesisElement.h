@@ -2,62 +2,56 @@
    Image: /System/Library/PrivateFrameworks/AssistantUI.framework/AssistantUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <AFUISpeechSynthesisElementDelegate>, NSString, VSSpeechRequest;
-
 @interface AFUISpeechSynthesisElement : NSObject {
     NSString *_animationIdentifier;
-    id _completion;
+    id /* block */ _completion;
     <AFUISpeechSynthesisElementDelegate> *_delegate;
+    BOOL _durationHasElapsed;
+    BOOL _eligibleForSynthesis;
+    BOOL _isPhonetic;
+    BOOL _preprationBlockCompleted;
+    BOOL _provisional;
     VSSpeechRequest *_speechRequest;
-    long long _synthesisResult;
+    int _synthesisResult;
     NSString *_text;
-    bool_durationHasElapsed;
-    bool_eligibleForSynthesis;
-    bool_isPhonetic;
-    bool_preprationBlockCompleted;
-    bool_provisional;
 }
 
-@property(readonly) NSString * animationIdentifier;
-@property(getter=_completion,readonly) id completion;
-@property <AFUISpeechSynthesisElementDelegate> * delegate;
-@property(setter=_setDurationHasElapsed:) bool durationHasElapsed;
-@property(getter=isEligibleForSynthesis) bool eligibleForSynthesis;
-@property bool isPhonetic;
-@property(setter=_setPreparationBlockCompleted:) bool preprationBlockCompleted;
-@property(getter=isProvisional,readonly) bool provisional;
-@property(retain) VSSpeechRequest * speechRequest;
-@property long long synthesisResult;
-@property(copy) NSString * text;
+@property (nonatomic, readonly) NSString *animationIdentifier;
+@property (getter=_completion, nonatomic, readonly) id /* block */ completion;
+@property (nonatomic) <AFUISpeechSynthesisElementDelegate> *delegate;
+@property (setter=_setDurationHasElapsed:) BOOL durationHasElapsed;
+@property (getter=isEligibleForSynthesis, nonatomic) BOOL eligibleForSynthesis;
+@property (nonatomic) BOOL isPhonetic;
+@property (setter=_setPreparationBlockCompleted:) BOOL preprationBlockCompleted;
+@property (getter=isProvisional, nonatomic, readonly) BOOL provisional;
+@property (nonatomic, retain) VSSpeechRequest *speechRequest;
+@property (nonatomic) int synthesisResult;
+@property (nonatomic, copy) NSString *text;
 
 - (void).cxx_destruct;
-- (id)_completion;
-- (void)_setDurationHasElapsed:(bool)arg1;
-- (void)_setEligibleForSynthesis:(bool)arg1;
-- (void)_setPreparationBlockCompleted:(bool)arg1;
+- (id /* block */)_completion;
+- (void)_setDurationHasElapsed:(BOOL)arg1;
+- (void)_setEligibleForSynthesis:(BOOL)arg1;
+- (void)_setPreparationBlockCompleted:(BOOL)arg1;
 - (void)_setText:(id)arg1;
 - (void)_updateSynthesisEligibility;
 - (id)animationIdentifier;
 - (id)delegate;
 - (id)description;
-- (bool)durationHasElapsed;
+- (BOOL)durationHasElapsed;
 - (void)executeCompletion;
 - (id)init;
-- (id)initWithText:(id)arg1 provisional:(bool)arg2 eligibleAfterDuration:(double)arg3 preparation:(id)arg4 completion:(id)arg5 animationIdentifier:(id)arg6;
-- (bool)isEligibleForSynthesis;
-- (bool)isPhonetic;
-- (bool)isProvisional;
-- (bool)preprationBlockCompleted;
+- (id)initWithText:(id)arg1 provisional:(BOOL)arg2 eligibleAfterDuration:(double)arg3 preparation:(id /* block */)arg4 completion:(id /* block */)arg5 animationIdentifier:(id)arg6;
+- (BOOL)isEligibleForSynthesis;
+- (BOOL)isPhonetic;
+- (BOOL)isProvisional;
+- (BOOL)preprationBlockCompleted;
 - (void)setDelegate:(id)arg1;
-- (void)setIsPhonetic:(bool)arg1;
+- (void)setIsPhonetic:(BOOL)arg1;
 - (void)setSpeechRequest:(id)arg1;
-- (void)setSynthesisResult:(long long)arg1;
+- (void)setSynthesisResult:(int)arg1;
 - (id)speechRequest;
-- (long long)synthesisResult;
+- (int)synthesisResult;
 - (id)text;
 
 @end

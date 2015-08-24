@@ -3,17 +3,19 @@
  */
 
 @interface HDSQLiteNullPredicate : HDSQLitePropertyPredicate <NSCopying> {
-    bool_matchesNull;
+    BOOL _matchesNull;
 }
 
-@property(readonly) bool matchesNull;
+@property (nonatomic, readonly) BOOL matchesNull;
 
 + (id)isNotNullPredicateWithProperty:(id)arg1;
 + (id)isNullPredicateWithProperty:(id)arg1;
 
 - (id)SQLForEntityClass:(Class)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)matchesNull;
+- (id)description;
+- (BOOL)isCompatibleWithPredicate:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)matchesNull;
 
 @end

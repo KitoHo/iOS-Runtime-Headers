@@ -2,27 +2,30 @@
    Image: /System/Library/PrivateFrameworks/IMCore.framework/IMCore
  */
 
-@class IMHandle;
-
 @interface IMLocationShareActionChatItem : IMTranscriptChatItem {
     IMHandle *_otherHandle;
     IMHandle *_sender;
 }
 
-@property(readonly) long long actionType;
-@property(readonly) long long direction;
-@property(readonly) bool isFromMe;
-@property(retain,readonly) IMHandle * otherHandle;
-@property(retain,readonly) IMHandle * sender;
+@property (nonatomic, readonly) long long actionType;
+@property (nonatomic, readonly) long long direction;
+@property (nonatomic, readonly) BOOL isFromMe;
+@property (nonatomic, readonly, retain) IMHandle *otherHandle;
+@property (nonatomic, readonly, retain) IMHandle *sender;
 
-- (Class)__ck_chatItemClass;
+// Image: /System/Library/PrivateFrameworks/IMCore.framework/IMCore
+
 - (id)_initWithItem:(id)arg1 sender:(id)arg2 otherHandle:(id)arg3;
 - (long long)actionType;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (long long)direction;
-- (bool)isFromMe;
+- (BOOL)isFromMe;
 - (id)otherHandle;
 - (id)sender;
+
+// Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
+
+- (Class)__ck_chatItemClass;
 
 @end

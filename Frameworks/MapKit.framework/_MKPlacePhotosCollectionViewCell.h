@@ -2,18 +2,16 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class _MKPlacePhotosCollectionView;
-
 @interface _MKPlacePhotosCollectionViewCell : UITableViewCell {
     _MKPlacePhotosCollectionView *_photoGrid;
 }
 
-@property(readonly) _MKPlacePhotosCollectionView * photoGrid;
+@property (nonatomic, readonly) _MKPlacePhotosCollectionView *photoGrid;
 
 + (id)reuseIdentifier;
 
 - (void).cxx_destruct;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (id)photoGrid;
 
 @end

@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSArray, NSDictionary, NSManagedObjectModel, NSMappingModel, NSMigrationManager, NSPersistentStoreCoordinator, NSString, NSURL;
-
 @interface NSStoreMigrationPolicy : NSObject {
     NSPersistentStoreCoordinator *_coordinator;
     NSString *_destinationConfiguration;
@@ -21,10 +19,10 @@
     NSManagedObjectModel *_sourceModel;
     NSDictionary *_sourceOptions;
     NSURL *_sourceURL;
-    long long _workingWithSkewedSource;
+    long _workingWithSkewedSource;
 }
 
-+ (id)destinationURLForMigrationSourceURL:(id)arg1 createDocumentReplacementDirectory:(bool)arg2 error:(id*)arg3;
++ (id)destinationURLForMigrationSourceURL:(id)arg1 createDocumentReplacementDirectory:(BOOL)arg2 error:(id*)arg3;
 + (int)migrationDebugLevel;
 + (id)migrationStoreOptionsFromStoreOptions:(id)arg1;
 + (void)setMigrationDebugLevel:(int)arg1;
@@ -46,7 +44,7 @@
 - (void)handleMigrationError:(id)arg1 inManager:(id)arg2;
 - (id)mappingModel;
 - (id)mappingModelForSourceModel:(id)arg1 destinationModel:(id)arg2 error:(id*)arg3;
-- (bool)migrateStoreAtURL:(id)arg1 toURL:(id)arg2 storeType:(id)arg3 options:(id)arg4 withManager:(id)arg5 error:(id*)arg6;
+- (BOOL)migrateStoreAtURL:(id)arg1 toURL:(id)arg2 storeType:(id)arg3 options:(id)arg4 withManager:(id)arg5 error:(id*)arg6;
 - (id)migrateStoreAtURL:(id)arg1 withManager:(id)arg2 metadata:(id)arg3 options:(id)arg4 error:(id*)arg5;
 - (id)migrationManager;
 - (id)persistentStoreCoordinator;
@@ -57,8 +55,8 @@
 - (void)setDestinationURL:(id)arg1;
 - (void)setMappingModel:(id)arg1;
 - (void)setMigrationManager:(id)arg1;
-- (void)setPersistentStoreCoordinator:(id)arg1 sourceURL:(id)arg2 configuration:(id)arg3 metadata:(id)arg4 options:(id)arg5;
 - (void)setPersistentStoreCoordinator:(id)arg1;
+- (void)setPersistentStoreCoordinator:(id)arg1 sourceURL:(id)arg2 configuration:(id)arg3 metadata:(id)arg4 options:(id)arg5;
 - (void)setResourceBundles:(id)arg1;
 - (void)setSourceConfiguration:(id)arg1;
 - (void)setSourceMetadata:(id)arg1;

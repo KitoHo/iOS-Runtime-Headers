@@ -2,14 +2,13 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@interface SASettingOpenLocationServicesSettings : SASettingOpenSettings {
-}
+@interface SASettingOpenLocationServicesSettings : SASettingOpenSettings
 
 + (id)openLocationServicesSettings;
 + (id)openLocationServicesSettingsWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 
 @end

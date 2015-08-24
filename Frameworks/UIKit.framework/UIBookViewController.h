@@ -2,15 +2,13 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class <UIBookViewControllerDelegate>, UIView, UIViewController;
-
 @interface UIBookViewController : UIViewController {
+    int _animatedPageTurns;
     struct UIEdgeInsets { 
-        double top; 
-        double left; 
-        double bottom; 
-        double right; 
-    long long _animatedPageTurns;
+        float top; 
+        float left; 
+        float bottom; 
+        float right; 
     } _contentInset;
     UIView *_contentView;
     <UIBookViewControllerDelegate> *_delegate;
@@ -18,27 +16,27 @@
     UIViewController *_newEvenPage;
     UIViewController *_newOddPage;
     UIViewController *_oddPage;
-    long long _turnCount;
+    int _turnCount;
     double _turnDuration;
-    double _turnMargin;
+    float _turnMargin;
 }
 
-@property struct UIEdgeInsets { double x1; double x2; double x3; double x4; } contentInset;
-@property <UIBookViewControllerDelegate> * delegate;
-@property(retain) UIViewController * evenPage;
-@property(retain) UIViewController * oddPage;
-@property double turnDuration;
-@property double turnMargin;
+@property (nonatomic) struct UIEdgeInsets { float x1; float x2; float x3; float x4; } contentInset;
+@property (nonatomic) <UIBookViewControllerDelegate> *delegate;
+@property (nonatomic, retain) UIViewController *evenPage;
+@property (nonatomic, retain) UIViewController *oddPage;
+@property (nonatomic) double turnDuration;
+@property (nonatomic) float turnMargin;
 
-- (void)_positionPage:(id)arg1 isLeft:(bool)arg2;
-- (void)_setNewPage:(id)arg1 isLeft:(bool)arg2;
+- (void)_positionPage:(id)arg1 isLeft:(BOOL)arg2;
+- (void)_setNewPage:(id)arg1 isLeft:(BOOL)arg2;
 - (void)_setupContentViewIfNecessary;
 - (void)_setupCurlFilters;
 - (void)_startCurlAnimation;
 - (void)_turnAllPagesNonAnimated;
 - (void)_turnSinglePageAnimated;
-- (void)animationDidStop:(id)arg1 finished:(bool)arg2;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })contentInset;
+- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })contentInset;
 - (void)dealloc;
 - (id)delegate;
 - (void)encodeWithCoder:(id)arg1;
@@ -46,15 +44,15 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)oddPage;
-- (void)setContentInset:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; })arg1;
+- (void)setContentInset:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setEvenPage:(id)arg1;
 - (void)setOddPage:(id)arg1;
 - (void)setTurnDuration:(double)arg1;
-- (void)setTurnMargin:(double)arg1;
+- (void)setTurnMargin:(float)arg1;
 - (double)turnDuration;
-- (double)turnMargin;
-- (void)turnPages:(long long)arg1 animated:(bool)arg2;
+- (float)turnMargin;
+- (void)turnPages:(int)arg1 animated:(BOOL)arg2;
 - (id)view;
 
 @end

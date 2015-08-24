@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class GQDSStyle;
-
 @interface GQHBulletInfo : NSObject {
-    boolmHasNumber;
     int mBulletIndent;
     struct __CFString { } *mChar;
+    BOOL mHasNumber;
     int mLabelType;
     int mNumber;
     GQDSStyle *mStyle;
@@ -19,12 +17,12 @@
 - (int)bulletIndent;
 - (struct __CFString { }*)createTierStringNumber;
 - (void)dealloc;
-- (bool)hasNumber;
+- (BOOL)hasNumber;
 - (int)labelType;
 - (int)number;
 - (void)setBulletChar:(struct __CFString { }*)arg1;
 - (void)setBulletIndent:(int)arg1;
-- (void)setHasNumber:(bool)arg1;
+- (void)setHasNumber:(BOOL)arg1;
 - (void)setLabelType:(int)arg1;
 - (void)setNumber:(int)arg1;
 - (void)setStyle:(id)arg1;

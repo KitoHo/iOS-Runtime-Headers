@@ -2,19 +2,16 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSString;
+@interface SKUISoftwareLibraryInterface : NSObject <SKUILibraryInterface>
 
-@interface SKUISoftwareLibraryInterface : NSObject <SKUILibraryInterface> {
-}
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
-
-- (void)enumerateStatesForLibraryItems:(id)arg1 usingBlock:(id)arg2;
+- (void)enumerateStatesForLibraryItems:(id)arg1 usingBlock:(id /* block */)arg2;
 - (id)exposedPlatformItemKinds;
-- (bool)performActionForLibraryItem:(id)arg1;
+- (BOOL)performActionForLibraryItem:(id)arg1;
 - (id)stateForLibraryItem:(id)arg1;
 
 @end

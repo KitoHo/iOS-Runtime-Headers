@@ -6,12 +6,14 @@
     double _displayInterval;
 }
 
-@property(readonly) double displayInterval;
+@property (nonatomic, readonly) double displayInterval;
+@property (nonatomic, readonly) SKUIProgressIndicatorViewElement *progressIndicatorElement;
 
 - (id)applyUpdatesWithElement:(id)arg1;
 - (double)displayInterval;
-- (void)enumerateChildrenUsingBlock:(id)arg1;
+- (void)enumerateChildrenUsingBlock:(id /* block */)arg1;
 - (id)initWithDOMElement:(id)arg1 parent:(id)arg2 elementFactory:(id)arg3;
-- (long long)pageComponentType;
+- (int)pageComponentType;
+- (id)progressIndicatorElement;
 
 @end

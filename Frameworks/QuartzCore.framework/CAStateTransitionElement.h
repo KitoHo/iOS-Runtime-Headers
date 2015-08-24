@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/QuartzCore.framework/QuartzCore
  */
 
-@class CAAnimation, CALayer, NSString;
-
-@interface CAStateTransitionElement : NSObject <NSCopying, NSCoding> {
+@interface CAStateTransitionElement : NSObject <NSCoding, NSCopying> {
     CAAnimation *_animation;
+    BOOL _enabled;
     NSString *_key;
     CALayer *_target;
-    bool_enabled;
 }
 
-@property(retain) CAAnimation * animation;
-@property double beginTime;
-@property double duration;
-@property(getter=isEnabled) bool enabled;
-@property(copy) NSString * key;
-@property CALayer * target;
+@property (nonatomic, retain) CAAnimation *animation;
+@property (nonatomic) double beginTime;
+@property (nonatomic) double duration;
+@property (getter=isEnabled) BOOL enabled;
+@property (nonatomic, copy) NSString *key;
+@property (nonatomic) CALayer *target;
 
 + (void)CAMLParserStartElement:(id)arg1;
 
@@ -32,12 +30,12 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEnabled;
+- (BOOL)isEnabled;
 - (id)key;
 - (void)setAnimation:(id)arg1;
 - (void)setBeginTime:(double)arg1;
 - (void)setDuration:(double)arg1;
-- (void)setEnabled:(bool)arg1;
+- (void)setEnabled:(BOOL)arg1;
 - (void)setKey:(id)arg1;
 - (void)setTarget:(id)arg1;
 - (id)target;

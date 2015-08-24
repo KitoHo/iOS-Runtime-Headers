@@ -2,50 +2,58 @@
    Image: /System/Library/PrivateFrameworks/RadioUI.framework/RadioUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class ISDialogOperation, MPUserNotification, NSLock, RadioGetTracksRequest, RadioPlaybackContext, RadioRequestContext, RadioStation;
-
 @interface RURadioGetTracksOperation : NSOperation {
     ISDialogOperation *_dialogOperation;
     MPUserNotification *_explicitUserNotification;
     RadioGetTracksRequest *_getTracksRequest;
     NSLock *_lock;
-    unsigned long long _numberOfTracks;
+    unsigned int _numberOfTracks;
     RadioPlaybackContext *_playbackContext;
-    long long _reasonType;
+    SSVPlaybackLease *_playbackLease;
+    int _reasonType;
     RadioRequestContext *_requestContext;
-    id _responseBlock;
+    id /* block */ _responseBlock;
+    BOOL _shouldIncludeStationInResponse;
     RadioStation *_station;
+    RadioStationMatchContext *_stationMatchContext;
 }
 
-@property unsigned long long numberOfTracks;
-@property(copy) RadioPlaybackContext * playbackContext;
-@property(readonly) long long reasonType;
-@property(retain) RadioRequestContext * requestContext;
-@property(copy) id responseBlock;
-@property(readonly) RadioStation * station;
+@property unsigned int numberOfTracks;
+@property (copy) RadioPlaybackContext *playbackContext;
+@property (retain) SSVPlaybackLease *playbackLease;
+@property (readonly) int reasonType;
+@property (retain) RadioRequestContext *requestContext;
+@property (copy) id /* block */ responseBlock;
+@property BOOL shouldIncludeStationInResponse;
+@property (retain) RadioStation *station;
+@property (retain) RadioStationMatchContext *stationMatchContext;
 
 - (void).cxx_destruct;
-- (id)_heartbeatTokenDataAllowingDelay:(bool)arg1 error:(id*)arg2;
-- (id)_newGetTracksRequestAllowingHeartbeatDelay:(bool)arg1 additionalRequestParameters:(id)arg2 returningError:(id*)arg3;
-- (id)_runFullGetTracksProcessAllowingNoAvailableVersionDialog:(bool)arg1 additionalRequestParameters:(id)arg2 returningError:(id*)arg3;
-- (id)_runRequestAllowingHeartbeatDelay:(bool)arg1 additionalRequestParameters:(id)arg2 returningError:(id*)arg3;
+- (id)_heartbeatTokenDataAllowingDelay:(BOOL)arg1 error:(id*)arg2;
+- (id)_newGetTracksRequestAllowingHeartbeatDelay:(BOOL)arg1 additionalRequestParameters:(id)arg2 returningError:(id*)arg3;
+- (id)_runFullGetTracksProcessAllowingNoAvailableVersionDialog:(BOOL)arg1 additionalRequestParameters:(id)arg2 returningError:(id*)arg3;
+- (id)_runRequestAllowingHeartbeatDelay:(BOOL)arg1 additionalRequestParameters:(id)arg2 returningError:(id*)arg3;
 - (void)cancel;
 - (void)dealloc;
-- (id)initWithStation:(id)arg1 reasonType:(long long)arg2;
+- (id)init;
+- (id)initWithReasonType:(int)arg1;
 - (void)main;
-- (unsigned long long)numberOfTracks;
+- (unsigned int)numberOfTracks;
 - (id)playbackContext;
-- (long long)reasonType;
+- (id)playbackLease;
+- (int)reasonType;
 - (id)requestContext;
-- (id)responseBlock;
-- (void)setNumberOfTracks:(unsigned long long)arg1;
+- (id /* block */)responseBlock;
+- (void)setNumberOfTracks:(unsigned int)arg1;
 - (void)setPlaybackContext:(id)arg1;
+- (void)setPlaybackLease:(id)arg1;
 - (void)setRequestContext:(id)arg1;
-- (void)setResponseBlock:(id)arg1;
+- (void)setResponseBlock:(id /* block */)arg1;
+- (void)setShouldIncludeStationInResponse:(BOOL)arg1;
+- (void)setStation:(id)arg1;
+- (void)setStationMatchContext:(id)arg1;
+- (BOOL)shouldIncludeStationInResponse;
 - (id)station;
+- (id)stationMatchContext;
 
 @end

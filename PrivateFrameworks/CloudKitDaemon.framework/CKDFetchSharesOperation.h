@@ -2,36 +2,26 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray;
-
-@interface CKDFetchSharesOperation : CKDOperation {
-    id _shareFetchedProgressBlock;
-    NSArray *_shareIDsToFetch;
-    NSArray *_shares;
-    bool_isFetchAllSharesOperation;
+@interface CKDFetchSharesOperation : CKDDatabaseOperation {
+    id /* block */ _shareFetchedProgressBlock;
+    NSArray *_shareIDs;
+    NSArray *_zoneIDs;
 }
 
-@property bool isFetchAllSharesOperation;
-@property(copy) id shareFetchedProgressBlock;
-@property(retain) NSArray * shareIDsToFetch;
-@property(retain) NSArray * shares;
+@property (nonatomic, copy) id /* block */ shareFetchedProgressBlock;
+@property (nonatomic, retain) NSArray *shareIDs;
+@property (nonatomic, retain) NSArray *zoneIDs;
 
 - (void).cxx_destruct;
 - (void)_finishOnCallbackQueueWithError:(id)arg1;
-- (void)_handleShareFetched:(id)arg1 withID:(id)arg2 responseCode:(id)arg3;
+- (void)_handleShareFetched:(id)arg1 shareID:(id)arg2 zoneID:(id)arg3 operationResult:(id)arg4;
 - (id)initWithOperationInfo:(id)arg1 clientContext:(id)arg2;
-- (bool)isFetchAllSharesOperation;
 - (void)main;
-- (void)setIsFetchAllSharesOperation:(bool)arg1;
-- (void)setShareFetchedProgressBlock:(id)arg1;
-- (void)setShareIDsToFetch:(id)arg1;
-- (void)setShares:(id)arg1;
-- (id)shareFetchedProgressBlock;
-- (id)shareIDsToFetch;
-- (id)shares;
+- (void)setShareFetchedProgressBlock:(id /* block */)arg1;
+- (void)setShareIDs:(id)arg1;
+- (void)setZoneIDs:(id)arg1;
+- (id /* block */)shareFetchedProgressBlock;
+- (id)shareIDs;
+- (id)zoneIDs;
 
 @end

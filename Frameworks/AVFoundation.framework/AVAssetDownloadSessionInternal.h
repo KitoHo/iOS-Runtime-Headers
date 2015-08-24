@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVWeakReference, NSError, NSNumber, NSObject<OS_dispatch_queue>, NSURL;
-
 @interface AVAssetDownloadSessionInternal : NSObject {
     NSURL *URL;
     struct OpaqueFigAsset { } *asset;
@@ -13,9 +11,9 @@
     NSError *error;
     struct OpaqueFigPlaybackItem { } *playbackItem;
     struct OpaqueFigPlayer { } *player;
-    long long priority;
+    int priority;
     NSObject<OS_dispatch_queue> *readWriteQueue;
-    long long status;
+    int status;
     AVWeakReference *weakReference;
 }
 

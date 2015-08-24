@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/ScreenReaderOutputServer.framework/ScreenReaderOutputServer
  */
 
-@class NSString;
-
-@interface SCROIOElement : NSObject <SCROIOElementProtocol, NSCopying> {
-    int _identifier;
+@interface SCROIOElement : NSObject <NSCopying, SCROIOElementProtocol> {
+    long _identifier;
     unsigned int _ioObject;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
-- (unsigned long long)hash;
-- (int)identifier;
+- (unsigned int)hash;
+- (long)identifier;
 - (id)initWithIOObject:(unsigned int)arg1;
 - (unsigned int)ioObject;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (int)transport;
 
 @end

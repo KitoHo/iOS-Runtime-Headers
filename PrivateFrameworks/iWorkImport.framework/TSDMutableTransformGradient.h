@@ -2,43 +2,41 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSArray, NSString, TSUColor;
+@interface TSDMutableTransformGradient : TSDTransformGradient <TSDGradientStopContainer>
 
-@interface TSDMutableTransformGradient : TSDTransformGradient <TSDGradientStopContainer> {
-}
+@property (nonatomic) struct CGSize { float x1; float x2; } baseNaturalSize;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) struct CGPoint { float x1; float x2; } endPoint;
+@property (nonatomic, retain) TSUColor *firstColor;
+@property (nonatomic, retain) NSArray *gradientStops;
+@property (nonatomic) unsigned int gradientType;
+@property (readonly) unsigned int hash;
+@property (nonatomic) BOOL isAdvancedGradient;
+@property (nonatomic, retain) TSUColor *lastColor;
+@property (nonatomic) float opacity;
+@property (nonatomic) struct CGPoint { float x1; float x2; } startPoint;
+@property (readonly) Class superclass;
 
-@property struct CGSize { double x1; double x2; } baseNaturalSize;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property struct CGPoint { double x1; double x2; } endPoint;
-@property(retain) TSUColor * firstColor;
-@property(retain) NSArray * gradientStops;
-@property unsigned long long gradientType;
-@property(readonly) unsigned long long hash;
-@property bool isAdvancedGradient;
-@property(retain) TSUColor * lastColor;
-@property double opacity;
-@property struct CGPoint { double x1; double x2; } startPoint;
-@property(readonly) Class superclass;
-
+- (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)evenlyDistributeStops;
 - (void)insertGradientStop:(id)arg1;
-- (id)insertStopAtFraction:(double)arg1 withColor:(id)arg2;
-- (id)insertStopAtFraction:(double)arg1;
-- (void)moveStopAtIndex:(unsigned long long)arg1 toFraction:(double)arg2;
+- (id)insertStopAtFraction:(float)arg1;
+- (id)insertStopAtFraction:(float)arg1 withColor:(id)arg2;
+- (void)moveStopAtIndex:(unsigned int)arg1 toFraction:(float)arg2;
 - (void)removeStop:(id)arg1;
-- (id)removeStopAtIndex:(unsigned long long)arg1;
+- (id)removeStopAtIndex:(unsigned int)arg1;
 - (void)reverseStopOrder;
-- (void)setColorOfStopAtIndex:(unsigned long long)arg1 toColor:(id)arg2;
-- (void)setEndPoint:(struct CGPoint { double x1; double x2; })arg1 inShapeWithNaturalSize:(struct CGSize { double x1; double x2; })arg2;
+- (void)setColorOfStopAtIndex:(unsigned int)arg1 toColor:(id)arg2;
+- (void)setEndPoint:(struct CGPoint { float x1; float x2; })arg1 inShapeWithNaturalSize:(struct CGSize { float x1; float x2; })arg2;
 - (void)setFirstColor:(id)arg1;
-- (void)setGradientAngleInDegrees:(double)arg1;
+- (void)setGradientAngleInDegrees:(float)arg1;
 - (void)setGradientStops:(id)arg1;
-- (void)setGradientType:(unsigned long long)arg1;
-- (void)setInflectionOfStopAtIndex:(unsigned long long)arg1 toInflection:(double)arg2;
+- (void)setGradientType:(unsigned int)arg1;
+- (void)setInflectionOfStopAtIndex:(unsigned int)arg1 toInflection:(float)arg2;
 - (void)setLastColor:(id)arg1;
-- (void)setStartPoint:(struct CGPoint { double x1; double x2; })arg1 inShapeWithNaturalSize:(struct CGSize { double x1; double x2; })arg2;
-- (void)swapStopAtIndex:(unsigned long long)arg1 withStopAtIndex:(unsigned long long)arg2;
-- (void)upgradeIfNecessaryWithBaseNaturalSize:(struct CGSize { double x1; double x2; })arg1;
+- (void)setStartPoint:(struct CGPoint { float x1; float x2; })arg1 inShapeWithNaturalSize:(struct CGSize { float x1; float x2; })arg2;
+- (void)swapStopAtIndex:(unsigned int)arg1 withStopAtIndex:(unsigned int)arg2;
+- (void)upgradeIfNecessaryWithBaseNaturalSize:(struct CGSize { float x1; float x2; })arg1;
 
 @end

@@ -2,40 +2,38 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@class EKAvailabilityCache, EKSourceConstraints, NSDate, NSNumber, NSSet, NSString;
-
 @interface EKSource : EKObject {
     EKAvailabilityCache *_availabilityCache;
     NSString *_cachedHost;
     NSSet *_cachedOwnerAddresses;
-    long long _cachedPort;
+    int _cachedPort;
     NSDate *_timeOfLastExternalIdentificationCache;
 }
 
-@property(readonly) NSSet * allCalendars;
-@property(readonly) EKAvailabilityCache * availabilityCache;
-@property(retain) NSString * cachedHost;
-@property(retain) NSSet * cachedOwnerAddresses;
-@property long long cachedPort;
-@property(readonly) NSSet * calendars;
-@property(readonly) EKSourceConstraints * constraints;
-@property(copy) NSNumber * defaultAlarmOffset;
-@property(readonly) int displayOrderForNewCalendar;
-@property(getter=isEnabled,readonly) bool enabled;
-@property(copy) NSString * externalID;
-@property(copy) NSString * externalModificationTag;
-@property(readonly) bool isFacebookSource;
-@property bool onlyCreatorCanModify;
-@property(readonly) NSSet * ownerAddresses;
-@property(readonly) long long preferredEventPrivateValue;
-@property(readonly) NSString * serverHost;
-@property(readonly) long long serverPort;
-@property(readonly) NSString * sourceIdentifier;
-@property(readonly) int sourceType;
-@property(readonly) long long strictestEventPrivateValue;
-@property(retain) NSDate * timeOfLastExternalIdentificationCache;
-@property(copy) NSString * title;
-@property(readonly) bool wantsCommentPromptWhenDeclining;
+@property (nonatomic, readonly) NSSet *allCalendars;
+@property (nonatomic, readonly) EKAvailabilityCache *availabilityCache;
+@property (nonatomic, retain) NSString *cachedHost;
+@property (nonatomic, retain) NSSet *cachedOwnerAddresses;
+@property (nonatomic) int cachedPort;
+@property (nonatomic, readonly) NSSet *calendars;
+@property (nonatomic, readonly) EKSourceConstraints *constraints;
+@property (nonatomic, copy) NSNumber *defaultAlarmOffset;
+@property (nonatomic, readonly) int displayOrderForNewCalendar;
+@property (getter=isEnabled, nonatomic, readonly) BOOL enabled;
+@property (nonatomic, copy) NSString *externalID;
+@property (nonatomic, copy) NSString *externalModificationTag;
+@property (nonatomic, readonly) BOOL isFacebookSource;
+@property (nonatomic) BOOL onlyCreatorCanModify;
+@property (nonatomic, readonly) NSSet *ownerAddresses;
+@property (nonatomic, readonly) int preferredEventPrivateValue;
+@property (nonatomic, readonly) NSString *serverHost;
+@property (nonatomic, readonly) int serverPort;
+@property (nonatomic, readonly) NSString *sourceIdentifier;
+@property (nonatomic, readonly) int sourceType;
+@property (nonatomic, readonly) int strictestEventPrivateValue;
+@property (nonatomic, retain) NSDate *timeOfLastExternalIdentificationCache;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, readonly) BOOL wantsCommentPromptWhenDeclining;
 
 + (id)sourceWithEventStore:(id)arg1;
 
@@ -45,10 +43,10 @@
 - (id)availabilityCache;
 - (id)cachedHost;
 - (id)cachedOwnerAddresses;
-- (long long)cachedPort;
+- (int)cachedPort;
 - (id)calendars;
-- (id)calendarsForEntityType:(unsigned long long)arg1;
-- (bool)commit:(id*)arg1;
+- (id)calendarsForEntityType:(unsigned int)arg1;
+- (BOOL)commit:(id*)arg1;
 - (id)constraints;
 - (void)dealloc;
 - (id)defaultAlarmOffset;
@@ -57,29 +55,29 @@
 - (id)externalID;
 - (id)externalModificationTag;
 - (id)init;
-- (bool)isEnabled;
-- (bool)isFacebookSource;
-- (bool)onlyCreatorCanModify;
+- (BOOL)isEnabled;
+- (BOOL)isFacebookSource;
+- (BOOL)onlyCreatorCanModify;
 - (id)ownerAddresses;
-- (long long)preferredEventPrivateValue;
-- (id)readWriteCalendarsForEntityType:(unsigned long long)arg1;
-- (bool)remove:(id*)arg1;
+- (int)preferredEventPrivateValue;
+- (id)readWriteCalendarsForEntityType:(unsigned int)arg1;
+- (BOOL)remove:(id*)arg1;
 - (id)serverHost;
-- (long long)serverPort;
+- (int)serverPort;
 - (void)setCachedHost:(id)arg1;
 - (void)setCachedOwnerAddresses:(id)arg1;
-- (void)setCachedPort:(long long)arg1;
+- (void)setCachedPort:(int)arg1;
 - (void)setDefaultAlarmOffset:(id)arg1;
 - (void)setExternalID:(id)arg1;
 - (void)setExternalModificationTag:(id)arg1;
-- (void)setOnlyCreatorCanModify:(bool)arg1;
+- (void)setOnlyCreatorCanModify:(BOOL)arg1;
 - (void)setTimeOfLastExternalIdentificationCache:(id)arg1;
 - (void)setTitle:(id)arg1;
 - (id)sourceIdentifier;
 - (int)sourceType;
-- (long long)strictestEventPrivateValue;
+- (int)strictestEventPrivateValue;
 - (id)timeOfLastExternalIdentificationCache;
 - (id)title;
-- (bool)wantsCommentPromptWhenDeclining;
+- (BOOL)wantsCommentPromptWhenDeclining;
 
 @end

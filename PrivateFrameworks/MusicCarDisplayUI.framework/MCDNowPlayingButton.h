@@ -2,24 +2,23 @@
    Image: /System/Library/PrivateFrameworks/MusicCarDisplayUI.framework/MusicCarDisplayUI
  */
 
-@class CALayer;
-
 @interface MCDNowPlayingButton : UIButton {
     CALayer *_focusColorLayer;
+    BOOL _hidesLeftBorder;
     CALayer *_leftBorder;
-    bool_hidesLeftBorder;
 }
 
-@property bool hidesLeftBorder;
+@property (nonatomic) BOOL hidesLeftBorder;
 
-+ (id)buttonWithHeight:(double)arg1;
++ (id)buttonWithHeight:(float)arg1;
++ (id)wrappingViewForButton:(id)arg1;
 
 - (void).cxx_destruct;
-- (void)_focusStateDidChange;
-- (bool)_isFocusableElement;
-- (bool)hidesLeftBorder;
+- (BOOL)canBecomeFocused;
+- (void)focusedViewDidChange;
+- (BOOL)hidesLeftBorder;
 - (void)layoutSubviews;
-- (void)setHidesLeftBorder:(bool)arg1;
+- (void)setHidesLeftBorder:(BOOL)arg1;
 - (void)sizeToFit;
 
 @end

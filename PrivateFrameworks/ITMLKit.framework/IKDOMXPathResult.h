@@ -2,37 +2,35 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@class IKDOMNode, NSArray, NSString;
-
 @interface IKDOMXPathResult : IKJSObject <IKJSDOMXPathResult> {
     NSArray *_nodes;
-    long long _type;
+    int _type;
 }
 
-@property(readonly) bool booleanValue;
-@property(readonly) bool invalidIteratorState;
-@property(copy) NSArray * nodes;
-@property(readonly) long long numberValue;
-@property(readonly) long long resultType;
-@property(readonly) IKDOMNode * singleNodeValue;
-@property(readonly) long long snapshotLength;
-@property(readonly) NSString * stringValue;
-@property long long type;
+@property (nonatomic, readonly) BOOL booleanValue;
+@property (nonatomic, readonly) BOOL invalidIteratorState;
+@property (nonatomic, copy) NSArray *nodes;
+@property (nonatomic, readonly) int numberValue;
+@property (nonatomic, readonly) int resultType;
+@property (nonatomic, readonly) IKDOMNode *singleNodeValue;
+@property (nonatomic, readonly) int snapshotLength;
+@property (nonatomic, readonly) NSString *stringValue;
+@property int type;
 
 - (void).cxx_destruct;
-- (bool)booleanValue;
-- (id)initWithAppContext:(id)arg1 type:(long long)arg2 nodes:(id)arg3;
-- (bool)invalidIteratorState;
+- (BOOL)booleanValue;
+- (id)initWithAppContext:(id)arg1 type:(int)arg2 nodes:(id)arg3;
+- (BOOL)invalidIteratorState;
 - (id)iterateNext;
 - (id)nodes;
-- (long long)numberValue;
-- (long long)resultType;
+- (int)numberValue;
+- (int)resultType;
 - (void)setNodes:(id)arg1;
-- (void)setType:(long long)arg1;
+- (void)setType:(int)arg1;
 - (id)singleNodeValue;
-- (id)snapshotItem:(long long)arg1;
-- (long long)snapshotLength;
+- (id)snapshotItem:(int)arg1;
+- (int)snapshotLength;
 - (id)stringValue;
-- (long long)type;
+- (int)type;
 
 @end

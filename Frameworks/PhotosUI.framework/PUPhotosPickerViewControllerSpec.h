@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class PUTabbedLibraryViewControllerSpec;
-
 @interface PUPhotosPickerViewControllerSpec : NSObject {
-    unsigned long long _supportedInterfaceOrientations;
+    unsigned int _supportedInterfaceOrientations;
 }
 
-@property(readonly) unsigned long long supportedInterfaceOrientations;
-@property(readonly) PUTabbedLibraryViewControllerSpec * tabbedLibraryViewControllerSpec;
+@property (nonatomic, readonly) unsigned int supportedInterfaceOrientations;
+@property (nonatomic, readonly) PUTabbedLibraryViewControllerSpec *tabbedLibraryViewControllerSpec;
 
 - (void)configureSessionInfo:(id)arg1;
-- (unsigned long long)supportedInterfaceOrientations;
+- (unsigned int)supportedInterfaceOrientations;
 - (id)tabbedLibraryViewControllerSpec;
 
 @end

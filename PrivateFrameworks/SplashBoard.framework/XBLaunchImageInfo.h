@@ -2,54 +2,52 @@
    Image: /System/Library/PrivateFrameworks/SplashBoard.framework/SplashBoard
  */
 
-@class NSString, UIImage;
-
 @interface XBLaunchImageInfo : NSObject <BSXPCCoding> {
-    struct CGSize { 
-        double width; 
-        double height; 
     UIImage *_image;
-    long long _orientation;
+    BOOL _isDownscaled;
+    BOOL _isOpaque;
+    BOOL _isSnapshot;
+    int _orientation;
     NSString *_path;
-    double _scale;
+    float _scale;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _size;
-    bool_isDownscaled;
-    bool_isOpaque;
-    bool_isSnapshot;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) UIImage * image;
-@property bool isDownscaled;
-@property bool isOpaque;
-@property bool isSnapshot;
-@property long long orientation;
-@property(retain) NSString * path;
-@property double scale;
-@property struct CGSize { double x1; double x2; } size;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) UIImage *image;
+@property (nonatomic) BOOL isDownscaled;
+@property (nonatomic) BOOL isOpaque;
+@property (nonatomic) BOOL isSnapshot;
+@property (nonatomic) int orientation;
+@property (nonatomic, retain) NSString *path;
+@property (nonatomic) float scale;
+@property (nonatomic) struct CGSize { float x1; float x2; } size;
+@property (readonly) Class superclass;
 
 - (void)dealloc;
 - (id)description;
 - (void)encodeWithXPCDictionary:(id)arg1;
 - (id)image;
 - (id)initWithXPCDictionary:(id)arg1;
-- (bool)isDownscaled;
-- (bool)isOpaque;
-- (bool)isSnapshot;
-- (long long)orientation;
+- (BOOL)isDownscaled;
+- (BOOL)isOpaque;
+- (BOOL)isSnapshot;
+- (int)orientation;
 - (id)path;
-- (double)scale;
+- (float)scale;
 - (void)setImage:(id)arg1;
-- (void)setIsDownscaled:(bool)arg1;
-- (void)setIsOpaque:(bool)arg1;
-- (void)setIsSnapshot:(bool)arg1;
-- (void)setOrientation:(long long)arg1;
+- (void)setIsDownscaled:(BOOL)arg1;
+- (void)setIsOpaque:(BOOL)arg1;
+- (void)setIsSnapshot:(BOOL)arg1;
+- (void)setOrientation:(int)arg1;
 - (void)setPath:(id)arg1;
-- (void)setScale:(double)arg1;
-- (void)setSize:(struct CGSize { double x1; double x2; })arg1;
-- (struct CGSize { double x1; double x2; })size;
+- (void)setScale:(float)arg1;
+- (void)setSize:(struct CGSize { float x1; float x2; })arg1;
+- (struct CGSize { float x1; float x2; })size;
 
 @end

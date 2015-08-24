@@ -4,43 +4,51 @@
 
 @interface ML3MigrationDirectives : NSObject {
     int _currentUserVersion;
+    BOOL _forceUpdateOriginals;
+    BOOL _needsAnalyze;
+    BOOL _needsToAutogenerateArtworkVariants;
+    BOOL _needsToRecreateIndexes;
+    BOOL _needsToRecreateTriggers;
+    BOOL _needsToReloadContainerMediaTypes;
+    BOOL _needsToReloadStoreBookmarkMetadataIdentifiers;
+    BOOL _needsToRemoveLocationsForItemsMissingAssets;
+    BOOL _needsToUpdateSortMap;
     int _originalUserVersion;
-    bool_needsAnalyze;
-    bool_needsToAutogenerateArtworkVariants;
-    bool_needsToRecreateIndexes;
-    bool_needsToRecreateTriggers;
-    bool_needsToReloadContainerMediaTypes;
-    bool_needsToReloadStoreBookmarkMetadataIdentifiers;
-    bool_needsToRemoveLocationsForItemsMissingAssets;
 }
 
-@property int currentUserVersion;
-@property bool needsAnalyze;
-@property bool needsToAutogenerateArtworkVariants;
-@property bool needsToRecreateIndexes;
-@property bool needsToRecreateTriggers;
-@property bool needsToReloadContainerMediaTypes;
-@property bool needsToReloadStoreBookmarkMetadataIdentifiers;
-@property bool needsToRemoveLocationsForItemsMissingAssets;
-@property(readonly) int originalUserVersion;
+@property (nonatomic) int currentUserVersion;
+@property (nonatomic) BOOL forceUpdateOriginals;
+@property (nonatomic) BOOL needsAnalyze;
+@property (nonatomic) BOOL needsToAutogenerateArtworkVariants;
+@property (nonatomic) BOOL needsToRecreateIndexes;
+@property (nonatomic) BOOL needsToRecreateTriggers;
+@property (nonatomic) BOOL needsToReloadContainerMediaTypes;
+@property (nonatomic) BOOL needsToReloadStoreBookmarkMetadataIdentifiers;
+@property (nonatomic) BOOL needsToRemoveLocationsForItemsMissingAssets;
+@property (nonatomic) BOOL needsToUpdateSortMap;
+@property (nonatomic, readonly) int originalUserVersion;
 
 - (int)currentUserVersion;
+- (BOOL)forceUpdateOriginals;
 - (id)initWithOriginalUserVersion:(int)arg1;
-- (bool)needsAnalyze;
-- (bool)needsToAutogenerateArtworkVariants;
-- (bool)needsToRecreateIndexes;
-- (bool)needsToRecreateTriggers;
-- (bool)needsToReloadContainerMediaTypes;
-- (bool)needsToReloadStoreBookmarkMetadataIdentifiers;
-- (bool)needsToRemoveLocationsForItemsMissingAssets;
+- (BOOL)needsAnalyze;
+- (BOOL)needsToAutogenerateArtworkVariants;
+- (BOOL)needsToRecreateIndexes;
+- (BOOL)needsToRecreateTriggers;
+- (BOOL)needsToReloadContainerMediaTypes;
+- (BOOL)needsToReloadStoreBookmarkMetadataIdentifiers;
+- (BOOL)needsToRemoveLocationsForItemsMissingAssets;
+- (BOOL)needsToUpdateSortMap;
 - (int)originalUserVersion;
 - (void)setCurrentUserVersion:(int)arg1;
-- (void)setNeedsAnalyze:(bool)arg1;
-- (void)setNeedsToAutogenerateArtworkVariants:(bool)arg1;
-- (void)setNeedsToRecreateIndexes:(bool)arg1;
-- (void)setNeedsToRecreateTriggers:(bool)arg1;
-- (void)setNeedsToReloadContainerMediaTypes:(bool)arg1;
-- (void)setNeedsToReloadStoreBookmarkMetadataIdentifiers:(bool)arg1;
-- (void)setNeedsToRemoveLocationsForItemsMissingAssets:(bool)arg1;
+- (void)setForceUpdateOriginals:(BOOL)arg1;
+- (void)setNeedsAnalyze:(BOOL)arg1;
+- (void)setNeedsToAutogenerateArtworkVariants:(BOOL)arg1;
+- (void)setNeedsToRecreateIndexes:(BOOL)arg1;
+- (void)setNeedsToRecreateTriggers:(BOOL)arg1;
+- (void)setNeedsToReloadContainerMediaTypes:(BOOL)arg1;
+- (void)setNeedsToReloadStoreBookmarkMetadataIdentifiers:(BOOL)arg1;
+- (void)setNeedsToRemoveLocationsForItemsMissingAssets:(BOOL)arg1;
+- (void)setNeedsToUpdateSortMap:(BOOL)arg1;
 
 @end

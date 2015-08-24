@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/CalDAV.framework/CalDAV
  */
 
-@interface CalendarServerVersion : CalDAVConcreteServerVersion {
-}
+@interface CalendarServerVersion : CalDAVConcreteServerVersion
 
 - (id)init;
-- (bool)supportsTimeRangeFilterWithoutEndDate;
+- (BOOL)supportsTimeRangeFilterWithoutEndDate;
 - (id)type;
 
 @end

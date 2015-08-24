@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSManagedObjectContext, NSString, PFUbiquityLocation, PFUbiquityMetadataFactoryEntry;
-
 @interface _PFUbiquityStack : NSObject {
     NSString *_localPeerID;
     PFUbiquityMetadataFactoryEntry *_metadataEntry;
@@ -13,12 +11,12 @@
     PFUbiquityLocation *_ubiquityRootURL;
 }
 
-@property(readonly) NSString * localPeerID;
-@property(readonly) PFUbiquityMetadataFactoryEntry * metadataEntry;
-@property(readonly) NSManagedObjectContext * metadataMOC;
-@property(readonly) PFUbiquityLocation * metadataStoreFileLocation;
-@property(readonly) NSString * storeName;
-@property(readonly) PFUbiquityLocation * ubiquityRootURL;
+@property (nonatomic, readonly) NSString *localPeerID;
+@property (nonatomic, readonly) PFUbiquityMetadataFactoryEntry *metadataEntry;
+@property (nonatomic, readonly) NSManagedObjectContext *metadataMOC;
+@property (nonatomic, readonly) PFUbiquityLocation *metadataStoreFileLocation;
+@property (nonatomic, readonly) NSString *storeName;
+@property (nonatomic, readonly) PFUbiquityLocation *ubiquityRootURL;
 
 - (id)allPeers;
 - (id)createMetadataStoreKnowledgeVector:(id*)arg1;
@@ -31,9 +29,9 @@
 - (id)metadataEntry;
 - (id)metadataMOC;
 - (id)metadataStoreFileLocation;
-- (id)peerForPeerID:(id)arg1 createIfMissing:(bool)arg2;
-- (bool)purgeAndInitializeMetadataStoreFileWithError:(id*)arg1;
-- (bool)purgeMetadataForStoreMetadata:(id)arg1 withError:(id*)arg2;
+- (id)peerForPeerID:(id)arg1 createIfMissing:(BOOL)arg2;
+- (BOOL)purgeAndInitializeMetadataStoreFileWithError:(id*)arg1;
+- (BOOL)purgeMetadataForStoreMetadata:(id)arg1 withError:(id*)arg2;
 - (id)storeName;
 - (id)ubiquityRootURL;
 

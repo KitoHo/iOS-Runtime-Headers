@@ -2,44 +2,42 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class EDAnchor, EDComment, EDSheet, EDTextBox, NSMutableDictionary, NSString;
-
 @interface EDOfficeArtClient : NSObject <OADClient, OADTextClient> {
+    EDAnchor *mAnchor;
     struct CGRect { 
         struct CGPoint { 
-            double x; 
-            double y; 
+            float x; 
+            float y; 
         } origin; 
         struct CGSize { 
-            double width; 
-            double height; 
+            float width; 
+            float height; 
         } size; 
-    boolmIsBoundsSet;
-    EDAnchor *mAnchor;
     } mBounds;
     id mClientState;
     EDComment *mComment;
+    bool mIsBoundsSet;
     EDSheet *mSheet;
     NSMutableDictionary *mTableModels;
     EDTextBox *mTextBox;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (id).cxx_construct;
 - (id)anchor;
 - (bool)areBoundsSet;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })bounds;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })bounds;
 - (id)clientState;
 - (id)comment;
 - (void)dealloc;
-- (bool)hasBounds;
-- (bool)hasText;
+- (BOOL)hasBounds;
+- (BOOL)hasText;
 - (void)setAnchor:(id)arg1;
-- (void)setBounds:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)setBounds:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)setClientState:(id)arg1;
 - (void)setComment:(id)arg1;
 - (void)setSheet:(id)arg1;

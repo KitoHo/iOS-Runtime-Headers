@@ -2,29 +2,28 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class NSArray, NSString, PSLocaleSelector, PSRegion, UISearchBar, UITableView, UIView;
-
-@interface PSLocaleController : PSViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate> {
+@interface PSLocaleController : PSViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate> {
     UIView *_contentView;
     PSRegion *_currentRegion;
     NSArray *_filteredListContent;
+    BOOL _hideKeyboardInSearchMode;
     PSLocaleSelector *_localeSelector;
     NSArray *_regionsList;
     UISearchBar *_searchBar;
+    BOOL _searchMode;
     NSArray *_sections;
     UITableView *_tableView;
-    bool_searchMode;
 }
 
-@property(retain) PSRegion * currentRegion;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) NSArray * filteredListContent;
-@property(readonly) unsigned long long hash;
-@property(retain) PSLocaleSelector * localeSelector;
-@property(retain) NSArray * regionsList;
-@property(retain) NSArray * sections;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) PSRegion *currentRegion;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSArray *filteredListContent;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) PSLocaleSelector *localeSelector;
+@property (nonatomic, retain) NSArray *regionsList;
+@property (nonatomic, retain) NSArray *sections;
+@property (readonly) Class superclass;
 
 - (id)_mainContentView;
 - (id)currentRegion;
@@ -35,12 +34,12 @@
 - (void)loadRegions;
 - (void)loadView;
 - (id)localeSelector;
-- (long long)numberOfSectionsInTableView:(id)arg1;
+- (int)numberOfSectionsInTableView:(id)arg1;
 - (id)regionsList;
-- (void)reloadDataAndScrollToCheckedRegionAnimated:(bool)arg1;
+- (void)reloadDataAndScrollToCheckedRegionAnimated:(BOOL)arg1;
 - (void)reloadSections;
+- (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)searchBar:(id)arg1 textDidChange:(id)arg2;
-- (void)searchBarCancelButtonClicked:(id)arg1;
 - (void)searchBarTextDidBeginEditing:(id)arg1;
 - (void)searchBarTextDidEndEditing:(id)arg1;
 - (id)sectionIndexTitlesForTableView:(id)arg1;
@@ -52,11 +51,11 @@
 - (void)setSections:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
-- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
 - (void)updateChecked:(id)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
-- (void)viewWillAppear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 
 @end

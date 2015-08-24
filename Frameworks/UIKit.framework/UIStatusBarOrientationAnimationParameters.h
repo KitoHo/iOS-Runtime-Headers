@@ -6,11 +6,11 @@
     int _orientationAnimation;
 }
 
-@property int orientationAnimation;
+@property (nonatomic) int orientationAnimation;
 
 - (id)initWithDefaultParameters;
 - (int)orientationAnimation;
 - (void)setOrientationAnimation:(int)arg1;
-- (bool)shouldAnimate;
+- (BOOL)shouldAnimate;
 
 @end

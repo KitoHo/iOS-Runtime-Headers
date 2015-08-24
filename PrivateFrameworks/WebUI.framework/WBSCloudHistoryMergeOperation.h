@@ -2,32 +2,30 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, WBSCloudHistoryFetchResult, WBSHistory;
-
 @interface WBSCloudHistoryMergeOperation : NSObject {
     NSSet *_existingVisits;
     WBSCloudHistoryFetchResult *_fetchResult;
     WBSHistory *_history;
+    BOOL _mergeStarted;
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableSet *_redirectChainEarliestVisits;
     NSSet *_redirectChainSourceVisits;
     NSSet *_tombstones;
     NSMutableDictionary *_tombstonesByURLString;
     NSMutableDictionary *_visitsByVisitIdentifiers;
-    bool_mergeStarted;
 }
 
 - (void).cxx_destruct;
 - (void)_buildRedirectChains;
 - (void)_buildVisitsByVisitIdentifiersMap;
 - (void)_filterVisitsByTombstones;
-- (void)_loadTombstonesWithCompletion:(id)arg1;
-- (void)_lookUpExistingItemsWithCompletion:(id)arg1;
-- (void)_lookupRedirectChainSourcesWithCompletion:(id)arg1;
-- (void)_mergeVisitsWithCompletion:(id)arg1;
+- (void)_loadTombstonesWithCompletion:(id /* block */)arg1;
+- (void)_lookUpExistingItemsWithCompletion:(id /* block */)arg1;
+- (void)_lookupRedirectChainSourcesWithCompletion:(id /* block */)arg1;
+- (void)_mergeVisitsWithCompletion:(id /* block */)arg1;
 - (void)_removeDuplicateVisits;
 - (void)_replayAndAddTombstones;
 - (id)initWithHistory:(id)arg1 fetchResult:(id)arg2;
-- (void)mergeWithCompletion:(id)arg1;
+- (void)mergeWithCompletion:(id /* block */)arg1;
 
 @end

@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/PowerlogLiteOperators.framework/PowerlogLiteOperators
  */
 
-@class NSMutableSet, PLOperator;
-
 @interface PLAWDAuxMetrics : NSObject {
     PLOperator *_operator;
     NSMutableSet *_runningMetrics;
 }
 
-@property PLOperator * operator;
-@property(retain) NSMutableSet * runningMetrics;
+@property PLOperator *operator;
+@property (nonatomic, retain) NSMutableSet *runningMetrics;
 
 + (id)entryAggregateDefinitions;
 + (id)entryEventPointDefinitions;
 + (id)getSharedObjWithOperator:(id)arg1;
 
 - (void).cxx_destruct;
-- (bool)doesInterfereWithChargerWithStartDate:(id)arg1 withEndDate:(id)arg2;
-- (bool)dropFirstEntryReceived:(id)arg1 usingFilter:(id)arg2 andStartTime:(id)arg3;
-- (double)getRailEnergyWithEntry:(id)arg1 withFilter:(id)arg2 isRailForward:(bool)arg3;
-- (void)handleChargerChangeWithState:(bool)arg1 withDate:(id)arg2;
+- (BOOL)doesInterfereWithChargerWithStartDate:(id)arg1 withEndDate:(id)arg2;
+- (BOOL)dropFirstEntryReceived:(id)arg1 usingFilter:(id)arg2 andStartTime:(id)arg3;
+- (double)getRailEnergyWithEntry:(id)arg1 withFilter:(id)arg2 isRailForward:(BOOL)arg3;
+- (void)handleChargerChangeWithState:(BOOL)arg1 withDate:(id)arg2;
 - (id)initWithOperator:(id)arg1;
 - (id)operator;
 - (void)resetTableWithEntryKey:(id)arg1;
@@ -29,6 +27,6 @@
 - (void)setRunningMetrics:(id)arg1;
 - (void)startMetricCollection:(id)arg1;
 - (void)stopMetricCollection:(id)arg1;
-- (bool)submitDataToAWDServer:(id)arg1 withAwdConn:(id)arg2;
+- (BOOL)submitDataToAWDServer:(id)arg1 withAwdConn:(id)arg2;
 
 @end

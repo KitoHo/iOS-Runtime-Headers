@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/RadioUI.framework/RadioUI
  */
 
-@class NSLock, NSString, RUStationShareInformationProvider;
-
 @interface RUStationShareMessageActivityItemProvider : UIActivityItemProvider {
     NSLock *_lock;
     RUStationShareInformationProvider *_shareInformationProvider;
@@ -11,10 +9,10 @@
     NSString *_shareMessageSubject;
 }
 
-@property(readonly) RUStationShareInformationProvider * shareInformationProvider;
+@property (nonatomic, readonly) RUStationShareInformationProvider *shareInformationProvider;
 
 - (void).cxx_destruct;
-- (bool)_isActivityTypeAllowed:(id)arg1;
+- (BOOL)_isActivityTypeAllowed:(id)arg1;
 - (id)activityViewController:(id)arg1 subjectForActivityType:(id)arg2;
 - (id)initWithShareInformationProvider:(id)arg1;
 - (id)item;

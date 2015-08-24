@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSString;
-
 @interface GEOClientCapabilities : PBCodable <NSCopying> {
-    struct { 
-        unsigned int maxManeuverTypeSupported : 1; 
-        unsigned int internalInstall : 1; 
     NSString *_appMajorVersion;
     NSString *_appMinorVersion;
     NSString *_hardwareModel;
+    struct { 
+        unsigned int maxManeuverTypeSupported : 1; 
+        unsigned int internalInstall : 1; 
     } _has;
+    BOOL _internalInstall;
     int _maxManeuverTypeSupported;
-    bool_internalInstall;
 }
 
-@property(retain) NSString * appMajorVersion;
-@property(retain) NSString * appMinorVersion;
-@property(retain) NSString * hardwareModel;
-@property(readonly) bool hasAppMajorVersion;
-@property(readonly) bool hasAppMinorVersion;
-@property(readonly) bool hasHardwareModel;
-@property bool hasInternalInstall;
-@property bool hasMaxManeuverTypeSupported;
-@property bool internalInstall;
-@property int maxManeuverTypeSupported;
+@property (nonatomic, retain) NSString *appMajorVersion;
+@property (nonatomic, retain) NSString *appMinorVersion;
+@property (nonatomic, retain) NSString *hardwareModel;
+@property (nonatomic, readonly) BOOL hasAppMajorVersion;
+@property (nonatomic, readonly) BOOL hasAppMinorVersion;
+@property (nonatomic, readonly) BOOL hasHardwareModel;
+@property (nonatomic) BOOL hasInternalInstall;
+@property (nonatomic) BOOL hasMaxManeuverTypeSupported;
+@property (nonatomic) BOOL internalInstall;
+@property (nonatomic) int maxManeuverTypeSupported;
 
 - (id)appMajorVersion;
 - (id)appMinorVersion;
@@ -35,23 +33,23 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)hardwareModel;
-- (bool)hasAppMajorVersion;
-- (bool)hasAppMinorVersion;
-- (bool)hasHardwareModel;
-- (bool)hasInternalInstall;
-- (bool)hasMaxManeuverTypeSupported;
-- (unsigned long long)hash;
-- (bool)internalInstall;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasAppMajorVersion;
+- (BOOL)hasAppMinorVersion;
+- (BOOL)hasHardwareModel;
+- (BOOL)hasInternalInstall;
+- (BOOL)hasMaxManeuverTypeSupported;
+- (unsigned int)hash;
+- (BOOL)internalInstall;
+- (BOOL)isEqual:(id)arg1;
 - (int)maxManeuverTypeSupported;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setAppMajorVersion:(id)arg1;
 - (void)setAppMinorVersion:(id)arg1;
 - (void)setHardwareModel:(id)arg1;
-- (void)setHasInternalInstall:(bool)arg1;
-- (void)setHasMaxManeuverTypeSupported:(bool)arg1;
-- (void)setInternalInstall:(bool)arg1;
+- (void)setHasInternalInstall:(BOOL)arg1;
+- (void)setHasMaxManeuverTypeSupported:(BOOL)arg1;
+- (void)setInternalInstall:(BOOL)arg1;
 - (void)setMaxManeuverTypeSupported:(int)arg1;
 - (void)writeTo:(id)arg1;
 

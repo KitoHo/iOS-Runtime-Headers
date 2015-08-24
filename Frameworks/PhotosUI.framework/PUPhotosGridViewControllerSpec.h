@@ -2,68 +2,66 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class PUAlbumPickerViewControllerSpec, PUPhotosPickerViewControllerSpec;
-
 @interface PUPhotosGridViewControllerSpec : NSObject {
-    struct CGSize { 
-        double width; 
-        double height; 
     PUAlbumPickerViewControllerSpec *_albumPickerViewControllerSpec;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _baseInterItemSpacing;
-    long long _layoutVariant;
-    double _maxSearchBarWidth;
+    BOOL _canDisplayEditActionsInNavigationBar;
+    BOOL _canDisplayOptionsInPopover;
+    BOOL _canDisplaySlideshowButton;
+    int _layoutVariant;
+    float _maxSearchBarWidth;
     PUPhotosPickerViewControllerSpec *_photosPickerViewControllerSpec;
-    bool_canDisplayEditActionsInNavigationBar;
-    bool_canDisplayOptionsInPopover;
-    bool_canDisplaySlideshowButton;
-    bool_usesStackPopTransition;
+    BOOL _usesStackPopTransition;
 }
 
-@property(readonly) PUAlbumPickerViewControllerSpec * albumPickerViewControllerSpec;
-@property(readonly) struct CGSize { double x1; double x2; } baseInterItemSpacing;
-@property(readonly) bool canDisplayEditActionsInNavigationBar;
-@property(readonly) bool canDisplayOptionsInPopover;
-@property(readonly) bool canDisplaySearchActionInNavigationBar;
-@property(readonly) bool canDisplaySlideshowButton;
-@property(readonly) long long cellBannerTextAlignment;
-@property(readonly) long long cellFillMode;
-@property(readonly) struct CGSize { double x1; double x2; } contentSizeForViewInPopover;
-@property(readonly) bool displaysAvalancheStacks;
-@property(readonly) long long forceLoadInitialSectionCount;
-@property(readonly) double globalFooterHeight;
-@property(readonly) long long layoutVariant;
-@property(readonly) double maxSearchBarWidth;
-@property(readonly) PUPhotosPickerViewControllerSpec * photosPickerViewControllerSpec;
-@property(readonly) bool shouldPlaceDeleteInCenterToolbarPosition;
-@property(readonly) int thumbnailImageFormat;
-@property(readonly) bool usesStackPopTransition;
-@property(readonly) bool wantsBackButtonTitleForPhotoBrowser;
-@property(readonly) bool wantsCustomNavigationTransition;
+@property (nonatomic, readonly) PUAlbumPickerViewControllerSpec *albumPickerViewControllerSpec;
+@property (nonatomic, readonly) struct CGSize { float x1; float x2; } baseInterItemSpacing;
+@property (nonatomic, readonly) BOOL canDisplayEditActionsInNavigationBar;
+@property (nonatomic, readonly) BOOL canDisplayOptionsInPopover;
+@property (nonatomic, readonly) BOOL canDisplaySearchActionInNavigationBar;
+@property (nonatomic, readonly) BOOL canDisplaySlideshowButton;
+@property (nonatomic, readonly) int cellBannerTextAlignment;
+@property (nonatomic, readonly) int cellFillMode;
+@property (nonatomic, readonly) struct CGSize { float x1; float x2; } contentSizeForViewInPopover;
+@property (nonatomic, readonly) BOOL displaysAvalancheStacks;
+@property (nonatomic, readonly) int forceLoadInitialSectionCount;
+@property (nonatomic, readonly) float globalFooterHeight;
+@property (nonatomic, readonly) int layoutVariant;
+@property (nonatomic, readonly) float maxSearchBarWidth;
+@property (nonatomic, readonly) PUPhotosPickerViewControllerSpec *photosPickerViewControllerSpec;
+@property (nonatomic, readonly) BOOL shouldPlaceDeleteInCenterToolbarPosition;
+@property (nonatomic, readonly) int thumbnailImageFormat;
+@property (nonatomic, readonly) BOOL usesStackPopTransition;
+@property (nonatomic, readonly) BOOL wantsBackButtonTitleForPhotoBrowser;
+@property (nonatomic, readonly) BOOL wantsCustomNavigationTransition;
 
 - (void).cxx_destruct;
 - (id)albumPickerViewControllerSpec;
-- (struct CGSize { double x1; double x2; })baseInterItemSpacing;
-- (bool)canDisplayEditActionsInNavigationBar;
-- (bool)canDisplayOptionsInPopover;
-- (bool)canDisplaySearchActionInNavigationBar;
-- (bool)canDisplaySlideshowButton;
-- (long long)cellBannerTextAlignment;
-- (long long)cellFillMode;
-- (void)configureCollectionViewGridLayout:(id)arg1 forWidth:(double)arg2;
-- (struct CGSize { double x1; double x2; })contentSizeForViewInPopover;
-- (bool)displaysAvalancheStacks;
-- (long long)forceLoadInitialSectionCount;
-- (double)globalFooterHeight;
+- (struct CGSize { float x1; float x2; })baseInterItemSpacing;
+- (BOOL)canDisplayEditActionsInNavigationBar;
+- (BOOL)canDisplayOptionsInPopover;
+- (BOOL)canDisplaySearchActionInNavigationBar;
+- (BOOL)canDisplaySlideshowButton;
+- (int)cellBannerTextAlignment;
+- (int)cellFillMode;
+- (void)configureCollectionViewGridLayout:(id)arg1 forWidth:(float)arg2;
+- (struct CGSize { float x1; float x2; })contentSizeForViewInPopover;
+- (BOOL)displaysAvalancheStacks;
+- (int)forceLoadInitialSectionCount;
+- (float)globalFooterHeight;
 - (id)init;
-- (long long)layoutVariant;
-- (double)maxSearchBarWidth;
+- (int)layoutVariant;
+- (float)maxSearchBarWidth;
 - (id)photoBrowserSpec;
 - (id)photosPickerViewControllerSpec;
-- (bool)shouldPlaceDeleteInCenterToolbarPosition;
-- (unsigned long long)supportedInterfaceOrientations;
+- (BOOL)shouldPlaceDeleteInCenterToolbarPosition;
+- (unsigned int)supportedInterfaceOrientations;
 - (int)thumbnailImageFormat;
-- (bool)usesStackPopTransition;
-- (bool)wantsBackButtonTitleForPhotoBrowser;
-- (bool)wantsCustomNavigationTransition;
+- (BOOL)usesStackPopTransition;
+- (BOOL)wantsBackButtonTitleForPhotoBrowser;
+- (BOOL)wantsCustomNavigationTransition;
 
 @end

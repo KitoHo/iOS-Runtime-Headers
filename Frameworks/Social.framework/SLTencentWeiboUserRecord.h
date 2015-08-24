@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/Social.framework/Social
  */
 
-@class NSString, NSURL;
-
 @interface SLTencentWeiboUserRecord : SLMicroBlogUserRecord <NSSecureCoding> {
     NSURL *_objectID;
     NSString *_openid;
 }
 
-@property(retain) NSURL * objectID;
-@property(copy) NSString * openid;
+@property (nonatomic, retain) NSURL *objectID;
+@property (nonatomic, copy) NSString *openid;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 + (id)userRecordWithDictionaryRepresentation:(id)arg1;
 
 - (void).cxx_destruct;

@@ -2,33 +2,37 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class NSString;
-
 @interface PKPaymentOptionGroupItem : NSObject {
     NSString *_detail;
+    BOOL _editable;
     NSString *_groupType;
     id _referenceObject;
     NSString *_title;
 }
 
-@property(readonly) NSString * detail;
-@property(readonly) NSString * groupType;
-@property(readonly) bool isSelectable;
-@property(readonly) id referenceObject;
-@property(readonly) Class tableViewCellClass;
-@property(readonly) NSString * title;
+@property (nonatomic, readonly) NSString *detail;
+@property (getter=isEditable, nonatomic) BOOL editable;
+@property (nonatomic, readonly) NSString *groupType;
+@property (nonatomic, readonly) BOOL isDeletable;
+@property (nonatomic, readonly) BOOL isSelectable;
+@property (nonatomic, readonly) id referenceObject;
+@property (nonatomic, readonly) Class tableViewCellClass;
+@property (nonatomic, readonly) NSString *title;
 
 + (id)_singleLineGroupTypes;
 
 - (void)dealloc;
 - (id)detail;
 - (id)groupType;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithReferenceObject:(id)arg1 title:(id)arg2 detail:(id)arg3 groupType:(id)arg4;
-- (bool)isEqual:(id)arg1;
-- (bool)isEqualToOptionGroupItem:(id)arg1;
-- (bool)isSelectable;
+- (BOOL)isDeletable;
+- (BOOL)isEditable;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToOptionGroupItem:(id)arg1;
+- (BOOL)isSelectable;
 - (id)referenceObject;
+- (void)setEditable:(BOOL)arg1;
 - (Class)tableViewCellClass;
 - (id)title;
 

@@ -2,12 +2,7 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface MFFont : NSObject <MFObject> {
-    boolm_lfItalic;
-    boolm_lfStrikeOut;
-    boolm_lfUnderline;
     unsigned int m_elfCulture;
     NSString *m_elfFullName;
     unsigned int m_elfMatch;
@@ -21,9 +16,12 @@
     int m_lfEscapement;
     NSString *m_lfFaceName;
     int m_lfHeight;
+    bool m_lfItalic;
     int m_lfOrientation;
     int m_lfOutPrecision;
     int m_lfQuality;
+    bool m_lfStrikeOut;
+    bool m_lfUnderline;
     int m_lfWeight;
     int m_lfWidth;
     int m_pitch;
@@ -42,9 +40,9 @@
 - (id)initWithFeatures:(int)arg1 :(int)arg2 :(int)arg3 :(int)arg4 :(int)arg5 :(bool)arg6 :(bool)arg7 :(bool)arg8 :(int)arg9 :(int)arg10 :(unsigned char)arg11 :(int)arg12 :(int)arg13 :(int)arg14 :(id)arg15;
 - (id)initWithStockFont:(int)arg1;
 - (int)selectInto:(id)arg1;
-- (bool)strikeout;
-- (id)stringWithBytes:(const void*)arg1 length:(unsigned long long)arg2;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })textExtent:(id)arg1 :(int)arg2 :(int*)arg3 :(int)arg4;
-- (bool)underline;
+- (BOOL)strikeout;
+- (id)stringWithBytes:(const void*)arg1 length:(unsigned int)arg2;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })textExtent:(id)arg1 :(int)arg2 :(int*)arg3 :(int)arg4;
+- (BOOL)underline;
 
 @end

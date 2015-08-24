@@ -2,28 +2,28 @@
    Image: /System/Library/PrivateFrameworks/PowerlogCore.framework/PowerlogCore
  */
 
-@class NSArray, NSString;
-
 @interface PLAccountingGroup : PLOperator <PLQLAccountingGroupProtocol> {
+    NSString *_accountingGroupName;
+    short _accountingGroupType;
+    BOOL _closeAllAccountingEventsAtBoot;
+    BOOL _eventCacheOn;
+    NSArray *_eventCacheResults;
     struct _PLTimeIntervalRange { 
         double location; 
         double length; 
-    NSString *_accountingGroupName;
-    short _accountingGroupType;
-    NSArray *_eventCacheResults;
     } _eventCacheTimeRange;
-    bool_eventCacheOn;
 }
 
-@property(retain,readonly) NSString * accountingGroupName;
-@property(readonly) short accountingGroupType;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property bool eventCacheOn;
-@property(retain) NSArray * eventCacheResults;
+@property (readonly, retain) NSString *accountingGroupName;
+@property (readonly) short accountingGroupType;
+@property BOOL closeAllAccountingEventsAtBoot;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property BOOL eventCacheOn;
+@property (retain) NSArray *eventCacheResults;
 @property struct _PLTimeIntervalRange { double x1; double x2; } eventCacheTimeRange;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)accountingGroupFromAGName:(id)arg1;
 + (id)entryEventNoneDefinitionAccountingGroup;
@@ -38,9 +38,10 @@
 - (void)batchAddAccountingEvents:(id)arg1;
 - (void)cacheEventsForTimeInterval:(struct _PLTimeIntervalRange { double x1; double x2; })arg1;
 - (void)clearEventCache;
-- (void)closeAllOpenEventAtTime:(id)arg1 withForceClose:(bool)arg2;
+- (BOOL)closeAllAccountingEventsAtBoot;
+- (void)closeAllOpenEventAtTime:(id)arg1 withForceClose:(BOOL)arg2;
 - (void)closeLastOpenEventAtTime:(id)arg1;
-- (bool)eventCacheOn;
+- (BOOL)eventCacheOn;
 - (id)eventCacheResults;
 - (struct _PLTimeIntervalRange { double x1; double x2; })eventCacheTimeRange;
 - (id)getEventsInRange:(struct _PLTimeIntervalRange { double x1; double x2; })arg1;
@@ -48,14 +49,15 @@
 - (id)getLastOpenSnapshotForIdentifier:(id)arg1 forEntryKey:(id)arg2;
 - (id)getLastSnapshot;
 - (void)initOperatorDependancies;
-- (id)initWithName:(id)arg1 withAccountingGroupType:(short)arg2;
+- (id)initWithName:(id)arg1 withAccountingGroupType:(short)arg2 withCloseAllAccountingEventsAtBoot:(BOOL)arg3;
 - (void)logEventCacheStats:(id)arg1;
 - (double)safeTimeForAccounting;
-- (void)setEventCacheOn:(bool)arg1;
+- (void)setCloseAllAccountingEventsAtBoot:(BOOL)arg1;
+- (void)setEventCacheOn:(BOOL)arg1;
 - (void)setEventCacheResults:(id)arg1;
 - (void)setEventCacheTimeRange:(struct _PLTimeIntervalRange { double x1; double x2; })arg1;
 - (double)timeOfLastEndedSnapshot;
 - (double)timeOfLastSnapshot;
-- (bool)useCachedEventsForTimeInterval:(struct _PLTimeIntervalRange { double x1; double x2; })arg1;
+- (BOOL)useCachedEventsForTimeInterval:(struct _PLTimeIntervalRange { double x1; double x2; })arg1;
 
 @end

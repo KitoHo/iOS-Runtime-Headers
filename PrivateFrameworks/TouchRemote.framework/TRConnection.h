@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/TouchRemote.framework/TouchRemote
  */
 
-@class NSMapTable, NSObject<OS_dispatch_queue>, TRService;
-
 @interface TRConnection : NSObject {
     NSObject<OS_dispatch_queue> *_accessQueue;
-    unsigned long long _connectionCount;
+    BOOL _closed;
+    unsigned int _connectionCount;
     NSMapTable *_packetEventClassToTargetActions;
     NSObject<OS_dispatch_queue> *_sendQueue;
     TRService *_service;
     int _uniqueID;
-    bool_closed;
 }
 
-@property(readonly) TRService * service;
+@property (nonatomic, readonly) TRService *service;
 
 - (void).cxx_destruct;
 - (void)_connectionDidClose;
@@ -28,10 +26,10 @@
 - (void)addTarget:(id)arg1 action:(SEL)arg2 queue:(id)arg3 forPacketEventClasses:(id)arg4;
 - (void)close;
 - (id)description;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)removeTarget:(id)arg1 action:(SEL)arg2 queue:(id)arg3 forPacketEventClasses:(id)arg4;
-- (void)sendPacketEvent:(id)arg1 withCompletionHandler:(id)arg2;
+- (void)sendPacketEvent:(id)arg1 withCompletionHandler:(id /* block */)arg2;
 - (id)service;
 
 @end

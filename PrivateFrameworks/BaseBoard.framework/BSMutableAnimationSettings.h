@@ -2,20 +2,17 @@
    Image: /System/Library/PrivateFrameworks/BaseBoard.framework/BaseBoard
  */
 
-@class CAMediaTimingFunction;
+@interface BSMutableAnimationSettings : BSAnimationSettings
 
-@interface BSMutableAnimationSettings : BSAnimationSettings {
-}
+@property (nonatomic) double delay;
+@property (nonatomic) double duration;
+@property (nonatomic) double frameInterval;
+@property (nonatomic, retain) CAMediaTimingFunction *timingFunction;
 
-@property double delay;
-@property double duration;
-@property double frameInterval;
-@property(retain) CAMediaTimingFunction * timingFunction;
-
-+ (id)settingsWithDuration:(double)arg1 delay:(double)arg2 timingFunction:(id)arg3;
-+ (id)settingsWithDuration:(double)arg1 delay:(double)arg2;
-+ (id)settingsWithDuration:(double)arg1 timingFunction:(id)arg2;
 + (id)settingsWithDuration:(double)arg1;
++ (id)settingsWithDuration:(double)arg1 delay:(double)arg2;
++ (id)settingsWithDuration:(double)arg1 delay:(double)arg2 timingFunction:(id)arg3;
++ (id)settingsWithDuration:(double)arg1 timingFunction:(id)arg2;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)setDelay:(double)arg1;

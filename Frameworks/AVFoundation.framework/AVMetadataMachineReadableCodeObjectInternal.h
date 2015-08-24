@@ -2,27 +2,25 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class NSArray, NSDictionary, NSString;
-
 @interface AVMetadataMachineReadableCodeObjectInternal : NSObject {
     NSDictionary *basicDescriptor;
-    booldecoded;
     NSArray *corners;
+    BOOL decoded;
     NSString *stringValue;
 }
 
-@property(retain) NSDictionary * basicDescriptor;
-@property(retain) NSArray * corners;
-@property bool decoded;
-@property(retain) NSString * stringValue;
+@property (retain) NSDictionary *basicDescriptor;
+@property (retain) NSArray *corners;
+@property BOOL decoded;
+@property (retain) NSString *stringValue;
 
 - (id)basicDescriptor;
 - (id)corners;
 - (void)dealloc;
-- (bool)decoded;
+- (BOOL)decoded;
 - (void)setBasicDescriptor:(id)arg1;
 - (void)setCorners:(id)arg1;
-- (void)setDecoded:(bool)arg1;
+- (void)setDecoded:(BOOL)arg1;
 - (void)setStringValue:(id)arg1;
 - (id)stringValue;
 

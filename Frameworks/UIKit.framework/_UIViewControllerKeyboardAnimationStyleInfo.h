@@ -2,22 +2,18 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface _UIViewControllerKeyboardAnimationStyleInfo : NSObject {
-    id _previousCompleteHandler;
-    bool_isAnimationCompleting;
+    BOOL _isAnimationCompleting;
+    id /* block */ _previousCompleteHandler;
 }
 
-@property bool isAnimationCompleting;
-@property(copy) id previousCompleteHandler;
+@property (nonatomic) BOOL isAnimationCompleting;
+@property (nonatomic, copy) id /* block */ previousCompleteHandler;
 
 - (void)dealloc;
-- (bool)isAnimationCompleting;
-- (id)previousCompleteHandler;
-- (void)setIsAnimationCompleting:(bool)arg1;
-- (void)setPreviousCompleteHandler:(id)arg1;
+- (BOOL)isAnimationCompleting;
+- (id /* block */)previousCompleteHandler;
+- (void)setIsAnimationCompleting:(BOOL)arg1;
+- (void)setPreviousCompleteHandler:(id /* block */)arg1;
 
 @end

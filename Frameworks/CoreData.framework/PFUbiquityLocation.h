@@ -2,40 +2,38 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSArray, NSString, PFUbiquityLocation;
-
 @interface PFUbiquityLocation : NSObject <NSCopying> {
     NSString *_exportingPeerID;
     NSString *_filename;
-    unsigned long long _hash;
+    unsigned int _hash;
+    BOOL _isDirectory;
+    BOOL _isRootUbiquitous;
     NSString *_modelVersionHash;
     NSArray *_otherPathComponents;
     NSString *_storeName;
     int _ubiquityLocationType;
     PFUbiquityLocation *_ubiquityRootLocation;
     NSString *_ubiquityRootLocationPath;
-    bool_isDirectory;
-    bool_isRootUbiquitous;
 }
 
-@property(readonly) NSString * exportingPeerID;
-@property(readonly) NSString * filename;
-@property(readonly) unsigned long long hash;
-@property(readonly) bool isDirectory;
-@property(readonly) bool isRootUbiquitous;
-@property(getter=isTransactionLogLocation,readonly) bool isTransactionLogLocation;
-@property(readonly) NSString * modelVersionHash;
-@property(readonly) NSArray * otherPathComponents;
-@property(readonly) NSString * storeName;
-@property(readonly) int ubiquityLocationType;
-@property(readonly) PFUbiquityLocation * ubiquityRootLocation;
-@property(readonly) NSString * ubiquityRootLocationPath;
-@property(readonly) bool usesBaselineDirectory;
-@property(readonly) bool usesBaselineStagingDirectory;
-@property(readonly) bool usesCurrentBaselineDirectory;
-@property(readonly) bool usesNosyncDirectory;
-@property(readonly) bool usesStagingLogDirectory;
-@property(readonly) bool usesTemporaryLogDirectory;
+@property (nonatomic, readonly) NSString *exportingPeerID;
+@property (nonatomic, readonly) NSString *filename;
+@property (nonatomic, readonly) unsigned int hash;
+@property (nonatomic, readonly) BOOL isDirectory;
+@property (nonatomic, readonly) BOOL isRootUbiquitous;
+@property (getter=isTransactionLogLocation, nonatomic, readonly) BOOL isTransactionLogLocation;
+@property (nonatomic, readonly) NSString *modelVersionHash;
+@property (nonatomic, readonly) NSArray *otherPathComponents;
+@property (nonatomic, readonly) NSString *storeName;
+@property (nonatomic, readonly) int ubiquityLocationType;
+@property (nonatomic, readonly) PFUbiquityLocation *ubiquityRootLocation;
+@property (nonatomic, readonly) NSString *ubiquityRootLocationPath;
+@property (nonatomic, readonly) BOOL usesBaselineDirectory;
+@property (nonatomic, readonly) BOOL usesBaselineStagingDirectory;
+@property (nonatomic, readonly) BOOL usesCurrentBaselineDirectory;
+@property (nonatomic, readonly) BOOL usesNosyncDirectory;
+@property (nonatomic, readonly) BOOL usesStagingLogDirectory;
+@property (nonatomic, readonly) BOOL usesTemporaryLogDirectory;
 
 + (id)createArrayOfSubLocationsAtLocation:(id)arg1 error:(id*)arg2;
 + (id)createBaselineLocation:(int)arg1 forStoreName:(id)arg2 andModelVersionHash:(id)arg3 withUbiquityRootLocation:(id)arg4;
@@ -67,8 +65,8 @@
 + (id)createUbiquityExternalDataReferenceStoreLocationForStoreName:(id)arg1 withUbiquityRootLocation:(id)arg2;
 + (id)createUbiquityLocationForPath:(id)arg1 withUbiquityRootLocation:(id)arg2;
 + (id)createUbiquityLocationForPath:(id)arg1 withUbiquityRootPath:(id)arg2;
-+ (id)createUbiquityLocationForRootPath:(id)arg1 checkIsUbiquitous:(bool)arg2;
 + (id)createUbiquityLocationForRootPath:(id)arg1;
++ (id)createUbiquityLocationForRootPath:(id)arg1 checkIsUbiquitous:(BOOL)arg2;
 + (id)createUbiquityLocationForRootURL:(id)arg1;
 + (id)createUbiquityLocationForSubpath:(id)arg1 ofUbiquityRootPath:(id)arg2;
 + (id)createUbiquityLocationForURL:(id)arg1 withUbiquityRootLocation:(id)arg2;
@@ -77,13 +75,13 @@
 + (id)createUbiquityPeerReceiptSafeSaveLocationFromReceiptFileLocation:(id)arg1;
 + (id)createVersionHashStringForModel:(id)arg1;
 + (void)initialize;
-+ (bool)isUbiquityLocationPath:(id)arg1 equalToPath:(id)arg2;
++ (BOOL)isUbiquityLocationPath:(id)arg1 equalToPath:(id)arg2;
 + (id)localLocationSentinel;
 + (id)locationSentinel;
 + (id)pathByTruncatingBeforeLibraryMobileDocuments:(id)arg1;
 + (void)setLocationSentinel:(id)arg1;
 
-- (bool)__isDirectory;
+- (BOOL)__isDirectory;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)createFullPath;
 - (id)createFullURL;
@@ -91,27 +89,27 @@
 - (void)dealloc;
 - (id)description;
 - (id)exportingPeerID;
-- (bool)fileAtLocationIsDownloaded:(id*)arg1;
-- (bool)fileAtLocationIsUploaded:(id*)arg1;
-- (bool)fileExistsAtLocation;
-- (bool)fileExistsAtLocationWithLocalPeerID:(id)arg1 error:(id*)arg2;
+- (BOOL)fileAtLocationIsDownloaded:(id*)arg1;
+- (BOOL)fileAtLocationIsUploaded:(id*)arg1;
+- (BOOL)fileExistsAtLocation;
+- (BOOL)fileExistsAtLocationWithLocalPeerID:(id)arg1 error:(id*)arg2;
 - (id)filename;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
 - (id)initWithUbiquityRootPath:(id)arg1;
 - (id)initWithUbiquityRootURL:(id)arg1;
-- (bool)isDirectory;
-- (bool)isEqual:(id)arg1;
-- (bool)isEqualToURL:(id)arg1;
-- (bool)isRootUbiquitous;
-- (bool)isTransactionLogLocation;
+- (BOOL)isDirectory;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToURL:(id)arg1;
+- (BOOL)isRootUbiquitous;
+- (BOOL)isTransactionLogLocation;
 - (id)modelVersionHash;
 - (id)otherPathComponents;
-- (bool)removeFileAtLocation:(id)arg1 error:(id*)arg2;
+- (BOOL)removeFileAtLocation:(id)arg1 error:(id*)arg2;
 - (void)setExportingPeerID:(id)arg1;
 - (void)setFilename:(id)arg1;
-- (void)setHash:(unsigned long long)arg1;
-- (void)setIsRootUbiquitous:(bool)arg1;
+- (void)setHash:(unsigned int)arg1;
+- (void)setIsRootUbiquitous:(BOOL)arg1;
 - (void)setModelVersionHash:(id)arg1;
 - (void)setOtherPathComponents:(id)arg1;
 - (void)setStoreName:(id)arg1;
@@ -123,11 +121,11 @@
 - (id)ubiquityRootLocation;
 - (id)ubiquityRootLocationPath;
 - (void)updateHash;
-- (bool)usesBaselineDirectory;
-- (bool)usesBaselineStagingDirectory;
-- (bool)usesCurrentBaselineDirectory;
-- (bool)usesNosyncDirectory;
-- (bool)usesStagingLogDirectory;
-- (bool)usesTemporaryLogDirectory;
+- (BOOL)usesBaselineDirectory;
+- (BOOL)usesBaselineStagingDirectory;
+- (BOOL)usesCurrentBaselineDirectory;
+- (BOOL)usesNosyncDirectory;
+- (BOOL)usesStagingLogDirectory;
+- (BOOL)usesTemporaryLogDirectory;
 
 @end

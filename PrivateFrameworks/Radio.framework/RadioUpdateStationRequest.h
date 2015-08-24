@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/Radio.framework/Radio
  */
 
-@class NSArray, NSString, RadioStation;
-
 @interface RadioUpdateStationRequest : RadioSyncRequest {
     NSString *_name;
     NSArray *_seeds;
-    long long _songMixType;
+    int _songMixType;
     RadioStation *_station;
     NSString *_stationDescription;
 }
 
-@property(copy) NSString * name;
-@property(copy) NSArray * seeds;
-@property long long songMixType;
-@property(copy) NSString * stationDescription;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSArray *seeds;
+@property (nonatomic) int songMixType;
+@property (nonatomic, copy) NSString *stationDescription;
 
 - (void).cxx_destruct;
 - (id)_updatedStationDictionary;
@@ -26,10 +24,10 @@
 - (id)seeds;
 - (void)setName:(id)arg1;
 - (void)setSeeds:(id)arg1;
-- (void)setSongMixType:(long long)arg1;
+- (void)setSongMixType:(int)arg1;
 - (void)setStationDescription:(id)arg1;
-- (long long)songMixType;
-- (void)startWithCompletionHandler:(id)arg1;
+- (int)songMixType;
+- (void)startWithCompletionHandler:(id /* block */)arg1;
 - (id)stationDescription;
 
 @end

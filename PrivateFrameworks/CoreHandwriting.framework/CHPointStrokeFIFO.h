@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/CoreHandwriting.framework/CoreHandwriting
  */
 
-@class CHDrawing;
-
 @interface CHPointStrokeFIFO : CHPointFIFO {
     CHDrawing *_strokes;
 }
 
-@property(retain) CHDrawing * strokes;
+@property (nonatomic, retain) CHDrawing *strokes;
 
-- (void)addPoint:(struct CGPoint { double x1; double x2; })arg1;
+- (void)addPoint:(struct CGPoint { float x1; float x2; })arg1;
 - (void)clear;
 - (void)dealloc;
 - (void)flush;

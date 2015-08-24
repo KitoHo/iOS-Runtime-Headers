@@ -2,24 +2,22 @@
    Image: /System/Library/Frameworks/NetworkExtension.framework/NetworkExtension
  */
 
-@class NSString;
-
-@interface NEVPNAppRuleExecutable : NSObject <NEConfigurationValidating, NEPrettyDescription, NEConfigurationLegacySupport, NSSecureCoding, NSCopying> {
+@interface NEVPNAppRuleExecutable : NSObject <NEConfigurationLegacySupport, NEConfigurationValidating, NEPrettyDescription, NSCopying, NSSecureCoding> {
     NSString *_matchDesignatedRequirement;
     NSString *_matchPath;
     NSString *_matchSigningIdentifier;
-    bool_requiresDomains;
+    BOOL _requiresDomains;
 }
 
-@property(readonly) NSString * matchDesignatedRequirement;
-@property(copy) NSString * matchPath;
-@property(readonly) NSString * matchSigningIdentifier;
-@property(readonly) bool requiresDomains;
+@property (readonly) NSString *matchDesignatedRequirement;
+@property (copy) NSString *matchPath;
+@property (readonly) NSString *matchSigningIdentifier;
+@property (readonly) BOOL requiresDomains;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (bool)checkValidityAndCollectErrors:(id)arg1;
+- (BOOL)checkValidityAndCollectErrors:(id)arg1;
 - (id)copyLegacyDictionary;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)descriptionWithIndent:(int)arg1;
@@ -30,7 +28,7 @@
 - (id)matchDesignatedRequirement;
 - (id)matchPath;
 - (id)matchSigningIdentifier;
-- (bool)requiresDomains;
+- (BOOL)requiresDomains;
 - (void)setMatchPath:(id)arg1;
 
 @end

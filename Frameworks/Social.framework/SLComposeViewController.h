@@ -2,41 +2,36 @@
    Image: /System/Library/Frameworks/Social.framework/Social
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSExtension, NSLayoutConstraint, NSString, UIView, UIViewController;
-
 @interface SLComposeViewController : UIViewController <SLRemoteComposeViewControllerDelegateProtocol> {
-    id _completionHandler;
+    id /* block */ _completionHandler;
+    BOOL _didCompleteSheet;
+    BOOL _didFailLoadingRemoteViewController;
     NSExtension *_extension;
     NSArray *_extensionItems;
     NSString *_initialText;
     NSArray *_itemProviders;
     NSLayoutConstraint *_keyboardTopConstraint;
     UIView *_keyboardTrackingView;
-    long long _maximumImageCount;
-    long long _maximumURLCount;
-    long long _maximumVideoCount;
-    long long _numImagesAdded;
-    long long _numURLsAdded;
-    long long _numVideosAdded;
+    int _maximumImageCount;
+    int _maximumURLCount;
+    int _maximumVideoCount;
+    int _numImagesAdded;
+    int _numURLsAdded;
+    int _numVideosAdded;
     UIViewController *_remoteViewController;
-    long long _savedStatusBarStyle;
+    int _savedStatusBarStyle;
     NSString *_serviceType;
-    bool_didCompleteSheet;
-    bool_didFailLoadingRemoteViewController;
-    bool_wasPresented;
+    BOOL _wasPresented;
 }
 
-@property(copy) id completionHandler;
-@property(retain) UIViewController * remoteViewController;
-@property(readonly) NSString * serviceType;
+@property (nonatomic, copy) id /* block */ completionHandler;
+@property (retain) UIViewController *remoteViewController;
+@property (nonatomic, readonly) NSString *serviceType;
 
 + (id)_extensionIdentifierForServiceType:(id)arg1;
-+ (bool)_isAvailableForService:(id)arg1;
-+ (bool)_isServiceType:(id)arg1;
++ (BOOL)_isAvailableForMediaShareExtension:(id)arg1;
++ (BOOL)_isAvailableForService:(id)arg1;
++ (BOOL)_isServiceType:(id)arg1;
 + (id)_serviceTypeForExtensionIdentifier:(id)arg1;
 + (id)_serviceTypeToExtensionIdentifierMap;
 + (id)_shareExtensionWithIdentifier:(id)arg1;
@@ -44,56 +39,56 @@
 + (id)composeViewControllerForExtensionIdentifier:(id)arg1;
 + (id)composeViewControllerForServiceType:(id)arg1;
 + (id)extensionIdentifierForActivityType:(id)arg1;
-+ (bool)isAvailableForExtension:(id)arg1;
-+ (bool)isAvailableForExtensionIdentifier:(id)arg1;
-+ (bool)isAvailableForServiceType:(id)arg1;
++ (BOOL)isAvailableForExtension:(id)arg1;
++ (BOOL)isAvailableForExtensionIdentifier:(id)arg1;
++ (BOOL)isAvailableForServiceType:(id)arg1;
 
 - (void).cxx_destruct;
-- (bool)_addImageAsset:(id)arg1 preview:(id)arg2;
-- (bool)_addImageJPEGData:(id)arg1 preview:(id)arg2;
-- (bool)_addURL:(id)arg1 type:(long long)arg2 preview:(id)arg3;
-- (bool)_addVideoAsset:(id)arg1 preview:(id)arg2;
-- (bool)_addVideoData:(id)arg1 preview:(id)arg2;
+- (BOOL)_addImageAsset:(id)arg1 preview:(id)arg2;
+- (BOOL)_addImageJPEGData:(id)arg1 preview:(id)arg2;
+- (BOOL)_addURL:(id)arg1 type:(int)arg2 preview:(id)arg3;
+- (BOOL)_addVideoAsset:(id)arg1 preview:(id)arg2;
+- (BOOL)_addVideoData:(id)arg1 preview:(id)arg2;
 - (void)_handleRemoteViewFailure;
 - (id)_urlForUntypedAsset:(id)arg1;
-- (bool)_useCustomDimmingView;
-- (bool)addAttachment:(id)arg1;
-- (id)addDownSampledImageDataByProxyWithPreviewImage:(id)arg1;
-- (bool)addExtensionItem:(id)arg1;
-- (bool)addImage:(id)arg1;
-- (bool)addImageAsset:(id)arg1;
-- (bool)addItemProvider:(id)arg1;
-- (bool)addURL:(id)arg1 withPreviewImage:(id)arg2;
-- (bool)addURL:(id)arg1;
-- (bool)canAddContent;
-- (bool)canSendTweet;
-- (void)completeWithResult:(long long)arg1;
-- (id)completionHandler;
+- (BOOL)_useCustomDimmingView;
+- (BOOL)addAttachment:(id)arg1;
+- (id /* block */)addDownSampledImageDataByProxyWithPreviewImage:(id)arg1;
+- (BOOL)addExtensionItem:(id)arg1;
+- (BOOL)addImage:(id)arg1;
+- (BOOL)addImageAsset:(id)arg1;
+- (BOOL)addItemProvider:(id)arg1;
+- (BOOL)addURL:(id)arg1;
+- (BOOL)addURL:(id)arg1 withPreviewImage:(id)arg2;
+- (BOOL)canAddContent;
+- (BOOL)canSendTweet;
+- (void)completeWithResult:(int)arg1;
+- (id /* block */)completionHandler;
 - (void)dealloc;
 - (void)didLoadSheetViewController;
 - (id)initWithExtension:(id)arg1 requestedServiceType:(id)arg2;
 - (id)initWithExtensionIdentifier:(id)arg1;
 - (id)initWithServiceType:(id)arg1;
 - (void)remoteController:(id)arg1 didLoadWithError:(id)arg2;
-- (void)remoteViewController:(id)arg1 didTerminateWithError:(id)arg2;
 - (id)remoteViewController;
+- (void)remoteViewController:(id)arg1 didTerminateWithError:(id)arg2;
 - (void)remoteViewControllerLoadDidTimeout;
-- (bool)removeAllImages;
-- (bool)removeAllURLs;
+- (BOOL)removeAllImages;
+- (BOOL)removeAllURLs;
 - (id)serviceType;
-- (void)setCompletionHandler:(id)arg1;
-- (bool)setInitialText:(id)arg1;
+- (void)setCompletionHandler:(id /* block */)arg1;
+- (BOOL)setInitialText:(id)arg1;
 - (void)setLongitude:(double)arg1 latitude:(double)arg2 name:(id)arg3;
 - (void)setRemoteViewController:(id)arg1;
-- (bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
-- (bool)supportsImageAsset:(id)arg1;
-- (bool)supportsVideoAsset:(id)arg1;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (BOOL)supportsImageAsset:(id)arg1;
+- (BOOL)supportsVideoAsset:(id)arg1;
 - (void)userDidCancel;
 - (void)userDidPost;
-- (void)viewDidAppear:(bool)arg1;
-- (void)viewDidDisappear:(bool)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewDidUnload;
-- (void)viewWillAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

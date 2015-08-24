@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSMutableDictionary, NSString;
-
 @interface TSUCache : TSUFlushableObject {
     NSMutableDictionary *mCache;
     NSString *mCacheName;
 }
 
-- (unsigned long long)count;
+- (unsigned int)count;
 - (void)dealloc;
 - (id)description;
-- (bool)hasFlushableContent;
+- (BOOL)hasFlushableContent;
 - (id)init;
 - (id)initWithName:(id)arg1;
 - (id)objectForKey:(id)arg1;

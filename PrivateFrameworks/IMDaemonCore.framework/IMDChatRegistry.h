@@ -2,24 +2,23 @@
    Image: /System/Library/PrivateFrameworks/IMDaemonCore.framework/IMDaemonCore
  */
 
-@class NSArray, NSMutableDictionary, NSRecursiveLock;
-
 @interface IMDChatRegistry : NSObject {
     NSMutableDictionary *_chats;
     NSRecursiveLock *_chatsLock;
-    bool_doneLoadingAfterMerge;
-    bool_isLoading;
+    BOOL _doneLoadingAfterMerge;
+    BOOL _isLoading;
 }
 
-@property(readonly) NSArray * chats;
+@property (nonatomic, readonly) NSArray *chats;
 
 + (id)sharedInstance;
 
 - (id)_chatInfo;
 - (id)_chatInfoForSaving;
-- (void)_forceReloadChats:(bool)arg1;
+- (void)_forceReloadChats:(BOOL)arg1;
+- (void)_makeAllAttachmentsClassC;
 - (void)_rebuildSpotlightDatabaseFor18306262;
-- (bool)_saveChats;
+- (BOOL)_saveChats;
 - (void)addChat:(id)arg1;
 - (void)addItem:(id)arg1 toChat:(id)arg2;
 - (void)addMessage:(id)arg1 toChat:(id)arg2;
@@ -37,19 +36,19 @@
 - (id)existingChatWithIdentifier:(id)arg1 account:(id)arg2;
 - (id)existingChatsForIDs:(id)arg1 onService:(id)arg2 style:(unsigned char)arg3;
 - (id)init;
-- (bool)loadChatsWithCompletionBlock:(id)arg1;
+- (BOOL)loadChatsWithCompletionBlock:(id /* block */)arg1;
 - (void)removeChat:(id)arg1;
 - (void)removeItem:(id)arg1 fromChat:(id)arg2;
 - (void)removeMessage:(id)arg1 fromChat:(id)arg2;
-- (bool)saveChats;
+- (BOOL)saveChats;
 - (void)systemDidLeaveFirstDataProtectionLock;
 - (void)systemDidUnlock;
-- (void)updateLastMessageForChat:(id)arg1 hintMessage:(id)arg2;
 - (void)updateLastMessageForChat:(id)arg1;
-- (bool)updateProperties:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3;
-- (void)updateStateForChat:(id)arg1 forcePost:(bool)arg2;
-- (void)updateStateForChat:(id)arg1 fromMessage:(id)arg2 toMessage:(id)arg3 forcePost:(bool)arg4;
+- (void)updateLastMessageForChat:(id)arg1 hintMessage:(id)arg2;
+- (BOOL)updateProperties:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3;
 - (void)updateStateForChat:(id)arg1;
-- (bool)updateUnreadCountForChat:(id)arg1;
+- (void)updateStateForChat:(id)arg1 forcePost:(BOOL)arg2;
+- (void)updateStateForChat:(id)arg1 fromMessage:(id)arg2 toMessage:(id)arg3 forcePost:(BOOL)arg4;
+- (BOOL)updateUnreadCountForChat:(id)arg1;
 
 @end

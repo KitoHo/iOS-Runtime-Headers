@@ -2,25 +2,24 @@
    Image: /System/Library/PrivateFrameworks/CoreIndoor.framework/CoreIndoor
  */
 
-@class NSString;
+@interface CLIndoorMaintenance : CLIndoorXPCProvider <CLIndoorXPCProviderImplementation>
 
-@interface CLIndoorMaintenance : CLIndoorXPCProvider <CLIndoorXPCProviderImplementation> {
-}
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
-
+- (void)doSynchronousXPC:(id /* block */)arg1 description:(const char *)arg2;
 - (id)endpointName;
 - (void)eraseEverything;
-- (void)onQueueEraseEverything;
-- (void)onQueuePrefetch:(id)arg1;
+- (void)onQueueEraseEverything:(id /* block */)arg1;
+- (void)onQueuePrefetch:(id)arg1 withCallback:(id /* block */)arg2;
 - (void)onQueueShutdown;
 - (void)prefetch:(id)arg1;
 - (id)remoteObjectProtocol;
+- (void)retrieveLocationRelevancyDurationWithCompletionHandler:(id /* block */)arg1;
 - (void)shutdown;
-- (bool)withinQueueCanReinitializeRemoteState;
+- (BOOL)withinQueueCanReinitializeRemoteState;
 - (void)withinQueueInvalidateState;
 - (id)withinQueuePermanentShutdownReason;
 - (void)withinQueueReconnectInvalidatedConnectionFailed:(id)arg1;

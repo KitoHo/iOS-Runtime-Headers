@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/ImageCapture.framework/ImageCapture
  */
 
-@class NSArray;
-
 @interface ICCameraFolder : ICCameraItem {
     int _filesLock;
     void *_folderProperties;
     int _foldersLock;
 }
 
-@property(readonly) NSArray * contents;
+@property (readonly) NSArray *contents;
 
 - (void)addFile:(id)arg1;
 - (void)addFolder:(id)arg1;
@@ -23,7 +21,7 @@
 - (id)files;
 - (void)finalize;
 - (id)folders;
-- (bool)hasThumbnail;
+- (BOOL)hasThumbnail;
 - (id)initWithName:(id)arg1 parentFolder:(id)arg2 device:(id)arg3;
 - (void)lockFiles;
 - (void)lockFolders;

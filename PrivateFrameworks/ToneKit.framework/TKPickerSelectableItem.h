@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/ToneKit.framework/ToneKit
  */
 
-@class NSString;
-
 @interface TKPickerSelectableItem : TKPickerRowItem {
     NSString *_detailText;
+    BOOL _showsCheckmark;
+    BOOL _showsDisclosureIndicator;
     NSString *_text;
-    bool_showsCheckmark;
-    bool_showsDisclosureIndicator;
-    bool_textCentered;
+    BOOL _textCentered;
 }
 
-@property(copy) NSString * detailText;
-@property bool showsCheckmark;
-@property bool showsDisclosureIndicator;
-@property(copy) NSString * text;
-@property(getter=isTextCentered) bool textCentered;
+@property (nonatomic, copy) NSString *detailText;
+@property (nonatomic) BOOL showsCheckmark;
+@property (nonatomic) BOOL showsDisclosureIndicator;
+@property (nonatomic, copy) NSString *text;
+@property (getter=isTextCentered, nonatomic) BOOL textCentered;
 
 - (void)_appendDescriptionOfAttributesToString:(id)arg1;
 - (void)_setDetailText:(id)arg1;
-- (void)_setShowsCheckmark:(bool)arg1;
-- (void)_setShowsDisclosureIndicator:(bool)arg1;
+- (void)_setShowsCheckmark:(BOOL)arg1;
+- (void)_setShowsDisclosureIndicator:(BOOL)arg1;
 - (void)_setText:(id)arg1;
-- (void)_setTextCentered:(bool)arg1;
+- (void)_setTextCentered:(BOOL)arg1;
 - (void)dealloc;
 - (id)detailText;
-- (bool)isTextCentered;
-- (bool)showsCheckmark;
-- (bool)showsDisclosureIndicator;
+- (BOOL)isTextCentered;
+- (BOOL)showsCheckmark;
+- (BOOL)showsDisclosureIndicator;
 - (id)text;
 
 @end

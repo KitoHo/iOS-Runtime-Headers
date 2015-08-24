@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OITSUNoCopyDictionary;
-
 @interface PDAnimationCacheState : NSObject {
     OITSUNoCopyDictionary *mMediaNodeMap;
 }
 
 - (void)dealloc;
 - (id)init;
-- (bool)isValid:(id)arg1;
+- (BOOL)isValid:(id)arg1;
 - (id)mediaNodeMap;
 
 @end

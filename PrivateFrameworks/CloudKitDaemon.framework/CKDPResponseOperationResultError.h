@@ -2,35 +2,33 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPResponseOperationResultErrorClient, CKDPResponseOperationResultErrorExtension, CKDPResponseOperationResultErrorServer, NSString;
-
 @interface CKDPResponseOperationResultError : PBCodable <NSCopying> {
-    struct { 
-        unsigned int retryAfterSeconds : 1; 
     CKDPResponseOperationResultErrorClient *_clientError;
     NSString *_errorDescription;
     NSString *_errorInternal;
     NSString *_errorKey;
     CKDPResponseOperationResultErrorExtension *_extensionError;
+    struct { 
+        unsigned int retryAfterSeconds : 1; 
     } _has;
     int _retryAfterSeconds;
     CKDPResponseOperationResultErrorServer *_serverError;
 }
 
-@property(retain) CKDPResponseOperationResultErrorClient * clientError;
-@property(retain) NSString * errorDescription;
-@property(retain) NSString * errorInternal;
-@property(retain) NSString * errorKey;
-@property(retain) CKDPResponseOperationResultErrorExtension * extensionError;
-@property(readonly) bool hasClientError;
-@property(readonly) bool hasErrorDescription;
-@property(readonly) bool hasErrorInternal;
-@property(readonly) bool hasErrorKey;
-@property(readonly) bool hasExtensionError;
-@property bool hasRetryAfterSeconds;
-@property(readonly) bool hasServerError;
-@property int retryAfterSeconds;
-@property(retain) CKDPResponseOperationResultErrorServer * serverError;
+@property (nonatomic, retain) CKDPResponseOperationResultErrorClient *clientError;
+@property (nonatomic, retain) NSString *errorDescription;
+@property (nonatomic, retain) NSString *errorInternal;
+@property (nonatomic, retain) NSString *errorKey;
+@property (nonatomic, retain) CKDPResponseOperationResultErrorExtension *extensionError;
+@property (nonatomic, readonly) BOOL hasClientError;
+@property (nonatomic, readonly) BOOL hasErrorDescription;
+@property (nonatomic, readonly) BOOL hasErrorInternal;
+@property (nonatomic, readonly) BOOL hasErrorKey;
+@property (nonatomic, readonly) BOOL hasExtensionError;
+@property (nonatomic) BOOL hasRetryAfterSeconds;
+@property (nonatomic, readonly) BOOL hasServerError;
+@property (nonatomic) int retryAfterSeconds;
+@property (nonatomic, retain) CKDPResponseOperationResultErrorServer *serverError;
 
 - (void).cxx_destruct;
 - (id)clientError;
@@ -42,17 +40,17 @@
 - (id)errorInternal;
 - (id)errorKey;
 - (id)extensionError;
-- (bool)hasClientError;
-- (bool)hasErrorDescription;
-- (bool)hasErrorInternal;
-- (bool)hasErrorKey;
-- (bool)hasExtensionError;
-- (bool)hasRetryAfterSeconds;
-- (bool)hasServerError;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasClientError;
+- (BOOL)hasErrorDescription;
+- (BOOL)hasErrorInternal;
+- (BOOL)hasErrorKey;
+- (BOOL)hasExtensionError;
+- (BOOL)hasRetryAfterSeconds;
+- (BOOL)hasServerError;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (int)retryAfterSeconds;
 - (id)serverError;
 - (void)setClientError:(id)arg1;
@@ -60,7 +58,7 @@
 - (void)setErrorInternal:(id)arg1;
 - (void)setErrorKey:(id)arg1;
 - (void)setExtensionError:(id)arg1;
-- (void)setHasRetryAfterSeconds:(bool)arg1;
+- (void)setHasRetryAfterSeconds:(BOOL)arg1;
 - (void)setRetryAfterSeconds:(int)arg1;
 - (void)setServerError:(id)arg1;
 - (void)writeTo:(id)arg1;

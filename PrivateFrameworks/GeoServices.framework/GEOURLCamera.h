@@ -3,13 +3,13 @@
  */
 
 @interface GEOURLCamera : PBCodable <NSCopying> {
+    double _altitude;
     struct { 
         unsigned int altitude : 1; 
         unsigned int heading : 1; 
         unsigned int latitude : 1; 
         unsigned int longitude : 1; 
         unsigned int pitch : 1; 
-    double _altitude;
     } _has;
     double _heading;
     double _latitude;
@@ -17,41 +17,41 @@
     double _pitch;
 }
 
-@property double altitude;
-@property bool hasAltitude;
-@property bool hasHeading;
-@property bool hasLatitude;
-@property bool hasLongitude;
-@property bool hasPitch;
-@property double heading;
-@property double latitude;
-@property double longitude;
-@property double pitch;
+@property (nonatomic) double altitude;
+@property (nonatomic) BOOL hasAltitude;
+@property (nonatomic) BOOL hasHeading;
+@property (nonatomic) BOOL hasLatitude;
+@property (nonatomic) BOOL hasLongitude;
+@property (nonatomic) BOOL hasPitch;
+@property (nonatomic) double heading;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
+@property (nonatomic) double pitch;
 
 - (double)altitude;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasAltitude;
-- (bool)hasHeading;
-- (bool)hasLatitude;
-- (bool)hasLongitude;
-- (bool)hasPitch;
-- (unsigned long long)hash;
+- (BOOL)hasAltitude;
+- (BOOL)hasHeading;
+- (BOOL)hasLatitude;
+- (BOOL)hasLongitude;
+- (BOOL)hasPitch;
+- (unsigned int)hash;
 - (double)heading;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (double)latitude;
 - (double)longitude;
 - (void)mergeFrom:(id)arg1;
 - (double)pitch;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setAltitude:(double)arg1;
-- (void)setHasAltitude:(bool)arg1;
-- (void)setHasHeading:(bool)arg1;
-- (void)setHasLatitude:(bool)arg1;
-- (void)setHasLongitude:(bool)arg1;
-- (void)setHasPitch:(bool)arg1;
+- (void)setHasAltitude:(BOOL)arg1;
+- (void)setHasHeading:(BOOL)arg1;
+- (void)setHasLatitude:(BOOL)arg1;
+- (void)setHasLongitude:(BOOL)arg1;
+- (void)setHasPitch:(BOOL)arg1;
 - (void)setHeading:(double)arg1;
 - (void)setLatitude:(double)arg1;
 - (void)setLongitude:(double)arg1;

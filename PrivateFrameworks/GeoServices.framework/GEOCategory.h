@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray, NSString;
-
 @interface GEOCategory : PBCodable <NSCopying> {
-    struct { 
-        unsigned int geoOntologyId : 1; 
     NSString *_alias;
     long long _geoOntologyId;
+    struct { 
+        unsigned int geoOntologyId : 1; 
     } _has;
     int _level;
     NSMutableArray *_localizedNames;
 }
 
-@property(retain) NSString * alias;
-@property long long geoOntologyId;
-@property bool hasGeoOntologyId;
-@property int level;
-@property(retain) NSMutableArray * localizedNames;
+@property (nonatomic, retain) NSString *alias;
+@property (nonatomic) long long geoOntologyId;
+@property (nonatomic) BOOL hasGeoOntologyId;
+@property (nonatomic) int level;
+@property (nonatomic, retain) NSMutableArray *localizedNames;
 
 - (void)addLocalizedNames:(id)arg1;
 - (id)alias;
@@ -29,19 +27,19 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (long long)geoOntologyId;
-- (bool)hasGeoOntologyId;
-- (unsigned long long)hash;
+- (BOOL)hasGeoOntologyId;
+- (unsigned int)hash;
 - (id)initWithPlaceDataCategory:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (int)level;
 - (id)localizedNames;
-- (id)localizedNamesAtIndex:(unsigned long long)arg1;
-- (unsigned long long)localizedNamesCount;
+- (id)localizedNamesAtIndex:(unsigned int)arg1;
+- (unsigned int)localizedNamesCount;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setAlias:(id)arg1;
 - (void)setGeoOntologyId:(long long)arg1;
-- (void)setHasGeoOntologyId:(bool)arg1;
+- (void)setHasGeoOntologyId:(BOOL)arg1;
 - (void)setLevel:(int)arg1;
 - (void)setLocalizedNames:(id)arg1;
 - (void)writeTo:(id)arg1;

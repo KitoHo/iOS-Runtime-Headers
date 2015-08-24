@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOLocation, GEORPUserCredentials, NSData, NSMutableArray, NSString;
-
 @interface GEORPProblemCollectionRequest : PBRequest <NSCopying> {
     NSString *_countryCode;
     NSData *_devicePushToken;
@@ -16,23 +14,23 @@
     GEOLocation *_userLocation;
 }
 
-@property(retain) NSString * countryCode;
-@property(retain) NSData * devicePushToken;
-@property(readonly) bool hasCountryCode;
-@property(readonly) bool hasDevicePushToken;
-@property(readonly) bool hasHwMachine;
-@property(readonly) bool hasInputLanguage;
-@property(readonly) bool hasOsRelease;
-@property(readonly) bool hasUserCredentials;
-@property(readonly) bool hasUserEmail;
-@property(readonly) bool hasUserLocation;
-@property(retain) NSString * hwMachine;
-@property(retain) NSString * inputLanguage;
-@property(retain) NSString * osRelease;
-@property(retain) NSMutableArray * requestElements;
-@property(retain) GEORPUserCredentials * userCredentials;
-@property(retain) NSString * userEmail;
-@property(retain) GEOLocation * userLocation;
+@property (nonatomic, retain) NSString *countryCode;
+@property (nonatomic, retain) NSData *devicePushToken;
+@property (nonatomic, readonly) BOOL hasCountryCode;
+@property (nonatomic, readonly) BOOL hasDevicePushToken;
+@property (nonatomic, readonly) BOOL hasHwMachine;
+@property (nonatomic, readonly) BOOL hasInputLanguage;
+@property (nonatomic, readonly) BOOL hasOsRelease;
+@property (nonatomic, readonly) BOOL hasUserCredentials;
+@property (nonatomic, readonly) BOOL hasUserEmail;
+@property (nonatomic, readonly) BOOL hasUserLocation;
+@property (nonatomic, retain) NSString *hwMachine;
+@property (nonatomic, retain) NSString *inputLanguage;
+@property (nonatomic, retain) NSString *osRelease;
+@property (nonatomic, retain) NSMutableArray *requestElements;
+@property (nonatomic, retain) GEORPUserCredentials *userCredentials;
+@property (nonatomic, retain) NSString *userEmail;
+@property (nonatomic, retain) GEOLocation *userLocation;
 
 - (void)addRequestElement:(id)arg1;
 - (void)clearRequestElements;
@@ -43,24 +41,24 @@
 - (id)description;
 - (id)devicePushToken;
 - (id)dictionaryRepresentation;
-- (bool)hasCountryCode;
-- (bool)hasDevicePushToken;
-- (bool)hasHwMachine;
-- (bool)hasInputLanguage;
-- (bool)hasOsRelease;
-- (bool)hasUserCredentials;
-- (bool)hasUserEmail;
-- (bool)hasUserLocation;
-- (unsigned long long)hash;
+- (BOOL)hasCountryCode;
+- (BOOL)hasDevicePushToken;
+- (BOOL)hasHwMachine;
+- (BOOL)hasInputLanguage;
+- (BOOL)hasOsRelease;
+- (BOOL)hasUserCredentials;
+- (BOOL)hasUserEmail;
+- (BOOL)hasUserLocation;
+- (unsigned int)hash;
 - (id)hwMachine;
 - (id)inputLanguage;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)osRelease;
-- (bool)readFrom:(id)arg1;
-- (id)requestElementAtIndex:(unsigned long long)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (id)requestElementAtIndex:(unsigned int)arg1;
 - (id)requestElements;
-- (unsigned long long)requestElementsCount;
+- (unsigned int)requestElementsCount;
 - (unsigned int)requestTypeCode;
 - (Class)responseClass;
 - (void)setCountryCode:(id)arg1;

@@ -2,11 +2,10 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@interface NSISRestrictedToNonNegativeMarkerVariableToBeMinimized : NSISVariable {
-}
+@interface NSISRestrictedToNonNegativeMarkerVariableToBeMinimized : NSISVariable
 
 - (id)markedConstraint;
-- (bool)shouldBeMinimized;
+- (BOOL)shouldBeMinimized;
 - (int)valueRestriction;
 
 @end

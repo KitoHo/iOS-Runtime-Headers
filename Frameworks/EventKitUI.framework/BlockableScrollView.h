@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class NSObject<BlockableScrollViewDelegate>;
-
 @interface BlockableScrollView : UIScrollView {
     NSObject<BlockableScrollViewDelegate> *_blockableDelegate;
 }
 
-@property NSObject<BlockableScrollViewDelegate> * blockableDelegate;
+@property (nonatomic) NSObject<BlockableScrollViewDelegate> *blockableDelegate;
 
 - (void).cxx_destruct;
 - (id)blockableDelegate;
-- (bool)gestureRecognizerShouldBegin:(id)arg1;
+- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
 - (void)setBlockableDelegate:(id)arg1;
 
 @end

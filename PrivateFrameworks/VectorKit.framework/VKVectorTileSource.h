@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@interface VKVectorTileSource : VKTileSetBackedTileSource {
-}
+@interface VKVectorTileSource : VKTileSetBackedTileSource
 
-- (long long)defaultMaximumZoomLevel;
-- (bool)minimumZoomLevelBoundsCamera;
+- (int)defaultMaximumZoomLevel;
+- (BOOL)minimumZoomLevelBoundsCamera;
 
 @end

@@ -2,20 +2,18 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSString, PUActivityItemSourceController;
-
 @interface PUMessageActivity : UIMessageActivity <PUActivity> {
     PUActivityItemSourceController *_itemSourceController;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property PUActivityItemSourceController * itemSourceController;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) PUActivityItemSourceController *itemSourceController;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (bool)canPerformWithActivityItems:(id)arg1;
+- (BOOL)canPerformWithActivityItems:(id)arg1;
 - (id)itemSourceController;
 - (void)setItemSourceController:(id)arg1;
 

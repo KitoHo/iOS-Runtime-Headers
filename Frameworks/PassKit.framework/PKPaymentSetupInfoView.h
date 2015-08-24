@@ -2,35 +2,32 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class UIActivityIndicatorView, UIButton, UIImageView, UILabel;
-
 @interface PKPaymentSetupInfoView : UIView {
-    UIButton *_aboutButton;
     UIActivityIndicatorView *_activityIndicatorView;
     UILabel *_bodyLabel;
-    long long _context;
-    UIImageView *_glyph;
-    UILabel *_titleLabel;
+    int _context;
+    UIImageView *_logo;
+    PKPaymentSetupPrivacyFooterView *_privacyFooter;
 }
 
-@property(retain) UIButton * aboutButton;
-@property(retain) UIActivityIndicatorView * activityIndicatorView;
-@property long long context;
+@property (nonatomic, retain) UIActivityIndicatorView *activityIndicatorView;
+@property (nonatomic) int context;
+@property (nonatomic, retain) PKPaymentSetupPrivacyFooterView *privacyFooter;
 
 - (id)_bodyFont;
 - (id)_titleFont;
-- (id)aboutButton;
 - (id)activityIndicatorView;
 - (id)bodyLabel;
-- (long long)context;
+- (int)context;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 context:(long long)arg2;
-- (bool)isBuddyiPad;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1 context:(int)arg2;
+- (BOOL)isBuddyiPad;
 - (void)layoutSubviews;
-- (void)setAboutButton:(id)arg1;
+- (id)logo;
+- (id)privacyFooter;
 - (void)setActivityIndicatorView:(id)arg1;
-- (void)setContext:(long long)arg1;
-- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
-- (id)titleLabel;
+- (void)setContext:(int)arg1;
+- (void)setPrivacyFooter:(id)arg1;
+- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
 
 @end

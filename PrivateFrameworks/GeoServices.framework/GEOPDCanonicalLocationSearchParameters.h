@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSString;
-
 @interface GEOPDCanonicalLocationSearchParameters : PBCodable <NSCopying> {
     NSString *_queryString;
 }
 
-@property(readonly) bool hasQueryString;
-@property(retain) NSString * queryString;
+@property (nonatomic, readonly) BOOL hasQueryString;
+@property (nonatomic, retain) NSString *queryString;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasQueryString;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasQueryString;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)queryString;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setQueryString:(id)arg1;
 - (void)writeTo:(id)arg1;
 

@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/AppSupport.framework/AppSupport
  */
 
-@interface CPAggregateDictionary : NSObject {
-}
+@interface CPAggregateDictionary : NSObject
 
-@property(getter=isEnabled,readonly) bool enabled;
+@property (getter=isEnabled, nonatomic, readonly) BOOL enabled;
 
 + (id)sharedAggregateDictionary;
 
@@ -15,7 +14,7 @@
 - (int)commit;
 - (void)decrementKey:(id)arg1;
 - (void)incrementKey:(id)arg1;
-- (bool)isEnabled;
+- (BOOL)isEnabled;
 - (void)pushValue:(double)arg1 forKey:(id)arg2;
 - (void)setValue:(double)arg1 forDistributionKey:(id)arg2;
 - (void)setValue:(long long)arg1 forScalarKey:(id)arg2;

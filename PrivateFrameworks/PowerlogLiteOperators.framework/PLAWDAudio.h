@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/PowerlogLiteOperators.framework/PowerlogLiteOperators
  */
 
-@class NSDate, PLEntryNotificationOperatorComposition;
-
 @interface PLAWDAudio : PLAWDAuxMetrics {
     PLEntryNotificationOperatorComposition *_audioRailCallback;
     NSDate *_startTime;
 }
 
-@property(retain) PLEntryNotificationOperatorComposition * audioRailCallback;
-@property(retain) NSDate * startTime;
+@property (retain) PLEntryNotificationOperatorComposition *audioRailCallback;
+@property (retain) NSDate *startTime;
 
 + (id)entryAggregateDefinitionAwdAudio;
 + (id)entryAggregateDefinitions;
@@ -26,6 +24,6 @@
 - (void)startMetricCollection:(id)arg1;
 - (id)startTime;
 - (void)stopMetricCollection:(id)arg1;
-- (bool)submitDataToAWDServer:(id)arg1 withAwdConn:(id)arg2;
+- (BOOL)submitDataToAWDServer:(id)arg1 withAwdConn:(id)arg2;
 
 @end

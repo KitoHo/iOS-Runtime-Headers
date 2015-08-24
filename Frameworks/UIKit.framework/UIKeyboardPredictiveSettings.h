@@ -2,29 +2,27 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString;
-
 @interface UIKeyboardPredictiveSettings : _UISettings {
+    BOOL _alwaysShowTypedText;
     NSString *_currentInputMode;
+    BOOL _currentInputModeEnablePrediction;
+    BOOL _didShowHUD;
     int _lastVolume;
     int _minLetters;
-    bool_alwaysShowTypedText;
-    bool_currentInputModeEnablePrediction;
-    bool_didShowHUD;
-    bool_nextPage;
+    BOOL _nextPage;
 }
 
-@property bool alwaysShowTypedText;
-@property int messageCount;
-@property int minLetters;
+@property (nonatomic) BOOL alwaysShowTypedText;
+@property (nonatomic) int messageCount;
+@property (nonatomic) int minLetters;
 
 + (void)hideViaNotification;
 + (void)loadSettings;
 + (id)sharedInstance;
 
-- (bool)_isShowingHUD;
+- (BOOL)_isShowingHUD;
 - (id)_sharedHUD;
-- (bool)alwaysShowTypedText;
+- (BOOL)alwaysShowTypedText;
 - (void)cancel;
 - (void)hide;
 - (id)initWithDefaultValues;
@@ -34,13 +32,13 @@
 - (void)pressRingerButton;
 - (void)previous;
 - (void)saveSettings;
-- (void)setAlwaysShowTypedText:(bool)arg1;
+- (void)setAlwaysShowTypedText:(BOOL)arg1;
 - (void)setMessageCount:(int)arg1;
 - (void)setMinLetters:(int)arg1;
 - (void)setValue:(id)arg1 forKey:(id)arg2;
 - (id)settingsHUDConfiguration;
-- (void)show:(bool)arg1;
 - (void)show;
+- (void)show:(BOOL)arg1;
 - (id)valueForKey:(id)arg1;
 
 @end

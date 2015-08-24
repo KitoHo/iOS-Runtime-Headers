@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/AXHearingAidSupport.framework/AXHearingAidSupport
  */
 
-@class <AXHAServerDelegate>, NSArray, NSMutableDictionary, NSObject<OS_xpc_object>, NSString;
-
 @interface AXHAServer : NSObject <AXHARemoteUpdateProtocol> {
     NSArray *_availableControllers;
     NSArray *_availableHearingAids;
     <AXHAServerDelegate> *_delegate;
+    BOOL _hearingAidReachable;
     NSMutableDictionary *_updates;
     NSObject<OS_xpc_object> *_xpcConnection;
-    bool_hearingAidReachable;
 }
 
-@property(retain) NSArray * availableControllers;
-@property(retain) NSArray * availableHearingAids;
-@property(copy,readonly) NSString * debugDescription;
-@property <AXHAServerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property bool hearingAidReachable;
-@property(readonly) Class superclass;
-@property(retain) NSMutableDictionary * updates;
-@property(retain) NSObject<OS_xpc_object> * xpcConnection;
+@property (nonatomic, retain) NSArray *availableControllers;
+@property (nonatomic, retain) NSArray *availableHearingAids;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <AXHAServerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) BOOL hearingAidReachable;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSMutableDictionary *updates;
+@property (nonatomic, retain) NSObject<OS_xpc_object> *xpcConnection;
 
 + (id)sharedInstance;
 
@@ -35,12 +33,12 @@
 - (id)delegate;
 - (void)deviceDidUpdateProperty:(id)arg1;
 - (void)handleMessageWithPayload:(id)arg1 forIdentifier:(unsigned long long)arg2;
-- (bool)hearingAidReachable;
+- (BOOL)hearingAidReachable;
 - (id)init;
 - (void)liveListenDidUpdate:(id)arg1;
-- (void)registerListener:(id)arg1 forAvailableDeviceHandler:(id)arg2;
-- (void)registerListener:(id)arg1 forLiveListenLevelsHandler:(id)arg2;
-- (void)registerListener:(id)arg1 forPropertyUpdateHandler:(id)arg2;
+- (void)registerListener:(id)arg1 forAvailableDeviceHandler:(id /* block */)arg2;
+- (void)registerListener:(id)arg1 forLiveListenLevelsHandler:(id /* block */)arg2;
+- (void)registerListener:(id)arg1 forPropertyUpdateHandler:(id /* block */)arg2;
 - (void)registerUpdateBlock:(void*)arg1 forIdentier:(unsigned long long)arg2 withListener:(id)arg3;
 - (void)requestHearingAidConnection;
 - (void)resetConnection;
@@ -48,7 +46,7 @@
 - (void)setAvailableControllers:(id)arg1;
 - (void)setAvailableHearingAids:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setHearingAidReachable:(bool)arg1;
+- (void)setHearingAidReachable:(BOOL)arg1;
 - (void)setUpdates:(id)arg1;
 - (void)setXpcConnection:(id)arg1;
 - (void)setupServerIfNecessary;
@@ -57,9 +55,9 @@
 - (void)stopLiveListen;
 - (void)terminateConnection;
 - (void)unregisterUpdateListener:(id)arg1;
-- (void)updateProperty:(long long)arg1 forDeviceID:(id)arg2;
+- (void)updateProperty:(int)arg1 forDeviceID:(id)arg2;
 - (id)updates;
-- (void)writeValue:(id)arg1 forProperty:(long long)arg2 forDeviceID:(id)arg3;
+- (void)writeValue:(id)arg1 forProperty:(int)arg2 forDeviceID:(id)arg3;
 - (id)xpcConnection;
 
 @end

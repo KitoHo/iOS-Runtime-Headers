@@ -2,37 +2,33 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPCSData, NSString;
-
-@interface CKDPCSData : NSObject {
+@interface CKDPCSData : NSObject <NSSecureCoding> {
     NSString *_etag;
-    id _itemID;
     struct _OpaquePCSShareProtection { } *_pcs;
-    CKDPCSData *_sharePCSData;
-    CKDPCSData *_zonePCSData;
+    NSData *_pcsData;
 }
 
-@property(retain) NSString * etag;
-@property(readonly) id itemID;
-@property struct _OpaquePCSShareProtection { }* pcs;
-@property(retain) CKDPCSData * sharePCSData;
-@property(retain) CKDPCSData * zonePCSData;
+@property (nonatomic, copy) NSString *etag;
+@property (nonatomic, readonly) <NSSecureCoding> *itemID;
+@property (nonatomic) struct _OpaquePCSShareProtection { }*pcs;
+@property (nonatomic, copy) NSData *pcsData;
 
-+ (id)dataWithItemID:(id)arg1;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)CKPropertiesDescription;
 - (void)dealloc;
+- (BOOL)decryptPCSDataWithManager:(id)arg1 error:(id*)arg2;
 - (id)description;
+- (void)encodeWithCoder:(id)arg1;
 - (id)etag;
-- (id)initWithItemID:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithPCSData:(id)arg1;
 - (id)itemID;
 - (struct _OpaquePCSShareProtection { }*)pcs;
+- (id)pcsData;
 - (void)setEtag:(id)arg1;
 - (void)setPcs:(struct _OpaquePCSShareProtection { }*)arg1;
-- (void)setSharePCSData:(id)arg1;
-- (void)setZonePCSData:(id)arg1;
-- (id)sharePCSData;
-- (id)zonePCSData;
+- (void)setPcsData:(id)arg1;
 
 @end

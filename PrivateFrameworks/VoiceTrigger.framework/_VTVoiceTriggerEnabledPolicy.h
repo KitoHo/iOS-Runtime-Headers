@@ -3,14 +3,15 @@
  */
 
 @interface _VTVoiceTriggerEnabledPolicy : _VTStatePolicy {
+    BOOL _enabled;
     int _notificationToken;
-    bool_enabled;
+    BOOL _primedPhraseSpotter;
 }
 
 - (void)_listenForReload;
 - (void)_update;
 - (void)dealloc;
-- (id)initWithCallback:(id)arg1 queue:(id)arg2;
-- (bool)isEnabled;
+- (id)initWithCallback:(id /* block */)arg1 queue:(id)arg2;
+- (BOOL)isEnabled;
 
 @end

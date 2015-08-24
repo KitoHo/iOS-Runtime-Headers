@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class WDDocument, WDListLevel;
-
 @interface WDListLevelOverride : NSObject {
-    boolmStartNumberOverridden;
     WDDocument *mDocument;
     unsigned char mLevel;
     WDListLevel *mListLevel;
-    long long mStartNumber;
+    long mStartNumber;
+    BOOL mStartNumberOverridden;
 }
 
 - (void)dealloc;
 - (id)description;
 - (id)initWithDocument:(id)arg1 level:(unsigned char)arg2;
-- (bool)isListLevelOverridden;
-- (bool)isStartNumberOverridden;
+- (BOOL)isListLevelOverridden;
+- (BOOL)isStartNumberOverridden;
 - (unsigned char)level;
 - (id)listLevel;
 - (id)mutableListLevel;
-- (void)setStartNumber:(long long)arg1;
-- (long long)startNumber;
+- (void)setStartNumber:(long)arg1;
+- (long)startNumber;
 
 @end

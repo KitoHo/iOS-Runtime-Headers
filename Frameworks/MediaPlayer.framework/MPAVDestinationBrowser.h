@@ -2,15 +2,13 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class MPAVRoutingController;
-
 @interface MPAVDestinationBrowser : NSObject {
+    BOOL _isScanning;
     MPAVRoutingController *_routingController;
-    bool_isScanning;
-    bool_scansForDestinationsWhenEnteringForeground;
+    BOOL _scansForDestinationsWhenEnteringForeground;
 }
 
-@property bool scansForDestinationsWhenEnteringForeground;
+@property (nonatomic) BOOL scansForDestinationsWhenEnteringForeground;
 
 - (void).cxx_destruct;
 - (void)_beginScanningForDestinationsNotification:(id)arg1;
@@ -19,7 +17,7 @@
 - (void)dealloc;
 - (void)endScanningForDestinations;
 - (id)init;
-- (bool)scansForDestinationsWhenEnteringForeground;
-- (void)setScansForDestinationsWhenEnteringForeground:(bool)arg1;
+- (BOOL)scansForDestinationsWhenEnteringForeground;
+- (void)setScansForDestinationsWhenEnteringForeground:(BOOL)arg1;
 
 @end

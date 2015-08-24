@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSDictionary, NSMutableDictionary, NSString, PFUbiquityKnowledgeVector, PFUbiquityLocation;
-
 @interface PFUbiquityBaselineMetadata : NSObject <NSCoding> {
     NSString *_authorPeerID;
     PFUbiquityKnowledgeVector *_kv;
@@ -14,27 +12,27 @@
     NSString *_storeName;
 }
 
-@property(readonly) NSString * authorPeerID;
-@property(readonly) PFUbiquityKnowledgeVector * knowledgeVector;
-@property(readonly) NSString * modelVersionHash;
-@property(readonly) NSDictionary * peerRanges;
-@property(readonly) PFUbiquityKnowledgeVector * previousKnowledgeVector;
-@property(readonly) PFUbiquityLocation * rootLocation;
-@property(readonly) NSString * storeName;
+@property (readonly) NSString *authorPeerID;
+@property (readonly) PFUbiquityKnowledgeVector *knowledgeVector;
+@property (readonly) NSString *modelVersionHash;
+@property (readonly) NSDictionary *peerRanges;
+@property (nonatomic, readonly) PFUbiquityKnowledgeVector *previousKnowledgeVector;
+@property (readonly) PFUbiquityLocation *rootLocation;
+@property (readonly) NSString *storeName;
 
 - (void)_migrateToModelVersionHash:(id)arg1;
 - (void)addDictionaryForPeerRange:(id)arg1;
 - (id)authorPeerID;
-- (id)createNewLocalRangeWithRangeStart:(unsigned long long)arg1 andRangeEnd:(unsigned long long)arg2 forEntityNamed:(id)arg3;
+- (id)createNewLocalRangeWithRangeStart:(unsigned int)arg1 andRangeEnd:(unsigned int)arg2 forEntityNamed:(id)arg3;
 - (id)createPeerRangeDictionary:(id)arg1;
 - (void)dealloc;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (bool)gatherMetadataWithStore:(id)arg1 andError:(id*)arg2;
+- (BOOL)gatherMetadataWithStore:(id)arg1 andError:(id*)arg2;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithLocalPeerID:(id)arg1 storeName:(id)arg2 modelVersionHash:(id)arg3 andUbiquityRootLocation:(id)arg4;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)knowledgeVector;
 - (id)modelVersionHash;
 - (id)peerRanges;

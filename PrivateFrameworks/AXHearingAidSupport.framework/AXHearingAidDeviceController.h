@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/AXHearingAidSupport.framework/AXHearingAidSupport
  */
 
-@class AXHATimer, CBCentralManager, NSLock, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
-
-@interface AXHearingAidDeviceController : NSObject <CBCentralManagerDelegate, AXHADeviceControllerProtocol> {
+@interface AXHearingAidDeviceController : NSObject <AXHADeviceControllerProtocol, CBCentralManagerDelegate> {
     AXHATimer *_advertisingTimeoutTimer;
     NSMutableDictionary *_advertisingTimestamps;
+    AXHATimer *_availableDeviceTimer;
     NSMutableArray *_availablePeripherals;
     NSMutableArray *_availableSearchBlocks;
     NSObject<OS_dispatch_queue> *_bluetoothCentralQueue;
@@ -16,25 +15,25 @@
     NSMutableArray *_connectedSearchBlocks;
     NSMutableDictionary *_deviceUpdatesDescription;
     AXHATimer *_deviceUpdatesTimer;
+    BOOL _isScanning;
     NSMutableArray *_loadedDevices;
     NSMutableArray *_persistentDevices;
     NSMutableArray *_updateDeviceBlocks;
-    bool_isScanning;
     NSMutableArray *centralRequestBlocks;
 }
 
-@property(retain) NSMutableArray * availablePeripherals;
-@property(retain) NSMutableArray * availableSearchBlocks;
-@property(retain) NSMutableArray * centralRequestBlocks;
-@property(retain) NSMutableArray * connectedDevices;
-@property(retain) NSMutableArray * connectedSearchBlocks;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) NSMutableArray * loadedDevices;
-@property(retain) NSMutableArray * persistentDevices;
-@property(readonly) Class superclass;
-@property(retain) NSMutableArray * updateDeviceBlocks;
+@property (nonatomic, retain) NSMutableArray *availablePeripherals;
+@property (nonatomic, retain) NSMutableArray *availableSearchBlocks;
+@property (nonatomic, retain) NSMutableArray *centralRequestBlocks;
+@property (nonatomic, retain) NSMutableArray *connectedDevices;
+@property (nonatomic, retain) NSMutableArray *connectedSearchBlocks;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (retain) NSMutableArray *loadedDevices;
+@property (nonatomic, retain) NSMutableArray *persistentDevices;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSMutableArray *updateDeviceBlocks;
 
 + (id)sharedController;
 
@@ -60,7 +59,7 @@
 - (id)connectedDevices;
 - (id)connectedSearchBlocks;
 - (void)dealloc;
-- (void)device:(id)arg1 didUpdateProperty:(long long)arg2;
+- (void)device:(id)arg1 didUpdateProperty:(int)arg2;
 - (void)deviceDidFinishLoading:(id)arg1;
 - (void)disconnectFromPeripheral:(id)arg1;
 - (void)forgetDevice:(id)arg1;
@@ -68,9 +67,10 @@
 - (id)hearingAidForPeripheral:(id)arg1;
 - (id)hearingAidsForUUID:(id)arg1;
 - (id)init;
-- (bool)isBluetoothAvailable;
-- (bool)isConnected;
-- (bool)isScanning;
+- (BOOL)isBluetoothAvailable;
+- (BOOL)isConnected;
+- (BOOL)isPartiallyConnected;
+- (BOOL)isScanning;
 - (id)loadedDevices;
 - (void)loadedDevicesDidChange;
 - (void)mergeDevice:(id)arg1 withDevice:(id)arg2;
@@ -78,17 +78,17 @@
 - (void)pairingAgent:(id)arg1 peerDidCompletePairing:(id)arg2;
 - (void)pairingAgent:(id)arg1 peerDidFailToCompletePairing:(id)arg2 error:(id)arg3;
 - (void)pairingAgent:(id)arg1 peerDidUnpair:(id)arg2;
-- (bool)peripheralIsPaired:(id)arg1;
+- (BOOL)peripheralIsPaired:(id)arg1;
 - (id)persistentDevices;
-- (void)registerForPropertyUpdates:(id)arg1;
+- (void)registerForPropertyUpdates:(id /* block */)arg1;
 - (void)removeAvailableDevice:(id)arg1;
 - (void)removeConnectedDevice:(id)arg1;
 - (void)removeLoadedDevice:(id)arg1;
 - (void)resetConnectionToPeripheral:(id)arg1;
 - (void)searchForAvailableDevices;
-- (void)searchForAvailableDevicesWithCompletion:(id)arg1;
+- (void)searchForAvailableDevicesWithCompletion:(id /* block */)arg1;
 - (void)searchForConnectedDevices;
-- (void)sendRequestToCentralManager:(id)arg1;
+- (void)sendRequestToCentralManager:(id /* block */)arg1;
 - (void)setAvailablePeripherals:(id)arg1;
 - (void)setAvailableSearchBlocks:(id)arg1;
 - (void)setCentralRequestBlocks:(id)arg1;
@@ -101,7 +101,7 @@
 - (void)stopSearching;
 - (void)unpairPeripheral:(id)arg1;
 - (id)updateDeviceBlocks;
-- (void)updateProperty:(long long)arg1 forDeviceID:(id)arg2;
-- (void)writeValue:(id)arg1 forProperty:(long long)arg2 forDeviceID:(id)arg3;
+- (void)updateProperty:(int)arg1 forDeviceID:(id)arg2;
+- (void)writeValue:(id)arg1 forProperty:(int)arg2 forDeviceID:(id)arg3;
 
 @end

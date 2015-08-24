@@ -2,41 +2,39 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVAssetWriterHelper, AVAssetWriterInternal, NSArray, NSError, NSString, NSURL;
-
 @interface AVAssetWriter : NSObject {
     AVAssetWriterInternal *_internal;
 }
 
-@property(readonly) NSArray * availableMediaTypes;
-@property(copy) NSURL * directoryForTemporaryFiles;
-@property(readonly) NSError * error;
-@property(getter=_helper,retain,readonly) AVAssetWriterHelper * helper;
-@property(readonly) NSArray * inputs;
-@property(copy) NSArray * metadata;
-@property(copy,readonly) NSString * outputFileType;
-@property(copy,readonly) NSURL * outputURL;
-@property bool shouldOptimizeForNetworkUse;
-@property(readonly) long long status;
+@property (nonatomic, readonly) NSArray *availableMediaTypes;
+@property (nonatomic, copy) NSURL *directoryForTemporaryFiles;
+@property (readonly) NSError *error;
+@property (getter=_helper, readonly, retain) AVAssetWriterHelper *helper;
+@property (nonatomic, readonly) NSArray *inputs;
+@property (nonatomic, copy) NSArray *metadata;
+@property (nonatomic, readonly, copy) NSString *outputFileType;
+@property (nonatomic, readonly, copy) NSURL *outputURL;
+@property (nonatomic) BOOL shouldOptimizeForNetworkUse;
+@property (readonly) int status;
 
-+ (id)_errorForOSStatus:(int)arg1;
++ (id)_errorForOSStatus:(long)arg1;
 + (id)assetWriterWithURL:(id)arg1 fileType:(id)arg2 error:(id*)arg3;
-+ (bool)automaticallyNotifiesObserversForKey:(id)arg1;
++ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 + (void)initialize;
 + (id)keyPathsForValuesAffectingError;
 + (id)keyPathsForValuesAffectingStatus;
 
 - (id)_helper;
-- (bool)_setHelper:(id)arg1 ifCurrentHelper:(id)arg2 withBlock:(id)arg3;
-- (bool)_setHelper:(id)arg1 ifCurrentHelper:(id)arg2;
-- (bool)_supportsSampleReferencesReturningError:(id*)arg1;
+- (BOOL)_setHelper:(id)arg1 ifCurrentHelper:(id)arg2;
+- (BOOL)_setHelper:(id)arg1 ifCurrentHelper:(id)arg2 withBlock:(id /* block */)arg3;
+- (BOOL)_supportsSampleReferencesReturningError:(id*)arg1;
 - (void)_transitionToFailedStatusWithError:(id)arg1;
 - (void)addInput:(id)arg1;
 - (void)addInputGroup:(id)arg1;
 - (id)availableMediaTypes;
-- (bool)canAddInput:(id)arg1;
-- (bool)canAddInputGroup:(id)arg1;
-- (bool)canApplyOutputSettings:(id)arg1 forMediaType:(id)arg2;
+- (BOOL)canAddInput:(id)arg1;
+- (BOOL)canAddInputGroup:(id)arg1;
+- (BOOL)canApplyOutputSettings:(id)arg1 forMediaType:(id)arg2;
 - (void)cancelWriting;
 - (void)dealloc;
 - (id)description;
@@ -44,8 +42,8 @@
 - (void)endSessionAtSourceTime:(struct { long long x1; int x2; unsigned int x3; long long x4; })arg1;
 - (id)error;
 - (void)finalize;
-- (bool)finishWriting;
-- (void)finishWritingWithCompletionHandler:(id)arg1;
+- (BOOL)finishWriting;
+- (void)finishWritingWithCompletionHandler:(id /* block */)arg1;
 - (id)init;
 - (id)initWithURL:(id)arg1 fileType:(id)arg2 error:(id*)arg3;
 - (id)inputGroups;
@@ -56,19 +54,19 @@
 - (id)outputFileType;
 - (id)outputURL;
 - (float)preferredRate;
-- (struct CGAffineTransform { double x1; double x2; double x3; double x4; double x5; double x6; })preferredTransform;
+- (struct CGAffineTransform { float x1; float x2; float x3; float x4; float x5; float x6; })preferredTransform;
 - (float)preferredVolume;
 - (void)setDirectoryForTemporaryFiles:(id)arg1;
 - (void)setMetadata:(id)arg1;
 - (void)setMovieFragmentInterval:(struct { long long x1; int x2; unsigned int x3; long long x4; })arg1;
 - (void)setMovieTimeScale:(int)arg1;
 - (void)setPreferredRate:(float)arg1;
-- (void)setPreferredTransform:(struct CGAffineTransform { double x1; double x2; double x3; double x4; double x5; double x6; })arg1;
+- (void)setPreferredTransform:(struct CGAffineTransform { float x1; float x2; float x3; float x4; float x5; float x6; })arg1;
 - (void)setPreferredVolume:(float)arg1;
-- (void)setShouldOptimizeForNetworkUse:(bool)arg1;
-- (bool)shouldOptimizeForNetworkUse;
+- (void)setShouldOptimizeForNetworkUse:(BOOL)arg1;
+- (BOOL)shouldOptimizeForNetworkUse;
 - (void)startSessionAtSourceTime:(struct { long long x1; int x2; unsigned int x3; long long x4; })arg1;
-- (bool)startWriting;
-- (long long)status;
+- (BOOL)startWriting;
+- (int)status;
 
 @end

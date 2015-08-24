@@ -2,53 +2,56 @@
    Image: /System/Library/PrivateFrameworks/MIME.framework/MIME
  */
 
-@class MFMessageFileWrapper, NSMutableDictionary;
-
 @interface MFMessageTextAttachment : NSObject {
     NSMutableDictionary *_cache;
 }
 
-@property(retain) MFMessageFileWrapper * fileWrapper;
+@property (nonatomic, retain) MFMessageFileWrapper *fileWrapper;
 
-+ (unsigned long long)precedenceLevel;
+// Image: /System/Library/PrivateFrameworks/MIME.framework/MIME
 
-- (id)_contentTypeByStrippingZipIfNeeded:(bool)arg1;
-- (bool)_isSinglePagePDFThatIsAllowedToBeInline;
++ (unsigned int)precedenceLevel;
+
 - (unsigned int)approximateSize;
 - (id)cachedValueForKey:(id)arg1;
-- (id)contentType;
 - (void)dealloc;
 - (id)description;
 - (void)download;
 - (id)fileWrapper;
-- (id)fileWrapperForcingDownload:(bool)arg1;
-- (bool)hasBeenDownloaded;
-- (unsigned int)imageScalingFlags;
+- (id)fileWrapperForcingDownload:(BOOL)arg1;
+- (BOOL)hasBeenDownloaded;
 - (id)init;
 - (id)initWithWrapper:(id)arg1;
 - (void)inlineDisplayData:(id*)arg1 mimeType:(id*)arg2;
-- (bool)isCalendarFile;
-- (bool)isContentDownloadable;
-- (bool)isContentOpenable;
-- (bool)isDisplayableInline;
-- (bool)isDisplayableInsidePlugin;
-- (bool)isPass;
-- (bool)isPlaceholder;
-- (struct CGSize { double x1; double x2; })mf_markupSizeForImageScale:(unsigned long long)arg1;
-- (id)mf_markupStringForComposition:(bool)arg1 prependBlankLine:(bool)arg2 imageScale:(unsigned long long)arg3;
-- (id)mf_markupURL;
+- (BOOL)isPlaceholder;
 - (id)mimePart;
-- (id)mimeType;
-- (bool)needsRedownload;
-- (id)pass;
+- (BOOL)needsRedownload;
 - (id)persistentUniqueIdentifier;
 - (void)setCachedValue:(id)arg1 forKey:(id)arg2;
 - (void)setFileWrapper:(id)arg1;
-- (void)setImageScalingFlags:(unsigned int)arg1;
 - (void)setMimePart:(id)arg1;
-- (bool)shouldDownloadAttachmentOnDisplay;
+- (BOOL)shouldDownloadAttachmentOnDisplay;
 - (id)textEncodingGuess;
 - (id)textEncodingNameForData:(id)arg1 mimeType:(id)arg2;
+
+// Image: /System/Library/Frameworks/MessageUI.framework/MessageUI
+
+- (id)_contentTypeByStrippingZipIfNeeded:(BOOL)arg1;
+- (BOOL)_isSinglePagePDFThatIsAllowedToBeInline;
+- (id)contentType;
+- (unsigned int)imageScalingFlags;
+- (BOOL)isCalendarFile;
+- (BOOL)isContentDownloadable;
+- (BOOL)isContentOpenable;
+- (BOOL)isDisplayableInline;
+- (BOOL)isDisplayableInsidePlugin;
+- (BOOL)isPass;
+- (struct CGSize { float x1; float x2; })mf_markupSizeForImageScale:(unsigned int)arg1;
+- (id)mf_markupStringForComposition:(BOOL)arg1 prependBlankLine:(BOOL)arg2 imageScale:(unsigned int)arg3;
+- (id)mf_markupURL;
+- (id)mimeType;
+- (id)pass;
+- (void)setImageScalingFlags:(unsigned int)arg1;
 - (id)unzippedContentType;
 
 @end

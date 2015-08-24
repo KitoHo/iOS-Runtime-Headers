@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class NSLayoutConstraint, NSString, PKGlyphView, PKPaymentAuthorizationLayout, UIButton, UILabel, UIView;
-
 @interface PKPaymentAuthorizationFooterView : UIView {
     PKGlyphView *_glyphView;
     UILabel *_labelView;
@@ -14,25 +12,26 @@
     NSLayoutConstraint *_payWithPasscodeCenterYConstraint;
     NSLayoutConstraint *_separatorLeftConstraint;
     UIView *_separatorView;
-    long long _state;
+    int _state;
     NSString *_title;
 }
 
-@property PKPaymentAuthorizationLayout * layout;
-@property(readonly) UIButton * payWithPasscodeButton;
-@property long long state;
+@property (nonatomic) PKPaymentAuthorizationLayout *layout;
+@property (nonatomic, readonly) UIButton *payWithPasscodeButton;
+@property (nonatomic) int state;
 
 - (void)_createSubviews;
 - (void)_prepareConstraints;
+- (id)_titleAttributedStringForState:(int)arg1;
 - (id)_titleLabelAttributedString:(id)arg1;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (id)layout;
 - (id)payWithPasscodeButton;
 - (void)setLayout:(id)arg1;
-- (void)setState:(long long)arg1 string:(id)arg2 animated:(bool)arg3;
-- (void)setState:(long long)arg1;
-- (long long)state;
+- (void)setState:(int)arg1;
+- (void)setState:(int)arg1 string:(id)arg2 animated:(BOOL)arg3;
+- (int)state;
 - (void)updateConstraints;
 
 @end

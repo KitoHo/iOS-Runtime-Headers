@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/WebBookmarks.framework/WebBookmarks
  */
 
-@interface WebReadingList : NSObject {
-}
+@interface WebReadingList : NSObject
 
-+ (bool)_isSupportedReadingListURL:(id)arg1;
++ (BOOL)_isSupportedReadingListURL:(id)arg1;
 
 - (void)addReadingListItemWithURL:(id)arg1 title:(id)arg2 previewText:(id)arg3;
 

@@ -2,68 +2,62 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSObject<PLAlbumProtocol>, NSOrderedSet, NSPointerArray, NSString, PUPhotoSelectionManager;
-
 @interface PUSessionInfo : NSObject <PUPhotoSelectionManagerDelegate> {
-    id _bannerGenerator;
+    id /* block */ _bannerGenerator;
     NSString *_localizedPrompt;
     NSPointerArray *_observers;
     PUPhotoSelectionManager *_photoSelectionManager;
-    long long _promptLocation;
+    int _promptLocation;
+    BOOL _selectingAssets;
+    BOOL _selectingTargetAlbum;
     struct NSObject { Class x1; } *_sourceAlbum;
-    long long _status;
+    int _status;
     struct NSObject { Class x1; } *_targetAlbum;
+    BOOL _targetAlbumIsNewLocalAlbum;
     NSOrderedSet *_transferredAssets;
-    bool_selectingAssets;
-    bool_selectingTargetAlbum;
-    bool_targetAlbumIsNewLocalAlbum;
 }
 
-@property(copy) id bannerGenerator;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * localizedPrompt;
-@property(retain) PUPhotoSelectionManager * photoSelectionManager;
-@property long long promptLocation;
-@property(getter=isSelectingAssets,readonly) bool selectingAssets;
-@property(getter=isSelectingTargetAlbum,readonly) bool selectingTargetAlbum;
-@property(retain) NSObject<PLAlbumProtocol> * sourceAlbum;
-@property long long status;
-@property(readonly) Class superclass;
-@property(retain) NSObject<PLAlbumProtocol> * targetAlbum;
-@property bool targetAlbumIsNewLocalAlbum;
-@property(copy) NSOrderedSet * transferredAssets;
+@property (nonatomic, copy) id /* block */ bannerGenerator;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSString *localizedPrompt;
+@property (nonatomic, retain) PUPhotoSelectionManager *photoSelectionManager;
+@property (nonatomic) int promptLocation;
+@property (getter=isSelectingAssets, nonatomic, readonly) BOOL selectingAssets;
+@property (getter=isSelectingTargetAlbum, nonatomic, readonly) BOOL selectingTargetAlbum;
+@property (nonatomic, retain) NSObject<PLAlbumProtocol> *sourceAlbum;
+@property (nonatomic) int status;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSObject<PLAlbumProtocol> *targetAlbum;
+@property (nonatomic) BOOL targetAlbumIsNewLocalAlbum;
+@property (nonatomic, copy) NSOrderedSet *transferredAssets;
 
 - (void).cxx_destruct;
-- (void)_enumerateObserversWithBlock:(id)arg1;
+- (void)_enumerateObserversWithBlock:(id /* block */)arg1;
 - (void)addSessionInfoObserver:(id)arg1;
-- (id)bannerGenerator;
+- (id /* block */)bannerGenerator;
 - (id)init;
-- (bool)isSelectingAssets;
-- (bool)isSelectingTargetAlbum;
+- (BOOL)isSelectingAssets;
+- (BOOL)isSelectingTargetAlbum;
 - (id)localizedPrompt;
 - (id)photoSelectionManager;
 - (void)photoSelectionManagerSelectionDidChange:(id)arg1;
-- (long long)promptLocation;
+- (int)promptLocation;
 - (void)removeSessionInfoObserver:(id)arg1;
-- (void)setBannerGenerator:(id)arg1;
+- (void)setBannerGenerator:(id /* block */)arg1;
 - (void)setLocalizedPrompt:(id)arg1;
 - (void)setPhotoSelectionManager:(id)arg1;
-- (void)setPromptLocation:(long long)arg1;
+- (void)setPromptLocation:(int)arg1;
 - (void)setSourceAlbum:(struct NSObject { Class x1; }*)arg1;
-- (void)setStatus:(long long)arg1;
+- (void)setStatus:(int)arg1;
 - (void)setTargetAlbum:(struct NSObject { Class x1; }*)arg1;
-- (void)setTargetAlbumIsNewLocalAlbum:(bool)arg1;
+- (void)setTargetAlbumIsNewLocalAlbum:(BOOL)arg1;
 - (void)setTransferredAssets:(id)arg1;
 - (struct NSObject { Class x1; }*)sourceAlbum;
-- (long long)status;
+- (int)status;
 - (struct NSObject { Class x1; }*)targetAlbum;
-- (bool)targetAlbumIsNewLocalAlbum;
+- (BOOL)targetAlbumIsNewLocalAlbum;
 - (id)transferredAssets;
 
 @end

@@ -2,35 +2,21 @@
    Image: /System/Library/Frameworks/QuickLook.framework/QuickLook
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <QLPreviewItem>, MPVolumeView, NSMutableDictionary, NSNumberFormatter, NSString, NSURL, QLArchiveViewer, QLPreviewItemsSource, UIBarButtonItem, UIDocumentInteractionController, UILabel, UINavigationController, UIView, UIViewController<QLPreviewContentControllerProtocol>, _UIAsyncInvocation;
-
 @interface QLPreviewControllerReserved : NSObject {
-    unsigned int statusBarWasHidden : 1;
-    unsigned int toolbarWasHidden : 1;
-    unsigned int isInUIDICPopover : 1;
     UIBarButtonItem *actionItem;
     UIBarButtonItem *archiveItem;
     QLArchiveViewer *archiveViewer;
     NSMutableDictionary *avStateForPreviewItems;
-    boolblockRemoteImages;
-    boolinternalViewsLoaded;
-    boolisDelayingPresentation;
-    boolpreviousNavBarWasTranslucent;
-    boolpreviousToolbarWasTranslucent;
-    boolscrubbing;
-    boolshowActionAsDefaultButton;
-    boolsourceIsManaged;
-    booluseCustomActionButton;
+    BOOL blockRemoteImages;
     _UIAsyncInvocation *cancelViewServiceRequest;
     id delegate;
     NSNumberFormatter *indexFormatter;
     UIBarButtonItem *indexItem;
     UILabel *indexLabel;
     UIDocumentInteractionController *interactionController;
+    BOOL internalViewsLoaded;
+    BOOL isDelayingPresentation;
+    unsigned int isInUIDICPopover;
     QLPreviewItemsSource *itemsSource;
     NSURL *lastPreviewedCurrentItemURL;
     NSURL *lastPreviewedRealItemURL;
@@ -39,16 +25,23 @@
     UIView *mainView;
     int mode;
     UINavigationController *navigationController;
+    NSArray *originalLeftBarButtonItems;
+    NSArray *originalRightBarButtonItems;
     int overlayState;
     NSMutableDictionary *pdfPreviewDataCache;
     UIBarButtonItem *playPauseButton;
     UIViewController<QLPreviewContentControllerProtocol> *previewContentController;
     <QLPreviewItem> *previewItem;
-    long long previousStatusBarStyle;
-    long long previousToolbarStyle;
-    id readyBlock;
+    id /* block */ readyBlock;
+    id /* block */ restorePreviousStateBlock;
     UIBarButtonItem *routeButton;
+    BOOL scrubbing;
+    BOOL showActionAsDefaultButton;
+    BOOL sourceIsManaged;
+    unsigned int statusBarWasHidden;
     UIBarButtonItem *titleItem;
+    unsigned int toolbarWasHidden;
+    BOOL useCustomActionButton;
     MPVolumeView *volumeView;
     MPVolumeView *volumeViewHidden;
 }

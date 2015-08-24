@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/DataAccess.framework/DataAccess
  */
 
-@class NSMutableDictionary;
-
 @interface DAAccountLoader : NSObject {
     NSMutableDictionary *_acAccountTypeToAccountDaemonBundleSubpath;
     NSMutableDictionary *_acAccountTypeToAccountFrameworkSubpath;
@@ -11,16 +9,16 @@
     NSMutableDictionary *_acParentAccountTypeToChildAccountTypes;
 }
 
-@property(retain) NSMutableDictionary * acAccountTypeToAccountDaemonBundleSubpath;
-@property(retain) NSMutableDictionary * acAccountTypeToAccountFrameworkSubpath;
-@property(retain) NSMutableDictionary * acAccountTypeToClassNames;
-@property(retain) NSMutableDictionary * acParentAccountTypeToChildAccountTypes;
+@property (nonatomic, retain) NSMutableDictionary *acAccountTypeToAccountDaemonBundleSubpath;
+@property (nonatomic, retain) NSMutableDictionary *acAccountTypeToAccountFrameworkSubpath;
+@property (nonatomic, retain) NSMutableDictionary *acAccountTypeToClassNames;
+@property (nonatomic, retain) NSMutableDictionary *acParentAccountTypeToChildAccountTypes;
 
 + (id)sharedInstance;
 
 - (void).cxx_destruct;
 - (void)_addAccountInfo:(id)arg1 forFrameworkNamed:(id)arg2;
-- (bool)_loadFrameworkAtSubpath:(id)arg1;
+- (BOOL)_loadFrameworkAtSubpath:(id)arg1;
 - (id)acAccountTypeToAccountDaemonBundleSubpath;
 - (id)acAccountTypeToAccountFrameworkSubpath;
 - (id)acAccountTypeToClassNames;

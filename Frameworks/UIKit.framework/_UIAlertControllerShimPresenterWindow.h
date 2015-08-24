@@ -2,20 +2,18 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIAlertController;
-
 @interface _UIAlertControllerShimPresenterWindow : UIWindow {
     UIAlertController *_alertController;
 }
 
-@property(retain,readonly) UIAlertController * alertController;
+@property (nonatomic, readonly, retain) UIAlertController *alertController;
 
-+ (bool)_isSystemWindow;
++ (BOOL)_isSystemWindow;
 
 - (id)_presentationViewController;
+- (BOOL)_shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (id)alertController;
-- (void)dealloc;
 - (id)init;
-- (void)presentAlertController:(id)arg1 animated:(bool)arg2 completionBlock:(id)arg3;
+- (void)presentAlertController:(id)arg1 animated:(BOOL)arg2 completionBlock:(id /* block */)arg3;
 
 @end

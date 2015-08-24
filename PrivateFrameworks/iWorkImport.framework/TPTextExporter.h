@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString, TPDocumentRoot, TSUProgressContext;
-
 @interface TPTextExporter : NSObject <TSKExporter> {
-    boolmIsCancelled;
     TPDocumentRoot *mDocumentRoot;
+    BOOL mIsCancelled;
     TSUProgressContext *mProgressContext;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) TSUProgressContext * progressContext;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (retain) TSUProgressContext *progressContext;
+@property (readonly) Class superclass;
 
 - (void)cancel;
 - (void)dealloc;
-- (bool)exportToURL:(id)arg1 delegate:(id)arg2 error:(id*)arg3;
+- (BOOL)exportToURL:(id)arg1 delegate:(id)arg2 error:(id*)arg3;
 - (id)initWithDocumentRoot:(id)arg1;
-- (bool)isCancelled;
+- (BOOL)isCancelled;
 - (id)progressContext;
 - (void)quit;
 - (void)setProgressContext:(id)arg1;

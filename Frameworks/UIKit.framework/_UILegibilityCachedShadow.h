@@ -2,26 +2,24 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIImage, _UILegibilitySettings;
-
 @interface _UILegibilityCachedShadow : NSObject {
     _UILegibilitySettings *_settings;
     UIImage *_shadow;
-    double _strength;
+    float _strength;
 }
 
-@property(retain) _UILegibilitySettings * settings;
-@property(retain) UIImage * shadow;
-@property double strength;
+@property (nonatomic, retain) _UILegibilitySettings *settings;
+@property (nonatomic, retain) UIImage *shadow;
+@property (nonatomic) float strength;
 
 - (void)dealloc;
-- (bool)isEqual:(id)arg1;
-- (bool)matchesSettings:(id)arg1 strength:(double)arg2;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)matchesSettings:(id)arg1 strength:(float)arg2;
 - (void)setSettings:(id)arg1;
 - (void)setShadow:(id)arg1;
-- (void)setStrength:(double)arg1;
+- (void)setStrength:(float)arg1;
 - (id)settings;
 - (id)shadow;
-- (double)strength;
+- (float)strength;
 
 @end

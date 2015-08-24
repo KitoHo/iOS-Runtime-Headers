@@ -2,13 +2,12 @@
    Image: /System/Library/PrivateFrameworks/HealthKitUI.framework/HealthKitUI
  */
 
-@interface HKEmergencyCardMedicalNotesTableItem : HKEmergencyCardMultilineTextTableItem {
-}
+@interface HKEmergencyCardMedicalNotesTableItem : HKEmergencyCardMultilineTextTableItem
 
 - (id)_multilineStringValue;
 - (id)_placeholderText;
 - (void)_updateMultilineStringValueWithValue:(id)arg1;
-- (bool)hasPresentableData;
+- (BOOL)hasPresentableData;
 - (id)title;
 
 @end

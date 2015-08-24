@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@interface PUPhotoBrowserControllerPadCameraSpec : PUPhotoBrowserControllerPadSpec {
-}
+@interface PUPhotoBrowserControllerPadCameraSpec : PUPhotoBrowserControllerPadSpec
 
-- (bool)isInCamera;
+- (BOOL)isInCamera;
 
 @end

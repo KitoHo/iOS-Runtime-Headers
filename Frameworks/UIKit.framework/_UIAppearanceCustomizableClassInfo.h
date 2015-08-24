@@ -2,32 +2,30 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString;
-
 @interface _UIAppearanceCustomizableClassInfo : NSObject {
     NSString *_appearanceNodeKey;
     Class _customizableViewClass;
     Class _guideClass;
-    unsigned long long _hash;
-    bool_isCustomizableViewClassRoot;
-    bool_isGuideClassRoot;
+    unsigned int _hash;
+    BOOL _isCustomizableViewClassRoot;
+    BOOL _isGuideClassRoot;
 }
 
-@property(readonly) NSString * _appearanceNodeKey;
-@property(readonly) Class _customizableViewClass;
-@property(readonly) Class _guideClass;
-@property(readonly) unsigned long long _hash;
+@property (nonatomic, readonly) NSString *_appearanceNodeKey;
+@property (nonatomic, readonly) Class _customizableViewClass;
+@property (nonatomic, readonly) Class _guideClass;
+@property (nonatomic, readonly) unsigned int _hash;
 
 + (id)_customizableClassInfoForViewClass:(Class)arg1 withGuideClass:(Class)arg2;
 
 - (id)_appearanceNodeKey;
 - (Class)_customizableViewClass;
 - (Class)_guideClass;
-- (unsigned long long)_hash;
+- (unsigned int)_hash;
 - (id)_superClassInfo;
 - (void)dealloc;
 - (id)description;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 
 @end

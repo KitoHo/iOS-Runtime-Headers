@@ -2,23 +2,27 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSData;
-
 @interface GEORPDirectionsProblem : PBCodable <NSCopying> {
+    NSData *_directionsResponseId;
+    GEORPUserSearchInput *_endWaypoint;
     struct { 
         unsigned int problematicStepIndex : 1; 
-    NSData *_directionsResponseId;
     } _has;
     NSData *_overviewScreenshotImageData;
     unsigned int _problematicStepIndex;
+    GEORPUserSearchInput *_startWaypoint;
 }
 
-@property(retain) NSData * directionsResponseId;
-@property(readonly) bool hasDirectionsResponseId;
-@property(readonly) bool hasOverviewScreenshotImageData;
-@property bool hasProblematicStepIndex;
-@property(retain) NSData * overviewScreenshotImageData;
-@property unsigned int problematicStepIndex;
+@property (nonatomic, retain) NSData *directionsResponseId;
+@property (nonatomic, retain) GEORPUserSearchInput *endWaypoint;
+@property (nonatomic, readonly) BOOL hasDirectionsResponseId;
+@property (nonatomic, readonly) BOOL hasEndWaypoint;
+@property (nonatomic, readonly) BOOL hasOverviewScreenshotImageData;
+@property (nonatomic) BOOL hasProblematicStepIndex;
+@property (nonatomic, readonly) BOOL hasStartWaypoint;
+@property (nonatomic, retain) NSData *overviewScreenshotImageData;
+@property (nonatomic) unsigned int problematicStepIndex;
+@property (nonatomic, retain) GEORPUserSearchInput *startWaypoint;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -26,19 +30,25 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)directionsResponseId;
-- (bool)hasDirectionsResponseId;
-- (bool)hasOverviewScreenshotImageData;
-- (bool)hasProblematicStepIndex;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (id)endWaypoint;
+- (BOOL)hasDirectionsResponseId;
+- (BOOL)hasEndWaypoint;
+- (BOOL)hasOverviewScreenshotImageData;
+- (BOOL)hasProblematicStepIndex;
+- (BOOL)hasStartWaypoint;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)overviewScreenshotImageData;
 - (unsigned int)problematicStepIndex;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setDirectionsResponseId:(id)arg1;
-- (void)setHasProblematicStepIndex:(bool)arg1;
+- (void)setEndWaypoint:(id)arg1;
+- (void)setHasProblematicStepIndex:(BOOL)arg1;
 - (void)setOverviewScreenshotImageData:(id)arg1;
 - (void)setProblematicStepIndex:(unsigned int)arg1;
+- (void)setStartWaypoint:(id)arg1;
+- (id)startWaypoint;
 - (void)writeTo:(id)arg1;
 
 @end

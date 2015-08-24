@@ -2,73 +2,79 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIColor;
-
 @interface _UILegibilitySettingsProvider : NSObject {
-    double _accumulatedBrightness;
-    double _accumulatedContrast;
-    double _accumulatedLuminance;
-    double _accumulatedSaturation;
+    float _accumulatedBrightness;
+    float _accumulatedContrast;
+    float _accumulatedLuminance;
+    float _accumulatedSaturation;
+    BOOL _accumulatorIsPrimed;
     UIColor *_contentColor;
-    long long _currentStyle;
-    double _mostRecentBrightness;
-    double _mostRecentContrast;
-    double _mostRecentLuminance;
-    double _mostRecentSaturation;
+    int _currentStyle;
+    BOOL _hasContrast;
+    float _mostRecentBrightness;
+    float _mostRecentContrast;
+    float _mostRecentLuminance;
+    float _mostRecentSaturation;
     double _nextChangeBarrier;
-    bool_accumulatorIsPrimed;
-    bool_hasContrast;
 }
 
-@property double accumulatedBrightness;
-@property double accumulatedContrast;
-@property double accumulatedLuminance;
-@property double accumulatedSaturation;
-@property bool accumulatorIsPrimed;
-@property(retain) UIColor * contentColor;
-@property long long currentStyle;
-@property bool hasContrast;
-@property double mostRecentBrightness;
-@property double mostRecentContrast;
-@property double mostRecentLuminance;
-@property double mostRecentSaturation;
-@property double nextChangeBarrier;
+@property (nonatomic) float accumulatedBrightness;
+@property (nonatomic) float accumulatedContrast;
+@property (nonatomic) float accumulatedLuminance;
+@property (nonatomic) float accumulatedSaturation;
+@property (nonatomic) BOOL accumulatorIsPrimed;
+@property (nonatomic, retain) UIColor *contentColor;
+@property (nonatomic) int currentStyle;
+@property (nonatomic) BOOL hasContrast;
+@property (nonatomic) float mostRecentBrightness;
+@property (nonatomic) float mostRecentContrast;
+@property (nonatomic) float mostRecentLuminance;
+@property (nonatomic) float mostRecentSaturation;
+@property (nonatomic) double nextChangeBarrier;
 
-+ (long long)styleForContentColor:(id)arg1 contrast:(double)arg2;
-+ (long long)styleForContentColor:(id)arg1;
+// Image: /System/Library/Frameworks/UIKit.framework/UIKit
 
-- (bool)accumulateChangesToContentColor:(id)arg1 contrast:(double)arg2;
-- (bool)accumulateChangesToContentColor:(id)arg1;
-- (double)accumulatedBrightness;
-- (double)accumulatedContrast;
-- (double)accumulatedLuminance;
-- (double)accumulatedSaturation;
-- (bool)accumulatorIsPrimed;
++ (int)styleForContentColor:(id)arg1;
++ (int)styleForContentColor:(id)arg1 contrast:(float)arg2;
+
+- (BOOL)accumulateChangesToContentColor:(id)arg1;
+- (BOOL)accumulateChangesToContentColor:(id)arg1 contrast:(float)arg2;
+- (float)accumulatedBrightness;
+- (float)accumulatedContrast;
+- (float)accumulatedLuminance;
+- (float)accumulatedSaturation;
+- (BOOL)accumulatorIsPrimed;
 - (void)clearContentColorAccumulator;
 - (id)contentColor;
-- (long long)currentStyle;
+- (int)currentStyle;
 - (void)dealloc;
-- (bool)hasContrast;
-- (double)mostRecentBrightness;
-- (double)mostRecentContrast;
-- (double)mostRecentLuminance;
-- (double)mostRecentSaturation;
+- (BOOL)hasContrast;
+- (float)mostRecentBrightness;
+- (float)mostRecentContrast;
+- (float)mostRecentLuminance;
+- (float)mostRecentSaturation;
 - (double)nextChangeBarrier;
-- (void)pl_primeForUseWithCameraOverlays;
-- (void)pl_primeForUseWithCameraOverlays;
-- (void)setAccumulatedBrightness:(double)arg1;
-- (void)setAccumulatedContrast:(double)arg1;
-- (void)setAccumulatedLuminance:(double)arg1;
-- (void)setAccumulatedSaturation:(double)arg1;
-- (void)setAccumulatorIsPrimed:(bool)arg1;
+- (void)setAccumulatedBrightness:(float)arg1;
+- (void)setAccumulatedContrast:(float)arg1;
+- (void)setAccumulatedLuminance:(float)arg1;
+- (void)setAccumulatedSaturation:(float)arg1;
+- (void)setAccumulatorIsPrimed:(BOOL)arg1;
 - (void)setContentColor:(id)arg1;
-- (void)setCurrentStyle:(long long)arg1;
-- (void)setHasContrast:(bool)arg1;
-- (void)setMostRecentBrightness:(double)arg1;
-- (void)setMostRecentContrast:(double)arg1;
-- (void)setMostRecentLuminance:(double)arg1;
-- (void)setMostRecentSaturation:(double)arg1;
+- (void)setCurrentStyle:(int)arg1;
+- (void)setHasContrast:(BOOL)arg1;
+- (void)setMostRecentBrightness:(float)arg1;
+- (void)setMostRecentContrast:(float)arg1;
+- (void)setMostRecentLuminance:(float)arg1;
+- (void)setMostRecentSaturation:(float)arg1;
 - (void)setNextChangeBarrier:(double)arg1;
 - (id)settings;
+
+// Image: /System/Library/PrivateFrameworks/CameraKit.framework/CameraKit
+
+- (void)pl_primeForUseWithCameraOverlays;
+
+// Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
+
+- (void)pl_primeForUseWithCameraOverlays;
 
 @end

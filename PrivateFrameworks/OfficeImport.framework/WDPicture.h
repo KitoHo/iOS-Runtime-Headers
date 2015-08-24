@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@interface WDPicture : WDOfficeArt {
-}
+@interface WDPicture : WDOfficeArt
 
 - (void)dealloc;
-- (bool)hasContent;
+- (BOOL)hasContent;
 - (int)runType;
 
 @end

@@ -2,20 +2,18 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class NSDate, NSTimeZone;
-
 @interface MKDate : NSDate {
     NSDate *_date;
     NSTimeZone *_tz;
 }
 
-@property(readonly) NSDate * nsDate;
-@property(retain) NSTimeZone * timeZone;
+@property (nonatomic, readonly) NSDate *nsDate;
+@property (nonatomic, retain) NSTimeZone *timeZone;
 
 + (id)dateWithNSDate:(id)arg1;
 
 - (void).cxx_destruct;
-- (long long)dayOfCommonEra;
+- (int)dayOfCommonEra;
 - (id)description;
 - (id)descriptionWithLocale:(id)arg1;
 - (id)initWithNSDate:(id)arg1;

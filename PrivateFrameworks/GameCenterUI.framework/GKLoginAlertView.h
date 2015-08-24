@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-@class NSString;
-
 @interface GKLoginAlertView : UIAlertView <UITextFieldDelegate> {
-    unsigned long long _passwordFieldIndex;
+    unsigned int _passwordFieldIndex;
     NSString *_username;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * password;
-@property(readonly) Class superclass;
-@property(copy) NSString * username;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSString *password;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSString *username;
 
 - (void)_updateFrameForDisplay;
 - (void)dealloc;
@@ -22,7 +20,7 @@
 - (id)password;
 - (void)setPassword:(id)arg1;
 - (void)setUsername:(id)arg1;
-- (bool)textFieldShouldReturn:(id)arg1;
+- (BOOL)textFieldShouldReturn:(id)arg1;
 - (id)username;
 
 @end

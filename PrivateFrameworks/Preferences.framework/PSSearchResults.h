@@ -2,25 +2,19 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSMutableArray, NSMutableDictionary, NSMutableSet;
-
 @interface PSSearchResults : NSObject <NSCopying> {
     NSMutableDictionary *_entriesBySection;
-    id _entryComparator;
+    id /* block */ _entryComparator;
     NSMutableSet *_explicitlyAddedSectionEntries;
-    id _sectionComparator;
+    BOOL _needsSorting;
+    id /* block */ _sectionComparator;
     NSMutableArray *_sectionEntries;
-    bool_needsSorting;
-    bool_treatSectionEntriesAsRegularEntries;
+    BOOL _treatSectionEntriesAsRegularEntries;
 }
 
-@property(copy) id entryComparator;
-@property(copy) id sectionComparator;
-@property bool treatSectionEntriesAsRegularEntries;
+@property (nonatomic, copy) id /* block */ entryComparator;
+@property (nonatomic, copy) id /* block */ sectionComparator;
+@property (nonatomic) BOOL treatSectionEntriesAsRegularEntries;
 
 - (id)_initForCopyWithSectionEntries:(id)arg1 entriesBySection:(id)arg2 explicitlyAddedSectionEntries:(id)arg3;
 - (void)addEntries:(id)arg1;
@@ -29,23 +23,23 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
-- (id)entriesInSectionAtIndex:(unsigned long long)arg1;
+- (id)entriesInSectionAtIndex:(unsigned int)arg1;
 - (id)entryAtIndexPath:(id)arg1;
-- (id)entryComparator;
+- (id /* block */)entryComparator;
 - (id)init;
 - (void)mergeWithResults:(id)arg1;
-- (unsigned long long)numberOfEntriesInSectionAtIndex:(unsigned long long)arg1;
-- (unsigned long long)numberOfSectionEntries;
-- (unsigned long long)removeEntries:(id)arg1;
-- (bool)removeEntry:(id)arg1;
+- (unsigned int)numberOfEntriesInSectionAtIndex:(unsigned int)arg1;
+- (unsigned int)numberOfSectionEntries;
+- (unsigned int)removeEntries:(id)arg1;
+- (BOOL)removeEntry:(id)arg1;
 - (id)resultsByMergingWithResults:(id)arg1;
-- (id)sectionComparator;
-- (id)sectionEntryAtIndex:(unsigned long long)arg1;
-- (void)setEntryComparator:(id)arg1;
-- (void)setSectionComparator:(id)arg1;
-- (void)setTreatSectionEntriesAsRegularEntries:(bool)arg1;
+- (id /* block */)sectionComparator;
+- (id)sectionEntryAtIndex:(unsigned int)arg1;
+- (void)setEntryComparator:(id /* block */)arg1;
+- (void)setSectionComparator:(id /* block */)arg1;
+- (void)setTreatSectionEntriesAsRegularEntries:(BOOL)arg1;
 - (void)sortResults;
-- (unsigned long long)totalNumberOfEntries;
-- (bool)treatSectionEntriesAsRegularEntries;
+- (unsigned int)totalNumberOfEntries;
+- (BOOL)treatSectionEntriesAsRegularEntries;
 
 @end

@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/StoreKit.framework/StoreKit
  */
 
-@class NSString, SKComposeReviewViewController;
-
 @interface SKRemoteComposeReviewViewController : _UIRemoteViewController <SKUIClientComposeReviewViewController> {
     SKComposeReviewViewController *_composeReviewViewController;
 }
 
-@property SKComposeReviewViewController * composeReviewViewController;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (nonatomic) SKComposeReviewViewController *composeReviewViewController;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)exportedInterface;
 + (id)serviceViewControllerInterface;
@@ -22,7 +20,7 @@
 - (void)didPrepareWithResult:(id)arg1 error:(id)arg2;
 - (void)promptForStarRating;
 - (void)setComposeReviewViewController:(id)arg1;
-- (bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 
 @end

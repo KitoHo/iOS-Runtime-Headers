@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CoreHAP.framework/CoreHAP
  */
 
-@class HAPAccessory, NSArray, NSNumber, NSString;
-
 @interface HAPService : NSObject {
     HAPAccessory *_accessory;
     NSArray *_characteristics;
@@ -12,33 +10,29 @@
     NSString *_type;
 }
 
-@property HAPAccessory * accessory;
-@property(retain) NSArray * characteristics;
-@property(readonly) NSArray * includedServices;
-@property(copy) NSNumber * instanceID;
-@property(copy) NSString * type;
-
-+ (id)serviceTypeFromUUIDString:(id)arg1;
+@property (nonatomic) HAPAccessory *accessory;
+@property (nonatomic, retain) NSArray *characteristics;
+@property (nonatomic, readonly) NSArray *includedServices;
+@property (nonatomic, copy) NSNumber *instanceID;
+@property (nonatomic, copy) NSString *type;
 
 - (void).cxx_destruct;
-- (id)_mandatoryCharacteristicsForServiceType:(id)arg1;
-- (bool)_updateAndValidateCharacteristics;
-- (bool)_updateCharacteristic:(id)arg1;
-- (bool)_validateMandatoryCharacteristics;
-- (bool)_validateServiceCharacteristics;
+- (BOOL)_updateAndValidateCharacteristics;
+- (BOOL)_updateCharacteristic:(id)arg1;
+- (BOOL)_validateMandatoryCharacteristics;
+- (BOOL)_validateServiceCharacteristics;
 - (id)accessory;
 - (id)characteristics;
 - (id)description;
 - (id)includedServices;
-- (id)initWithType:(id)arg1 instanceID:(id)arg2 parsedCharacteristics:(id)arg3;
 - (id)initWithType:(id)arg1 instanceID:(id)arg2;
+- (id)initWithType:(id)arg1 instanceID:(id)arg2 parsedCharacteristics:(id)arg3;
 - (id)instanceID;
-- (bool)isEqualToService:(id)arg1;
+- (BOOL)isEqualToService:(id)arg1;
 - (void)setAccessory:(id)arg1;
 - (void)setCharacteristics:(id)arg1;
 - (void)setInstanceID:(id)arg1;
 - (void)setType:(id)arg1;
 - (id)type;
-- (id)validateAssociatedServiceType:(id)arg1;
 
 @end

@@ -2,23 +2,17 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSMutableArray, NSObject<OS_dispatch_queue>;
-
 @interface CKSQLitePool : NSObject {
     NSMutableArray *_dbs;
-    id _factory;
+    BOOL _drainScheduled;
+    id /* block */ _factory;
     NSObject<OS_dispatch_queue> *_queue;
-    bool_drainScheduled;
 }
 
-@property(retain) NSMutableArray * dbs;
-@property bool drainScheduled;
-@property(copy,readonly) id factory;
-@property(retain) NSObject<OS_dispatch_queue> * queue;
+@property (nonatomic, retain) NSMutableArray *dbs;
+@property (nonatomic) BOOL drainScheduled;
+@property (nonatomic, readonly, copy) id /* block */ factory;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *queue;
 
 - (void).cxx_destruct;
 - (id)_acquireDatabaseWithError:(id*)arg1;
@@ -26,18 +20,18 @@
 - (void)_drain;
 - (id)_openDatabaseWithError:(id*)arg1;
 - (void)_scheduleDrain;
-- (id)acquireDatabase:(bool)arg1;
+- (id)acquireDatabase:(BOOL)arg1;
 - (void)closeAll;
 - (id)dbs;
-- (bool)drainScheduled;
-- (id)factory;
-- (id)initWithFactory:(id)arg1;
-- (bool)performWithDatabase:(id)arg1 error:(id*)arg2;
-- (void)performWithDatabase:(id)arg1;
+- (BOOL)drainScheduled;
+- (id /* block */)factory;
+- (id)initWithFactory:(id /* block */)arg1;
+- (void)performWithDatabase:(id /* block */)arg1;
+- (BOOL)performWithDatabase:(id /* block */)arg1 error:(id*)arg2;
 - (id)queue;
 - (void)releaseDatabase:(id)arg1;
 - (void)setDbs:(id)arg1;
-- (void)setDrainScheduled:(bool)arg1;
+- (void)setDrainScheduled:(BOOL)arg1;
 - (void)setQueue:(id)arg1;
 
 @end

@@ -2,61 +2,78 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSDate, NSMapTable, NSString, NSURL, _UIDocumentPickerContainerModel;
-
-@interface _UIDocumentPickerContainerItem : NSObject {
+@interface _UIDocumentPickerContainerItem : NSObject <_UIDocumentPickerDirectoryObserverItem> {
     id _item;
+    _UIDocumentPickerURLContainerModel *_model;
+    int _modelDisplayCount;
+    id _observer;
     NSString *_pickabilityReason;
+    BOOL _pickable;
+    id _resourceIdentifier;
     NSMapTable *_thumbnailsBySize;
-    long long _type;
+    int _type;
+    _UIDocumentPickerURLContainerModel *_weak_model;
     _UIDocumentPickerContainerModel *_weak_parentModel;
-    bool_pickable;
 }
 
-@property(retain) id item;
-@property _UIDocumentPickerContainerModel * parentModel;
-@property(copy) NSString * pickabilityReason;
-@property bool pickable;
-@property(readonly) NSDate * sortDate;
-@property(retain,readonly) NSString * subtitle2;
-@property(retain,readonly) NSString * subtitle;
-@property(retain) NSMapTable * thumbnailsBySize;
-@property(retain,readonly) NSString * title;
-@property(readonly) long long type;
-@property(retain,readonly) NSURL * url;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) id item;
+@property (nonatomic, readonly, retain) _UIDocumentPickerContainerModel *model;
+@property (nonatomic) _UIDocumentPickerContainerModel *parentModel;
+@property (nonatomic, copy) NSString *pickabilityReason;
+@property (nonatomic) BOOL pickable;
+@property (nonatomic, readonly) NSDate *sortDate;
+@property (nonatomic, readonly, retain) NSString *subtitle;
+@property (nonatomic, readonly, retain) NSString *subtitle2;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSMapTable *thumbnailsBySize;
+@property (nonatomic, readonly, retain) NSString *title;
+@property (nonatomic, readonly) int type;
+@property (nonatomic, readonly, retain) NSURL *url;
 
 + (id)_lruThumbnailArray;
 + (void)clearLRUThumbnailCache;
 + (void)markThumbnailAsRecentlyUsed:(id)arg1;
 
-- (id)_blipWithTags:(id)arg1 height:(double)arg2 scale:(double)arg3;
-- (id)_blockingThumbnailWithSize:(struct CGSize { double x1; double x2; })arg1 scale:(double)arg2;
-- (id)_createThumbnailWithSize:(struct CGSize { double x1; double x2; })arg1 scale:(double)arg2;
-- (id)_defaultThumbnailWithSize:(struct CGSize { double x1; double x2; })arg1 scale:(double)arg2;
+- (id)_blipWithTags:(id)arg1 height:(float)arg2 scale:(float)arg3;
+- (id)_blockingThumbnailWithSize:(struct CGSize { float x1; float x2; })arg1 scale:(float)arg2;
+- (id)_createThumbnailWithSize:(struct CGSize { float x1; float x2; })arg1 scale:(float)arg2;
+- (id)_defaultThumbnailWithSize:(struct CGSize { float x1; float x2; })arg1 scale:(float)arg2;
+- (void)_ensureModelPresent;
+- (id)_formattedSubtitleForNumberOfItems:(unsigned int)arg1;
+- (void)_modelChanged;
+- (id)_resourceIdentifier;
+- (void)_valuesChanged;
 - (void)dealloc;
+- (void)decrementModelDisplayCount;
 - (id)description;
-- (unsigned long long)hash;
+- (unsigned int)hash;
+- (void)incrementModelDisplayCount;
 - (id)initWithItem:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)item;
+- (id)model;
+- (id)modificationDate;
 - (id)parentModel;
 - (id)pickabilityReason;
-- (bool)pickable;
+- (BOOL)pickable;
 - (void)setItem:(id)arg1;
 - (void)setParentModel:(id)arg1;
 - (void)setPickabilityReason:(id)arg1;
-- (void)setPickable:(bool)arg1;
+- (void)setPickable:(BOOL)arg1;
 - (void)setThumbnailsBySize:(id)arg1;
 - (id)sortDate;
 - (id)sortTag;
-- (id)subtitle2;
 - (id)subtitle;
-- (id)tagBlipsWithHeight:(double)arg1 scale:(double)arg2;
+- (id)subtitle2;
+- (id)tagBlipsWithHeight:(float)arg1 scale:(float)arg2;
 - (id)tags;
-- (id)thumbnailWithSize:(struct CGSize { double x1; double x2; })arg1 scale:(double)arg2;
+- (id)thumbnailWithSize:(struct CGSize { float x1; float x2; })arg1 scale:(float)arg2;
 - (id)thumbnailsBySize;
 - (id)title;
-- (long long)type;
+- (int)type;
 - (id)url;
 
 @end

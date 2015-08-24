@@ -2,31 +2,25 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSBundle, NSString, UIImage;
-
 @interface PSLazyImagePromise : NSObject {
     UIImage *_image;
     NSBundle *_imageBundle;
+    BOOL _imageLoaded;
     NSString *_imageName;
     NSString *_imagePath;
-    id _loadBlock;
-    bool_imageLoaded;
+    id /* block */ _loadBlock;
 }
 
-@property(readonly) UIImage * image;
-@property(getter=isImageLoaded,readonly) bool imageLoaded;
+@property (nonatomic, readonly) UIImage *image;
+@property (getter=isImageLoaded, nonatomic, readonly) BOOL imageLoaded;
 
 + (id)imagePromiseWithImageNamed:(id)arg1 inBundle:(id)arg2;
 + (id)imagePromiseWithImagePath:(id)arg1;
-+ (id)imagePromiseWithLoadBlock:(id)arg1;
++ (id)imagePromiseWithLoadBlock:(id /* block */)arg1;
 
 - (void)dealloc;
 - (id)image;
-- (bool)isImageLoaded;
+- (BOOL)isImageLoaded;
 - (void)loadImage;
 
 @end

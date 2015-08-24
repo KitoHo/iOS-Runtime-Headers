@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/AskPermission.framework/AskPermission
  */
 
-@class NSObject<OS_dispatch_queue>;
-
 @interface PRLogging : NSObject {
     NSObject<OS_dispatch_queue> *_logQueue;
-    bool_logToFile;
-    bool_logToSyslog;
+    BOOL _logToFile;
+    BOOL _logToSyslog;
 }
 
 + (id)sharedLogger;
@@ -15,6 +13,6 @@
 - (void).cxx_destruct;
 - (void)_reloadLogPreferences;
 - (id)init;
-- (void)logMessageWithFormat:(id)arg1 args:(char *)arg2;
+- (void)logMessageWithFormat:(id)arg1 args:(void*)arg2;
 
 @end

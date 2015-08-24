@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardFoundation.framework/SpringBoardFoundation
  */
 
-@class NSBundle, UIView, _UICAPackageView;
-
 @interface SBFMicaWallpaper : SBFProceduralWallpaper {
     NSBundle *_loadedBundle;
     _UICAPackageView *_packageView;
@@ -18,7 +16,7 @@
 - (void)_unloadView;
 - (void)dealloc;
 - (void)layoutSubviews;
-- (void)setAnimating:(bool)arg1;
+- (void)setAnimating:(BOOL)arg1;
 - (void)setWallpaperOptions:(id)arg1;
 
 @end

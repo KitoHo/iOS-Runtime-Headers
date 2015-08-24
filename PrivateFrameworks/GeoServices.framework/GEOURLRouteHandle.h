@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSData;
-
 @interface GEOURLRouteHandle : PBCodable <NSCopying> {
     NSData *_directionsResponseID;
     NSData *_routeID;
     NSData *_zilchPoints;
 }
 
-@property(retain) NSData * directionsResponseID;
-@property(readonly) bool hasDirectionsResponseID;
-@property(readonly) bool hasRouteID;
-@property(readonly) bool hasZilchPoints;
-@property(retain) NSData * routeID;
-@property(retain) NSData * zilchPoints;
+@property (nonatomic, retain) NSData *directionsResponseID;
+@property (nonatomic, readonly) BOOL hasDirectionsResponseID;
+@property (nonatomic, readonly) BOOL hasRouteID;
+@property (nonatomic, readonly) BOOL hasZilchPoints;
+@property (nonatomic, retain) NSData *routeID;
+@property (nonatomic, retain) NSData *zilchPoints;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -23,13 +21,13 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)directionsResponseID;
-- (bool)hasDirectionsResponseID;
-- (bool)hasRouteID;
-- (bool)hasZilchPoints;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasDirectionsResponseID;
+- (BOOL)hasRouteID;
+- (BOOL)hasZilchPoints;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)routeID;
 - (void)setDirectionsResponseID:(id)arg1;
 - (void)setRouteID:(id)arg1;

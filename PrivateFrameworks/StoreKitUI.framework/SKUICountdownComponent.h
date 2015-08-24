@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class SKUICountdown;
-
 @interface SKUICountdownComponent : SKUIPageComponent {
     SKUICountdown *_countdown;
 }
 
-@property(retain) SKUICountdown * countdown;
+@property (nonatomic, retain) SKUICountdown *countdown;
 
 - (void).cxx_destruct;
-- (long long)componentType;
+- (int)componentType;
 - (id)countdown;
 - (id)initWithCustomPageContext:(id)arg1;
 - (void)setCountdown:(id)arg1;

@@ -2,11 +2,9 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIWebDocumentView;
-
 @interface UIWebRotatingAlertController : _UIRotatingAlertController {
+    BOOL _wasDeferringCallbacks;
     UIWebDocumentView *_webBrowserView;
-    bool_wasDeferringCallbacks;
 }
 
 - (void)_disableWebView;
@@ -14,6 +12,6 @@
 - (void)dealloc;
 - (void)doneWithSheet;
 - (id)initWithUIWebDocumentView:(id)arg1;
-- (bool)presentSheet;
+- (BOOL)presentSheet;
 
 @end

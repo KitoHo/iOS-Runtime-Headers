@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
  */
 
-@interface DOMHTMLDetailsElement : DOMHTMLElement {
-}
+@interface DOMHTMLDetailsElement : DOMHTMLElement
 
-@property bool open;
+@property BOOL open;
 
-- (bool)open;
-- (void)setOpen:(bool)arg1;
+- (BOOL)open;
+- (void)setOpen:(BOOL)arg1;
 
 @end

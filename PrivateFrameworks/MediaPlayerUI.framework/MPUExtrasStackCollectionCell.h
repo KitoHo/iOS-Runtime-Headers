@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/MediaPlayerUI.framework/MediaPlayerUI
  */
 
-@class MPUExtrasGridElementViewController, MPUExtrasGridSectionHeaderStyle, MPUExtrasStackTemplateViewController, NSArray;
-
 @interface MPUExtrasStackCollectionCell : UICollectionViewCell {
     NSArray *_fitConstraints;
+    BOOL _needsViewWillAppear;
     MPUExtrasStackTemplateViewController *_parentViewController;
     MPUExtrasGridSectionHeaderStyle *_sectionStyle;
     MPUExtrasGridElementViewController *_viewController;
-    bool_needsViewWillAppear;
 }
 
-@property(retain) MPUExtrasStackTemplateViewController * parentViewController;
-@property(readonly) MPUExtrasGridSectionHeaderStyle * sectionStyle;
-@property(retain) MPUExtrasGridElementViewController * viewController;
+@property (nonatomic, retain) MPUExtrasStackTemplateViewController *parentViewController;
+@property (nonatomic, readonly) MPUExtrasGridSectionHeaderStyle *sectionStyle;
+@property (nonatomic, retain) MPUExtrasGridElementViewController *viewController;
 
 - (void).cxx_destruct;
 - (id)parentViewController;

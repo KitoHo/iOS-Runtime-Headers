@@ -3,11 +3,16 @@
  */
 
 @interface _CLMainService : NSObject <CLIntersiloServiceProtocol> {
+    BOOL _valid;
 }
 
-@property bool valid;
+@property (nonatomic) BOOL valid;
 
 + (void)becameFatallyBlocked:(id)arg1;
 + (id)getSilo;
++ (BOOL)isSupported;
+
+- (void)setValid:(BOOL)arg1;
+- (BOOL)valid;
 
 @end

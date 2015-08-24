@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class NSDate, NSString;
-
 @interface WBSAutomaticReadingListTwitterItem : WBSAutomaticReadingListItem {
     NSString *_displayURLString;
     NSString *_expandedURLString;
@@ -12,18 +10,18 @@
     NSDate *_retweetCreationDate;
 }
 
-@property(copy) NSString * displayURLString;
-@property(copy) NSString * expandedURLString;
-@property(copy) NSString * originatorProfileImageURLString;
-@property(copy) NSString * originatorScreenName;
-@property(copy) NSDate * retweetCreationDate;
+@property (nonatomic, copy) NSString *displayURLString;
+@property (nonatomic, copy) NSString *expandedURLString;
+@property (nonatomic, copy) NSString *originatorProfileImageURLString;
+@property (nonatomic, copy) NSString *originatorScreenName;
+@property (nonatomic, copy) NSDate *retweetCreationDate;
 
 - (void).cxx_destruct;
 - (id)_profileImageURLStringWithSuffix:(id)arg1;
 - (id)biggerOriginatorProfileImageURL;
 - (id)description;
 - (id)displayString;
-- (struct _NSRange { unsigned long long x1; unsigned long long x2; })displayURLRange;
+- (struct _NSRange { unsigned int x1; unsigned int x2; })displayURLRange;
 - (id)displayURLString;
 - (id)domainString;
 - (id)expandedURLString;

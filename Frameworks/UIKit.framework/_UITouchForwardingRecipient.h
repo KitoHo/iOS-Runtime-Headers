@@ -2,29 +2,27 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIResponder;
-
 @interface _UITouchForwardingRecipient : NSObject {
-    long long autocompletedPhase;
+    int autocompletedPhase;
     UIResponder *fromResponder;
-    long long recordedPhase;
+    int recordedPhase;
     UIResponder *responder;
 }
 
-@property long long autocompletedPhase;
-@property UIResponder * fromResponder;
-@property long long recordedPhase;
-@property UIResponder * responder;
+@property (nonatomic) int autocompletedPhase;
+@property (nonatomic) UIResponder *fromResponder;
+@property (nonatomic) int recordedPhase;
+@property (nonatomic) UIResponder *responder;
 
-- (long long)autocompletedPhase;
+- (int)autocompletedPhase;
 - (id)description;
 - (id)fromResponder;
 - (id)initWithResponder:(id)arg1 fromResponder:(id)arg2;
-- (long long)recordedPhase;
+- (int)recordedPhase;
 - (id)responder;
-- (void)setAutocompletedPhase:(long long)arg1;
+- (void)setAutocompletedPhase:(int)arg1;
 - (void)setFromResponder:(id)arg1;
-- (void)setRecordedPhase:(long long)arg1;
+- (void)setRecordedPhase:(int)arg1;
 - (void)setResponder:(id)arg1;
 
 @end

@@ -2,24 +2,22 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDIMessageDeliveredMessage : PBCodable <NSCopying> {
+    unsigned int _deliveryDuration;
+    NSString *_guid;
     struct { 
         unsigned int timestamp : 1; 
         unsigned int deliveryDuration : 1; 
-    unsigned int _deliveryDuration;
-    NSString *_guid;
     } _has;
     unsigned long long _timestamp;
 }
 
-@property unsigned int deliveryDuration;
-@property(retain) NSString * guid;
-@property bool hasDeliveryDuration;
-@property(readonly) bool hasGuid;
-@property bool hasTimestamp;
-@property unsigned long long timestamp;
+@property (nonatomic) unsigned int deliveryDuration;
+@property (nonatomic, retain) NSString *guid;
+@property (nonatomic) BOOL hasDeliveryDuration;
+@property (nonatomic, readonly) BOOL hasGuid;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -28,17 +26,17 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)guid;
-- (bool)hasDeliveryDuration;
-- (bool)hasGuid;
-- (bool)hasTimestamp;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasDeliveryDuration;
+- (BOOL)hasGuid;
+- (BOOL)hasTimestamp;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setDeliveryDuration:(unsigned int)arg1;
 - (void)setGuid:(id)arg1;
-- (void)setHasDeliveryDuration:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
+- (void)setHasDeliveryDuration:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;
 - (unsigned long long)timestamp;
 - (void)writeTo:(id)arg1;

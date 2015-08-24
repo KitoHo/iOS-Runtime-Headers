@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class <_MKPopoverEmbeddingViewWindowDelegate>;
-
 @interface _MKPopoverEmbeddingView : UIView {
     <_MKPopoverEmbeddingViewWindowDelegate> *_windowDelegate;
 }
 
-@property <_MKPopoverEmbeddingViewWindowDelegate> * windowDelegate;
+@property (nonatomic) <_MKPopoverEmbeddingViewWindowDelegate> *windowDelegate;
 
 - (void).cxx_destruct;
 - (void)didMoveToWindow;
-- (id)hitTest:(struct CGPoint { double x1; double x2; })arg1 withEvent:(id)arg2;
+- (id)hitTest:(struct CGPoint { float x1; float x2; })arg1 withEvent:(id)arg2;
 - (void)setWindowDelegate:(id)arg1;
 - (void)willMoveToWindow:(id)arg1;
 - (id)windowDelegate;

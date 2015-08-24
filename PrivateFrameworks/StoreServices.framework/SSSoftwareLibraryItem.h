@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSMutableDictionary, NSString;
-
 @interface SSSoftwareLibraryItem : NSObject <SSXPCCoding> {
+    BOOL _beta;
     NSMutableDictionary *_etags;
+    BOOL _placeholder;
+    BOOL _profileValidated;
     NSMutableDictionary *_propertyValues;
-    bool_beta;
-    bool_placeholder;
-    bool_profileValidated;
 }
 
-@property(getter=isBeta) bool beta;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(getter=isPlaceholder) bool placeholder;
-@property(getter=isProfileValidated) bool profileValidated;
-@property(readonly) Class superclass;
+@property (getter=isBeta, nonatomic) BOOL beta;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (getter=isPlaceholder, nonatomic) BOOL placeholder;
+@property (getter=isProfileValidated, nonatomic) BOOL profileValidated;
+@property (readonly) Class superclass;
 
 - (id)ETagForAssetType:(id)arg1;
 - (id)_initWithITunesMetadata:(id)arg1;
@@ -26,13 +24,13 @@
 - (id)copyXPCEncoding;
 - (void)dealloc;
 - (id)initWithXPCEncoding:(id)arg1;
-- (bool)isBeta;
-- (bool)isPlaceholder;
-- (bool)isProfileValidated;
-- (void)setBeta:(bool)arg1;
-- (bool)setETag:(id)arg1 forAssetType:(id)arg2 error:(id*)arg3;
-- (void)setPlaceholder:(bool)arg1;
-- (void)setProfileValidated:(bool)arg1;
+- (BOOL)isBeta;
+- (BOOL)isPlaceholder;
+- (BOOL)isProfileValidated;
+- (void)setBeta:(BOOL)arg1;
+- (BOOL)setETag:(id)arg1 forAssetType:(id)arg2 error:(id*)arg3;
+- (void)setPlaceholder:(BOOL)arg1;
+- (void)setProfileValidated:(BOOL)arg1;
 - (id)valueForProperty:(id)arg1;
 
 @end

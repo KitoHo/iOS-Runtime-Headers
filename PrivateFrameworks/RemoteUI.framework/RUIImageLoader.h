@@ -2,15 +2,7 @@
    Image: /System/Library/PrivateFrameworks/RemoteUI.framework/RemoteUI
  */
 
-@class NSLock, NSMutableArray, NSMutableDictionary, NSMutableSet, NSNotificationCenter, NSTimer;
-
 @interface RUIImageLoader : NSObject {
-    struct _opaque_pthread_mutex_t { 
-        long long __sig; 
-        BOOL __opaque[56]; 
-    struct _opaque_pthread_cond_t { 
-        long long __sig; 
-        BOOL __opaque[40]; 
     NSLock *_cacheLock;
     NSMutableDictionary *_imageCache;
     NSMutableArray *_imageCacheLRU;
@@ -21,7 +13,13 @@
     NSMutableSet *_loadsInProgress;
     NSNotificationCenter *_notificationCenter;
     NSLock *_queueLock;
+    struct _opaque_pthread_cond_t { 
+        long __sig; 
+        BOOL __opaque[24]; 
     } _startupCondition;
+    struct _opaque_pthread_mutex_t { 
+        long __sig; 
+        BOOL __opaque[40]; 
     } _startupLock;
 }
 
@@ -31,17 +29,17 @@
 - (void)_imageLoadFinished:(id)arg1;
 - (void)_loadImageURL:(id)arg1;
 - (void)_loadingStatusChanged;
-- (bool)_locked_URLIsLoading:(id)arg1;
+- (BOOL)_locked_URLIsLoading:(id)arg1;
 - (void)_locked_imageLoadStarted:(id)arg1;
 - (void)_locked_loadImageForURL:(id)arg1;
 - (void)_mainThread_postLoadingStatusChanged;
 - (void)_postImageLoadedNotification:(id)arg1;
 - (void)_postLoadingStatusChanged;
-- (void)_setImageData:(id)arg1 forURL:(id)arg2 cacheLocked:(bool)arg3;
+- (void)_setImageData:(id)arg1 forURL:(id)arg2 cacheLocked:(BOOL)arg3;
 - (void)_startLoader;
-- (struct CGImage { }*)imageForURL:(id)arg1 loadIfAbsent:(bool)arg2;
+- (struct CGImage { }*)imageForURL:(id)arg1 loadIfAbsent:(BOOL)arg2;
 - (id)init;
-- (bool)isLoadingImages;
+- (BOOL)isLoadingImages;
 - (id)notificationCenter;
 
 @end

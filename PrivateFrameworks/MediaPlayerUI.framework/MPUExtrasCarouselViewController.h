@@ -2,48 +2,46 @@
    Image: /System/Library/PrivateFrameworks/MediaPlayerUI.framework/MediaPlayerUI
  */
 
-@class <MPUExtrasCarouselViewControllerDataSource>, <MPUExtrasCarouselViewControllerDelegate>, MPUExtrasCarouselCollectionView, NSString, UICollectionViewLayout<MPUExtrasCarouselCollectionViewLayout>;
-
-@interface MPUExtrasCarouselViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, MPUExtrasCarouselCollectionViewDelegate, MPUExtrasZoomingImageTransitionParticipant> {
+@interface MPUExtrasCarouselViewController : UIViewController <MPUExtrasCarouselCollectionViewDelegate, MPUExtrasZoomingImageTransitionParticipant, UICollectionViewDataSource, UICollectionViewDelegate> {
     MPUExtrasCarouselCollectionView *_carouselCollectionView;
     UICollectionViewLayout<MPUExtrasCarouselCollectionViewLayout> *_carouselCollectionViewLayout;
     <MPUExtrasCarouselViewControllerDataSource> *_dataSource;
     <MPUExtrasCarouselViewControllerDelegate> *_delegate;
-    bool_revealingNavigationBarDuringTransition;
+    BOOL _revealingNavigationBarDuringTransition;
 }
 
-@property(retain) MPUExtrasCarouselCollectionView * carouselCollectionView;
-@property(retain) UICollectionViewLayout<MPUExtrasCarouselCollectionViewLayout> * carouselCollectionViewLayout;
-@property <MPUExtrasCarouselViewControllerDataSource> * dataSource;
-@property(copy,readonly) NSString * debugDescription;
-@property <MPUExtrasCarouselViewControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property unsigned long long indexOfVisibleItem;
-@property(getter=isRevealingNavigationBarDuringTransition) bool revealingNavigationBarDuringTransition;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) MPUExtrasCarouselCollectionView *carouselCollectionView;
+@property (nonatomic, retain) UICollectionViewLayout<MPUExtrasCarouselCollectionViewLayout> *carouselCollectionViewLayout;
+@property (nonatomic) <MPUExtrasCarouselViewControllerDataSource> *dataSource;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <MPUExtrasCarouselViewControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) unsigned int indexOfVisibleItem;
+@property (getter=isRevealingNavigationBarDuringTransition, nonatomic) BOOL revealingNavigationBarDuringTransition;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (bool)_isPhone;
+- (BOOL)_isPhone;
 - (void)_loadCarouselCollectionViewInView:(id)arg1 withContraintsAccumulator:(id)arg2;
-- (long long)_numberOfItems;
+- (int)_numberOfItems;
 - (void)_updateOpacityOfTextInVisibleCells;
 - (void)_updateWindowSizeForVisibleCells;
 - (id)carouselCollectionView;
-- (id)carouselCollectionViewCellForItemAtIndex:(unsigned long long)arg1;
+- (id)carouselCollectionViewCellForItemAtIndex:(unsigned int)arg1;
 - (id)carouselCollectionViewLayout;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didHighlightItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
-- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
 - (void)collectionView:(id)arg1 willDisplayCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (id)dataSource;
 - (void)dealloc;
 - (id)delegate;
-- (void)finalizeZoomingImageTransitionWithContext:(id)arg1 transitionFinished:(bool)arg2;
-- (unsigned long long)indexOfVisibleItem;
-- (bool)isRevealingNavigationBarDuringTransition;
-- (long long)numberOfSectionsInCollectionView:(id)arg1;
+- (void)finalizeZoomingImageTransitionWithContext:(id)arg1 transitionFinished:(BOOL)arg2;
+- (unsigned int)indexOfVisibleItem;
+- (BOOL)isRevealingNavigationBarDuringTransition;
+- (int)numberOfSectionsInCollectionView:(id)arg1;
 - (void)performZoomingImageTransitionWithContext:(id)arg1;
 - (void)prepareZoomingImageTransitionWithContext:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
@@ -51,11 +49,11 @@
 - (void)setCarouselCollectionViewLayout:(id)arg1;
 - (void)setDataSource:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setIndexOfVisibleItem:(unsigned long long)arg1 animated:(bool)arg2;
-- (void)setIndexOfVisibleItem:(unsigned long long)arg1;
-- (void)setRevealingNavigationBarDuringTransition:(bool)arg1;
+- (void)setIndexOfVisibleItem:(unsigned int)arg1;
+- (void)setIndexOfVisibleItem:(unsigned int)arg1 animated:(BOOL)arg2;
+- (void)setRevealingNavigationBarDuringTransition:(BOOL)arg1;
 - (void)subviewsDidChangeForCarouselCollectionView:(id)arg1;
 - (void)viewDidLoad;
-- (void)viewWillAppear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 
 @end

@@ -2,43 +2,41 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class <VKPuckAnimatorDelegate>, <VKPuckAnimatorTarget>, GEORouteMatch, VKAnimation, VKPuckAnimatorLocationProjector, VKRunningCurve;
-
 @interface VKPuckAnimator : NSObject {
+    VKAnimation *_animation;
+    unsigned int _behavior;
+    VKRunningCurve *_curve;
+    <VKPuckAnimatorDelegate> *_delegate;
+    GEORouteMatch *_lastProjectedLocation;
     struct VKPoint { 
         double x; 
         double y; 
         double z; 
-    VKAnimation *_animation;
-    unsigned long long _behavior;
-    VKRunningCurve *_curve;
-    <VKPuckAnimatorDelegate> *_delegate;
-    GEORouteMatch *_lastProjectedLocation;
     } _lastProjectedPosition;
     VKPuckAnimatorLocationProjector *_locationProjector;
-    long long _pausedCount;
+    int _pausedCount;
+    BOOL _suspended;
     <VKPuckAnimatorTarget> *_target;
     double _tracePlaybackSpeedMultiplier;
     double _vehicleHeading;
-    bool_suspended;
 }
 
-@property unsigned long long behavior;
-@property <VKPuckAnimatorDelegate> * delegate;
-@property(retain) GEORouteMatch * lastProjectedLocation;
-@property(retain) <VKPuckAnimatorTarget> * target;
-@property double tracePlaybackSpeedMultiplier;
+@property (nonatomic) unsigned int behavior;
+@property (nonatomic) <VKPuckAnimatorDelegate> *delegate;
+@property (nonatomic, retain) GEORouteMatch *lastProjectedLocation;
+@property (nonatomic, retain) <VKPuckAnimatorTarget> *target;
+@property (nonatomic) double tracePlaybackSpeedMultiplier;
 
 - (id).cxx_construct;
 - (void)_step;
-- (unsigned long long)behavior;
+- (unsigned int)behavior;
 - (void)dealloc;
 - (id)delegate;
 - (id)init;
 - (id)lastProjectedLocation;
 - (void)pause;
 - (void)resume;
-- (void)setBehavior:(unsigned long long)arg1;
+- (void)setBehavior:(unsigned int)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setLastProjectedLocation:(id)arg1;
 - (void)setTarget:(id)arg1;

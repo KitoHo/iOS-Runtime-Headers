@@ -3,13 +3,13 @@
  */
 
 @interface RUStationTreeDataSource : NSObject {
-    long long _nodeType;
+    int _nodeType;
     long long _parentNodeID;
 }
 
 - (id)_treeNodeByAppendingTreeNode:(id)arg1 toBaseTreeNode:(id)arg2;
 - (id)initForFeaturedStations;
 - (id)initWithParentNodeID:(long long)arg1;
-- (void)loadChildNodesWithBaseParentNode:(id)arg1 completionHandler:(id)arg2;
+- (void)loadChildNodesWithBaseParentNode:(id)arg1 completionHandler:(id /* block */)arg2;
 
 @end

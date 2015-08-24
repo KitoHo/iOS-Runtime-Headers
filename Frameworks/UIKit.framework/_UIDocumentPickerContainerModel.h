@@ -2,34 +2,34 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSArray, NSMutableArray, NSOperationQueue;
-
 @interface _UIDocumentPickerContainerModel : NSObject {
     NSArray *_pickableTypes;
-    unsigned long long _pickerMode;
+    unsigned int _pickerMode;
     int _sortOrder;
     NSOperationQueue *_thumbnailQueue;
     NSMutableArray *_updateHandlers;
 }
 
-@property(readonly) NSArray * modelObjects;
-@property(copy) NSArray * pickableTypes;
-@property unsigned long long pickerMode;
-@property int sortOrder;
-@property(retain) NSOperationQueue * thumbnailQueue;
-@property(retain) NSMutableArray * updateHandlers;
+@property (nonatomic, readonly) BOOL afterInitialUpdate;
+@property (nonatomic, readonly) NSArray *modelObjects;
+@property (nonatomic, copy) NSArray *pickableTypes;
+@property (nonatomic) unsigned int pickerMode;
+@property (nonatomic) int sortOrder;
+@property (nonatomic, retain) NSOperationQueue *thumbnailQueue;
+@property (nonatomic, retain) NSMutableArray *updateHandlers;
 
-- (id)addUpdateHandler:(id)arg1 weakSelf:(id)arg2;
+- (id)addUpdateHandler:(id /* block */)arg1 weakSelf:(id)arg2;
+- (BOOL)afterInitialUpdate;
 - (void)dealloc;
 - (id)displayTitle;
 - (id)init;
 - (id)modelObjects;
 - (id)pickableTypes;
-- (unsigned long long)pickerMode;
-- (void)refreshItem:(id)arg1 thumbnailOnly:(bool)arg2;
+- (unsigned int)pickerMode;
+- (void)refreshItem:(id)arg1 thumbnailOnly:(BOOL)arg2;
 - (void)removeUpdateHandler:(id)arg1;
 - (void)setPickableTypes:(id)arg1;
-- (void)setPickerMode:(unsigned long long)arg1;
+- (void)setPickerMode:(unsigned int)arg1;
 - (void)setSortOrder:(int)arg1;
 - (void)setThumbnailQueue:(id)arg1;
 - (void)setUpdateHandlers:(id)arg1;

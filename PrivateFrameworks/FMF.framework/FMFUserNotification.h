@@ -2,13 +2,12 @@
    Image: /System/Library/PrivateFrameworks/FMF.framework/FMF
  */
 
-@interface FMFUserNotification : NSObject {
-}
+@interface FMFUserNotification : NSObject
 
 + (void)displayUserNotificationWithTitleLocKey:(id)arg1 messageLocKey:(id)arg2;
-+ (bool)displayiCloudUserNotificationWithTitleLocKey:(id)arg1 messageLocKey:(id)arg2 switchString:(id)arg3 doNotSwitch:(id)arg4;
++ (BOOL)displayiCloudUserNotificationWithTitleLocKey:(id)arg1 messageLocKey:(id)arg2 switchString:(id)arg3 doNotSwitch:(id)arg4;
 + (void)notLoggedIntoiCloudAlert;
-+ (bool)shouldDisplayAlerts;
++ (BOOL)shouldDisplayAlerts;
 + (void)show5XXDuringStartOfferAlert;
 + (void)show5XXDuringStopOfferAlert;
 + (void)showActiveDeviceChangedAlert;
@@ -21,7 +20,7 @@
 + (void)showRestrictedAlert;
 + (void)showShareMyLocationSystemServiceOffAlert;
 + (void)showShareMyLocationiCloudSettingsOffAlert;
-+ (bool)showSwitchMeDeviceAlertUsingCurrentMeDeviceName:(id)arg1;
++ (BOOL)showSwitchMeDeviceAlertUsingCurrentMeDeviceName:(id)arg1;
 + (void)upselliCloudAlert;
 
 @end

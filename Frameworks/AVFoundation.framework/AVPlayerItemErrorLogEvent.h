@@ -2,19 +2,17 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVPlayerItemErrorLogEventInternal, NSDate, NSString;
-
 @interface AVPlayerItemErrorLogEvent : NSObject <NSCopying> {
     AVPlayerItemErrorLogEventInternal *_playerItemErrorLogEvent;
 }
 
-@property(readonly) NSString * URI;
-@property(readonly) NSDate * date;
-@property(readonly) NSString * errorComment;
-@property(readonly) NSString * errorDomain;
-@property(readonly) long long errorStatusCode;
-@property(readonly) NSString * playbackSessionID;
-@property(readonly) NSString * serverAddress;
+@property (nonatomic, readonly) NSString *URI;
+@property (nonatomic, readonly) NSDate *date;
+@property (nonatomic, readonly) NSString *errorComment;
+@property (nonatomic, readonly) NSString *errorDomain;
+@property (nonatomic, readonly) int errorStatusCode;
+@property (nonatomic, readonly) NSString *playbackSessionID;
+@property (nonatomic, readonly) NSString *serverAddress;
 
 - (id)URI;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -22,7 +20,7 @@
 - (void)dealloc;
 - (id)errorComment;
 - (id)errorDomain;
-- (long long)errorStatusCode;
+- (int)errorStatusCode;
 - (void)finalize;
 - (id)init;
 - (id)initWithDictionary:(id)arg1;

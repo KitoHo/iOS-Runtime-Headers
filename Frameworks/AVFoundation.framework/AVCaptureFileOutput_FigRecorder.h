@@ -2,40 +2,38 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVCaptureFileOutputInternal_FigRecorder, NSURL;
-
 @interface AVCaptureFileOutput_FigRecorder : AVCaptureOutput_FigRecorder {
     AVCaptureFileOutputInternal_FigRecorder *_fileOutputInternal;
 }
 
-@property struct { long long x1; int x2; unsigned int x3; long long x4; } maxRecordedDuration;
-@property long long maxRecordedFileSize;
-@property long long minFreeDiskSpaceLimit;
-@property(readonly) NSURL * outputFileURL;
-@property(readonly) struct { long long x1; int x2; unsigned int x3; long long x4; } recordedDuration;
-@property(readonly) long long recordedFileSize;
-@property(getter=isRecording,readonly) bool recording;
+@property (nonatomic) struct { long long x1; int x2; unsigned int x3; long long x4; } maxRecordedDuration;
+@property (nonatomic) long long maxRecordedFileSize;
+@property (nonatomic) long long minFreeDiskSpaceLimit;
+@property (nonatomic, readonly) NSURL *outputFileURL;
+@property (nonatomic, readonly) struct { long long x1; int x2; unsigned int x3; long long x4; } recordedDuration;
+@property (nonatomic, readonly) long long recordedFileSize;
+@property (getter=isRecording, nonatomic, readonly) BOOL recording;
 
 + (void)initialize;
 
 - (void)dealloc;
 - (id)init;
-- (bool)isKindOfClass:(Class)arg1;
-- (bool)isRecording;
-- (bool)isRecordingPaused;
+- (BOOL)isKindOfClass:(Class)arg1;
+- (BOOL)isRecording;
+- (BOOL)isRecordingPaused;
 - (struct { long long x1; int x2; unsigned int x3; long long x4; })maxRecordedDuration;
 - (long long)maxRecordedFileSize;
 - (long long)minFreeDiskSpaceLimit;
 - (id)outputFileURL;
 - (void)pauseRecording;
-- (bool)pausesRecordingOnInterruption;
+- (BOOL)pausesRecordingOnInterruption;
 - (struct { long long x1; int x2; unsigned int x3; long long x4; })recordedDuration;
 - (long long)recordedFileSize;
 - (void)resumeRecording;
 - (void)setMaxRecordedDuration:(struct { long long x1; int x2; unsigned int x3; long long x4; })arg1;
 - (void)setMaxRecordedFileSize:(long long)arg1;
 - (void)setMinFreeDiskSpaceLimit:(long long)arg1;
-- (void)setPausesRecordingOnInterruption:(bool)arg1;
+- (void)setPausesRecordingOnInterruption:(BOOL)arg1;
 - (void)startRecordingToOutputFileURL:(id)arg1 recordingDelegate:(id)arg2;
 - (void)stopRecording;
 

@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/BulletinBoard.framework/BulletinBoard
  */
 
-@class NSDictionary, NSString;
-
 @interface BBActionResponse : NSObject <NSSecureCoding> {
     NSString *_actionID;
-    long long _actionType;
+    int _actionType;
     NSString *_bulletinButtonID;
     NSDictionary *_bulletinContext;
     NSString *_bulletinPublisherID;
@@ -14,19 +12,19 @@
     NSDictionary *_context;
 }
 
-@property(copy) NSString * actionID;
-@property long long actionType;
-@property(copy) NSString * bulletinButtonID;
-@property(copy) NSDictionary * bulletinContext;
-@property(copy) NSString * bulletinPublisherID;
-@property(copy) NSString * bulletinRecordID;
-@property(copy) NSDictionary * context;
+@property (nonatomic, copy) NSString *actionID;
+@property (nonatomic) int actionType;
+@property (nonatomic, copy) NSString *bulletinButtonID;
+@property (nonatomic, copy) NSDictionary *bulletinContext;
+@property (nonatomic, copy) NSString *bulletinPublisherID;
+@property (nonatomic, copy) NSString *bulletinRecordID;
+@property (nonatomic, copy) NSDictionary *context;
 
 + (id)actionResponseForResponse:(id)arg1 bulletinRequest:(id)arg2;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)actionID;
-- (long long)actionType;
+- (int)actionType;
 - (id)bulletinButtonID;
 - (id)bulletinContext;
 - (id)bulletinPublisherID;
@@ -37,7 +35,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)setActionID:(id)arg1;
-- (void)setActionType:(long long)arg1;
+- (void)setActionType:(int)arg1;
 - (void)setBulletinButtonID:(id)arg1;
 - (void)setBulletinContext:(id)arg1;
 - (void)setBulletinPublisherID:(id)arg1;

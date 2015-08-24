@@ -2,16 +2,18 @@
    Image: /System/Library/PrivateFrameworks/AppleAccountUI.framework/AppleAccountUI
  */
 
-@class <AAUIPickInviteeDelegate>, AAUIContactsSearchController, ABMonogrammer, ACAccount, ACAccountStore, NSArray, NSString, UIBarButtonItem, UILabel, UITableView, UITextField, UIView;
-
-@interface AAUIPickInviteeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, AAUIContactsSearchDelegate> {
+@interface AAUIPickInviteeViewController : UIViewController <AAUIContactsSearchDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
     ACAccount *_account;
     ACAccountStore *_accountStore;
     void *_addressBook;
+    UILabel *_childAccountLabel;
     UITextField *_contactSearchBar;
     UIView *_contactSearchBarContainer;
     AAUIContactsSearchController *_contactsSearchController;
     UIView *_container;
+    UIButton *_createChildAccountButton;
+    NSString *_createChildAccountButtonTitle;
+    NSString *_createChildAccountInstructions;
     <AAUIPickInviteeDelegate> *_delegate;
     UILabel *_instructionsLabel;
     NSString *_inviteeCompositeName;
@@ -26,26 +28,31 @@
     UILabel *_toLabel;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <AAUIPickInviteeDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) NSString * inviteeCompositeName;
-@property(readonly) NSString * inviteeEmail;
-@property(readonly) NSString * inviteeShortName;
-@property(readonly) Class superclass;
+@property (nonatomic, copy) NSString *createChildAccountButtonTitle;
+@property (nonatomic, copy) NSString *createChildAccountInstructions;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <AAUIPickInviteeDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) NSString *inviteeCompositeName;
+@property (nonatomic, readonly) NSString *inviteeEmail;
+@property (nonatomic, readonly) NSString *inviteeShortName;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (id)_attributedStringWithQueryHighlightedForString:(id)arg1 size:(double)arg2;
+- (id)_attributedStringWithQueryHighlightedForString:(id)arg1 size:(float)arg2;
 - (void)_cancelButtonWasTapped:(id)arg1;
-- (double)_heightForText:(id)arg1 width:(double)arg2;
+- (void)_createChildAccountButtonWasTapped:(id)arg1;
+- (float)_heightForText:(id)arg1 width:(float)arg2;
 - (void)_hideSearchResults;
 - (id)_imageForPersonWithRecordID:(int)arg1;
 - (void)_nextButtonWasTapped:(id)arg1;
 - (void)_updateNextButtonEnabledState;
 - (void)contactsSearchController:(id)arg1 didFindSortedResult:(id)arg2;
-- (void)contactsSearchController:(id)arg1 didFinishSearchWithSuccess:(bool)arg2;
+- (void)contactsSearchController:(id)arg1 didFinishSearchWithSuccess:(BOOL)arg2;
 - (id)contentScrollView;
+- (id)createChildAccountButtonTitle;
+- (id)createChildAccountInstructions;
 - (void)dealloc;
 - (id)delegate;
 - (id)initWithAccount:(id)arg1 store:(id)arg2;
@@ -53,16 +60,18 @@
 - (id)inviteeEmail;
 - (id)inviteeShortName;
 - (void)loadView;
-- (long long)numberOfSectionsInTableView:(id)arg1;
+- (int)numberOfSectionsInTableView:(id)arg1;
+- (void)setCreateChildAccountButtonTitle:(id)arg1;
+- (void)setCreateChildAccountInstructions:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (void)textFieldDidBeginEditing:(id)arg1;
-- (bool)textFieldShouldReturn:(id)arg1;
+- (BOOL)textFieldShouldReturn:(id)arg1;
 - (void)textFieldValueDidChange:(id)arg1;
-- (void)viewDidAppear:(bool)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
 - (void)viewDidLoad;
 - (void)viewWillLayoutSubviews;
 

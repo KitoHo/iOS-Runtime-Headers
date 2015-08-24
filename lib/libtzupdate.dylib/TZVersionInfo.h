@@ -2,9 +2,8 @@
    Image: /usr/lib/libtzupdate.dylib
  */
 
-@class NSArray, NSNumber, NSString, NSURL;
-
 @interface TZVersionInfo : NSObject {
+    NSArray *_alertZones;
     NSString *_bundleVersion;
     NSArray *_changedFiles;
     NSURL *_diskLocation;
@@ -16,36 +15,39 @@
     NSString *_tzDataVersion;
 }
 
-@property(retain) NSString * bundleVersion;
-@property(retain) NSArray * changedFiles;
-@property(retain) NSURL * diskLocation;
-@property(retain) NSString * icuChecksumBaseline;
-@property(retain) NSString * icuChecksumCurrent;
-@property(retain) NSString * icuNameBaseline;
-@property(retain) NSString * icuNameCurrent;
-@property(retain) NSNumber * shouldAlertAll;
-@property(retain) NSString * tzDataVersion;
-@property(readonly) NSString * versionString;
+@property (retain) NSArray *alertZones;
+@property (retain) NSString *bundleVersion;
+@property (retain) NSArray *changedFiles;
+@property (retain) NSURL *diskLocation;
+@property (retain) NSString *icuChecksumBaseline;
+@property (retain) NSString *icuChecksumCurrent;
+@property (retain) NSString *icuNameBaseline;
+@property (retain) NSString *icuNameCurrent;
+@property (retain) NSNumber *shouldAlertAll;
+@property (retain) NSString *tzDataVersion;
+@property (readonly) NSString *versionString;
 
 + (id)_tzDataVersionFromZoneinfoDirectory:(id)arg1 withError:(id*)arg2;
-+ (bool)_verifyVersionInfoDictionary:(id)arg1;
++ (BOOL)_verifyVersionInfoDictionary:(id)arg1;
 + (id)blankVersionInfo;
 + (id)versionInfoFromContainerDirectory:(id)arg1;
 + (id)versionInfoFromDefaultSystem;
-+ (id)versionInfoWithDictionary:(id)arg1 isPartial:(bool)arg2;
++ (id)versionInfoWithDictionary:(id)arg1 isPartial:(BOOL)arg2;
 
 - (void).cxx_destruct;
-- (id)_initWithVersionInfoDictionary:(id)arg1 isPartial:(bool)arg2;
+- (id)_initWithVersionInfoDictionary:(id)arg1 isPartial:(BOOL)arg2;
+- (id)alertZones;
 - (id)bundleVersion;
 - (id)changedFiles;
-- (long long)compare:(id)arg1;
+- (int)compare:(id)arg1;
 - (id)description;
 - (id)diskLocation;
 - (id)icuChecksumBaseline;
 - (id)icuChecksumCurrent;
 - (id)icuNameBaseline;
 - (id)icuNameCurrent;
-- (bool)isBlank;
+- (BOOL)isBlank;
+- (void)setAlertZones:(id)arg1;
 - (void)setBundleVersion:(id)arg1;
 - (void)setChangedFiles:(id)arg1;
 - (void)setDiskLocation:(id)arg1;

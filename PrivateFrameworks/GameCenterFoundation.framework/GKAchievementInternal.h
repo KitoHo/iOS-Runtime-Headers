@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class GKPlayerInternal, NSDate, NSDictionary, NSString;
-
 @interface GKAchievementInternal : GKInternalRepresentation {
+    NSString *_achievedDescription;
     union { 
         struct { 
             unsigned int _maximumPoints : 16; 
@@ -13,7 +12,6 @@
             unsigned int _reserved : 14; 
         } ; 
         unsigned int _value; 
-    NSString *_achievedDescription;
     } _attributes;
     NSString *_groupIdentifier;
     NSDictionary *_icons;
@@ -25,35 +23,35 @@
     NSString *_unachievedDescription;
 }
 
-@property(retain) NSString * achievedDescription;
-@property unsigned int attributes;
-@property(retain) NSString * groupIdentifier;
-@property(getter=isHidden) bool hidden;
-@property(retain) NSDictionary * icons;
-@property(retain) NSString * identifier;
-@property(retain) NSDate * lastReportedDate;
-@property unsigned short maximumPoints;
-@property double percentComplete;
-@property(retain) GKPlayerInternal * player;
-@property(getter=isReplayable) bool replayable;
-@property(retain) NSString * title;
-@property(retain) NSString * unachievedDescription;
+@property (nonatomic, retain) NSString *achievedDescription;
+@property (nonatomic) unsigned int attributes;
+@property (nonatomic, retain) NSString *groupIdentifier;
+@property (getter=isHidden, nonatomic) BOOL hidden;
+@property (nonatomic, retain) NSDictionary *icons;
+@property (nonatomic, retain) NSString *identifier;
+@property (nonatomic, retain) NSDate *lastReportedDate;
+@property (nonatomic) unsigned short maximumPoints;
+@property (nonatomic) double percentComplete;
+@property (nonatomic, retain) GKPlayerInternal *player;
+@property (getter=isReplayable, nonatomic) BOOL replayable;
+@property (nonatomic, retain) NSString *title;
+@property (nonatomic, retain) NSString *unachievedDescription;
 
 + (id)secureCodedPropertyKeys;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)achievedDescription;
 - (unsigned int)attributes;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)groupIdentifier;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)icons;
 - (id)identifier;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)isHidden;
-- (bool)isReplayable;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isHidden;
+- (BOOL)isReplayable;
 - (id)lastReportedDate;
 - (unsigned short)maximumPoints;
 - (void)mergePropertiesFromDescription:(id)arg1;
@@ -63,14 +61,14 @@
 - (void)setAchievedDescription:(id)arg1;
 - (void)setAttributes:(unsigned int)arg1;
 - (void)setGroupIdentifier:(id)arg1;
-- (void)setHidden:(bool)arg1;
+- (void)setHidden:(BOOL)arg1;
 - (void)setIcons:(id)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setLastReportedDate:(id)arg1;
 - (void)setMaximumPoints:(unsigned short)arg1;
 - (void)setPercentComplete:(double)arg1;
 - (void)setPlayer:(id)arg1;
-- (void)setReplayable:(bool)arg1;
+- (void)setReplayable:(BOOL)arg1;
 - (void)setTitle:(id)arg1;
 - (void)setUnachievedDescription:(id)arg1;
 - (id)title;

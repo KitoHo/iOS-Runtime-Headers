@@ -2,27 +2,21 @@
    Image: /System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSString, NSURLRequest;
-
 @interface AARequest : NSObject <NSURLSessionDataDelegate> {
     struct OpaqueCFHTTPCookieStorage { } *_cookieStorage;
-    id _handler;
+    BOOL _flushCache;
+    id /* block */ _handler;
     NSString *_initialURLString;
     NSString *_machineId;
     NSString *_oneTimePassword;
-    bool_flushCache;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property bool flushCache;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
-@property(readonly) NSURLRequest * urlRequest;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) BOOL flushCache;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
+@property (readonly) NSURLRequest *urlRequest;
 
 + (id)protocolVersion;
 + (Class)responseClass;
@@ -32,14 +26,14 @@
 - (id)_redactedHeadersFromHTTPHeaders:(id)arg1;
 - (id)bodyDictionary;
 - (void)dealloc;
-- (bool)flushCache;
+- (BOOL)flushCache;
 - (id)initWithURLString:(id)arg1;
-- (void)performRequestWithHandler:(id)arg1;
+- (void)performRequestWithHandler:(id /* block */)arg1;
 - (id)redactedBodyStringWithPropertyList:(id)arg1;
 - (void)setCookieStorage:(struct OpaqueCFHTTPCookieStorage { }*)arg1;
 - (void)setDeviceProvisioningMachineId:(id)arg1;
 - (void)setDeviceProvisioningOneTimePassword:(id)arg1;
-- (void)setFlushCache:(bool)arg1;
+- (void)setFlushCache:(BOOL)arg1;
 - (id)urlCredential;
 - (id)urlRequest;
 - (id)urlString;

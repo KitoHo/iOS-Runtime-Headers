@@ -2,32 +2,30 @@
    Image: /System/Library/Frameworks/CoreTelephony.framework/CoreTelephony
  */
 
-@class NSString;
-
 @interface CTCarrier : NSObject {
+    BOOL _allowsVOIP;
     NSString *_carrierName;
     NSString *_isoCountryCode;
     NSString *_mobileCountryCode;
     NSString *_mobileNetworkCode;
-    bool_allowsVOIP;
 }
 
-@property bool allowsVOIP;
-@property(retain) NSString * carrierName;
-@property(retain) NSString * isoCountryCode;
-@property(retain) NSString * mobileCountryCode;
-@property(retain) NSString * mobileNetworkCode;
+@property (nonatomic) BOOL allowsVOIP;
+@property (nonatomic, retain) NSString *carrierName;
+@property (nonatomic, retain) NSString *isoCountryCode;
+@property (nonatomic, retain) NSString *mobileCountryCode;
+@property (nonatomic, retain) NSString *mobileNetworkCode;
 
-- (bool)allowsVOIP;
+- (BOOL)allowsVOIP;
 - (id)carrierName;
 - (void)dealloc;
 - (id)description;
 - (id)init;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)isoCountryCode;
 - (id)mobileCountryCode;
 - (id)mobileNetworkCode;
-- (void)setAllowsVOIP:(bool)arg1;
+- (void)setAllowsVOIP:(BOOL)arg1;
 - (void)setCarrierName:(id)arg1;
 - (void)setIsoCountryCode:(id)arg1;
 - (void)setMobileCountryCode:(id)arg1;

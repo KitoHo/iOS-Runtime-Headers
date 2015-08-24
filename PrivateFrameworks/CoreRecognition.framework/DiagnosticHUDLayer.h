@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CoreRecognition.framework/CoreRecognition
  */
 
-@class AVCaptureVideoPreviewLayer, CAShapeLayer, CRColor, NSMutableArray;
-
 @interface DiagnosticHUDLayer : CALayer {
     CAShapeLayer *_cameraAreaLayer;
     CAShapeLayer *_focusIndicatorLayer;
@@ -15,14 +13,14 @@
     CRColor *_stalePointColor;
 }
 
-@property(retain) CAShapeLayer * cameraAreaLayer;
-@property(retain) CAShapeLayer * focusIndicatorLayer;
-@property(retain) CAShapeLayer * focusPointLayer;
-@property(retain) CAShapeLayer * frameIndicator;
-@property(retain) CRColor * freshPointColor;
-@property(retain) NSMutableArray * pointLayers;
-@property(retain) AVCaptureVideoPreviewLayer * previewLayer;
-@property(retain) CRColor * stalePointColor;
+@property (retain) CAShapeLayer *cameraAreaLayer;
+@property (retain) CAShapeLayer *focusIndicatorLayer;
+@property (retain) CAShapeLayer *focusPointLayer;
+@property (retain) CAShapeLayer *frameIndicator;
+@property (retain) CRColor *freshPointColor;
+@property (retain) NSMutableArray *pointLayers;
+@property (retain) AVCaptureVideoPreviewLayer *previewLayer;
+@property (retain) CRColor *stalePointColor;
 
 + (id)layer;
 
@@ -37,7 +35,7 @@
 - (id)pointLayers;
 - (id)previewLayer;
 - (void)refreshFrameIndicator;
-- (void)setAdjustingFocus:(bool)arg1 pointOfInterestSupported:(bool)arg2 focusPoint:(struct CGPoint { double x1; double x2; })arg3;
+- (void)setAdjustingFocus:(BOOL)arg1 pointOfInterestSupported:(BOOL)arg2 focusPoint:(struct CGPoint { float x1; float x2; })arg3;
 - (void)setBoxPoints:(id)arg1;
 - (void)setCameraAreaLayer:(id)arg1;
 - (void)setFocusIndicatorLayer:(id)arg1;

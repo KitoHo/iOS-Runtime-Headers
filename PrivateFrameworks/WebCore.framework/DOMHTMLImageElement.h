@@ -2,66 +2,55 @@
    Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
  */
 
-@class NSString, NSURL;
+@interface DOMHTMLImageElement : DOMHTMLElement
 
-@interface DOMHTMLImageElement : DOMHTMLElement {
-}
-
-@property(copy,readonly) NSURL * absoluteImageURL;
-@property(copy) NSString * align;
-@property(copy) NSString * alt;
-@property(copy,readonly) NSString * altDisplayString;
-@property(copy) NSString * border;
-@property(readonly) bool complete;
+@property (readonly, copy) NSURL *absoluteImageURL;
+@property (copy) NSString *align;
+@property (copy) NSString *alt;
+@property (readonly, copy) NSString *altDisplayString;
+@property (copy) NSString *border;
+@property (readonly) BOOL complete;
 @property int height;
 @property int hspace;
-@property bool isMap;
-@property(copy) NSString * longDesc;
-@property(copy) NSString * lowsrc;
-@property(copy) NSString * name;
-@property(readonly) int naturalHeight;
-@property(readonly) int naturalWidth;
-@property(copy) NSString * src;
-@property(copy) NSString * useMap;
+@property BOOL isMap;
+@property (copy) NSString *longDesc;
+@property (copy) NSString *lowsrc;
+@property (copy) NSString *name;
+@property (readonly) int naturalHeight;
+@property (readonly) int naturalWidth;
+@property (copy) NSString *src;
+@property (copy) NSString *useMap;
 @property int vspace;
 @property int width;
-@property(readonly) int x;
-@property(readonly) int y;
+@property (readonly) int x;
+@property (readonly) int y;
 
-+ (id)mf_edgeToEdgeImageAttachmentStyle;
-+ (double)mf_maxPhotoWidth;
+// Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
 
 - (id)absoluteImageURL;
 - (id)align;
 - (id)alt;
 - (id)altDisplayString;
-- (bool)alwaysAttemptToShowTapHighlight;
 - (id)border;
-- (bool)complete;
+- (BOOL)complete;
 - (id)crossOrigin;
-- (id)dataRepresentation:(bool)arg1;
+- (id)dataRepresentation:(BOOL)arg1;
 - (int)height;
 - (int)hspace;
-- (bool)isMap;
+- (BOOL)isMap;
 - (id)longDesc;
 - (id)lowsrc;
-- (void)mf_applyEdgeToEdgeStyle;
-- (void)mf_constrainImageToSize:(struct CGSize { double x1; double x2; })arg1;
-- (bool)mf_isEdgeToEdgeFormatted;
-- (bool)mf_shouldFormatEdgeToEdge;
-- (void)mf_unconstrainImageSize;
 - (id)mimeType;
 - (id)name;
 - (int)naturalHeight;
 - (int)naturalWidth;
-- (void)recursivelyRemoveMailAttributes;
 - (void)setAlign:(id)arg1;
 - (void)setAlt:(id)arg1;
 - (void)setBorder:(id)arg1;
 - (void)setCrossOrigin:(id)arg1;
 - (void)setHeight:(int)arg1;
 - (void)setHspace:(int)arg1;
-- (void)setIsMap:(bool)arg1;
+- (void)setIsMap:(BOOL)arg1;
 - (void)setLongDesc:(id)arg1;
 - (void)setLowsrc:(id)arg1;
 - (void)setName:(id)arg1;
@@ -70,7 +59,6 @@
 - (void)setUseMap:(id)arg1;
 - (void)setVspace:(int)arg1;
 - (void)setWidth:(int)arg1;
-- (bool)showsTapHighlight;
 - (id)src;
 - (id)srcset;
 - (id)useMap;
@@ -78,5 +66,22 @@
 - (int)width;
 - (int)x;
 - (int)y;
+
+// Image: /System/Library/Frameworks/MessageUI.framework/MessageUI
+
++ (id)mf_edgeToEdgeImageAttachmentStyle;
++ (float)mf_maxPhotoWidth;
+
+- (void)mf_applyEdgeToEdgeStyle;
+- (void)mf_constrainImageToSize:(struct CGSize { float x1; float x2; })arg1;
+- (BOOL)mf_isEdgeToEdgeFormatted;
+- (BOOL)mf_shouldFormatEdgeToEdge;
+- (void)mf_unconstrainImageSize;
+- (void)recursivelyRemoveMailAttributes;
+
+// Image: /System/Library/Frameworks/UIKit.framework/UIKit
+
+- (BOOL)alwaysAttemptToShowTapHighlight;
+- (BOOL)showsTapHighlight;
 
 @end

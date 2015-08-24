@@ -2,23 +2,22 @@
    Image: /System/Library/PrivateFrameworks/AirTrafficDevice.framework/AirTrafficDevice
  */
 
-@class NSObject<OS_dispatch_queue>, NSSet, NSString, NSUserDefaults;
-
 @interface ATDeviceSettings : NSObject {
     NSObject<OS_dispatch_queue> *_queue;
     NSUserDefaults *_userDefaults;
 }
 
-@property(copy,readonly) NSSet * dataClassesNeedingSync;
-@property(readonly) bool fairPlayEnabled;
-@property(readonly) bool grappaEnabled;
-@property(copy,readonly) NSString * interfaceName;
-@property(readonly) bool isDeviceLinkClient;
-@property(copy,readonly) NSString * libraryIdentifier;
-@property(copy,readonly) NSString * serviceDomain;
-@property(copy,readonly) NSString * serviceName;
-@property(copy,readonly) NSString * serviceType;
-@property(readonly) bool useNetServicesConnection;
+@property (nonatomic, readonly, copy) NSArray *dataClassesNeedingSync;
+@property (nonatomic, readonly) BOOL fairPlayEnabled;
+@property (nonatomic, readonly) BOOL grappaEnabled;
+@property (nonatomic, readonly, copy) NSString *interfaceName;
+@property (nonatomic, readonly) BOOL isDeviceLinkClient;
+@property (nonatomic, readonly, copy) NSString *libraryIdentifier;
+@property (nonatomic, readonly) double pairingSyncCompletionTime;
+@property (nonatomic, readonly, copy) NSString *serviceDomain;
+@property (nonatomic, readonly, copy) NSString *serviceName;
+@property (nonatomic, readonly, copy) NSString *serviceType;
+@property (nonatomic, readonly) BOOL useNetServicesConnection;
 
 + (id)sharedInstance;
 
@@ -27,27 +26,30 @@
 - (void)_setEndpointInfo:(id)arg1 forLibrary:(id)arg2;
 - (id)dataClassesNeedingSync;
 - (id)endpointInfo;
-- (bool)fairPlayEnabled;
-- (bool)grappaEnabled;
-- (bool)hasCompletedDataMigration;
+- (BOOL)fairPlayEnabled;
+- (BOOL)grappaEnabled;
+- (BOOL)hasCompletedDataMigration;
 - (id)hostInfoForLibrary:(id)arg1;
 - (id)init;
 - (id)interfaceName;
-- (bool)isDeviceLinkClient;
+- (BOOL)isDeviceLinkClient;
+- (BOOL)isSyncPendingForDataClass:(id)arg1;
 - (id)lastSyncTimeForLibrary:(id)arg1 dataClass:(id)arg2;
 - (id)libraryIdentifier;
+- (double)pairingSyncCompletionTime;
 - (void)removeEndpointInfoForLibrary:(id)arg1;
 - (id)serviceDomain;
 - (id)serviceName;
 - (id)serviceType;
 - (void)setEndpointInfo:(id)arg1;
-- (void)setHasCompletedDataMigration:(bool)arg1;
+- (void)setHasCompletedDataMigration:(BOOL)arg1;
 - (void)setHostInfo:(id)arg1 forLibrary:(id)arg2;
-- (void)setSyncRequested:(bool)arg1 forDataClass:(id)arg2;
+- (void)setPairingSyncCompletionTime:(double)arg1;
+- (void)setSyncPending:(BOOL)arg1 forDataClass:(id)arg2;
 - (void)setSyncState:(id)arg1 forLibrary:(id)arg2 dataClass:(id)arg3;
 - (id)syncStateForLibrary:(id)arg1 dataClass:(id)arg2;
 - (void)synchronize;
 - (void)updateLastSyncTimeForLibrary:(id)arg1 dataClass:(id)arg2;
-- (bool)useNetServicesConnection;
+- (BOOL)useNetServicesConnection;
 
 @end

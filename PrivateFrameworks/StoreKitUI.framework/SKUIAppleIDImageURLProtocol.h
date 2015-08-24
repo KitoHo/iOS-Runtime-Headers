@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@interface SKUIAppleIDImageURLProtocol : NSURLProtocol {
-}
+@interface SKUIAppleIDImageURLProtocol : NSURLProtocol
 
-+ (bool)canInitWithRequest:(id)arg1;
++ (BOOL)canInitWithRequest:(id)arg1;
 + (id)canonicalRequestForRequest:(id)arg1;
 
 - (void)_startLoading;

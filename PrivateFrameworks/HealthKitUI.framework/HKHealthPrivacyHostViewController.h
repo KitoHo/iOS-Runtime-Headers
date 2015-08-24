@@ -2,17 +2,16 @@
    Image: /System/Library/PrivateFrameworks/HealthKitUI.framework/HealthKitUI
  */
 
-@class <HKHealthPrivacyHostViewControllerDelegate>;
-
 @interface HKHealthPrivacyHostViewController : _UIRemoteViewController <HKHealthPrivacyHostRemoteViewController> {
     <HKHealthPrivacyHostViewControllerDelegate> *_delegate;
 }
 
-@property <HKHealthPrivacyHostViewControllerDelegate> * delegate;
+@property (nonatomic) <HKHealthPrivacyHostViewControllerDelegate> *delegate;
 
 + (id)exportedInterface;
-+ (id)requestRemoteViewControllerWithConnectionHandler:(id)arg1;
++ (id)requestRemoteViewControllerWithConnectionHandler:(id /* block */)arg1;
 + (id)serviceViewControllerInterface;
++ (BOOL)shouldPropagateAppearanceCustomizations;
 
 - (void).cxx_destruct;
 - (id)_healthPrivacyServiceViewControllerProxy;

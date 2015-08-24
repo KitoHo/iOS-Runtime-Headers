@@ -2,13 +2,12 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@interface IKCheckMarkElement : IKViewElement {
-}
+@interface IKCheckMarkElement : IKViewElement
 
-@property(readonly) unsigned long long alignment;
+@property (nonatomic, readonly) unsigned int alignment;
 
-+ (bool)shouldParseChildDOMElements;
++ (BOOL)shouldParseChildDOMElements;
 
-- (unsigned long long)alignment;
+- (unsigned int)alignment;
 
 @end

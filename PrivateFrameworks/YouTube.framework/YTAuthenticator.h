@@ -2,39 +2,33 @@
    Image: /System/Library/PrivateFrameworks/YouTube.framework/YouTube
  */
 
-@class <YTAuthenticatorDelegate>, NSMutableArray;
-
 @interface YTAuthenticator : NSObject {
     int _accountAuthState;
     NSMutableArray *_deferredRequests;
     <YTAuthenticatorDelegate> *_delegate;
-    int _deviceAuthState;
 }
 
 + (id)authenticationDialogWithTarget:(id)arg1 action:(SEL)arg2;
 + (id)sharedAuthenticator;
 
 - (void)_addAccountAuthenticationObserers;
-- (void)_addDeferredRequest:(id)arg1 accountAuthRequired:(bool)arg2;
-- (void)_addDeviceAuthenticationObserers;
+- (void)_addDeferredRequest:(id)arg1 accountAuthRequired:(BOOL)arg2;
 - (void)_completeAuthenticationForDeferredRequests;
-- (void)_didAuthenticateDevice:(id)arg1;
 - (void)_failedToAuthenticateAccount:(id)arg1;
-- (void)_failedToAuthenticateDevice:(id)arg1;
 - (void)_removeAccountAuthenticationObservers;
 - (void)_removeDefferredRequests;
-- (void)_removeDeviceAuthenticationObservers;
-- (void)addAuthenticationHeadersToRequest:(id)arg1 accountAuthRequired:(bool)arg2;
-- (bool)cachedCredentialsValid;
+- (id)accountUsername;
+- (void)addAuthenticationHeadersToRequest:(id)arg1 accountAuthRequired:(BOOL)arg2;
+- (BOOL)cachedCredentialsValid;
 - (void)clearAccountInfo;
 - (void)dealloc;
 - (void)didAuthenticateAccount;
 - (id)init;
 - (void)invalidateToken;
-- (bool)isAccountAuthenticated;
-- (bool)isWaitingForAuthentication;
-- (bool)loadStoredCredentials;
-- (void)setAccount:(id)arg1 password:(id)arg2;
+- (BOOL)isAccountAuthenticated;
+- (BOOL)loadStoredCredentials;
+- (void)setAuthenticatedOauth2Token:(id)arg1;
+- (void)setAuthenticatedUsername:(id)arg1 oauth2Token:(id)arg2 oauth2RefreshToken:(id)arg3 youTubeName:(id)arg4;
 - (void)setDelegate:(id)arg1;
 - (void)userCancelledAccountAuthentication;
 

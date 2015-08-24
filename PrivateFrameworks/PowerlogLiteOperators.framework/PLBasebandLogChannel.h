@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/PowerlogLiteOperators.framework/PowerlogLiteOperators
  */
 
-@class <PLBasebandLogChannelDelegate>;
-
 @interface PLBasebandLogChannel : NSObject {
-    boolcachingEnabled;
+    BOOL cachingEnabled;
     <PLBasebandLogChannelDelegate> *delegate;
     struct __CFMessagePort { } *localPort;
     struct __CFMessagePort { } *remotePort;
 }
 
-@property bool cachingEnabled;
-@property <PLBasebandLogChannelDelegate> * delegate;
-@property(readonly) bool isValid;
+@property (nonatomic) BOOL cachingEnabled;
+@property (nonatomic) <PLBasebandLogChannelDelegate> *delegate;
+@property (nonatomic, readonly) BOOL isValid;
 
-- (bool)cachingEnabled;
+- (BOOL)cachingEnabled;
 - (void)close;
 - (void)commitHardwareLogs;
 - (void)connectionInvalidated:(id)arg1;
@@ -25,12 +23,12 @@
 - (void)flush;
 - (id)init;
 - (void)invalidate;
-- (bool)isValid;
-- (bool)openWithConnection:(id)arg1;
+- (BOOL)isValid;
+- (BOOL)openWithConnection:(id)arg1;
 - (void)sendObjectOverRemotePort:(id)arg1;
-- (void)setCachingEnabled:(bool)arg1;
+- (void)setCachingEnabled:(BOOL)arg1;
 - (void)setChannelTimeout:(double)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setHardwareLoggingLevel:(unsigned long long)arg1 withWindowSize:(unsigned long long)arg2;
+- (void)setHardwareLoggingLevel:(unsigned int)arg1 withWindowSize:(unsigned int)arg2;
 
 @end

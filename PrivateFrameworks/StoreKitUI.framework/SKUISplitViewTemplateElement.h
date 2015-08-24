@@ -2,32 +2,30 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class SKUIJSDOMFeatureNavigationDocument, SKUIViewElement;
-
 @interface SKUISplitViewTemplateElement : SKUIViewElement {
     SKUIJSDOMFeatureNavigationDocument *_leftNavigationDocument;
-    long long _preferredDisplayMode;
+    int _preferredDisplayMode;
     SKUIJSDOMFeatureNavigationDocument *_rightNavigationDocument;
 }
 
-@property(readonly) SKUIJSDOMFeatureNavigationDocument * leftNavigationDocument;
-@property(readonly) SKUIViewElement * leftSplitElement;
-@property(readonly) long long preferredDisplayMode;
-@property(readonly) SKUIJSDOMFeatureNavigationDocument * rightNavigationDocument;
-@property(readonly) SKUIViewElement * rightSplitElement;
-@property(readonly) bool usesInlineSplitContent;
+@property (readonly) SKUIJSDOMFeatureNavigationDocument *leftNavigationDocument;
+@property (nonatomic, readonly) SKUIViewElement *leftSplitElement;
+@property (nonatomic, readonly) int preferredDisplayMode;
+@property (readonly) SKUIJSDOMFeatureNavigationDocument *rightNavigationDocument;
+@property (nonatomic, readonly) SKUIViewElement *rightSplitElement;
+@property (nonatomic, readonly) BOOL usesInlineSplitContent;
 
 + (id)supportedFeatures;
 
 - (void).cxx_destruct;
-- (id)_splitElementForIndex:(long long)arg1;
+- (id)_splitElementForIndex:(int)arg1;
 - (id)applyUpdatesWithElement:(id)arg1;
 - (id)initWithDOMElement:(id)arg1 parent:(id)arg2 elementFactory:(id)arg3;
 - (id)leftNavigationDocument;
 - (id)leftSplitElement;
-- (long long)preferredDisplayMode;
+- (int)preferredDisplayMode;
 - (id)rightNavigationDocument;
 - (id)rightSplitElement;
-- (bool)usesInlineSplitContent;
+- (BOOL)usesInlineSplitContent;
 
 @end

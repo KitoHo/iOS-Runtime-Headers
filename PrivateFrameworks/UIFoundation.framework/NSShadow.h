@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/UIFoundation.framework/UIFoundation
  */
 
-@class NSColor;
-
-@interface NSShadow : NSObject <NSCopying, NSCoding> {
-    struct CGSize { 
-        double width; 
-        double height; 
-    double _shadowBlurRadius;
+@interface NSShadow : NSObject <NSCoding, NSCopying> {
+    float _shadowBlurRadius;
     NSColor *_shadowColor;
-    unsigned long long _shadowFlags;
+    unsigned int _shadowFlags;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _shadowOffset;
 }
 
-@property double shadowBlurRadius;
-@property(retain) id shadowColor;
-@property struct CGSize { double x1; double x2; } shadowOffset;
+@property (nonatomic) float shadowBlurRadius;
+@property (nonatomic, retain) id shadowColor;
+@property (nonatomic) struct CGSize { float x1; float x2; } shadowOffset;
 
 + (id)defaultShadowColor;
 + (void)initialize;
@@ -26,15 +24,15 @@
 - (void)dealloc;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithShadow:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (void)setShadowBlurRadius:(double)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (void)setShadowBlurRadius:(float)arg1;
 - (void)setShadowColor:(id)arg1;
-- (void)setShadowOffset:(struct CGSize { double x1; double x2; })arg1;
-- (double)shadowBlurRadius;
+- (void)setShadowOffset:(struct CGSize { float x1; float x2; })arg1;
+- (float)shadowBlurRadius;
 - (id)shadowColor;
-- (struct CGSize { double x1; double x2; })shadowOffset;
+- (struct CGSize { float x1; float x2; })shadowOffset;
 
 @end

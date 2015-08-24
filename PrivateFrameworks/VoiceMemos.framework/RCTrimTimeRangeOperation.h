@@ -2,46 +2,40 @@
    Image: /System/Library/PrivateFrameworks/VoiceMemos.framework/VoiceMemos
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSError;
-
 @interface RCTrimTimeRangeOperation : NSOperation {
+    BOOL _canSimulateTrimmingProgress;
+    id /* block */ _progressUpdateBlock;
+    float _simulatedProgress;
     struct { 
         double beginTime; 
         double endTime; 
-    id _progressUpdateBlock;
-    float _simulatedProgress;
     } _timeRange;
-    bool_canSimulateTrimmingProgress;
-    bool_trimMode;
+    BOOL _trimMode;
 }
 
-@property(readonly) NSError * error;
-@property(readonly) double exportedDuration;
-@property(readonly) double progress;
-@property(readonly) bool progressShouldContinueUpdating;
-@property(copy) id progressUpdateBlock;
-@property(readonly) bool success;
-@property(readonly) struct { double x1; double x2; } timeRange;
-@property(readonly) bool trimMode;
+@property (nonatomic, readonly) NSError *error;
+@property (nonatomic, readonly) double exportedDuration;
+@property (nonatomic, readonly) double progress;
+@property (nonatomic, readonly) BOOL progressShouldContinueUpdating;
+@property (nonatomic, copy) id /* block */ progressUpdateBlock;
+@property (nonatomic, readonly) BOOL success;
+@property (nonatomic, readonly) struct { double x1; double x2; } timeRange;
+@property (nonatomic, readonly) BOOL trimMode;
 
 - (void).cxx_destruct;
 - (void)_postFinalProgressUpdateNotification;
 - (float)_progress;
-- (id)initWithTimeRange:(struct { double x1; double x2; })arg1 trimMode:(long long)arg2;
+- (id)initWithTimeRange:(struct { double x1; double x2; })arg1 trimMode:(int)arg2;
 - (void)main;
 - (double)progress;
-- (bool)progressShouldContinueUpdating;
-- (id)progressUpdateBlock;
-- (void)setCanSimulateTrimmingProgress:(bool)arg1;
-- (void)setProgressUpdateBlock:(id)arg1;
+- (BOOL)progressShouldContinueUpdating;
+- (id /* block */)progressUpdateBlock;
+- (void)setCanSimulateTrimmingProgress:(BOOL)arg1;
+- (void)setProgressUpdateBlock:(id /* block */)arg1;
 - (void)simulateTrimmingProgress;
 - (void)start;
 - (struct { double x1; double x2; })timeRange;
-- (bool)trimMode;
+- (BOOL)trimMode;
 - (void)updateExportSessionProgressWithInterval:(double)arg1;
 
 @end

@@ -2,63 +2,66 @@
    Image: /System/Library/PrivateFrameworks/ImageCapture.framework/ImageCapture
  */
 
-@class NSMutableDictionary, NSString;
-
 @interface ICCameraFile : ICCameraItem {
     void *_fileProperties;
 }
 
-@property(readonly) bool burstFavorite;
-@property(readonly) bool burstPicked;
-@property(readonly) NSString * burstUUID;
-@property bool fetchingMetadata;
-@property bool fetchingThumbnail;
+@property (readonly) BOOL burstFavorite;
+@property (readonly) BOOL burstPicked;
+@property (readonly) NSString *burstUUID;
+@property BOOL fetchingMetadata;
+@property BOOL fetchingThumbnail;
 @property long long fileSize;
-@property(readonly) bool hasOverriddenOrientation;
-@property(readonly) bool highFramerate;
-@property(retain) NSMutableDictionary * metadata_hidden;
-@property unsigned long long orientation;
-@property(getter=isRaw) bool raw;
-@property(readonly) bool timeLapse;
+@property (readonly) BOOL hasOverriddenOrientation;
+@property (readonly) BOOL highFramerate;
+@property (retain) NSMutableDictionary *metadata_hidden;
+@property unsigned int orientation;
+@property (getter=isRaw) BOOL raw;
+@property (readonly) BOOL timeLapse;
 
-- (bool)burstFavorite;
-- (bool)burstPicked;
+// Image: /System/Library/PrivateFrameworks/ImageCapture.framework/ImageCapture
+
+- (BOOL)burstFavorite;
+- (BOOL)burstPicked;
 - (id)burstUUID;
 - (void)dealloc;
 - (id)description;
 - (double)duration;
-- (bool)fetchingMetadata;
-- (bool)fetchingThumbnail;
-- (id)fileExtension;
+- (BOOL)fetchingMetadata;
+- (BOOL)fetchingThumbnail;
 - (long long)fileSize;
 - (void)finalize;
 - (void)flushMetadataCache;
 - (void)flushThumbnailCache;
 - (void)handleCommandCompletionNotification:(id)arg1;
-- (bool)hasMetadata;
-- (bool)hasOverriddenOrientation;
-- (bool)hasThumbnail;
-- (bool)highFramerate;
-- (id)importIdentifier;
+- (BOOL)hasMetadata;
+- (BOOL)hasOverriddenOrientation;
+- (BOOL)hasThumbnail;
+- (BOOL)highFramerate;
 - (id)initWithName:(id)arg1 parentFolder:(id)arg2 device:(id)arg3;
-- (bool)isRaw;
+- (BOOL)isRaw;
 - (id)metadata;
 - (id)metadata_hidden;
-- (unsigned long long)orientation;
-- (void)overrideOrientation:(unsigned long long)arg1;
-- (id)parentFolderName;
+- (unsigned int)orientation;
+- (void)overrideOrientation:(unsigned int)arg1;
 - (void)requestMetadata;
 - (void)requestThumbnail;
-- (void)setFetchingMetadata:(bool)arg1;
-- (void)setFetchingThumbnail:(bool)arg1;
+- (void)setFetchingMetadata:(BOOL)arg1;
+- (void)setFetchingThumbnail:(BOOL)arg1;
 - (void)setFileSize:(long long)arg1;
-- (void)setHasMetadata:(bool)arg1;
-- (void)setHasThumbnail:(bool)arg1;
+- (void)setHasMetadata:(BOOL)arg1;
+- (void)setHasThumbnail:(BOOL)arg1;
 - (void)setKeywordPropertiesFromMetadata;
 - (void)setMetadata_hidden:(id)arg1;
-- (void)setOrientation:(unsigned long long)arg1;
-- (void)setRaw:(bool)arg1;
+- (void)setOrientation:(unsigned int)arg1;
+- (void)setRaw:(BOOL)arg1;
 - (struct CGImage { }*)thumbnail;
-- (bool)timeLapse;
+- (BOOL)timeLapse;
+
+// Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
+
+- (id)fileExtension;
+- (id)importIdentifier;
+- (id)parentFolderName;
 
 @end

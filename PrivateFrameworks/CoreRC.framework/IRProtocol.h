@@ -9,19 +9,19 @@
     double _repeatInterval;
 }
 
-@property(readonly) double carrierFrequency;
-@property(readonly) unsigned char options;
-@property(readonly) unsigned char protocolID;
-@property(readonly) double repeatInterval;
+@property (nonatomic, readonly) double carrierFrequency;
+@property (nonatomic, readonly) unsigned char options;
+@property (nonatomic, readonly) unsigned char protocolID;
+@property (nonatomic, readonly) double repeatInterval;
 
 + (id)protocolWithID:(unsigned char)arg1 options:(unsigned char)arg2;
 
 - (double)carrierFrequency;
 - (id)description;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
 - (id)initWithProtocolID:(unsigned char)arg1 options:(unsigned char)arg2;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (unsigned char)options;
 - (unsigned char)protocolID;
 - (double)repeatInterval;

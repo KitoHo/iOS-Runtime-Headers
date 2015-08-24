@@ -2,11 +2,11 @@
    Image: /System/Library/PrivateFrameworks/AccountsUI.framework/AccountsUI
  */
 
-@interface ACUIAddMailAccountViewController : ACUIAddAccountViewController {
-}
+@interface ACUIAddMailAccountViewController : ACUIAddAccountViewController
 
 - (id)giantSpecifierWithName:(id)arg1 forAccountTypeID:(id)arg2;
+- (void)nonModalDataclassConfigurationControllerDidCompleteWithSuccess:(BOOL)arg1;
 - (id)specifierForOtherAccounts;
-- (void)viewWillAppear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 
 @end

@@ -2,41 +2,40 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSTimer;
-
 @interface UIMotionEvent : UIInternalEvent {
     double _highLevelTime;
-    unsigned long long _highPassStateIndex;
-    float _highPassState[2];
+    float _highPassState;
+    unsigned int _highPassStateIndex;
     NSTimer *_idleTimer;
     double _lastMovementTime;
     double _lowEndTimeout;
-    unsigned long long _lowPassStateIndex;
-    float _lowPassState[10];
+    float _lowPassState;
+    unsigned int _lowPassStateIndex;
     id _motionAccelerometer;
+    BOOL _sentMotionBegan;
     double _shakeStartTime;
     int _shakeState;
-    long long _stateMachineState;
-    long long _subtype;
-    bool_sentMotionBegan;
+    int _stateMachineState;
+    int _subtype;
     int notifyToken;
 }
 
-@property int shakeState;
+@property (nonatomic) int shakeState;
 
 - (void)_accelerometerDidDetectMovementWithTimestamp:(double)arg1;
-- (bool)_detectWhenNotActive;
-- (float)_determineShakeLevelX:(float)arg1 y:(float)arg2 z:(float)arg3 currentState:(long long)arg4;
+- (BOOL)_detectWhenNotActive;
+- (float)_determineShakeLevelX:(float)arg1 y:(float)arg2 z:(float)arg3 currentState:(int)arg4;
+- (void)_enablePeakDetectionForScreenBlanked:(id)arg1;
 - (void)_enablePeakDetectionIfNecessary;
-- (long long)_feedStateMachine:(float)arg1 currentState:(long long)arg2 timestamp:(double)arg3;
+- (int)_feedStateMachine:(float)arg1 currentState:(int)arg2 timestamp:(double)arg3;
 - (float)_highPass:(float)arg1;
 - (void)_idleTimerFired;
 - (id)_init;
-- (bool)_isDetectingMotionEvents;
+- (BOOL)_isDetectingMotionEvents;
 - (float)_lowPass:(float)arg1;
 - (void)_resetLowPassState;
 - (void)_sendEventToResponder:(id)arg1;
-- (void)_setSubtype:(long long)arg1;
+- (void)_setSubtype:(int)arg1;
 - (int)_shakeState;
 - (void)_updateAccelerometerEnabled;
 - (void)_willResume;
@@ -47,7 +46,7 @@
 - (id)description;
 - (void)setShakeState:(int)arg1;
 - (int)shakeState;
-- (long long)subtype;
-- (long long)type;
+- (int)subtype;
+- (int)type;
 
 @end

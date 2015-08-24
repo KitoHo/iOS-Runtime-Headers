@@ -2,41 +2,39 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class GEOComposedRoute, GEOMapRegion, NSString, VKTrafficSegmentsAlongRoute;
-
-@interface VKPolylineOverlay : NSObject <VKOverlay, GEOComposedRouteObserver> {
+@interface VKPolylineOverlay : NSObject <GEOComposedRouteObserver, VKOverlay> {
     GEOComposedRoute *_composedRoute;
+    BOOL _isReadyForSnapping;
     struct __CFSet { } *_observers;
     VKTrafficSegmentsAlongRoute *_trafficSegments;
     double _trafficTimeStamp;
-    bool_isReadyForSnapping;
 }
 
-@property(readonly) GEOMapRegion * boundingMapRegion;
-@property(readonly) GEOComposedRoute * composedRoute;
-@property(readonly) struct { double x1; double x2; } coordinate;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
-@property(readonly) VKTrafficSegmentsAlongRoute * trafficSegments;
-@property(readonly) double trafficTimeStamp;
+@property (nonatomic, readonly) GEOMapRegion *boundingMapRegion;
+@property (nonatomic, readonly) GEOComposedRoute *composedRoute;
+@property (nonatomic, readonly) struct { double x1; double x2; } coordinate;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) VKTrafficSegmentsAlongRoute *trafficSegments;
+@property (nonatomic, readonly) double trafficTimeStamp;
 
 - (void)_setNeedsLayout;
 - (void)_updateTraffic;
 - (void)addObserver:(id)arg1;
 - (id)boundingMapRegion;
-- (void)composedRoute:(id)arg1 selectedSections:(id)arg2 deselectedSections:(id)arg3;
 - (id)composedRoute;
+- (void)composedRoute:(id)arg1 selectedSections:(id)arg2 deselectedSections:(id)arg3;
 - (void)composedRouteUpdatedSnappedPaths:(id)arg1;
 - (void)composedRouteUpdatedTraffic:(id)arg1;
 - (struct { double x1; double x2; })coordinate;
 - (void)dealloc;
-- (id)getPathsForPainter:(id)arg1 renderRegion:(id)arg2 shouldSnapToRoads:(bool)arg3 snappingCompletionHandler:(id)arg4;
+- (id)getPathsForPainter:(id)arg1 renderRegion:(id)arg2 shouldSnapToRoads:(BOOL)arg3 snappingCompletionHandler:(id /* block */)arg4;
 - (id)initWithComposedRoute:(id)arg1;
-- (bool)isSnappingForSceneTiles;
+- (BOOL)isSnappingForSceneTiles;
 - (void)removeObserver:(id)arg1;
-- (struct _NSRange { unsigned long long x1; unsigned long long x2; })sectionRangeForBounds:(struct { double x1; double x2; double x3; double x4; })arg1;
+- (struct _NSRange { unsigned int x1; unsigned int x2; })sectionRangeForBounds:(struct { double x1; double x2; double x3; double x4; })arg1;
 - (id)trafficSegments;
 - (double)trafficTimeStamp;
 - (void)updateLabelExternalObjectsInRenderRegion:(id)arg1;

@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount
  */
 
-@class NSString;
-
 @interface AASigningSession : NSObject {
     NSString *_certURL;
     struct NACContextOpaque_ { } *_context;
-    int _error;
+    long _error;
     NSString *_sessionURL;
 }
 
-@property(readonly) int error;
+@property (nonatomic, readonly) long error;
 
 - (void).cxx_destruct;
 - (void)dealloc;
-- (int)error;
+- (long)error;
 - (void)establishSession;
 - (id)initWithCertURL:(id)arg1 sessionURL:(id)arg2;
 - (id)signatureForData:(id)arg1;

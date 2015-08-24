@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/UIAccessibility.framework/UIAccessibility
  */
 
-@interface _UIAccessibilityNSAttributedString : ___UIAccessibilityNSAttributedString_super {
-}
+@interface _UIAccessibilityNSAttributedString : ___UIAccessibilityNSAttributedString_super
 
 + (Class)safeCategoryTargetClass;
 + (id)safeCategoryTargetClassName;
 
-- (void)drawAtPoint:(struct CGPoint { double x1; double x2; })arg1;
+- (void)drawAtPoint:(struct CGPoint { float x1; float x2; })arg1;
 
 @end

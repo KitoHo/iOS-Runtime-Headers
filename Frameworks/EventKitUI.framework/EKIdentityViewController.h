@@ -2,25 +2,23 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class <EKEditItemViewControllerDelegate>, <EKIdentityProtocol>, ABPersonViewController, NSString;
-
 @interface EKIdentityViewController : UIViewController <ABPersonViewControllerDelegate, EKEditItemViewControllerProtocol> {
     <EKIdentityProtocol> *_identity;
     ABPersonViewController *_personViewController;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property <EKEditItemViewControllerDelegate> * editDelegate;
-@property bool editItemShouldBeAskedForInjectableViewController;
-@property(readonly) unsigned long long hash;
-@property bool presentModally;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) <EKEditItemViewControllerDelegate> *editDelegate;
+@property (nonatomic) BOOL editItemShouldBeAskedForInjectableViewController;
+@property (readonly) unsigned int hash;
+@property (nonatomic) BOOL presentModally;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)initWithIdentity:(id)arg1;
 - (void)loadView;
-- (bool)personViewController:(id)arg1 shouldPerformDefaultActionForPerson:(void*)arg2 property:(int)arg3 identifier:(int)arg4;
+- (BOOL)personViewController:(id)arg1 shouldPerformDefaultActionForPerson:(void*)arg2 property:(int)arg3 identifier:(int)arg4;
 - (void)setIdentity:(id)arg1;
 
 @end

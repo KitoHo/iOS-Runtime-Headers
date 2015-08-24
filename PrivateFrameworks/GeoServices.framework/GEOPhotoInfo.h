@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSString;
-
 @interface GEOPhotoInfo : PBCodable <NSCopying> {
     struct { 
         unsigned int size : 1; 
@@ -12,24 +10,24 @@
     NSString *_url;
 }
 
-@property bool hasSize;
-@property(readonly) bool hasUrl;
-@property int size;
-@property(retain) NSString * url;
+@property (nonatomic) BOOL hasSize;
+@property (nonatomic, readonly) BOOL hasUrl;
+@property (nonatomic) int size;
+@property (nonatomic, retain) NSString *url;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasSize;
-- (bool)hasUrl;
-- (unsigned long long)hash;
+- (BOOL)hasSize;
+- (BOOL)hasUrl;
+- (unsigned int)hash;
 - (id)initWithPlaceDataPhotoContent:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
-- (void)setHasSize:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasSize:(BOOL)arg1;
 - (void)setSize:(int)arg1;
 - (void)setUrl:(id)arg1;
 - (int)size;

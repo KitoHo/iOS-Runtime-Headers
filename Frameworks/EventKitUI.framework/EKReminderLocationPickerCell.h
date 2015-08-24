@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class <EKReminderLocationPickerCellButtonHandler>, <EKStyleProvider>, UIButton, UIImageView;
-
 @interface EKReminderLocationPickerCell : UITableViewCell {
     <EKReminderLocationPickerCellButtonHandler> *_buttonHandler;
     UIImageView *_checkmark;
@@ -14,14 +12,14 @@
     <EKStyleProvider> *_styleProvider;
 }
 
-@property int locationPickerCellAccessoryType;
+@property (nonatomic) int locationPickerCellAccessoryType;
 
 - (void).cxx_destruct;
 - (id)_exclamationGlyphImage;
 - (id)_failImage;
 - (id)_failPressedImage;
-- (id)initWithStyle:(long long)arg1 buttonHandler:(id)arg2 styleProvider:(id)arg3;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(int)arg1 buttonHandler:(id)arg2 styleProvider:(id)arg3;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (void)layoutSubviews;
 - (int)locationPickerCellAccessoryType;
 - (void)setLocationPickerCellAccessoryType:(int)arg1;

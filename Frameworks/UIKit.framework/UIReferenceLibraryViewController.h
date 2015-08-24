@@ -2,29 +2,23 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSString, UINavigationController, UITableViewController, UIViewController, UIWindow;
-
-@interface UIReferenceLibraryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate> {
+@interface UIReferenceLibraryViewController : UIViewController <UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate> {
     UINavigationController *_baseNavController;
     NSArray *_definitionValues;
-    id _dismissCompletionHandler;
+    id /* block */ _dismissCompletionHandler;
     UIViewController *_longDefViewController;
     UITableViewController *_multiDefViewController;
-    long long _oldPopoverStyle;
+    int _oldPopoverStyle;
     UIWindow *_rotationDecider;
     NSString *_term;
 }
 
-@property(setter=_setRotationDecider:,retain) UIWindow * _rotationDecider;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(copy) id dismissCompletionHandler;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (setter=_setRotationDecider:, nonatomic, retain) UIWindow *_rotationDecider;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, copy) id /* block */ dismissCompletionHandler;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)_backgroundColor;
 + (id)_colorAttributes;
@@ -35,9 +29,9 @@
 + (id)_localizedDictionaryTitleAttributes;
 + (id)_popoverControllerForReferenceLibraryWithString:(id)arg1;
 + (id)_pressedButtonImage;
-+ (bool)_shouldShowDefineForTerm:(id)arg1;
-+ (id)_viewControllerForReferenceWithString:(id)arg1 options:(unsigned long long)arg2;
-+ (bool)dictionaryHasDefinitionForTerm:(id)arg1;
++ (BOOL)_shouldShowDefineForTerm:(id)arg1;
++ (id)_viewControllerForReferenceWithString:(id)arg1 options:(unsigned int)arg2;
++ (BOOL)dictionaryHasDefinitionForTerm:(id)arg1;
 
 - (id)_backgroundColor;
 - (id)_colorAttributes;
@@ -56,19 +50,19 @@
 - (void)_setRotationDecider:(id)arg1;
 - (void)_willBecomeContentViewControllerOfPopover:(id)arg1;
 - (void)dealloc;
-- (id)dismissCompletionHandler;
+- (id /* block */)dismissCompletionHandler;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithTerm:(id)arg1;
-- (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(bool)arg3;
-- (long long)numberOfSectionsInTableView:(id)arg1;
+- (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(BOOL)arg3;
+- (int)numberOfSectionsInTableView:(id)arg1;
 - (void)pushDownloadManager:(id)arg1;
-- (void)setDismissCompletionHandler:(id)arg1;
-- (bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
-- (unsigned long long)supportedInterfaceOrientations;
+- (void)setDismissCompletionHandler:(id /* block */)arg1;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (unsigned int)supportedInterfaceOrientations;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
-- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
+- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (void)viewDidLoad;
 

@@ -2,21 +2,18 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString;
+@interface SADomainSearchResults : SADomainCommand <SAServerBoundCommand>
 
-@interface SADomainSearchResults : SADomainCommand <SAServerBoundCommand> {
-}
-
-@property(copy) NSString * aceId;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * refId;
-@property(readonly) Class superclass;
+@property (nonatomic, copy) NSString *aceId;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSString *refId;
+@property (readonly) Class superclass;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)init;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 
 @end

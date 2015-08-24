@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSArray, NSDate, NSDictionary, NSManagedObject, NSMutableDictionary, NSNumber, NSString, PFUbiquityImportContext, PFUbiquityKnowledgeVector;
-
 @interface PFUbiquityRecordImportConflict : NSObject {
     NSDate *_conflictLogDate;
     NSDictionary *_conflictingLogContent;
@@ -19,24 +17,24 @@
     NSArray *_transactionHistory;
 }
 
-@property(retain) NSDate * conflictLogDate;
-@property(retain) NSDictionary * conflictingLogContent;
-@property(retain) PFUbiquityKnowledgeVector * conflictingLogKnowledgeVector;
-@property(retain) NSNumber * conflictingLogTransactionNumber;
-@property int conflictingLogTransactionType;
-@property(retain) NSString * conflictingObjectGlobalIDStr;
-@property(retain) PFUbiquityKnowledgeVector * currentKnowledgeVector;
-@property(retain) NSDictionary * globalIDIndexToLocalIDURIMap;
-@property(retain) PFUbiquityImportContext * importContext;
-@property(readonly) NSDictionary * relationshipToObjectIDsToCheck;
-@property(retain) NSManagedObject * sourceObject;
-@property(retain) NSArray * transactionHistory;
+@property (nonatomic, retain) NSDate *conflictLogDate;
+@property (nonatomic, retain) NSDictionary *conflictingLogContent;
+@property (nonatomic, retain) PFUbiquityKnowledgeVector *conflictingLogKnowledgeVector;
+@property (nonatomic, retain) NSNumber *conflictingLogTransactionNumber;
+@property (nonatomic) int conflictingLogTransactionType;
+@property (nonatomic, retain) NSString *conflictingObjectGlobalIDStr;
+@property (nonatomic, retain) PFUbiquityKnowledgeVector *currentKnowledgeVector;
+@property (nonatomic, retain) NSDictionary *globalIDIndexToLocalIDURIMap;
+@property (nonatomic, retain) PFUbiquityImportContext *importContext;
+@property (nonatomic, readonly) NSDictionary *relationshipToObjectIDsToCheck;
+@property (nonatomic, retain) NSManagedObject *sourceObject;
+@property (nonatomic, retain) NSArray *transactionHistory;
 
 + (id)createSnapshotFromManagedObject:(id)arg1 withSourceObject:(id)arg2;
 + (id)createTransactionLogForTransactionEntry:(id)arg1 withImportContext:(id)arg2 error:(id*)arg3;
 + (id)electAncestorKnowledgeVectorForKnowledgeVector:(id)arg1 withExportingPeerID:(id)arg2 fromPeerSnapshotCollection:(id)arg3;
 + (void)initialize;
-+ (int)resolvedTypeForConflictingLogType:(int)arg1 andLatestTransactionEntry:(id)arg2 skipObject:(bool*)arg3;
++ (int)resolvedTypeForConflictingLogType:(int)arg1 andLatestTransactionEntry:(id)arg2 skipObject:(BOOL*)arg3;
 
 - (id)_newNormalizedSnapshot:(id)arg1 forObject:(id)arg2;
 - (void)addObjectID:(id)arg1 forRelationship:(id)arg2;
@@ -59,8 +57,8 @@
 - (id)importContext;
 - (id)init;
 - (id)relationshipToObjectIDsToCheck;
-- (bool)resolveConflict:(id*)arg1;
-- (bool)resolveMergeConflictForLogContent:(id)arg1 previousSnapshot:(id)arg2 andAncestorSnapshot:(id)arg3 withOldVersion:(unsigned int)arg4 andNewVersion:(unsigned int)arg5 error:(id*)arg6;
+- (BOOL)resolveConflict:(id*)arg1;
+- (BOOL)resolveMergeConflictForLogContent:(id)arg1 previousSnapshot:(id)arg2 andAncestorSnapshot:(id)arg3 withOldVersion:(unsigned int)arg4 andNewVersion:(unsigned int)arg5 error:(id*)arg6;
 - (void)setConflictLogDate:(id)arg1;
 - (void)setConflictingLogContent:(id)arg1;
 - (void)setConflictingLogKnowledgeVector:(id)arg1;

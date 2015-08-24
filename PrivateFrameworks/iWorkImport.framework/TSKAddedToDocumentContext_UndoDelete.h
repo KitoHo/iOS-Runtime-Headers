@@ -3,9 +3,13 @@
  */
 
 @interface TSKAddedToDocumentContext_UndoDelete : TSKAddedToDocumentContext {
+    NSMutableArray *mInsertedTableInfos;
 }
 
+- (void)addInsertedTableInfo:(id)arg1;
+- (void)dealloc;
 - (id)description;
-- (bool)wasUndoDelete;
+- (id)insertedTableInfos;
+- (BOOL)wasUndoDelete;
 
 @end

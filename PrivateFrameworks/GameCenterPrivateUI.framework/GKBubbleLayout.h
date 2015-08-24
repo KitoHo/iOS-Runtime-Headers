@@ -2,37 +2,35 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class NSArray, NSSet;
-
 @interface GKBubbleLayout : NSObject {
-    struct CGPoint { 
-        double x; 
-        double y; 
     NSArray *_bubbleLocations;
     NSArray *_bubbleViews;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _center;
-    double _radius;
+    float _radius;
     NSSet *_visibleBubbleSet;
 }
 
-@property(retain) NSArray * bubbleLocations;
-@property(retain) NSArray * bubbleViews;
-@property struct CGPoint { double x1; double x2; } center;
-@property double radius;
-@property(retain) NSSet * visibleBubbleSet;
+@property (nonatomic, retain) NSArray *bubbleLocations;
+@property (nonatomic, retain) NSArray *bubbleViews;
+@property (nonatomic) struct CGPoint { float x1; float x2; } center;
+@property (nonatomic) float radius;
+@property (nonatomic, retain) NSSet *visibleBubbleSet;
 
 - (id)bubbleLocations;
 - (id)bubbleViews;
-- (struct CGPoint { double x1; double x2; })center;
+- (struct CGPoint { float x1; float x2; })center;
 - (void)dealloc;
 - (void)performLayout;
-- (double)radius;
+- (float)radius;
 - (void)setBubbleLocations:(id)arg1;
 - (void)setBubbleViews:(id)arg1;
-- (void)setCenter:(struct CGPoint { double x1; double x2; })arg1;
-- (void)setRadius:(double)arg1;
+- (void)setCenter:(struct CGPoint { float x1; float x2; })arg1;
+- (void)setRadius:(float)arg1;
 - (void)setVisibleBubbleSet:(id)arg1;
-- (void)showBubble:(id)arg1 withSize:(struct CGSize { double x1; double x2; })arg2 atAngle:(double)arg3;
+- (void)showBubble:(id)arg1 withSize:(struct CGSize { float x1; float x2; })arg2 atAngle:(float)arg3;
 - (id)visibleBubbleSet;
 
 @end

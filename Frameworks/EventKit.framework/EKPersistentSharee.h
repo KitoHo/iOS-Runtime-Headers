@@ -2,19 +2,16 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@class NSString;
+@interface EKPersistentSharee : EKPersistentObject <NSCopying>
 
-@interface EKPersistentSharee : EKPersistentObject <NSCopying> {
-}
-
-@property(readonly) NSString * UUID;
-@property(copy) NSString * displayName;
-@property(copy) NSString * emailAddress;
-@property(copy) NSString * externalID;
-@property(copy) NSString * firstName;
-@property(copy) NSString * lastName;
-@property int shareeAccessLevel;
-@property int shareeStatus;
+@property (nonatomic, readonly) NSString *UUID;
+@property (nonatomic, copy) NSString *displayName;
+@property (nonatomic, copy) NSString *emailAddress;
+@property (nonatomic, copy) NSString *externalID;
+@property (nonatomic, copy) NSString *firstName;
+@property (nonatomic, copy) NSString *lastName;
+@property (nonatomic) int shareeAccessLevel;
+@property (nonatomic) int shareeStatus;
 
 + (id)defaultPropertiesToLoad;
 + (id)relations;
@@ -29,7 +26,7 @@
 - (int)entityType;
 - (id)externalID;
 - (id)firstName;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
 - (id)initWithEmailAddress:(id)arg1 name:(id)arg2;
 - (id)initWithName:(id)arg1 emailAddress:(id)arg2 externalID:(id)arg3;

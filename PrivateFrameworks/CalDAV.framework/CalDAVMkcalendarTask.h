@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/CalDAV.framework/CalDAV
  */
 
-@class <CalDAVMkcalendarTaskDelegate><CoreDAVTaskDelegate>, NSSet;
-
 @interface CalDAVMkcalendarTask : CoreDAVTask {
     NSSet *_setElements;
 }
 
-@property <CalDAVMkcalendarTaskDelegate><CoreDAVTaskDelegate> * delegate;
-@property(retain) NSSet * setElements;
+@property (nonatomic) <CalDAVMkcalendarTaskDelegate><CoreDAVTaskDelegate> *delegate;
+@property (nonatomic, retain) NSSet *setElements;
 
 - (id)copyDefaultParserForContentType:(id)arg1;
 - (void)dealloc;
@@ -21,6 +19,6 @@
 - (id)requestBody;
 - (id)setElements;
 - (void)setSetElements:(id)arg1;
-- (void)setSupportForEvents:(bool)arg1 tasks:(bool)arg2;
+- (void)setSupportForEvents:(BOOL)arg1 tasks:(BOOL)arg2;
 
 @end

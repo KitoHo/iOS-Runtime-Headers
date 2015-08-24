@@ -2,19 +2,17 @@
    Image: /System/Library/Frameworks/SpriteKit.framework/SpriteKit
  */
 
-@class NSMutableArray;
-
 @interface SKSoundSource : NSObject {
     NSMutableArray *_buffers;
     unsigned int _sourceId;
 }
 
-@property(readonly) int completedBufferCount;
-@property double gain;
-@property(readonly) bool isPlaying;
-@property struct CGPoint { double x1; double x2; } position;
-@property(readonly) int queuedBufferCount;
-@property bool shouldLoop;
+@property (nonatomic, readonly) int completedBufferCount;
+@property (nonatomic) double gain;
+@property (nonatomic, readonly) BOOL isPlaying;
+@property (nonatomic) struct CGPoint { float x1; float x2; } position;
+@property (nonatomic, readonly) int queuedBufferCount;
+@property (nonatomic) BOOL shouldLoop;
 
 + (id)source;
 + (id)sourceWithBuffer:(id)arg1;
@@ -25,17 +23,17 @@
 - (id)description;
 - (double)gain;
 - (id)init;
-- (bool)isPlaying;
+- (BOOL)isPlaying;
 - (void)pause;
 - (void)play;
-- (struct CGPoint { double x1; double x2; })position;
+- (struct CGPoint { float x1; float x2; })position;
 - (void)purgeCompletedBuffers;
 - (void)queueBuffer:(id)arg1;
 - (int)queuedBufferCount;
 - (void)setGain:(double)arg1;
-- (void)setPosition:(struct CGPoint { double x1; double x2; })arg1;
-- (void)setShouldLoop:(bool)arg1;
-- (bool)shouldLoop;
+- (void)setPosition:(struct CGPoint { float x1; float x2; })arg1;
+- (void)setShouldLoop:(BOOL)arg1;
+- (BOOL)shouldLoop;
 - (void)stop;
 
 @end

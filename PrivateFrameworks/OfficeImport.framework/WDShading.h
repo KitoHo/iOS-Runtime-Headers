@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OITSUColor;
-
 @interface WDShading : NSObject <NSCopying> {
     OITSUColor *mBackgroundColor;
     OITSUColor *mForegroundColor;
@@ -19,8 +17,8 @@
 - (void)dealloc;
 - (id)foreground;
 - (id)init;
-- (bool)isEqual:(id)arg1;
-- (bool)isEqualToShading:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToShading:(id)arg1;
 - (void)setBackground:(id)arg1;
 - (void)setForeground:(id)arg1;
 - (void)setShading:(id)arg1;

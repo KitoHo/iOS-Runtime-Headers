@@ -2,112 +2,106 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSMutableSet, TSCH3DShaderVariable;
-
 @interface TSCH3DShaderVariableLinkage : NSObject {
-    struct TSCH3DShaderType { 
-        unsigned long long mValue; 
     struct TSCH3DShaderVariableScopes { 
         struct array<TSCH3DShaderVariableScopeType, 2> { 
             struct TSCH3DShaderVariableScopeType { 
-                unsigned long long mValue; 
+                unsigned int mValue; 
             } __elems_[2]; 
         } mScopes; 
-    struct TSCH3DShaderVariableScopes { 
-        struct array<TSCH3DShaderVariableScopeType, 2> { 
-            struct TSCH3DShaderVariableScopeType { 
-                unsigned long long mValue; 
-            } __elems_[2]; 
-        } mScopes; 
-    boolmIsUsed;
     } mDeclaredScope;
     NSMutableSet *mDependees;
+    BOOL mIsUsed;
+    struct TSCH3DShaderType { 
+        unsigned int mValue; 
     } mLinked;
+    struct TSCH3DShaderVariableScopes { 
+        struct array<TSCH3DShaderVariableScopeType, 2> { 
+            struct TSCH3DShaderVariableScopeType { 
+                unsigned int mValue; 
+            } __elems_[2]; 
+        } mScopes; 
     } mScope;
     TSCH3DShaderVariable *mVariable;
 }
 
-@property(readonly) /* Warning: unhandled struct encoding: '{TSCH3DShaderVariableScopes={array<TSCH3DShaderVariableScopeType' */ struct  scope; /* unknown property attribute:  2>=[2{TSCH3DShaderVariableScopeType=Q}]}} */
-@property(readonly) struct  declaredScope; /* unknown property attribute:  2>=[2{TSCH3DShaderVariableScopeType=Q}]}} */
-@property(readonly) bool canHaveFragment;
-@property(readonly) NSMutableSet * dependees;
-@property(readonly) bool hasAttribute;
-@property(readonly) bool hasFragment;
-@property(readonly) unsigned long long hasGlobal;
-@property(readonly) bool hasVertex;
-@property(readonly) bool isAttribute;
-@property(readonly) bool isFragment;
-@property(readonly) bool isFragmentLinkable;
-@property(readonly) bool isLinked;
-@property(readonly) bool isSpecial;
-@property(readonly) bool isUniform;
-@property bool isUsed;
-@property(readonly) bool isVertex;
-@property(readonly) bool isVertexLinkable;
-@property(readonly) bool isVertexVarying;
-@property(readonly) struct TSCH3DShaderType { unsigned long long x1; } linked;
-@property(readonly) bool notLinked;
-@property(readonly) bool scopeHasFragment;
-@property(readonly) bool scopedInAll;
-@property(readonly) struct TSCH3DShaderType { unsigned long long x1; } shaderType;
-@property(readonly) TSCH3DShaderVariable * variable;
+@property (nonatomic, readonly) BOOL canHaveFragment;
+@property (nonatomic, readonly) /* Warning: unhandled struct encoding: '{TSCH3DShaderVariableScopes={array<TSCH3DShaderVariableScopeType' */ struct  declaredScope; /* unknown property attribute:  2>=[2{TSCH3DShaderVariableScopeType=I}]}} */
+@property (nonatomic, readonly) NSMutableSet *dependees;
+@property (nonatomic, readonly) BOOL hasAttribute;
+@property (nonatomic, readonly) BOOL hasFragment;
+@property (nonatomic, readonly) unsigned int hasGlobal;
+@property (nonatomic, readonly) BOOL hasVertex;
+@property (nonatomic, readonly) BOOL isAttribute;
+@property (nonatomic, readonly) BOOL isFragment;
+@property (nonatomic, readonly) BOOL isFragmentLinkable;
+@property (nonatomic, readonly) BOOL isLinked;
+@property (nonatomic, readonly) BOOL isSpecial;
+@property (nonatomic, readonly) BOOL isUniform;
+@property (nonatomic) BOOL isUsed;
+@property (nonatomic, readonly) BOOL isVertex;
+@property (nonatomic, readonly) BOOL isVertexLinkable;
+@property (nonatomic, readonly) BOOL isVertexVarying;
+@property (nonatomic, readonly) struct TSCH3DShaderType { unsigned int x1; } linked;
+@property (nonatomic, readonly) BOOL notLinked;
+@property (nonatomic, readonly) /* Warning: unhandled struct encoding: '{TSCH3DShaderVariableScopes={array<TSCH3DShaderVariableScopeType' */ struct  scope; /* unknown property attribute:  2>=[2{TSCH3DShaderVariableScopeType=I}]}} */
+@property (nonatomic, readonly) BOOL scopeHasFragment;
+@property (nonatomic, readonly) BOOL scopedInAll;
+@property (nonatomic, readonly) struct TSCH3DShaderType { unsigned int x1; } shaderType;
+@property (nonatomic, readonly) TSCH3DShaderVariable *variable;
 
 + (id)linkageWithVariable:(id)arg1;
 
 - (id).cxx_construct;
-- (void)addBodyScope:(struct TSCH3DShaderType { unsigned long long x1; })arg1;
-- (void)addDeclaredShader:(struct TSCH3DShaderType { unsigned long long x1; })arg1 scope:(struct TSCH3DShaderVariableScopeType { unsigned long long x1; })arg2;
-- (void)addLinkage:(struct TSCH3DShaderType { unsigned long long x1; })arg1;
-- (void)addShader:(struct TSCH3DShaderType { unsigned long long x1; })arg1 scope:(struct TSCH3DShaderVariableScopeType { unsigned long long x1; })arg2;
-- (bool)canHaveFragment;
+- (void)addBodyScope:(struct TSCH3DShaderType { unsigned int x1; })arg1;
+- (void)addDeclaredShader:(struct TSCH3DShaderType { unsigned int x1; })arg1 scope:(struct TSCH3DShaderVariableScopeType { unsigned int x1; })arg2;
+- (void)addLinkage:(struct TSCH3DShaderType { unsigned int x1; })arg1;
+- (void)addShader:(struct TSCH3DShaderType { unsigned int x1; })arg1 scope:(struct TSCH3DShaderVariableScopeType { unsigned int x1; })arg2;
+- (BOOL)canHaveFragment;
 - (void)dealloc;
-- (struct TSCH3DShaderVariableScopes { struct array<TSCH3DShaderVariableScopeType, 2> { struct TSCH3DShaderVariableScopeType { unsigned long long x_1_2_1; } x_1_1_1[2]; } x1; })declaredScope;
+- (struct TSCH3DShaderVariableScopes { struct array<TSCH3DShaderVariableScopeType, 2> { struct TSCH3DShaderVariableScopeType { unsigned int x_1_2_1; } x_1_1_1[2]; } x1; })declaredScope;
 - (id)dependees;
 - (id)description;
-- (id)globalNameForShader:(struct TSCH3DShaderType { unsigned long long x1; })arg1 scope:(struct TSCH3DShaderVariableScopeType { unsigned long long x1; })arg2;
-- (bool)hasAttribute;
-- (bool)hasBody:(struct TSCH3DShaderType { unsigned long long x1; })arg1;
-- (bool)hasFragment;
-- (unsigned long long)hasGlobal;
-- (bool)hasLinkage:(struct TSCH3DShaderType { unsigned long long x1; })arg1;
-- (bool)hasShader:(struct TSCH3DShaderType { unsigned long long x1; })arg1 scope:(struct TSCH3DShaderVariableScopeType { unsigned long long x1; })arg2;
-- (bool)hasVarying;
-- (bool)hasVertex;
+- (id)globalNameForShader:(struct TSCH3DShaderType { unsigned int x1; })arg1 scope:(struct TSCH3DShaderVariableScopeType { unsigned int x1; })arg2;
+- (BOOL)hasAttribute;
+- (BOOL)hasBody:(struct TSCH3DShaderType { unsigned int x1; })arg1;
+- (BOOL)hasFragment;
+- (unsigned int)hasGlobal;
+- (BOOL)hasLinkage:(struct TSCH3DShaderType { unsigned int x1; })arg1;
+- (BOOL)hasShader:(struct TSCH3DShaderType { unsigned int x1; })arg1 scope:(struct TSCH3DShaderVariableScopeType { unsigned int x1; })arg2;
+- (BOOL)hasVarying;
+- (BOOL)hasVertex;
 - (id)initWithVariable:(id)arg1;
-- (bool)isAttribute;
-- (bool)isFragment;
-- (bool)isFragmentLinkable;
-- (bool)isGlobalScope:(struct TSCH3DShaderVariableScopeType { unsigned long long x1; })arg1;
-- (bool)isLinked;
-- (bool)isSpecial;
-- (bool)isUniform;
-- (bool)isUsed;
-- (bool)isVarying:(struct TSCH3DShaderType { unsigned long long x1; })arg1;
-- (bool)isVertex;
-- (bool)isVertexLinkable;
-- (bool)isVertexVarying;
-- (struct TSCH3DShaderType { unsigned long long x1; })linked;
-- (id)nameForShader:(struct TSCH3DShaderType { unsigned long long x1; })arg1 scope:(struct TSCH3DShaderVariableScopeType { unsigned long long x1; })arg2;
-- (bool)notLinked;
-- (void)removeLinkage:(struct TSCH3DShaderType { unsigned long long x1; })arg1;
-- (void)removeShader:(struct TSCH3DShaderType { unsigned long long x1; })arg1 scope:(struct TSCH3DShaderVariableScopeType { unsigned long long x1; })arg2;
-- (id)resolveGlobalNameForShader:(struct TSCH3DShaderType { unsigned long long x1; })arg1 scope:(struct TSCH3DShaderVariableScopeType { unsigned long long x1; })arg2 defaultTo:(id)arg3;
-- (struct TSCH3DShaderVariableScopes { struct array<TSCH3DShaderVariableScopeType, 2> { struct TSCH3DShaderVariableScopeType { unsigned long long x_1_2_1; } x_1_1_1[2]; } x1; })scope;
-- (bool)scopeHasFragment;
-- (bool)scopedInAll;
-- (void)setIsUsed:(bool)arg1;
-- (void)setLinkage:(struct TSCH3DShaderType { unsigned long long x1; })arg1;
-- (void)setShader:(struct TSCH3DShaderType { unsigned long long x1; })arg1 scope:(struct TSCH3DShaderVariableScopeType { unsigned long long x1; })arg2;
-- (struct TSCH3DShaderType { unsigned long long x1; })shaderType;
+- (BOOL)isAttribute;
+- (BOOL)isFragment;
+- (BOOL)isFragmentLinkable;
+- (BOOL)isGlobalScope:(struct TSCH3DShaderVariableScopeType { unsigned int x1; })arg1;
+- (BOOL)isLinked;
+- (BOOL)isSpecial;
+- (BOOL)isUniform;
+- (BOOL)isUsed;
+- (BOOL)isVarying:(struct TSCH3DShaderType { unsigned int x1; })arg1;
+- (BOOL)isVertex;
+- (BOOL)isVertexLinkable;
+- (BOOL)isVertexVarying;
+- (struct TSCH3DShaderType { unsigned int x1; })linked;
+- (id)nameForShader:(struct TSCH3DShaderType { unsigned int x1; })arg1 scope:(struct TSCH3DShaderVariableScopeType { unsigned int x1; })arg2;
+- (BOOL)notLinked;
+- (void)removeLinkage:(struct TSCH3DShaderType { unsigned int x1; })arg1;
+- (void)removeShader:(struct TSCH3DShaderType { unsigned int x1; })arg1 scope:(struct TSCH3DShaderVariableScopeType { unsigned int x1; })arg2;
+- (id)resolveGlobalNameForShader:(struct TSCH3DShaderType { unsigned int x1; })arg1 scope:(struct TSCH3DShaderVariableScopeType { unsigned int x1; })arg2 defaultTo:(id)arg3;
+- (struct TSCH3DShaderVariableScopes { struct array<TSCH3DShaderVariableScopeType, 2> { struct TSCH3DShaderVariableScopeType { unsigned int x_1_2_1; } x_1_1_1[2]; } x1; })scope;
+- (BOOL)scopeHasFragment;
+- (BOOL)scopedInAll;
+- (void)setIsUsed:(BOOL)arg1;
+- (void)setLinkage:(struct TSCH3DShaderType { unsigned int x1; })arg1;
+- (void)setShader:(struct TSCH3DShaderType { unsigned int x1; })arg1 scope:(struct TSCH3DShaderVariableScopeType { unsigned int x1; })arg2;
+- (struct TSCH3DShaderType { unsigned int x1; })shaderType;
 - (void)unlink;
-- (bool)updateLinkage:(struct TSCH3DShaderType { unsigned long long x1; })arg1;
-- (bool)updateShader:(struct TSCH3DShaderType { unsigned long long x1; })arg1 scope:(struct TSCH3DShaderVariableScopeType { unsigned long long x1; })arg2;
+- (BOOL)updateLinkage:(struct TSCH3DShaderType { unsigned int x1; })arg1;
+- (BOOL)updateShader:(struct TSCH3DShaderType { unsigned int x1; })arg1 scope:(struct TSCH3DShaderVariableScopeType { unsigned int x1; })arg2;
 - (id)variable;
-- (id)variableDeclarationInShader:(struct TSCH3DShaderType { unsigned long long x1; })arg1 scope:(struct TSCH3DShaderVariableScopeType { unsigned long long x1; })arg2;
+- (id)variableDeclarationInShader:(struct TSCH3DShaderType { unsigned int x1; })arg1 scope:(struct TSCH3DShaderVariableScopeType { unsigned int x1; })arg2;
 - (id)variableQualifiersWithStorageQualifier:(id)arg1;
 
 @end

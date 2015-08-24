@@ -2,10 +2,9 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@interface ABPropertyPhoneNumberCell : ABPropertySimpleTransportCell {
-}
+@interface ABPropertyPhoneNumberCell : ABPropertySimpleTransportCell
 
-- (bool)shouldPerformDefaultAction;
+- (BOOL)shouldPerformDefaultAction;
 - (void)updateTransportButtons;
 
 @end

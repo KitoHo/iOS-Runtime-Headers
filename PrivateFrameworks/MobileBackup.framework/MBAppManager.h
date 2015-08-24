@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/MobileBackup.framework/MobileBackup
  */
 
-@class MBSettingsContext, NSMutableDictionary;
-
 @interface MBAppManager : NSObject {
     NSMutableDictionary *_containersByID;
     MBSettingsContext *_settingsContext;
@@ -25,10 +23,10 @@
 - (id)createSafeHarborForContainer:(id)arg1 error:(id*)arg2;
 - (void)dealloc;
 - (id)initWithSettingsContext:(id)arg1;
-- (bool)isDomainNameEnabled:(id)arg1;
-- (bool)loadAppsWithSafeHarbors:(bool)arg1 error:(id*)arg2;
+- (BOOL)isDomainNameEnabled:(id)arg1;
+- (BOOL)loadAppsWithSafeHarbors:(BOOL)arg1 error:(id*)arg2;
 - (void)removeAllDisabledDomainNames;
 - (void)removeOldSafeHarbors;
-- (void)setEnabled:(bool)arg1 forDomainName:(id)arg2;
+- (void)setEnabled:(BOOL)arg1 forDomainName:(id)arg2;
 
 @end

@@ -2,43 +2,41 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class CADisplayLink, NSMutableArray, NSString, UITextView;
-
 @interface _UICharacterStreamingManager : NSObject {
+    BOOL _committingFinalResults;
+    BOOL _discardNextHypothesis;
     double _lastAnimationUpdateTimeStamp;
     NSString *_lastHypothesis;
     double _minDurationBetweenHypotheses;
     NSMutableArray *_pendingEdits;
     NSString *_previousHypothesis;
+    BOOL _streamingAnimationActive;
     CADisplayLink *_streamingAnimationDisplayLink;
     double _streamingCharacterInsertionRate;
     NSString *_targetHypothesis;
     UITextView *_textView;
-    bool_committingFinalResults;
-    bool_discardNextHypothesis;
-    bool_streamingAnimationActive;
 }
 
-@property bool discardNextHypothesis;
-@property(copy) NSString * lastHypothesis;
-@property double minDurationBetweenHypotheses;
-@property(retain) NSMutableArray * pendingEdits;
-@property(copy) NSString * previousHypothesis;
-@property double streamingCharacterInsertionRate;
-@property(copy) NSString * targetHypothesis;
+@property (nonatomic) BOOL discardNextHypothesis;
+@property (nonatomic, copy) NSString *lastHypothesis;
+@property (nonatomic) double minDurationBetweenHypotheses;
+@property (nonatomic, retain) NSMutableArray *pendingEdits;
+@property (nonatomic, copy) NSString *previousHypothesis;
+@property (nonatomic) double streamingCharacterInsertionRate;
+@property (nonatomic, copy) NSString *targetHypothesis;
 
 - (void)_displayLinkFired:(id)arg1;
 - (void)_startStreamingAnimations;
 - (void)_stopStreamingAnimation;
 - (void)commitFinalResults;
 - (void)dealloc;
-- (bool)discardNextHypothesis;
+- (BOOL)discardNextHypothesis;
 - (id)initWithTextView:(id)arg1;
 - (id)lastHypothesis;
 - (double)minDurationBetweenHypotheses;
 - (id)pendingEdits;
 - (id)previousHypothesis;
-- (void)setDiscardNextHypothesis:(bool)arg1;
+- (void)setDiscardNextHypothesis:(BOOL)arg1;
 - (void)setLastHypothesis:(id)arg1;
 - (void)setMinDurationBetweenHypotheses:(double)arg1;
 - (void)setPendingEdits:(id)arg1;

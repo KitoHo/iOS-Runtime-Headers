@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/MediaToolbox.framework/MediaToolbox
  */
 
-@class FigVideoLayerInternal;
-
 @interface FigVideoLayer : CALayer {
     FigVideoLayerInternal *_videoLayer;
 }
@@ -13,8 +11,8 @@
 - (void)finalize;
 - (id)init;
 - (id)initWithLayer:(id)arg1;
-- (bool)isVideoLayerBeingServiced;
-- (void)layerDidBecomeVisible:(bool)arg1;
+- (BOOL)isVideoLayerBeingServiced;
+- (void)layerDidBecomeVisible:(BOOL)arg1;
 - (id)layerDisplayName;
 - (void)notificationBarrier;
 

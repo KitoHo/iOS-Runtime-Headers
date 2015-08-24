@@ -2,17 +2,14 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSNumber, NSString, NSURL;
+@interface SAAlarmSearch : SADomainCommand
 
-@interface SAAlarmSearch : SADomainCommand {
-}
-
-@property(copy) NSNumber * enabled;
-@property(copy) NSArray * frequency;
-@property(copy) NSNumber * hour;
-@property(copy) NSURL * identifier;
-@property(copy) NSString * label;
-@property(copy) NSNumber * minute;
+@property (nonatomic, copy) NSNumber *enabled;
+@property (nonatomic, copy) NSArray *frequency;
+@property (nonatomic, copy) NSNumber *hour;
+@property (nonatomic, copy) NSURL *identifier;
+@property (nonatomic, copy) NSString *label;
+@property (nonatomic, copy) NSNumber *minute;
 
 + (id)search;
 + (id)searchWithDictionary:(id)arg1 context:(id)arg2;
@@ -25,7 +22,7 @@
 - (id)identifier;
 - (id)label;
 - (id)minute;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setEnabled:(id)arg1;
 - (void)setFrequency:(id)arg1;
 - (void)setHour:(id)arg1;

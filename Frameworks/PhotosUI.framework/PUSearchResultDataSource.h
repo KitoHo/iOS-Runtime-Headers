@@ -2,39 +2,37 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class <PUSearchResultDelegate>, NSMutableOrderedSet, NSObject<OS_dispatch_queue>, NSOrderedSet, NSSet, NSString;
-
 @interface PUSearchResultDataSource : NSObject <PLDiagnosticsProvider> {
     NSSet *_assetUUIDs;
     NSOrderedSet *_containers;
     <PUSearchResultDelegate> *_delegate;
+    BOOL _finished;
+    BOOL _hasPendingChanges;
     NSObject<OS_dispatch_queue> *_queue;
-    unsigned long long _taskId;
+    unsigned int _taskId;
     NSSet *_uncommittedAssetUUIDs;
     NSMutableOrderedSet *_uncommittedContainers;
-    bool_finished;
-    bool_hasPendingChanges;
 }
 
-@property(readonly) NSSet * assetUUIDs;
-@property(copy,readonly) NSString * debugDescription;
-@property <PUSearchResultDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(getter=isFinished,readonly) bool finished;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) NSSet *assetUUIDs;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <PUSearchResultDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (getter=isFinished, nonatomic, readonly) BOOL finished;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (void)_inqClearPendingChanges;
-- (bool)_inqIsCancelledWithTaskId:(unsigned long long)arg1;
-- (bool)_isCancelledWithTaskId:(unsigned long long)arg1;
+- (BOOL)_inqIsCancelledWithTaskId:(unsigned int)arg1;
+- (BOOL)_isCancelledWithTaskId:(unsigned int)arg1;
 - (id)assetUUIDs;
 - (id)delegate;
 - (id)fetchResult;
 - (id)init;
-- (bool)isFinished;
+- (BOOL)isFinished;
 - (void)mergePendingChanges;
 - (void)setDelegate:(id)arg1;
-- (void)updateAssetUUIDs:(id)arg1 completion:(id)arg2;
+- (void)updateAssetUUIDs:(id)arg1 completion:(id /* block */)arg2;
 
 @end

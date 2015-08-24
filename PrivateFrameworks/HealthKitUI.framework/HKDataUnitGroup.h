@@ -2,74 +2,79 @@
    Image: /System/Library/PrivateFrameworks/HealthKitUI.framework/HealthKitUI
  */
 
-@class HKCorrelationType, NSArray, NSMutableDictionary, NSString, UIColor, UIImage;
-
 @interface HKDataUnitGroup : NSObject {
-    unsigned long long _categoryID;
-    long long _chartStyle;
+    NSAttributedString *_attributedSummaryAttribution;
+    int _categoryID;
+    NSString *_cautionaryText;
+    HKDataUnitGroupChartingRules *_chartingRules;
     HKCorrelationType *_correlationType;
-    unsigned long long _dataUnitGroupID;
+    int _dataUnitGroupID;
     NSArray *_dataUnits;
     NSMutableDictionary *_dataUnitsByType;
     NSArray *_dataUnitsOrderedForDataEntry;
     UIImage *_detailImage;
     NSString *_displayName;
     NSString *_embeddedDisplayName;
-    UIColor *_gradientEndColor;
-    UIColor *_gradientStartColor;
+    BOOL _isCharacteristic;
     NSString *_joinString;
     NSString *_keywords;
     NSArray *_reversedDataUnits;
     NSString *_summary;
-    bool_isCharacteristic;
-    bool_isNikeFuel;
-    bool_isSleep;
+    NSString *_summaryAttribution;
+    NSString *_unitChangeCautionaryText;
 }
 
-@property(readonly) unsigned long long categoryID;
-@property(readonly) long long chartStyle;
-@property(readonly) HKCorrelationType * correlationType;
-@property(readonly) unsigned long long dataUnitGroupID;
-@property(readonly) NSArray * dataUnits;
-@property(readonly) NSArray * dataUnitsOrderedForDataEntry;
-@property(readonly) UIImage * detailImage;
-@property(readonly) NSString * displayName;
-@property(readonly) NSString * embeddedDisplayName;
-@property(readonly) UIColor * gradientEndColor;
-@property(readonly) UIColor * gradientStartColor;
-@property(readonly) UIImage * groupIcon;
-@property(readonly) NSString * joinString;
-@property(readonly) NSString * keywords;
-@property(readonly) UIImage * shareIcon;
-@property(readonly) NSString * summary;
-@property(readonly) UIImage * unitIcon;
+@property (nonatomic, readonly) NSAttributedString *attributedSummaryAttribution;
+@property (nonatomic, readonly) int categoryID;
+@property (nonatomic, readonly) NSString *cautionaryText;
+@property (nonatomic, readonly) HKDataUnitGroupChartingRules *chartingRules;
+@property (nonatomic, readonly) HKCorrelationType *correlationType;
+@property (nonatomic, readonly) int dataUnitGroupID;
+@property (nonatomic, readonly) NSArray *dataUnits;
+@property (nonatomic, readonly) NSArray *dataUnitsOrderedForDataEntry;
+@property (nonatomic, readonly) UIImage *detailImage;
+@property (nonatomic, readonly) NSString *displayName;
+@property (nonatomic, readonly) NSString *embeddedDisplayName;
+@property (nonatomic, readonly) UIImage *groupIcon;
+@property (nonatomic, readonly) NSString *joinString;
+@property (nonatomic, readonly) NSString *keywords;
+@property (nonatomic, readonly) UIImage *shareIcon;
+@property (nonatomic, readonly) NSString *summary;
+@property (nonatomic, readonly) NSString *summaryAttribution;
+@property (nonatomic, readonly) NSString *unitChangeCautionaryText;
+@property (nonatomic, readonly) UIImage *unitIcon;
+@property (nonatomic, readonly) BOOL unitPreferencesRequireChangeConfirmation;
 
 - (void).cxx_destruct;
-- (long long)_chartStyleFromDictionary:(id)arg1;
-- (unsigned long long)categoryID;
-- (long long)chartStyle;
+- (void)_applyChartingProperties:(id)arg1;
+- (id)anyDataUnit;
+- (id)attributedSummaryAttribution;
+- (int)categoryID;
+- (id)cautionaryText;
+- (id)chartingRules;
 - (id)correlationType;
 - (id)dataUnitForType:(id)arg1;
-- (unsigned long long)dataUnitGroupID;
+- (int)dataUnitGroupID;
 - (id)dataUnits;
 - (id)dataUnitsOrderedForDataEntry;
 - (id)detailImage;
 - (id)displayName;
 - (id)embeddedDisplayName;
-- (id)gradientEndColor;
-- (id)gradientStartColor;
 - (id)groupIcon;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
 - (id)initFromDictionary:(id)arg1;
-- (bool)isCharacteristic;
-- (bool)isEqual:(id)arg1;
-- (bool)isNikeFuel;
-- (bool)isSleep;
+- (BOOL)isCharacteristic;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isNikeFuel;
 - (id)joinString;
 - (id)keywords;
 - (id)shareIcon;
+- (BOOL)shouldStartDayAtNoon;
 - (id)summary;
+- (id)summaryAttribution;
+- (id)unitChangeCautionaryText;
 - (id)unitIcon;
+- (BOOL)unitPreferencesRequireChangeConfirmation;
 
 @end

@@ -2,46 +2,44 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class BWFormat, BWFormatRequirements, BWNode, BWNodeConnection, BWVideoFormat;
-
 @interface BWNodeInput : NSObject {
     long long _configurationID;
     BWNodeConnection *_connection;
     int _delayedBufferCount;
+    BOOL _enabled;
     BWFormat *_format;
     BWFormatRequirements *_formatRequirements;
     int _indefinitelyHeldBufferCount;
-    unsigned long long _index;
+    unsigned int _index;
     long long _liveConfigurationID;
     BWVideoFormat *_liveFormat;
-    unsigned int _mediaType;
+    unsigned long _mediaType;
+    BOOL _mediaTypeIsVideo;
     BWNode *_node;
     unsigned int _numberOfBuffersDropped;
     unsigned int _numberOfBuffersReceived;
     int _passthroughMode;
     int _retainedBufferCount;
-    bool_enabled;
-    bool_mediaTypeIsVideo;
 }
 
-@property long long configurationID;
-@property BWNodeConnection * connection;
-@property int delayedBufferCount;
-@property(getter=isEnabled) bool enabled;
-@property(copy) BWFormat * format;
-@property(copy) BWFormatRequirements * formatRequirements;
-@property int indefinitelyHeldBufferCount;
-@property(readonly) unsigned long long index;
-@property(readonly) long long liveConfigurationID;
-@property(retain) BWFormat * liveFormat;
-@property(readonly) unsigned int mediaType;
-@property(readonly) BWNode * node;
-@property(readonly) unsigned int numberOfBuffersDropped;
-@property(readonly) unsigned int numberOfBuffersReceived;
-@property bool passesBuffersDownstream;
-@property int passthroughMode;
-@property int retainedBufferCount;
-@property(readonly) BWVideoFormat * videoFormat;
+@property (nonatomic) long long configurationID;
+@property (nonatomic) BWNodeConnection *connection;
+@property (nonatomic) int delayedBufferCount;
+@property (getter=isEnabled, nonatomic) BOOL enabled;
+@property (nonatomic, copy) BWFormat *format;
+@property (nonatomic, copy) BWFormatRequirements *formatRequirements;
+@property (nonatomic) int indefinitelyHeldBufferCount;
+@property (nonatomic, readonly) unsigned int index;
+@property (nonatomic, readonly) long long liveConfigurationID;
+@property (nonatomic, retain) BWFormat *liveFormat;
+@property (nonatomic, readonly) unsigned long mediaType;
+@property (nonatomic, readonly) BWNode *node;
+@property (nonatomic, readonly) unsigned int numberOfBuffersDropped;
+@property (nonatomic, readonly) unsigned int numberOfBuffersReceived;
+@property (nonatomic) BOOL passesBuffersDownstream;
+@property (nonatomic) int passthroughMode;
+@property (nonatomic) int retainedBufferCount;
+@property (nonatomic, readonly) BWVideoFormat *videoFormat;
 
 + (void)initialize;
 
@@ -55,29 +53,29 @@
 - (id)formatRequirements;
 - (void)handleMessage:(id)arg1;
 - (int)indefinitelyHeldBufferCount;
-- (unsigned long long)index;
-- (id)initWithMediaType:(unsigned int)arg1 node:(id)arg2 index:(unsigned long long)arg3;
-- (id)initWithMediaType:(unsigned int)arg1 node:(id)arg2;
+- (unsigned int)index;
+- (id)initWithMediaType:(unsigned long)arg1 node:(id)arg2;
+- (id)initWithMediaType:(unsigned long)arg1 node:(id)arg2 index:(unsigned int)arg3;
 - (void)invalidate;
-- (bool)isEnabled;
+- (BOOL)isEnabled;
 - (long long)liveConfigurationID;
 - (id)liveFormat;
-- (unsigned int)mediaType;
+- (unsigned long)mediaType;
 - (id)node;
 - (unsigned int)numberOfBuffersDropped;
 - (unsigned int)numberOfBuffersReceived;
-- (bool)passesBuffersDownstream;
+- (BOOL)passesBuffersDownstream;
 - (int)passthroughMode;
 - (int)retainedBufferCount;
 - (void)setConfigurationID:(long long)arg1;
 - (void)setConnection:(id)arg1;
 - (void)setDelayedBufferCount:(int)arg1;
-- (void)setEnabled:(bool)arg1;
+- (void)setEnabled:(BOOL)arg1;
 - (void)setFormat:(id)arg1;
 - (void)setFormatRequirements:(id)arg1;
 - (void)setIndefinitelyHeldBufferCount:(int)arg1;
 - (void)setLiveFormat:(id)arg1;
-- (void)setPassesBuffersDownstream:(bool)arg1;
+- (void)setPassesBuffersDownstream:(BOOL)arg1;
 - (void)setPassthroughMode:(int)arg1;
 - (void)setRetainedBufferCount:(int)arg1;
 - (id)videoFormat;

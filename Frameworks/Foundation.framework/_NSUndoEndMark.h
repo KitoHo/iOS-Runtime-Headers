@@ -2,10 +2,9 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@interface _NSUndoEndMark : _NSUndoObject {
-}
+@interface _NSUndoEndMark : _NSUndoObject
 
 - (id)description;
-- (bool)isEndMark;
+- (BOOL)isEndMark;
 
 @end

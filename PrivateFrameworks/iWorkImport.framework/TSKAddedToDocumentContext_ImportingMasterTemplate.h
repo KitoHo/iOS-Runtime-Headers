@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSKAddedToDocumentContext_ImportingMasterTemplate : TSKAddedToDocumentContext_Importing {
-}
+@interface TSKAddedToDocumentContext_ImportingMasterTemplate : TSKAddedToDocumentContext_Importing
 
-- (bool)wasImportedFromMasterTemplate;
+- (BOOL)wasImportedFromMasterTemplate;
 
 @end

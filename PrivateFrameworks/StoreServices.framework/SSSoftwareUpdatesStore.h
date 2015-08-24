@@ -2,31 +2,29 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSObject<OS_dispatch_queue>, SSUpdatesDatabase, SSXPCConnection;
-
 @interface SSSoftwareUpdatesStore : NSObject {
     NSObject<OS_dispatch_queue> *_calloutQueue;
     SSXPCConnection *_connection;
     SSUpdatesDatabase *_database;
+    BOOL _didMigration;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     void *_mobileCoreServices;
-    bool_didMigration;
-    bool_useLocalRead;
-    bool_useLocalWrite;
+    BOOL _useLocalRead;
+    BOOL _useLocalWrite;
 }
 
 + (id)databasePath;
 
 - (id)_copyUpdates;
 - (id)_copyUpdatesWithSession:(id)arg1 predicate:(id)arg2;
-- (bool)_migrateReadOnlyDatabase;
-- (void)_readUsingSessionBlock:(id)arg1;
-- (void)clearExpiredUpdateHistoryWithCompletionBlock:(id)arg1;
+- (BOOL)_migrateReadOnlyDatabase;
+- (void)_readUsingSessionBlock:(id /* block */)arg1;
+- (void)clearExpiredUpdateHistoryWithCompletionBlock:(id /* block */)arg1;
 - (void)dealloc;
-- (void)getUpdatesWithCompletionBlock:(id)arg1;
+- (void)getUpdatesWithCompletionBlock:(id /* block */)arg1;
 - (void)hideApplicationBadgeForPendingUpdates;
 - (id)init;
-- (void)reloadFromServerWithCompletionBlock:(id)arg1;
+- (void)reloadFromServerWithCompletionBlock:(id /* block */)arg1;
 - (void)removeUpdateBulletins;
 - (void)showApplicationBadgeForPendingUpdates;
 - (id)updateWithItemIdentifier:(long long)arg1;

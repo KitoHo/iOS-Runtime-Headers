@@ -2,34 +2,32 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString;
-
 @interface UIStatusBarItem : NSObject {
-    long long _idiom;
+    int _idiom;
     int _type;
 }
 
-@property(readonly) NSString * indicatorName;
-@property(readonly) int leftOrder;
-@property(readonly) int priority;
-@property(readonly) int rightOrder;
-@property(readonly) int type;
-@property(readonly) Class viewClass;
+@property (nonatomic, readonly) NSString *indicatorName;
+@property (nonatomic, readonly) int leftOrder;
+@property (nonatomic, readonly) int priority;
+@property (nonatomic, readonly) int rightOrder;
+@property (nonatomic, readonly) int type;
+@property (nonatomic, readonly) Class viewClass;
 
-+ (bool)isItemWithTypeExclusive:(int)arg1;
-+ (bool)itemType:(int)arg1 idiom:(long long)arg2 appearsInRegion:(int)arg3;
-+ (bool)itemType:(int)arg1 idiom:(long long)arg2 canBeEnabledForData:(id)arg3 style:(id)arg4;
-+ (id)itemWithType:(int)arg1 idiom:(long long)arg2;
-+ (bool)typeIsValid:(int)arg1;
++ (BOOL)isItemWithTypeExclusive:(int)arg1;
++ (BOOL)itemType:(int)arg1 idiom:(int)arg2 appearsInRegion:(int)arg3;
++ (BOOL)itemType:(int)arg1 idiom:(int)arg2 canBeEnabledForData:(id)arg3 style:(id)arg4;
++ (id)itemWithType:(int)arg1 idiom:(int)arg2;
++ (BOOL)typeIsValid:(int)arg1;
 
-- (bool)appearsInRegion:(int)arg1;
-- (bool)appearsOnLeft;
-- (bool)appearsOnRight;
+- (BOOL)appearsInRegion:(int)arg1;
+- (BOOL)appearsOnLeft;
+- (BOOL)appearsOnRight;
 - (int)centerOrder;
-- (long long)compareCenterOrder:(id)arg1;
-- (long long)compareLeftOrder:(id)arg1;
-- (long long)comparePriority:(id)arg1;
-- (long long)compareRightOrder:(id)arg1;
+- (int)compareCenterOrder:(id)arg1;
+- (int)compareLeftOrder:(id)arg1;
+- (int)comparePriority:(id)arg1;
+- (int)compareRightOrder:(id)arg1;
 - (id)description;
 - (id)indicatorName;
 - (id)initWithType:(int)arg1;

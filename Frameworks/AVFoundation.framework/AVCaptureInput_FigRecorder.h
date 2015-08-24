@@ -2,13 +2,11 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVCaptureInputInternal_FigRecorder, NSArray;
-
 @interface AVCaptureInput_FigRecorder : NSObject {
     AVCaptureInputInternal_FigRecorder *_inputInternal;
 }
 
-@property(readonly) NSArray * ports;
+@property (nonatomic, readonly) NSArray *ports;
 
 - (void)_applyOverridesToCaptureOptions:(id)arg1;
 - (struct OpaqueCMClock { }*)clock;
@@ -17,7 +15,7 @@
 - (void)didStopForSession:(id)arg1 error:(id)arg2;
 - (void)handleNotification:(id)arg1 payload:(id)arg2;
 - (id)init;
-- (bool)isKindOfClass:(Class)arg1;
+- (BOOL)isKindOfClass:(Class)arg1;
 - (id)notReadyError;
 - (id)ports;
 - (id)session;

@@ -2,24 +2,22 @@
    Image: /System/Library/Frameworks/NetworkExtension.framework/NetworkExtension
  */
 
-@class NSArray, NSString;
-
-@interface NEVPNAppRule : NSObject <NEConfigurationValidating, NEPrettyDescription, NEConfigurationLegacySupport, NSSecureCoding, NSCopying> {
+@interface NEVPNAppRule : NSObject <NEConfigurationLegacySupport, NEConfigurationValidating, NEPrettyDescription, NSCopying, NSSecureCoding> {
     NSString *_identifier;
     NSArray *_matchAccountIdentifiers;
     NSArray *_matchDomains;
     NSArray *_matchExecutables;
 }
 
-@property(readonly) NSString * identifier;
-@property(copy) NSArray * matchAccountIdentifiers;
-@property(copy) NSArray * matchDomains;
-@property(copy) NSArray * matchExecutables;
+@property (readonly) NSString *identifier;
+@property (copy) NSArray *matchAccountIdentifiers;
+@property (copy) NSArray *matchDomains;
+@property (copy) NSArray *matchExecutables;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (bool)checkValidityAndCollectErrors:(id)arg1;
+- (BOOL)checkValidityAndCollectErrors:(id)arg1;
 - (id)copyLegacyDictionary;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)descriptionWithIndent:(int)arg1;
@@ -31,7 +29,7 @@
 - (id)matchAccountIdentifiers;
 - (id)matchDomains;
 - (id)matchExecutables;
-- (bool)overlapsWithRule:(id)arg1;
+- (BOOL)overlapsWithRule:(id)arg1;
 - (void)setMatchAccountIdentifiers:(id)arg1;
 - (void)setMatchDomains:(id)arg1;
 - (void)setMatchExecutables:(id)arg1;

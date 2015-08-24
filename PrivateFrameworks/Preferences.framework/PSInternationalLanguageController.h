@@ -2,9 +2,7 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class NSArray, NSString, PSLanguage, PSLanguageSelector, PSLocaleSelector, UISearchBar, UITableView, UIView;
-
-@interface PSInternationalLanguageController : PSViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate> {
+@interface PSInternationalLanguageController : PSViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate> {
     PSLanguage *_checkedLanguage;
     UIView *_contentView;
     NSArray *_deviceLanguages;
@@ -15,23 +13,23 @@
     NSArray *_otherLanguages;
     NSString *_savedSearchTerm;
     UISearchBar *_searchBar;
+    BOOL _searchIsActive;
     UITableView *_tableView;
-    bool_searchIsActive;
 }
 
-@property(retain) PSLanguage * checkedLanguage;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) NSArray * deviceLanguages;
-@property(retain) NSArray * filteredDeviceLanguages;
-@property(retain) NSArray * filteredOtherLanguages;
-@property(readonly) unsigned long long hash;
-@property(retain) PSLanguageSelector * languageSelector;
-@property(retain) PSLocaleSelector * localeSelector;
-@property(retain) NSArray * otherLanguages;
-@property(retain) NSString * savedSearchTerm;
-@property bool searchIsActive;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) PSLanguage *checkedLanguage;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSArray *deviceLanguages;
+@property (nonatomic, retain) NSArray *filteredDeviceLanguages;
+@property (nonatomic, retain) NSArray *filteredOtherLanguages;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) PSLanguageSelector *languageSelector;
+@property (nonatomic, retain) PSLocaleSelector *localeSelector;
+@property (nonatomic, retain) NSArray *otherLanguages;
+@property (nonatomic, retain) NSString *savedSearchTerm;
+@property (nonatomic) BOOL searchIsActive;
+@property (readonly) Class superclass;
 
 - (id)_mainContentView;
 - (void)_removeBlackFrame;
@@ -49,15 +47,15 @@
 - (void)loadData;
 - (void)loadView;
 - (id)localeSelector;
-- (long long)numberOfSectionsInTableView:(id)arg1;
+- (int)numberOfSectionsInTableView:(id)arg1;
 - (id)otherLanguages;
-- (void)reloadDataAndScrollToCheckedLanguageWithAnimation:(bool)arg1;
+- (void)reloadDataAndScrollToCheckedLanguageWithAnimation:(BOOL)arg1;
 - (id)savedSearchTerm;
 - (void)searchBar:(id)arg1 textDidChange:(id)arg2;
 - (void)searchBarCancelButtonClicked:(id)arg1;
 - (void)searchBarTextDidBeginEditing:(id)arg1;
 - (void)searchBarTextDidEndEditing:(id)arg1;
-- (bool)searchIsActive;
+- (BOOL)searchIsActive;
 - (void)setCheckedLanguage:(id)arg1;
 - (void)setDeviceLanguages:(id)arg1;
 - (void)setFilteredDeviceLanguages:(id)arg1;
@@ -66,14 +64,14 @@
 - (void)setLocaleSelector:(id)arg1;
 - (void)setOtherLanguages:(id)arg1;
 - (void)setSavedSearchTerm:(id)arg1;
-- (void)setSearchIsActive:(bool)arg1;
+- (void)setSearchIsActive:(BOOL)arg1;
 - (void)sortByLocalizedLanguage:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
-- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
 - (void)updateNavigationItem;
-- (void)viewDidAppear:(bool)arg1;
-- (void)viewWillAppear:(bool)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 
 @end

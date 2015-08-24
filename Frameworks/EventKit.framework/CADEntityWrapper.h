@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@class EKObjectID, NSArray, NSMutableDictionary;
-
 @interface CADEntityWrapper : NSObject <NSSecureCoding> {
     int _entityType;
     NSArray *_loadedKeys;
@@ -13,12 +11,12 @@
     int _rowID;
 }
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithCalEntity:(void*)arg1 propertiesToLoad:(id)arg2;
 - (id)initWithCalEntity:(void*)arg1;
+- (id)initWithCalEntity:(void*)arg1 propertiesToLoad:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (id)loadedProperties;
 - (id)objectID;

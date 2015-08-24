@@ -2,14 +2,13 @@
    Image: /System/Library/PrivateFrameworks/CommunicationsSetupUI.framework/CommunicationsSetupUI
  */
 
-@interface CNFRegModernAppearanceController : CNFRegAppearanceController {
-}
+@interface CNFRegModernAppearanceController : CNFRegAppearanceController
 
-- (bool)firstNavigationBarHidden;
-- (long long)modalPresentationStyle;
-- (bool)navigationBarHidesShadow;
-- (bool)navigationBarHidesTitle;
-- (bool)styleUsesCustomTableStyle;
+- (BOOL)firstNavigationBarHidden;
+- (int)modalPresentationStyle;
+- (BOOL)navigationBarHidesShadow;
+- (BOOL)navigationBarHidesTitle;
+- (BOOL)styleUsesCustomTableStyle;
 - (id)tableBackgroundColor;
 - (id)tableCellCheckmarkImage;
 - (id)tableCellCheckmarkImageDisabled;
@@ -18,14 +17,14 @@
 - (id)tableCellTextLabelBackgroundColor;
 - (id)tableCellTextLabelColor;
 - (id)tableFooterFont;
-- (long long)tableFooterTextAlignment;
+- (int)tableFooterTextAlignment;
 - (id)tableFooterTextColor;
 - (id)tableHeaderFont;
-- (long long)tableHeaderTextAlignment;
+- (int)tableHeaderTextAlignment;
 - (id)tableHeaderTextColor;
 - (id)webViewBackgroundColor;
 - (id)webViewBackgroundView;
-- (bool)webViewDrawsShadows;
-- (bool)webViewIsOpaque;
+- (BOOL)webViewDrawsShadows;
+- (BOOL)webViewIsOpaque;
 
 @end

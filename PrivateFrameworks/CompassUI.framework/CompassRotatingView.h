@@ -3,14 +3,14 @@
  */
 
 @interface CompassRotatingView : UIView {
-    double _angle;
+    float _angle;
     double _compassHeading;
 }
 
-@property(readonly) double angle;
-@property double compassHeading;
+@property (nonatomic, readonly) float angle;
+@property (nonatomic) double compassHeading;
 
-- (double)angle;
+- (float)angle;
 - (double)compassHeading;
 - (void)setCompassHeading:(double)arg1;
 

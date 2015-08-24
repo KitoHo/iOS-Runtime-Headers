@@ -2,24 +2,22 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class CKServerChangeToken;
-
 @interface CKFetchNotificationChangesOperationInfo : CKOperationInfo <NSSecureCoding> {
     CKServerChangeToken *_previousServerChangeToken;
-    unsigned long long _resultsLimit;
+    unsigned int _resultsLimit;
 }
 
-@property(retain) CKServerChangeToken * previousServerChangeToken;
-@property unsigned long long resultsLimit;
+@property (nonatomic, retain) CKServerChangeToken *previousServerChangeToken;
+@property (nonatomic) unsigned int resultsLimit;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)previousServerChangeToken;
-- (unsigned long long)resultsLimit;
+- (unsigned int)resultsLimit;
 - (void)setPreviousServerChangeToken:(id)arg1;
-- (void)setResultsLimit:(unsigned long long)arg1;
+- (void)setResultsLimit:(unsigned int)arg1;
 
 @end

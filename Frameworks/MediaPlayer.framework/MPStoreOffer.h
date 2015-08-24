@@ -2,60 +2,58 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class MPStoreOffer, NSDictionary, NSString, NSURL;
-
 @interface MPStoreOffer : NSObject {
     unsigned long long _entityPersistentID;
     NSString *_entityTitle;
-    unsigned long long _entityType;
+    int _entityType;
     NSDictionary *_mediaAssetDictionary;
     NSDictionary *_offerDictionary;
-    long long _passType;
+    int _passType;
     MPStoreOffer *_regularPriceOffer;
 }
 
-@property(copy,readonly) NSString * actionDisplayTitle;
-@property(copy,readonly) NSString * buyParameters;
-@property(readonly) long long buyType;
-@property(copy,readonly) NSString * displayPrice;
-@property(copy,readonly) NSString * displayTitle;
-@property(readonly) unsigned long long downloadSize;
-@property(readonly) unsigned long long entityPersistentID;
-@property(copy,readonly) NSString * entityTitle;
-@property(readonly) unsigned long long entityType;
-@property(readonly) long long passType;
-@property(readonly) double previewDuration;
-@property(copy,readonly) NSURL * previewURL;
-@property(readonly) float price;
-@property(copy,readonly) NSString * regularPriceDisplayPrice;
-@property(readonly) bool requiresConfirmation;
+@property (nonatomic, readonly, copy) NSString *actionDisplayTitle;
+@property (nonatomic, readonly, copy) NSString *buyParameters;
+@property (nonatomic, readonly) int buyType;
+@property (nonatomic, readonly, copy) NSString *displayPrice;
+@property (nonatomic, readonly, copy) NSString *displayTitle;
+@property (nonatomic, readonly) unsigned long long downloadSize;
+@property (nonatomic, readonly) unsigned long long entityPersistentID;
+@property (nonatomic, readonly, copy) NSString *entityTitle;
+@property (nonatomic, readonly) int entityType;
+@property (nonatomic, readonly) int passType;
+@property (nonatomic, readonly) double previewDuration;
+@property (nonatomic, readonly, copy) NSURL *previewURL;
+@property (nonatomic, readonly) float price;
+@property (nonatomic, readonly, copy) NSString *regularPriceDisplayPrice;
+@property (nonatomic, readonly) BOOL requiresConfirmation;
 
 + (id)_priceForOfferDictionary:(id)arg1;
-+ (long long)bestOfferVariantInOfferDictionaries:(id)arg1 withPreferredVariant:(long long)arg2;
-+ (long long)buyTypeForOfferDictionary:(id)arg1 regularPriceOffer:(id)arg2;
-+ (void)getBuyOfferDictionary:(id*)arg1 regularPriceOfferDictionary:(id*)arg2 inOfferDictionaries:(id)arg3 variant:(long long)arg4;
++ (int)bestOfferVariantInOfferDictionaries:(id)arg1 withPreferredVariant:(int)arg2;
++ (int)buyTypeForOfferDictionary:(id)arg1 regularPriceOffer:(id)arg2;
++ (void)getBuyOfferDictionary:(id*)arg1 regularPriceOfferDictionary:(id*)arg2 inOfferDictionaries:(id)arg3 variant:(int)arg4;
 + (void)getBuyOfferDictionary:(id*)arg1 regularPriceOfferDictionary:(id*)arg2 inOfferDictionaries:(id)arg3 variantString:(id)arg4;
-+ (id)offerVariantResponseKeyForOfferVariant:(long long)arg1;
++ (id)offerVariantResponseKeyForOfferVariant:(int)arg1;
 
 - (void).cxx_destruct;
-- (bool)_isBuy;
+- (BOOL)_isBuy;
 - (id)actionDisplayTitle;
 - (id)buyParameters;
-- (long long)buyType;
+- (int)buyType;
 - (id)buyURL;
 - (id)displayPrice;
 - (id)displayTitle;
 - (unsigned long long)downloadSize;
 - (unsigned long long)entityPersistentID;
 - (id)entityTitle;
-- (unsigned long long)entityType;
-- (id)initWithStoreOfferDictionary:(id)arg1 regularPriceOfferDictionary:(id)arg2 passType:(long long)arg3 entityType:(unsigned long long)arg4 persistentID:(unsigned long long)arg5 title:(id)arg6;
-- (long long)passType;
+- (int)entityType;
+- (id)initWithStoreOfferDictionary:(id)arg1 regularPriceOfferDictionary:(id)arg2 passType:(int)arg3 entityType:(int)arg4 persistentID:(unsigned long long)arg5 title:(id)arg6;
+- (int)passType;
 - (double)previewDuration;
 - (id)previewURL;
 - (float)price;
 - (id)regularPriceDisplayPrice;
-- (bool)requiresConfirmation;
+- (BOOL)requiresConfirmation;
 - (id)storeOfferDictionary;
 
 @end

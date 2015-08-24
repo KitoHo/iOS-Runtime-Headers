@@ -2,20 +2,18 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class NSArray, NSDictionary, NSString;
-
 @interface AVCaptureDeviceFormatInternal_FigRecorder : NSObject {
     struct { 
         long long value; 
         int timescale; 
         unsigned int flags; 
         long long epoch; 
+    } defaultActiveMaxFrameDuration;
     struct { 
         long long value; 
         int timescale; 
         unsigned int flags; 
         long long epoch; 
-    } defaultActiveMaxFrameDuration;
     } defaultActiveMinFrameDuration;
     struct opaqueCMFormatDescription { } *formatDescription;
     NSDictionary *formatDictionary;

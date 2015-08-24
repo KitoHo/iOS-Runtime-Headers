@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class LSApplicationWorkspace;
-
 @interface GKApplicationWorkspace : NSObject {
     LSApplicationWorkspace *_lsWorkspace;
 }
 
-@property(retain) LSApplicationWorkspace * lsWorkspace;
+@property (nonatomic, retain) LSApplicationWorkspace *lsWorkspace;
 
 + (id)defaultWorkspace;
 
-- (bool)applicationIsInstalled:(id)arg1;
+- (BOOL)applicationIsInstalled:(id)arg1;
 - (id)applicationProxyForBundleID:(id)arg1;
 - (void)dealloc;
 - (id)initWithWorkspace:(id)arg1;

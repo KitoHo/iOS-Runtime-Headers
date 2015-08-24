@@ -2,18 +2,16 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIControl, UIRemoveControl, UIView;
-
 @interface _UITableViewCellOldEditingData : NSObject {
     UIControl *_grabber;
     UIRemoveControl *_removeControl;
     UIView *_separator;
 }
 
-@property(retain) UIControl * reorderControl;
-@property(retain) UIView * separatorView;
+@property (nonatomic, retain) UIControl *reorderControl;
+@property (nonatomic, retain) UIView *separatorView;
 
-- (bool)dataRequired;
+- (BOOL)dataRequired;
 - (void)dealloc;
 - (id)reorderControl;
 - (id)separatorView;

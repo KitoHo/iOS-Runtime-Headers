@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface WDHyperlinkFieldMarker : WDFieldMarker {
-    unsigned int mInternalLink : 1;
     NSString *mFragment;
+    unsigned int mInternalLink;
     NSString *mLink;
 }
 
-@property(retain) NSString * fragment;
-@property bool internalLink;
-@property(retain) NSString * link;
+@property (nonatomic, retain) NSString *fragment;
+@property (nonatomic) BOOL internalLink;
+@property (nonatomic, retain) NSString *link;
 
 - (void)dealloc;
 - (id)fragment;
-- (bool)internalLink;
+- (BOOL)internalLink;
 - (id)link;
 - (int)runType;
 - (void)setFragment:(id)arg1;
-- (void)setInternalLink:(bool)arg1;
+- (void)setInternalLink:(BOOL)arg1;
 - (void)setLink:(id)arg1;
 
 @end

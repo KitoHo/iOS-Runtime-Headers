@@ -2,48 +2,42 @@
    Image: /System/Library/PrivateFrameworks/Stocks.framework/Stocks
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <StockUpdaterDelegate>, NSArray, NSError;
-
 @interface StockUpdater : YQLRequest {
     <StockUpdaterDelegate> *_delegate;
+    BOOL _forceUpdate;
+    BOOL _isComprehensive;
     NSError *_lastError;
     NSArray *_pendingStocks;
     NSArray *_requestStocks;
-    id _updateCompletionHandler;
-    bool_forceUpdate;
-    bool_isComprehensive;
+    id /* block */ _updateCompletionHandler;
 }
 
-@property <StockUpdaterDelegate> * delegate;
-@property(readonly) bool forceUpdate;
-@property(readonly) bool isComprehensive;
-@property(retain) NSArray * pendingStocks;
-@property(retain) NSArray * requestStocks;
-@property(copy) id updateCompletionHandler;
+@property (nonatomic) <StockUpdaterDelegate> *delegate;
+@property (nonatomic, readonly) BOOL forceUpdate;
+@property (nonatomic, readonly) BOOL isComprehensive;
+@property (nonatomic, retain) NSArray *pendingStocks;
+@property (nonatomic, retain) NSArray *requestStocks;
+@property (nonatomic, copy) id /* block */ updateCompletionHandler;
 
 - (void).cxx_destruct;
 - (id)_parseDataSourceMapFromDataSourceDictionaries:(id)arg1;
 - (void)_parseExchangeDictionaries:(id)arg1;
 - (void)_parseQuoteDictionaries:(id)arg1 withDataSources:(id)arg2;
-- (bool)_updateStocks:(id)arg1 comprehensive:(bool)arg2 forceUpdate:(bool)arg3;
+- (BOOL)_updateStocks:(id)arg1 comprehensive:(BOOL)arg2 forceUpdate:(BOOL)arg3;
 - (id)aggregateDictionaryDomain;
 - (id)delegate;
 - (void)didParseData;
 - (void)failWithError:(id)arg1;
-- (bool)forceUpdate;
-- (bool)hadError;
-- (bool)isComprehensive;
+- (BOOL)forceUpdate;
+- (BOOL)hadError;
+- (BOOL)isComprehensive;
 - (void)parseData:(id)arg1;
 - (id)pendingStocks;
 - (id)requestStocks;
 - (void)setDelegate:(id)arg1;
 - (void)setPendingStocks:(id)arg1;
 - (void)setRequestStocks:(id)arg1;
-- (void)setUpdateCompletionHandler:(id)arg1;
-- (id)updateCompletionHandler;
+- (void)setUpdateCompletionHandler:(id /* block */)arg1;
+- (id /* block */)updateCompletionHandler;
 
 @end

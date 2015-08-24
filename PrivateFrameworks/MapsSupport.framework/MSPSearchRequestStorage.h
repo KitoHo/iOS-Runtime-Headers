@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/MapsSupport.framework/MapsSupport
  */
 
-@class MSPDirectionsSearch, MSPQuerySearch, NSString, PBUnknownFields;
-
 @interface MSPSearchRequestStorage : PBCodable <NSCopying> {
+    MSPDirectionsSearch *_directionsSearch;
     struct { 
         unsigned int position : 1; 
         unsigned int timestamp : 1; 
         unsigned int searchType : 1; 
-    MSPDirectionsSearch *_directionsSearch;
     } _has;
     NSString *_identifier;
     double _position;
@@ -19,19 +17,19 @@
     PBUnknownFields *_unknownFields;
 }
 
-@property(retain) MSPDirectionsSearch * directionsSearch;
-@property(readonly) bool hasDirectionsSearch;
-@property(readonly) bool hasIdentifier;
-@property bool hasPosition;
-@property(readonly) bool hasQuerySearch;
-@property bool hasSearchType;
-@property bool hasTimestamp;
-@property(retain) NSString * identifier;
-@property double position;
-@property(retain) MSPQuerySearch * querySearch;
-@property int searchType;
-@property double timestamp;
-@property(readonly) PBUnknownFields * unknownFields;
+@property (nonatomic, retain) MSPDirectionsSearch *directionsSearch;
+@property (nonatomic, readonly) BOOL hasDirectionsSearch;
+@property (nonatomic, readonly) BOOL hasIdentifier;
+@property (nonatomic) BOOL hasPosition;
+@property (nonatomic, readonly) BOOL hasQuerySearch;
+@property (nonatomic) BOOL hasSearchType;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic, retain) NSString *identifier;
+@property (nonatomic) double position;
+@property (nonatomic, retain) MSPQuerySearch *querySearch;
+@property (nonatomic) int searchType;
+@property (nonatomic) double timestamp;
+@property (nonatomic, readonly) PBUnknownFields *unknownFields;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
@@ -39,24 +37,24 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)directionsSearch;
-- (bool)hasDirectionsSearch;
-- (bool)hasIdentifier;
-- (bool)hasPosition;
-- (bool)hasQuerySearch;
-- (bool)hasSearchType;
-- (bool)hasTimestamp;
-- (unsigned long long)hash;
+- (BOOL)hasDirectionsSearch;
+- (BOOL)hasIdentifier;
+- (BOOL)hasPosition;
+- (BOOL)hasQuerySearch;
+- (BOOL)hasSearchType;
+- (BOOL)hasTimestamp;
+- (unsigned int)hash;
 - (id)identifier;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (double)position;
 - (id)querySearch;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (int)searchType;
 - (void)setDirectionsSearch:(id)arg1;
-- (void)setHasPosition:(bool)arg1;
-- (void)setHasSearchType:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
+- (void)setHasPosition:(BOOL)arg1;
+- (void)setHasSearchType:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setPosition:(double)arg1;
 - (void)setQuerySearch:(id)arg1;

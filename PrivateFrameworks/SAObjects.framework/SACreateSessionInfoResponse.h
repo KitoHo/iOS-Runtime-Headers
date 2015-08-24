@@ -2,20 +2,17 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSData, NSNumber;
+@interface SACreateSessionInfoResponse : SABaseClientBoundCommand
 
-@interface SACreateSessionInfoResponse : SABaseClientBoundCommand {
-}
-
-@property(copy) NSData * sessionInfo;
-@property(copy) NSNumber * validityDuration;
+@property (nonatomic, copy) NSData *sessionInfo;
+@property (nonatomic, copy) NSNumber *validityDuration;
 
 + (id)createSessionInfoResponse;
 + (id)createSessionInfoResponseWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (id)sessionInfo;
 - (void)setSessionInfo:(id)arg1;
 - (void)setValidityDuration:(id)arg1;

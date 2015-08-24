@@ -2,20 +2,18 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVAssetTrack, AVPlayerItemTrackInternal;
-
 @interface AVPlayerItemTrack : NSObject {
     AVPlayerItemTrackInternal *_playerItemTrack;
 }
 
-@property(readonly) AVAssetTrack * assetTrack;
-@property(readonly) float currentVideoFrameRate;
-@property(getter=isEnabled) bool enabled;
+@property (nonatomic, readonly) AVAssetTrack *assetTrack;
+@property (nonatomic, readonly) float currentVideoFrameRate;
+@property (getter=isEnabled, nonatomic) BOOL enabled;
 
-+ (id)playerItemTrackWithFigPlaybackItem:(struct OpaqueFigPlaybackItem { }*)arg1 readyForInspection:(bool)arg2 trackID:(int)arg3 asset:(id)arg4 playerItem:(id)arg5;
++ (id)playerItemTrackWithFigPlaybackItem:(struct OpaqueFigPlaybackItem { }*)arg1 readyForInspection:(BOOL)arg2 trackID:(int)arg3 asset:(id)arg4 playerItem:(id)arg5;
 
 - (void)_attachToFigPlaybackItemOfPlayerItem:(id)arg1;
-- (id)_initWithFigPlaybackItem:(struct OpaqueFigPlaybackItem { }*)arg1 readyForInspection:(bool)arg2 trackID:(int)arg3 asset:(id)arg4 playerItem:(id)arg5;
+- (id)_initWithFigPlaybackItem:(struct OpaqueFigPlaybackItem { }*)arg1 readyForInspection:(BOOL)arg2 trackID:(int)arg3 asset:(id)arg4 playerItem:(id)arg5;
 - (id)_playerItem;
 - (void)_respondToFigPlaybackItemBecomingReadyForInpection;
 - (void)_transferCachedValuesToFig;
@@ -28,11 +26,11 @@
 - (id)description;
 - (id)fallbackTrack;
 - (void)finalize;
-- (unsigned long long)hash;
-- (bool)isEnabled;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEnabled;
+- (BOOL)isEqual:(id)arg1;
 - (id)loudnessInfo;
-- (void)setEnabled:(bool)arg1;
+- (void)setEnabled:(BOOL)arg1;
 - (void)setLoudnessInfo:(id)arg1;
 - (int)trackID;
 

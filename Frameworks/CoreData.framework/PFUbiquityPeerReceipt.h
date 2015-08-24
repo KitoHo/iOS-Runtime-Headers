@@ -2,16 +2,14 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSDate, PFUbiquityKnowledgeVector, PFUbiquityLocation;
-
 @interface PFUbiquityPeerReceipt : PFUbiquitySafeSaveFile {
     PFUbiquityKnowledgeVector *_kv;
     NSDate *_writeDate;
 }
 
-@property(readonly) PFUbiquityKnowledgeVector * kv;
-@property(readonly) PFUbiquityLocation * receiptFileLocation;
-@property(retain) NSDate * writeDate;
+@property (nonatomic, readonly) PFUbiquityKnowledgeVector *kv;
+@property (nonatomic, readonly) PFUbiquityLocation *receiptFileLocation;
+@property (nonatomic, retain) NSDate *writeDate;
 
 - (void)dealloc;
 - (id)description;
@@ -20,10 +18,10 @@
 - (id)initWithLocalPeerID:(id)arg1 andReceiptFileLocation:(id)arg2;
 - (id)initWithLocalPeerID:(id)arg1 receiptPeerID:(id)arg2 storeName:(id)arg3 modelVersionHash:(id)arg4 andUbiquityRootLocation:(id)arg5;
 - (id)kv;
-- (bool)loadFileFromLocation:(id)arg1 error:(id*)arg2;
+- (BOOL)loadFileFromLocation:(id)arg1 error:(id*)arg2;
 - (id)receiptFileLocation;
 - (void)setWriteDate:(id)arg1;
 - (id)writeDate;
-- (bool)writeFileToLocation:(id)arg1 error:(id*)arg2;
+- (BOOL)writeFileToLocation:(id)arg1 error:(id*)arg2;
 
 @end

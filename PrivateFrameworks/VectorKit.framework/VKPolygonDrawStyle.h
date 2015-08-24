@@ -2,34 +2,28 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSString;
-
 @interface VKPolygonDrawStyle : VKRenderStyle {
     NSString *_name;
 }
 
-@property(readonly) /* Warning: unhandled struct encoding: '{Matrix<float' */ struct  casingColor; /* unknown property attribute:  1>=[4f]} */
-@property(retain) NSString * name;
+@property (nonatomic, readonly) /* Warning: unhandled struct encoding: '{Matrix<float' */ struct  casingColor; /* unknown property attribute:  1>=[4f]} */
+@property (nonatomic, retain) NSString *name;
 
 + (int)renderStyleID;
 
 - (struct Matrix<float, 4, 1> { float x1[4]; })casingColor;
-- (bool)casingsVisibleAtZoom:(float)arg1;
+- (BOOL)casingsVisibleAtZoom:(float)arg1;
 - (void)dealloc;
-- (bool)fancyCasingsVisibleAtZoom:(float)arg1;
+- (BOOL)fancyCasingsVisibleAtZoom:(float)arg1;
 - (struct Matrix<float, 4, 1> { float x1[4]; })fillColorAtZoom:(float)arg1;
-- (bool)hasFillColor;
-- (bool)hasFillColorVariant;
-- (bool)hasFillTexture;
-- (bool)hasFillTextureVariant;
-- (bool)hasStrokeColor;
-- (bool)isNotDrawn;
-- (bool)isSourceNotDrawn;
-- (bool)isTargetNotDrawn;
+- (BOOL)hasFillColor;
+- (BOOL)hasFillColorVariant;
+- (BOOL)hasFillTexture;
+- (BOOL)hasFillTextureVariant;
+- (BOOL)hasStrokeColor;
+- (BOOL)isNotDrawn;
+- (BOOL)isSourceNotDrawn;
+- (BOOL)isTargetNotDrawn;
 - (id)name;
 - (struct Matrix<float, 4, 1> { float x1[4]; })outerStrokeColorAtZoom:(float)arg1;
 - (float)outerStrokeWidthAtZoom:(float)arg1;
@@ -53,7 +47,7 @@
 - (int)thirdTextureBlendModeAtZoom:(float)arg1;
 - (float)thirdTextureOpacityAtZoom:(float)arg1;
 - (id)thirdTextureVariantAtZoom:(float)arg1;
-- (bool)visibleAtZoom:(float)arg1;
+- (BOOL)visibleAtZoom:(float)arg1;
 - (unsigned int)zIndexAtZoom:(float)arg1;
 
 @end

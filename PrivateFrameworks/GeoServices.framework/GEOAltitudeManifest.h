@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOAltitudeManifestReserved, NSString;
-
-@interface GEOAltitudeManifest : NSObject <NSXMLParserDelegate, GEOResourceManifestTileGroupObserver> {
+@interface GEOAltitudeManifest : NSObject <GEOResourceManifestTileGroupObserver, NSXMLParserDelegate> {
     GEOAltitudeManifestReserved *_reserved;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)sharedManager;
 
@@ -21,10 +19,10 @@
 - (void)dealloc;
 - (id)init;
 - (id)initWithoutObserver;
-- (bool)isValidTourId:(unsigned long long)arg1;
+- (BOOL)isValidTourId:(unsigned long long)arg1;
 - (id)nameForRegion:(unsigned int)arg1;
 - (void)parseManifest:(id)arg1;
-- (bool)parseXml:(id)arg1;
+- (BOOL)parseXml:(id)arg1;
 - (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;
 - (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;

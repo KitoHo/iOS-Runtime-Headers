@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-@class UIView;
-
 @interface PLTVOutWindow : UIWindow {
     UIView *_backgroundView;
     UIView *_videoView;
 }
 
-- (bool)_setupTargetScreen:(id)arg1;
+- (BOOL)_setupTargetScreen:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (bool)setVideoView:(id)arg1;
+- (BOOL)setVideoView:(id)arg1;
 - (id)videoView;
 
 @end

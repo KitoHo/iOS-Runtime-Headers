@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class NSString, UILabel;
-
 @interface PKPaymentTransactionTableCell : UITableViewCell {
     UILabel *_amountLabel;
     NSString *_amountString;
@@ -13,15 +11,15 @@
     NSString *_secondaryString;
 }
 
-@property(retain) NSString * amountString;
-@property(retain) NSString * primaryString;
-@property(retain) NSString * secondaryString;
+@property (nonatomic, retain) NSString *amountString;
+@property (nonatomic, retain) NSString *primaryString;
+@property (nonatomic, retain) NSString *secondaryString;
 
-+ (double)rowHeight;
++ (float)rowHeight;
 
 - (id)amountString;
 - (void)dealloc;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (void)layoutSubviews;
 - (void)prepareForReuse;
 - (id)primaryString;

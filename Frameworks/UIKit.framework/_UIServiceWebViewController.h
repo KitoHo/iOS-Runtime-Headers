@@ -2,27 +2,25 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString, WebUIBrowserLoadingController, _UIServiceWebView;
-
-@interface _UIServiceWebViewController : UIViewController <_UIServiceWebViewControllerProtocol, WebUIBrowserLoadingControllerDelegate> {
+@interface _UIServiceWebViewController : UIViewController <WebUIBrowserLoadingControllerDelegate, _UIServiceWebViewControllerProtocol> {
     WebUIBrowserLoadingController *_loadingController;
     _UIServiceWebView *_uiWebView;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)_exportedInterface;
 + (id)_remoteViewControllerInterface;
 
-- (bool)_isInternalInstall;
+- (BOOL)_isInternalInstall;
 - (id)_makeAlertView;
-- (void)_remotelyDecidePolicyForRequest:(id)arg1 inMainFrame:(bool)arg2 navigationType:(id)arg3 decisionHandler:(id)arg4;
+- (void)_remotelyDecidePolicyForRequest:(id)arg1 inMainFrame:(BOOL)arg2 navigationType:(id)arg3 decisionHandler:(id /* block */)arg4;
 - (void)_remotelyDispatchDidDismissViewController;
-- (void)_remotelyDispatchWillPresentViewControllerWithCompletionHandler:(id)arg1;
-- (void)_webContentSizeWithReplyHandler:(id)arg1;
+- (void)_remotelyDispatchWillPresentViewControllerWithCompletionHandler:(id /* block */)arg1;
+- (void)_webContentSizeWithReplyHandler:(id /* block */)arg1;
 - (void)_willAppearInRemoteViewController;
 - (void)browserLoadingController:(id)arg1 didFinishLoadingWithError:(id)arg2 dataSource:(id)arg3;
 - (void)browserLoadingControllerDidStartLoading:(id)arg1;
@@ -32,7 +30,7 @@
 - (void)browserLoadingControllerDidUpdateURLString:(id)arg1;
 - (void)configureWithEncodedSettings:(id)arg1;
 - (void)dealloc;
-- (void)didRotateFromInterfaceOrientation:(long long)arg1;
+- (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)goBack;
 - (void)goForward;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
@@ -41,9 +39,9 @@
 - (void)loadUserTypedAddress:(id)arg1;
 - (void)loadView;
 - (void)reload;
-- (void)setShouldDecidePolicyRemotely:(bool)arg1;
-- (bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)setShouldDecidePolicyRemotely:(BOOL)arg1;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)stopLoading;
-- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 
 @end

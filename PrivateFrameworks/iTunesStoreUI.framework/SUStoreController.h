@@ -2,9 +2,7 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class ISOperation, MFMailComposeViewController, NSArray, NSDictionary, NSString, NSURL, SUClient, SUSectionsResponse, SUTabBarController, UINavigationController, UIWindow;
-
-@interface SUStoreController : NSObject <SUClientDelegate, SUPurchaseManagerDelegate, SUTabBarControllerDelegate, UIApplicationDelegate, MFMailComposeViewControllerDelegate> {
+@interface SUStoreController : NSObject <MFMailComposeViewControllerDelegate, SUClientDelegate, SUPurchaseManagerDelegate, SUTabBarControllerDelegate, UIApplicationDelegate> {
     SUClient *_client;
     SUSectionsResponse *_lastBackgroundSectionsResponse;
     SUSectionsResponse *_lastSectionsResponse;
@@ -14,24 +12,24 @@
     id _locationObserver;
     MFMailComposeViewController *_mailComposeViewController;
     NSArray *_overlayConfigurations;
+    BOOL _reloadForStorefrontChangeAfterAccountSetup;
+    BOOL _reloadSectionsOnNextLaunch;
     NSDictionary *_storeFrontLanguages;
     NSString *_synchedStoreFrontAtLastSuspend;
     SUTabBarController *_tabBarController;
-    bool_reloadForStorefrontChangeAfterAccountSetup;
-    bool_reloadSectionsOnNextLaunch;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(readonly) NSString * defaultPNGNameForSuspend;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) NSURL * launchURL;
-@property(getter=isStoreEnabled,readonly) bool storeEnabled;
-@property(readonly) Class superclass;
-@property(readonly) SUTabBarController * tabBarController;
-@property(getter=isTabBarControllerLoaded,readonly) bool tabBarControllerLoaded;
-@property(readonly) UINavigationController * topNavigationController;
-@property(retain) UIWindow * window;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic, readonly) NSString *defaultPNGNameForSuspend;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NSURL *launchURL;
+@property (getter=isStoreEnabled, nonatomic, readonly) BOOL storeEnabled;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) SUTabBarController *tabBarController;
+@property (getter=isTabBarControllerLoaded, nonatomic, readonly) BOOL tabBarControllerLoaded;
+@property (nonatomic, readonly) UINavigationController *topNavigationController;
+@property (nonatomic, retain) UIWindow *window;
 
 + (void)setSharedInstance:(id)arg1;
 + (id)sharedInstance;
@@ -47,12 +45,12 @@
 - (void)_handleFinishedLoadSectionsOperation:(id)arg1;
 - (void)_handleSearchURL:(id)arg1;
 - (void)_handleSectionsLoadFailedWithError:(id)arg1;
-- (bool)_isAccountViewControllerVisible;
-- (bool)_loadSectionsAllowingCache:(bool)arg1 withCompletionBlock:(id)arg2;
+- (BOOL)_isAccountViewControllerVisible;
+- (BOOL)_loadSectionsAllowingCache:(BOOL)arg1 withCompletionBlock:(id /* block */)arg2;
 - (void)_mainThreadStoreFrontChangedNotification:(id)arg1;
 - (void)_presentSectionFetchUI;
 - (void)_reloadForNetworkTypeChange:(id)arg1;
-- (bool)_reloadForStorefrontChange;
+- (BOOL)_reloadForStorefrontChange;
 - (void)_reloadOverlayConfigurations;
 - (void)_reloadWithSectionsResponse:(id)arg1;
 - (void)_restrictionsChangedNotification:(id)arg1;
@@ -60,14 +58,14 @@
 - (void)_retrySectionsAfterNetworkTransition;
 - (void)_saveArchivedNavigationPath;
 - (void)_selectFooterSectionNotification:(id)arg1;
-- (bool)_showWildcatAccountViewController:(id)arg1 animated:(bool)arg2;
+- (BOOL)_showWildcatAccountViewController:(id)arg1 animated:(BOOL)arg2;
 - (void)_storeFrontChangedNotification:(id)arg1;
-- (bool)application:(id)arg1 handleOpenURL:(id)arg2;
+- (BOOL)application:(id)arg1 handleOpenURL:(id)arg2;
 - (void)beginPurchaseBatch;
 - (void)cancelAllOperations;
-- (bool)client:(id)arg1 openInternalURL:(id)arg2;
-- (bool)client:(id)arg1 presentAccountViewController:(id)arg2 animated:(bool)arg3;
-- (bool)client:(id)arg1 presentModalViewController:(id)arg2 animated:(bool)arg3;
+- (BOOL)client:(id)arg1 openInternalURL:(id)arg2;
+- (BOOL)client:(id)arg1 presentAccountViewController:(id)arg2 animated:(BOOL)arg3;
+- (BOOL)client:(id)arg1 presentModalViewController:(id)arg2 animated:(BOOL)arg3;
 - (void)composeEmailByRestoringAutosavedMessage;
 - (void)composeEmailWithSubject:(id)arg1 body:(id)arg2;
 - (void)connect;
@@ -75,41 +73,41 @@
 - (void)dealloc;
 - (double)defaultImageSnapshotExpiration;
 - (id)defaultPNGNameForSuspend;
-- (void)dismissMailComposeViewControllerAnimated:(bool)arg1;
+- (void)dismissMailComposeViewControllerAnimated:(BOOL)arg1;
 - (void)dismissOverlayBackgroundViewController;
 - (id)downloadQueueForClient:(id)arg1 downloadKinds:(id)arg2;
 - (void)endPurchaseBatch;
 - (void)exitStoreAfterDialogsDismiss;
-- (void)exitStoreWithReason:(long long)arg1;
+- (void)exitStoreWithReason:(int)arg1;
 - (void)handleApplicationURL:(id)arg1;
 - (id)init;
-- (bool)isComposingEmail;
-- (bool)isStoreEnabled;
-- (bool)isTabBarControllerLoaded;
+- (BOOL)isComposingEmail;
+- (BOOL)isStoreEnabled;
+- (BOOL)isTabBarControllerLoaded;
 - (id)launchURL;
-- (bool)libraryContainsItemIdentifier:(unsigned long long)arg1;
+- (BOOL)libraryContainsItemIdentifier:(unsigned long long)arg1;
 - (void)mailComposeController:(id)arg1 didFinishWithResult:(int)arg2 error:(id)arg3;
-- (bool)matchesClientApplication:(id)arg1;
+- (BOOL)matchesClientApplication:(id)arg1;
 - (id)newScriptInterface;
 - (id)overlayBackgroundViewController;
 - (id)overlayConfigurationForStorePage:(id)arg1;
 - (void)prepareForSuspend;
 - (void)presentExternalURLViewController:(id)arg1;
-- (void)presentMailComposeViewController:(id)arg1 animated:(bool)arg2;
-- (bool)presentOverlayBackgroundViewController:(id)arg1;
+- (void)presentMailComposeViewController:(id)arg1 animated:(BOOL)arg2;
+- (BOOL)presentOverlayBackgroundViewController:(id)arg1;
 - (void)purchaseManager:(id)arg1 didAddPurchases:(id)arg2;
 - (void)purchaseManager:(id)arg1 failedToAddPurchases:(id)arg2;
 - (void)purchaseManager:(id)arg1 willAddPurchases:(id)arg2;
 - (void)purchaseManagerDidEndUpdates:(id)arg1;
 - (void)purchaseManagerWillBeginUpdates:(id)arg1;
-- (bool)reloadSectionWithIdentifier:(id)arg1 url:(id)arg2;
-- (bool)selectSectionWithIdentifier:(id)arg1;
+- (BOOL)reloadSectionWithIdentifier:(id)arg1 url:(id)arg2;
+- (BOOL)selectSectionWithIdentifier:(id)arg1;
 - (void)setLaunchURL:(id)arg1;
 - (void)setupUI;
-- (bool)showDialogForCapabilities:(id)arg1 mismatches:(id)arg2;
+- (BOOL)showDialogForCapabilities:(id)arg1 mismatches:(id)arg2;
 - (id)storeContentLanguage;
-- (void)tabBarController:(id)arg1 didEndCustomizingViewControllers:(id)arg2 changed:(bool)arg3;
 - (id)tabBarController;
+- (void)tabBarController:(id)arg1 didEndCustomizingViewControllers:(id)arg2 changed:(BOOL)arg3;
 - (void)tearDownUI;
 - (id)topNavigationController;
 - (id)topViewControllerForClient:(id)arg1;

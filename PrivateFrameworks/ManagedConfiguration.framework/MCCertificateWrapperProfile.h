@@ -2,8 +2,7 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@interface MCCertificateWrapperProfile : MCConfigurationProfile {
-}
+@interface MCCertificateWrapperProfile : MCConfigurationProfile
 
 + (id)_basicWrapperProfileDictForCertificateName:(id)arg1 fileName:(id)arg2 identifier:(id)arg3;
 + (id)_identifierHashFromData:(id)arg1;
@@ -15,8 +14,8 @@
 
 - (id)_certificatePayload;
 - (id)earliestCertificateExpiryDate;
-- (id)initWithDictionary:(id)arg1 allowEmptyPayload:(bool)arg2 outError:(id*)arg3;
-- (bool)isSigned;
+- (id)initWithDictionary:(id)arg1 allowEmptyPayload:(BOOL)arg2 outError:(id*)arg3;
+- (BOOL)isSigned;
 - (id)stubDictionary;
 - (int)trustLevel;
 

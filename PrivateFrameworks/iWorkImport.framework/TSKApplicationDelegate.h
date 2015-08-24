@@ -2,27 +2,26 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class <TSKCompatibilityDelegate>, NSString;
-
 @interface TSKApplicationDelegate : NSObject <TSKApplicationDelegate> {
     <TSKCompatibilityDelegate> *_compatibilityDelegate;
 }
 
-@property(getter=isActivating,readonly) bool activating;
-@property(readonly) NSString * applicationName;
-@property(readonly) bool centerOnInitialSelection;
-@property(retain) <TSKCompatibilityDelegate> * compatibilityDelegate;
-@property(readonly) bool designModeEnabled;
-@property(readonly) NSString * documentTypeDisplayName;
-@property(getter=isInBackground,readonly) bool inBackground;
-@property(readonly) bool isCanvasFullScreen;
-@property(readonly) bool performanceModeEnabled;
-@property(readonly) bool tableCellInspectorShowsNaturalAlignment;
-@property(readonly) bool tableHeaderInspectorShowsFreezeHeaderColumnsSwitch;
-@property(readonly) bool tableHeaderInspectorShowsFreezeHeaderRowsSwitch;
-@property(readonly) bool tableHeaderInspectorShowsRepeatHeaderRowsSwitch;
-@property(readonly) NSString * templateTypeDisplayName;
-@property(readonly) bool textInspectorShowsMoreSubpane;
+@property (getter=isActivating, readonly) BOOL activating;
+@property (nonatomic, readonly) NSString *applicationName;
+@property (nonatomic, retain) <TSKCompatibilityDelegate> *compatibilityDelegate;
+@property (nonatomic, readonly) BOOL designModeEnabled;
+@property (nonatomic, readonly) NSString *documentTypeDisplayName;
+@property (nonatomic) unsigned int iWorkAuthorColorIndex;
+@property (nonatomic, copy) NSString *iWorkAuthorName;
+@property (getter=isInBackground, readonly) BOOL inBackground;
+@property (nonatomic, readonly) BOOL isCanvasFullScreen;
+@property (nonatomic, readonly) BOOL performanceModeEnabled;
+@property (nonatomic, readonly) BOOL tableCellInspectorShowsNaturalAlignment;
+@property (nonatomic, readonly) BOOL tableHeaderInspectorShowsFreezeHeaderColumnsSwitch;
+@property (nonatomic, readonly) BOOL tableHeaderInspectorShowsFreezeHeaderRowsSwitch;
+@property (nonatomic, readonly) BOOL tableHeaderInspectorShowsRepeatHeaderRowsSwitch;
+@property (nonatomic, readonly) NSString *templateTypeDisplayName;
+@property (nonatomic, readonly) BOOL textInspectorShowsMoreSubpane;
 
 + (id)documentDirectoryPath;
 + (id)platform_sharedDelegate;
@@ -31,33 +30,37 @@
 
 - (id)appChartPropertyOverrides;
 - (id)applicationName;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })applicationToolbarFrame;
-- (bool)centerOnInitialSelection;
+- (id)applicationNameForTitleBar;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })applicationToolbarFrame;
 - (id)compatibilityDelegate;
 - (id)createCompatibilityDelegate;
 - (id)defaultHyperlinkURL;
-- (bool)designModeEnabled;
+- (BOOL)designModeEnabled;
 - (id)documentTypeDisplayName;
+- (unsigned int)iWorkAuthorColorIndex;
+- (id)iWorkAuthorName;
 - (id)init;
 - (id)invalidURLSchemes;
-- (bool)isActivating;
-- (bool)isCanvasFullScreen;
-- (bool)isInBackground;
-- (bool)openURL:(id)arg1;
-- (bool)performanceModeEnabled;
+- (BOOL)isActivating;
+- (BOOL)isCanvasFullScreen;
+- (BOOL)isInBackground;
+- (BOOL)openURL:(id)arg1;
+- (BOOL)performanceModeEnabled;
 - (id)previewImageForType:(id)arg1;
 - (void)setCompatibilityDelegate:(id)arg1;
-- (bool)shouldGenerateGuidesForOffscreenLayouts;
-- (bool)shouldRenderContactShadow;
-- (bool)shouldRenderCurvedShadow;
-- (bool)shouldValidateMasterLayoutWhileInsertingRows;
-- (bool)supportsRTL;
-- (bool)supportsScrollingInPhoneCommentUI;
-- (bool)tableCellInspectorShowsNaturalAlignment;
-- (bool)tableHeaderInspectorShowsFreezeHeaderColumnsSwitch;
-- (bool)tableHeaderInspectorShowsFreezeHeaderRowsSwitch;
-- (bool)tableHeaderInspectorShowsRepeatHeaderRowsSwitch;
+- (void)setIWorkAuthorColorIndex:(unsigned int)arg1;
+- (void)setIWorkAuthorName:(id)arg1;
+- (BOOL)shouldGenerateGuidesForOffscreenLayouts;
+- (BOOL)shouldRenderContactShadow;
+- (BOOL)shouldRenderCurvedShadow;
+- (BOOL)shouldValidateMasterLayoutWhileInsertingRows;
+- (BOOL)supportsRTL;
+- (BOOL)supportsShrinkTextToFit;
+- (BOOL)tableCellInspectorShowsNaturalAlignment;
+- (BOOL)tableHeaderInspectorShowsFreezeHeaderColumnsSwitch;
+- (BOOL)tableHeaderInspectorShowsFreezeHeaderRowsSwitch;
+- (BOOL)tableHeaderInspectorShowsRepeatHeaderRowsSwitch;
 - (id)templateTypeDisplayName;
-- (bool)textInspectorShowsMoreSubpane;
+- (BOOL)textInspectorShowsMoreSubpane;
 
 @end

@@ -2,12 +2,9 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class NSDictionary;
+@interface AVAudioOutputSettings : AVOutputSettings
 
-@interface AVAudioOutputSettings : AVOutputSettings {
-}
-
-@property(readonly) NSDictionary * audioSettingsDictionary;
+@property (nonatomic, readonly) NSDictionary *audioSettingsDictionary;
 
 + (id)_audioOutputSettingsWithAudioSettingsDictionary:(id)arg1 exceptionReason:(id*)arg2;
 + (id)_outputSettingsWithOutputSettingsDictionary:(id)arg1 exceptionReason:(id*)arg2;
@@ -20,6 +17,6 @@
 - (id)audioSettingsDictionary;
 - (id)compatibleMediaTypes;
 - (id)initWithAudioSettingsDictionary:(id)arg1 exceptionReason:(id*)arg2;
-- (bool)validateUsingOutputSettingsValidator:(id)arg1 reason:(id*)arg2;
+- (BOOL)validateUsingOutputSettingsValidator:(id)arg1 reason:(id*)arg2;
 
 @end

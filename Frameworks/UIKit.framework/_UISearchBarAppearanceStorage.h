@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSMutableDictionary, NSValue, UIImage;
-
 @interface _UISearchBarAppearanceStorage : NSObject {
     NSMutableDictionary *iconImages;
     UIImage *scopeBarBackgroundImage;
@@ -12,19 +10,19 @@
     UIImage *separatorImage;
 }
 
-@property(retain) UIImage * scopeBarBackgroundImage;
-@property(retain) NSValue * searchFieldPositionAdjustment;
-@property(retain) UIImage * separatorImage;
+@property (nonatomic, retain) UIImage *scopeBarBackgroundImage;
+@property (nonatomic, retain) NSValue *searchFieldPositionAdjustment;
+@property (nonatomic, retain) UIImage *separatorImage;
 
 - (void)dealloc;
-- (id)imageForIcon:(long long)arg1 state:(unsigned long long)arg2;
+- (id)imageForIcon:(int)arg1 state:(unsigned int)arg2;
 - (id)scopeBarBackgroundImage;
-- (id)searchFieldBackgroundImageForState:(unsigned long long)arg1;
+- (id)searchFieldBackgroundImageForState:(unsigned int)arg1;
 - (id)searchFieldPositionAdjustment;
 - (id)separatorImage;
-- (void)setImage:(id)arg1 forIcon:(long long)arg2 state:(unsigned long long)arg3;
+- (void)setImage:(id)arg1 forIcon:(int)arg2 state:(unsigned int)arg3;
 - (void)setScopeBarBackgroundImage:(id)arg1;
-- (void)setSearchFieldBackgroundImage:(id)arg1 forState:(unsigned long long)arg2;
+- (void)setSearchFieldBackgroundImage:(id)arg1 forState:(unsigned int)arg2;
 - (void)setSearchFieldPositionAdjustment:(id)arg1;
 - (void)setSeparatorImage:(id)arg1;
 

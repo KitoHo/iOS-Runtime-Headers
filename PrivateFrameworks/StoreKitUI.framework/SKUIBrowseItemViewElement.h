@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, SKUIImageViewElement;
-
 @interface SKUIBrowseItemViewElement : SKUIItemViewElement {
-    bool_expands;
+    BOOL _expands;
 }
 
-@property(readonly) SKUIImageViewElement * decorationImage;
-@property(readonly) bool expands;
-@property(readonly) NSArray * metadata;
+@property (nonatomic, readonly) SKUIImageViewElement *decorationImage;
+@property (nonatomic, readonly) BOOL expands;
+@property (nonatomic, readonly) NSArray *metadata;
 
 - (id)applyUpdatesWithElement:(id)arg1;
 - (id)decorationImage;
-- (bool)expands;
+- (BOOL)expands;
 - (id)initWithDOMElement:(id)arg1 parent:(id)arg2 elementFactory:(id)arg3;
 - (id)metadata;
-- (long long)pageComponentType;
+- (int)pageComponentType;
 
 @end

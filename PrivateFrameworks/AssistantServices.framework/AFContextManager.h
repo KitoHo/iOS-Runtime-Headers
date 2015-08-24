@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class CPDistributedMessagingCenter;
-
 @interface AFContextManager : NSObject {
     CPDistributedMessagingCenter *_center;
     struct __CFArray { } *_contextProviders;
@@ -15,7 +13,7 @@
 - (id)_collateContexts;
 - (void)_collateContextsIntoArray:(id)arg1;
 - (void)_shutdownServer;
-- (bool)addContextProvider:(id)arg1;
+- (BOOL)addContextProvider:(id)arg1;
 - (void)dealloc;
 - (id)init;
 - (void)nothing;

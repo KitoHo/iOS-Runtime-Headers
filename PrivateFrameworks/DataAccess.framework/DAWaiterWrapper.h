@@ -2,31 +2,25 @@
    Image: /System/Library/PrivateFrameworks/DataAccess.framework/DataAccess
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <DADataclassLockWatcher>;
-
 @interface DAWaiterWrapper : NSObject {
-    id _completionHandler;
-    long long _dataclasses;
+    id /* block */ _completionHandler;
+    int _dataclasses;
     <DADataclassLockWatcher> *_waiter;
     int _waiterNum;
 }
 
-@property(copy) id completionHandler;
-@property long long dataclasses;
-@property(retain) <DADataclassLockWatcher> * waiter;
-@property(readonly) int waiterNum;
+@property (nonatomic, copy) id /* block */ completionHandler;
+@property (nonatomic) int dataclasses;
+@property (nonatomic, retain) <DADataclassLockWatcher> *waiter;
+@property (nonatomic, readonly) int waiterNum;
 
 - (void).cxx_destruct;
-- (id)completionHandler;
-- (long long)dataclasses;
+- (id /* block */)completionHandler;
+- (int)dataclasses;
 - (id)description;
 - (id)init;
-- (void)setCompletionHandler:(id)arg1;
-- (void)setDataclasses:(long long)arg1;
+- (void)setCompletionHandler:(id /* block */)arg1;
+- (void)setDataclasses:(int)arg1;
 - (void)setWaiter:(id)arg1;
 - (id)waiter;
 - (int)waiterNum;

@@ -2,46 +2,52 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSNumber, NSString;
+@interface SAStartRequest : SABaseCommand <SAServerBoundCommand>
 
-@interface SAStartRequest : SABaseCommand <SAServerBoundCommand> {
-}
-
-@property(copy) NSString * aceId;
-@property bool clearContext;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property bool eyesFree;
-@property bool handsFree;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * motionActivity;
-@property(copy) NSNumber * motionConfidence;
-@property(copy) NSString * origin;
-@property(copy) NSString * refId;
-@property(readonly) Class superclass;
-@property bool talkOnly;
-@property(copy) NSString * utterance;
+@property (nonatomic, copy) NSString *aceId;
+@property (nonatomic) BOOL clearContext;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) BOOL eyesFree;
+@property (nonatomic) BOOL handsFree;
+@property (nonatomic, copy) NSString *hardwareBuild;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSNumber *isCarryDevice;
+@property (nonatomic, copy) NSString *motionActivity;
+@property (nonatomic, copy) NSNumber *motionConfidence;
+@property (nonatomic, copy) NSString *origin;
+@property (nonatomic, copy) NSString *refId;
+@property (nonatomic, retain) SASStartSpeech *sourceSpeechRequest;
+@property (readonly) Class superclass;
+@property (nonatomic) BOOL talkOnly;
+@property (nonatomic, copy) NSString *utterance;
 
 + (id)startRequest;
 + (id)startRequestWithDictionary:(id)arg1 context:(id)arg2;
 
-- (bool)clearContext;
+- (BOOL)clearContext;
 - (id)encodedClassName;
-- (bool)eyesFree;
+- (BOOL)eyesFree;
 - (id)groupIdentifier;
-- (bool)handsFree;
+- (BOOL)handsFree;
+- (id)hardwareBuild;
+- (id)isCarryDevice;
 - (id)motionActivity;
 - (id)motionConfidence;
 - (id)origin;
-- (void)setClearContext:(bool)arg1;
-- (void)setEyesFree:(bool)arg1;
-- (void)setHandsFree:(bool)arg1;
+- (void)setClearContext:(BOOL)arg1;
+- (void)setEyesFree:(BOOL)arg1;
+- (void)setHandsFree:(BOOL)arg1;
+- (void)setHardwareBuild:(id)arg1;
+- (void)setIsCarryDevice:(id)arg1;
 - (void)setMotionActivity:(id)arg1;
 - (void)setMotionConfidence:(id)arg1;
 - (void)setOrigin:(id)arg1;
-- (void)setTalkOnly:(bool)arg1;
+- (void)setSourceSpeechRequest:(id)arg1;
+- (void)setTalkOnly:(BOOL)arg1;
 - (void)setUtterance:(id)arg1;
-- (bool)talkOnly;
+- (id)sourceSpeechRequest;
+- (BOOL)talkOnly;
 - (id)utterance;
 
 @end

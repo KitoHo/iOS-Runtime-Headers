@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSHashTable, NSMapTable, NSString, SKUIResourceLoader;
-
 @interface SKUIBadgeTextAttachmentLoader : NSObject <SKUIArtworkRequestDelegate> {
     NSMapTable *_imageRequests;
     SKUIResourceLoader *_resourceLoader;
     NSHashTable *_stringViews;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (void)artworkRequest:(id)arg1 didLoadImage:(id)arg2;
 - (void)connectStringView:(id)arg1;
 - (void)disconnectStringView:(id)arg1;
 - (id)initWithResourceLoader:(id)arg1;
-- (bool)loadImageForBadge:(id)arg1 layout:(id)arg2 reason:(long long)arg3;
+- (BOOL)loadImageForBadge:(id)arg1 layout:(id)arg2 reason:(int)arg3;
 
 @end

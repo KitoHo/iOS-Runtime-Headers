@@ -2,46 +2,44 @@
    Image: /System/Library/PrivateFrameworks/FTServices.framework/FTServices
  */
 
-@class APSConnection, NSTimer;
-
 @interface FTNetworkSupport : NSObject {
     Class _APSConnectionClass;
     APSConnection *_apsConnection;
+    BOOL _criticalReliabilityEnabledState;
+    BOOL _enableCriticalReliability;
     NSTimer *_reliabilityAttemptTimer;
-    bool_criticalReliabilityEnabledState;
-    bool_enableCriticalReliability;
 }
 
-@property(readonly) bool allowAnyNetwork;
-@property(readonly) bool dataActiveAndReachable;
-@property bool enableCriticalReliability;
-@property(readonly) bool networkActive;
-@property(readonly) bool networkEnabled;
-@property(readonly) bool networkReachable;
-@property(readonly) bool validNetworkActive;
-@property(readonly) bool validNetworkEnabled;
-@property(readonly) bool validNetworkReachable;
-@property(readonly) bool wiFiActiveAndReachable;
-@property(readonly) bool willSearchForNetwork;
+@property (nonatomic, readonly) BOOL allowAnyNetwork;
+@property (nonatomic, readonly) BOOL dataActiveAndReachable;
+@property (nonatomic) BOOL enableCriticalReliability;
+@property (nonatomic, readonly) BOOL networkActive;
+@property (nonatomic, readonly) BOOL networkEnabled;
+@property (nonatomic, readonly) BOOL networkReachable;
+@property (nonatomic, readonly) BOOL validNetworkActive;
+@property (nonatomic, readonly) BOOL validNetworkEnabled;
+@property (nonatomic, readonly) BOOL validNetworkReachable;
+@property (nonatomic, readonly) BOOL wiFiActiveAndReachable;
+@property (nonatomic, readonly) BOOL willSearchForNetwork;
 
 + (id)sharedInstance;
 
 - (void)_clearReliabilityTimeoutInterval;
 - (void)_createAPSConnectionIfNeeded;
-- (void)_reallySetCriticalReliability:(bool)arg1;
+- (void)_reallySetCriticalReliability:(BOOL)arg1;
 - (void)_setReliabilityTimeoutInterval;
 - (void)_tryToEnableReliability;
-- (bool)allowAnyNetwork;
-- (bool)dataActiveAndReachable;
-- (bool)enableCriticalReliability;
-- (bool)networkActive;
-- (bool)networkEnabled;
-- (bool)networkReachable;
-- (void)setEnableCriticalReliability:(bool)arg1;
-- (bool)validNetworkActive;
-- (bool)validNetworkEnabled;
-- (bool)validNetworkReachable;
-- (bool)wiFiActiveAndReachable;
-- (bool)willSearchForNetwork;
+- (BOOL)allowAnyNetwork;
+- (BOOL)dataActiveAndReachable;
+- (BOOL)enableCriticalReliability;
+- (BOOL)networkActive;
+- (BOOL)networkEnabled;
+- (BOOL)networkReachable;
+- (void)setEnableCriticalReliability:(BOOL)arg1;
+- (BOOL)validNetworkActive;
+- (BOOL)validNetworkEnabled;
+- (BOOL)validNetworkReachable;
+- (BOOL)wiFiActiveAndReachable;
+- (BOOL)willSearchForNetwork;
 
 @end

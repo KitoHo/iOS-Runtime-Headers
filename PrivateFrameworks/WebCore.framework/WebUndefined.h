@@ -2,8 +2,7 @@
    Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
  */
 
-@interface WebUndefined : NSObject <NSCoding, NSCopying> {
-}
+@interface WebUndefined : NSObject <NSCoding, NSCopying>
 
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
 + (id)undefined;
@@ -16,6 +15,6 @@
 - (id)initWithCoder:(id)arg1;
 - (oneway void)release;
 - (id)retain;
-- (unsigned long long)retainCount;
+- (unsigned int)retainCount;
 
 @end

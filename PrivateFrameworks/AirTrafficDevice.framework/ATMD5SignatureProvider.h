@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/AirTrafficDevice.framework/AirTrafficDevice
  */
 
-@interface ATMD5SignatureProvider : ATSignatureProvider {
-}
+@interface ATMD5SignatureProvider : ATSignatureProvider
 
-- (id)createSignatureForData:(id)arg1 returnedSignature:(id*)arg2;
-- (id)verifySignatureForData:(id)arg1 signature:(id)arg2;
+- (id)createSignature:(id*)arg1 forData:(id)arg2;
+- (id)verifySignature:(id)arg1 forData:(id)arg2;
 
 @end

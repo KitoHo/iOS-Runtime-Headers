@@ -2,35 +2,29 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSNumberFormatter, UIButton, UILabel, UIProgressView, UIView, _UIBackdropView;
-
 @interface PLProgressView : UIView {
-    unsigned int _didLayout : 1;
-    unsigned int _didSetPermanantTextOnLabelView : 1;
     _UIBackdropView *_backgroundBlurredView;
     UIView *_backgroundTintedView;
-    long long _backgroundType;
+    int _backgroundType;
     UIView *_backgroundView;
     UIButton *_cancelButton;
-    id _cancelationHandler;
+    id /* block */ _cancelationHandler;
+    unsigned int _didLayout;
+    unsigned int _didSetPermanantTextOnLabelView;
     UILabel *_labelView;
     NSNumberFormatter *_progressFormatter;
     UIProgressView *_progressView;
+    BOOL _showsCancelButton;
     UIView *_topDivider;
-    bool_showsCancelButton;
 }
 
-@property(retain) _UIBackdropView * backgroundBlurredView;
-@property(retain) UIView * backgroundTintedView;
-@property long long backgroundType;
-@property(retain) UIView * backgroundView;
-@property(copy) id cancelationHandler;
-@property float percentComplete;
-@property bool showsCancelButton;
+@property (nonatomic, retain) _UIBackdropView *backgroundBlurredView;
+@property (nonatomic, retain) UIView *backgroundTintedView;
+@property (nonatomic) int backgroundType;
+@property (nonatomic, retain) UIView *backgroundView;
+@property (nonatomic, copy) id /* block */ cancelationHandler;
+@property (nonatomic) float percentComplete;
+@property (nonatomic) BOOL showsCancelButton;
 
 - (void)_cancel:(id)arg1;
 - (void)_installBackgroundBlurredView;
@@ -41,22 +35,22 @@
 - (void)_syncToBackgroundType;
 - (id)backgroundBlurredView;
 - (id)backgroundTintedView;
-- (long long)backgroundType;
+- (int)backgroundType;
 - (id)backgroundView;
-- (id)cancelationHandler;
+- (id /* block */)cancelationHandler;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)layoutSubviews;
 - (float)percentComplete;
 - (void)setBackgroundBlurredView:(id)arg1;
 - (void)setBackgroundTintedView:(id)arg1;
-- (void)setBackgroundType:(long long)arg1;
+- (void)setBackgroundType:(int)arg1;
 - (void)setBackgroundView:(id)arg1;
-- (void)setCancelationHandler:(id)arg1;
+- (void)setCancelationHandler:(id /* block */)arg1;
 - (void)setLabelText:(id)arg1;
 - (void)setPercentComplete:(float)arg1;
-- (void)setShowsCancelButton:(bool)arg1;
-- (bool)showsCancelButton;
+- (void)setShowsCancelButton:(BOOL)arg1;
+- (BOOL)showsCancelButton;
 - (void)updateUIForPublishingAgent:(id)arg1;
 
 @end

@@ -2,12 +2,9 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSArray;
+@interface TNAppDelegateBase : TSABaseApplicationDelegate
 
-@interface TNAppDelegateBase : TSABaseApplicationDelegate {
-}
-
-@property(readonly) NSArray * excelDocumentTypes;
+@property (nonatomic, readonly) NSArray *excelDocumentTypes;
 
 - (id)appChartPropertyOverrides;
 - (void)applicationDidFinishLaunching:(id)arg1;
@@ -30,11 +27,21 @@
 - (id)previewImageNameForEncryptedNativeDocument;
 - (id)previewImageNameForNativeDocument;
 - (void)registerClassTypeMappings;
-- (bool)supportsRTL;
+- (id)stringForCloseDocument;
+- (id)stringForCollaboratorConflict;
+- (id)stringForCollaboratorConflictDetails;
+- (id)stringForCollaboratorConflictWithKeepDetails;
+- (id)stringForCollaboratorsBlockedWhileOffline;
+- (id)stringForDocumentUpdated;
+- (id)stringForDocumentUpdatedByOwner;
+- (id)stringForDocumentUpdatedTitle;
+- (id)stringForRemoteVersionRestorationAlertMessage;
+- (id)stringForRemoteVersionRestorationWithUnsavedChangesAlertMessage;
+- (id)stringForUpdatingDocument;
+- (BOOL)supportsRTL;
 - (id)tangierEditingFormatDocumentType;
 - (id)templateDocumentType;
 - (id)templateSFFDocumentType;
 - (id)templateTypeDisplayName;
-- (void)wakeUpDownloadManager;
 
 @end

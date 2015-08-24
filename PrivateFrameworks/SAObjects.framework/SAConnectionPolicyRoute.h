@@ -2,24 +2,21 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSNumber, NSString;
+@interface SAConnectionPolicyRoute : AceObject <SAAceSerializable>
 
-@interface SAConnectionPolicyRoute : AceObject <SAAceSerializable> {
-}
-
-@property(copy) NSString * cname;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * host;
-@property(copy) NSNumber * mptcp;
-@property long long priority;
-@property(copy) NSString * resolver;
-@property(copy) NSString * resolverProtocol;
-@property(copy) NSString * routeId;
-@property(readonly) Class superclass;
-@property(copy) NSNumber * timeout;
-@property(copy) NSString * type;
+@property (nonatomic, copy) NSString *cname;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSString *host;
+@property (nonatomic, copy) NSNumber *mptcp;
+@property (nonatomic) int priority;
+@property (nonatomic, copy) NSString *resolver;
+@property (nonatomic, copy) NSString *resolverProtocol;
+@property (nonatomic, copy) NSString *routeId;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSNumber *timeout;
+@property (nonatomic, copy) NSString *type;
 
 + (id)connectionPolicyRoute;
 + (id)connectionPolicyRouteWithDictionary:(id)arg1 context:(id)arg2;
@@ -29,14 +26,14 @@
 - (id)groupIdentifier;
 - (id)host;
 - (id)mptcp;
-- (long long)priority;
+- (int)priority;
 - (id)resolver;
 - (id)resolverProtocol;
 - (id)routeId;
 - (void)setCname:(id)arg1;
 - (void)setHost:(id)arg1;
 - (void)setMptcp:(id)arg1;
-- (void)setPriority:(long long)arg1;
+- (void)setPriority:(int)arg1;
 - (void)setResolver:(id)arg1;
 - (void)setResolverProtocol:(id)arg1;
 - (void)setRouteId:(id)arg1;

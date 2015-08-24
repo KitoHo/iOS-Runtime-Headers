@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSArray, NSString, NSURL, _UIDocumentPickerDirectoryObserver;
-
 @interface _UIDocumentPickerURLContainerModel : _UIDocumentPickerContainerModel {
     NSString *_displayTitle;
     NSArray *_modelObjects;
@@ -11,10 +9,10 @@
     NSURL *_url;
 }
 
-@property(retain) NSString * displayTitle;
-@property(retain) NSArray * modelObjects;
-@property(retain) _UIDocumentPickerDirectoryObserver * observer;
-@property(retain) NSURL * url;
+@property (nonatomic, copy) NSString *displayTitle;
+@property (nonatomic, retain) NSArray *modelObjects;
+@property (nonatomic, retain) _UIDocumentPickerDirectoryObserver *observer;
+@property (nonatomic, retain) NSURL *url;
 
 + (id)_tagBlipColors;
 + (void)_tagColorsDidChange;
@@ -22,6 +20,7 @@
 + (id)tagColorsByTag;
 
 - (id)_containerListDidChange;
+- (BOOL)afterInitialUpdate;
 - (void)callUpdateHandlerWithNewItems:(id)arg1 diff:(id)arg2;
 - (void)dealloc;
 - (id)description;
@@ -30,14 +29,14 @@
 - (void)modelChangedWithSnapshot:(id)arg1 differences:(id)arg2;
 - (id)modelObjects;
 - (id)observer;
-- (void)refreshItem:(id)arg1 thumbnailOnly:(bool)arg2;
+- (void)refreshItem:(id)arg1 thumbnailOnly:(BOOL)arg2;
 - (id)scopes;
 - (void)setDisplayTitle:(id)arg1;
 - (void)setModelObjects:(id)arg1;
 - (void)setObserver:(id)arg1;
 - (void)setUrl:(id)arg1;
-- (bool)shouldAllowPickingType:(id)arg1;
-- (bool)shouldShowContainerForType:(id)arg1;
+- (BOOL)shouldAllowPickingType:(id)arg1;
+- (BOOL)shouldShowContainerForType:(id)arg1;
 - (void)startMonitoringChanges;
 - (void)stopMonitoringChanges;
 - (void)updateSortDescriptors;

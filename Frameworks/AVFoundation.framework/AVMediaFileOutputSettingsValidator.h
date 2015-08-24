@@ -2,13 +2,11 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVMediaFileType;
-
 @interface AVMediaFileOutputSettingsValidator : NSObject <AVOutputSettingsValidation> {
     AVMediaFileType *_fileType;
 }
 
-@property(readonly) AVMediaFileType * fileType;
+@property (nonatomic, readonly) AVMediaFileType *fileType;
 
 + (void)initialize;
 + (id)mediaFileOutputSettingsValidatorForFileType:(id)arg1;
@@ -17,7 +15,7 @@
 - (id)fileType;
 - (id)init;
 - (id)initWithFileType:(id)arg1;
-- (bool)validateAudioOutputSettings:(id)arg1 reason:(id*)arg2;
-- (bool)validateVideoOutputSettings:(id)arg1 reason:(id*)arg2;
+- (BOOL)validateAudioOutputSettings:(id)arg1 reason:(id*)arg2;
+- (BOOL)validateVideoOutputSettings:(id)arg1 reason:(id*)arg2;
 
 @end

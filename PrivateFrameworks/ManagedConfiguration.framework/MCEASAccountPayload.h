@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@class NSData, NSNumber, NSString;
-
 @interface MCEASAccountPayload : MCEmailAccountPayloadBase {
     NSString *_accountDescription;
     NSString *_accountPersistentUUID;
@@ -16,26 +14,28 @@
     NSString *_hostname;
     NSNumber *_mailNumberOfPastDaysToSync;
     NSString *_password;
+    BOOL _syncDefaultFoldersOnly;
+    NSNumber *_syncDefaultFoldersOnlyNum;
     NSNumber *_useSSL;
     NSString *_username;
-    bool_syncDefaultFoldersOnly;
 }
 
-@property(retain,readonly) NSString * accountDescription;
-@property(copy) NSString * accountPersistentUUID;
-@property(retain) NSData * certificatePersistentID;
-@property(retain,readonly) NSString * certificateUUID;
-@property(copy) NSString * emailAddress;
-@property(retain,readonly) NSData * embeddedCertificate;
-@property(retain,readonly) NSString * embeddedCertificateName;
-@property(copy) NSString * embeddedCertificatePassword;
-@property(readonly) bool hasCertificate;
-@property(retain,readonly) NSString * hostname;
-@property(retain,readonly) NSNumber * mailNumberOfPastDaysToSync;
-@property(copy) NSString * password;
-@property bool syncDefaultFoldersOnly;
-@property(retain) NSNumber * useSSL;
-@property(copy) NSString * username;
+@property (nonatomic, readonly, retain) NSString *accountDescription;
+@property (nonatomic, copy) NSString *accountPersistentUUID;
+@property (nonatomic, retain) NSData *certificatePersistentID;
+@property (nonatomic, readonly, retain) NSString *certificateUUID;
+@property (nonatomic, copy) NSString *emailAddress;
+@property (nonatomic, readonly, retain) NSData *embeddedCertificate;
+@property (nonatomic, readonly, retain) NSString *embeddedCertificateName;
+@property (nonatomic, copy) NSString *embeddedCertificatePassword;
+@property (nonatomic, readonly) BOOL hasCertificate;
+@property (nonatomic, readonly, retain) NSString *hostname;
+@property (nonatomic, readonly, retain) NSNumber *mailNumberOfPastDaysToSync;
+@property (nonatomic, copy) NSString *password;
+@property (nonatomic) BOOL syncDefaultFoldersOnly;
+@property (nonatomic, readonly) NSNumber *syncDefaultFoldersOnlyNum;
+@property (nonatomic, retain) NSNumber *useSSL;
+@property (nonatomic, copy) NSString *username;
 
 + (id)localizedPluralForm;
 + (id)localizedSingularForm;
@@ -51,7 +51,7 @@
 - (id)embeddedCertificate;
 - (id)embeddedCertificateName;
 - (id)embeddedCertificatePassword;
-- (bool)hasCertificate;
+- (BOOL)hasCertificate;
 - (id)hostname;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id*)arg3;
 - (id)mailNumberOfPastDaysToSync;
@@ -62,7 +62,7 @@
 - (void)setEmailAddress:(id)arg1;
 - (void)setEmbeddedCertificatePassword:(id)arg1;
 - (void)setPassword:(id)arg1;
-- (void)setSyncDefaultFoldersOnly:(bool)arg1;
+- (void)setSyncDefaultFoldersOnly:(BOOL)arg1;
 - (void)setUseSSL:(id)arg1;
 - (void)setUsername:(id)arg1;
 - (id)stubDictionary;
@@ -70,7 +70,8 @@
 - (id)subtitle1Label;
 - (id)subtitle2Description;
 - (id)subtitle2Label;
-- (bool)syncDefaultFoldersOnly;
+- (BOOL)syncDefaultFoldersOnly;
+- (id)syncDefaultFoldersOnlyNum;
 - (id)title;
 - (id)useSSL;
 - (id)username;

@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSLock, NSMutableDictionary, NSMutableSet;
-
 @interface __NSBundleTables : NSObject {
     struct __CFDictionary { } *_bundleForClassMap;
     NSMutableSet *_loadedBundles;
@@ -16,7 +14,7 @@
 + (id)bundleTables;
 
 - (id)addBundle:(id)arg1 forPath:(id)arg2;
-- (void)addBundle:(id)arg1 type:(unsigned long long)arg2;
+- (void)addBundle:(id)arg1 type:(unsigned int)arg2;
 - (void)addStaticFrameworkBundles:(id)arg1;
 - (id)allBundles;
 - (id)allFrameworks;
@@ -26,7 +24,7 @@
 - (void)finalize;
 - (id)init;
 - (id)loadedBundles;
-- (void)removeBundle:(id)arg1 forPath:(id)arg2 type:(unsigned long long)arg3;
+- (void)removeBundle:(id)arg1 forPath:(id)arg2 type:(unsigned int)arg3;
 - (void)setBundle:(id)arg1 forClass:(Class)arg2;
 
 @end

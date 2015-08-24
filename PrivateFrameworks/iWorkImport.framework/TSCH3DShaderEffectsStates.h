@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSMutableDictionary;
-
 @interface TSCH3DShaderEffectsStates : NSObject {
     NSMutableDictionary *mObjects;
 }
@@ -14,7 +12,7 @@
 - (id)init;
 - (void)setState:(id)arg1 forStateInfo:(id)arg2;
 - (void)setValueState:(id)arg1 forKey:(id)arg2;
-- (id)stateForStateInfo:(id)arg1 createIfNil:(bool)arg2;
+- (id)stateForStateInfo:(id)arg1 createIfNil:(BOOL)arg2;
 - (id)valueStateForKey:(id)arg1;
 
 @end

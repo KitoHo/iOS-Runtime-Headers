@@ -2,70 +2,75 @@
    Image: /System/Library/Frameworks/GLKit.framework/GLKit
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class <GLKViewDelegate>, EAGLContext, NSMutableDictionary, UIImage;
-
 @interface GLKView : UIView <NSCoding> {
-    int (*_drawRectIMP)();
     EAGLContext *_context;
     <GLKViewDelegate> *_delegate;
     unsigned int _depthRenderbuffer;
     unsigned int _depthStencilRenderbuffer;
+    int (*_drawRectIMP;
     int _drawableColorFormat;
     int _drawableDepthFormat;
-    long long _drawableHeight;
+    int _drawableHeight;
     int _drawableMultisample;
     NSMutableDictionary *_drawableProperties;
     int _drawableStencilFormat;
-    long long _drawableWidth;
+    int _drawableWidth;
+    BOOL _enableSetNeedsDisplay;
+    BOOL _inDraw;
     unsigned int _multisampleColorRenderbuffer;
     unsigned int _multisampleFramebuffer;
     unsigned int _resolveColorRenderbuffer;
     unsigned int _resolveFramebuffer;
+    BOOL _shouldDeleteFramebuffer;
     unsigned int _stencilRenderbuffer;
-    bool_enableSetNeedsDisplay;
-    bool_inDraw;
-    bool_shouldDeleteFramebuffer;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
+    } _viewBounds;
+    float _viewContentScaleFactor;
 }
 
-@property(retain) EAGLContext * context;
-@property <GLKViewDelegate> * delegate;
-@property unsigned int depthRenderbuffer;
-@property unsigned int depthStencilRenderbuffer;
-@property int (* drawRectIMP;
-@property int drawableColorFormat;
-@property int drawableDepthFormat;
-@property(readonly) long long drawableHeight;
-@property int drawableMultisample;
-@property(retain) NSMutableDictionary * drawableProperties;
-@property int drawableStencilFormat;
-@property(readonly) long long drawableWidth;
-@property bool enableSetNeedsDisplay;
-@property bool inDraw;
-@property unsigned int multisampleColorRenderbuffer;
-@property unsigned int multisampleFramebuffer;
-@property unsigned int resolveColorRenderbuffer;
-@property unsigned int resolveFramebuffer;
-@property bool shouldDeleteFramebuffer;
-@property(readonly) UIImage * snapshot;
-@property unsigned int stencilRenderbuffer;
+@property (nonatomic, retain) EAGLContext *context;
+@property (nonatomic) <GLKViewDelegate> *delegate;
+@property (nonatomic) unsigned int depthRenderbuffer;
+@property (nonatomic) unsigned int depthStencilRenderbuffer;
+@property (nonatomic) int (*drawRectIMP;
+@property (nonatomic) int drawableColorFormat;
+@property (nonatomic) int drawableDepthFormat;
+@property (nonatomic, readonly) int drawableHeight;
+@property (nonatomic) int drawableMultisample;
+@property (nonatomic, retain) NSMutableDictionary *drawableProperties;
+@property (nonatomic) int drawableStencilFormat;
+@property (nonatomic, readonly) int drawableWidth;
+@property (nonatomic) BOOL enableSetNeedsDisplay;
+@property (nonatomic) BOOL inDraw;
+@property (nonatomic) unsigned int multisampleColorRenderbuffer;
+@property (nonatomic) unsigned int multisampleFramebuffer;
+@property (nonatomic) unsigned int resolveColorRenderbuffer;
+@property (nonatomic) unsigned int resolveFramebuffer;
+@property (nonatomic) BOOL shouldDeleteFramebuffer;
+@property (readonly) UIImage *snapshot;
+@property (nonatomic) unsigned int stencilRenderbuffer;
+@property (nonatomic) struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } viewBounds;
+@property (nonatomic) float viewContentScaleFactor;
 
 + (Class)layerClass;
 
-- (int (*)())drawRectIMP;
-- (bool)_canDrawContent;
-- (bool)_controlsOwnScaleFactor;
+- (BOOL)_canDrawContent;
+- (BOOL)_controlsOwnScaleFactor;
 - (void)_createFramebuffer;
 - (void)_deleteFramebuffer;
-- (void)_display:(bool)arg1;
+- (void)_display:(BOOL)arg1;
 - (void)_initCommon;
-- (bool)_presentFramebuffer;
+- (BOOL)_presentFramebuffer;
 - (void)_resolveAndDiscard;
-- (void)_setFramebuffer:(bool*)arg1;
+- (void)_setFramebuffer:(BOOL*)arg1;
 - (void)bindDrawable;
 - (id)context;
 - (void)dealloc;
@@ -75,45 +80,50 @@
 - (unsigned int)depthStencilRenderbuffer;
 - (void)display;
 - (void)displayLayer:(id)arg1;
+- (int (*)drawRectIMP;
 - (int)drawableColorFormat;
 - (int)drawableDepthFormat;
-- (long long)drawableHeight;
+- (int)drawableHeight;
 - (int)drawableMultisample;
 - (id)drawableProperties;
 - (int)drawableStencilFormat;
-- (long long)drawableWidth;
-- (bool)enableSetNeedsDisplay;
+- (int)drawableWidth;
+- (BOOL)enableSetNeedsDisplay;
 - (void)encodeWithCoder:(id)arg1;
-- (bool)inDraw;
+- (BOOL)inDraw;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 context:(id)arg2;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1 context:(id)arg2;
 - (void)layoutSubviews;
 - (unsigned int)multisampleColorRenderbuffer;
 - (unsigned int)multisampleFramebuffer;
 - (unsigned int)resolveColorRenderbuffer;
 - (unsigned int)resolveFramebuffer;
-- (void)setContentScaleFactor:(double)arg1;
+- (void)setContentScaleFactor:(float)arg1;
 - (void)setContext:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setDepthRenderbuffer:(unsigned int)arg1;
 - (void)setDepthStencilRenderbuffer:(unsigned int)arg1;
-- (void)setDrawRectIMP:(int (*)())arg1;
+- (void)setDrawRectIMP:(int (*)arg1;
 - (void)setDrawableColorFormat:(int)arg1;
 - (void)setDrawableDepthFormat:(int)arg1;
 - (void)setDrawableMultisample:(int)arg1;
 - (void)setDrawableProperties:(id)arg1;
 - (void)setDrawableStencilFormat:(int)arg1;
-- (void)setEnableSetNeedsDisplay:(bool)arg1;
-- (void)setInDraw:(bool)arg1;
+- (void)setEnableSetNeedsDisplay:(BOOL)arg1;
+- (void)setInDraw:(BOOL)arg1;
 - (void)setMultisampleColorRenderbuffer:(unsigned int)arg1;
 - (void)setMultisampleFramebuffer:(unsigned int)arg1;
 - (void)setResolveColorRenderbuffer:(unsigned int)arg1;
 - (void)setResolveFramebuffer:(unsigned int)arg1;
-- (void)setShouldDeleteFramebuffer:(bool)arg1;
+- (void)setShouldDeleteFramebuffer:(BOOL)arg1;
 - (void)setStencilRenderbuffer:(unsigned int)arg1;
-- (bool)shouldDeleteFramebuffer;
+- (void)setViewBounds:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (void)setViewContentScaleFactor:(float)arg1;
+- (BOOL)shouldDeleteFramebuffer;
 - (id)snapshot;
 - (unsigned int)stencilRenderbuffer;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })viewBounds;
+- (float)viewContentScaleFactor;
 
 @end

@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-@interface TrimVideoNavigationItem : UINavigationItem {
-}
+@interface TrimVideoNavigationItem : UINavigationItem
 
-- (long long)barStyle;
+- (int)barStyle;
 
 @end

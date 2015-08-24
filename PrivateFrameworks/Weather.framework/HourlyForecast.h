@@ -2,35 +2,36 @@
    Image: /System/Library/PrivateFrameworks/Weather.framework/Weather
  */
 
-@class NSString;
-
-@interface HourlyForecast : NSObject {
-    long long _conditionCode;
+@interface HourlyForecast : NSObject <NSCopying> {
+    int _conditionCode;
     NSString *_detail;
-    unsigned long long _eventType;
-    long long _hourIndex;
+    unsigned int _eventType;
+    int _hourIndex;
     float _percentPrecipitation;
     NSString *_time;
 }
 
-@property long long conditionCode;
-@property(copy) NSString * detail;
-@property unsigned long long eventType;
-@property long long hourIndex;
-@property float percentPrecipitation;
-@property(copy) NSString * time;
+@property (nonatomic) int conditionCode;
+@property (nonatomic, copy) NSString *detail;
+@property (nonatomic) unsigned int eventType;
+@property (nonatomic) int hourIndex;
+@property (nonatomic) float percentPrecipitation;
+@property (nonatomic, copy) NSString *time;
 
-- (long long)conditionCode;
++ (int)TimeValueFromString:(id)arg1;
+
+- (int)conditionCode;
+- (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)detail;
-- (unsigned long long)eventType;
-- (long long)hourIndex;
+- (unsigned int)eventType;
+- (int)hourIndex;
 - (float)percentPrecipitation;
-- (void)setConditionCode:(long long)arg1;
+- (void)setConditionCode:(int)arg1;
 - (void)setDetail:(id)arg1;
-- (void)setEventType:(unsigned long long)arg1;
-- (void)setHourIndex:(long long)arg1;
+- (void)setEventType:(unsigned int)arg1;
+- (void)setHourIndex:(int)arg1;
 - (void)setPercentPrecipitation:(float)arg1;
 - (void)setTime:(id)arg1;
 - (id)time;

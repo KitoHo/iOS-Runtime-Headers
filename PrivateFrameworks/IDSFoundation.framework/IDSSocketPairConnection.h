@@ -2,46 +2,56 @@
    Image: /System/Library/PrivateFrameworks/IDSFoundation.framework/IDSFoundation
  */
 
-@class NSData, NSMapTable, NSMutableArray, NSMutableData, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>;
-
 @interface IDSSocketPairConnection : NSObject {
-    long long _bytesReceived;
+    long _bytesReceived;
     int _connectedSocket;
     unsigned int _currentDataLength;
     NSMutableData *_currentMessageData;
-    unsigned long long _currentOutgoingDataIndex;
-    NSMapTable *_delegateToInfo;
+    unsigned int _currentOutgoingDataIndex;
+    unsigned int _currentOutgoingFragmentedMessageID;
+    IMWeakReference *_delegate;
+    NSObject<OS_dispatch_queue> *_delegateQueue;
+    unsigned int _fragmentationSize;
     NSMutableData *_headerData;
+    unsigned int _inFlightMessageCountLowWaterMark;
+    NSMutableDictionary *_incomingDataFragments;
+    BOOL _isConnected;
     double _lastDateCheck;
+    NSObject<OS_dispatch_semaphore> *_lock;
+    BOOL _notifyWhenConnectionReceivesBytes;
     NSData *_outgoingData;
-    NSMutableArray *_outgoingDataArray;
+    NSMutableArray *_outgoingMessageArray;
     double _prevBPS;
-    NSObject<OS_dispatch_queue> *_readQueue;
-    NSObject<OS_dispatch_source> *_readSource;
-    NSObject<OS_dispatch_source> *_writeSource;
-    bool_isConnected;
-    bool_writeSourceIsResumed;
+    int _priority;
+    BOOL _writeSocketIsResumed;
 }
 
-@property(readonly) bool isConnected;
-@property(readonly) bool isEmpty;
-@property(readonly) int socket;
+@property (nonatomic) unsigned int fragmentationSize;
+@property (nonatomic, readonly) unsigned int inFlightMessageCount;
+@property (nonatomic) unsigned int inFlightMessageCountLowWaterMark;
+@property (nonatomic, readonly) NSSet *inFlightMessages;
+@property (nonatomic, readonly) BOOL isConnected;
+@property (nonatomic, readonly) BOOL isEmpty;
 
-- (void)_callDelegatesWithBlock:(id)arg1;
+- (void)_callDelegateWithBlock:(id /* block */)arg1;
 - (void)_endSession;
 - (void)_processBytesAvailable;
-- (long long)_read:(char *)arg1 maxLength:(unsigned long long)arg2;
+- (BOOL)_queueNextOutgoingData;
+- (int)_read:(char *)arg1 maxLength:(unsigned int)arg2;
 - (void)_sendToConnectedSocket;
-- (void)_setupWriteSource;
-- (void)_sourceCancelled;
-- (void)_startServer;
 - (void)dealloc;
 - (void)endSession;
-- (id)initWithQueue:(id)arg1 delegate:(id)arg2;
-- (id)initWithSocket:(int)arg1 queue:(id)arg2 delegate:(id)arg3;
-- (bool)isConnected;
-- (bool)isEmpty;
-- (bool)sendDataMessage:(id)arg1;
-- (int)socket;
+- (unsigned int)fragmentationSize;
+- (unsigned int)inFlightMessageCount;
+- (unsigned int)inFlightMessageCountLowWaterMark;
+- (id)inFlightMessages;
+- (id)initWithSocket:(int)arg1 queue:(id)arg2 delegate:(id)arg3 priority:(int)arg4;
+- (BOOL)isConnected;
+- (BOOL)isEmpty;
+- (BOOL)sendDataMessage:(id)arg1;
+- (BOOL)sendDataMessage:(id)arg1 canFragment:(BOOL)arg2;
+- (void)setFragmentationSize:(unsigned int)arg1;
+- (void)setInFlightMessageCountLowWaterMark:(unsigned int)arg1;
+- (void)setNotifyWhenConnectionReceivesBytes:(BOOL)arg1;
 
 @end

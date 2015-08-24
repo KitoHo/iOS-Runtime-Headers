@@ -2,38 +2,35 @@
    Image: /System/Library/Frameworks/HomeKit.framework/HomeKit
  */
 
-@class HMHome, HMMessageDispatcher, NSArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSUUID;
-
-@interface HMRoom : NSObject <NSSecureCoding, HMMessageReceiver> {
+@interface HMRoom : NSObject <HMMessageReceiver, NSSecureCoding> {
     HMHome *_home;
     HMMessageDispatcher *_msgDispatcher;
     NSString *_name;
-    NSMutableDictionary *_pendingRequests;
     NSUUID *_uuid;
     NSObject<OS_dispatch_queue> *_workQueue;
 }
 
-@property(copy,readonly) NSArray * accessories;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property HMHome * home;
-@property(readonly) NSObject<OS_dispatch_queue> * messageReceiveQueue;
-@property(readonly) NSUUID * messageTargetUUID;
-@property(retain) HMMessageDispatcher * msgDispatcher;
-@property(copy,readonly) NSString * name;
-@property(retain) NSMutableDictionary * pendingRequests;
-@property(readonly) Class superclass;
-@property(retain) NSUUID * uuid;
-@property(retain) NSObject<OS_dispatch_queue> * workQueue;
+@property (nonatomic, readonly, copy) NSArray *accessories;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) HMHome *home;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property (nonatomic, readonly) NSUUID *messageTargetUUID;
+@property (nonatomic, retain) HMMessageDispatcher *msgDispatcher;
+@property (nonatomic, readonly, copy) NSString *name;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSUUID *uuid;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *workQueue;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)_registerNotificationHandlers;
-- (void)_updateName:(id)arg1 completionHandler:(id)arg2;
+- (void)_updateName:(id)arg1 completionHandler:(id /* block */)arg2;
 - (id)accessories;
 - (void)configure:(id)arg1 uuid:(id)arg2 messageDispatcher:(id)arg3;
+- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (void)handleRoomRenamedNotification:(id)arg1;
 - (id)home;
@@ -45,13 +42,12 @@
 - (id)messageTargetUUID;
 - (id)msgDispatcher;
 - (id)name;
-- (id)pendingRequests;
 - (void)setHome:(id)arg1;
 - (void)setMsgDispatcher:(id)arg1;
-- (void)setPendingRequests:(id)arg1;
 - (void)setUuid:(id)arg1;
 - (void)setWorkQueue:(id)arg1;
-- (void)updateName:(id)arg1 completionHandler:(id)arg2;
+- (void)unconfigure;
+- (void)updateName:(id)arg1 completionHandler:(id /* block */)arg2;
 - (id)uuid;
 - (id)workQueue;
 

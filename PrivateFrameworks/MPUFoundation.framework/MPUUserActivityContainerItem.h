@@ -2,28 +2,31 @@
    Image: /System/Library/PrivateFrameworks/MPUFoundation.framework/MPUFoundation
  */
 
-@class MPMediaEntity, _MPUProtoBufUserActivityContainerItem;
-
 @interface MPUUserActivityContainerItem : NSObject <NSCopying, NSMutableCopying> {
-    long long _containerItemType;
+    int _containerItemType;
     MPMediaEntity *_selectedMediaEntity;
     MPMediaEntity *_visualReferenceMediaEntity;
 }
 
-@property(readonly) long long containerItemType;
-@property(readonly) _MPUProtoBufUserActivityContainerItem * protoBufUserActivityContainerItem;
-@property(readonly) MPMediaEntity * selectedMediaEntity;
-@property(readonly) MPMediaEntity * visualReferenceMediaEntity;
+@property (nonatomic, readonly) MPUContentItemIdentifierCollection *MPU_selectedContentItemIdentifierCollection;
+@property (nonatomic, readonly) MPUContentItemIdentifierCollection *MPU_visualReferenceContentItemIdentifierCollection;
+@property (nonatomic, readonly) int containerItemType;
+@property (nonatomic, readonly) _MPUProtoBufUserActivityContainerItem *protoBufUserActivityContainerItem;
+@property (nonatomic, readonly) MPMediaEntity *selectedMediaEntity;
+@property (nonatomic, readonly) MPMediaEntity *visualReferenceMediaEntity;
 
 - (void).cxx_destruct;
-- (long long)containerItemType;
+- (id)MPU_selectedContentItemIdentifierCollection;
+- (id)MPU_visualReferenceContentItemIdentifierCollection;
+- (id)_MPU_contentItemIdentifierCollectionWithMediaEntity:(id)arg1;
+- (int)containerItemType;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
-- (id)initWithContainerItemType:(long long)arg1;
+- (id)initWithContainerItemType:(int)arg1;
 - (id)initWithProtoBufUserActivityContainerItem:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone { }*)arg1;
 - (id)protoBufUserActivityContainerItem;
 - (id)selectedMediaEntity;

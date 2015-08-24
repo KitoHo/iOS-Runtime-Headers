@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class CoreDAVResourceTypeItem, CoreDAVSupportedReportSetItem, NSDictionary, NSSet, NSString, NSURL;
-
 @interface CoreDAVContainer : NSObject {
     NSURL *_addMemberURL;
     NSDictionary *_bulkRequests;
     NSString *_containerTitle;
+    BOOL _isUnauthenticated;
     NSURL *_owner;
     NSSet *_privileges;
     NSString *_pushKey;
@@ -19,55 +18,54 @@
     CoreDAVSupportedReportSetItem *_supportedReportSetItem;
     NSString *_syncToken;
     NSURL *_url;
-    bool_isUnauthenticated;
 }
 
-@property(retain) NSURL * addMemberURL;
-@property(retain) NSDictionary * bulkRequests;
-@property(retain) NSString * containerTitle;
-@property(readonly) bool hasBindPrivileges;
-@property(readonly) bool hasReadPrivileges;
-@property(readonly) bool hasUnbindPrivileges;
-@property(readonly) bool hasWriteContentPrivileges;
-@property(readonly) bool hasWritePropertiesPrivileges;
-@property(readonly) bool isPrincipal;
-@property bool isUnauthenticated;
-@property(retain) NSURL * owner;
-@property(retain) NSSet * privileges;
-@property(readonly) NSSet * privilegesAsStringSet;
-@property(retain) NSString * pushKey;
-@property(retain) NSDictionary * pushTransports;
-@property(retain) NSString * quotaAvailable;
-@property(retain) NSString * quotaUsed;
-@property(retain) NSURL * resourceID;
-@property(retain) CoreDAVResourceTypeItem * resourceType;
-@property(readonly) NSSet * resourceTypeAsStringSet;
-@property(retain) CoreDAVSupportedReportSetItem * supportedReportSetItem;
-@property(readonly) NSSet * supportedReports;
-@property(readonly) NSSet * supportedReportsAsStringSet;
-@property(readonly) bool supportsPrincipalPropertySearchReport;
-@property(readonly) bool supportsSyncCollectionReport;
-@property(retain) NSString * syncToken;
-@property(retain) NSURL * url;
+@property (nonatomic, retain) NSURL *addMemberURL;
+@property (nonatomic, retain) NSDictionary *bulkRequests;
+@property (nonatomic, retain) NSString *containerTitle;
+@property (nonatomic, readonly) BOOL hasBindPrivileges;
+@property (nonatomic, readonly) BOOL hasReadPrivileges;
+@property (nonatomic, readonly) BOOL hasUnbindPrivileges;
+@property (nonatomic, readonly) BOOL hasWriteContentPrivileges;
+@property (nonatomic, readonly) BOOL hasWritePropertiesPrivileges;
+@property (nonatomic, readonly) BOOL isPrincipal;
+@property (nonatomic) BOOL isUnauthenticated;
+@property (nonatomic, retain) NSURL *owner;
+@property (nonatomic, retain) NSSet *privileges;
+@property (nonatomic, readonly) NSSet *privilegesAsStringSet;
+@property (nonatomic, retain) NSString *pushKey;
+@property (nonatomic, retain) NSDictionary *pushTransports;
+@property (nonatomic, retain) NSString *quotaAvailable;
+@property (nonatomic, retain) NSString *quotaUsed;
+@property (nonatomic, retain) NSURL *resourceID;
+@property (nonatomic, retain) CoreDAVResourceTypeItem *resourceType;
+@property (nonatomic, readonly) NSSet *resourceTypeAsStringSet;
+@property (nonatomic, retain) CoreDAVSupportedReportSetItem *supportedReportSetItem;
+@property (nonatomic, readonly) NSSet *supportedReports;
+@property (nonatomic, readonly) NSSet *supportedReportsAsStringSet;
+@property (nonatomic, readonly) BOOL supportsPrincipalPropertySearchReport;
+@property (nonatomic, readonly) BOOL supportsSyncCollectionReport;
+@property (nonatomic, retain) NSString *syncToken;
+@property (nonatomic, retain) NSURL *url;
 
 + (id)convertPushTransportsForNSServerNotificationCenter:(id)arg1;
 + (id)copyPropertyMappingsForParser;
 
-- (bool)_anyPrivilegesMatches:(id)arg1;
+- (BOOL)_anyPrivilegesMatches:(id /* block */)arg1;
 - (id)addMemberURL;
 - (void)applyParsedProperties:(id)arg1;
 - (id)bulkRequests;
 - (id)containerTitle;
 - (void)dealloc;
 - (id)description;
-- (bool)hasBindPrivileges;
-- (bool)hasReadPrivileges;
-- (bool)hasUnbindPrivileges;
-- (bool)hasWriteContentPrivileges;
-- (bool)hasWritePropertiesPrivileges;
+- (BOOL)hasBindPrivileges;
+- (BOOL)hasReadPrivileges;
+- (BOOL)hasUnbindPrivileges;
+- (BOOL)hasWriteContentPrivileges;
+- (BOOL)hasWritePropertiesPrivileges;
 - (id)initWithURL:(id)arg1 andProperties:(id)arg2;
-- (bool)isPrincipal;
-- (bool)isUnauthenticated;
+- (BOOL)isPrincipal;
+- (BOOL)isUnauthenticated;
 - (id)owner;
 - (id)privileges;
 - (id)privilegesAsStringSet;
@@ -81,7 +79,7 @@
 - (void)setAddMemberURL:(id)arg1;
 - (void)setBulkRequests:(id)arg1;
 - (void)setContainerTitle:(id)arg1;
-- (void)setIsUnauthenticated:(bool)arg1;
+- (void)setIsUnauthenticated:(BOOL)arg1;
 - (void)setOwner:(id)arg1;
 - (void)setPrivileges:(id)arg1;
 - (void)setPushKey:(id)arg1;
@@ -96,8 +94,8 @@
 - (id)supportedReportSetItem;
 - (id)supportedReports;
 - (id)supportedReportsAsStringSet;
-- (bool)supportsPrincipalPropertySearchReport;
-- (bool)supportsSyncCollectionReport;
+- (BOOL)supportsPrincipalPropertySearchReport;
+- (BOOL)supportsSyncCollectionReport;
 - (id)syncToken;
 - (id)url;
 

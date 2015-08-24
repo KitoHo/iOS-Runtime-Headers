@@ -2,40 +2,39 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@interface CKUIBehaviorPad : CKUIBehavior {
-}
+@interface CKUIBehaviorPad : CKUIBehavior
 
-- (struct CGSize { double x1; double x2; })attachmentBrowserDefaultSizeForSquare;
-- (double)attachmentBrowserGridInterItemSpacing;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })contactPhotoTranscriptInsets;
-- (struct CGSize { double x1; double x2; })documentIconSize;
-- (double)leftSplitPaneMaximumWidth;
-- (double)leftSplitPaneMinimumWidth;
-- (double)leftSplitPaneWidthForUIInterfaceOrientation:(long long)arg1;
-- (double)leftSplitPaneWidthFraction;
-- (bool)lowClearanceInLandscape;
-- (unsigned long long)numberOfButtonsInPhotoPicker;
-- (double)photoPickerMaxZoomedPhotoHeight;
-- (double)photoPickerPopoverWidth;
-- (bool)photoPickerShouldZoomOnSelection;
-- (bool)presentForwardingUIModally;
-- (bool)presentsFullscreenInViewService;
-- (bool)presentsQuickLookController;
-- (bool)presentsReaderController;
-- (bool)shouldDimTranscript;
-- (bool)shouldReconfigureNewComposeOnRotation;
-- (bool)shouldRefreshAlternateAddressesSheet;
-- (bool)shouldShowContactPhotosInConversationList;
-- (bool)shouldShowDisclosureChevronInRecipientAtoms;
-- (bool)shouldSuppressRotationInNewCompose;
-- (bool)showMMSSetup;
-- (bool)showPendingInConversationList;
-- (bool)showsChevronImage;
-- (unsigned long long)supportedInterfaceOrientations;
-- (double)transcriptContactImageDiameter;
-- (double)transcriptHeaderViewMaxRows;
-- (bool)usesCustomSplitViewMasterColumnWidth;
-- (bool)usesPopovers;
-- (bool)usesUncollapsedSplitview;
+- (struct CGSize { float x1; float x2; })attachmentBrowserDefaultSizeForSquare;
+- (float)attachmentBrowserGridInterItemSpacing;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })contactPhotoTranscriptInsets;
+- (unsigned int)defaultConversationViewingMessageCount;
+- (struct CGSize { float x1; float x2; })documentIconSize;
+- (float)leftSplitPaneMaximumWidth;
+- (float)leftSplitPaneMinimumWidth;
+- (float)leftSplitPaneWidthForUIInterfaceOrientation:(int)arg1;
+- (float)leftSplitPaneWidthFraction;
+- (BOOL)lowClearanceInLandscape;
+- (unsigned int)numberOfButtonsInPhotoPicker;
+- (float)photoPickerMaxPopoverPhotoHeight;
+- (float)photoPickerPopoverWidth;
+- (BOOL)photoPickerShouldZoomOnSelection;
+- (BOOL)presentForwardingUIModally;
+- (BOOL)presentsFullscreenInViewService;
+- (BOOL)presentsQuickLookController;
+- (BOOL)presentsReaderController;
+- (BOOL)shouldReconfigureNewComposeOnRotation;
+- (BOOL)shouldRefreshAlternateAddressesSheet;
+- (BOOL)shouldShowContactPhotosInConversationList;
+- (BOOL)shouldShowDisclosureChevronInRecipientAtoms;
+- (BOOL)shouldSuppressRotationInNewCompose;
+- (BOOL)showMMSSetup;
+- (BOOL)showPendingInConversationList;
+- (BOOL)showsConversationListCellChevronImage;
+- (unsigned int)supportedInterfaceOrientations;
+- (float)transcriptContactImageDiameter;
+- (float)transcriptHeaderViewMaxRows;
+- (BOOL)usesCustomSplitViewMasterColumnWidth;
+- (BOOL)usesPopovers;
+- (BOOL)usesUncollapsedSplitview;
 
 @end

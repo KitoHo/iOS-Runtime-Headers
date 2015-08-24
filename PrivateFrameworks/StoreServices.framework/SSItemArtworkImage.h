@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSMutableDictionary, NSString, NSURL;
-
-@interface SSItemArtworkImage : NSObject <SSXPCCoding, NSCopying> {
+@interface SSItemArtworkImage : NSObject <NSCopying, SSXPCCoding> {
     NSMutableDictionary *_dictionary;
     NSString *_imageKind;
 }
 
-@property(retain) NSURL * URL;
-@property(readonly) NSString * URLString;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) long long height;
-@property(copy) NSString * imageKind;
-@property(readonly) long long imageOrientation;
-@property(readonly) double imageScale;
-@property(readonly) struct CGSize { double x1; double x2; } imageSize;
-@property(getter=isPrerendered,readonly) bool prerendered;
-@property(readonly) Class superclass;
-@property(readonly) long long width;
+@property (nonatomic, retain) NSURL *URL;
+@property (nonatomic, readonly) NSString *URLString;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) int height;
+@property (nonatomic, copy) NSString *imageKind;
+@property (nonatomic, readonly) int imageOrientation;
+@property (nonatomic, readonly) float imageScale;
+@property (nonatomic, readonly) struct CGSize { float x1; float x2; } imageSize;
+@property (getter=isPrerendered, nonatomic, readonly) BOOL prerendered;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) int width;
 
 - (id)URL;
 - (id)URLString;
@@ -30,21 +28,21 @@
 - (id)copyXPCEncoding;
 - (void)dealloc;
 - (id)description;
-- (unsigned long long)hash;
-- (long long)height;
+- (unsigned int)hash;
+- (int)height;
 - (id)imageKind;
-- (long long)imageOrientation;
-- (double)imageScale;
-- (struct CGSize { double x1; double x2; })imageSize;
+- (int)imageOrientation;
+- (float)imageScale;
+- (struct CGSize { float x1; float x2; })imageSize;
 - (id)initWithArtworkDictionary:(id)arg1;
 - (id)initWithXPCEncoding:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)isPrerendered;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isPrerendered;
 - (void)setImageKind:(id)arg1;
 - (void)setImageKindWithTypeName:(id)arg1 variantName:(id)arg2;
 - (void)setURL:(id)arg1;
 - (void)setValue:(id)arg1 forProperty:(id)arg2;
 - (id)valueForProperty:(id)arg1;
-- (long long)width;
+- (int)width;
 
 @end

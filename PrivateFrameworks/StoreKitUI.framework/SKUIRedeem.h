@@ -2,14 +2,13 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, NSDictionary, NSString, NSURL, SKUIArtworkList, UIImage;
-
 @interface SKUIRedeem : NSObject {
     double _ITunesPassLearnMoreAlertInterval;
     NSString *_balance;
     NSString *_credit;
     SKUIArtworkList *_headerArtworkList;
     UIImage *_headerImage;
+    BOOL _hideItemView;
     NSString *_inAppPurchase;
     NSArray *_items;
     NSArray *_links;
@@ -17,22 +16,21 @@
     NSURL *_redirectURL;
     NSDictionary *_thankYouDictionary;
     NSString *_title;
-    bool_hideItemView;
 }
 
-@property double ITunesPassLearnMoreAlertInterval;
-@property(copy) NSString * balance;
-@property(copy) NSString * credit;
-@property(retain) SKUIArtworkList * headerArtworkList;
-@property(retain) UIImage * headerImage;
-@property bool hideItemView;
-@property(retain) NSString * inAppPurchase;
-@property(retain) NSArray * items;
-@property(retain) NSArray * links;
-@property(copy) NSString * message;
-@property(retain) NSURL * redirectURL;
-@property(retain) NSDictionary * thankYouDictionary;
-@property(copy) NSString * title;
+@property (nonatomic) double ITunesPassLearnMoreAlertInterval;
+@property (nonatomic, copy) NSString *balance;
+@property (nonatomic, copy) NSString *credit;
+@property (nonatomic, retain) SKUIArtworkList *headerArtworkList;
+@property (nonatomic, retain) UIImage *headerImage;
+@property (nonatomic) BOOL hideItemView;
+@property (nonatomic, retain) NSString *inAppPurchase;
+@property (nonatomic, retain) NSArray *items;
+@property (nonatomic, retain) NSArray *links;
+@property (nonatomic, copy) NSString *message;
+@property (nonatomic, retain) NSURL *redirectURL;
+@property (nonatomic, retain) NSDictionary *thankYouDictionary;
+@property (nonatomic, copy) NSString *title;
 
 - (void).cxx_destruct;
 - (double)ITunesPassLearnMoreAlertInterval;
@@ -40,7 +38,7 @@
 - (id)credit;
 - (id)headerArtworkList;
 - (id)headerImage;
-- (bool)hideItemView;
+- (BOOL)hideItemView;
 - (id)inAppPurchase;
 - (id)init;
 - (id)items;
@@ -51,7 +49,7 @@
 - (void)setCredit:(id)arg1;
 - (void)setHeaderArtworkList:(id)arg1;
 - (void)setHeaderImage:(id)arg1;
-- (void)setHideItemView:(bool)arg1;
+- (void)setHideItemView:(BOOL)arg1;
 - (void)setITunesPassLearnMoreAlertInterval:(double)arg1;
 - (void)setInAppPurchase:(id)arg1;
 - (void)setItems:(id)arg1;

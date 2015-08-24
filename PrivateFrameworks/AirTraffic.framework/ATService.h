@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/AirTraffic.framework/AirTraffic
  */
 
-@class NSHashTable, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
-
 @interface ATService : NSObject <ATMessageLinkObserver> {
     NSMutableSet *_messageLinks;
     NSHashTable *_observers;
     NSObject<OS_dispatch_queue> *_queue;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) NSMutableSet * messageLinks;
-@property(retain) NSHashTable * observers;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NSMutableSet *messageLinks;
+@property (nonatomic, retain) NSHashTable *observers;
+@property (readonly) Class superclass;
 
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
 
@@ -28,9 +26,9 @@
 - (id)observers;
 - (void)removeMessageLink:(id)arg1;
 - (void)removeObserver:(id)arg1;
-- (bool)run;
+- (BOOL)run;
 - (void)setMessageLinks:(id)arg1;
 - (void)setObservers:(id)arg1;
-- (bool)stop;
+- (BOOL)stop;
 
 @end

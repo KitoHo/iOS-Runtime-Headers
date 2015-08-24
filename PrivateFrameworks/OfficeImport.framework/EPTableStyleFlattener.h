@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class EDTable;
-
 @interface EPTableStyleFlattener : EPStyleFlattener {
-    unsigned long long mHeaderRowCount;
+    unsigned int mHeaderRowCount;
     EDTable *mTable;
-    unsigned long long mTotalsRowCount;
+    unsigned int mTotalsRowCount;
 }
 
 - (int)borderFlagsForStyleType:(int)arg1 row:(int)arg2 column:(int)arg3;

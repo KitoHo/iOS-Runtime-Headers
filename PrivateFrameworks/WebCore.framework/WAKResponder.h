@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
  */
 
-@interface WAKResponder : NSObject {
-}
+@interface WAKResponder : NSObject
 
 - (void)_forwardEvent:(id)arg1;
-- (bool)acceptsFirstResponder;
-- (bool)becomeFirstResponder;
+- (BOOL)acceptsFirstResponder;
+- (BOOL)becomeFirstResponder;
 - (void)deleteBackward:(id)arg1;
 - (void)deleteForward:(id)arg1;
 - (void)handleEvent:(id)arg1;
@@ -29,9 +28,9 @@
 - (void)moveUp:(id)arg1;
 - (void)moveUpAndModifySelection:(id)arg1;
 - (id)nextResponder;
-- (bool)resignFirstResponder;
+- (BOOL)resignFirstResponder;
 - (void)scrollWheel:(id)arg1;
 - (void)touch:(id)arg1;
-- (bool)tryToPerform:(SEL)arg1 with:(id)arg2;
+- (BOOL)tryToPerform:(SEL)arg1 with:(id)arg2;
 
 @end

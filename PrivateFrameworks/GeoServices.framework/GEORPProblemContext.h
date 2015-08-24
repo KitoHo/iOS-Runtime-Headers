@@ -2,46 +2,58 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOPDPlace, GEOPlace, GEORPMapLocation, NSMutableArray, NSString;
-
 @interface GEORPProblemContext : PBCodable <NSCopying> {
+    NSMutableArray *_auxiliaryControls;
+    NSMutableArray *_directionsRequests;
+    NSMutableArray *_directionsResponses;
+    struct { 
+        unsigned int sessionId : 1; 
+        unsigned int originatingAuxiliaryControlIndex : 1; 
+        unsigned int pinType : 1; 
+    } _has;
+    NSString *_lastSearchString;
+    GEORPMapLocation *_mapLocation;
+    GEOPlace *_originalPlace;
+    unsigned long long _originatingAuxiliaryControlIndex;
+    int _pinType;
+    GEOPDPlace *_place;
     struct { 
         unsigned long long _high; 
         unsigned long long _low; 
-    struct { 
-        unsigned int sessionId : 1; 
-        unsigned int pinType : 1; 
-    NSMutableArray *_directionsRequests;
-    NSMutableArray *_directionsResponses;
-    } _has;
-    GEORPMapLocation *_mapLocation;
-    GEOPlace *_originalPlace;
-    int _pinType;
-    GEOPDPlace *_place;
     } _sessionId;
     NSString *_tileStateLog;
     NSMutableArray *_visibleTileSets;
 }
 
-@property(retain) NSMutableArray * directionsRequests;
-@property(retain) NSMutableArray * directionsResponses;
-@property(readonly) bool hasMapLocation;
-@property(readonly) bool hasOriginalPlace;
-@property bool hasPinType;
-@property(readonly) bool hasPlace;
-@property bool hasSessionId;
-@property(readonly) bool hasTileStateLog;
-@property(retain) GEORPMapLocation * mapLocation;
-@property(retain) GEOPlace * originalPlace;
-@property int pinType;
-@property(retain) GEOPDPlace * place;
-@property struct { unsigned long long x1; unsigned long long x2; } sessionId;
-@property(retain) NSString * tileStateLog;
-@property(retain) NSMutableArray * visibleTileSets;
+@property (nonatomic, retain) NSMutableArray *auxiliaryControls;
+@property (nonatomic, retain) NSMutableArray *directionsRequests;
+@property (nonatomic, retain) NSMutableArray *directionsResponses;
+@property (nonatomic, readonly) BOOL hasLastSearchString;
+@property (nonatomic, readonly) BOOL hasMapLocation;
+@property (nonatomic, readonly) BOOL hasOriginalPlace;
+@property (nonatomic) BOOL hasOriginatingAuxiliaryControlIndex;
+@property (nonatomic) BOOL hasPinType;
+@property (nonatomic, readonly) BOOL hasPlace;
+@property (nonatomic) BOOL hasSessionId;
+@property (nonatomic, readonly) BOOL hasTileStateLog;
+@property (nonatomic, retain) NSString *lastSearchString;
+@property (nonatomic, retain) GEORPMapLocation *mapLocation;
+@property (nonatomic, retain) GEOPlace *originalPlace;
+@property (nonatomic) unsigned long long originatingAuxiliaryControlIndex;
+@property (nonatomic) int pinType;
+@property (nonatomic, retain) GEOPDPlace *place;
+@property (nonatomic) struct { unsigned long long x1; unsigned long long x2; } sessionId;
+@property (nonatomic, retain) NSString *tileStateLog;
+@property (nonatomic, retain) NSMutableArray *visibleTileSets;
 
+- (void)addAuxiliaryControl:(id)arg1;
 - (void)addDirectionsRequest:(id)arg1;
 - (void)addDirectionsResponse:(id)arg1;
 - (void)addVisibleTileSet:(id)arg1;
+- (id)auxiliaryControlAtIndex:(unsigned int)arg1;
+- (id)auxiliaryControls;
+- (unsigned int)auxiliaryControlsCount;
+- (void)clearAuxiliaryControls;
 - (void)clearDirectionsRequests;
 - (void)clearDirectionsResponses;
 - (void)clearVisibleTileSets;
@@ -50,42 +62,50 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (id)directionsRequestAtIndex:(unsigned long long)arg1;
+- (id)directionsRequestAtIndex:(unsigned int)arg1;
 - (id)directionsRequests;
-- (unsigned long long)directionsRequestsCount;
-- (id)directionsResponseAtIndex:(unsigned long long)arg1;
+- (unsigned int)directionsRequestsCount;
+- (id)directionsResponseAtIndex:(unsigned int)arg1;
 - (id)directionsResponses;
-- (unsigned long long)directionsResponsesCount;
-- (bool)hasMapLocation;
-- (bool)hasOriginalPlace;
-- (bool)hasPinType;
-- (bool)hasPlace;
-- (bool)hasSessionId;
-- (bool)hasTileStateLog;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)directionsResponsesCount;
+- (BOOL)hasLastSearchString;
+- (BOOL)hasMapLocation;
+- (BOOL)hasOriginalPlace;
+- (BOOL)hasOriginatingAuxiliaryControlIndex;
+- (BOOL)hasPinType;
+- (BOOL)hasPlace;
+- (BOOL)hasSessionId;
+- (BOOL)hasTileStateLog;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)lastSearchString;
 - (id)mapLocation;
 - (void)mergeFrom:(id)arg1;
 - (id)originalPlace;
+- (unsigned long long)originatingAuxiliaryControlIndex;
 - (int)pinType;
 - (id)place;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (struct { unsigned long long x1; unsigned long long x2; })sessionId;
+- (void)setAuxiliaryControls:(id)arg1;
 - (void)setDirectionsRequests:(id)arg1;
 - (void)setDirectionsResponses:(id)arg1;
-- (void)setHasPinType:(bool)arg1;
-- (void)setHasSessionId:(bool)arg1;
+- (void)setHasOriginatingAuxiliaryControlIndex:(BOOL)arg1;
+- (void)setHasPinType:(BOOL)arg1;
+- (void)setHasSessionId:(BOOL)arg1;
+- (void)setLastSearchString:(id)arg1;
 - (void)setMapLocation:(id)arg1;
 - (void)setOriginalPlace:(id)arg1;
+- (void)setOriginatingAuxiliaryControlIndex:(unsigned long long)arg1;
 - (void)setPinType:(int)arg1;
 - (void)setPlace:(id)arg1;
 - (void)setSessionId:(struct { unsigned long long x1; unsigned long long x2; })arg1;
 - (void)setTileStateLog:(id)arg1;
 - (void)setVisibleTileSets:(id)arg1;
 - (id)tileStateLog;
-- (id)visibleTileSetAtIndex:(unsigned long long)arg1;
+- (id)visibleTileSetAtIndex:(unsigned int)arg1;
 - (id)visibleTileSets;
-- (unsigned long long)visibleTileSetsCount;
+- (unsigned int)visibleTileSetsCount;
 - (void)writeTo:(id)arg1;
 
 @end

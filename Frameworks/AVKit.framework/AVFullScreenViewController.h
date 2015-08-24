@@ -3,14 +3,14 @@
  */
 
 @interface AVFullScreenViewController : UIViewController {
-    unsigned int _statusBarWasHidden : 1;
+    unsigned int _statusBarWasHidden;
 }
 
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (bool)modalPresentationCapturesStatusBarAppearance;
-- (bool)prefersStatusBarHidden;
-- (void)viewDidAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (BOOL)modalPresentationCapturesStatusBarAppearance;
+- (BOOL)prefersStatusBarHidden;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

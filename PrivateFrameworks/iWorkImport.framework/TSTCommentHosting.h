@@ -2,53 +2,102 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class <TSKModel>, NSDate, NSString, TSDCommentStorage, TSKAnnotationAuthor, TSTTableInfo;
-
-@interface TSTCommentHosting : NSObject <TSDAnnotationHosting, TSDCommentStorageDelegate> {
-    struct { 
-        unsigned short row; 
-        unsigned char column; 
-        unsigned char reserved; 
-    bool_forRollover;
-    } mCellID;
+@interface TSTCommentHosting : NSObject <TSDAnnotationHosting> {
+    struct TSTCellUID { 
+        struct UUIDData<TSP::UUIDData> { 
+            union { 
+                unsigned char _uuid[16]; 
+                struct { 
+                    unsigned char byte0; 
+                    unsigned char byte1; 
+                    unsigned char byte2; 
+                    unsigned char byte3; 
+                    unsigned char byte4; 
+                    unsigned char byte5; 
+                    unsigned char byte6; 
+                    unsigned char byte7; 
+                    unsigned char byte8; 
+                    unsigned char byte9; 
+                    unsigned char byte10; 
+                    unsigned char byte11; 
+                    unsigned char byte12; 
+                    unsigned char byte13; 
+                    unsigned char byte14; 
+                    unsigned char byte15; 
+                } _cfuuid; 
+                struct { 
+                    unsigned long long _lower; 
+                    unsigned long long _upper; 
+                } ; 
+            } ; 
+        } _column; 
+        struct UUIDData<TSP::UUIDData> { 
+            union { 
+                unsigned char _uuid[16]; 
+                struct { 
+                    unsigned char byte0; 
+                    unsigned char byte1; 
+                    unsigned char byte2; 
+                    unsigned char byte3; 
+                    unsigned char byte4; 
+                    unsigned char byte5; 
+                    unsigned char byte6; 
+                    unsigned char byte7; 
+                    unsigned char byte8; 
+                    unsigned char byte9; 
+                    unsigned char byte10; 
+                    unsigned char byte11; 
+                    unsigned char byte12; 
+                    unsigned char byte13; 
+                    unsigned char byte14; 
+                    unsigned char byte15; 
+                } _cfuuid; 
+                struct { 
+                    unsigned long long _lower; 
+                    unsigned long long _upper; 
+                } ; 
+            } ; 
+        } _row; 
+    } mCellUID;
     TSDCommentStorage *mStorage;
     TSTTableInfo *mTableInfo;
 }
 
-@property(readonly) int annotationDisplayStringType;
-@property(readonly) int annotationType;
-@property(readonly) TSKAnnotationAuthor * author;
-@property(readonly) struct { unsigned short x1; unsigned char x2; unsigned char x3; } cellID;
-@property(readonly) NSString * changeTrackingContentFormatString;
-@property(readonly) NSString * changeTrackingContentString;
-@property(readonly) NSString * changeTrackingTitleString;
-@property(readonly) NSDate * date;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(getter=isForRollover,readonly) bool forRollover;
-@property(readonly) unsigned long long hash;
-@property <TSKModel> * hostingModel;
-@property(copy) TSDCommentStorage * storage;
-@property(readonly) Class superclass;
-@property(readonly) TSTTableInfo * tableInfo;
+@property (nonatomic, readonly) int annotationDisplayStringType;
+@property (nonatomic, readonly) int annotationType;
+@property (nonatomic, readonly) TSKAnnotationAuthor *author;
+@property (nonatomic, readonly) struct { unsigned short x1; unsigned char x2; unsigned char x3; } cellID;
+@property (nonatomic, readonly) struct TSTCellUID { struct UUIDData<TSP::UUIDData> { union { unsigned char x_1_2_1[16]; struct { unsigned char x_2_3_1; unsigned char x_2_3_2; unsigned char x_2_3_3; unsigned char x_2_3_4; unsigned char x_2_3_5; unsigned char x_2_3_6; unsigned char x_2_3_7; unsigned char x_2_3_8; unsigned char x_2_3_9; unsigned char x_2_3_10; unsigned char x_2_3_11; unsigned char x_2_3_12; unsigned char x_2_3_13; unsigned char x_2_3_14; unsigned char x_2_3_15; unsigned char x_2_3_16; } x_1_2_2; struct { unsigned long long x_3_3_1; unsigned long long x_3_3_2; } x_1_2_3; } x_1_1_1; } x1; struct UUIDData<TSP::UUIDData> { union { unsigned char x_1_2_1[16]; struct { unsigned char x_2_3_1; unsigned char x_2_3_2; unsigned char x_2_3_3; unsigned char x_2_3_4; unsigned char x_2_3_5; unsigned char x_2_3_6; unsigned char x_2_3_7; unsigned char x_2_3_8; unsigned char x_2_3_9; unsigned char x_2_3_10; unsigned char x_2_3_11; unsigned char x_2_3_12; unsigned char x_2_3_13; unsigned char x_2_3_14; unsigned char x_2_3_15; unsigned char x_2_3_16; } x_1_2_2; struct { unsigned long long x_3_3_1; unsigned long long x_3_3_2; } x_1_2_3; } x_2_1_1; } x2; } cellUID;
+@property (nonatomic, readonly) NSString *changeTrackingContentFormatString;
+@property (nonatomic, readonly) NSString *changeTrackingContentString;
+@property (nonatomic, readonly) NSString *changeTrackingTitleString;
+@property (nonatomic, readonly) NSDate *date;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) <TSKModel> *hostingModel;
+@property (nonatomic, copy) TSDCommentStorage *storage;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) TSTTableInfo *tableInfo;
 
+- (id).cxx_construct;
 - (int)annotationDisplayStringType;
 - (int)annotationType;
 - (id)author;
 - (struct { unsigned short x1; unsigned char x2; unsigned char x3; })cellID;
-- (id)commandForDeletingComment;
-- (void)commentStorageTextDidChange:(id)arg1;
+- (struct TSTCellUID { struct UUIDData<TSP::UUIDData> { union { unsigned char x_1_2_1[16]; struct { unsigned char x_2_3_1; unsigned char x_2_3_2; unsigned char x_2_3_3; unsigned char x_2_3_4; unsigned char x_2_3_5; unsigned char x_2_3_6; unsigned char x_2_3_7; unsigned char x_2_3_8; unsigned char x_2_3_9; unsigned char x_2_3_10; unsigned char x_2_3_11; unsigned char x_2_3_12; unsigned char x_2_3_13; unsigned char x_2_3_14; unsigned char x_2_3_15; unsigned char x_2_3_16; } x_1_2_2; struct { unsigned long long x_3_3_1; unsigned long long x_3_3_2; } x_1_2_3; } x_1_1_1; } x1; struct UUIDData<TSP::UUIDData> { union { unsigned char x_1_2_1[16]; struct { unsigned char x_2_3_1; unsigned char x_2_3_2; unsigned char x_2_3_3; unsigned char x_2_3_4; unsigned char x_2_3_5; unsigned char x_2_3_6; unsigned char x_2_3_7; unsigned char x_2_3_8; unsigned char x_2_3_9; unsigned char x_2_3_10; unsigned char x_2_3_11; unsigned char x_2_3_12; unsigned char x_2_3_13; unsigned char x_2_3_14; unsigned char x_2_3_15; unsigned char x_2_3_16; } x_1_2_2; struct { unsigned long long x_3_3_1; unsigned long long x_3_3_2; } x_1_2_3; } x_2_1_1; } x2; })cellUID;
+- (void)commentWillBeAddedToDocumentRoot;
 - (void)commitText:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)date;
 - (void)dealloc;
 - (id)description;
 - (Class)editorClass;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)hostingModel;
 - (id)initWithStorage:(id)arg1 forTableInfo:(id)arg2 cellID:(struct { unsigned short x1; unsigned char x2; unsigned char x3; })arg3;
-- (bool)isEqual:(id)arg1;
-- (bool)isForRollover;
+- (id)initWithStorage:(id)arg1 forTableInfo:(id)arg2 cellUID:(struct TSTCellUID { struct UUIDData<TSP::UUIDData> { union { unsigned char x_1_2_1[16]; struct { unsigned char x_2_3_1; unsigned char x_2_3_2; unsigned char x_2_3_3; unsigned char x_2_3_4; unsigned char x_2_3_5; unsigned char x_2_3_6; unsigned char x_2_3_7; unsigned char x_2_3_8; unsigned char x_2_3_9; unsigned char x_2_3_10; unsigned char x_2_3_11; unsigned char x_2_3_12; unsigned char x_2_3_13; unsigned char x_2_3_14; unsigned char x_2_3_15; unsigned char x_2_3_16; } x_1_2_2; struct { unsigned long long x_3_3_1; unsigned long long x_3_3_2; } x_1_2_3; } x_1_1_1; } x1; struct UUIDData<TSP::UUIDData> { union { unsigned char x_1_2_1[16]; struct { unsigned char x_2_3_1; unsigned char x_2_3_2; unsigned char x_2_3_3; unsigned char x_2_3_4; unsigned char x_2_3_5; unsigned char x_2_3_6; unsigned char x_2_3_7; unsigned char x_2_3_8; unsigned char x_2_3_9; unsigned char x_2_3_10; unsigned char x_2_3_11; unsigned char x_2_3_12; unsigned char x_2_3_13; unsigned char x_2_3_14; unsigned char x_2_3_15; unsigned char x_2_3_16; } x_1_2_2; struct { unsigned long long x_3_3_1; unsigned long long x_3_3_2; } x_1_2_3; } x_2_1_1; } x2; })arg3;
+- (BOOL)isEqual:(id)arg1;
 - (void)setAuthor:(id)arg1;
 - (void)setHostingModel:(id)arg1;
 - (void)setStorage:(id)arg1;

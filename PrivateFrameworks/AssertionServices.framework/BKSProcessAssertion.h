@@ -2,61 +2,55 @@
    Image: /System/Library/PrivateFrameworks/AssertionServices.framework/AssertionServices
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class BKSProcessAssertionClient, BSSignal, NSObject<OS_dispatch_queue>, NSString;
-
 @interface BKSProcessAssertion : NSObject <BKSProcessAssertionClientHandler> {
-    id _acquisitionHandler;
+    BOOL _acquired;
+    BOOL _acquiring;
+    id /* block */ _acquisitionHandler;
     NSString *_bundleIdentifier;
     BKSProcessAssertionClient *_client;
     NSObject<OS_dispatch_queue> *_clientQueue;
     unsigned int _flags;
     NSString *_identifier;
-    id _invalidationHandler;
+    id /* block */ _invalidationHandler;
     BSSignal *_invalidationSignal;
     NSString *_name;
     int _pid;
     unsigned int _reason;
-    bool_acquired;
-    bool_acquiring;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property unsigned int flags;
-@property(readonly) unsigned long long hash;
-@property(copy) id invalidationHandler;
-@property(copy) NSString * name;
-@property(readonly) unsigned int reason;
-@property(readonly) Class superclass;
-@property(readonly) bool valid;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) unsigned int flags;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) id /* block */ invalidationHandler;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, readonly) unsigned int reason;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) BOOL valid;
 
 + (id)NameForReason:(unsigned int)arg1;
 
 - (void)_clientQueue_acquireAssertion;
-- (void)_clientQueue_invalidate:(bool)arg1;
-- (void)_clientQueue_notifyAssertionAcquired:(bool)arg1;
-- (void)_clientQueue_setAcquisitionHandler:(id)arg1;
+- (void)_clientQueue_invalidate:(BOOL)arg1;
+- (void)_clientQueue_notifyAssertionAcquired:(BOOL)arg1;
+- (void)_clientQueue_setAcquisitionHandler:(id /* block */)arg1;
 - (void)_clientQueue_updateAssertion;
-- (id)acquisitionHandler;
+- (id /* block */)acquisitionHandler;
 - (void)assertionDidInvalidate;
 - (void)dealloc;
 - (unsigned int)flags;
 - (id)init;
-- (id)initWithBundleIdentifier:(id)arg1 flags:(unsigned int)arg2 reason:(unsigned int)arg3 name:(id)arg4 withHandler:(id)arg5;
-- (id)initWithPID:(int)arg1 flags:(unsigned int)arg2 reason:(unsigned int)arg3 name:(id)arg4 withHandler:(id)arg5;
+- (id)initWithBundleIdentifier:(id)arg1 flags:(unsigned int)arg2 reason:(unsigned int)arg3 name:(id)arg4 withHandler:(id /* block */)arg5;
+- (id)initWithPID:(int)arg1 flags:(unsigned int)arg2 reason:(unsigned int)arg3 name:(id)arg4 withHandler:(id /* block */)arg5;
 - (void)invalidate;
-- (id)invalidationHandler;
+- (id /* block */)invalidationHandler;
 - (id)name;
 - (unsigned int)reason;
-- (void)setAcquisitionHandler:(id)arg1;
+- (void)setAcquisitionHandler:(id /* block */)arg1;
 - (void)setFlags:(unsigned int)arg1;
-- (void)setInvalidationHandler:(id)arg1;
+- (void)setInvalidationHandler:(id /* block */)arg1;
 - (void)setName:(id)arg1;
 - (void)setReason:(unsigned int)arg1;
-- (bool)valid;
+- (BOOL)valid;
 
 @end

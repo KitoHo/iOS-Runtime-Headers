@@ -2,10 +2,9 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@interface ABStarkUtilities : NSObject {
-}
+@interface ABStarkUtilities : NSObject
 
-+ (bool)activeInterfaceMechanismIsHardware;
++ (BOOL)activeInterfaceMechanismIsHardware;
 + (id)starkScreen;
 
 @end

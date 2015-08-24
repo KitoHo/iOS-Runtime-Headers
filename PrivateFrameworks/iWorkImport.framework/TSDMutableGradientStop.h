@@ -2,17 +2,14 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSUColor;
+@interface TSDMutableGradientStop : TSDGradientStop
 
-@interface TSDMutableGradientStop : TSDGradientStop {
-}
-
-@property(copy) TSUColor * color;
-@property double fraction;
-@property double inflection;
+@property (nonatomic, copy) TSUColor *color;
+@property (nonatomic) float fraction;
+@property (nonatomic) float inflection;
 
 - (void)setColor:(id)arg1;
-- (void)setFraction:(double)arg1;
-- (void)setInflection:(double)arg1;
+- (void)setFraction:(float)arg1;
+- (void)setInflection:(float)arg1;
 
 @end

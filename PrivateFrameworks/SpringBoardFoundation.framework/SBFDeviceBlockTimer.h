@@ -2,29 +2,23 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardFoundation.framework/SpringBoardFoundation
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSString, NSTimer, SBFDeviceLockController;
-
 @interface SBFDeviceBlockTimer : NSObject {
     NSString *_cachedLocalizedPlatformName;
     SBFDeviceLockController *_deviceLockController;
-    id _handler;
+    BOOL _enabled;
+    id /* block */ _handler;
     NSString *_subtitleText;
     NSTimer *_timer;
     NSString *_titleText;
-    bool_enabled;
 }
 
-@property(copy) NSString * cachedLocalizedPlatformName;
-@property(retain) SBFDeviceLockController * deviceLockController;
-@property bool enabled;
-@property(copy) id handler;
-@property(copy) NSString * subtitleText;
-@property(retain) NSTimer * timer;
-@property(copy) NSString * titleText;
+@property (nonatomic, copy) NSString *cachedLocalizedPlatformName;
+@property (nonatomic, retain) SBFDeviceLockController *deviceLockController;
+@property (nonatomic) BOOL enabled;
+@property (nonatomic, copy) id /* block */ handler;
+@property (nonatomic, copy) NSString *subtitleText;
+@property (nonatomic, retain) NSTimer *timer;
+@property (nonatomic, copy) NSString *titleText;
 
 - (void)_clearTimer;
 - (id)_localizedPlatformName;
@@ -32,14 +26,14 @@
 - (id)cachedLocalizedPlatformName;
 - (void)dealloc;
 - (id)deviceLockController;
-- (bool)enabled;
-- (id)handler;
+- (BOOL)enabled;
+- (id /* block */)handler;
 - (id)initWithDeviceLockController:(id)arg1;
 - (void)invalidate;
 - (void)setCachedLocalizedPlatformName:(id)arg1;
 - (void)setDeviceLockController:(id)arg1;
-- (void)setEnabled:(bool)arg1;
-- (void)setHandler:(id)arg1;
+- (void)setEnabled:(BOOL)arg1;
+- (void)setHandler:(id /* block */)arg1;
 - (void)setSubtitleText:(id)arg1;
 - (void)setTimer:(id)arg1;
 - (void)setTitleText:(id)arg1;

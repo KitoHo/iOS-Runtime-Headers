@@ -2,14 +2,12 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSArray, UIBarButtonItem;
-
 @interface PUUIAlbumListViewController : PUAlbumListViewController {
     NSArray *__imagePickerMediaTypes;
     UIBarButtonItem *_imagePickerCancelButton;
 }
 
-@property(setter=_setImagePickerMediaTypes:,copy) NSArray * _imagePickerMediaTypes;
+@property (setter=_setImagePickerMediaTypes:, nonatomic, copy) NSArray *_imagePickerMediaTypes;
 
 - (void).cxx_destruct;
 - (int)_defaultAlbumListFilter;
@@ -22,12 +20,12 @@
 - (id)newGridViewControllerForAllPhotos;
 - (id)newGridViewControllerForAssetCollection:(id)arg1;
 - (id)newGridViewControllerForFolder:(id)arg1;
-- (bool)pu_wantsNavigationBarVisible;
+- (BOOL)pu_wantsNavigationBarVisible;
 - (void)setAlbumList:(id)arg1;
-- (bool)shouldAllowEmailInAlbumSubtitle;
-- (bool)shouldShowAllPhotosItem;
-- (unsigned long long)supportedInterfaceOrientations;
-- (void)updateNavigationBarAnimated:(bool)arg1;
-- (void)viewWillAppear:(bool)arg1;
+- (BOOL)shouldAllowEmailInAlbumSubtitle;
+- (BOOL)shouldShowAllPhotosItem;
+- (unsigned int)supportedInterfaceOrientations;
+- (void)updateNavigationBarAnimated:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 
 @end

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class NSDate;
-
 @interface WBSAutomaticReadingListRecordRange : NSObject <NSCopying> {
     id _newest;
     NSDate *_newestCreationDate;
@@ -11,10 +9,10 @@
     NSDate *_oldestCreationDate;
 }
 
-@property(copy) id newest;
-@property(copy) NSDate * newestCreationDate;
-@property(copy) id oldest;
-@property(copy) NSDate * oldestCreationDate;
+@property (nonatomic, copy) id newest;
+@property (nonatomic, copy) NSDate *newestCreationDate;
+@property (nonatomic, copy) id oldest;
+@property (nonatomic, copy) NSDate *oldestCreationDate;
 
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -23,11 +21,11 @@
 - (id)newestCreationDate;
 - (id)oldest;
 - (id)oldestCreationDate;
-- (void)setNewest:(id)arg1 creationDate:(id)arg2;
 - (void)setNewest:(id)arg1;
+- (void)setNewest:(id)arg1 creationDate:(id)arg2;
 - (void)setNewestCreationDate:(id)arg1;
-- (void)setOldest:(id)arg1 creationDate:(id)arg2;
 - (void)setOldest:(id)arg1;
+- (void)setOldest:(id)arg1 creationDate:(id)arg2;
 - (void)setOldestCreationDate:(id)arg1;
 
 @end

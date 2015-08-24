@@ -2,79 +2,83 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class <VKTrackableAnnotation>, NSString, VKAnimation, VKAnnotationTrackingCameraController;
-
 @interface VKScreenCameraController : VKCameraController <VKCameraControllerDelegate> {
-    struct VKEdgeInsets { 
-        double top; 
-        double left; 
-        double bottom; 
-        double right; 
-    struct CGPoint { 
-        double x; 
-        double y; 
-    struct CGPoint { 
-        double x; 
-        double y; 
     VKAnnotationTrackingCameraController *_annotationTrackingCameraController;
-    long long _annotationTrackingZoomStyle;
+    int _annotationTrackingHeadingAnimationDisplayRate;
+    int _annotationTrackingZoomStyle;
     double _beganDoublePanPitch;
+    struct VKEdgeInsets { 
+        float top; 
+        float left; 
+        float bottom; 
+        float right; 
     } _edgeInsets;
+    BOOL _isPitchIncreasing;
+    BOOL _isPitchable;
     double _lastRotation;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _panLastScreenPoint;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _panStartScreenPoint;
     VKAnimation *_pitchAnimation;
     VKAnimation *_regionAnimation;
     VKAnimation *_rotationAnimation;
+    BOOL _rotationLowZoomSnappingEnabled;
+    BOOL _shouldRotationRubberband;
+    BOOL _staysCenteredDuringPinch;
+    BOOL _staysCenteredDuringRotation;
     VKAnimation *_zoomAnimation;
-    bool_isPitchIncreasing;
-    bool_isPitchable;
-    bool_rotationLowZoomSnappingEnabled;
-    bool_shouldRotationRubberband;
-    bool_staysCenteredDuringPinch;
-    bool_staysCenteredDuringRotation;
 }
 
-@property(getter=isAnimatingToTrackAnnotation,readonly) bool animatingToTrackAnnotation;
-@property long long annotationTrackingZoomStyle;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property struct VKEdgeInsets { double x1; double x2; double x3; double x4; } edgeInsets;
-@property(readonly) unsigned long long hash;
-@property bool isPitchable;
-@property bool staysCenteredDuringPinch;
-@property bool staysCenteredDuringRotation;
-@property(readonly) Class superclass;
-@property(readonly) <VKTrackableAnnotation> * trackingAnnotation;
-@property(getter=isTrackingHeading,readonly) bool trackingHeading;
+@property (getter=isAnimatingToTrackAnnotation, nonatomic, readonly) BOOL animatingToTrackAnnotation;
+@property (nonatomic) int annotationTrackingHeadingAnimationDisplayRate;
+@property (nonatomic) int annotationTrackingZoomStyle;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) struct VKEdgeInsets { float x1; float x2; float x3; float x4; } edgeInsets;
+@property (readonly) unsigned int hash;
+@property (nonatomic) BOOL isPitchable;
+@property (nonatomic) BOOL staysCenteredDuringPinch;
+@property (nonatomic) BOOL staysCenteredDuringRotation;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) <VKTrackableAnnotation> *trackingAnnotation;
+@property (getter=isTrackingHeading, nonatomic, readonly) BOOL trackingHeading;
 
 - (id).cxx_construct;
-- (long long)annotationTrackingZoomStyle;
-- (void)cameraController:(id)arg1 canEnter3DModeDidChange:(bool)arg2;
-- (void)cameraController:(id)arg1 canZoomInDidChange:(bool)arg2;
-- (void)cameraController:(id)arg1 canZoomOutDidChange:(bool)arg2;
-- (void)cameraController:(id)arg1 didBecomePitched:(bool)arg2;
-- (void)cameraController:(id)arg1 didChangeRegionAnimated:(bool)arg2;
+- (int)annotationTrackingHeadingAnimationDisplayRate;
+- (int)annotationTrackingZoomStyle;
+- (void)cameraController:(id)arg1 canEnter3DModeDidChange:(BOOL)arg2;
+- (void)cameraController:(id)arg1 canZoomInDidChange:(BOOL)arg2;
+- (void)cameraController:(id)arg1 canZoomOutDidChange:(BOOL)arg2;
+- (void)cameraController:(id)arg1 didBecomePitched:(BOOL)arg2;
+- (void)cameraController:(id)arg1 didChangeRegionAnimated:(BOOL)arg2;
 - (id)cameraController:(id)arg1 presentationForAnnotation:(id)arg2;
-- (void)cameraController:(id)arg1 requestsDisplayRate:(long long)arg2;
-- (void)cameraController:(id)arg1 willChangeRegionAnimated:(bool)arg2;
+- (void)cameraController:(id)arg1 requestsDisplayRate:(int)arg2;
+- (void)cameraController:(id)arg1 willChangeRegionAnimated:(BOOL)arg2;
 - (void)cameraControllerDidChangeCameraState:(id)arg1;
+- (void)cameraControllerDidFinishInitialTrackingAnimation:(id)arg1;
 - (void)dealloc;
-- (struct VKEdgeInsets { double x1; double x2; double x3; double x4; })edgeInsets;
-- (bool)isAnimating;
-- (bool)isAnimatingToTrackAnnotation;
-- (bool)isPitchable;
-- (bool)isTrackingHeading;
+- (struct VKEdgeInsets { float x1; float x2; float x3; float x4; })edgeInsets;
+- (id)init;
+- (BOOL)isAnimating;
+- (BOOL)isAnimatingToTrackAnnotation;
+- (BOOL)isPitchable;
+- (BOOL)isTrackingHeading;
 - (double)rubberBandOffsetForOffset:(double)arg1 maxOffset:(double)arg2 minOffset:(double)arg3 range:(double)arg4;
 - (void)runAnimation:(id)arg1;
-- (void)setAnnotationTrackingZoomStyle:(long long)arg1;
-- (void)setEdgeInsets:(struct VKEdgeInsets { double x1; double x2; double x3; double x4; })arg1;
-- (void)setIsPitchable:(bool)arg1;
-- (void)setStaysCenteredDuringPinch:(bool)arg1;
-- (void)setStaysCenteredDuringRotation:(bool)arg1;
-- (void)startTrackingAnnotation:(id)arg1 trackHeading:(bool)arg2 animated:(bool)arg3;
-- (bool)staysCenteredDuringPinch;
-- (bool)staysCenteredDuringRotation;
+- (void)setAnnotationTrackingHeadingAnimationDisplayRate:(int)arg1;
+- (void)setAnnotationTrackingZoomStyle:(int)arg1;
+- (void)setEdgeInsets:(struct VKEdgeInsets { float x1; float x2; float x3; float x4; })arg1;
+- (void)setIsPitchable:(BOOL)arg1;
+- (void)setStaysCenteredDuringPinch:(BOOL)arg1;
+- (void)setStaysCenteredDuringRotation:(BOOL)arg1;
+- (void)startTrackingAnnotation:(id)arg1 trackHeading:(BOOL)arg2 animated:(BOOL)arg3;
+- (BOOL)staysCenteredDuringPinch;
+- (BOOL)staysCenteredDuringRotation;
 - (void)stopRegionAnimation;
 - (void)stopSnappingAnimations;
 - (void)stopTrackingAnnotation;

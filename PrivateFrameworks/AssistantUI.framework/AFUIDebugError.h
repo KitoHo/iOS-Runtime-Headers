@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/AssistantUI.framework/AssistantUI
  */
 
-@interface AFUIDebugError : NSError {
-}
+@interface AFUIDebugError : NSError
 
-+ (id)debugErrorWithCode:(long long)arg1 userInfo:(id)arg2;
++ (id)debugErrorWithCode:(int)arg1 userInfo:(id)arg2;
 
-- (id)initWithCode:(long long)arg1 userInfo:(id)arg2;
+- (id)initWithCode:(int)arg1 userInfo:(id)arg2;
 
 @end

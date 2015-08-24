@@ -2,12 +2,12 @@
    Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
  */
 
-@interface HDJournalEntry : NSObject <NSSecureCoding> {
-}
+@interface HDJournalEntry : NSObject <NSSecureCoding>
 
-+ (bool)supportsSecureCoding;
++ (void)applyEntries:(id)arg1 withDaemon:(id)arg2;
++ (int)behavior;
++ (BOOL)supportsSecureCoding;
 
-- (bool)applyWithDaemon:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

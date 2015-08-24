@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@interface GKAnonymousPlayerInternal : GKSpecialPlayerInternal {
-}
+@interface GKAnonymousPlayerInternal : GKSpecialPlayerInternal
 
 - (id)alias;
-- (bool)isAnonymousPlayer;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isAnonymousPlayer;
+- (BOOL)isEqual:(id)arg1;
 - (id)playerID;
 
 @end

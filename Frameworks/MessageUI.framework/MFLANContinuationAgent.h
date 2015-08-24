@@ -2,33 +2,27 @@
    Image: /System/Library/Frameworks/MessageUI.framework/MessageUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class MFLANContinuationContext;
-
 @interface MFLANContinuationAgent : NSObject {
-    id _connectCallbackBlock;
+    id /* block */ _connectCallbackBlock;
     MFLANContinuationContext *_continuationContext;
     struct __CFRunLoopSource { } *_serverRunLoopSource;
+    BOOL _serverRunning;
     struct __CFSocket { } *_socket;
-    bool_serverRunning;
 }
 
-@property(readonly) MFLANContinuationContext * continuationContext;
-@property(readonly) bool serverRunning;
+@property (nonatomic, readonly) MFLANContinuationContext *continuationContext;
+@property (nonatomic, readonly) BOOL serverRunning;
 
 - (void)_cleanupRunLoopSource;
 - (void)_cleanupSocket;
 - (id)_getDeviceHostname;
 - (void)_socketListenerRunLoop;
-- (void)connectToServerWithContext:(id)arg1 completion:(id)arg2;
+- (void)connectToServerWithContext:(id)arg1 completion:(id /* block */)arg2;
 - (id)continuationContext;
 - (void)dealloc;
 - (id)init;
-- (bool)serverRunning;
-- (id)startServerWithCompletion:(id)arg1;
+- (BOOL)serverRunning;
+- (id)startServerWithCompletion:(id /* block */)arg1;
 - (void)stopServer;
 
 @end

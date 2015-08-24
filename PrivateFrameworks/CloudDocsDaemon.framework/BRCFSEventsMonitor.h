@@ -2,19 +2,15 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <BRCFSEventsDelegate>, BRCAccountSession, BRCFSEventsPersistedState, BRCRelativePath, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSObject<OS_dispatch_source>, NSString, PQLConnection;
-
-@interface BRCFSEventsMonitor : NSObject <BRCModule, BRCLowDiskDelegate> {
+@interface BRCFSEventsMonitor : NSObject <BRCLowDiskDelegate, BRCModule> {
     PQLConnection *_db;
     <BRCFSEventsDelegate> *_delegate;
     NSString *_devicePath;
+    BOOL _drainEvents;
     NSObject<OS_dispatch_source> *_historicalEventSource;
     BRCFSEventsPersistedState *_persistedState;
     BRCFSEventsPersistedState *_rendezVous;
+    int _resetCount;
     BRCRelativePath *_root;
     NSString *_rootPathRelativeToDevice;
     NSObject<OS_dispatch_source> *_rootVnodeWatcher;
@@ -22,42 +18,45 @@
     BRCAccountSession *_session;
     struct __FSEventStream { } *_stream;
     NSObject<OS_dispatch_queue> *_streamQueue;
-    bool_drainEvents;
-    bool_volumeHasLowDiskSpace;
-    bool_volumeIsCaseSensitive;
-    /* Warning: Unrecognized filer type: 'A' using 'void*' */ void*_resetCount;
-    /* Warning: Unrecognized filer type: 'A' using 'void*' */ void*_suspendCount;
+    int _suspendCount;
+    BOOL _volumeHasLowDiskSpace;
+    BOOL _volumeIsCaseSensitive;
 }
 
-@property(setter=setDB:,retain) PQLConnection * db;
-@property(copy,readonly) NSString * debugDescription;
-@property <BRCFSEventsDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) BRCRelativePath * root;
-@property(readonly) Class superclass;
-@property(readonly) bool volumeIsCaseSensitive;
+@property (setter=setDB:, nonatomic, retain) PQLConnection *db;
+@property (readonly, copy) NSString *debugDescription;
+@property <BRCFSEventsDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) BOOL isCancelled;
+@property (nonatomic, readonly) BRCRelativePath *root;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) BOOL volumeIsCaseSensitive;
 
 - (void).cxx_destruct;
 - (void)_cancel;
+- (void)cancel;
 - (void)close;
 - (id)db;
 - (void)dealloc;
 - (id)delegate;
 - (void)didProcessEventID:(unsigned long long)arg1;
-- (void)fseventAtPath:(id)arg1 withFlags:(unsigned int)arg2 andID:(unsigned long long)arg3 eventIndex:(unsigned int)arg4 eventCount:(unsigned int)arg5 initialScan:(bool)arg6;
+- (void)fseventAtPath:(id)arg1 withFlags:(unsigned long)arg2 andID:(unsigned long long)arg3 eventIndex:(unsigned int)arg4 eventCount:(unsigned int)arg5 initialScan:(BOOL)arg6;
 - (id)initWithAccountSession:(id)arg1;
-- (void)lowDiskStatusChangedForDevice:(int)arg1 hasEnoughSpace:(bool)arg2;
-- (bool)openWithRootPath:(id)arg1 error:(id*)arg2;
+- (BOOL)isCancelled;
+- (void)lowDiskStatusChangedForDevice:(int)arg1 hasEnoughSpace:(BOOL)arg2;
+- (BOOL)openWithRootPath:(id)arg1 error:(id*)arg2;
 - (void)reset;
 - (void)resume;
 - (id)root;
 - (void)setDB:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (bool)setUpRootAtPath:(id)arg1 error:(id*)arg2;
-- (bool)setUpStreamSynchronously:(bool)arg1 error:(id*)arg2;
+- (void)setIsCancelled:(BOOL)arg1;
+- (BOOL)setUpRootAtPath:(id)arg1 error:(id*)arg2;
+- (BOOL)setUpStreamSynchronously:(BOOL)arg1 error:(id*)arg2;
 - (void)signalAfterCurrentFSEvent:(id)arg1;
+- (void)stopWatcher;
 - (void)suspend;
-- (bool)volumeIsCaseSensitive;
+- (BOOL)volumeIsCaseSensitive;
 
 @end

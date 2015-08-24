@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSString;
-
 @interface CKDPIdentifier : PBCodable <NSCopying> {
     struct { 
         unsigned int type : 1; 
@@ -12,24 +10,24 @@
     int _type;
 }
 
-@property(readonly) bool hasName;
-@property bool hasType;
-@property(retain) NSString * name;
-@property int type;
+@property (nonatomic, readonly) BOOL hasName;
+@property (nonatomic) BOOL hasType;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic) int type;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasName;
-- (bool)hasType;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasName;
+- (BOOL)hasType;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)name;
-- (bool)readFrom:(id)arg1;
-- (void)setHasType:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasType:(BOOL)arg1;
 - (void)setName:(id)arg1;
 - (void)setType:(int)arg1;
 - (int)type;

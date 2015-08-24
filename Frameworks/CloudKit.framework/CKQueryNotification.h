@@ -2,34 +2,34 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class CKRecordID, NSDictionary;
-
 @interface CKQueryNotification : CKNotification <NSSecureCoding> {
-    long long _queryNotificationReason;
+    int _databaseScope;
+    int _queryNotificationReason;
     NSDictionary *_recordFields;
     CKRecordID *_recordID;
-    bool_isPublicDatabase;
 }
 
-@property bool isPublicDatabase;
-@property long long queryNotificationReason;
-@property(copy) NSDictionary * recordFields;
-@property(copy) CKRecordID * recordID;
+@property (nonatomic) int databaseScope;
+@property (nonatomic, readonly) BOOL isPublicDatabase;
+@property (nonatomic) int queryNotificationReason;
+@property (nonatomic, copy) NSDictionary *recordFields;
+@property (nonatomic, copy) CKRecordID *recordID;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)CKPropertiesDescription;
+- (int)databaseScope;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithRemoteNotificationDictionary:(id)arg1;
-- (bool)isPublicDatabase;
-- (long long)queryNotificationReason;
+- (BOOL)isPublicDatabase;
+- (int)queryNotificationReason;
 - (id)recordFields;
 - (id)recordID;
-- (void)setIsPublicDatabase:(bool)arg1;
-- (void)setQueryNotificationReason:(long long)arg1;
+- (void)setDatabaseScope:(int)arg1;
+- (void)setQueryNotificationReason:(int)arg1;
 - (void)setRecordFields:(id)arg1;
 - (void)setRecordID:(id)arg1;
 

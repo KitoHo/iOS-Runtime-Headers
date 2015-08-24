@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSMutableSet, UIView;
-
 @interface SKUIFocusedTouchGestureRecognizer : UIGestureRecognizer {
-    struct UIEdgeInsets { 
-        double top; 
-        double left; 
-        double bottom; 
-        double right; 
     NSMutableSet *_activeTouches;
+    BOOL _didTouchOutside;
     UIView *_focusedView;
+    struct UIEdgeInsets { 
+        float top; 
+        float left; 
+        float bottom; 
+        float right; 
     } _touchAllowance;
-    bool_didTouchOutside;
 }
 
-@property(readonly) UIView * focusedView;
-@property struct UIEdgeInsets { double x1; double x2; double x3; double x4; } touchAllowance;
+@property (nonatomic, readonly) UIView *focusedView;
+@property (nonatomic) struct UIEdgeInsets { float x1; float x2; float x3; float x4; } touchAllowance;
 
 - (void).cxx_destruct;
 - (id)focusedView;
-- (id)initWithFocusedView:(id)arg1 touchAllowance:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; })arg2;
+- (id)initWithFocusedView:(id)arg1 touchAllowance:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg2;
 - (void)reset;
-- (void)setTouchAllowance:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; })arg1;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })touchAllowance;
+- (void)setTouchAllowance:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg1;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })touchAllowance;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 

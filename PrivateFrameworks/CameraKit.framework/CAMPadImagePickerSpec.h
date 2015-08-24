@@ -2,23 +2,18 @@
    Image: /System/Library/PrivateFrameworks/CameraKit.framework/CameraKit
  */
 
-@interface CAMPadImagePickerSpec : CAMImagePickerSpec {
-}
+@interface CAMPadImagePickerSpec : CAMImagePickerSpec
 
-- (long long)bottomBarOrientation;
-- (long long)modeDialOrientation;
-- (bool)shouldCreateBottomBar;
-- (bool)shouldCreateElapsedTimeView;
-- (bool)shouldCreateFiltersButton;
-- (bool)shouldCreateFlashButton;
-- (bool)shouldCreateFlipButton;
-- (bool)shouldCreateHDRButton;
-- (bool)shouldCreateImageWell;
-- (bool)shouldCreateModeDial;
-- (bool)shouldCreatePanoramaView;
-- (bool)shouldCreateShutterButton;
-- (bool)shouldCreateStillDuringVideo;
-- (bool)shouldCreateTopBar;
-- (bool)shouldCreateZoomSlider;
+- (BOOL)shouldCreateElapsedTimeView;
+- (BOOL)shouldCreateFiltersButton;
+- (BOOL)shouldCreateFlashButton;
+- (BOOL)shouldCreateFlipButton;
+- (BOOL)shouldCreateHDRButton;
+- (BOOL)shouldCreateImageWell;
+- (BOOL)shouldCreateModeDial;
+- (BOOL)shouldCreatePanoramaView;
+- (BOOL)shouldCreateShutterButton;
+- (BOOL)shouldCreateStillDuringVideo;
+- (BOOL)shouldCreateZoomSlider;
 
 @end

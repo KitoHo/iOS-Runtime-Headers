@@ -2,8 +2,7 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCH3DDirectionalLightUniformArrayShaderVariables : TSCH3DLightUniformArrayShaderVariables {
-}
+@interface TSCH3DDirectionalLightUniformArrayShaderVariables : TSCH3DLightUniformArrayShaderVariables
 
 + (id)_singletonAlloc;
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
@@ -15,6 +14,6 @@
 - (void)initializeArrayVariables;
 - (oneway void)release;
 - (id)retain;
-- (unsigned long long)retainCount;
+- (unsigned int)retainCount;
 
 @end

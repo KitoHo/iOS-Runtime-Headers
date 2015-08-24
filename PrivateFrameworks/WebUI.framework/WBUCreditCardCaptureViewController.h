@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class <WBUCreditCardCaptureViewControllerDelegate>, CRCameraReader, NSString, WBSCreditCardData;
-
 @interface WBUCreditCardCaptureViewController : UINavigationController <CRCameraReaderDelegate> {
     CRCameraReader *_reader;
     WBSCreditCardData *_receivedCardData;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <WBUCreditCardCaptureViewControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <WBUCreditCardCaptureViewControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-+ (bool)canCapture;
++ (BOOL)canCapture;
 
 - (void).cxx_destruct;
 - (void)_cancel:(id)arg1;
@@ -24,6 +22,6 @@
 - (void)cameraReaderDidCancel:(id)arg1;
 - (void)cameraReaderDidEnd:(id)arg1;
 - (id)init;
-- (void)viewDidAppear:(bool)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
 
 @end

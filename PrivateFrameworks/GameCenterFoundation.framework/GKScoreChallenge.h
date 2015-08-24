@@ -2,35 +2,38 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class GKLeaderboard, GKScore;
-
 @interface GKScoreChallenge : GKChallenge {
     GKScore *_score;
 }
 
-@property(readonly) GKLeaderboard * leaderboard;
-@property(retain) GKScore * score;
+@property (nonatomic, readonly) GKLeaderboard *leaderboard;
+@property (nonatomic, retain) GKScore *score;
 
-+ (bool)instancesRespondToSelector:(SEL)arg1;
+// Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
 
-- (id)alertGoalText;
-- (id)composeGoalText;
++ (BOOL)instancesRespondToSelector:(SEL)arg1;
+
 - (void)dealloc;
 - (id)description;
-- (id)detailGoalText;
 - (id)detailGoalTextForPlayer:(id)arg1 withLeaderboard:(id)arg2;
-- (bool)detailsLoaded;
-- (id)iconSource;
-- (id)iconURLString;
+- (BOOL)detailsLoaded;
 - (id)initWithInternalRepresentation:(id)arg1;
 - (id)leaderboard;
-- (id)listGoalText;
-- (id)listTitleText;
-- (void)loadDetailsWithCompletionHandler:(id)arg1;
+- (void)loadDetailsWithCompletionHandler:(id /* block */)arg1;
 - (id)score;
 - (void)setInternal:(id)arg1;
 - (void)setScore:(id)arg1;
-- (id)smallIconURLString;
 - (id)titleText;
+
+// Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
+
+- (id)alertGoalText;
+- (id)composeGoalText;
+- (id)detailGoalText;
+- (id)iconSource;
+- (id)iconURLString;
+- (id)listGoalText;
+- (id)listTitleText;
+- (id)smallIconURLString;
 
 @end

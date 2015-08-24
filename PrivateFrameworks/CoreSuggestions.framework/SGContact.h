@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CoreSuggestions.framework/CoreSuggestions
  */
 
-@class NSArray, SGName;
-
 @interface SGContact : NSObject <SGObject> {
     NSArray *_emailAddresses;
     SGName *_name;
@@ -11,15 +9,15 @@
     NSArray *_postalAddresses;
 }
 
-@property(readonly) NSArray * addresses;
-@property(readonly) NSArray * emailAddresses;
-@property(readonly) SGName * name;
-@property(readonly) NSArray * phones;
-@property(readonly) NSArray * postalAddresses;
+@property (nonatomic, readonly) NSArray *addresses;
+@property (nonatomic, readonly) NSArray *emailAddresses;
+@property (nonatomic, readonly) SGName *name;
+@property (nonatomic, readonly) NSArray *phones;
+@property (nonatomic, readonly) NSArray *postalAddresses;
 
 + (id)contactWithName:(id)arg1 emailAddresses:(id)arg2 phones:(id)arg3 addresses:(id)arg4;
 + (id)contactWithName:(id)arg1 emailAddresses:(id)arg2 phones:(id)arg3 postalAddresses:(id)arg4;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)addresses;
@@ -27,15 +25,15 @@
 - (id)description;
 - (id)emailAddresses;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithName:(id)arg1 emailAddresses:(id)arg2 phones:(id)arg3 postalAddresses:(id)arg4;
-- (bool)isEqual:(id)arg1;
-- (bool)isEqualToContact:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToContact:(id)arg1;
 - (id)name;
 - (id)phones;
 - (id)postalAddresses;
-- (unsigned long long)richness;
+- (unsigned int)richness;
 - (void)setEmailAddresses:(id)arg1;
 - (void)setName:(id)arg1;
 

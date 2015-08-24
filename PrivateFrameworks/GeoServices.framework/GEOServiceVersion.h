@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray;
-
 @interface GEOServiceVersion : PBCodable <NSCopying> {
     struct { 
         unsigned int minimumVersion : 1; 
@@ -12,9 +10,9 @@
     NSMutableArray *_versionDomains;
 }
 
-@property bool hasMinimumVersion;
-@property unsigned int minimumVersion;
-@property(retain) NSMutableArray * versionDomains;
+@property (nonatomic) BOOL hasMinimumVersion;
+@property (nonatomic) unsigned int minimumVersion;
+@property (nonatomic, retain) NSMutableArray *versionDomains;
 
 - (void)addVersionDomain:(id)arg1;
 - (void)clearVersionDomains;
@@ -23,18 +21,18 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasMinimumVersion;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasMinimumVersion;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (unsigned int)minimumVersion;
-- (bool)readFrom:(id)arg1;
-- (void)setHasMinimumVersion:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasMinimumVersion:(BOOL)arg1;
 - (void)setMinimumVersion:(unsigned int)arg1;
 - (void)setVersionDomains:(id)arg1;
-- (id)versionDomainAtIndex:(unsigned long long)arg1;
+- (id)versionDomainAtIndex:(unsigned int)arg1;
 - (id)versionDomains;
-- (unsigned long long)versionDomainsCount;
+- (unsigned int)versionDomainsCount;
 - (void)writeTo:(id)arg1;
 
 @end

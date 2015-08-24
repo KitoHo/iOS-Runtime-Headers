@@ -2,45 +2,43 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString, OADHyperlink, OADOrientedBounds;
-
 @interface OADDrawableProperties : OADProperties {
-    unsigned int mHasAspectRatioLocked : 1;
-    unsigned int mAspectRatioLocked : 1;
-    unsigned int mHasWrdInline : 1;
-    unsigned int mWrdInline : 1;
+    unsigned int mAspectRatioLocked;
     OADHyperlink *mClickHyperlink;
     NSString *mDescription;
+    unsigned int mHasAspectRatioLocked;
+    unsigned int mHasWrdInline;
     OADHyperlink *mHoverHyperlink;
     OADOrientedBounds *mOrientedBounds;
     NSString *mTitle;
+    unsigned int mWrdInline;
 }
 
 - (id)altDescription;
 - (id)altTitle;
 - (id)clickHyperlink;
 - (void)dealloc;
-- (bool)hasAltDescription;
-- (bool)hasAltTitle;
-- (bool)hasAspectRatioLocked;
-- (bool)hasClickHyperlink;
-- (bool)hasHoverHyperlink;
-- (bool)hasOrientedBounds;
-- (bool)hasWrdInline;
-- (unsigned long long)hash;
+- (BOOL)hasAltDescription;
+- (BOOL)hasAltTitle;
+- (BOOL)hasAspectRatioLocked;
+- (BOOL)hasClickHyperlink;
+- (BOOL)hasHoverHyperlink;
+- (BOOL)hasOrientedBounds;
+- (BOOL)hasWrdInline;
+- (unsigned int)hash;
 - (id)hoverHyperlink;
 - (id)initWithDefaults;
-- (bool)isAspectRatioLocked;
-- (bool)isEqual:(id)arg1;
-- (bool)isWrdInline;
+- (BOOL)isAspectRatioLocked;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isWrdInline;
 - (id)orientedBounds;
 - (void)removeUnnecessaryOverrides;
 - (void)setAltDescription:(id)arg1;
 - (void)setAltTitle:(id)arg1;
-- (void)setAspectRatioLocked:(bool)arg1;
+- (void)setAspectRatioLocked:(BOOL)arg1;
 - (void)setClickHyperlink:(id)arg1;
 - (void)setHoverHyperlink:(id)arg1;
 - (void)setOrientedBounds:(id)arg1;
-- (void)setWrdInline:(bool)arg1;
+- (void)setWrdInline:(BOOL)arg1;
 
 @end

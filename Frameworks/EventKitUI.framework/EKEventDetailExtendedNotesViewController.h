@@ -2,16 +2,14 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class <EKEditItemViewControllerDelegate>, NSString, UITextView;
-
 @interface EKEventDetailExtendedNotesViewController : UIViewController <EKEditItemViewControllerProtocol> {
     UITextView *_textView;
 }
 
-@property <EKEditItemViewControllerDelegate> * editDelegate;
-@property bool editItemShouldBeAskedForInjectableViewController;
-@property(copy) NSString * notes;
-@property bool presentModally;
+@property (nonatomic) <EKEditItemViewControllerDelegate> *editDelegate;
+@property (nonatomic) BOOL editItemShouldBeAskedForInjectableViewController;
+@property (nonatomic, copy) NSString *notes;
+@property (nonatomic) BOOL presentModally;
 
 - (void).cxx_destruct;
 - (id)_textView;
@@ -19,6 +17,6 @@
 - (void)loadView;
 - (id)notes;
 - (void)setNotes:(id)arg1;
-- (unsigned long long)supportedInterfaceOrientations;
+- (unsigned int)supportedInterfaceOrientations;
 
 @end

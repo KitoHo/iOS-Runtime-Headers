@@ -2,69 +2,63 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <GKMasterDetailViewControllerDelegate>, GKMasterDetailNavigationController, NSMutableArray, UIColor, UIView, UIViewController;
-
 @interface GKMasterDetailViewController : UISplitViewController {
     NSMutableArray *_controllersDelayingPresentation;
+    BOOL _covered;
     <GKMasterDetailViewControllerDelegate> *_masterDetailDelegate;
     GKMasterDetailNavigationController *_masterNavigationController;
-    id _presentationDelayHandler;
+    id /* block */ _presentationDelayHandler;
     UIView *_separatorBarMaskView;
     UIView *_separatorBarView;
     UIColor *_separatorLineColor;
     UIView *_separatorLineView;
     UIView *_separatorWrapperView;
-    bool_covered;
-    bool_shouldCollapseToDetail;
+    BOOL _shouldCollapseToDetail;
 }
 
-@property(retain) NSMutableArray * controllersDelayingPresentation;
-@property(getter=isCovered) bool covered;
-@property <GKMasterDetailViewControllerDelegate> * masterDetailDelegate;
-@property(retain) GKMasterDetailNavigationController * masterNavigationController;
-@property(copy) id presentationDelayHandler;
-@property(retain,readonly) UIViewController * rootDetailViewController;
-@property(retain) UIView * separatorBarMaskView;
-@property(retain) UIView * separatorBarView;
-@property(retain) UIColor * separatorLineColor;
-@property(retain) UIView * separatorLineView;
-@property(retain) UIView * separatorWrapperView;
-@property bool shouldCollapseToDetail;
-@property(retain,readonly) UIViewController * topDetailViewController;
-@property(retain,readonly) UIViewController * topMasterViewController;
+@property (nonatomic, retain) NSMutableArray *controllersDelayingPresentation;
+@property (getter=isCovered, nonatomic) BOOL covered;
+@property (nonatomic) <GKMasterDetailViewControllerDelegate> *masterDetailDelegate;
+@property (nonatomic, retain) GKMasterDetailNavigationController *masterNavigationController;
+@property (nonatomic, copy) id /* block */ presentationDelayHandler;
+@property (nonatomic, readonly, retain) UIViewController *rootDetailViewController;
+@property (nonatomic, retain) UIView *separatorBarMaskView;
+@property (nonatomic, retain) UIView *separatorBarView;
+@property (nonatomic, retain) UIColor *separatorLineColor;
+@property (nonatomic, retain) UIView *separatorLineView;
+@property (nonatomic, retain) UIView *separatorWrapperView;
+@property (nonatomic) BOOL shouldCollapseToDetail;
+@property (nonatomic, readonly, retain) UIViewController *topDetailViewController;
+@property (nonatomic, readonly, retain) UIViewController *topMasterViewController;
 
-+ (bool)_shouldForwardViewWillTransitionToSize;
++ (BOOL)_shouldForwardViewWillTransitionToSize;
 
-- (void)_animateSlidingDoorTransitionFromRelativeStartTime:(double)arg1 relativeDuration:(double)arg2 duration:(double)arg3 appearing:(bool)arg4;
+- (void)_animateSlidingDoorTransitionFromRelativeStartTime:(double)arg1 relativeDuration:(double)arg2 duration:(double)arg3 appearing:(BOOL)arg4;
 - (void)_gkRefreshContentsForDataType:(unsigned int)arg1 userInfo:(id)arg2;
-- (bool)_gkShouldRefreshContentsForDataType:(unsigned int)arg1 userInfo:(id)arg2;
-- (void)_setSeparatorBarHidden:(bool)arg1 animated:(bool)arg2;
+- (BOOL)_gkShouldRefreshContentsForDataType:(unsigned int)arg1 userInfo:(id)arg2;
+- (void)_setSeparatorBarHidden:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)_setupSeparatorViews;
 - (id)_viewForSlidingInDetailView;
 - (id)_viewForSlidingInMasterView;
-- (void)animationDidStop:(id)arg1 finished:(bool)arg2;
-- (bool)automaticallyForwardAppearanceMethods;
+- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (BOOL)automaticallyForwardAppearanceMethods;
 - (id)blankRootDetailViewController;
 - (double)bubbleFlowAnimateInDuration;
 - (double)bubbleFlowAnimateOutDuration;
 - (id)controllersDelayingPresentation;
 - (void)dealloc;
 - (void)decodeRestorableStateWithCoder:(id)arg1;
-- (void)delayAppearingWithBubbleFlowUntil:(id)arg1;
+- (void)delayAppearingWithBubbleFlowUntil:(id /* block */)arg1;
 - (void)encodeRestorableStateWithCoder:(id)arg1;
 - (id)init;
-- (bool)isCovered;
+- (BOOL)isCovered;
 - (id)masterDetailDelegate;
 - (id)masterNavigationController;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4;
-- (void)popToRootDetailViewControllerAnimated:(bool)arg1;
-- (id)presentationDelayHandler;
+- (void)popToRootDetailViewControllerAnimated:(BOOL)arg1;
+- (id /* block */)presentationDelayHandler;
 - (void)pushMasterViewController:(id)arg1;
-- (bool)readyToAppearWithBubbleFlow;
+- (BOOL)readyToAppearWithBubbleFlow;
 - (id)rootDetailViewController;
 - (id)separatorBarMaskView;
 - (id)separatorBarView;
@@ -72,28 +66,28 @@
 - (id)separatorLineView;
 - (id)separatorWrapperView;
 - (void)setControllersDelayingPresentation:(id)arg1;
-- (void)setCovered:(bool)arg1;
+- (void)setCovered:(BOOL)arg1;
 - (void)setMasterDetailDelegate:(id)arg1;
 - (void)setMasterNavigationController:(id)arg1;
-- (void)setNavigationBarHidden:(bool)arg1 animated:(bool)arg2;
-- (void)setNavigationBarHidden:(bool)arg1;
-- (void)setPresentationDelayHandler:(id)arg1;
+- (void)setNavigationBarHidden:(BOOL)arg1;
+- (void)setNavigationBarHidden:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setPresentationDelayHandler:(id /* block */)arg1;
 - (void)setSeparatorBarMaskView:(id)arg1;
 - (void)setSeparatorBarView:(id)arg1;
 - (void)setSeparatorLineColor:(id)arg1;
 - (void)setSeparatorLineView:(id)arg1;
 - (void)setSeparatorWrapperView:(id)arg1;
-- (void)setShouldCollapseToDetail:(bool)arg1;
-- (bool)shouldAutomaticallyForwardRotationMethods;
-- (bool)shouldCollapseToDetail;
-- (bool)statusShouldCoverSplitViewFor:(id)arg1;
+- (void)setShouldCollapseToDetail:(BOOL)arg1;
+- (BOOL)shouldAutomaticallyForwardRotationMethods;
+- (BOOL)shouldCollapseToDetail;
+- (BOOL)statusShouldCoverSplitViewFor:(id)arg1;
 - (id)topDetailViewController;
 - (id)topMasterViewController;
 - (void)updateCoveredColumnWidth;
-- (void)viewDidDisappearAnimated:(bool)arg1 bubbleFlow:(bool)arg2;
+- (void)viewDidDisappearAnimated:(BOOL)arg1 bubbleFlow:(BOOL)arg2;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
-- (void)viewWillTransitionToSize:(struct CGSize { double x1; double x2; })arg1 withTransitionCoordinator:(id)arg2;
+- (void)viewWillTransitionToSize:(struct CGSize { float x1; float x2; })arg1 withTransitionCoordinator:(id)arg2;
 - (void)willAnimateKeyframesForAppearingWithBubbleFlowFromRelativeStartTime:(double)arg1 relativeDuration:(double)arg2 absoluteTransitionDuration:(double)arg3 fromViewController:(id)arg4;
 - (void)willAnimateKeyframesForDisappearingWithBubbleFlowFromRelativeStartTime:(double)arg1 relativeDuration:(double)arg2 absoluteTransitionDuration:(double)arg3 toViewController:(id)arg4;
 

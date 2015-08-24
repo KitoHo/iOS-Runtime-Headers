@@ -2,30 +2,28 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UITableViewController;
-
 @interface UITableViewControllerKeyboardSupport : NSObject {
-    unsigned int _viewIsDisappearing : 1;
-    unsigned int _registeredForNotifications : 1;
-    double _adjustmentForKeyboard;
+    float _adjustmentForKeyboard;
+    unsigned int _registeredForNotifications;
     UITableViewController *_tableViewController;
+    unsigned int _viewIsDisappearing;
 }
 
-@property double adjustmentForKeyboard;
-@property bool registeredForNotifications;
-@property bool viewIsDisappearing;
+@property (nonatomic) float adjustmentForKeyboard;
+@property (nonatomic) BOOL registeredForNotifications;
+@property (nonatomic) BOOL viewIsDisappearing;
 
 - (void)_keyboardDidChangeFrame:(id)arg1;
 - (void)_keyboardDidHide:(id)arg1;
 - (void)_keyboardDidShow:(id)arg1;
 - (void)_keyboardWillHide:(id)arg1;
 - (void)_keyboardWillShow:(id)arg1;
-- (double)adjustmentForKeyboard;
+- (float)adjustmentForKeyboard;
 - (id)initWithTableViewController:(id)arg1;
-- (bool)registeredForNotifications;
-- (void)setAdjustmentForKeyboard:(double)arg1;
-- (void)setRegisteredForNotifications:(bool)arg1;
-- (void)setViewIsDisappearing:(bool)arg1;
-- (bool)viewIsDisappearing;
+- (BOOL)registeredForNotifications;
+- (void)setAdjustmentForKeyboard:(float)arg1;
+- (void)setRegisteredForNotifications:(BOOL)arg1;
+- (void)setViewIsDisappearing:(BOOL)arg1;
+- (BOOL)viewIsDisappearing;
 
 @end

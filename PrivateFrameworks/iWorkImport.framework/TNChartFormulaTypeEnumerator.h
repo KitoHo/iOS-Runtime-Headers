@@ -3,13 +3,13 @@
  */
 
 @interface TNChartFormulaTypeEnumerator : NSObject {
-    unsigned long long _count;
-    unsigned long long _index;
-    int **_keys;
+    unsigned int _count;
+    unsigned int _index;
+    unsigned int **_keys;
 }
 
 - (void)dealloc;
 - (id)initWithChartFormulaStorage:(id)arg1;
-- (int)nextFormulaType;
+- (unsigned int)nextFormulaType;
 
 @end

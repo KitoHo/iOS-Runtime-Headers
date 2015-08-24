@@ -2,16 +2,13 @@
    Image: /System/Library/Frameworks/Social.framework/Social
  */
 
-@class NSString;
+@interface SLFacebookRequest : SLRequest
 
-@interface SLFacebookRequest : SLRequest {
-}
-
-@property(retain) NSString * accessToken;
+@property (retain) NSString *accessToken;
 @property int responseDataFormat;
 
 - (id)accessToken;
-- (id)initWithURL:(id)arg1 parameters:(id)arg2 requestMethod:(long long)arg3;
+- (id)initWithURL:(id)arg1 parameters:(id)arg2 requestMethod:(int)arg3;
 - (void)preflightRequest;
 - (id)preparedURLRequest;
 - (int)responseDataFormat;

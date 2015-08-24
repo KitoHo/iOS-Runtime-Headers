@@ -2,27 +2,19 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface HKObserverQuery : HKQuery {
-    id _updateHandler;
+    id /* block */ _updateHandler;
 }
 
-@property(readonly) id updateHandler;
-
-+ (id)_clientInterfaceProtocol;
-+ (void)_configureClientInterface:(id)arg1;
+@property (nonatomic, readonly) id /* block */ updateHandler;
 
 - (void).cxx_destruct;
 - (void)_queue_cleanupAfterDeactivation;
-- (id)_queue_errorHandler;
-- (void)_queue_requestServerProxyWithUUID:(id)arg1 connection:(id)arg2 handler:(id)arg3;
-- (bool)_queue_shouldStayAliveAfterInitialResults;
+- (id /* block */)_queue_errorHandler;
+- (BOOL)_queue_shouldStayAliveAfterInitialResults;
 - (void)_queue_validate;
 - (void)dataUpdatedInDatabaseWithAnchor:(id)arg1 query:(id)arg2;
-- (id)initWithSampleType:(id)arg1 predicate:(id)arg2 updateHandler:(id)arg3;
-- (id)updateHandler;
+- (id)initWithSampleType:(id)arg1 predicate:(id)arg2 updateHandler:(id /* block */)arg3;
+- (id /* block */)updateHandler;
 
 @end

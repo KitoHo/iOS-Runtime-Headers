@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class NSDictionary, NSObject<OS_dispatch_queue>;
-
 @interface BWVideoCompressorNode : BWNode {
     struct OpaqueVTCompressionSession { } *_compressionSession;
     NSDictionary *_compressionSettings;
+    BOOL _didPrepareToEncode;
     NSObject<OS_dispatch_queue> *_emitterQueue;
     float _maxVideoFrameRate;
-    unsigned int _sourcePixelFormatType;
-    bool_didPrepareToEncode;
-    bool_nextFrameEncodeAsKeyFrame;
-    bool_shouldAttachDebugSEI;
-    bool_sourceIsHDResolution;
+    BOOL _nextFrameEncodeAsKeyFrame;
+    BOOL _shouldAttachDebugSEI;
+    BOOL _sourceIsHDResolution;
+    unsigned long _sourcePixelFormatType;
 }
 
 + (id)_formatRequirementsForCompressionSettings:(id)arg1 maxVideoFrameRate:(float)arg2 retainedBufferCountHint:(int*)arg3;

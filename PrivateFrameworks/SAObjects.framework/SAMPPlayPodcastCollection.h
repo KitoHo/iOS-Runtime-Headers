@@ -2,13 +2,10 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString, SAMPPodcastCollection;
+@interface SAMPPlayPodcastCollection : SADomainCommand
 
-@interface SAMPPlayPodcastCollection : SADomainCommand {
-}
-
-@property(copy) NSString * episodePlaybackOrder;
-@property(retain) SAMPPodcastCollection * podcastCollection;
+@property (nonatomic, copy) NSString *episodePlaybackOrder;
+@property (nonatomic, retain) SAMPPodcastCollection *podcastCollection;
 
 + (id)playPodcastCollection;
 + (id)playPodcastCollectionWithDictionary:(id)arg1 context:(id)arg2;
@@ -17,7 +14,7 @@
 - (id)episodePlaybackOrder;
 - (id)groupIdentifier;
 - (id)podcastCollection;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setEpisodePlaybackOrder:(id)arg1;
 - (void)setPodcastCollection:(id)arg1;
 

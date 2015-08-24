@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSMutableDictionary, NSString;
-
 @interface SUViewControllerContext : NSObject <NSCoding> {
     NSMutableDictionary *_metadata;
     NSString *_sectionIdentifier;
-    long long _type;
+    int _type;
 }
 
-@property(retain) NSString * sectionIdentifier;
-@property long long type;
+@property (nonatomic, retain) NSString *sectionIdentifier;
+@property (nonatomic) int type;
 
-- (long long)_typeForTypeString:(id)arg1;
-- (id)_typeStringForType:(long long)arg1;
+- (int)_typeForTypeString:(id)arg1;
+- (id)_typeStringForType:(int)arg1;
 - (id)copyViewController;
 - (void)dealloc;
 - (id)description;
@@ -22,9 +20,9 @@
 - (id)initWithCoder:(id)arg1;
 - (id)sectionIdentifier;
 - (void)setSectionIdentifier:(id)arg1;
-- (void)setType:(long long)arg1;
+- (void)setType:(int)arg1;
 - (void)setValue:(id)arg1 forMetadataKey:(id)arg2;
-- (long long)type;
+- (int)type;
 - (id)valueForMetadataKey:(id)arg1;
 
 @end

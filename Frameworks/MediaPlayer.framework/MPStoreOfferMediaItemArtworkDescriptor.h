@@ -2,13 +2,11 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class NSArray, NSDictionary, NSString;
-
-@interface MPStoreOfferMediaItemArtworkDescriptor : NSObject {
+@interface MPStoreOfferMediaItemArtworkDescriptor : NSObject <NSCopying> {
     NSString *_cacheID;
     NSArray *_containerArtworkSizes;
     NSDictionary *_containerArtworkURLs;
-    unsigned long long _hash;
+    unsigned int _hash;
     NSArray *_itemArtworkSizes;
     NSDictionary *_itemArtworkURLs;
     long long _itemPersistentID;
@@ -16,17 +14,18 @@
     NSDictionary *_screenshotURLs;
 }
 
-@property(readonly) NSString * cacheID;
+@property (nonatomic, readonly) NSString *cacheID;
 
 - (void).cxx_destruct;
 - (id)_availableSizesForArtworkURLs:(id)arg1;
-- (id)_preferredArtworkURLsForType:(long long)arg1;
+- (id)_preferredArtworkURLsForType:(int)arg1;
 - (id)_sizeToURLDictionaryFromStoreDictionariesArray:(id)arg1;
-- (id)artworkURLForSize:(struct CGSize { double x1; double x2; })arg1 type:(long long)arg2;
-- (id)availableSizesForArtworkOfType:(long long)arg1;
+- (id)artworkURLForSize:(struct CGSize { float x1; float x2; })arg1 type:(int)arg2;
+- (id)availableSizesForArtworkOfType:(int)arg1;
 - (id)cacheID;
-- (unsigned long long)hash;
+- (id)copyWithZone:(struct _NSZone { }*)arg1;
+- (unsigned int)hash;
 - (id)initWithItemPersistentID:(long long)arg1 screenshotDictionaries:(id)arg2 itemArtworkDictionaries:(id)arg3 containerArtworkDictionaries:(id)arg4;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 
 @end

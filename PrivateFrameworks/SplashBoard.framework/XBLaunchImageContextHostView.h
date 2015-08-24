@@ -2,35 +2,29 @@
    Image: /System/Library/PrivateFrameworks/SplashBoard.framework/SplashBoard
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class CALayerHost, NSString;
-
 @interface XBLaunchImageContextHostView : UIView {
     NSString *_bundleID;
-    id _captureBlock;
+    id /* block */ _captureBlock;
     CALayerHost *_contentLayer;
     id _delegate;
-    double _remoteScale;
-    bool_saved;
+    float _remoteScale;
+    BOOL _saved;
 }
 
-@property(copy) id captureBlock;
-@property double remoteScale;
-@property(getter=isSaved) bool saved;
+@property (nonatomic, copy) id /* block */ captureBlock;
+@property (nonatomic) float remoteScale;
+@property (getter=isSaved, nonatomic) BOOL saved;
 
-- (id)captureBlock;
+- (id /* block */)captureBlock;
 - (void)connectToContextID:(unsigned int)arg1 bundleID:(id)arg2;
 - (unsigned int)contextId;
 - (void)dealloc;
 - (void)didMoveToSuperview;
 - (void)disconnect;
-- (bool)isSaved;
-- (double)remoteScale;
-- (void)setCaptureBlock:(id)arg1;
-- (void)setRemoteScale:(double)arg1;
-- (void)setSaved:(bool)arg1;
+- (BOOL)isSaved;
+- (float)remoteScale;
+- (void)setCaptureBlock:(id /* block */)arg1;
+- (void)setRemoteScale:(float)arg1;
+- (void)setSaved:(BOOL)arg1;
 
 @end

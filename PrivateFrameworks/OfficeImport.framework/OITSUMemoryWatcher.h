@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OITSUFlushingManager;
-
 @interface OITSUMemoryWatcher : NSObject {
     OITSUFlushingManager *_flushingManager;
-    bool_going;
-    bool_stop;
+    BOOL _going;
+    BOOL _stop;
 }
 
 - (void)_periodicallySimulateMemoryWarning:(id)arg1;

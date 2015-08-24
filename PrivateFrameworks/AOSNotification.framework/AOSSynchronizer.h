@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/AOSNotification.framework/AOSNotification
  */
 
-@class NSObject<OS_dispatch_semaphore>, NSString;
-
 @interface AOSSynchronizer : NSObject {
     NSString *_info;
     NSObject<OS_dispatch_semaphore> *_sem;
     double _timeout;
-    bool_timeoutOccurred;
+    BOOL _timeoutOccurred;
 }
 
-@property(retain) NSString * info;
-@property(retain) NSObject<OS_dispatch_semaphore> * sem;
-@property double timeout;
-@property bool timeoutOccurred;
+@property (nonatomic, retain) NSString *info;
+@property (nonatomic, retain) NSObject<OS_dispatch_semaphore> *sem;
+@property (nonatomic) double timeout;
+@property (nonatomic) BOOL timeoutOccurred;
 
 - (void).cxx_destruct;
 - (id)info;
@@ -24,10 +22,10 @@
 - (void)setInfo:(id)arg1;
 - (void)setSem:(id)arg1;
 - (void)setTimeout:(double)arg1;
-- (void)setTimeoutOccurred:(bool)arg1;
+- (void)setTimeoutOccurred:(BOOL)arg1;
 - (void)signal;
 - (double)timeout;
-- (bool)timeoutOccurred;
+- (BOOL)timeoutOccurred;
 - (void)wait;
 
 @end

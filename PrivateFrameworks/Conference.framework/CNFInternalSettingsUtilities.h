@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/Conference.framework/Conference
  */
 
-@interface CNFInternalSettingsUtilities : NSObject {
-}
+@interface CNFInternalSettingsUtilities : NSObject
 
 + (id)IDSEnvironment;
 + (id)currentInternalSettingsBundle;
-+ (bool)isViceroyLoggingEnabled;
++ (BOOL)isViceroyLoggingEnabled;
 + (void)killEverything;
 + (void)killFaceTime;
 + (void)killImagent;
@@ -18,7 +17,7 @@
 + (void)nukeKeychain;
 + (void)setCurrentInternalSettingsBundle:(id)arg1;
 + (void)setIDSEnvironment:(id)arg1;
-+ (void)setViceroyLoggingEnabled:(bool)arg1;
++ (void)setViceroyLoggingEnabled:(BOOL)arg1;
 + (void)signOutAllAccounts;
 + (void)syncImagentLogSettings;
 

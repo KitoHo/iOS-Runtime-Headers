@@ -2,31 +2,29 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class EKCalendar, EKGroupInfo, NSString, UIColor, UIImage;
-
 @interface EKCalendarInfo : NSObject {
     EKCalendar *_calendar;
     UIColor *_color;
     int _customGroupType;
     EKGroupInfo *_group;
+    BOOL _selected;
     NSString *_title;
-    bool_selected;
 }
 
-@property(retain) EKCalendar * calendar;
-@property(retain) UIColor * color;
-@property int customGroupType;
-@property(readonly) int displayOrder;
-@property(readonly) bool excludeFromSelectAll;
-@property EKGroupInfo * group;
-@property(readonly) UIImage * highlightedIcon;
-@property(readonly) UIImage * icon;
-@property(readonly) bool isEditable;
-@property(readonly) bool isPublished;
-@property(readonly) bool isShared;
-@property(readonly) bool isSubscribed;
-@property bool selected;
-@property(copy,readonly) NSString * title;
+@property (nonatomic, retain) EKCalendar *calendar;
+@property (nonatomic, retain) UIColor *color;
+@property (nonatomic) int customGroupType;
+@property (nonatomic, readonly) int displayOrder;
+@property (nonatomic, readonly) BOOL excludeFromSelectAll;
+@property (nonatomic) EKGroupInfo *group;
+@property (nonatomic, readonly) UIImage *highlightedIcon;
+@property (nonatomic, readonly) UIImage *icon;
+@property (nonatomic, readonly) BOOL isEditable;
+@property (nonatomic, readonly) BOOL isPublished;
+@property (nonatomic, readonly) BOOL isShared;
+@property (nonatomic, readonly) BOOL isSubscribed;
+@property (nonatomic) BOOL selected;
+@property (nonatomic, readonly, copy) NSString *title;
 
 - (void).cxx_destruct;
 - (void)_updateCustomGroupType;
@@ -35,21 +33,21 @@
 - (int)customGroupType;
 - (id)description;
 - (int)displayOrder;
-- (bool)excludeFromSelectAll;
+- (BOOL)excludeFromSelectAll;
 - (id)group;
 - (id)highlightedIcon;
 - (id)icon;
 - (id)initWithCalendar:(id)arg1;
-- (bool)isEditable;
-- (bool)isPublished;
-- (bool)isShared;
-- (bool)isSubscribed;
-- (bool)selected;
+- (BOOL)isEditable;
+- (BOOL)isPublished;
+- (BOOL)isShared;
+- (BOOL)isSubscribed;
+- (BOOL)selected;
 - (void)setCalendar:(id)arg1;
 - (void)setColor:(id)arg1;
 - (void)setCustomGroupType:(int)arg1;
 - (void)setGroup:(id)arg1;
-- (void)setSelected:(bool)arg1;
+- (void)setSelected:(BOOL)arg1;
 - (id)title;
 
 @end

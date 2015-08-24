@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface UIAlertTextView : _UICompatibilityTextView {
-}
+@interface UIAlertTextView : _UICompatibilityTextView
 
-- (bool)canBecomeFirstResponder;
+- (BOOL)canBecomeFirstResponder;
 
 @end

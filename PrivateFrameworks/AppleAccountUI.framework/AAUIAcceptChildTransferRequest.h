@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/AppleAccountUI.framework/AppleAccountUI
  */
 
-@class NSString;
-
 @interface AAUIAcceptChildTransferRequest : AAFamilyRequest {
     NSString *_requestCode;
 }
 
-@property(copy) NSString * requestCode;
+@property (nonatomic, copy) NSString *requestCode;
 
 - (void).cxx_destruct;
-- (bool)isUserInitiated;
+- (BOOL)isUserInitiated;
 - (id)requestCode;
 - (void)setRequestCode:(id)arg1;
 - (id)urlRequest;

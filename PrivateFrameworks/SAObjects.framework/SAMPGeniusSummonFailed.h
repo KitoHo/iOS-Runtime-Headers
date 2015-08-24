@@ -2,32 +2,29 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString;
+@interface SAMPGeniusSummonFailed : SABaseCommand <SAServerBoundCommand>
 
-@interface SAMPGeniusSummonFailed : SABaseCommand <SAServerBoundCommand> {
-}
-
-@property(copy) NSString * aceId;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property long long errorCode;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * reason;
-@property(copy) NSString * refId;
-@property(readonly) Class superclass;
+@property (nonatomic, copy) NSString *aceId;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) int errorCode;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSString *reason;
+@property (nonatomic, copy) NSString *refId;
+@property (readonly) Class superclass;
 
 + (id)geniusSummonFailed;
 + (id)geniusSummonFailedWithDictionary:(id)arg1 context:(id)arg2;
-+ (id)geniusSummonFailedWithErrorCode:(long long)arg1;
++ (id)geniusSummonFailedWithErrorCode:(int)arg1;
 + (id)geniusSummonFailedWithReason:(id)arg1;
 
 - (id)encodedClassName;
-- (long long)errorCode;
+- (int)errorCode;
 - (id)groupIdentifier;
-- (id)initWithErrorCode:(long long)arg1;
+- (id)initWithErrorCode:(int)arg1;
 - (id)initWithReason:(id)arg1;
 - (id)reason;
-- (void)setErrorCode:(long long)arg1;
+- (void)setErrorCode:(int)arg1;
 - (void)setReason:(id)arg1;
 
 @end

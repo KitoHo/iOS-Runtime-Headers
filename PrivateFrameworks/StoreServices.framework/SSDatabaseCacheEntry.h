@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class SSPersistentCache;
-
 @interface SSDatabaseCacheEntry : SSSQLiteEntity {
     SSPersistentCache *_persistentCache;
 }
@@ -12,7 +10,7 @@
 + (id)allPropertyKeys;
 + (id)databaseTable;
 
-- (id)dataBlob:(bool*)arg1;
+- (id)dataBlob:(BOOL*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)initWithLookupKey:(id)arg1 inDatabase:(id)arg2;

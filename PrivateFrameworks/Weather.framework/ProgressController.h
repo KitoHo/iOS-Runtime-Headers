@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/Weather.framework/Weather
  */
 
-@class NSTimer;
-
 @interface ProgressController : NSObject {
     NSTimer *_hideSpinnerTimer;
     int _loadingCount;
-    bool_progressShowing;
+    BOOL _progressShowing;
 }
 
 + (id)sharedProgressController;
@@ -15,7 +13,7 @@
 - (void)_hideSpinner;
 - (void)_setHideSpinnerTimer:(id)arg1;
 - (void)_showSpinner;
-- (void)setLoadingData:(bool)arg1;
+- (void)setLoadingData:(BOOL)arg1;
 - (void)suspend;
 - (void)userScrolled;
 

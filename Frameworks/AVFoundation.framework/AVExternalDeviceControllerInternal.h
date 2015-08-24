@@ -2,11 +2,9 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class <AVExternalDeviceControllerDelegate>;
-
 @interface AVExternalDeviceControllerInternal : NSObject {
     <AVExternalDeviceControllerDelegate> *delegate;
-    long long discoveryMode;
+    int discoveryMode;
     struct OpaqueFigEndpointPicker { } *endpointPicker;
 }
 

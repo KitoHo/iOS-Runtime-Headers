@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/WebKitLegacy.framework/WebKitLegacy
  */
 
-@class _WebSafeAsyncForwarder;
-
 @interface _WebSafeForwarder : NSObject {
     _WebSafeAsyncForwarder *asyncForwarder;
-    long long asyncForwarderPred;
+    long asyncForwarderPred;
     id defaultTarget;
     id target;
 }
@@ -17,6 +15,6 @@
 - (void)forwardInvocation:(id)arg1;
 - (id)initWithTarget:(id)arg1 defaultTarget:(id)arg2;
 - (id)methodSignatureForSelector:(SEL)arg1;
-- (bool)respondsToSelector:(SEL)arg1;
+- (BOOL)respondsToSelector:(SEL)arg1;
 
 @end

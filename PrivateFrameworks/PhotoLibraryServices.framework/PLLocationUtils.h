@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@interface PLLocationUtils : NSObject {
-}
+@interface PLLocationUtils : NSObject
 
-+ (bool)canUseCoordinate:(struct { double x1; double x2; })arg1;
++ (BOOL)canUseCoordinate:(struct { double x1; double x2; })arg1;
 
 @end

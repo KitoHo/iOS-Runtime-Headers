@@ -2,23 +2,22 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-@class NSData, NSNumber, NSString;
-
-@interface BRCGenerationID : NSObject <NSCopying, NSSecureCoding, PQLBindable> {
+@interface BRCGenerationID : NSObject <NSCopying, NSSecureCoding, PQLValuable> {
     unsigned int _generationID;
     NSData *_signature;
 }
 
-@property(readonly) const char * UTF8String;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) NSNumber * fsGenerationID;
-@property(readonly) NSString * generationIDString;
-@property(readonly) unsigned long long hash;
-@property(readonly) NSData * signature;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) const char *UTF8String;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) NSNumber *fsGenerationID;
+@property (nonatomic, readonly) NSString *generationIDString;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) NSData *signature;
+@property (readonly) Class superclass;
 
-+ (bool)supportsSecureCoding;
++ (id)newFromSqliteValue:(struct Mem { }*)arg1;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (const char *)UTF8String;
@@ -30,11 +29,10 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFSGenerationID:(unsigned int)arg1;
 - (id)initWithRelativePath:(id)arg1;
-- (id)initWithSignature:(const void*)arg1 length:(unsigned long long)arg2;
-- (id)initWithSqlite3Value:(struct Mem { }*)arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)isEqualToFSGenerationID:(unsigned int)arg1;
-- (bool)isEqualToGenerationID:(id)arg1 orSignature:(id)arg2;
+- (id)initWithSignature:(const void*)arg1 length:(unsigned int)arg2;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToFSGenerationID:(unsigned int)arg1;
+- (BOOL)isEqualToGenerationID:(id)arg1 orSignature:(id)arg2;
 - (id)signature;
 - (void)sqliteBind:(struct sqlite3_stmt { }*)arg1 index:(int)arg2;
 

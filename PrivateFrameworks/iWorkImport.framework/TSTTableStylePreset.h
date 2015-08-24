@@ -2,45 +2,37 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSString, TSTTableStyleNetwork;
-
-@interface TSTTableStylePreset : TSPObject <TSSPreset, TSSStyleClient, TSKModel> {
-    unsigned long long mPresetID;
-    TSTTableStyleNetwork *mStyleNetwork;
+@interface TSTTableStylePreset : TSPObject <TSKModel, TSSPreset, TSSStyleClient> {
+    TSTTableStyleNetwork *_styleNetwork;
+    unsigned int _tempUpgradePresetID;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property unsigned long long presetID;
-@property(readonly) NSString * presetKind;
-@property(copy) TSTTableStyleNetwork * styleNetwork;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) unsigned int presetID;
+@property (nonatomic, readonly) NSString *presetKind;
+@property (nonatomic, copy) TSTTableStyleNetwork *styleNetwork;
+@property (readonly) Class superclass;
+
++ (BOOL)needsObjectUUID;
 
 - (void)dealloc;
-- (void)drawSwatchInRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 inContext:(struct CGContext { }*)arg2;
-- (unsigned long long)hash;
+- (void)drawSwatchInRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1 inContext:(struct CGContext { }*)arg2;
+- (unsigned int)hash;
 - (id)initFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1;
-- (id)initWithStyleNetwork:(id)arg1 presetID:(unsigned long long)arg2;
-- (bool)isEqual:(id)arg1;
-- (bool)isThemeEquivalent:(id)arg1;
+- (id)initWithStyleNetwork:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)p_documentRoot;
-- (unsigned long long)presetID;
+- (unsigned int)presetID;
 - (id)presetKind;
 - (id)referencedStyles;
-- (void)replaceReferencedStylesUsingBlock:(id)arg1;
-- (void)saveToArchive:(struct TableStylePresetArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; struct Reference {} *x3; struct Reference {} *x4; int x5; int x6; unsigned int x7[1]; }*)arg1 archiver:(id)arg2;
+- (void)replaceReferencedStylesUsingBlock:(id /* block */)arg1;
+- (void)saveToArchive:(struct TableStylePresetArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct Reference {} *x5; struct Reference {} *x6; int x7; }*)arg1 archiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (void)setPresetID:(unsigned long long)arg1;
 - (void)setStyleNetwork:(id)arg1;
 - (id)styleNetwork;
-- (id)styleNetworkInStylesheet:(id)arg1;
 - (id)swatchImage;
 
 @end

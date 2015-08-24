@@ -2,45 +2,39 @@
    Image: /System/Library/Frameworks/SceneKit.framework/SceneKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class CADisplayLink, NSObject<OS_dispatch_queue>;
-
 @interface SCNDisplayLink : NSObject {
-    id _block;
+    BOOL _asynchronous;
+    id /* block */ _block;
     CADisplayLink *_caDisplayLink;
-    long long _frameInterval;
+    int _frameInterval;
+    BOOL _invalidated;
     double _lastVideoOutput;
     id _owner;
+    BOOL _paused;
     NSObject<OS_dispatch_queue> *_queue;
     int _queuedFrameCount;
     id _reserved;
-    bool_asynchronous;
-    bool_invalidated;
-    bool_paused;
 }
 
-@property long long frameInterval;
-@property(getter=isPaused) bool paused;
+@property (nonatomic) int frameInterval;
+@property (getter=isPaused, nonatomic) BOOL paused;
 
 - (void)_caDisplayLinkCallback;
 - (void)_callbackWithTime:(double)arg1 andDeltaTime:(double)arg2;
-- (bool)_isInvalidated;
+- (BOOL)_isInvalidated;
 - (void)_pause;
 - (void)_resume;
 - (void)_teardown;
 - (void)dealloc;
-- (long long)frameInterval;
+- (int)frameInterval;
 - (id)init;
-- (id)initWithOwner:(id)arg1 queue:(id)arg2 block:(id)arg3;
+- (id)initWithOwner:(id)arg1 queue:(id)arg2 block:(id /* block */)arg3;
 - (void)invalidate;
-- (bool)isPaused;
+- (BOOL)isPaused;
 - (int)queuedFrameCount;
-- (void)setFrameInterval:(long long)arg1;
-- (void)setPaused:(bool)arg1 nextFrameTimeHint:(double)arg2;
-- (void)setPaused:(bool)arg1;
+- (void)setFrameInterval:(int)arg1;
+- (void)setPaused:(BOOL)arg1;
+- (void)setPaused:(BOOL)arg1 nextFrameTimeHint:(double)arg2;
 - (void)willDie;
 
 @end

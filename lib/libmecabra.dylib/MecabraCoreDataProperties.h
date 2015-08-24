@@ -2,25 +2,23 @@
    Image: /usr/lib/libmecabra.dylib
  */
 
-@class NSMutableDictionary, NSString;
-
 @interface MecabraCoreDataProperties : NSObject {
     NSMutableDictionary *_descriptionDictionary;
     NSString *_identifier;
     NSString *_type;
 }
 
-@property(retain) NSMutableDictionary * descriptionDictionary;
-@property(retain) NSString * identifier;
-@property(retain,readonly) NSString * type;
-@property(readonly) NSString * ubiquityContainerIdentifier;
+@property (nonatomic, retain) NSMutableDictionary *descriptionDictionary;
+@property (nonatomic, retain) NSString *identifier;
+@property (nonatomic, readonly, retain) NSString *type;
+@property (nonatomic, readonly) NSString *ubiquityContainerIdentifier;
 
 + (id)defaultDescriptionPath;
 + (void)setDefaultDescriptionPath:(id)arg1;
 + (id)sharedInstanceForType:(id)arg1;
 + (id)ubiquityContainerURL;
 
-- (bool)databaseSyncs;
+- (BOOL)databaseSyncs;
 - (void)dealloc;
 - (id)descriptionDictionary;
 - (id)entityDescriptionURL;

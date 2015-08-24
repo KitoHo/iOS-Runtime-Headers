@@ -2,10 +2,9 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@interface ABPhoneStyleProvider : ABStyleProvider {
-}
+@interface ABPhoneStyleProvider : ABStyleProvider
 
-- (bool)cardActionsAllowFaceTimeFavorites;
-- (bool)cardActionsAllowVoiceFavorites;
+- (BOOL)cardActionsAllowFaceTimeFavorites;
+- (BOOL)cardActionsAllowVoiceFavorites;
 
 @end

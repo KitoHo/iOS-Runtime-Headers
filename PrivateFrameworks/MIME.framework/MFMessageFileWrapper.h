@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/MIME.framework/MIME
  */
 
-@class NSData, NSMutableDictionary, NSString;
-
 @interface MFMessageFileWrapper : NSObject {
     NSMutableDictionary *_attributes;
     NSData *_data;
@@ -15,16 +13,14 @@
     NSString *_url;
 }
 
-+ (id)supportedArchivedClassNames;
+// Image: /System/Library/PrivateFrameworks/MIME.framework/MIME
 
 - (id)URL;
-- (void)_isImage:(bool*)arg1 orPDFFile:(bool*)arg2;
-- (bool)_pathExtensionEquals:(id)arg1;
+- (void)_isImage:(BOOL*)arg1 orPDFFile:(BOOL*)arg2;
 - (id)contentID;
-- (unsigned int)creator;
+- (unsigned long)creator;
 - (void)dealloc;
 - (id)description;
-- (void)encodeWithCoder:(id)arg1;
 - (id)eventUniqueID;
 - (id)fileAttributes;
 - (id)fileProtection;
@@ -35,30 +31,22 @@
 - (id)inferredMimeType;
 - (id)initRegularFileWithContents:(id)arg1;
 - (id)initSymbolicLinkWithDestination:(id)arg1;
-- (id)initWithCoder:(id)arg1;
 - (id)initWithPath:(id)arg1;
-- (bool)isDirectory;
-- (bool)isDisplayableByWebKit;
-- (bool)isDisplayableImage;
-- (bool)isImageFile;
-- (bool)isMedia;
-- (bool)isPDFFile;
-- (bool)isPlaceholder;
-- (bool)isRFC822;
-- (bool)isRegularFile;
-- (bool)isSymbolicLink;
-- (bool)isUnzippableFile;
-- (bool)isZip;
+- (BOOL)isDirectory;
+- (BOOL)isImageFile;
+- (BOOL)isPDFFile;
+- (BOOL)isPlaceholder;
+- (BOOL)isRegularFile;
+- (BOOL)isSymbolicLink;
+- (BOOL)isUnzippableFile;
 - (id)meetingStorePersistentID;
 - (id)messageID;
 - (id)mimeType;
-- (float)minimumZoomFontSize;
 - (id)path;
 - (id)preferredFilename;
-- (id)preferredFilenameStrippingZipIfNeededUseApplications:(bool)arg1;
 - (id)regularFileContents;
 - (void)setContentID:(id)arg1;
-- (void)setCreator:(unsigned int)arg1;
+- (void)setCreator:(unsigned long)arg1;
 - (void)setEventUniqueID:(id)arg1;
 - (void)setFileAttributes:(id)arg1;
 - (void)setFileProtection:(id)arg1;
@@ -70,9 +58,27 @@
 - (void)setMimeType:(id)arg1;
 - (void)setPath:(id)arg1;
 - (void)setPreferredFilename:(id)arg1;
-- (void)setType:(unsigned int)arg1;
+- (void)setType:(unsigned long)arg1;
 - (void)setURL:(id)arg1;
 - (id)symbolicLinkDestination;
-- (unsigned int)type;
+- (unsigned long)type;
+
+// Image: /System/Library/Frameworks/MessageUI.framework/MessageUI
+
+- (BOOL)_pathExtensionEquals:(id)arg1;
+- (BOOL)isDisplayableByWebKit;
+- (BOOL)isDisplayableImage;
+- (BOOL)isMedia;
+- (BOOL)isRFC822;
+- (BOOL)isZip;
+- (float)minimumZoomFontSize;
+- (id)preferredFilenameStrippingZipIfNeededUseApplications:(BOOL)arg1;
+
+// Image: /System/Library/PrivateFrameworks/Notes.framework/Notes
+
++ (id)supportedArchivedClassNames;
+
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 
 @end

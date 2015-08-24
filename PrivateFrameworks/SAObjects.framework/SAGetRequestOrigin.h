@@ -2,14 +2,11 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSNumber, NSString;
+@interface SAGetRequestOrigin : SABaseClientBoundCommand
 
-@interface SAGetRequestOrigin : SABaseClientBoundCommand {
-}
-
-@property(copy) NSString * desiredAccuracy;
-@property(copy) NSNumber * maxAge;
-@property(copy) NSNumber * searchTimeout;
+@property (nonatomic, copy) NSString *desiredAccuracy;
+@property (nonatomic, copy) NSNumber *maxAge;
+@property (nonatomic, copy) NSNumber *searchTimeout;
 
 + (id)getRequestOrigin;
 + (id)getRequestOriginWithDictionary:(id)arg1 context:(id)arg2;
@@ -18,7 +15,7 @@
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)maxAge;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (id)searchTimeout;
 - (void)setDesiredAccuracy:(id)arg1;
 - (void)setMaxAge:(id)arg1;

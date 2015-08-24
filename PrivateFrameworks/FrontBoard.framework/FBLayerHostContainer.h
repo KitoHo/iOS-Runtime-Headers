@@ -3,25 +3,25 @@
  */
 
 @interface FBLayerHostContainer : CALayer {
+    float _rotation;
+    float _scale;
     struct CGPoint { 
-        double x; 
-        double y; 
-    double _rotation;
-    double _scale;
+        float x; 
+        float y; 
     } _translation;
 }
 
-@property double rotation;
-@property double scale;
-@property struct CGPoint { double x1; double x2; } translation;
+@property (nonatomic) float rotation;
+@property (nonatomic) float scale;
+@property (nonatomic) struct CGPoint { float x1; float x2; } translation;
 
 - (id)description;
-- (double)rotation;
-- (double)scale;
-- (void)setDebug:(bool)arg1;
-- (void)setRotation:(double)arg1;
-- (void)setScale:(double)arg1;
-- (void)setTranslation:(struct CGPoint { double x1; double x2; })arg1;
-- (struct CGPoint { double x1; double x2; })translation;
+- (float)rotation;
+- (float)scale;
+- (void)setDebug:(BOOL)arg1;
+- (void)setRotation:(float)arg1;
+- (void)setScale:(float)arg1;
+- (void)setTranslation:(struct CGPoint { float x1; float x2; })arg1;
+- (struct CGPoint { float x1; float x2; })translation;
 
 @end

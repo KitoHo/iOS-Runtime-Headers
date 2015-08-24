@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/TelephonyUtilities.framework/TelephonyUtilities
  */
 
-@class <TUAudioPlayerDelegateProtocol>;
-
 @interface TUAudioPlayer : NSObject {
     <TUAudioPlayerDelegateProtocol> *_delegate;
 }
 
-@property <TUAudioPlayerDelegateProtocol> * delegate;
-@property(readonly) bool playingSound;
+@property (nonatomic) <TUAudioPlayerDelegateProtocol> *delegate;
+@property (nonatomic, readonly) BOOL playingSound;
 
 - (void)dealloc;
 - (id)delegate;
 - (void)playSelectedSound;
-- (void)playSound:(int)arg1 numOfLoops:(int)arg2 pauseDuration:(double)arg3;
-- (bool)playingSound;
+- (void)playSound:(int)arg1 numOfLoops:(int)arg2 pauseDuration:(float)arg3;
+- (BOOL)playingSound;
 - (void)setDelegate:(id)arg1;
 - (void)stop;
 

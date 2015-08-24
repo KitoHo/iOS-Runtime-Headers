@@ -2,46 +2,44 @@
    Image: /System/Library/PrivateFrameworks/MediaPlayerUI.framework/MediaPlayerUI
  */
 
-@class <MPPlaybackControlsDelegate><MPTransportControlsTarget><MPUMiniPlayerActionsViewControllerDelegate>, MPUMiniPlayerActionsViewController, MPUMiniPlayerTransportControls, MPUNowPlayingTitlesView, MPUProspectivePlaybackInformation, MPUSkipLimitView, MPVolumeSlider, NSString, SKUICircleProgressIndicator, UIButton, UIPopoverController, UIView;
-
 @interface MPUMiniPlayerPlaybackControlsView : MPPlaybackControlsView <MPUMiniPlayerActionsViewControllerDelegate, UIPopoverControllerDelegate> {
     SKUICircleProgressIndicator *_createActivityIndicatorView;
     UIButton *_createButton;
     UIPopoverController *_createPopoverController;
     MPUMiniPlayerActionsViewController *_createViewController;
     UIView *_hairlineView;
+    BOOL _isDetailScrubbing;
     MPUProspectivePlaybackInformation *_prospectivePlaybackInformation;
+    BOOL _showingCreateLoadingIndicator;
     MPUSkipLimitView *_skipLimitView;
     MPUNowPlayingTitlesView *_titlesView;
     MPUMiniPlayerTransportControls *_transportControls;
     MPVolumeSlider *_volumeSlider;
-    bool_isDetailScrubbing;
-    bool_showingCreateLoadingIndicator;
 }
 
-@property(readonly) UIView * _createButton;
-@property(getter=_isDetailScrubbing,readonly) bool _detailScrubbing;
-@property(readonly) double _titleBaselineY;
-@property(readonly) MPUMiniPlayerTransportControls * _transportControls;
-@property(copy,readonly) NSString * debugDescription;
-@property <MPPlaybackControlsDelegate><MPTransportControlsTarget><MPUMiniPlayerActionsViewControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) MPUProspectivePlaybackInformation * prospectivePlaybackInformation;
-@property(getter=isShowingCreateLoadingIndicator) bool showingCreateLoadingIndicator;
-@property(readonly) MPUSkipLimitView * skipLimitView;
-@property(readonly) Class superclass;
-@property(readonly) double titleMaxX;
+@property (nonatomic, readonly) UIView *_createButton;
+@property (getter=_isDetailScrubbing, nonatomic, readonly) BOOL _detailScrubbing;
+@property (nonatomic, readonly) float _titleBaselineY;
+@property (nonatomic, readonly) MPUMiniPlayerTransportControls *_transportControls;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <MPPlaybackControlsDelegate><MPTransportControlsTarget><MPUMiniPlayerActionsViewControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) MPUProspectivePlaybackInformation *prospectivePlaybackInformation;
+@property (getter=isShowingCreateLoadingIndicator, nonatomic) BOOL showingCreateLoadingIndicator;
+@property (nonatomic, readonly) MPUSkipLimitView *skipLimitView;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) float titleMaxX;
 
 + (unsigned long long)defaultVisibleParts;
 
 - (void).cxx_destruct;
 - (id)_albumTextForItem:(id)arg1;
-- (bool)_allowsScrubbingForItem:(id)arg1;
+- (BOOL)_allowsScrubbingForItem:(id)arg1;
 - (id)_artistTextForItem:(id)arg1;
 - (id)_createButton;
 - (void)_createButtonAction:(id)arg1;
-- (bool)_isDetailScrubbing;
+- (BOOL)_isDetailScrubbing;
 - (void)_itemIsExplicitDidChangeNotification:(id)arg1;
 - (void)_itemTitlesDidChangeNotification:(id)arg1;
 - (void)_layoutSkipLimitView;
@@ -49,29 +47,29 @@
 - (void)_playbackStateDidChangeNotification:(id)arg1;
 - (void)_playerContentsChangedNotification:(id)arg1;
 - (void)_setupVisibleAndDisabledPartsForItem:(id)arg1;
-- (double)_titleBaselineY;
+- (float)_titleBaselineY;
 - (id)_titleTextForItem:(id)arg1;
 - (id)_transportControls;
 - (Class)_transportControlsClassForItem:(id)arg1;
 - (void)_updateForChangedShowingCreateLoadingIndicator;
-- (void)_updateMarqueeStatusAllowingCurrentMarqueeToFinish:(bool)arg1;
+- (void)_updateMarqueeStatusAllowingCurrentMarqueeToFinish:(BOOL)arg1;
 - (void)_updatePlaybackControls;
-- (void)_updatePlaybackControlsAnimated:(bool)arg1;
+- (void)_updatePlaybackControlsAnimated:(BOOL)arg1;
 - (void)_updateTitles;
-- (bool)_updateTitlesInView:(id)arg1 forItem:(id)arg2;
-- (bool)_wantsCreateButtonForItem:(id)arg1;
-- (long long)buttonType;
+- (BOOL)_updateTitlesInView:(id)arg1 forItem:(id)arg2;
+- (BOOL)_wantsCreateButtonForItem:(id)arg1;
+- (int)buttonType;
 - (void)dealloc;
-- (bool)detailScrubbingHidesControls;
-- (void)detailSlider:(id)arg1 didChangeScrubSpeed:(long long)arg2;
+- (BOOL)detailScrubbingHidesControls;
+- (void)detailSlider:(id)arg1 didChangeScrubSpeed:(int)arg2;
 - (void)detailSliderTrackingDidBegin:(id)arg1;
 - (void)detailSliderTrackingDidCancel:(id)arg1;
 - (void)detailSliderTrackingDidEnd:(id)arg1;
 - (void)didMoveToWindow;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (bool)isShowingCreateLoadingIndicator;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (BOOL)isShowingCreateLoadingIndicator;
 - (void)layoutSubviews;
-- (void)miniPlayerActionsViewController:(id)arg1 didSelectAction:(long long)arg2;
+- (void)miniPlayerActionsViewController:(id)arg1 didSelectAction:(int)arg2;
 - (id)newProgressIndicator;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
 - (id)prospectivePlaybackInformation;
@@ -79,14 +77,14 @@
 - (void)setDelegate:(id)arg1;
 - (void)setItem:(id)arg1;
 - (void)setPlayer:(id)arg1;
-- (void)setProspectivePlaybackInformation:(id)arg1 animated:(bool)arg2;
 - (void)setProspectivePlaybackInformation:(id)arg1;
-- (void)setShowingCreateLoadingIndicator:(bool)arg1;
-- (bool)shouldOverrideProgressTimeLabelStyle;
+- (void)setProspectivePlaybackInformation:(id)arg1 animated:(BOOL)arg2;
+- (void)setShowingCreateLoadingIndicator:(BOOL)arg1;
+- (BOOL)shouldOverrideProgressTimeLabelStyle;
 - (id)shuffleButtonImage;
 - (id)skipLimitView;
 - (void)tintColorDidChange;
-- (double)titleMaxX;
+- (float)titleMaxX;
 - (void)transportControlsDidLayoutSubviews:(id)arg1;
 
 @end

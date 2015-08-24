@@ -2,44 +2,38 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class CLLocation, CLLocationManager, EKTravelAgendaItem, NSBundle, NSObject<OS_dispatch_queue>, NSString, PCPersistentTimer;
-
-@interface EKTravelAdvisorRealWorld : NSObject <EKTravelAdvisorWorld, CLLocationManagerDelegate> {
+@interface EKTravelAdvisorRealWorld : NSObject <CLLocationManagerDelegate, EKTravelAdvisorWorld> {
     EKTravelAgendaItem *_agendaItem;
-    id _alarmHandler;
-    id _geofenceHandler;
+    id /* block */ _alarmHandler;
+    id /* block */ _geofenceHandler;
     CLLocation *_geofenceInitialLocation;
     CLLocationManager *_geofenceLocationManager;
-    id _locationAuthorizationHandler;
+    BOOL _geofenceUsingSignificantLocationUpdates;
+    id /* block */ _locationAuthorizationHandler;
     NSBundle *_locationBundle;
-    id _locationHandler;
+    id /* block */ _locationHandler;
     CLLocation *_locationInitialLocation;
     PCPersistentTimer *_persistentTimer;
     CLLocationManager *_pollingLocationManager;
     NSObject<OS_dispatch_queue> *_queue;
-    bool_geofenceUsingSignificantLocationUpdates;
 }
 
-@property EKTravelAgendaItem * agendaItem;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (nonatomic) EKTravelAgendaItem *agendaItem;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)_persistentTimerIdentifier;
 
 - (id)agendaItem;
 - (void)alarmFired:(id)arg1;
-- (bool)authorizedToAcquireLocation;
+- (BOOL)authorizedToAcquireLocation;
 - (void)comeOutOfHibernation;
 - (void)dealloc;
 - (void)disableAlarm;
 - (void)disableGeofence;
-- (void)getCurrentLocationWithAccuracy:(double)arg1 block:(id)arg2;
+- (void)getCurrentLocationWithAccuracy:(double)arg1 block:(id /* block */)arg2;
 - (void)goIntoHibernation;
 - (id)initWithQueue:(id)arg1;
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
@@ -48,8 +42,8 @@
 - (id)mostRecentLocationSeen;
 - (id)now;
 - (void)setAgendaItem:(id)arg1;
-- (void)setAlarmIn:(double)arg1 block:(id)arg2;
-- (void)setGeofenceWithRadius:(double)arg1 block:(id)arg2;
-- (void)setLocationAuthorizationChangeCallback:(id)arg1;
+- (void)setAlarmIn:(double)arg1 block:(id /* block */)arg2;
+- (void)setGeofenceWithRadius:(double)arg1 block:(id /* block */)arg2;
+- (void)setLocationAuthorizationChangeCallback:(id /* block */)arg1;
 
 @end

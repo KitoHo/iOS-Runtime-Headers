@@ -2,31 +2,29 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSArray, NSIndexSet, NSMutableIndexSet, NSMutableSet, PHAssetCollection, PHFetchResult;
-
 @interface PUPhotoSelectionEntry : NSObject {
     PHAssetCollection *_assetCollection;
     PHFetchResult *_fetchResult;
+    BOOL _hasValidAssetIndexes;
     NSMutableSet *_selectedAssets;
     NSMutableIndexSet *_selectedIndexes;
-    bool_hasValidAssetIndexes;
 }
 
-@property(readonly) PHAssetCollection * assetCollection;
-@property(readonly) PHFetchResult * fetchResult;
-@property(readonly) NSArray * selectedAssets;
-@property(readonly) NSIndexSet * selectedIndexes;
+@property (nonatomic, readonly) PHAssetCollection *assetCollection;
+@property (nonatomic, readonly) PHFetchResult *fetchResult;
+@property (nonatomic, readonly) NSArray *selectedAssets;
+@property (nonatomic, readonly) NSIndexSet *selectedIndexes;
 
 - (void).cxx_destruct;
 - (void)_ensureValidAssetIndexes;
 - (id)assetCollection;
 - (void)deselectAssetsAtIndexes:(id)arg1;
-- (void)enumerateSelectedAssetsWithBlock:(id)arg1;
+- (void)enumerateSelectedAssetsWithBlock:(id /* block */)arg1;
 - (id)fetchResult;
 - (void)handlePhotoLibraryChange:(id)arg1;
 - (id)initWithAssetCollection:(id)arg1 fetchResult:(id)arg2 uniqueSelectedAssets:(id)arg3;
 - (void)invalidateAllAssetIndexes;
-- (bool)isIndexSelected:(unsigned long long)arg1;
+- (BOOL)isIndexSelected:(unsigned int)arg1;
 - (void)selectAssetsAtIndexes:(id)arg1;
 - (id)selectedAssets;
 - (id)selectedIndexes;

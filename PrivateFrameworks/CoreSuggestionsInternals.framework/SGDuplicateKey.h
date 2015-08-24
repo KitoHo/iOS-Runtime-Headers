@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/CoreSuggestionsInternals.framework/CoreSuggestionsInternals
  */
 
-@class NSObject<SGEntityKey>, NSString, SGDuplicateKey;
-
 @interface SGDuplicateKey : NSObject {
     NSObject<SGEntityKey> *_entityKey;
     long long _entityType;
     SGDuplicateKey *_parentKey;
 }
 
-@property(readonly) NSString * compositeHash;
-@property(readonly) NSObject<SGEntityKey> * entityKey;
-@property(readonly) long long entityType;
-@property(readonly) SGDuplicateKey * parentKey;
+@property (nonatomic, readonly) NSString *compositeHash;
+@property (nonatomic, readonly) NSObject<SGEntityKey> *entityKey;
+@property (nonatomic, readonly) long long entityType;
+@property (nonatomic, readonly) SGDuplicateKey *parentKey;
 
 + (id)duplicateKeyForCuratedContactWithExternalId:(int)arg1;
 + (id)duplicateKeyForCuratedEventWithExternalID:(id)arg1;
@@ -31,13 +29,13 @@
 - (id)emailKey;
 - (id)entityKey;
 - (long long)entityType;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)identityKey;
 - (id)initWithEntityKey:(id)arg1 entityType:(long long)arg2 parentKey:(id)arg3;
 - (id)initWithSerialized:(id)arg1;
 - (id)initWithSerializedEntityKey:(id)arg1 entityType:(long long)arg2 serializedParentKey:(id)arg3;
-- (bool)isEqual:(id)arg1;
-- (bool)isEqualToDuplicateKey:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToDuplicateKey:(id)arg1;
 - (id)parentKey;
 - (id)pseudoContactKey;
 - (id)pseudoEventKey;

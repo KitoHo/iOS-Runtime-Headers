@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSArray, UIActivityIndicatorView, UILabel;
-
 @interface UIPrinterSearchingView : UIView {
     UIActivityIndicatorView *_searchingIndicator;
     UILabel *_searchingLabel;
@@ -13,6 +11,6 @@
 - (void)dealloc;
 - (id)initInView:(id)arg1;
 - (void)searchTimeout;
-- (void)setSearching:(bool)arg1;
+- (void)setSearching:(BOOL)arg1;
 
 @end

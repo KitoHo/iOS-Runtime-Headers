@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-@class NSMapTable;
-
 @interface _HKIdentifierLookupTable : NSObject {
     NSMapTable *_identifierMapTable;
     int _lookupTableSpinLock;
 }
 
 - (void).cxx_destruct;
-- (void)_insertCode:(long long)arg1 forIdentifier:(id)arg2;
-- (bool)codeForIdentifier:(id)arg1 code:(long long*)arg2;
+- (void)_insertCode:(int)arg1 forIdentifier:(id)arg2;
+- (BOOL)codeForIdentifier:(id)arg1 code:(int*)arg2;
 - (id)initWithDictionary:(id)arg1;
-- (void)setCode:(long long)arg1 forIdentifier:(id)arg2;
+- (void)setCode:(int)arg1 forIdentifier:(id)arg2;
 
 @end

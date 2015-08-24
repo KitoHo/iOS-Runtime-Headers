@@ -2,28 +2,26 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSURL;
-
 @interface NSFileAccessIntent : NSObject {
-    long long _options;
+    BOOL _isRead;
+    int _options;
     NSURL *_url;
-    bool_isRead;
 }
 
-@property(copy) NSURL * URL;
-@property(readonly) bool isRead;
-@property(readonly) unsigned long long readingOptions;
-@property(readonly) unsigned long long writingOptions;
+@property (copy) NSURL *URL;
+@property (readonly) BOOL isRead;
+@property (readonly) unsigned int readingOptions;
+@property (readonly) unsigned int writingOptions;
 
-+ (id)readingIntentWithURL:(id)arg1 options:(unsigned long long)arg2;
-+ (id)writingIntentWithURL:(id)arg1 options:(unsigned long long)arg2;
++ (id)readingIntentWithURL:(id)arg1 options:(unsigned int)arg2;
++ (id)writingIntentWithURL:(id)arg1 options:(unsigned int)arg2;
 
 - (id)URL;
 - (void)dealloc;
 - (id)description;
-- (bool)isRead;
-- (unsigned long long)readingOptions;
+- (BOOL)isRead;
+- (unsigned int)readingOptions;
 - (void)setURL:(id)arg1;
-- (unsigned long long)writingOptions;
+- (unsigned int)writingOptions;
 
 @end

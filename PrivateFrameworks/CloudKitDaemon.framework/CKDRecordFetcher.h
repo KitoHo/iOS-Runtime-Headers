@@ -2,54 +2,48 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_group>, NSSet;
-
 @interface CKDRecordFetcher : CKDDatabaseOperation {
     NSSet *_desiredKeys;
+    BOOL _fetchAssetContents;
     NSObject<OS_dispatch_group> *_fetchGroup;
     NSMutableDictionary *_fetchedRecordInfoByRecordID;
-    id _recordFetchedBlock;
+    BOOL _preserveOrdering;
+    id /* block */ _recordFetchedBlock;
     NSMutableArray *_recordIDsToFetch;
     NSArray *_recordResponsesToFetch;
-    bool_fetchAssetContents;
-    bool_preserveOrdering;
 }
 
-@property(retain) NSSet * desiredKeys;
-@property bool fetchAssetContents;
-@property(retain) NSObject<OS_dispatch_group> * fetchGroup;
-@property(retain) NSMutableDictionary * fetchedRecordInfoByRecordID;
-@property bool preserveOrdering;
-@property(copy) id recordFetchedBlock;
-@property(retain) NSMutableArray * recordIDsToFetch;
-@property(retain) NSArray * recordResponsesToFetch;
+@property (nonatomic, retain) NSSet *desiredKeys;
+@property (nonatomic) BOOL fetchAssetContents;
+@property (nonatomic, retain) NSObject<OS_dispatch_group> *fetchGroup;
+@property (nonatomic, retain) NSMutableDictionary *fetchedRecordInfoByRecordID;
+@property (nonatomic) BOOL preserveOrdering;
+@property (nonatomic, copy) id /* block */ recordFetchedBlock;
+@property (nonatomic, retain) NSMutableArray *recordIDsToFetch;
+@property (nonatomic, retain) NSArray *recordResponsesToFetch;
 
 - (void).cxx_destruct;
 - (void)_fetchRecordsFromServer:(id)arg1 fullRecords:(id)arg2;
 - (void)_finishOnCallbackQueueWithError:(id)arg1;
 - (void)_flushFetchedRecordsToConsumer;
 - (id)desiredKeys;
-- (bool)fetchAssetContents;
+- (BOOL)fetchAssetContents;
 - (id)fetchGroup;
 - (id)fetchedRecordInfoByRecordID;
 - (id)initWithOperationInfo:(id)arg1 clientContext:(id)arg2;
 - (void)main;
-- (bool)preserveOrdering;
-- (id)recordFetchedBlock;
+- (BOOL)preserveOrdering;
+- (id /* block */)recordFetchedBlock;
 - (id)recordIDsToFetch;
 - (id)recordResponsesToFetch;
 - (void)setDesiredKeys:(id)arg1;
-- (void)setFetchAssetContents:(bool)arg1;
+- (void)setFetchAssetContents:(BOOL)arg1;
 - (void)setFetchGroup:(id)arg1;
 - (void)setFetchedRecordInfoByRecordID:(id)arg1;
-- (void)setPreserveOrdering:(bool)arg1;
-- (void)setRecordFetchedBlock:(id)arg1;
+- (void)setPreserveOrdering:(BOOL)arg1;
+- (void)setRecordFetchedBlock:(id /* block */)arg1;
 - (void)setRecordIDsToFetch:(id)arg1;
 - (void)setRecordResponsesToFetch:(id)arg1;
-- (bool)shouldCheckAppVersion;
+- (BOOL)shouldCheckAppVersion;
 
 @end

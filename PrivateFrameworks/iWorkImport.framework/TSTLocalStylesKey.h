@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSTCellStyle, TSWPParagraphStyle;
-
 @interface TSTLocalStylesKey : NSObject <NSCopying> {
-    TSTCellStyle *_cellStyle;
-    TSWPParagraphStyle *_textStyle;
+    TSTCellStyle *mCellStyle;
+    TSWPParagraphStyle *mTextStyle;
 }
 
-@property(retain) TSTCellStyle * cellStyle;
-@property(retain) TSWPParagraphStyle * textStyle;
+@property (retain) TSTCellStyle *cellStyle;
+@property (retain) TSWPParagraphStyle *textStyle;
 
 - (id)cellStyle;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)setCellStyle:(id)arg1;
 - (void)setTextStyle:(id)arg1;
 - (id)textStyle;

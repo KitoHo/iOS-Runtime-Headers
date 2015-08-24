@@ -2,32 +2,31 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class <AFDictationDelegate>, NSString, NSXPCConnection;
-
 @interface AFDictationConnection : NSObject {
-    unsigned int _stateInSync : 1;
     unsigned int _audioSessionID;
     float _averagePower;
     NSXPCConnection *_connection;
     <AFDictationDelegate> *_delegate;
+    BOOL _hasActiveRequest;
+    BOOL _isCapturingSpeech;
+    BOOL _isWaitingForAudioFile;
     NSString *_lastUsedLanguage;
     float _peakPower;
-    bool_hasActiveRequest;
-    bool_isCapturingSpeech;
+    unsigned int _stateInSync;
 }
 
-@property(readonly) bool currentlyUsingLocalDication;
-@property <AFDictationDelegate> * delegate;
+@property (nonatomic, readonly) BOOL currentlyUsingLocalDication;
+@property (nonatomic) <AFDictationDelegate> *delegate;
 
-+ (bool)dictationIsEnabled;
-+ (bool)dictationIsSupportedForLanguageCode:(id)arg1 error:(id*)arg2;
-+ (void)fetchSupportedLanguageCodes:(id)arg1;
++ (BOOL)dictationIsEnabled;
++ (BOOL)dictationIsSupportedForLanguageCode:(id)arg1 error:(id*)arg2;
++ (void)fetchSupportedLanguageCodes:(id /* block */)arg1;
 
 - (void).cxx_destruct;
 - (void)_availabilityChanged:(id)arg1;
 - (void)_cancelRequestTimeout;
-- (void)_checkAndSetIsCapturingSpeech:(bool)arg1;
-- (void)_clearConnections;
+- (void)_checkAndSetIsCapturingSpeech:(BOOL)arg1;
+- (void)_clearConnection;
 - (id)_connection;
 - (void)_connectionInterrupted;
 - (id)_dictationService;
@@ -53,16 +52,16 @@
 - (void)_willCancelDictation;
 - (void)_willCompleteDictation;
 - (void)_willFailDictationWithError:(id)arg1;
-- (void)_willStartDictation;
+- (void)_willStartDictationWithOptions:(id)arg1;
 - (unsigned int)audioSessionID;
 - (float)averagePower;
 - (void)beginAvailabilityMonitoring;
 - (void)cancelAvailabilityMonitoring;
 - (void)cancelSpeech;
-- (bool)currentlyUsingLocalDication;
+- (BOOL)currentlyUsingLocalDication;
 - (void)dealloc;
 - (id)delegate;
-- (bool)dictationIsAvailableForLanguage:(id)arg1;
+- (BOOL)dictationIsAvailableForLanguage:(id)arg1;
 - (void)endSession;
 - (id)init;
 - (float)peakPower;
@@ -70,9 +69,9 @@
 - (void)prepareWithOptions:(id)arg1;
 - (void)sendSpeechCorrection:(id)arg1 forIdentifier:(id)arg2;
 - (void)setDelegate:(id)arg1;
-- (void)startDictationWithLanguageCode:(id)arg1 options:(id)arg2 speechOptions:(id)arg3;
 - (void)startDictationWithLanguageCode:(id)arg1 options:(id)arg2;
-- (void)startDictationWithSpeechFileAtURL:(id)arg1 isNarrowBand:(bool)arg2 options:(id)arg3 forLanguage:(id)arg4;
+- (void)startDictationWithLanguageCode:(id)arg1 options:(id)arg2 speechOptions:(id)arg3;
+- (void)startDictationWithSpeechFileAtURL:(id)arg1 isNarrowBand:(BOOL)arg2 options:(id)arg3 forLanguage:(id)arg4;
 - (void)startDictationWithSpeechFileAtURL:(id)arg1 options:(id)arg2 forLanguage:(id)arg3;
 - (void)stopSpeech;
 - (void)stopSpeechWithOptions:(id)arg1;

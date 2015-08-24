@@ -2,22 +2,22 @@
    Image: /System/Library/PrivateFrameworks/AccountsUI.framework/AccountsUI
  */
 
-@class ACUIAccountViewProvidersManager, NSArray, NSString;
-
 @interface ACUIAddAccountViewController : PSListController <ACUISetupViewControllerDelegate> {
+    BOOL _dontShowSecondLevelOtherAccountTypes;
+    PSSpecifier *_gmailSpecifier;
     unsigned char _originalCellFlag;
     unsigned char _originalWifiFlag;
     NSArray *_preEnabledDataclasses;
-    bool_dontShowSecondLevelOtherAccountTypes;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
-@property(readonly) ACUIAccountViewProvidersManager * viewProvidersManager;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) ACUIAccountViewProvidersManager *viewProvidersManager;
 
 - (void).cxx_destruct;
+- (void)_createGmailAccountTapped:(id)arg1;
 - (id)_specifierForAOLAccount;
 - (id)_specifierForExchangeAccount;
 - (id)_specifierForGmailAccount;
@@ -29,10 +29,11 @@
 - (void)dealloc;
 - (id)giantSpecifierWithName:(id)arg1 forAccountTypeID:(id)arg2;
 - (id)init;
+- (void)nonModalDataclassConfigurationControllerDidCompleteWithSuccess:(BOOL)arg1;
 - (void)setupViewControllerDidDismiss:(id)arg1;
 - (id)specifierForOtherAccounts;
 - (id)specifiers;
 - (id)viewProvidersManager;
-- (void)viewWillAppear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 
 @end

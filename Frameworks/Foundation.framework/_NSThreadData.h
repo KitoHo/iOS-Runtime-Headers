@@ -2,13 +2,11 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSMutableDictionary;
-
 @interface _NSThreadData : NSObject {
-    struct _opaque_pthread_attr_t { 
-        long long __sig; 
-        BOOL __opaque[56]; 
     id argument;
+    struct _opaque_pthread_attr_t { 
+        long __sig; 
+        BOOL __opaque[36]; 
     } attr;
     unsigned char cancel;
     double defpri;
@@ -23,7 +21,7 @@
     int seqNum;
     unsigned char status;
     id target;
-    struct _opaque_pthread_t { long long x1; struct __darwin_pthread_handler_rec {} *x2; BOOL x3[8176]; } *tid;
+    struct _opaque_pthread_t { long x1; struct __darwin_pthread_handler_rec {} *x2; BOOL x3[4088]; } *tid;
 }
 
 @end

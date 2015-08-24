@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/AccountsUI.framework/AccountsUI
  */
 
-@class ACAccount, ACDataclassAction, NSArray, NSMutableArray;
-
 @interface ACUIDataclassActionPicker : NSObject {
     NSArray *_actions;
     ACAccount *_affectedAccount;
     NSMutableArray *_affectedDataclasses;
 }
 
-@property(readonly) NSArray * actions;
-@property(readonly) ACAccount * affectedAccount;
-@property(copy) NSArray * affectedDataclasses;
-@property(readonly) ACDataclassAction * firstDestructiveAction;
-@property(readonly) bool hasDestructiveActions;
-@property(readonly) long long priorityIndex;
+@property (nonatomic, readonly) NSArray *actions;
+@property (nonatomic, readonly) ACAccount *affectedAccount;
+@property (nonatomic, copy) NSArray *affectedDataclasses;
+@property (nonatomic, readonly) ACDataclassAction *firstDestructiveAction;
+@property (nonatomic, readonly) BOOL hasDestructiveActions;
+@property (nonatomic, readonly) int priorityIndex;
 
 - (void).cxx_destruct;
 - (id)actions;
@@ -24,11 +22,11 @@
 - (id)affectedDataclasses;
 - (id)descriptionForDataclassAction:(id)arg1;
 - (id)firstDestructiveAction;
-- (bool)hasActionOfType:(long long)arg1;
-- (bool)hasDestructiveActions;
+- (BOOL)hasActionOfType:(int)arg1;
+- (BOOL)hasDestructiveActions;
 - (id)initWithActions:(id)arg1 affectingAccount:(id)arg2;
 - (id)message;
-- (long long)priorityIndex;
+- (int)priorityIndex;
 - (void)setAffectedDataclasses:(id)arg1;
 - (id)showInViewController:(id)arg1;
 - (id)title;

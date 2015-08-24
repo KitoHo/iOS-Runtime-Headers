@@ -2,10 +2,9 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface _UISlidingPopoverLayoutInfo : _UIPopoverLayoutInfo {
-}
+@interface _UISlidingPopoverLayoutInfo : _UIPopoverLayoutInfo
 
-- (struct CGSize { double x1; double x2; })_popoverViewSizeForContentSize:(struct CGSize { double x1; double x2; })arg1 arrowDirection:(unsigned long long)arg2;
+- (struct CGSize { float x1; float x2; })_popoverViewSizeForContentSize:(struct CGSize { float x1; float x2; })arg1 arrowDirection:(unsigned int)arg2;
 - (void)_updateOutputs;
 - (id)init;
 

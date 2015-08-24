@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class UIActivityIndicatorView, UIImageView, UILabel;
-
 @interface EKUIConferenceRoomSearchResultCell : UITableViewCell {
     UIImageView *_image;
     UIActivityIndicatorView *_spinner;
@@ -12,7 +10,7 @@
 
 - (void).cxx_destruct;
 - (id)description;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (void)reloadWithConferenceRoom:(id)arg1;
 
 @end

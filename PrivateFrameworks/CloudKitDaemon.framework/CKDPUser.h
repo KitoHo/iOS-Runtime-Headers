@@ -2,23 +2,24 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPIdentifier, CKDPUserAlias, NSString;
-
 @interface CKDPUser : PBCodable <NSCopying> {
     CKDPUserAlias *_alias;
     NSString *_firstName;
     CKDPIdentifier *_identifier;
     NSString *_lastName;
+    CKDPProtectionInfo *_protectionInfo;
 }
 
-@property(retain) CKDPUserAlias * alias;
-@property(retain) NSString * firstName;
-@property(readonly) bool hasAlias;
-@property(readonly) bool hasFirstName;
-@property(readonly) bool hasIdentifier;
-@property(readonly) bool hasLastName;
-@property(retain) CKDPIdentifier * identifier;
-@property(retain) NSString * lastName;
+@property (nonatomic, retain) CKDPUserAlias *alias;
+@property (nonatomic, retain) NSString *firstName;
+@property (nonatomic, readonly) BOOL hasAlias;
+@property (nonatomic, readonly) BOOL hasFirstName;
+@property (nonatomic, readonly) BOOL hasIdentifier;
+@property (nonatomic, readonly) BOOL hasLastName;
+@property (nonatomic, readonly) BOOL hasProtectionInfo;
+@property (nonatomic, retain) CKDPIdentifier *identifier;
+@property (nonatomic, retain) NSString *lastName;
+@property (nonatomic, retain) CKDPProtectionInfo *protectionInfo;
 
 - (void).cxx_destruct;
 - (id)alias;
@@ -27,20 +28,23 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)firstName;
-- (bool)hasAlias;
-- (bool)hasFirstName;
-- (bool)hasIdentifier;
-- (bool)hasLastName;
-- (unsigned long long)hash;
+- (BOOL)hasAlias;
+- (BOOL)hasFirstName;
+- (BOOL)hasIdentifier;
+- (BOOL)hasLastName;
+- (BOOL)hasProtectionInfo;
+- (unsigned int)hash;
 - (id)identifier;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)lastName;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (id)protectionInfo;
+- (BOOL)readFrom:(id)arg1;
 - (void)setAlias:(id)arg1;
 - (void)setFirstName:(id)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setLastName:(id)arg1;
+- (void)setProtectionInfo:(id)arg1;
 - (void)writeTo:(id)arg1;
 
 @end

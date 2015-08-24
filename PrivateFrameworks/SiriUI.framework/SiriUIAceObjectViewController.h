@@ -2,40 +2,38 @@
    Image: /System/Library/PrivateFrameworks/SiriUI.framework/SiriUI
  */
 
-@class <SiriUIAceObjectViewControllerDelegate>, AceObject, NSString;
-
 @interface SiriUIAceObjectViewController : UIViewController <SiriUIViewController> {
     AceObject *_aceObject;
     <SiriUIAceObjectViewControllerDelegate> *_delegate;
-    bool_virgin;
+    BOOL _virgin;
 }
 
-@property(retain) AceObject * aceObject;
-@property(copy,readonly) NSString * debugDescription;
-@property <SiriUIAceObjectViewControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
-@property(getter=isVirgin,readonly) bool virgin;
+@property (nonatomic, retain) AceObject *aceObject;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <SiriUIAceObjectViewControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
+@property (getter=isVirgin, nonatomic, readonly) BOOL virgin;
 
 - (void).cxx_destruct;
 - (void)_aceObjectViewControllerWillBeRemoved;
-- (double)_insertionAnimatedZPosition;
-- (long long)_insertionAnimation;
-- (long long)_pinAnimationType;
+- (float)_insertionAnimatedZPosition;
+- (int)_insertionAnimation;
+- (int)_pinAnimationType;
 - (id)_privateDelegate;
-- (long long)_replacementAnimation;
-- (void)_setVirgin:(bool)arg1;
+- (int)_replacementAnimation;
+- (void)_setVirgin:(BOOL)arg1;
 - (id)aceObject;
 - (id)delegate;
-- (double)desiredHeight;
+- (float)desiredHeight;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (bool)isVirgin;
-- (bool)removedAfterDialogProgresses;
+- (BOOL)isVirgin;
+- (BOOL)removedAfterDialogProgresses;
 - (void)setAceObject:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)siriDidDeactivate;
-- (void)siriWillActivateFromSource:(long long)arg1;
+- (void)siriWillActivateFromSource:(int)arg1;
 - (void)wasAddedToTranscript;
 
 @end

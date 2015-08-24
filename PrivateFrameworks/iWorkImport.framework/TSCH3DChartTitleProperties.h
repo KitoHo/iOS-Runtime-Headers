@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSCH3DChartTitlePositioner, TSCH3DLabelResources, TSCHChartInfo;
-
 @interface TSCH3DChartTitleProperties : NSObject {
-    boolmHidden;
     TSCH3DChartTitlePositioner *mCachedPositioner;
+    BOOL mHidden;
     TSCHChartInfo *mInfo;
     TSCH3DLabelResources *mLabels;
 }
 
-@property(retain) TSCH3DChartTitlePositioner * cachedPositioner;
-@property(readonly) TSCHChartInfo * chartInfo;
-@property bool hidden;
-@property(readonly) TSCH3DLabelResources * labels;
+@property (nonatomic, retain) TSCH3DChartTitlePositioner *cachedPositioner;
+@property (nonatomic, readonly) TSCHChartInfo *chartInfo;
+@property (nonatomic) BOOL hidden;
+@property (nonatomic, readonly) TSCH3DLabelResources *labels;
 
-+ (id)propertiesWithInfo:(id)arg1 styleIndex:(unsigned long long)arg2;
++ (id)propertiesWithInfo:(id)arg1 styleIndex:(unsigned int)arg2;
 
 - (id)cachedPositioner;
 - (id)chartInfo;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
-- (bool)hidden;
-- (id)initWithInfo:(id)arg1 styleIndex:(unsigned long long)arg2;
+- (BOOL)hidden;
+- (id)initWithInfo:(id)arg1 styleIndex:(unsigned int)arg2;
 - (id)labels;
 - (void)setCachedPositioner:(id)arg1;
-- (void)setHidden:(bool)arg1;
+- (void)setHidden:(BOOL)arg1;
 
 @end

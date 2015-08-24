@@ -2,40 +2,38 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class MFSMTPConnection, NSTimer;
-
 @interface SMTPAccount : DeliveryAccount {
-    unsigned int _supportsPipelining : 1;
-    unsigned int _supportsOutboxCopy : 1;
-    unsigned int _useCellDataOnly : 1;
     MFSMTPConnection *_connection;
     Class _deliveryClass;
-    long long _lastTimerSetTime;
+    long _lastTimerSetTime;
+    unsigned int _supportsOutboxCopy;
+    unsigned int _supportsPipelining;
     NSTimer *_timer;
+    unsigned int _useCellDataOnly;
 }
 
 + (id)accountTypeString;
 + (unsigned int)defaultPortNumber;
 + (id)displayedAccountTypeString;
 + (id)displayedShortAccountTypeString;
-+ (bool)isCommonPortNumber:(unsigned int)arg1;
++ (BOOL)isCommonPortNumber:(unsigned int)arg1;
 + (void*)legacyKeychainProtocol;
 + (id)newDefaultInstance;
 + (void)registerAppleServiceDeliveryHostname:(id)arg1;
 + (id)saslProfileName;
 
-- (id)_defaultSettingsWithPort:(unsigned int)arg1 useSSL:(bool)arg2 directSSL:(bool)arg3;
-- (bool)_isAppleServiceDeliveryHostname:(id)arg1;
-- (bool)_shouldTryDirectSSLConnectionOnPort:(unsigned int)arg1;
+- (id)_defaultSettingsWithPort:(unsigned int)arg1 useSSL:(BOOL)arg2 directSSL:(BOOL)arg3;
+- (BOOL)_isAppleServiceDeliveryHostname:(id)arg1;
+- (BOOL)_shouldTryDirectSSLConnectionOnPort:(unsigned int)arg1;
 - (id)alternateConnectionSettings;
-- (id)authenticatedConnection:(bool)arg1;
-- (bool)canBeFallbackAccount;
+- (id)authenticatedConnection:(BOOL)arg1;
+- (BOOL)canBeFallbackAccount;
 - (id)certUIService;
 - (void)checkInConnection:(id)arg1;
 - (Class)connectionClass;
 - (void)connectionExpired:(id)arg1;
 - (struct __CFString { }*)connectionServiceType;
-- (id)connectionSettingsForAuthentication:(bool)arg1 secure:(id)arg2 insecure:(id)arg3;
+- (id)connectionSettingsForAuthentication:(BOOL)arg1 secure:(id)arg2 insecure:(id)arg3;
 - (id)customAuthenticationErrorStringForError:(id)arg1 authScheme:(id)arg2;
 - (void)dealloc;
 - (Class)deliveryClass;
@@ -49,10 +47,10 @@
 - (id)serviceName;
 - (void)setDeliveryClass:(Class)arg1;
 - (void)setPreferredAuthScheme:(id)arg1;
-- (void)setSupportsOutboxCopy:(bool)arg1;
-- (void)setSupportsPipelining:(bool)arg1;
+- (void)setSupportsOutboxCopy:(BOOL)arg1;
+- (void)setSupportsPipelining:(BOOL)arg1;
 - (void)setTimer;
-- (bool)supportsOutboxCopy;
-- (bool)supportsPipelining;
+- (BOOL)supportsOutboxCopy;
+- (BOOL)supportsPipelining;
 
 @end

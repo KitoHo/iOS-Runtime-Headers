@@ -2,18 +2,15 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class NSString;
+@interface CKLocatingChatItem : CKBalloonChatItem
 
-@interface CKLocatingChatItem : CKBalloonChatItem {
-}
-
-@property(copy,readonly) NSString * locationText;
+@property (nonatomic, readonly, copy) NSString *locationText;
 
 - (Class)balloonViewClass;
 - (void)configureBalloonView:(id)arg1;
 - (id)description;
-- (bool)failed;
-- (bool)isFromMe;
+- (BOOL)failed;
+- (BOOL)isFromMe;
 - (id)locationText;
 - (id)message;
 - (id)sender;

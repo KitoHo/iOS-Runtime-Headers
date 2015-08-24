@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class MFMessageBody, MFMutableMessageHeaders;
-
 @interface MFOutgoingMessage : MFMailMessage {
     MFMessageBody *_messageBody;
     MFMutableMessageHeaders *_messageHeaders;
@@ -14,9 +12,9 @@
 - (id)headersIfAvailable;
 - (id)messageBody;
 - (id)messageBodyIfAvailable;
-- (bool)messageData:(id*)arg1 messageSize:(unsigned long long*)arg2 isComplete:(bool*)arg3 downloadIfNecessary:(bool)arg4;
 - (id)messageData;
-- (unsigned long long)messageSize;
+- (BOOL)messageData:(id*)arg1 messageSize:(unsigned int*)arg2 isComplete:(BOOL*)arg3 downloadIfNecessary:(BOOL)arg4;
+- (unsigned int)messageSize;
 - (id)messageStore;
 - (id)mutableHeaders;
 - (void)setMessageBody:(id)arg1;

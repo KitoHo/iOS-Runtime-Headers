@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/CoreSuggestionsInternals.framework/CoreSuggestionsInternals
  */
 
-@class SGIdentityKey;
-
 @interface SGSimpleParticipant : NSObject <NSCopying> {
     SGIdentityKey *_identityKey;
     unsigned int _role;
 }
 
-@property(retain) SGIdentityKey * identityKey;
-@property unsigned int role;
+@property (nonatomic, retain) SGIdentityKey *identityKey;
+@property (nonatomic) unsigned int role;
 
 + (id)participantWithKey:(id)arg1 roleType:(unsigned int)arg2;
 
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)identityKey;
 - (id)initWithKey:(id)arg1 roleType:(unsigned int)arg2;
-- (bool)isEqual:(id)arg1;
-- (bool)isEqualToSimpleParticipant:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToSimpleParticipant:(id)arg1;
 - (unsigned int)role;
 - (void)setIdentityKey:(id)arg1;
 - (void)setRole:(unsigned int)arg1;

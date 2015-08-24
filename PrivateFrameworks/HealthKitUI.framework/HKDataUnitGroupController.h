@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/HealthKitUI.framework/HealthKitUI
  */
 
-@class NSArray, NSDictionary;
-
 @interface HKDataUnitGroupController : NSObject {
     NSArray *_dataUnitGroups;
     NSDictionary *_dataUnitGroupsByCategoryID;
@@ -17,8 +15,7 @@
 - (id)allDataUnitGroups;
 - (id)dataUnitGroupForType:(id)arg1;
 - (id)dataUnitGroupWithID:(id)arg1;
-- (id)dataUnitGroupsForCategoryID:(unsigned long long)arg1;
+- (id)dataUnitGroupsForCategoryID:(int)arg1;
 - (id)init;
-- (id)initWithDataFromURL:(id)arg1;
 
 @end

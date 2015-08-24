@@ -2,11 +2,9 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class CKContainerID, CKRecordZoneID, NSData, NSString;
-
-@interface CKRecordZone : NSObject <NSSecureCoding, NSCopying> {
+@interface CKRecordZone : NSObject <NSCopying, NSSecureCoding> {
     long long _assetQuotaUsage;
-    unsigned long long _capabilities;
+    unsigned int _capabilities;
     NSData *_clientChangeToken;
     CKContainerID *_containerID;
     NSData *_currentServerContinuationToken;
@@ -18,27 +16,27 @@
     CKRecordZoneID *_zoneID;
 }
 
-@property long long assetQuotaUsage;
-@property unsigned long long capabilities;
-@property(retain) NSData * clientChangeToken;
-@property(copy) CKContainerID * containerID;
-@property(retain) NSData * currentServerContinuationToken;
-@property int deviceCount;
-@property long long metadataQuotaUsage;
-@property(retain) NSString * previousProtectionEtag;
-@property(retain) NSData * protectionData;
-@property(retain) NSString * protectionEtag;
-@property(retain) CKRecordZoneID * zoneID;
+@property (nonatomic) long long assetQuotaUsage;
+@property (nonatomic) unsigned int capabilities;
+@property (nonatomic, retain) NSData *clientChangeToken;
+@property (nonatomic, copy) CKContainerID *containerID;
+@property (nonatomic, retain) NSData *currentServerContinuationToken;
+@property (nonatomic) int deviceCount;
+@property (nonatomic) long long metadataQuotaUsage;
+@property (nonatomic, retain) NSString *previousProtectionEtag;
+@property (nonatomic, retain) NSData *protectionData;
+@property (nonatomic, retain) NSString *protectionEtag;
+@property (nonatomic, retain) CKRecordZoneID *zoneID;
 
 + (id)defaultRecordZone;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)CKAssignToContainerWithID:(id)arg1;
 - (id)CKPropertiesDescription;
-- (id)_initZoneWithIdentifier:(id)arg1 capabilities:(unsigned long long)arg2;
+- (id)_initZoneWithIdentifier:(id)arg1 capabilities:(unsigned int)arg2;
 - (long long)assetQuotaUsage;
-- (unsigned long long)capabilities;
+- (unsigned int)capabilities;
 - (id)clientChangeToken;
 - (id)containerID;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -54,7 +52,7 @@
 - (id)protectionData;
 - (id)protectionEtag;
 - (void)setAssetQuotaUsage:(long long)arg1;
-- (void)setCapabilities:(unsigned long long)arg1;
+- (void)setCapabilities:(unsigned int)arg1;
 - (void)setClientChangeToken:(id)arg1;
 - (void)setContainerID:(id)arg1;
 - (void)setCurrentServerContinuationToken:(id)arg1;
@@ -64,7 +62,6 @@
 - (void)setProtectionData:(id)arg1;
 - (void)setProtectionEtag:(id)arg1;
 - (void)setZoneID:(id)arg1;
-- (id)sharedItemID;
 - (id)zoneID;
 
 @end

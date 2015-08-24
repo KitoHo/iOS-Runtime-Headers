@@ -2,12 +2,7 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class NSMutableArray;
-
 @interface FigISPMotionDelegate : NSObject {
-    struct _opaque_pthread_mutex_t { 
-        long long __sig; 
-        BOOL __opaque[56]; 
     struct { 
         float loggingFrequencyMsec; 
         float totalTime; 
@@ -15,6 +10,9 @@
         int energySamples; 
     } power;
     NSMutableArray *ringBuffer;
+    struct _opaque_pthread_mutex_t { 
+        long __sig; 
+        BOOL __opaque[40]; 
     } ringMutex;
 }
 

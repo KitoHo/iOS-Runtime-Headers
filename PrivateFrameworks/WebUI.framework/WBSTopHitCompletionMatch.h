@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@interface WBSTopHitCompletionMatch : WBSBookmarkAndHistoryCompletionMatch {
-}
+@interface WBSTopHitCompletionMatch : WBSBookmarkAndHistoryCompletionMatch
 
-- (bool)isTopHit;
+- (BOOL)isTopHit;
 - (id)parsecDomainIdentifier;
 
 @end

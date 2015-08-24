@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardUI.framework/SpringBoardUI
  */
 
-@class <SBUIBannerTargetImplementation>, NSString;
-
 @interface SBUIBannerTargetProxy : NSObject <SBUIBannerTarget> {
     void *_identifier;
-    long long _idiom;
+    int _idiom;
     <SBUIBannerTargetImplementation> *_implementation;
 }
 
-@property(readonly) void* bannerTargetIdentifier;
-@property(readonly) long long bannerTargetIdiom;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) void*bannerTargetIdentifier;
+@property (nonatomic, readonly) int bannerTargetIdiom;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void*)bannerTargetIdentifier;
-- (long long)bannerTargetIdiom;
-- (void)cacheBannerForContext:(id)arg1 withCompletion:(id)arg2;
+- (int)bannerTargetIdiom;
+- (void)cacheBannerForContext:(id)arg1 withCompletion:(id /* block */)arg2;
 - (id)currentBannerContextForSource:(id)arg1;
 - (id)description;
 - (void)dismissCurrentBannerContextForSource:(id)arg1;
 - (id)initWithTargetImplementation:(id)arg1;
 - (void)invalidate;
-- (bool)isShowingModalBanner;
+- (BOOL)isShowingModalBanner;
 - (void)modallyPresentBannerWithContext:(id)arg1;
 - (void)registerSource:(id)arg1;
 - (void)removeCachedBannerForContext:(id)arg1;

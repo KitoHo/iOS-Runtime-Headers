@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOSearchAttributionInfo, NSArray, NSString;
-
 @interface GEOMapItemAttribution : NSObject {
     NSArray *_attributionURLs;
     GEOSearchAttributionInfo *_info;
@@ -11,20 +9,25 @@
     NSString *_yelpID;
 }
 
-@property(readonly) NSArray * attributionApps;
-@property(readonly) NSArray * attributionURLs;
-@property(readonly) NSString * providerName;
-@property(readonly) bool requiresAttributionInCallout;
+@property (nonatomic, readonly) NSArray *attributionApps;
+@property (nonatomic, readonly) NSArray *attributionURLs;
+@property (nonatomic, readonly) NSString *providerID;
+@property (nonatomic, readonly) NSString *providerName;
+@property (nonatomic, readonly) BOOL requiresAttributionInCallout;
+@property (nonatomic, readonly) NSString *webBaseActionURL;
 
+- (id)_yelpHTTPURLForRequirement:(int)arg1 withUID:(id)arg2 writeAReview:(BOOL)arg3;
 - (id)attributionApps;
 - (id)attributionURLs;
 - (void)dealloc;
+- (id)initWithSearchAttributionInfo:(id)arg1 attributionURLs:(id)arg2;
 - (id)initWithSearchAttributionInfo:(id)arg1 attributionURLs:(id)arg2 poiID:(id)arg3;
 - (id)initWithSearchAttributionInfo:(id)arg1 attributionURLs:(id)arg2 yelpID:(id)arg3;
-- (id)initWithSearchAttributionInfo:(id)arg1 attributionURLs:(id)arg2;
-- (id)providerLogoPathForScale:(double)arg1;
+- (id)providerID;
+- (id)providerLogoPathForScale:(float)arg1;
 - (id)providerName;
-- (id)providerSnippetLogoPathForScale:(double)arg1;
-- (bool)requiresAttributionInCallout;
+- (id)providerSnippetLogoPathForScale:(float)arg1;
+- (BOOL)requiresAttributionInCallout;
+- (id)webBaseActionURL;
 
 @end

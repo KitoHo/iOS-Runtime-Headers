@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableArray;
-
 @interface PDAnimateTimeBehavior : PDAnimateBehavior {
     NSMutableArray *mTimeAnimateValues;
 }
@@ -11,7 +9,7 @@
 - (void)addTimeAnimateValue:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (id)timeAnimateValueAtIndex:(unsigned long long)arg1;
-- (unsigned long long)timeAnimateValueCount;
+- (id)timeAnimateValueAtIndex:(unsigned int)arg1;
+- (unsigned int)timeAnimateValueCount;
 
 @end

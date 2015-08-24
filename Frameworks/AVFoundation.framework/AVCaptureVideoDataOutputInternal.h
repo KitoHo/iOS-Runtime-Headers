@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVWeakReference, AVWeakReferencingDelegateStorage, NSDictionary, NSObject<OS_dispatch_queue>;
-
 @interface AVCaptureVideoDataOutputInternal : NSObject {
+    BOOL alwaysDiscardsLateVideoFrames;
+    NSObject<OS_dispatch_queue> *bufferQueue;
+    AVWeakReferencingDelegateStorage *delegateStorage;
     struct { 
         long long value; 
         int timescale; 
         unsigned int flags; 
         long long epoch; 
-    boolalwaysDiscardsLateVideoFrames;
-    NSObject<OS_dispatch_queue> *bufferQueue;
-    AVWeakReferencingDelegateStorage *delegateStorage;
     } deprecatedMinFrameDuration;
     struct OpaqueFigSimpleMutex { } *remoteQueueMutex;
     struct remoteQueueReceiverOpaque { } *remoteReceiverQueue;

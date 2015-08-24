@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/AXHearingAidSupport.framework/AXHearingAidSupport
  */
 
-@class NSArray, NSString;
-
 @interface AXHearingLiveListenMeterCell : PSTableCell {
     NSString *_liveListenUpdateUUID;
     NSArray *dotImageViews;
 }
 
-@property(retain) NSArray * dotImageViews;
-@property(retain) NSString * liveListenUpdateUUID;
+@property (nonatomic, retain) NSArray *dotImageViews;
+@property (nonatomic, retain) NSString *liveListenUpdateUUID;
 
 - (void)audioLevelDidChange:(float)arg1;
 - (void)dealloc;
 - (id)dotImageViews;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (void)layoutSubviews;
 - (id)liveListenUpdateUUID;
 - (void)setDotImageViews:(id)arg1;

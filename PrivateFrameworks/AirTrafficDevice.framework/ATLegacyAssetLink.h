@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/AirTrafficDevice.framework/AirTrafficDevice
  */
 
-@class <ATAssetLinkDelegate>, <ATLegacyAssetLinkProgressDelegate>, ATLegacyMessageLink, NSArray, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
-
-@interface ATLegacyAssetLink : NSObject <ATMessageLinkObserver, ATAssetLink> {
+@interface ATLegacyAssetLink : NSObject <ATAssetLink, ATMessageLinkObserver> {
     NSObject<OS_dispatch_queue> *_callbackQueue;
     <ATAssetLinkDelegate> *_delegate;
     NSMutableDictionary *_enqueuedAssetsByDataClass;
     ATLegacyMessageLink *_messageLink;
+    BOOL _open;
     <ATLegacyAssetLinkProgressDelegate> *_progressDelegate;
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableArray *_readyDataClasses;
     NSArray *_supportedDataClasses;
     NSMutableSet *_unqueuedAssets;
-    bool_open;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <ATAssetLinkDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(getter=isOpen,readonly) bool open;
-@property <ATLegacyAssetLinkProgressDelegate> * progressDelegate;
-@property(copy) NSArray * readyDataClasses;
-@property(readonly) Class superclass;
-@property(copy) NSArray * supportedDataClasses;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <ATAssetLinkDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (getter=isOpen, nonatomic, readonly) BOOL open;
+@property (nonatomic) <ATLegacyAssetLinkProgressDelegate> *progressDelegate;
+@property (nonatomic, copy) NSArray *readyDataClasses;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSArray *supportedDataClasses;
 
 - (void).cxx_destruct;
 - (id)_assetManifestForDataclasses:(id)arg1;
@@ -35,19 +33,19 @@
 - (void)_handleFileCompleteMessage:(id)arg1;
 - (void)_handleFileErrorMessage:(id)arg1;
 - (void)_handleFileProgressMessage:(id)arg1;
-- (bool)canEnqueueAsset:(id)arg1;
+- (BOOL)canEnqueueAsset:(id)arg1;
 - (void)cancelAssets:(id)arg1;
 - (void)close;
 - (id)delegate;
-- (id)enqueueAssets:(id)arg1 force:(bool)arg2;
+- (id)enqueueAssets:(id)arg1 force:(BOOL)arg2;
 - (id)initWithMessageLink:(id)arg1;
-- (bool)isOpen;
-- (bool)linkIsReady;
-- (unsigned long long)maximumBatchSize;
+- (BOOL)isOpen;
+- (BOOL)linkIsReady;
+- (unsigned int)maximumBatchSize;
 - (void)messageLinkWasClosed:(id)arg1;
-- (bool)open;
+- (BOOL)open;
 - (void)prioritizeAsset:(id)arg1;
-- (unsigned long long)priority;
+- (unsigned int)priority;
 - (id)progressDelegate;
 - (id)readyDataClasses;
 - (void)setDelegate:(id)arg1;

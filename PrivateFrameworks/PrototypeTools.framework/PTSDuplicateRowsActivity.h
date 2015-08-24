@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/PrototypeTools.framework/PrototypeTools
  */
 
-@class NSMutableArray;
-
 @interface PTSDuplicateRowsActivity : UICopyToPasteboardActivity {
     NSMutableArray *_rows;
 }
@@ -13,7 +11,7 @@
 - (id)activityImage;
 - (id)activityTitle;
 - (id)activityType;
-- (bool)canPerformWithActivityItems:(id)arg1;
+- (BOOL)canPerformWithActivityItems:(id)arg1;
 - (void)performActivity;
 - (void)prepareWithActivityItems:(id)arg1;
 

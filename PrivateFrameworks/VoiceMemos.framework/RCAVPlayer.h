@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/VoiceMemos.framework/VoiceMemos
  */
 
-@class <RCAVPlayerDelegate>, AVPlayerItem;
-
 @interface RCAVPlayer : AVPlayer {
     AVPlayerItem *_AVPlayerItemBeingObserved;
     <RCAVPlayerDelegate> *_delegate;
     id _periodicTimeObserverToken;
     double _updateRate;
-    bool_valid;
+    BOOL _valid;
 }
 
-@property <RCAVPlayerDelegate> * delegate;
-@property(readonly) bool isReadyToPlay;
-@property double updateRate;
+@property (nonatomic) <RCAVPlayerDelegate> *delegate;
+@property (nonatomic, readonly) BOOL isReadyToPlay;
+@property (nonatomic) double updateRate;
 
 - (void).cxx_destruct;
 - (void)_AVAudioSessionMediaServicesWereLostNotification:(id)arg1;
@@ -28,7 +26,7 @@
 - (void)dealloc;
 - (id)delegate;
 - (id)init;
-- (bool)isReadyToPlay;
+- (BOOL)isReadyToPlay;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4;
 - (void)replaceCurrentItemWithPlayerItem:(id)arg1;
 - (void)setDelegate:(id)arg1;

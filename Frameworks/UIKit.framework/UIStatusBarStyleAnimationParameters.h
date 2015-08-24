@@ -6,11 +6,11 @@
     int _styleAnimation;
 }
 
-@property int styleAnimation;
+@property (nonatomic) int styleAnimation;
 
 - (id)initWithDefaultParameters;
 - (void)setStyleAnimation:(int)arg1;
-- (bool)shouldAnimate;
+- (BOOL)shouldAnimate;
 - (int)styleAnimation;
 
 @end

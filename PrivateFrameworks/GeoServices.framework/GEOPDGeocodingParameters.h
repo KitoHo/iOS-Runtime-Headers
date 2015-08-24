@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOPDViewportInfo, GEOStructuredAddress, NSString;
-
 @interface GEOPDGeocodingParameters : PBCodable <NSCopying> {
     struct { 
         unsigned int maxResults : 1; 
@@ -14,34 +12,34 @@
     GEOPDViewportInfo *_viewportInfo;
 }
 
-@property bool hasMaxResults;
-@property(readonly) bool hasQueryString;
-@property(readonly) bool hasStructuredAddress;
-@property(readonly) bool hasViewportInfo;
-@property unsigned int maxResults;
-@property(retain) NSString * queryString;
-@property(retain) GEOStructuredAddress * structuredAddress;
-@property(retain) GEOPDViewportInfo * viewportInfo;
+@property (nonatomic) BOOL hasMaxResults;
+@property (nonatomic, readonly) BOOL hasQueryString;
+@property (nonatomic, readonly) BOOL hasStructuredAddress;
+@property (nonatomic, readonly) BOOL hasViewportInfo;
+@property (nonatomic) unsigned int maxResults;
+@property (nonatomic, retain) NSString *queryString;
+@property (nonatomic, retain) GEOStructuredAddress *structuredAddress;
+@property (nonatomic, retain) GEOPDViewportInfo *viewportInfo;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasMaxResults;
-- (bool)hasQueryString;
-- (bool)hasStructuredAddress;
-- (bool)hasViewportInfo;
-- (unsigned long long)hash;
+- (BOOL)hasMaxResults;
+- (BOOL)hasQueryString;
+- (BOOL)hasStructuredAddress;
+- (BOOL)hasViewportInfo;
+- (unsigned int)hash;
 - (id)initWithForwardGeocodeAddress:(id)arg1 addressString:(id)arg2 maxResults:(unsigned int)arg3 traits:(id)arg4;
 - (id)initWithForwardGeocodeAddress:(id)arg1 maxResults:(unsigned int)arg2 traits:(id)arg3;
 - (id)initWithForwardGeocodeAddressString:(id)arg1 maxResults:(unsigned int)arg2 traits:(id)arg3;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (unsigned int)maxResults;
 - (void)mergeFrom:(id)arg1;
 - (id)queryString;
-- (bool)readFrom:(id)arg1;
-- (void)setHasMaxResults:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasMaxResults:(BOOL)arg1;
 - (void)setMaxResults:(unsigned int)arg1;
 - (void)setQueryString:(id)arg1;
 - (void)setStructuredAddress:(id)arg1;

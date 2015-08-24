@@ -2,14 +2,12 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSLock;
-
 @interface _NSXPCConnectionExportedObjectTable : NSObject {
     NSLock *_lock;
     unsigned long long _next;
     struct __CFDictionary { } *_objectToProxyNumber;
     struct __CFDictionary { } *_proxyNumberToObject;
-    bool_valid;
+    BOOL _valid;
 }
 
 - (void)dealloc;

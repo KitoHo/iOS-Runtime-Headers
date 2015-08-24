@@ -2,42 +2,39 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSMutableDictionary, NSString, PHFetchResult;
-
 @interface PUYearsZoomLevelInfo : PUGridZoomLevelInfo <PUSectionedGridLayoutDelegate> {
     NSMutableDictionary *_resultsForCollectionList;
     PHFetchResult *_yearsFetchResult;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)_yearsFetchResult;
 - (struct __CFString { }*)aggregateLevelKey;
-- (id)assetsToDisplayInMapForVisualSection:(long long)arg1;
+- (id)assetsToDisplayInMapForVisualSection:(int)arg1;
 - (double)cellAspectRatioHint;
-- (long long)cellFillMode;
-- (void)configureSectionHeaderView:(id)arg1 forVisualSection:(long long)arg2;
-- (bool)consolidatesAssetFetchesForPreheat;
-- (id)diagnosticsProviderForVisualSection:(long long)arg1;
+- (int)cellFillMode;
+- (void)configureSectionHeaderView:(id)arg1 forVisualSection:(int)arg2;
+- (id)diagnosticsProviderForVisualSection:(int)arg1;
 - (id)displayTitle;
-- (bool)hasEnoughContentToDisplay;
-- (long long)imageDeliveryMode;
+- (id)imageDataForAsset:(id)arg1 itemContentScale:(float)arg2 imageWidth:(int*)arg3 imageHeight:(int*)arg4 bytesPerRow:(int*)arg5 dataWidth:(int*)arg6 dataHeight:(int*)arg7 imageDataOffset:(int*)arg8;
+- (int)imageDeliveryMode;
 - (int)imageFormat;
-- (id)initWithZoomLevel:(unsigned long long)arg1 zoomLevelManager:(id)arg2 baseZoomLevelInfo:(id)arg3;
-- (long long)maxRowsPerSection;
+- (id)initWithZoomLevel:(unsigned int)arg1 zoomLevelManager:(id)arg2 baseZoomLevelInfo:(id)arg3;
+- (int)maxRowsPerSection;
 - (void)modelDidChange:(id)arg1;
 - (id)momentsInCollectionList:(id)arg1;
 - (id)newCollectionViewLayout;
-- (long long)numberOfVisualSectionsForSectionedGridLayout:(id)arg1;
+- (int)numberOfVisualSectionsForSectionedGridLayout:(id)arg1;
 - (id)renderedStripsElementKind;
 - (id)sectionHeaderElementKind;
-- (id)sectionedGridLayout:(id)arg1 sectionsForVisualSection:(long long)arg2;
-- (bool)supportsIncrementalChangeNotifications;
-- (void)updateLayoutMetricsForWidth:(double)arg1;
+- (id)sectionedGridLayout:(id)arg1 sectionsForVisualSection:(int)arg2;
+- (BOOL)supportsIncrementalChangeNotifications;
+- (void)updateLayoutMetricsForWidth:(float)arg1;
 - (void)willShowMagnifiedViewController:(id)arg1;
 
 @end

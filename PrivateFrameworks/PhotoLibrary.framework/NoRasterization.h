@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-@interface NoRasterization : CALayer {
-}
+@interface NoRasterization : CALayer
 
-- (void)setShouldRasterize:(bool)arg1;
+- (void)setShouldRasterize:(BOOL)arg1;
 
 @end

@@ -2,40 +2,38 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class NSData, NSString;
-
 @interface MPPMediaPredicateValue : PBCodable <NSCopying> {
+    BOOL _boolPredicateValue;
+    NSData *_bytesPredicateValue;
+    double _doublePredicateValue;
+    float _floatPredicateValue;
     struct { 
         unsigned int doublePredicateValue : 1; 
         unsigned int integerPredicateValue : 1; 
         unsigned int floatPredicateValue : 1; 
         unsigned int boolPredicateValue : 1; 
-    NSData *_bytesPredicateValue;
-    double _doublePredicateValue;
-    float _floatPredicateValue;
     } _has;
     long long _integerPredicateValue;
     NSString *_stringPredicateValue;
     int _type;
-    bool_boolPredicateValue;
 }
 
-@property bool boolPredicateValue;
-@property(retain) NSData * bytesPredicateValue;
-@property double doublePredicateValue;
-@property float floatPredicateValue;
-@property bool hasBoolPredicateValue;
-@property(readonly) bool hasBytesPredicateValue;
-@property bool hasDoublePredicateValue;
-@property bool hasFloatPredicateValue;
-@property bool hasIntegerPredicateValue;
-@property(readonly) bool hasStringPredicateValue;
-@property long long integerPredicateValue;
-@property(retain) NSString * stringPredicateValue;
-@property int type;
+@property (nonatomic) BOOL boolPredicateValue;
+@property (nonatomic, retain) NSData *bytesPredicateValue;
+@property (nonatomic) double doublePredicateValue;
+@property (nonatomic) float floatPredicateValue;
+@property (nonatomic) BOOL hasBoolPredicateValue;
+@property (nonatomic, readonly) BOOL hasBytesPredicateValue;
+@property (nonatomic) BOOL hasDoublePredicateValue;
+@property (nonatomic) BOOL hasFloatPredicateValue;
+@property (nonatomic) BOOL hasIntegerPredicateValue;
+@property (nonatomic, readonly) BOOL hasStringPredicateValue;
+@property (nonatomic) long long integerPredicateValue;
+@property (nonatomic, retain) NSString *stringPredicateValue;
+@property (nonatomic) int type;
 
 - (void).cxx_destruct;
-- (bool)boolPredicateValue;
+- (BOOL)boolPredicateValue;
 - (id)bytesPredicateValue;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -44,24 +42,24 @@
 - (id)dictionaryRepresentation;
 - (double)doublePredicateValue;
 - (float)floatPredicateValue;
-- (bool)hasBoolPredicateValue;
-- (bool)hasBytesPredicateValue;
-- (bool)hasDoublePredicateValue;
-- (bool)hasFloatPredicateValue;
-- (bool)hasIntegerPredicateValue;
-- (bool)hasStringPredicateValue;
-- (unsigned long long)hash;
+- (BOOL)hasBoolPredicateValue;
+- (BOOL)hasBytesPredicateValue;
+- (BOOL)hasDoublePredicateValue;
+- (BOOL)hasFloatPredicateValue;
+- (BOOL)hasIntegerPredicateValue;
+- (BOOL)hasStringPredicateValue;
+- (unsigned int)hash;
 - (long long)integerPredicateValue;
-- (bool)isEqual:(id)arg1;
-- (bool)readFrom:(id)arg1;
-- (void)setBoolPredicateValue:(bool)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setBoolPredicateValue:(BOOL)arg1;
 - (void)setBytesPredicateValue:(id)arg1;
 - (void)setDoublePredicateValue:(double)arg1;
 - (void)setFloatPredicateValue:(float)arg1;
-- (void)setHasBoolPredicateValue:(bool)arg1;
-- (void)setHasDoublePredicateValue:(bool)arg1;
-- (void)setHasFloatPredicateValue:(bool)arg1;
-- (void)setHasIntegerPredicateValue:(bool)arg1;
+- (void)setHasBoolPredicateValue:(BOOL)arg1;
+- (void)setHasDoublePredicateValue:(BOOL)arg1;
+- (void)setHasFloatPredicateValue:(BOOL)arg1;
+- (void)setHasIntegerPredicateValue:(BOOL)arg1;
 - (void)setIntegerPredicateValue:(long long)arg1;
 - (void)setStringPredicateValue:(id)arg1;
 - (void)setType:(int)arg1;

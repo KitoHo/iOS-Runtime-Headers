@@ -2,23 +2,24 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class SKUIFullscreenImageViewElement;
-
 @interface SKUILockupViewElement : SKUIViewElement {
     BOOL _enabled;
-    long long _lockupViewType;
+    int _lockupViewType;
+    BOOL _selectable;
 }
 
-@property(readonly) bool containsElementGroups;
-@property(readonly) SKUIFullscreenImageViewElement * fullscreenImage;
-@property(readonly) long long lockupViewType;
+@property (nonatomic, readonly) BOOL containsElementGroups;
+@property (nonatomic, readonly) SKUIFullscreenImageViewElement *fullscreenImage;
+@property (nonatomic, readonly) int lockupViewType;
+@property (getter=isSelectable, nonatomic, readonly) BOOL selectable;
 
 - (id)applyUpdatesWithElement:(id)arg1;
-- (bool)containsElementGroups;
+- (BOOL)containsElementGroups;
 - (id)fullscreenImage;
 - (id)initWithDOMElement:(id)arg1 parent:(id)arg2 elementFactory:(id)arg3;
-- (bool)isEnabled;
-- (long long)lockupViewType;
-- (long long)pageComponentType;
+- (BOOL)isEnabled;
+- (BOOL)isSelectable;
+- (int)lockupViewType;
+- (int)pageComponentType;
 
 @end

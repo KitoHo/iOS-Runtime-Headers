@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString, NSValue;
-
 @interface PDBuildMapKey : NSObject <NSCopying> {
     NSValue *mDrawableValue;
     NSString *mGroupId;
@@ -13,10 +11,10 @@
 - (void)dealloc;
 - (id)drawable;
 - (id)groupId;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
 - (id)initWithDrawable:(id)arg1 groupId:(id)arg2;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)setDrawable:(id)arg1;
 - (void)setGroupId:(id)arg1;
 

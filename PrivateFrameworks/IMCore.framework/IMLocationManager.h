@@ -2,9 +2,7 @@
    Image: /System/Library/PrivateFrameworks/IMCore.framework/IMCore
  */
 
-@class CLLocation, CLLocationManager, NSDate, NSError, NSMutableArray, NSString, NSTimer;
-
-@interface IMLocationManager : IMChat <CLLocationManagerDelegate, IMLocationManager> {
+@interface IMLocationManager : NSObject <CLLocationManagerDelegate, IMLocationManager> {
     NSError *_error;
     NSMutableArray *_handlers;
     NSDate *_locateStartTime;
@@ -14,17 +12,17 @@
     NSTimer *_timeoutHandler;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) NSError * error;
-@property(retain) NSMutableArray * handlers;
-@property(readonly) unsigned long long hash;
-@property(retain) NSDate * locateStartTime;
-@property(retain) CLLocation * location;
-@property(readonly) bool locationAuthorizationDenied;
-@property(retain) CLLocationManager * locationManager;
-@property(retain) NSTimer * locationUpdateTimer;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSError *error;
+@property (nonatomic, retain) NSMutableArray *handlers;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NSDate *locateStartTime;
+@property (nonatomic, retain) CLLocation *location;
+@property (nonatomic, readonly) BOOL locationAuthorizationDenied;
+@property (nonatomic, retain) CLLocationManager *locationManager;
+@property (nonatomic, retain) NSTimer *locationUpdateTimer;
+@property (readonly) Class superclass;
 
 + (Class)__CLLocationManagerClass;
 + (id)locationShifter;
@@ -39,11 +37,11 @@
 - (id)init;
 - (id)locateStartTime;
 - (id)location;
-- (bool)locationAuthorizationDenied;
+- (BOOL)locationAuthorizationDenied;
+- (id)locationManager;
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
 - (void)locationManager:(id)arg1 didFailWithError:(id)arg2;
 - (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
-- (id)locationManager;
 - (id)locationUpdateTimer;
 - (void)setError:(id)arg1;
 - (void)setHandlers:(id)arg1;
@@ -51,7 +49,7 @@
 - (void)setLocation:(id)arg1;
 - (void)setLocationManager:(id)arg1;
 - (void)setLocationUpdateTimer:(id)arg1;
-- (void)shiftedLocationWithLocation:(id)arg1 completion:(id)arg2;
-- (void)startUpdatingCurrentLocationWithHandler:(id)arg1;
+- (void)shiftedLocationWithLocation:(id)arg1 completion:(id /* block */)arg2;
+- (void)startUpdatingCurrentLocationWithHandler:(id /* block */)arg1;
 
 @end

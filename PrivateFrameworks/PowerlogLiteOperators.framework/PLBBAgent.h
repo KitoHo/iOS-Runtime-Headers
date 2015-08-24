@@ -2,12 +2,12 @@
    Image: /System/Library/PrivateFrameworks/PowerlogLiteOperators.framework/PowerlogLiteOperators
  */
 
-@class NSDate, NSMutableDictionary, NSNumber, NSString, PLBBTelephonyActivityMsg, PLBBTelephonyRegMsg, PLBasebandLogChannel, PLEntryNotificationOperatorComposition, PLNSTimerOperatorComposition, PLTelephonyConnection;
-
 @interface PLBBAgent : PLAgent <PLBasebandLogChannelDelegate> {
+    BOOL _agentInited;
     PLEntryNotificationOperatorComposition *_batteryLevelChanged;
     PLNSTimerOperatorComposition *_cacheCommitTimer;
     PLEntryNotificationOperatorComposition *_canSleepNotification;
+    BOOL _changed;
     PLNSTimerOperatorComposition *_channelReconnectTimer;
     PLTelephonyConnection *_connection;
     NSMutableDictionary *_currentCallList;
@@ -17,6 +17,7 @@
     NSDate *_lastBBActivityTimestamp;
     NSDate *_lastReportRequestDate;
     NSNumber *_lastReportedSignal;
+    BOOL _lteCurrentState;
     NSString *_operatorName;
     NSString *_simStatus;
     PLEntryNotificationOperatorComposition *_sleepEntryNotifications;
@@ -24,40 +25,37 @@
     PLBBTelephonyRegMsg *_telRegMsgHelper;
     PLEntryNotificationOperatorComposition *_wakeEntryNotifications;
     unsigned int baseband_service;
-    bool_agentInited;
-    bool_changed;
-    bool_lteCurrentState;
     PLBasebandLogChannel *cachedChannel;
     struct IONotificationPort { } *ioNotifyPort;
     unsigned int notificationRef;
     PLBasebandLogChannel *streamingChannel;
 }
 
-@property bool agentInited;
-@property(retain) PLEntryNotificationOperatorComposition * batteryLevelChanged;
-@property(retain) PLNSTimerOperatorComposition * cacheCommitTimer;
-@property(retain) PLEntryNotificationOperatorComposition * canSleepNotification;
-@property bool changed;
-@property(retain) PLNSTimerOperatorComposition * channelReconnectTimer;
-@property(readonly) PLTelephonyConnection * connection;
-@property(retain) NSMutableDictionary * currentCallList;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) PLEntryNotificationOperatorComposition * didNotSleepNotification;
-@property(readonly) unsigned long long hash;
-@property(retain) NSNumber * inDCH;
-@property(retain) NSNumber * inUTBF;
-@property(retain) NSDate * lastBBActivityTimestamp;
-@property(retain) NSDate * lastReportRequestDate;
-@property(retain) NSNumber * lastReportedSignal;
-@property bool lteCurrentState;
-@property(retain) NSString * operatorName;
-@property(retain) NSString * simStatus;
-@property(readonly) PLEntryNotificationOperatorComposition * sleepEntryNotifications;
-@property(readonly) Class superclass;
-@property(retain) PLBBTelephonyActivityMsg * telActMsgHelper;
-@property(retain) PLBBTelephonyRegMsg * telRegMsgHelper;
-@property(readonly) PLEntryNotificationOperatorComposition * wakeEntryNotifications;
+@property BOOL agentInited;
+@property (retain) PLEntryNotificationOperatorComposition *batteryLevelChanged;
+@property (retain) PLNSTimerOperatorComposition *cacheCommitTimer;
+@property (retain) PLEntryNotificationOperatorComposition *canSleepNotification;
+@property BOOL changed;
+@property (retain) PLNSTimerOperatorComposition *channelReconnectTimer;
+@property (nonatomic, readonly) PLTelephonyConnection *connection;
+@property (retain) NSMutableDictionary *currentCallList;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (retain) PLEntryNotificationOperatorComposition *didNotSleepNotification;
+@property (readonly) unsigned int hash;
+@property (retain) NSNumber *inDCH;
+@property (retain) NSNumber *inUTBF;
+@property (retain) NSDate *lastBBActivityTimestamp;
+@property (retain) NSDate *lastReportRequestDate;
+@property (retain) NSNumber *lastReportedSignal;
+@property BOOL lteCurrentState;
+@property (retain) NSString *operatorName;
+@property (retain) NSString *simStatus;
+@property (readonly) PLEntryNotificationOperatorComposition *sleepEntryNotifications;
+@property (readonly) Class superclass;
+@property (retain) PLBBTelephonyActivityMsg *telActMsgHelper;
+@property (retain) PLBBTelephonyRegMsg *telRegMsgHelper;
+@property (readonly) PLEntryNotificationOperatorComposition *wakeEntryNotifications;
 
 + (id)accountingGroupDefinitions;
 + (id)defaults;
@@ -71,20 +69,20 @@
 + (id)entryEventPointDefinitions;
 + (id)getNameBBMavReport;
 + (id)humanReadableStateFromKey:(id)arg1;
-+ (id)indexToRat:(unsigned long long)arg1;
++ (id)indexToRat:(unsigned int)arg1;
 + (void)load;
 + (void)logICEReportFor:(id)arg1 withAgent:(id)arg2;
 + (id)railDefinitions;
 
 - (void).cxx_destruct;
 - (void)accountVoicePower:(id)arg1 state:(id)arg2;
-- (bool)agentInited;
+- (BOOL)agentInited;
 - (id)batteryLevelChanged;
 - (id)cacheCommitTimer;
 - (void)cacheCommitTimerFired;
 - (id)canSleepNotification;
 - (void)cancelCacheCommitTimer;
-- (bool)changed;
+- (BOOL)changed;
 - (void)channel:(id)arg1 hasDataAvailable:(id)arg2;
 - (void)channelDidBecomeInvalid:(id)arg1;
 - (id)channelReconnectTimer;
@@ -110,8 +108,8 @@
 - (id)init;
 - (void)initCacheCommitTimer;
 - (void)initOperatorDependancies;
-- (bool)isChangedAndSetAirplaneMode;
-- (bool)isTimeToRequestReport;
+- (BOOL)isChangedAndSetAirplaneMode;
+- (BOOL)isTimeToRequestReport;
 - (id)lastBBActivityTimestamp;
 - (id)lastReportRequestDate;
 - (id)lastReportedSignal;
@@ -127,7 +125,7 @@
 - (void)logTelephonyActivity;
 - (void)logTelephonyRegMsgWith:(id)arg1;
 - (void)logTelephonyRegistrationAtInit;
-- (bool)lteCurrentState;
+- (BOOL)lteCurrentState;
 - (void)modelBBHWLogPower:(id)arg1;
 - (void)modelBBICEPower:(id)arg1;
 - (void)modelGPSPower:(id)arg1;
@@ -141,7 +139,7 @@
 - (void)modelScanPower:(id)arg1;
 - (void)modelStateTransitionPower:(id)arg1 rat:(id)arg2 state:(id)arg3;
 - (id)operatorName;
-- (void)postCDRXCapability:(bool)arg1;
+- (void)postCDRXCapability:(BOOL)arg1;
 - (void)processTimeUpdateInfoDict:(id)arg1;
 - (void)reconnectTimerFired;
 - (void)refreshBBMavReport;
@@ -149,11 +147,11 @@
 - (void)resetCacheCommitTimer;
 - (void)scheduleFlushPostCacheCommit;
 - (void)scheduleReconnect;
-- (void)setAgentInited:(bool)arg1;
+- (void)setAgentInited:(BOOL)arg1;
 - (void)setBatteryLevelChanged:(id)arg1;
 - (void)setCacheCommitTimer:(id)arg1;
 - (void)setCanSleepNotification:(id)arg1;
-- (void)setChanged:(bool)arg1;
+- (void)setChanged:(BOOL)arg1;
 - (void)setChannelReconnectTimer:(id)arg1;
 - (void)setCurrentCallList:(id)arg1;
 - (void)setDidNotSleepNotification:(id)arg1;
@@ -162,14 +160,14 @@
 - (void)setLastBBActivityTimestamp:(id)arg1;
 - (void)setLastReportRequestDate:(id)arg1;
 - (void)setLastReportedSignal:(id)arg1;
-- (void)setLteCurrentState:(bool)arg1;
+- (void)setLteCurrentState:(BOOL)arg1;
 - (void)setOpName:(id)arg1;
 - (void)setOperatorName:(id)arg1;
 - (void)setSimStatus:(id)arg1;
 - (void)setTelActMsgHelper:(id)arg1;
 - (void)setTelRegMsgHelper:(id)arg1;
 - (void)setupBBChannels;
-- (bool)setupChannel:(id)arg1 withLogCodes:(id)arg2 andEvents:(id)arg3;
+- (BOOL)setupChannel:(id)arg1 withLogCodes:(id)arg2 andEvents:(id)arg3;
 - (void)setupICEChannels;
 - (id)setupIOKitNotifications;
 - (void)setupTelephonyActivityChannels;

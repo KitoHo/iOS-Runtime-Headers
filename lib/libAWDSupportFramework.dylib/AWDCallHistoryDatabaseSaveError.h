@@ -2,28 +2,26 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDCallHistoryDatabaseSaveError : PBCodable <NSCopying> {
+    unsigned int _domain;
+    unsigned int _error;
     struct { 
         unsigned int timestamp : 1; 
         unsigned int domain : 1; 
         unsigned int error : 1; 
-    unsigned int _domain;
-    unsigned int _error;
     } _has;
     NSString *_table;
     unsigned long long _timestamp;
 }
 
-@property unsigned int domain;
-@property unsigned int error;
-@property bool hasDomain;
-@property bool hasError;
-@property(readonly) bool hasTable;
-@property bool hasTimestamp;
-@property(retain) NSString * table;
-@property unsigned long long timestamp;
+@property (nonatomic) unsigned int domain;
+@property (nonatomic) unsigned int error;
+@property (nonatomic) BOOL hasDomain;
+@property (nonatomic) BOOL hasError;
+@property (nonatomic, readonly) BOOL hasTable;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic, retain) NSString *table;
+@property (nonatomic) unsigned long long timestamp;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -32,19 +30,19 @@
 - (id)dictionaryRepresentation;
 - (unsigned int)domain;
 - (unsigned int)error;
-- (bool)hasDomain;
-- (bool)hasError;
-- (bool)hasTable;
-- (bool)hasTimestamp;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasDomain;
+- (BOOL)hasError;
+- (BOOL)hasTable;
+- (BOOL)hasTimestamp;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setDomain:(unsigned int)arg1;
 - (void)setError:(unsigned int)arg1;
-- (void)setHasDomain:(bool)arg1;
-- (void)setHasError:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
+- (void)setHasDomain:(BOOL)arg1;
+- (void)setHasError:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
 - (void)setTable:(id)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;
 - (id)table;

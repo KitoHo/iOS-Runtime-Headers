@@ -2,26 +2,24 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-@class NSString;
-
 @interface WKUserScript : NSObject <NSCopying> {
+    BOOL _forMainFrameOnly;
+    int _injectionTime;
     struct RetainPtr<NSString> { 
         void *m_ptr; 
-    long long _injectionTime;
     } _source;
-    bool_forMainFrameOnly;
 }
 
-@property(getter=isForMainFrameOnly,readonly) bool forMainFrameOnly;
-@property(readonly) long long injectionTime;
-@property(copy,readonly) NSString * source;
+@property (getter=isForMainFrameOnly, nonatomic, readonly) BOOL forMainFrameOnly;
+@property (nonatomic, readonly) int injectionTime;
+@property (nonatomic, readonly, copy) NSString *source;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (id)initWithSource:(id)arg1 injectionTime:(long long)arg2 forMainFrameOnly:(bool)arg3;
-- (long long)injectionTime;
-- (bool)isForMainFrameOnly;
+- (id)initWithSource:(id)arg1 injectionTime:(int)arg2 forMainFrameOnly:(BOOL)arg3;
+- (int)injectionTime;
+- (BOOL)isForMainFrameOnly;
 - (id)source;
 
 @end

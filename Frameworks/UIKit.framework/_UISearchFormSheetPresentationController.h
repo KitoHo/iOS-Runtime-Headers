@@ -2,65 +2,63 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString, UIPresentationController<_UISearchControllerPresenting>, UIView, _UISearchPresentationAssistant;
-
 @interface _UISearchFormSheetPresentationController : UIPresentationController <_UISearchControllerPresenting> {
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
     _UISearchPresentationAssistant *_assistant;
     UIView *_wrapperView;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } finalFrameForContainerView;
 }
 
-@property(readonly) UIPresentationController<_UISearchControllerPresenting> * adaptivePresentationController;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } finalFrameForContainerView;
-@property(readonly) unsigned long long hash;
-@property(readonly) double resultsControllerContentOffset;
-@property(retain,readonly) UIView * searchBarContainerView;
-@property(readonly) bool searchBarToBecomeTopAttached;
-@property(readonly) bool shouldAccountForStatusBar;
-@property(readonly) double statusBarAdjustment;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) UIPresentationController<_UISearchControllerPresenting> *adaptivePresentationController;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } finalFrameForContainerView;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) float resultsControllerContentOffset;
+@property (nonatomic, readonly, retain) UIView *searchBarContainerView;
+@property (nonatomic, readonly) BOOL searchBarToBecomeTopAttached;
+@property (nonatomic, readonly) BOOL shouldAccountForStatusBar;
+@property (nonatomic, readonly) float statusBarAdjustment;
+@property (readonly) Class superclass;
 
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })_frameOfPresentedViewControllerViewInSuperview;
-- (id)_presentationControllerForSizeClassPair:(struct { long long x1; long long x2; })arg1;
-- (void)_presentedView:(id)arg1 enableFormSheetAccoutrements:(bool)arg2;
-- (id)_presentedViewControllerForSizeClassPair:(struct { long long x1; long long x2; })arg1;
-- (bool)_shouldKeepCurrentFirstResponder;
-- (bool)_shouldRespectDefinesPresentationContext;
-- (bool)_shouldSubscribeToKeyboardNotifications;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })_frameOfPresentedViewControllerViewInSuperview;
+- (id)_presentationControllerForTraitCollection:(id)arg1;
+- (void)_presentedView:(id)arg1 enableFormSheetAccoutrements:(BOOL)arg2;
+- (id)_presentedViewControllerForPresentationController:(id)arg1 traitCollection:(id)arg2;
+- (BOOL)_shouldKeepCurrentFirstResponder;
+- (BOOL)_shouldRespectDefinesPresentationContext;
+- (BOOL)_shouldSubscribeToKeyboardNotifications;
 - (void)_transitionFromDidEnd;
 - (void)_transitionFromWillBegin;
 - (void)_transitionToDidEnd;
 - (void)_transitionToPresentationController:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (void)_transitionToWillBegin;
 - (id)adaptivePresentationController;
-- (long long)adaptivePresentationStyle;
+- (int)adaptivePresentationStyle;
 - (void)dealloc;
-- (void)dismissalTransitionDidEnd:(bool)arg1;
+- (void)dismissalTransitionDidEnd:(BOOL)arg1;
 - (void)dismissalTransitionWillBegin;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })finalFrameForContainerView;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })frameOfPresentedViewInContainerView;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })finalFrameForContainerView;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })frameOfPresentedViewInContainerView;
 - (id)initWithPresentedViewController:(id)arg1 presentingViewController:(id)arg2;
-- (void)presentationTransitionDidEnd:(bool)arg1;
+- (void)presentationTransitionDidEnd:(BOOL)arg1;
 - (void)presentationTransitionWillBegin;
 - (id)presentedView;
-- (double)resultsControllerContentOffset;
+- (float)resultsControllerContentOffset;
 - (id)searchBarContainerView;
-- (bool)searchBarToBecomeTopAttached;
-- (void)setContentVisible:(bool)arg1;
-- (bool)shouldAccountForStatusBar;
-- (bool)shouldRemovePresentersView;
-- (double)statusBarAdjustment;
+- (BOOL)searchBarToBecomeTopAttached;
+- (void)setContentVisible:(BOOL)arg1;
+- (BOOL)shouldAccountForStatusBar;
+- (BOOL)shouldRemovePresentersView;
+- (float)statusBarAdjustment;
 - (void)traitCollectionDidChange:(id)arg1;
 
 @end

@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class CHDChart, CHDDataLabel, CHDSeriesCollection, EDCollection;
-
 @interface CHDChartType : NSObject {
-    boolmVaryColors;
     EDCollection *mAxisIds;
     CHDChart *mChart;
     CHDDataLabel *mDefaultDataLabel;
     CHDSeriesCollection *mSeries;
+    bool mVaryColors;
 }
 
 + (id)chartTypeWithChart:(id)arg1;
@@ -18,7 +16,7 @@
 - (id)axes;
 - (id)axisForClass:(Class)arg1;
 - (id)axisIds;
-- (unsigned long long)categoryCount;
+- (unsigned int)categoryCount;
 - (id)chart;
 - (id)contentFormat;
 - (void)dealloc;
@@ -30,7 +28,7 @@
 - (bool)isPlotedOnSecondaryAxis;
 - (bool)isVaryColors;
 - (id)seriesCollection;
-- (unsigned long long)seriesCount;
+- (unsigned int)seriesCount;
 - (void)setDefaultDataLabel:(id)arg1;
 - (void)setSeriesCollection:(id)arg1;
 - (void)setVaryColors:(bool)arg1;

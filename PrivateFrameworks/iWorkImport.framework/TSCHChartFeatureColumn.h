@@ -2,8 +2,7 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCHChartFeatureColumn : TSCHChartFeatureCategory {
-}
+@interface TSCHChartFeatureColumn : TSCHChartFeatureCategory
 
 - (id)categoryLabelPositioner;
 - (id)columnShapeUIName;
@@ -12,16 +11,16 @@
 - (int)deprecated3DShadowSpecificProperty;
 - (id)genericToSpecificPropertyMap;
 - (int)labelOrientation;
-- (double)maxDepthRatio;
+- (float)maxDepthRatio;
 - (Class)presetImagerClass;
-- (double)sageMaxDepthRatio;
+- (float)sageMaxDepthRatio;
 - (Class)stageClass;
 - (id)supportedAxisScales;
-- (bool)supportsCategoryAxisSeriesNames;
-- (bool)supportsColumnShape;
-- (bool)supportsElementChunking;
-- (bool)supportsGroupedShadows;
-- (bool)supportsSeriesLabels;
+- (BOOL)supportsCategoryAxisSeriesNames;
+- (BOOL)supportsColumnShape;
+- (BOOL)supportsElementChunking;
+- (BOOL)supportsGroupedShadows;
+- (BOOL)supportsSeriesLabels;
 - (id)userInterfaceName;
 - (Class)valueAxisClassForID:(id)arg1 scale:(int)arg2;
 

@@ -2,9 +2,10 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDPushKeepAliveSent : PBCodable <NSCopying> {
+    unsigned int _connectionType;
+    unsigned int _dualChannelState;
+    NSString *_guid;
     struct { 
         unsigned int timestamp : 1; 
         unsigned int connectionType : 1; 
@@ -13,9 +14,6 @@
         unsigned int linkQuality : 1; 
         unsigned int nextKeepAliveInterval : 1; 
         unsigned int timeSinceLastKeepAlive : 1; 
-    unsigned int _connectionType;
-    unsigned int _dualChannelState;
-    NSString *_guid;
     } _has;
     unsigned int _keepAliveACKDuration;
     int _linkQuality;
@@ -24,22 +22,22 @@
     unsigned long long _timestamp;
 }
 
-@property unsigned int connectionType;
-@property unsigned int dualChannelState;
-@property(retain) NSString * guid;
-@property bool hasConnectionType;
-@property bool hasDualChannelState;
-@property(readonly) bool hasGuid;
-@property bool hasKeepAliveACKDuration;
-@property bool hasLinkQuality;
-@property bool hasNextKeepAliveInterval;
-@property bool hasTimeSinceLastKeepAlive;
-@property bool hasTimestamp;
-@property unsigned int keepAliveACKDuration;
-@property int linkQuality;
-@property unsigned int nextKeepAliveInterval;
-@property unsigned int timeSinceLastKeepAlive;
-@property unsigned long long timestamp;
+@property (nonatomic) unsigned int connectionType;
+@property (nonatomic) unsigned int dualChannelState;
+@property (nonatomic, retain) NSString *guid;
+@property (nonatomic) BOOL hasConnectionType;
+@property (nonatomic) BOOL hasDualChannelState;
+@property (nonatomic, readonly) BOOL hasGuid;
+@property (nonatomic) BOOL hasKeepAliveACKDuration;
+@property (nonatomic) BOOL hasLinkQuality;
+@property (nonatomic) BOOL hasNextKeepAliveInterval;
+@property (nonatomic) BOOL hasTimeSinceLastKeepAlive;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) unsigned int keepAliveACKDuration;
+@property (nonatomic) int linkQuality;
+@property (nonatomic) unsigned int nextKeepAliveInterval;
+@property (nonatomic) unsigned int timeSinceLastKeepAlive;
+@property (nonatomic) unsigned long long timestamp;
 
 - (unsigned int)connectionType;
 - (void)copyTo:(id)arg1;
@@ -49,31 +47,31 @@
 - (id)dictionaryRepresentation;
 - (unsigned int)dualChannelState;
 - (id)guid;
-- (bool)hasConnectionType;
-- (bool)hasDualChannelState;
-- (bool)hasGuid;
-- (bool)hasKeepAliveACKDuration;
-- (bool)hasLinkQuality;
-- (bool)hasNextKeepAliveInterval;
-- (bool)hasTimeSinceLastKeepAlive;
-- (bool)hasTimestamp;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasConnectionType;
+- (BOOL)hasDualChannelState;
+- (BOOL)hasGuid;
+- (BOOL)hasKeepAliveACKDuration;
+- (BOOL)hasLinkQuality;
+- (BOOL)hasNextKeepAliveInterval;
+- (BOOL)hasTimeSinceLastKeepAlive;
+- (BOOL)hasTimestamp;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (unsigned int)keepAliveACKDuration;
 - (int)linkQuality;
 - (void)mergeFrom:(id)arg1;
 - (unsigned int)nextKeepAliveInterval;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setConnectionType:(unsigned int)arg1;
 - (void)setDualChannelState:(unsigned int)arg1;
 - (void)setGuid:(id)arg1;
-- (void)setHasConnectionType:(bool)arg1;
-- (void)setHasDualChannelState:(bool)arg1;
-- (void)setHasKeepAliveACKDuration:(bool)arg1;
-- (void)setHasLinkQuality:(bool)arg1;
-- (void)setHasNextKeepAliveInterval:(bool)arg1;
-- (void)setHasTimeSinceLastKeepAlive:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
+- (void)setHasConnectionType:(BOOL)arg1;
+- (void)setHasDualChannelState:(BOOL)arg1;
+- (void)setHasKeepAliveACKDuration:(BOOL)arg1;
+- (void)setHasLinkQuality:(BOOL)arg1;
+- (void)setHasNextKeepAliveInterval:(BOOL)arg1;
+- (void)setHasTimeSinceLastKeepAlive:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
 - (void)setKeepAliveACKDuration:(unsigned int)arg1;
 - (void)setLinkQuality:(int)arg1;
 - (void)setNextKeepAliveInterval:(unsigned int)arg1;

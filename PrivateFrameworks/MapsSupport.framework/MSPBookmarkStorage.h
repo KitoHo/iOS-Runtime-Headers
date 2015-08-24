@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/MapsSupport.framework/MapsSupport
  */
 
-@class MSPPlaceBookmark, MSPRegionBookmark, MSPRouteBookmark, NSString, PBUnknownFields;
-
 @interface MSPBookmarkStorage : PBCodable <NSCopying> {
     struct { 
         unsigned int position : 1; 
@@ -20,46 +18,46 @@
     PBUnknownFields *_unknownFields;
 }
 
-@property(readonly) bool hasIdentifier;
-@property(readonly) bool hasPlaceBookmark;
-@property bool hasPosition;
-@property(readonly) bool hasRegionBookmark;
-@property(readonly) bool hasRouteBookmark;
-@property bool hasTimestamp;
-@property bool hasType;
-@property(retain) NSString * identifier;
-@property(retain) MSPPlaceBookmark * placeBookmark;
-@property double position;
-@property(retain) MSPRegionBookmark * regionBookmark;
-@property(retain) MSPRouteBookmark * routeBookmark;
-@property double timestamp;
-@property int type;
-@property(readonly) PBUnknownFields * unknownFields;
+@property (nonatomic, readonly) BOOL hasIdentifier;
+@property (nonatomic, readonly) BOOL hasPlaceBookmark;
+@property (nonatomic) BOOL hasPosition;
+@property (nonatomic, readonly) BOOL hasRegionBookmark;
+@property (nonatomic, readonly) BOOL hasRouteBookmark;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) BOOL hasType;
+@property (nonatomic, retain) NSString *identifier;
+@property (nonatomic, retain) MSPPlaceBookmark *placeBookmark;
+@property (nonatomic) double position;
+@property (nonatomic, retain) MSPRegionBookmark *regionBookmark;
+@property (nonatomic, retain) MSPRouteBookmark *routeBookmark;
+@property (nonatomic) double timestamp;
+@property (nonatomic) int type;
+@property (nonatomic, readonly) PBUnknownFields *unknownFields;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasIdentifier;
-- (bool)hasPlaceBookmark;
-- (bool)hasPosition;
-- (bool)hasRegionBookmark;
-- (bool)hasRouteBookmark;
-- (bool)hasTimestamp;
-- (bool)hasType;
-- (unsigned long long)hash;
+- (BOOL)hasIdentifier;
+- (BOOL)hasPlaceBookmark;
+- (BOOL)hasPosition;
+- (BOOL)hasRegionBookmark;
+- (BOOL)hasRouteBookmark;
+- (BOOL)hasTimestamp;
+- (BOOL)hasType;
+- (unsigned int)hash;
 - (id)identifier;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)placeBookmark;
 - (double)position;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)regionBookmark;
 - (id)routeBookmark;
-- (void)setHasPosition:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
-- (void)setHasType:(bool)arg1;
+- (void)setHasPosition:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasType:(BOOL)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setPlaceBookmark:(id)arg1;
 - (void)setPosition:(double)arg1;

@@ -2,65 +2,63 @@
    Image: /System/Library/Frameworks/MessageUI.framework/MessageUI
  */
 
-@class <MFMessageComposeViewControllerDelegate>, NSArray, NSMutableArray, NSString;
-
 @interface MFMessageComposeViewController : UINavigationController {
     NSArray *_attachments;
     NSString *_body;
-    unsigned long long _currentAttachedAudioCount;
-    unsigned long long _currentAttachedImageCount;
-    unsigned long long _currentAttachedVideoCount;
+    unsigned int _currentAttachedAudioCount;
+    unsigned int _currentAttachedImageCount;
+    unsigned int _currentAttachedVideoCount;
     <MFMessageComposeViewControllerDelegate> *_messageComposeDelegate;
     NSMutableArray *_mutableAttachmentURLs;
     NSArray *_recipients;
     NSString *_subject;
 }
 
-@property(copy,readonly) NSArray * attachments;
-@property(copy) NSString * body;
-@property unsigned long long currentAttachedAudioCount;
-@property unsigned long long currentAttachedImageCount;
-@property unsigned long long currentAttachedVideoCount;
-@property <MFMessageComposeViewControllerDelegate> * messageComposeDelegate;
-@property(copy) NSMutableArray * mutableAttachmentURLs;
-@property(copy) NSArray * recipients;
-@property(copy) NSString * subject;
+@property (nonatomic, readonly, copy) NSArray *attachments;
+@property (nonatomic, copy) NSString *body;
+@property (nonatomic) unsigned int currentAttachedAudioCount;
+@property (nonatomic) unsigned int currentAttachedImageCount;
+@property (nonatomic) unsigned int currentAttachedVideoCount;
+@property (nonatomic) <MFMessageComposeViewControllerDelegate> *messageComposeDelegate;
+@property (nonatomic, copy) NSMutableArray *mutableAttachmentURLs;
+@property (nonatomic, copy) NSArray *recipients;
+@property (nonatomic, copy) NSString *subject;
 
-+ (bool)_canSendText;
++ (BOOL)_canSendText;
 + (void)_serviceAvailabilityChanged:(id)arg1;
 + (void)_setupAccountMonitor;
 + (void)_startListeningForAvailabilityNotifications;
 + (void)_updateServiceAvailability;
-+ (bool)canSendAttachments;
-+ (bool)canSendPhotos:(int)arg1 videos:(int)arg2 audioClips:(int)arg3;
-+ (bool)canSendSubject;
-+ (bool)canSendText;
++ (BOOL)canSendAttachments;
++ (BOOL)canSendPhotos:(int)arg1 videos:(int)arg2 audioClips:(int)arg3;
++ (BOOL)canSendSubject;
++ (BOOL)canSendText;
 + (void)initialize;
-+ (bool)isMMSEnabled;
-+ (bool)isSupportedAttachmentUTI:(id)arg1;
-+ (bool)isiMessageEnabled;
++ (BOOL)isMMSEnabled;
++ (BOOL)isSupportedAttachmentUTI:(id)arg1;
++ (BOOL)isiMessageEnabled;
 + (double)maxTrimDurationForAudio;
 + (double)maxTrimDurationForVideo;
 
 - (id)_MIMETypeForURL:(id)arg1;
 - (id)_buildAttachmentInfoForAttachmentURL:(id)arg1 andAlternameFilename:(id)arg2;
 - (id)_contentTypeForMIMEType:(id)arg1;
-- (bool)_isAudioMIMEType:(id)arg1;
-- (bool)_isImageMIMEType:(id)arg1;
-- (bool)_isVideoMIMEType:(id)arg1;
-- (void)_setCanEditRecipients:(bool)arg1;
+- (BOOL)_isAudioMIMEType:(id)arg1;
+- (BOOL)_isImageMIMEType:(id)arg1;
+- (BOOL)_isVideoMIMEType:(id)arg1;
+- (void)_setCanEditRecipients:(BOOL)arg1;
 - (void)_updateAttachmentCountForAttachmentURL:(id)arg1;
-- (bool)addAttachmentData:(id)arg1 typeIdentifier:(id)arg2 filename:(id)arg3;
-- (bool)addAttachmentData:(id)arg1 withAlternateFilename:(id)arg2;
-- (bool)addAttachmentURL:(id)arg1 withAlternateFilename:(id)arg2;
+- (BOOL)addAttachmentData:(id)arg1 typeIdentifier:(id)arg2 filename:(id)arg3;
+- (BOOL)addAttachmentData:(id)arg1 withAlternateFilename:(id)arg2;
+- (BOOL)addAttachmentURL:(id)arg1 withAlternateFilename:(id)arg2;
 - (id)attachmentURLs;
 - (id)attachments;
-- (bool)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
+- (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
 - (id)body;
-- (bool)canAddAttachmentURL:(id)arg1;
-- (unsigned long long)currentAttachedAudioCount;
-- (unsigned long long)currentAttachedImageCount;
-- (unsigned long long)currentAttachedVideoCount;
+- (BOOL)canAddAttachmentURL:(id)arg1;
+- (unsigned int)currentAttachedAudioCount;
+- (unsigned int)currentAttachedImageCount;
+- (unsigned int)currentAttachedVideoCount;
 - (void)dealloc;
 - (void)disableUserAttachments;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
@@ -68,17 +66,17 @@
 - (id)mutableAttachmentURLs;
 - (id)recipients;
 - (void)setBody:(id)arg1;
-- (void)setCurrentAttachedAudioCount:(unsigned long long)arg1;
-- (void)setCurrentAttachedImageCount:(unsigned long long)arg1;
-- (void)setCurrentAttachedVideoCount:(unsigned long long)arg1;
+- (void)setCurrentAttachedAudioCount:(unsigned int)arg1;
+- (void)setCurrentAttachedImageCount:(unsigned int)arg1;
+- (void)setCurrentAttachedVideoCount:(unsigned int)arg1;
 - (void)setMessageComposeDelegate:(id)arg1;
-- (void)setModalPresentationStyle:(long long)arg1;
+- (void)setModalPresentationStyle:(int)arg1;
 - (void)setMutableAttachmentURLs:(id)arg1;
 - (void)setRecipients:(id)arg1;
 - (void)setSubject:(id)arg1;
 - (void)smsComposeControllerCancelled:(id)arg1;
 - (void)smsComposeControllerSendStarted:(id)arg1;
 - (id)subject;
-- (void)viewWillAppear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 
 @end

@@ -2,14 +2,13 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSDMutableExteriorTextWrap : TSDExteriorTextWrap {
-}
+@interface TSDMutableExteriorTextWrap : TSDExteriorTextWrap
 
-- (void)setAlphaThreshold:(double)arg1;
+- (void)setAlphaThreshold:(float)arg1;
 - (void)setDirection:(int)arg1;
 - (void)setFitType:(int)arg1;
-- (void)setIsHTMLWrap:(bool)arg1;
-- (void)setMargin:(double)arg1;
+- (void)setIsHTMLWrap:(BOOL)arg1;
+- (void)setMargin:(float)arg1;
 - (void)setType:(int)arg1;
 
 @end

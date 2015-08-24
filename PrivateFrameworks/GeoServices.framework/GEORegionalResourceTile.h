@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray;
-
 @interface GEORegionalResourceTile : PBCodable <NSCopying> {
     NSMutableArray *_attributions;
     NSMutableArray *_childrens;
@@ -14,44 +12,44 @@
     unsigned int _z;
 }
 
-@property(retain) NSMutableArray * attributions;
-@property(retain) NSMutableArray * childrens;
-@property(retain) NSMutableArray * iconChecksums;
-@property(retain) NSMutableArray * icons;
-@property unsigned int x;
-@property unsigned int y;
-@property unsigned int z;
+@property (nonatomic, retain) NSMutableArray *attributions;
+@property (nonatomic, retain) NSMutableArray *childrens;
+@property (nonatomic, retain) NSMutableArray *iconChecksums;
+@property (nonatomic, retain) NSMutableArray *icons;
+@property (nonatomic) unsigned int x;
+@property (nonatomic) unsigned int y;
+@property (nonatomic) unsigned int z;
 
 - (void)addAttribution:(id)arg1;
 - (void)addChildren:(id)arg1;
 - (void)addIcon:(id)arg1;
 - (void)addIconChecksum:(id)arg1;
-- (id)attributionAtIndex:(unsigned long long)arg1;
+- (id)attributionAtIndex:(unsigned int)arg1;
 - (id)attributions;
-- (unsigned long long)attributionsCount;
-- (id)childrenAtIndex:(unsigned long long)arg1;
+- (unsigned int)attributionsCount;
+- (id)childrenAtIndex:(unsigned int)arg1;
 - (id)childrens;
-- (unsigned long long)childrensCount;
+- (unsigned int)childrensCount;
 - (void)clearAttributions;
 - (void)clearChildrens;
 - (void)clearIconChecksums;
 - (void)clearIcons;
-- (bool)containsTileKey:(const struct _GEOTileKey { unsigned int x1 : 6; unsigned int x2 : 26; unsigned int x3 : 26; unsigned int x4 : 6; unsigned int x5 : 8; unsigned int x6 : 8; unsigned int x7 : 8; unsigned int x8 : 1; unsigned int x9 : 7; unsigned char x10[4]; }*)arg1;
+- (BOOL)containsTileKey:(const struct _GEOTileKey { unsigned int x1 : 6; unsigned int x2 : 26; unsigned int x3 : 26; unsigned int x4 : 6; unsigned int x5 : 8; unsigned int x6 : 8; unsigned int x7 : 8; unsigned int x8 : 1; unsigned int x9 : 7; unsigned char x10[4]; }*)arg1;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned long long)hash;
-- (id)iconAtIndex:(unsigned long long)arg1;
-- (id)iconChecksumAtIndex:(unsigned long long)arg1;
+- (unsigned int)hash;
+- (id)iconAtIndex:(unsigned int)arg1;
+- (id)iconChecksumAtIndex:(unsigned int)arg1;
 - (id)iconChecksums;
-- (unsigned long long)iconChecksumsCount;
+- (unsigned int)iconChecksumsCount;
 - (id)icons;
-- (unsigned long long)iconsCount;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)iconsCount;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setAttributions:(id)arg1;
 - (void)setChildrens:(id)arg1;
 - (void)setIconChecksums:(id)arg1;

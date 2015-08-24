@@ -2,21 +2,20 @@
    Image: /System/Library/PrivateFrameworks/RadioUI.framework/RadioUI
  */
 
-@interface RUNowPlayingTransportControls : MPUNowPlayingTransportControls {
-}
+@interface RUNowPlayingTransportControls : MPUNowPlayingTransportControls
 
 + (unsigned long long)defaultVisibleParts;
 
 - (void)_avItemStoreIDDidChangeNotification:(id)arg1;
-- (void)_isLikedDidChangeNotification:(id)arg1;
-- (double)_nextButtonVInset;
-- (double)_playPauseBottomVInset;
+- (void)_likedStateDidChangeNotification:(id)arg1;
+- (float)_nextButtonVInset;
+- (float)_playPauseBottomVInset;
 - (void)_registerForAVItemNotifications;
 - (void)_unregisterForAVItemNotifications;
 - (void)_updateItemRelatedParts;
 - (id)buttonImageForPart:(unsigned long long)arg1;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)layoutSubviews;
 - (void)setItem:(id)arg1;
 - (id)tintColorForPart:(unsigned long long)arg1;

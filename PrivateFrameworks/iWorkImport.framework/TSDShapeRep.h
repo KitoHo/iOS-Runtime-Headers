@@ -3,100 +3,61 @@
  */
 
 @interface TSDShapeRep : TSDStyledRep <TSDMagicMoveMatching> {
+    BOOL mDirectlyManagesLayerContent;
+    BOOL mFrameInUnscaledCanvasIsValid;
     struct CGRect { 
         struct CGPoint { 
-            double x; 
-            double y; 
+            float x; 
+            float y; 
         } origin; 
         struct CGSize { 
-            double width; 
-            double height; 
+            float width; 
+            float height; 
         } size; 
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    boolmDirectlyManagesLayerContent;
-    boolmFrameInUnscaledCanvasIsValid;
-    boolmShadowOnChildrenDisabled;
     } mFrameInUnscaledCanvasRelativeToSuper;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } mOriginalAliasedAlignmentFrameInLayerFrame;
+    BOOL mShadowOnChildrenDisabled;
 }
 
-@property bool shadowOnChildrenDisabled;
++ (float)magicMoveAttributeMatchPercentBetweenOutgoingObject:(id)arg1 incomingObject:(id)arg2 mixingTypeContext:(id)arg3;
 
-+ (double)magicMoveAttributeMatchPercentBetweenOutgoingObject:(id)arg1 incomingObject:(id)arg2;
-
-- (void)addBitmapsToRenderingQualityInfo:(id)arg1 inContext:(struct CGContext { }*)arg2;
-- (void)addSelectionKnobsToArray:(id)arg1;
-- (id)additionalLayersOverLayer;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })aliasedAlignmentFrameInLayerFrame;
-- (bool)canBeUsedForImageMask;
-- (bool)canDrawInParallel;
-- (bool)canDrawShadowInOneStepWithChildren:(bool)arg1;
-- (bool)canMakePathEditable;
-- (bool)canUseSpecializedHitRegionForKnob:(id)arg1;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })clipRect;
-- (bool)containsPoint:(struct CGPoint { double x1; double x2; })arg1;
-- (void)didUpdateLayer:(id)arg1;
-- (bool)directlyManagesLayerContent;
-- (void)drawInContextWithoutEffects:(struct CGContext { }*)arg1 withContent:(bool)arg2 withStroke:(bool)arg3 withOpacity:(bool)arg4 forAlphaOnly:(bool)arg5 drawChildren:(bool)arg6;
+- (void)beginEditing;
+- (void)beginEditingWithString:(id)arg1;
+- (BOOL)canBeUsedForImageMask;
+- (BOOL)canBeginEditing;
+- (BOOL)canDrawShadowInOneStepWithChildren:(BOOL)arg1;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })clipRect;
+- (id)colorBehindLayer:(id)arg1;
+- (BOOL)containsPoint:(struct CGPoint { float x1; float x2; })arg1;
+- (void)drawInContextWithoutEffects:(struct CGContext { }*)arg1 withContent:(BOOL)arg2 withStroke:(BOOL)arg3 withOpacity:(BOOL)arg4 forAlphaOnly:(BOOL)arg5 drawChildren:(BOOL)arg6;
 - (void)drawInLayerContext:(struct CGContext { }*)arg1;
-- (void)dynamicDragDidBegin;
-- (void)dynamicDragDidEnd;
-- (void)dynamicallyResizingWithTracker:(id)arg1;
-- (id)editablePathSource;
-- (unsigned long long)enabledKnobMask;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })frameInUnscaledCanvas;
-- (bool)i_editMenuOverlapsEndKnobs;
-- (id)imageOfStroke:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; }*)arg1;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })frameInUnscaledCanvas;
+- (id)imageOfStroke:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; }*)arg1;
 - (id)initWithLayout:(id)arg1 canvas:(id)arg2;
-- (bool)intersectsUnscaledRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (void)invalidateEffectLayersForChildren;
-- (bool)isDraggable;
-- (bool)isEditingChildRep;
-- (bool)isInvisible;
-- (bool)isPathEditable;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })layerFrameInScaledCanvas;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })layerFrameInScaledCanvasRelativeToParent;
-- (void)layoutInRootChangedFrom:(id)arg1 to:(id)arg2 translatedOnly:(bool)arg3;
-- (struct CGAffineTransform { double x1; double x2; double x3; double x4; double x5; double x6; })naturalToEditablePathSpaceTransform;
-- (id)overlayLayers;
-- (bool)p_beginApplyOpacity:(struct CGContext { }*)arg1 forDrawingInOneStep:(bool)arg2;
-- (void)p_beginDynamicallyResizingOrMovingLineEnd;
-- (bool)p_canApplyFillToLayer;
-- (bool)p_canApplyStrokeToLayer;
+- (BOOL)intersectsUnscaledRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (BOOL)isEditingChildRep;
+- (BOOL)p_beginApplyOpacity:(struct CGContext { }*)arg1 forDrawingInOneStep:(BOOL)arg2;
 - (void)p_drawChildrenWithoutOpacityInContext:(struct CGContext { }*)arg1;
-- (void)p_drawInContext:(struct CGContext { }*)arg1 withContent:(bool)arg2 withStroke:(bool)arg3 withOpacity:(bool)arg4;
-- (void)p_drawLineEndForHead:(bool)arg1 withDelta:(struct CGPoint { double x1; double x2; })arg2 andStroke:(id)arg3 inContext:(struct CGContext { }*)arg4 useFastDrawing:(bool)arg5;
-- (bool)p_drawsSelfInOneStep;
-- (void)p_endApplyOpacity:(struct CGContext { }*)arg1 apply:(bool)arg2;
-- (void)p_endDynamicallyResizingOrMovingLineEnd;
-- (bool)p_pathIsAxisAlignedRect;
+- (void)p_drawInContext:(struct CGContext { }*)arg1 withContent:(BOOL)arg2 withStroke:(BOOL)arg3 withOpacity:(BOOL)arg4;
+- (void)p_drawLineEndForHead:(BOOL)arg1 withDelta:(struct CGPoint { float x1; float x2; })arg2 andStroke:(id)arg3 inContext:(struct CGContext { }*)arg4 useFastDrawing:(BOOL)arg5;
+- (BOOL)p_drawsSelfInOneStep;
+- (void)p_endApplyOpacity:(struct CGContext { }*)arg1 apply:(BOOL)arg2;
 - (id)pathSourceForSelectionHighlightBehavior;
-- (void)processChangedProperty:(int)arg1;
 - (void)recursivelyDrawChildrenInContext:(struct CGContext { }*)arg1;
-- (bool)selectionIsAppropriateToShowInvisiblePathHighlight;
-- (void)setShadowOnChildrenDisabled:(bool)arg1;
 - (void)setTextureAttributes:(id)arg1;
-- (bool)shadowOnChildrenDisabled;
 - (id)shapeInfo;
 - (id)shapeLayout;
-- (double)shortestDistanceToPoint:(struct CGPoint { double x1; double x2; })arg1 countAsHit:(bool*)arg2;
-- (bool)shouldExpandHitRegionWhenSmall;
-- (bool)shouldHideSelectionHighlightDueToRectangularPath;
-- (bool)shouldHitTestWithFill;
-- (bool)shouldShowAdditionalKnobs;
-- (bool)shouldShowAdvancedGradientKnobs;
-- (bool)shouldShowInvisiblePathHighlight;
-- (bool)shouldShowSelectionHighlight;
-- (bool)shouldShowShadow;
-- (bool)shouldShowSmartShapeKnobs;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })targetRectForEditMenu;
+- (float)shortestDistanceToPoint:(struct CGPoint { float x1; float x2; })arg1 countAsHit:(BOOL*)arg2;
+- (BOOL)shouldExpandHitRegionWhenSmall;
+- (BOOL)shouldHitTestWithFill;
 
 @end

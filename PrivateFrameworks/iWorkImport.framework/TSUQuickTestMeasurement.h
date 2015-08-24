@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSDictionary, TSMTraceBuffer;
-
 @interface TSUQuickTestMeasurement : NSObject {
     TSMTraceBuffer *mBuffer;
     NSDictionary *mPrevious;
@@ -21,7 +19,7 @@
 - (id)p_niceString:(unsigned long long)arg1 withPrefix:(id)arg2;
 - (oneway void)release;
 - (id)retain;
-- (unsigned long long)retainCount;
+- (unsigned int)retainCount;
 - (void)setup;
 - (void)teardown;
 

@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class NSData, UIWebView;
-
 @interface PSWebContainerView : UIView {
     NSData *_content;
     UIWebView *_webView;
 }
 
-@property(retain) NSData * content;
-@property(readonly) UIWebView * webView;
+@property (nonatomic, retain) NSData *content;
+@property (nonatomic, readonly) UIWebView *webView;
 
 - (id)content;
 - (void)dealloc;
-- (double)heightForWidth:(double)arg1;
+- (float)heightForWidth:(float)arg1;
 - (id)init;
 - (void)layoutSubviews;
 - (void)setContent:(id)arg1;

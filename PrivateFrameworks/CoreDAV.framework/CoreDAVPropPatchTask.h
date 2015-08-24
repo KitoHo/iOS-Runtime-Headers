@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class <CoreDAVPropPatchTaskDelegate>, CoreDAVResponseItem, NSSet, NSURL;
-
 @interface CoreDAVPropPatchTask : CoreDAVActionBackedTask {
     int _absoluteOrder;
     NSURL *_priorOrderedURL;
     NSSet *_propPatchRemoveElements;
     NSSet *_propPatchSetElements;
     CoreDAVResponseItem *_responseItem;
-    bool_sendOrder;
+    BOOL _sendOrder;
 }
 
-@property int absoluteOrder;
-@property <CoreDAVPropPatchTaskDelegate> * delegate;
-@property(retain) NSURL * priorOrderedURL;
-@property(retain) NSSet * propPatchRemoveElements;
-@property(retain) NSSet * propPatchSetElements;
-@property(retain) CoreDAVResponseItem * responseItem;
+@property (nonatomic) int absoluteOrder;
+@property (nonatomic) <CoreDAVPropPatchTaskDelegate> *delegate;
+@property (nonatomic, retain) NSURL *priorOrderedURL;
+@property (nonatomic, retain) NSSet *propPatchRemoveElements;
+@property (nonatomic, retain) NSSet *propPatchSetElements;
+@property (nonatomic, retain) CoreDAVResponseItem *responseItem;
 
 - (int)absoluteOrder;
 - (id)additionalHeaderValues;

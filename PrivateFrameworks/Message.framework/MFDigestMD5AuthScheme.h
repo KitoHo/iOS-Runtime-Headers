@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@interface MFDigestMD5AuthScheme : MFAuthScheme {
-}
+@interface MFDigestMD5AuthScheme : MFAuthScheme
 
 - (Class)authenticatorClass;
-- (bool)canAuthenticateAccountClass:(Class)arg1 connection:(id)arg2;
-- (bool)hasEncryption;
+- (BOOL)canAuthenticateAccountClass:(Class)arg1 connection:(id)arg2;
+- (BOOL)hasEncryption;
 - (id)humanReadableName;
 - (id)name;
 

@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/MediaPlayerUI.framework/MediaPlayerUI
  */
 
-@class IKViewElement;
-
 @interface MPUExtrasViewElementViewController : MPUExtrasElementViewController {
+    BOOL _embedded;
     IKViewElement *_viewElement;
-    bool_embedded;
 }
 
-@property bool embedded;
-@property(readonly) bool matchParentHeight;
-@property(readonly) long long preferredLayoutAttribute;
-@property(readonly) id preferredLayoutGuide;
-@property(retain) IKViewElement * viewElement;
+@property (nonatomic) BOOL embedded;
+@property (nonatomic, readonly) BOOL matchParentHeight;
+@property (nonatomic, readonly) int preferredLayoutAttribute;
+@property (nonatomic, readonly) id preferredLayoutGuide;
+@property (nonatomic, retain) IKViewElement *viewElement;
 
 - (void).cxx_destruct;
-- (bool)embedded;
+- (BOOL)embedded;
 - (id)initWithViewElement:(id)arg1;
-- (bool)matchParentHeight;
-- (long long)preferredLayoutAttribute;
+- (BOOL)matchParentHeight;
+- (int)preferredLayoutAttribute;
 - (id)preferredLayoutGuide;
-- (void)setEmbedded:(bool)arg1;
+- (void)setEmbedded:(BOOL)arg1;
 - (void)setViewElement:(id)arg1;
 - (void)viewDidLoad;
 - (id)viewElement;

@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@interface EDCollectionWithPointerEquality : EDCollection {
-}
+@interface EDCollectionWithPointerEquality : EDCollection
 
-- (bool)isEqualToCollection:(id)arg1;
+- (BOOL)isEqualToCollection:(id)arg1;
 
 @end

@@ -2,9 +2,7 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-@class HKSource, NSDate, NSDictionary, NSString, NSUUID;
-
-@interface HKObject : NSObject <NSSecureCoding, HDSyncObject> {
+@interface HKObject : NSObject <NSSecureCoding> {
     NSUUID *_UUID;
     NSDate *_creationDate;
     NSDictionary *_metadata;
@@ -12,25 +10,24 @@
     NSString *_sourceBundleIdentifier;
 }
 
-@property(readonly) NSUUID * UUID;
-@property(getter=_creationDate,setter=_setCreationDate:,copy) NSDate * creationDate;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy,readonly) NSDictionary * metadata;
-@property(readonly) HKSource * source;
-@property(getter=_sourceBundleIdentifier,setter=_setSourceBundleIdentifier:,copy) NSString * sourceBundleIdentifier;
-@property(readonly) Class superclass;
-@property(readonly) NSString * syncId;
+@property (readonly) NSUUID *UUID;
+@property (getter=_creationDate, setter=_setCreationDate:, nonatomic, copy) NSDate *creationDate;
+@property (readonly, copy) NSDictionary *metadata;
+@property (readonly) HKSource *source;
+@property (getter=_sourceBundleIdentifier, setter=_setSourceBundleIdentifier:, nonatomic, copy) NSString *sourceBundleIdentifier;
 
-+ (id)_newDataObjectWithMetadata:(id)arg1 config:(id)arg2;
-+ (Class)healthSyncEntity;
-+ (bool)supportsSecureCoding;
+// Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
+
++ (BOOL)_isConcreteObjectClass;
++ (id)_newDataObjectWithMetadata:(id)arg1 config:(id /* block */)arg2;
++ (id)_objectWithUUID:(id)arg1 metadata:(id)arg2 sourceBundleIdentifier:(id)arg3 creationDate:(id)arg4;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)UUID;
 - (id)_creationDate;
 - (id)_init;
+- (BOOL)_objectCanBeSaved:(id*)arg1;
 - (void)_setCreationDate:(id)arg1;
 - (void)_setMetadata:(id)arg1;
 - (void)_setSource:(id)arg1;
@@ -42,17 +39,22 @@
 - (id)_valueDescription;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (long long)entityType;
-- (unsigned long long)hash;
-- (void)hd_cleanupBeforeJournalInsertion;
-- (bool)hd_insertRelatedDataWithHealthDaemon:(id)arg1 database:(id)arg2 entity:(id)arg3 error:(id*)arg4;
-- (id)hd_relatedJournalEntries;
+- (unsigned int)hash;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)metadata;
 - (id)source;
-- (id)syncId;
-- (bool)validateForSaving:(id*)arg1;
+- (BOOL)validateForSaving:(id*)arg1;
+
+// Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
+
+- (BOOL)addCodableRepresentationToCollection:(id)arg1;
+- (BOOL)addCodableRepresentationToCollectionForJournal:(id)arg1;
+- (BOOL)addCodableRepresentationToCollectionForSync:(id)arg1;
+- (id)codableRepresentationForSync;
+- (int)entityType;
+- (BOOL)hd_insertRelatedDataWithHealthDaemon:(id)arg1 database:(id)arg2 entity:(id)arg3 error:(id*)arg4;
+- (id)hd_relatedJournalEntries;
 
 @end

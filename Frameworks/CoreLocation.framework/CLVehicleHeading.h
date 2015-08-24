@@ -2,16 +2,14 @@
    Image: /System/Library/Frameworks/CoreLocation.framework/CoreLocation
  */
 
-@class NSDate;
-
 @interface CLVehicleHeading : NSObject <NSCopying, NSSecureCoding> {
     id _internal;
 }
 
-@property(readonly) NSDate * timestamp;
-@property(readonly) double trueHeading;
+@property (nonatomic, readonly) NSDate *timestamp;
+@property (nonatomic, readonly) double trueHeading;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;

@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOURLOptions, NSMutableArray;
-
 @interface GEOURLPresent : PBCodable <NSCopying> {
     NSMutableArray *_items;
     GEOURLOptions *_options;
 }
 
-@property(readonly) bool hasOptions;
-@property(retain) NSMutableArray * items;
-@property(retain) GEOURLOptions * options;
+@property (nonatomic, readonly) BOOL hasOptions;
+@property (nonatomic, retain) NSMutableArray *items;
+@property (nonatomic, retain) GEOURLOptions *options;
 
 - (void)addItem:(id)arg1;
 - (void)clearItems;
@@ -20,17 +18,17 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasOptions;
-- (unsigned long long)hash;
+- (BOOL)hasOptions;
+- (unsigned int)hash;
 - (id)initWithDirectionsOptions:(id)arg1;
 - (id)initWithOptions:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (id)itemAtIndex:(unsigned long long)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (id)itemAtIndex:(unsigned int)arg1;
 - (id)items;
-- (unsigned long long)itemsCount;
+- (unsigned int)itemsCount;
 - (void)mergeFrom:(id)arg1;
 - (id)options;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setItems:(id)arg1;
 - (void)setOptions:(id)arg1;
 - (void)writeTo:(id)arg1;

@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/CalDAV.framework/CalDAV
  */
 
-@class <CalDAVAccountPropertyRefreshDelegate>;
-
 @interface CalDAVAccountPropertyRefreshOperation : CalDAVOperation {
-    bool_fetchPrincipalSearchProperties;
+    BOOL _fetchPrincipalSearchProperties;
 }
 
-@property <CalDAVAccountPropertyRefreshDelegate> * delegate;
-@property bool fetchPrincipalSearchProperties;
+@property (nonatomic) <CalDAVAccountPropertyRefreshDelegate> *delegate;
+@property (nonatomic) BOOL fetchPrincipalSearchProperties;
 
-- (bool)fetchPrincipalSearchProperties;
+- (BOOL)fetchPrincipalSearchProperties;
 - (void)getAccountPropertiesTask:(id)arg1 completedWithError:(id)arg2;
 - (void)refreshProperties;
-- (void)setFetchPrincipalSearchProperties:(bool)arg1;
+- (void)setFetchPrincipalSearchProperties:(BOOL)arg1;
 
 @end

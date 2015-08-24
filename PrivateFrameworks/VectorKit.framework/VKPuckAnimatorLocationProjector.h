@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class GEORouteMatch;
-
 @interface VKPuckAnimatorLocationProjector : NSObject {
+    double _projectedCourse;
     struct VKPoint { 
         double x; 
         double y; 
         double z; 
-    double _projectedCourse;
     } _projectedPosition;
     GEORouteMatch *_projectedRouteMatch;
     GEORouteMatch *_routeMatch;
 }
 
-@property(readonly) double projectedCourse;
-@property(readonly) struct { double x1; double x2; } projectedLocation;
-@property(readonly) bool projectedLocationOnRoute;
-@property(readonly) struct VKPoint { double x1; double x2; double x3; } projectedPosition;
-@property(retain) GEORouteMatch * projectedRouteMatch;
-@property(retain) GEORouteMatch * routeMatch;
+@property (nonatomic, readonly) double projectedCourse;
+@property (nonatomic, readonly) struct { double x1; double x2; } projectedLocation;
+@property (nonatomic, readonly) BOOL projectedLocationOnRoute;
+@property (nonatomic, readonly) struct VKPoint { double x1; double x2; double x3; } projectedPosition;
+@property (nonatomic, retain) GEORouteMatch *projectedRouteMatch;
+@property (nonatomic, retain) GEORouteMatch *routeMatch;
 
 - (id).cxx_construct;
 - (void)_updateCourseAndPositionFromRouteMatch;
@@ -29,7 +27,7 @@
 - (void)projectFromLocation:(id)arg1 routeMatch:(id)arg2 speedMultiplier:(double)arg3;
 - (double)projectedCourse;
 - (struct { double x1; double x2; })projectedLocation;
-- (bool)projectedLocationOnRoute;
+- (BOOL)projectedLocationOnRoute;
 - (struct VKPoint { double x1; double x2; double x3; })projectedPosition;
 - (id)projectedRouteMatch;
 - (void)reset;

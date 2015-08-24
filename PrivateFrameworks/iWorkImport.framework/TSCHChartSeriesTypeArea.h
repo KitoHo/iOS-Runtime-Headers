@@ -2,8 +2,7 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCHChartSeriesTypeArea : TSCHChartSeriesType {
-}
+@interface TSCHChartSeriesTypeArea : TSCHChartSeriesType
 
 - (id)elementBuilder;
 - (unsigned int)filterChartLabelPosition:(unsigned int)arg1;
@@ -11,8 +10,8 @@
 - (id)genericToSpecificPropertyMap;
 - (id)init;
 - (int)legendBadgeType;
-- (bool)supportsSymbolDrawing;
-- (bool)supportsSymbolFillForSymbolType:(int)arg1;
-- (unsigned long long)valueDimensions;
+- (BOOL)supportsSymbolDrawing;
+- (BOOL)supportsSymbolFillForSymbolType:(int)arg1;
+- (unsigned int)valueDimensions;
 
 @end

@@ -2,11 +2,9 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class NSArray, NSLayoutConstraint, UILabel;
-
 @interface EKUIInviteesViewInvisibleInviteeStatusCell : UITableViewCell {
     UILabel *_commentLabel;
-    double _leftInset;
+    float _leftInset;
     NSLayoutConstraint *_minimumHeightConstraint;
     NSLayoutConstraint *_nameBaselineToTopConstraint;
     UILabel *_nameLabel;
@@ -14,28 +12,28 @@
     NSArray *_removableConstraints;
 }
 
-@property(retain) UILabel * commentLabel;
-@property double leftInset;
-@property(retain) NSLayoutConstraint * minimumHeightConstraint;
-@property(retain) NSLayoutConstraint * nameBaselineToTopConstraint;
-@property(retain) UILabel * nameLabel;
-@property(retain) NSArray * persistentConstraints;
-@property(retain) NSArray * removableConstraints;
+@property (nonatomic, retain) UILabel *commentLabel;
+@property (nonatomic) float leftInset;
+@property (nonatomic, retain) NSLayoutConstraint *minimumHeightConstraint;
+@property (nonatomic, retain) NSLayoutConstraint *nameBaselineToTopConstraint;
+@property (nonatomic, retain) UILabel *nameLabel;
+@property (nonatomic, retain) NSArray *persistentConstraints;
+@property (nonatomic, retain) NSArray *removableConstraints;
 
 + (id)_commentLabelFont;
 + (id)_nameLabelFont;
 
 - (void).cxx_destruct;
 - (id)commentLabel;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
-- (double)leftInset;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (float)leftInset;
 - (id)minimumHeightConstraint;
 - (id)nameBaselineToTopConstraint;
 - (id)nameLabel;
 - (id)persistentConstraints;
 - (id)removableConstraints;
 - (void)setCommentLabel:(id)arg1;
-- (void)setLeftInset:(double)arg1;
+- (void)setLeftInset:(float)arg1;
 - (void)setMinimumHeightConstraint:(id)arg1;
 - (void)setNameBaselineToTopConstraint:(id)arg1;
 - (void)setNameLabel:(id)arg1;

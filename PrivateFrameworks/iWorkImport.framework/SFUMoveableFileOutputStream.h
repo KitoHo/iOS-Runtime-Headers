@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString;
-
 @interface SFUMoveableFileOutputStream : NSObject <SFUOutputStream> {
     int mFd;
     NSString *mPath;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-- (bool)canCreateInputStream;
-- (bool)canSeek;
+- (BOOL)canCreateInputStream;
+- (BOOL)canSeek;
 - (void)close;
 - (id)closeLocalStream;
 - (void)dealloc;
@@ -23,11 +21,11 @@
 - (id)initWithPath:(id)arg1;
 - (id)initWithTemporaryFile:(id)arg1;
 - (id)inputStream;
-- (bool)moveToPath:(id)arg1;
+- (BOOL)moveToPath:(id)arg1;
 - (long long)offset;
 - (id)path;
 - (void)seekToOffset:(long long)arg1 whence:(int)arg2;
 - (void)truncateToLength:(long long)arg1;
-- (void)writeBuffer:(const char *)arg1 size:(unsigned long long)arg2;
+- (void)writeBuffer:(const char *)arg1 size:(unsigned long)arg2;
 
 @end

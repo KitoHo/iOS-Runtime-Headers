@@ -2,22 +2,19 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSNumber;
+@interface SASettingBoolSnippet : SASettingSnippet
 
-@interface SASettingBoolSnippet : SASettingSnippet {
-}
-
-@property bool toggle;
-@property(copy) NSNumber * value;
+@property (nonatomic) BOOL toggle;
+@property (nonatomic, copy) NSNumber *value;
 
 + (id)boolSnippet;
 + (id)boolSnippetWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (void)setToggle:(bool)arg1;
+- (void)setToggle:(BOOL)arg1;
 - (void)setValue:(id)arg1;
-- (bool)toggle;
+- (BOOL)toggle;
 - (id)value;
 
 @end

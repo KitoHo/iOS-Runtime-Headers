@@ -2,41 +2,39 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@class NSData, NSString, NSURL;
-
 @interface MLTrackImportChapter : NSObject <NSCopying> {
     NSString *_imageCacheKey;
     NSData *_imageData;
-    unsigned long long _startTimeInMilliseconds;
+    unsigned int _startTimeInMilliseconds;
     NSString *_title;
     NSURL *_url;
     NSString *_urlTitle;
 }
 
-@property(copy) NSURL * URL;
-@property(copy) NSString * URLTitle;
-@property(copy) NSString * imageCacheKey;
-@property(copy) NSData * imageData;
-@property unsigned long long startTimeInMilliseconds;
-@property(copy) NSString * title;
+@property (nonatomic, copy) NSURL *URL;
+@property (nonatomic, copy) NSString *URLTitle;
+@property (nonatomic, copy) NSString *imageCacheKey;
+@property (nonatomic, copy) NSData *imageData;
+@property (nonatomic) unsigned int startTimeInMilliseconds;
+@property (nonatomic, copy) NSString *title;
 
 - (void).cxx_destruct;
 - (id)URL;
 - (id)URLTitle;
-- (long long)compare:(id)arg1;
+- (int)compare:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)imageCacheKey;
 - (id)imageData;
-- (bool)isEqualIgnoringTimesAndTitle:(id)arg1;
+- (BOOL)isEqualIgnoringTimesAndTitle:(id)arg1;
 - (void)normalizeProperties;
 - (void)setImageCacheKey:(id)arg1;
 - (void)setImageData:(id)arg1;
-- (void)setStartTimeInMilliseconds:(unsigned long long)arg1;
+- (void)setStartTimeInMilliseconds:(unsigned int)arg1;
 - (void)setTitle:(id)arg1;
 - (void)setURL:(id)arg1;
 - (void)setURLTitle:(id)arg1;
-- (unsigned long long)startTimeInMilliseconds;
+- (unsigned int)startTimeInMilliseconds;
 - (id)title;
 
 @end

@@ -2,15 +2,14 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface UIProgressIndicator : UIActivityIndicatorView {
-}
+@interface UIProgressIndicator : UIActivityIndicatorView
 
-@property int progressIndicatorStyle;
+@property (nonatomic) int progressIndicatorStyle;
 
-+ (struct CGSize { double x1; double x2; })size;
++ (struct CGSize { float x1; float x2; })size;
 
 - (int)progressIndicatorStyle;
-- (void)setAnimating:(bool)arg1;
+- (void)setAnimating:(BOOL)arg1;
 - (void)setProgressIndicatorStyle:(int)arg1;
 - (void)setStyle:(int)arg1;
 - (void)startAnimation;

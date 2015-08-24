@@ -2,12 +2,11 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface _UIRemoteInputViewController : _UIRemoteViewController {
-}
+@interface _UIRemoteInputViewController : _UIRemoteViewController
 
-+ (bool)__shouldHostRemoteTextEffectsWindow;
++ (BOOL)__shouldHostRemoteTextEffectsWindow;
 
-- (struct CGSize { double x1; double x2; })intrinsicContentSizeForServiceSize:(struct CGSize { double x1; double x2; })arg1;
+- (struct CGSize { float x1; float x2; })intrinsicContentSizeForServiceSize:(struct CGSize { float x1; float x2; })arg1;
 - (void)viewDidInvalidateIntrinsicContentSize;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 

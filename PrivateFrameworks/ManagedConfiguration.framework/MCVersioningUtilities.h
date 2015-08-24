@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@interface MCVersioningUtilities : NSObject {
-}
+@interface MCVersioningUtilities : NSObject
 
-+ (bool)_allZerosArray:(id)arg1 startingAtIndex:(unsigned long long)arg2;
-+ (bool)versionString:(id)arg1 isOlderThanVersionString:(id)arg2;
++ (BOOL)_allZerosArray:(id)arg1 startingAtIndex:(unsigned int)arg2;
++ (BOOL)versionString:(id)arg1 isOlderThanVersionString:(id)arg2;
 
 @end

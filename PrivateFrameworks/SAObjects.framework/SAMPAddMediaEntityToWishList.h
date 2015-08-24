@@ -2,12 +2,9 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString;
+@interface SAMPAddMediaEntityToWishList : SABaseClientBoundCommand
 
-@interface SAMPAddMediaEntityToWishList : SABaseClientBoundCommand {
-}
-
-@property(copy) NSString * adamId;
+@property (nonatomic, copy) NSString *adamId;
 
 + (id)addMediaEntityToWishList;
 + (id)addMediaEntityToWishListWithDictionary:(id)arg1 context:(id)arg2;
@@ -15,7 +12,7 @@
 - (id)adamId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setAdamId:(id)arg1;
 
 @end

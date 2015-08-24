@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSArray, NSProgress;
-
 @interface PLCloudScenario : NSObject {
     NSArray *_operations;
-    unsigned long long _priority;
+    unsigned int _priority;
     NSProgress *_progress;
 }
 
-@property(retain) NSArray * operations;
-@property unsigned long long priority;
-@property(retain) NSProgress * progress;
+@property (nonatomic, retain) NSArray *operations;
+@property (nonatomic) unsigned int priority;
+@property (nonatomic, retain) NSProgress *progress;
 
 - (void)dealloc;
 - (id)operations;
-- (unsigned long long)priority;
+- (unsigned int)priority;
 - (id)progress;
 - (void)requestCancel;
 - (void)setOperations:(id)arg1;
-- (void)setPriority:(unsigned long long)arg1;
+- (void)setPriority:(unsigned int)arg1;
 - (void)setProgress:(id)arg1;
 
 @end

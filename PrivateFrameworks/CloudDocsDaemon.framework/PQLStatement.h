@@ -2,29 +2,32 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-@class PQLStatement;
-
 @interface PQLStatement : NSObject {
+    NSMutableArray *_aliveBinds;
+    BOOL _inUse;
+    BOOL _isTraced;
     PQLStatement *_next;
-    unsigned char *_spec;
-    int _specLength;
+    short _specLength;
+    union { 
+        unsigned char inlined[8]; 
+        unsigned char *ptr; 
+    } _specUnion;
     struct sqlite3_stmt { } *_stmt;
-    bool_inUse;
-    bool_isTraced;
 }
 
-@property(readonly) bool isTraced;
+@property (nonatomic, readonly) BOOL isTraced;
 
 - (void).cxx_destruct;
-- (bool)_prepare:(const char *)arg1 withDB:(id)arg2;
-- (void)bindArguments:(char *)arg1;
+- (BOOL)_prepare:(const char *)arg1 withDB:(id)arg2;
+- (void)bindArguments:(void*)arg1;
 - (void)dealloc;
 - (id)description;
-- (id)initWithFormat:(id)arg1 arguments:(char *)arg2 db:(id)arg3 cache:(struct cache_s { }*)arg4;
+- (id)initWithFormat:(id)arg1 arguments:(void*)arg2 db:(id)arg3 cache:(struct cache_s { }*)arg4;
 - (id)initWithStatement:(id)arg1 forDB:(id)arg2;
 - (void)invalidate;
-- (bool)isTraced;
-- (id)translate:(id)arg1 hasInjections:(bool*)arg2 arguments:(char *)arg3;
-- (void)unbind;
+- (BOOL)isTraced;
+- (void)keepBindAlive:(id)arg1;
+- (id)translate:(id)arg1 hasInjections:(BOOL*)arg2 arguments:(void*)arg3;
+- (void)unbindForDB:(id)arg1 returnedRows:(unsigned int)arg2;
 
 @end

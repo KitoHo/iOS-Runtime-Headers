@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/CalDAV.framework/CalDAV
  */
 
-@class NSSet;
-
 @interface CalDAVPrincipalSearchPropertySet : NSObject {
     NSSet *_properties;
 }
 
-@property(readonly) NSSet * stringProperties;
-@property(readonly) bool supportsPropertySearch;
+@property (nonatomic, readonly) NSSet *stringProperties;
+@property (nonatomic, readonly) BOOL supportsPropertySearch;
 
 + (id)searchSetWithProperties:(id)arg1;
 
 - (void)dealloc;
 - (id)initWithSearchProperties:(id)arg1;
 - (id)initWithStringProperties:(id)arg1;
-- (bool)isEqualToPropertySet:(id)arg1;
+- (BOOL)isEqualToPropertySet:(id)arg1;
 - (id)stringProperties;
-- (bool)supportsPropertySearch;
-- (bool)supportsPropertyTypeWithNameSpace:(id)arg1 andName:(id)arg2;
-- (bool)supportsWellKnownType:(int)arg1;
+- (BOOL)supportsPropertySearch;
+- (BOOL)supportsPropertyTypeWithNameSpace:(id)arg1 andName:(id)arg2;
+- (BOOL)supportsWellKnownType:(int)arg1;
 
 @end

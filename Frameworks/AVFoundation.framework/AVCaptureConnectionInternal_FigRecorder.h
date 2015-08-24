@@ -2,43 +2,41 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVCaptureInputPort_FigRecorder, AVCaptureOutput_FigRecorder, AVCaptureVideoPreviewLayer_FigRecorder, NSArray, NSMutableArray;
-
 @interface AVCaptureConnectionInternal_FigRecorder : NSObject {
-    struct { 
-        long long value; 
-        int timescale; 
-        unsigned int flags; 
-        long long epoch; 
-    struct { 
-        long long value; 
-        int timescale; 
-        unsigned int flags; 
-        long long epoch; 
+    BOOL active;
     NSArray *audioChannelLevels;
     NSMutableArray *audioChannels;
     AVCaptureInputPort_FigRecorder *audioInputPort;
-    boolactive;
-    boolautomaticallyAdjustsVideoMirroring;
-    boolenabled;
-    boolenablesVideoStabilizationWhenAvailable;
-    boolpreferredVideoStabilizationMode;
-    boolvideoMirrored;
-    boolvideoMirroringSupported;
-    boolvideoOrientationSupported;
-    boolvideoStabilizationEnabled;
+    BOOL automaticallyAdjustsVideoMirroring;
+    BOOL enabled;
+    BOOL enablesVideoStabilizationWhenAvailable;
     NSMutableArray *inputPorts;
     long long lastGetAudioLevelsTime;
     AVCaptureOutput_FigRecorder *output;
     int outputChangeSeedOnDisable;
+    BOOL preferredVideoStabilizationMode;
     AVCaptureInputPort_FigRecorder *videoInputPort;
+    struct { 
+        long long value; 
+        int timescale; 
+        unsigned int flags; 
+        long long epoch; 
     } videoMaxFrameDuration;
-    double videoMaxScaleAndCropFactor;
+    float videoMaxScaleAndCropFactor;
+    struct { 
+        long long value; 
+        int timescale; 
+        unsigned int flags; 
+        long long epoch; 
     } videoMinFrameDuration;
-    long long videoOrientation;
+    BOOL videoMirrored;
+    BOOL videoMirroringSupported;
+    int videoOrientation;
+    BOOL videoOrientationSupported;
     AVCaptureVideoPreviewLayer_FigRecorder *videoPreviewLayer;
     int videoRetainedBufferCountHint;
-    double videoScaleAndCropFactor;
+    float videoScaleAndCropFactor;
+    BOOL videoStabilizationEnabled;
 }
 
 @end

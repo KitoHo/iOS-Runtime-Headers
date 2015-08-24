@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@interface WebUIDelayedSpinner : NSObject {
-}
+@interface WebUIDelayedSpinner : NSObject
 
-+ (void)_setShowStatusBarSpinner:(bool)arg1 withDelay:(double)arg2;
++ (void)_setShowStatusBarSpinner:(BOOL)arg1 withDelay:(double)arg2;
 + (void)_setShowStatusBarSpinnerTimer:(id)arg1;
 + (void)_showStatusBarSpinner:(id)arg1;
 + (void)hide;

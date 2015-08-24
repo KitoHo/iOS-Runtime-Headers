@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CommunicationsSetupUI.framework/CommunicationsSetupUI
  */
 
-@class PSSpecifier;
-
 @interface CNFRegDisabledController : CNFRegFirstRunController {
     PSSpecifier *_spinner;
     PSSpecifier *_turnOnButton;
@@ -19,6 +17,6 @@
 - (id)specifierList;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)turnOnTapped:(id)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

@@ -2,14 +2,8 @@
    Image: /System/Library/Frameworks/CoreLocation.framework/CoreLocation
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <GEOMapServiceTicket>, NSObject<OS_dispatch_queue>;
-
 @interface CLGeocoderInternal : NSObject {
-    id _geocodeCompletionHandler;
+    id /* block */ _geocodeCompletionHandler;
     NSObject<OS_dispatch_queue> *_queue;
     <GEOMapServiceTicket> *_ticket;
 }

@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-@class GKGame, GKTurnBasedMatchmakerViewController, NSString;
-
 @interface GKRemoteTurnBasedViewController : GKRemoteViewController <GKTurnBasedServiceViewControllerDelegate> {
     GKTurnBasedMatchmakerViewController *_delegateWeak;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property GKTurnBasedMatchmakerViewController * delegate;
-@property(copy,readonly) NSString * description;
-@property(retain) GKGame * game;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) GKTurnBasedMatchmakerViewController *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) GKGame *game;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)exportedInterface;
 + (id)serviceViewControllerInterface;
 
-- (bool)_dismissSelfAfterGettingShouldFinish;
+- (BOOL)_dismissSelfAfterGettingShouldFinish;
 - (void)dealloc;
 - (id)delegate;
 - (void)finishWithError:(id)arg1;
@@ -27,7 +25,7 @@
 - (void)remoteViewControllerIsCanceling;
 - (void)setDelegate:(id)arg1;
 - (void)setMatchRequestInternal:(id)arg1;
-- (void)setShowExistingMatches:(bool)arg1;
+- (void)setShowExistingMatches:(BOOL)arg1;
 - (void)setupRemoteView;
 
 @end

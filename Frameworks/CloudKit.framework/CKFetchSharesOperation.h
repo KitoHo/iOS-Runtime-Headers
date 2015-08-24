@@ -2,44 +2,40 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSMutableDictionary;
-
-@interface CKFetchSharesOperation : CKOperation {
-    id _fetchSharesCompletionBlock;
+@interface CKFetchSharesOperation : CKDatabaseOperation {
+    id /* block */ _fetchSharesCompletionBlock;
     NSMutableDictionary *_shareIDErrors;
     NSArray *_shareIDs;
     NSMutableDictionary *_sharesByShareID;
-    bool_isFetchAllSharesOperation;
+    NSMutableDictionary *_zoneIDErrors;
+    NSArray *_zoneIDs;
 }
 
-@property(copy) id fetchSharesCompletionBlock;
-@property bool isFetchAllSharesOperation;
-@property(retain) NSMutableDictionary * shareIDErrors;
-@property(copy) NSArray * shareIDs;
-@property(retain) NSMutableDictionary * sharesByShareID;
-
-+ (id)fetchAllSharesOperation;
+@property (nonatomic, copy) id /* block */ fetchSharesCompletionBlock;
+@property (nonatomic, retain) NSMutableDictionary *shareIDErrors;
+@property (nonatomic, readonly) NSArray *shareIDs;
+@property (nonatomic, retain) NSMutableDictionary *sharesByShareID;
+@property (nonatomic, retain) NSMutableDictionary *zoneIDErrors;
+@property (nonatomic, readonly) NSArray *zoneIDs;
 
 - (void).cxx_destruct;
-- (bool)CKOperationShouldRun:(id*)arg1;
+- (BOOL)CKOperationShouldRun:(id*)arg1;
 - (void)_finishOnCallbackQueueWithError:(id)arg1;
 - (void)_handleProgressCallback:(id)arg1;
-- (id)fetchSharesCompletionBlock;
+- (id /* block */)fetchSharesCompletionBlock;
 - (void)fillOutOperationInfo:(id)arg1;
+- (id)init;
 - (id)initWithShareIDs:(id)arg1;
-- (bool)isFetchAllSharesOperation;
+- (id)initWithZoneIDs:(id)arg1;
 - (void)performCKOperation;
-- (void)setFetchSharesCompletionBlock:(id)arg1;
-- (void)setIsFetchAllSharesOperation:(bool)arg1;
+- (void)setFetchSharesCompletionBlock:(id /* block */)arg1;
 - (void)setShareIDErrors:(id)arg1;
-- (void)setShareIDs:(id)arg1;
 - (void)setSharesByShareID:(id)arg1;
+- (void)setZoneIDErrors:(id)arg1;
 - (id)shareIDErrors;
 - (id)shareIDs;
 - (id)sharesByShareID;
+- (id)zoneIDErrors;
+- (id)zoneIDs;
 
 @end

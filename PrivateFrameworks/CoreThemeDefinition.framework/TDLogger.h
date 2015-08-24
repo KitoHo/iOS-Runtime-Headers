@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/CoreThemeDefinition.framework/CoreThemeDefinition
  */
 
-@class NSObject<OS_dispatch_queue>;
-
 @interface TDLogger : NSObject {
     int _logMaxVerbosity;
     NSObject<OS_dispatch_queue> *_loggingQueue;
     int _verbosity;
 }
 
-@property int verbosity;
+@property (nonatomic) int verbosity;
 
 + (id)logger;
 
 - (void)dealloc;
 - (id)init;
-- (bool)isVerbosityLogErrorsOnly;
-- (bool)isVerbosityLogEverything;
-- (bool)isVerbosityLogWarningsAndErrors;
+- (BOOL)isVerbosityLogErrorsOnly;
+- (BOOL)isVerbosityLogEverything;
+- (BOOL)isVerbosityLogWarningsAndErrors;
 - (void)logError:(id)arg1;
 - (void)logErrorWithFormat:(id)arg1;
 - (void)logExtra:(id)arg1;

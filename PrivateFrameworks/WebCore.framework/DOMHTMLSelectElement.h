@@ -2,58 +2,50 @@
    Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
  */
 
-@class DOMHTMLFormElement, DOMHTMLOptionsCollection, NSString;
+@interface DOMHTMLSelectElement : DOMHTMLElement
 
-@interface DOMHTMLSelectElement : DOMHTMLElement {
-}
-
-@property bool autofocus;
-@property bool disabled;
-@property(readonly) DOMHTMLFormElement * form;
-@property(readonly) int length;
-@property bool multiple;
-@property(copy) NSString * name;
-@property(readonly) DOMHTMLOptionsCollection * options;
+@property BOOL autofocus;
+@property BOOL disabled;
+@property (readonly) DOMHTMLFormElement *form;
+@property (readonly) int length;
+@property BOOL multiple;
+@property (copy) NSString *name;
+@property (readonly) DOMHTMLOptionsCollection *options;
 @property int selectedIndex;
 @property int size;
-@property(copy,readonly) NSString * type;
-@property(copy) NSString * value;
-@property(readonly) bool willValidate;
+@property (readonly, copy) NSString *type;
+@property (copy) NSString *value;
+@property (readonly) BOOL willValidate;
 
-- (void)_activateItemAtIndex:(int)arg1 allowMultipleSelection:(bool)arg2;
+// Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
+
 - (void)_activateItemAtIndex:(int)arg1;
-- (bool)_requiresAccessoryView;
-- (bool)_requiresInputView;
-- (void)_startAssistingDocumentView:(id)arg1;
-- (void)_stopAssistingDocumentView:(id)arg1;
-- (bool)_supportsAutoFill;
+- (void)_activateItemAtIndex:(int)arg1 allowMultipleSelection:(BOOL)arg2;
 - (void)add:(id)arg1 :(id)arg2;
 - (void)add:(id)arg1 before:(id)arg2;
-- (bool)autofocus;
-- (bool)checkValidity;
+- (BOOL)autofocus;
+- (BOOL)checkValidity;
 - (unsigned int)completeLength;
-- (id)createPeripheral;
-- (bool)disabled;
+- (BOOL)disabled;
 - (id)form;
 - (id)item:(unsigned int)arg1;
 - (id)labels;
 - (int)length;
 - (id)listItemAtIndex:(int)arg1;
-- (bool)multiple;
+- (BOOL)multiple;
 - (id)name;
 - (id)namedItem:(id)arg1;
-- (bool)nodeCanBecomeFirstResponder;
 - (id)options;
 - (void)remove:(int)arg1;
-- (bool)required;
+- (BOOL)required;
 - (int)selectedIndex;
 - (id)selectedOptions;
-- (void)setAutofocus:(bool)arg1;
+- (void)setAutofocus:(BOOL)arg1;
 - (void)setCustomValidity:(id)arg1;
-- (void)setDisabled:(bool)arg1;
-- (void)setMultiple:(bool)arg1;
+- (void)setDisabled:(BOOL)arg1;
+- (void)setMultiple:(BOOL)arg1;
 - (void)setName:(id)arg1;
-- (void)setRequired:(bool)arg1;
+- (void)setRequired:(BOOL)arg1;
 - (void)setSelectedIndex:(int)arg1;
 - (void)setSize:(int)arg1;
 - (void)setValue:(id)arg1;
@@ -63,6 +55,16 @@
 - (id)validationMessage;
 - (id)validity;
 - (id)value;
-- (bool)willValidate;
+- (BOOL)willValidate;
+
+// Image: /System/Library/Frameworks/UIKit.framework/UIKit
+
+- (BOOL)_requiresAccessoryView;
+- (BOOL)_requiresInputView;
+- (void)_startAssistingDocumentView:(id)arg1;
+- (void)_stopAssistingDocumentView:(id)arg1;
+- (BOOL)_supportsAutoFill;
+- (id)createPeripheral;
+- (BOOL)nodeCanBecomeFirstResponder;
 
 @end

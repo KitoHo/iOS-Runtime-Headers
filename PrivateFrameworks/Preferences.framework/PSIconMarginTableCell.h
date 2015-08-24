@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@interface PSIconMarginTableCell : PSTableCell {
-}
+@interface PSIconMarginTableCell : PSTableCell
 
-- (double)iconMargin;
+- (float)iconMargin;
 - (void)layoutSubviews;
 
 @end

@@ -2,10 +2,9 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface UIKBRenderFactory10Key_LandscapeTruffle : UIKBRenderFactory10Key_Landscape {
-}
+@interface UIKBRenderFactory10Key_LandscapeTruffle : UIKBRenderFactory10Key_Landscape
 
-- (double)controlColumnWidthFactor;
-- (void)setupColumnLayoutSegmentsWithControlWidth:(double)arg1;
+- (float)controlColumnWidthFactor;
+- (void)setupColumnLayoutSegmentsWithControlWidth:(float)arg1;
 
 @end

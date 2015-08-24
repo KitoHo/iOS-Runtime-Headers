@@ -2,32 +2,31 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSArray, NSNumber, NSString, NSURL;
+@interface NSURLComponents : NSObject <NSCopying>
 
-@interface NSURLComponents : NSObject <NSCopying> {
-}
+@property (readonly, copy) NSURL *URL;
+@property (copy) NSString *fragment;
+@property (copy) NSString *host;
+@property (copy) NSString *password;
+@property (copy) NSString *path;
+@property (copy) NSString *percentEncodedFragment;
+@property (copy) NSString *percentEncodedHost;
+@property (copy) NSString *percentEncodedPassword;
+@property (copy) NSString *percentEncodedPath;
+@property (copy) NSString *percentEncodedQuery;
+@property (copy) NSString *percentEncodedUser;
+@property (copy) NSNumber *port;
+@property (copy) NSString *query;
+@property (copy) NSArray *queryItems;
+@property (copy) NSString *scheme;
+@property (readonly, copy) NSString *string;
+@property (copy) NSString *user;
 
-@property(copy,readonly) NSURL * URL;
-@property(copy) NSString * fragment;
-@property(copy) NSString * host;
-@property(copy) NSString * password;
-@property(copy) NSString * path;
-@property(copy) NSString * percentEncodedFragment;
-@property(copy) NSString * percentEncodedHost;
-@property(copy) NSString * percentEncodedPassword;
-@property(copy) NSString * percentEncodedPath;
-@property(copy) NSString * percentEncodedQuery;
-@property(copy) NSString * percentEncodedUser;
-@property(copy) NSNumber * port;
-@property(copy) NSString * query;
-@property(copy) NSArray * queryItems;
-@property(copy) NSString * scheme;
-@property(copy,readonly) NSString * string;
-@property(copy) NSString * user;
+// Image: /System/Library/Frameworks/Foundation.framework/Foundation
 
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
 + (id)componentsWithString:(id)arg1;
-+ (id)componentsWithURL:(id)arg1 resolvingAgainstBaseURL:(bool)arg2;
++ (id)componentsWithURL:(id)arg1 resolvingAgainstBaseURL:(BOOL)arg2;
 
 - (id)URL;
 - (id)URLRelativeToURL:(id)arg1;
@@ -36,7 +35,7 @@
 - (id)host;
 - (id)init;
 - (id)initWithString:(id)arg1;
-- (id)initWithURL:(id)arg1 resolvingAgainstBaseURL:(bool)arg2;
+- (id)initWithURL:(id)arg1 resolvingAgainstBaseURL:(BOOL)arg2;
 - (id)password;
 - (id)path;
 - (id)percentEncodedFragment;
@@ -66,5 +65,10 @@
 - (void)setUser:(id)arg1;
 - (id)string;
 - (id)user;
+
+// Image: /System/Library/PrivateFrameworks/RemoteMediaServices.framework/RemoteMediaServices
+
+- (id)rms_componentsByAddingQueryParameters:(id)arg1;
+- (id)rms_componentsByAddingQueryParameters:(id)arg1;
 
 @end

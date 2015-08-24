@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/AOSNotification.framework/AOSNotification
  */
 
-@class NSDictionary, NSString;
-
 @interface AOSFMFAccountInfo : NSObject <NSSecureCoding> {
     NSDictionary *_additionalInfo;
     NSString *_aosAPSEnvironment;
     NSString *_aosServerHost;
     NSString *_aosServerProtocolScheme;
     NSString *_appAuthToken;
-    long long _appAuthTokenStatus;
+    int _appAuthTokenStatus;
     NSString *_appServerHost;
     NSString *_dsid;
     NSString *_internalAuthToken;
@@ -19,20 +17,20 @@
     NSString *_username;
 }
 
-@property(retain) NSDictionary * additionalInfo;
-@property(retain) NSString * aosAPSEnvironment;
-@property(retain) NSString * aosServerHost;
-@property(retain) NSString * aosServerProtocolScheme;
-@property(retain) NSString * appAuthToken;
-@property long long appAuthTokenStatus;
-@property(retain) NSString * appServerHost;
-@property(retain) NSString * dsid;
-@property(retain) NSString * internalAuthToken;
-@property(retain) NSString * legacyDsid;
-@property(retain) NSString * legacyUsername;
-@property(retain) NSString * username;
+@property (nonatomic, retain) NSDictionary *additionalInfo;
+@property (nonatomic, retain) NSString *aosAPSEnvironment;
+@property (nonatomic, retain) NSString *aosServerHost;
+@property (nonatomic, retain) NSString *aosServerProtocolScheme;
+@property (nonatomic, retain) NSString *appAuthToken;
+@property (nonatomic) int appAuthTokenStatus;
+@property (nonatomic, retain) NSString *appServerHost;
+@property (nonatomic, retain) NSString *dsid;
+@property (nonatomic, retain) NSString *internalAuthToken;
+@property (nonatomic, retain) NSString *legacyDsid;
+@property (nonatomic, retain) NSString *legacyUsername;
+@property (nonatomic, retain) NSString *username;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)additionalInfo;
@@ -40,7 +38,7 @@
 - (id)aosServerHost;
 - (id)aosServerProtocolScheme;
 - (id)appAuthToken;
-- (long long)appAuthTokenStatus;
+- (int)appAuthTokenStatus;
 - (id)appServerHost;
 - (void)dealloc;
 - (id)description;
@@ -55,7 +53,7 @@
 - (void)setAosServerHost:(id)arg1;
 - (void)setAosServerProtocolScheme:(id)arg1;
 - (void)setAppAuthToken:(id)arg1;
-- (void)setAppAuthTokenStatus:(long long)arg1;
+- (void)setAppAuthTokenStatus:(int)arg1;
 - (void)setAppServerHost:(id)arg1;
 - (void)setDsid:(id)arg1;
 - (void)setInternalAuthToken:(id)arg1;

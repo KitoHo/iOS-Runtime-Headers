@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/Radio.framework/Radio
  */
 
-@class SSMetricsConfiguration, SSMetricsPageEvent, SSURLConnectionRequest;
-
 @interface RadioGetStationsRequest : RadioRequest {
     SSMetricsConfiguration *_metricsConfiguration;
     SSMetricsPageEvent *_metricsPageEvent;
-    long long _nodeType;
-    long long _numberOfResults;
+    int _nodeType;
+    int _numberOfResults;
     long long _parentNodeID;
     SSURLConnectionRequest *_request;
-    long long _resultsOffset;
+    int _resultsOffset;
 }
 
-@property(readonly) SSMetricsConfiguration * metricsConfiguration;
-@property(copy,readonly) SSMetricsPageEvent * metricsPageEvent;
-@property long long numberOfResults;
-@property(readonly) long long parentNodeID;
-@property long long resultsOffset;
+@property (nonatomic, readonly) SSMetricsConfiguration *metricsConfiguration;
+@property (nonatomic, readonly, copy) SSMetricsPageEvent *metricsPageEvent;
+@property (nonatomic) int numberOfResults;
+@property (nonatomic, readonly) long long parentNodeID;
+@property (nonatomic) int resultsOffset;
 
 - (void).cxx_destruct;
 - (id)_rootTreeNodeByApplyingResponse:(id)arg1 returningError:(id*)arg2;
@@ -27,11 +25,11 @@
 - (id)initWithParentNodeID:(long long)arg1;
 - (id)metricsConfiguration;
 - (id)metricsPageEvent;
-- (long long)numberOfResults;
+- (int)numberOfResults;
 - (long long)parentNodeID;
-- (long long)resultsOffset;
-- (void)setNumberOfResults:(long long)arg1;
-- (void)setResultsOffset:(long long)arg1;
-- (void)startWithCompletionHandler:(id)arg1;
+- (int)resultsOffset;
+- (void)setNumberOfResults:(int)arg1;
+- (void)setResultsOffset:(int)arg1;
+- (void)startWithCompletionHandler:(id /* block */)arg1;
 
 @end

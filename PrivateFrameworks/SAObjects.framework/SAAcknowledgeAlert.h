@@ -2,12 +2,9 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class SADomainObject;
+@interface SAAcknowledgeAlert : SABaseClientBoundCommand
 
-@interface SAAcknowledgeAlert : SABaseClientBoundCommand {
-}
-
-@property(retain) SADomainObject * object;
+@property (nonatomic, retain) SADomainObject *object;
 
 + (id)acknowledgeAlert;
 + (id)acknowledgeAlertWithDictionary:(id)arg1 context:(id)arg2;
@@ -15,7 +12,7 @@
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)object;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setObject:(id)arg1;
 
 @end

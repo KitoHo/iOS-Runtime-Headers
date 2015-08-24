@@ -2,23 +2,16 @@
    Image: /System/Library/Frameworks/CoreAudioKit.framework/CoreAudioKit
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class CAUITransportButton, NSTimer, UIColor, UIFont, UILabel;
-
 @interface CAInterAppAudioTransportView : UIView {
+    BOOL _connected;
     UIFont *_currentTimeLabelFont;
     double _playTime;
-    bool_connected;
-    bool_playing;
-    bool_recording;
-    boolenabled;
-    boolinForeground;
+    BOOL _playing;
+    BOOL _recording;
     struct HostCallbackInfo { void *x1; int (*x2)(); int (*x3)(); int (*x4)(); int (*x5)(); } *callBackInfo;
     UILabel *currentTimeLabel;
+    BOOL enabled;
+    BOOL inForeground;
     struct OpaqueAudioComponentInstance { } *outputUnit;
     UIColor *pauseButtonColor;
     UIColor *playButtonColor;
@@ -28,35 +21,35 @@
     CAUITransportButton *rewindButton;
 }
 
-@property(getter=isConnected,readonly) bool connected;
-@property(retain) UIFont * currentTimeLabelFont;
-@property(getter=isEnabled) bool enabled;
-@property(retain) UIColor * labelColor;
-@property(retain) UIColor * pauseButtonColor;
-@property(retain) UIColor * playButtonColor;
-@property(getter=isPlaying,readonly) bool playing;
-@property(retain) UIColor * recordButtonColor;
-@property(getter=isRecording,readonly) bool recording;
-@property(retain) UIColor * rewindButtonColor;
+@property (getter=isConnected, nonatomic, readonly) BOOL connected;
+@property (nonatomic, retain) UIFont *currentTimeLabelFont;
+@property (getter=isEnabled) BOOL enabled;
+@property (nonatomic, retain) UIColor *labelColor;
+@property (nonatomic, retain) UIColor *pauseButtonColor;
+@property (nonatomic, retain) UIColor *playButtonColor;
+@property (getter=isPlaying, nonatomic, readonly) BOOL playing;
+@property (nonatomic, retain) UIColor *recordButtonColor;
+@property (getter=isRecording, nonatomic, readonly) BOOL recording;
+@property (nonatomic, retain) UIColor *rewindButtonColor;
 
 - (void)appHasGoneForeground;
 - (void)appHasGoneInBackground;
-- (void)audioUnitPropertyChangedListener:(void*)arg1 unit:(struct OpaqueAudioComponentInstance { }*)arg2 propID:(unsigned int)arg3 scope:(unsigned int)arg4 element:(unsigned int)arg5;
-- (bool)canPlay;
-- (bool)canRecord;
-- (bool)canRewind;
+- (void)audioUnitPropertyChangedListener:(void*)arg1 unit:(struct OpaqueAudioComponentInstance { }*)arg2 propID:(unsigned long)arg3 scope:(unsigned long)arg4 element:(unsigned long)arg5;
+- (BOOL)canPlay;
+- (BOOL)canRecord;
+- (BOOL)canRewind;
 - (id)currentTimeLabelFont;
 - (void)dealloc;
 - (void)getHostCallbackInfo;
 - (id)getPlayTimeString;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)initialize;
-- (bool)isConnected;
-- (bool)isEnabled;
-- (bool)isHostConnected;
-- (bool)isPlaying;
-- (bool)isRecording;
+- (BOOL)isConnected;
+- (BOOL)isEnabled;
+- (BOOL)isHostConnected;
+- (BOOL)isPlaying;
+- (BOOL)isRecording;
 - (id)labelColor;
 - (void)layoutSubviews;
 - (id)pauseButtonColor;
@@ -65,9 +58,9 @@
 - (id)recordButtonColor;
 - (void)rewindAction:(id)arg1;
 - (id)rewindButtonColor;
-- (void)sendStateToRemoteHost:(unsigned int)arg1;
+- (void)sendStateToRemoteHost:(unsigned long)arg1;
 - (void)setCurrentTimeLabelFont:(id)arg1;
-- (void)setEnabled:(bool)arg1;
+- (void)setEnabled:(BOOL)arg1;
 - (void)setLabelColor:(id)arg1;
 - (void)setOutputAudioUnit:(struct OpaqueAudioComponentInstance { }*)arg1;
 - (void)setPauseButtonColor:(id)arg1;

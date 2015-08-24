@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@interface SUCompletionDataProvider : ISDataProvider {
-}
+@interface SUCompletionDataProvider : ISDataProvider
 
-- (bool)parseData:(id)arg1 returningError:(id*)arg2;
+- (BOOL)parseData:(id)arg1 returningError:(id*)arg2;
 
 @end

@@ -2,13 +2,14 @@
    Image: /System/Library/PrivateFrameworks/CommunicationsSetupUI.framework/CommunicationsSetupUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class CNFRegController, CNFRegLoadingView, NSMutableArray, NSString, NSTimer, RUILoader, UIAlertView, UIWebView;
-
-@interface CNFRegServerWebViewController : UIViewController <UIWebViewDelegate, UIAlertViewDelegate, RUIObjectModelDelegate> {
+@interface CNFRegServerWebViewController : UIViewController <RUIObjectModelDelegate, UIAlertViewDelegate, UIWebViewDelegate> {
+    UIAlertView *_alert;
+    id /* block */ _alertHandler;
+    RUILoader *_loader;
+    CNFRegLoadingView *_loadingView;
+    NSMutableArray *_objectModels;
+    CNFRegController *_regController;
+    NSTimer *_timeoutTimer;
     struct { 
         unsigned int isLoading : 1; 
         unsigned int isLoaded : 1; 
@@ -18,48 +19,41 @@
         unsigned int checkedLogState : 1; 
         unsigned int shouldLog : 1; 
         unsigned int timedOut; 
-    UIAlertView *_alert;
-    id _alertHandler;
-    RUILoader *_loader;
-    CNFRegLoadingView *_loadingView;
-    NSMutableArray *_objectModels;
-    CNFRegController *_regController;
-    NSTimer *_timeoutTimer;
     } _webControllerFlags;
     UIWebView *_webView;
 }
 
-@property(retain) UIAlertView * alert;
-@property(copy) id alertHandler;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) bool isLoaded;
-@property(readonly) bool isLoading;
-@property(retain) CNFRegController * regController;
-@property(readonly) Class superclass;
-@property(readonly) bool timedOut;
-@property(retain) UIWebView * webView;
+@property (nonatomic, retain) UIAlertView *alert;
+@property (nonatomic, copy) id /* block */ alertHandler;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) BOOL isLoaded;
+@property (nonatomic, readonly) BOOL isLoading;
+@property (nonatomic, retain) CNFRegController *regController;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) BOOL timedOut;
+@property (nonatomic, retain) UIWebView *webView;
 
 - (void)_cleanupLoader;
 - (void)_handleTimeout;
-- (void)_popObjectModelAnimated:(bool)arg1;
-- (bool)_shouldLog;
+- (void)_popObjectModelAnimated:(BOOL)arg1;
+- (BOOL)_shouldLog;
 - (void)_startTimeoutWithDuration:(double)arg1;
 - (void)_stopTimeout;
 - (void)_timeoutFired:(id)arg1;
 - (id)alert;
-- (id)alertHandler;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
+- (id /* block */)alertHandler;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)applicationWillSuspend;
-- (bool)canSendURLRequest:(id)arg1;
+- (BOOL)canSendURLRequest:(id)arg1;
 - (void)cancelButtonPressed:(id)arg1;
 - (void)dealloc;
 - (void)hideSpinner;
 - (id)init;
 - (id)initWithRegController:(id)arg1;
-- (bool)isLoaded;
-- (bool)isLoading;
+- (BOOL)isLoaded;
+- (BOOL)isLoading;
 - (void)loadURL:(id)arg1;
 - (void)loadView;
 - (void)loader:(id)arg1 didFailWithError:(id)arg2;
@@ -74,22 +68,22 @@
 - (void)receivedStatus:(int)arg1 appleID:(id)arg2 authID:(id)arg3 authToken:(id)arg4;
 - (id)regController;
 - (void)setAlert:(id)arg1;
-- (void)setAlertHandler:(id)arg1;
+- (void)setAlertHandler:(id /* block */)arg1;
 - (void)setHeadersForRequest:(id)arg1;
 - (void)setRegController:(id)arg1;
-- (void)setWantsWifi:(bool)arg1;
+- (void)setWantsWifi:(BOOL)arg1;
 - (void)setWebView:(id)arg1;
-- (bool)shouldSetHeadersForRequest:(id)arg1;
+- (BOOL)shouldSetHeadersForRequest:(id)arg1;
 - (void)showSpinner;
 - (void)startRequiringWifi;
 - (void)stopRequiringWifi;
-- (bool)timedOut;
-- (void)viewDidAppear:(bool)arg1;
-- (void)viewDidDisappear:(bool)arg1;
+- (BOOL)timedOut;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewDidLoad;
 - (void)viewDidUnload;
-- (void)viewWillAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 - (id)webView;
 
 @end

@@ -2,10 +2,9 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@interface PKPaymentWelcomeView : PKWelcomeView {
-}
+@interface PKPaymentWelcomeView : PKWelcomeView
 
-+ (bool)isAvailable;
++ (BOOL)isAvailable;
 
 - (void)_addCardPressed;
 - (id)init;

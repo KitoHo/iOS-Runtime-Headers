@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/GameKitServices.framework/GameKitServices
  */
 
-@class <GKSimpleTimerDelegate>, NSObject<OS_dispatch_source>;
-
 @interface GKSimpleTimer : NSObject {
-    struct _opaque_pthread_mutex_t { 
-        long long __sig; 
-        BOOL __opaque[56]; 
     id _delegate;
     double _interval;
+    struct _opaque_pthread_mutex_t { 
+        long __sig; 
+        BOOL __opaque[40]; 
     } _lock;
     double _startTime;
     NSObject<OS_dispatch_source> *_timerSource;
-    bool_timerSourceSet;
+    BOOL _timerSourceSet;
 }
 
-@property <GKSimpleTimerDelegate> * delegate;
-@property(readonly) double interval;
+@property (nonatomic) <GKSimpleTimerDelegate> *delegate;
+@property (nonatomic, readonly) double interval;
 
 - (void)dealloc;
 - (id)delegate;

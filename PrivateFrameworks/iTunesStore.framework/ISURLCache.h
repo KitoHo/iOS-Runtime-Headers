@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/iTunesStore.framework/iTunesStore
  */
 
-@class ISURLCacheConfiguration, NSString, NSURLCache;
-
 @interface ISURLCache : NSObject {
     NSURLCache *_cache;
     ISURLCacheConfiguration *_configuration;
 }
 
-@property(readonly) unsigned long long currentDiskUsage;
-@property(readonly) unsigned long long currentMemoryUsage;
-@property(readonly) unsigned long long diskCapacity;
-@property(readonly) unsigned long long memoryCapacity;
-@property(readonly) NSString * persistentIdentifier;
+@property (nonatomic, readonly) unsigned int currentDiskUsage;
+@property (nonatomic, readonly) unsigned int currentMemoryUsage;
+@property (nonatomic, readonly) unsigned int diskCapacity;
+@property (nonatomic, readonly) unsigned int memoryCapacity;
+@property (readonly) NSString *persistentIdentifier;
 
 + (id)cacheDirectoryPath;
 
 - (id)cachedResponseForRequest:(id)arg1;
-- (unsigned long long)currentDiskUsage;
-- (unsigned long long)currentMemoryUsage;
+- (unsigned int)currentDiskUsage;
+- (unsigned int)currentMemoryUsage;
 - (void)dealloc;
-- (unsigned long long)diskCapacity;
+- (unsigned int)diskCapacity;
 - (id)init;
 - (id)initWithCacheConfiguration:(id)arg1;
-- (unsigned long long)memoryCapacity;
+- (unsigned int)memoryCapacity;
 - (id)persistentIdentifier;
 - (void)purgeMemoryCache;
 - (void)reloadWithCacheConfiguration:(id)arg1;

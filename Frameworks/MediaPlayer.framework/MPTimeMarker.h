@@ -2,11 +2,9 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class NSDictionary, NSString, NSURL;
-
 @interface MPTimeMarker : NSObject {
     double _duration;
-    unsigned long long _index;
+    unsigned int _index;
     int _markerType;
     NSDictionary *_metadata;
     double _time;
@@ -14,29 +12,29 @@
     NSURL *_url;
 }
 
-@property(readonly) double comparableTime;
-@property double duration;
-@property(readonly) bool hasArtworkAtPlaybackTime;
-@property unsigned long long index;
-@property(readonly) int markerType;
-@property(readonly) double maxTime;
-@property(retain) NSDictionary * metadata;
-@property double time;
-@property(retain) NSString * title;
-@property(retain) NSURL * url;
+@property (nonatomic, readonly) double comparableTime;
+@property (nonatomic) double duration;
+@property (nonatomic, readonly) BOOL hasArtworkAtPlaybackTime;
+@property (nonatomic) unsigned int index;
+@property (nonatomic, readonly) int markerType;
+@property (nonatomic, readonly) double maxTime;
+@property (nonatomic, retain) NSDictionary *metadata;
+@property (nonatomic) double time;
+@property (nonatomic, retain) NSString *title;
+@property (nonatomic, retain) NSURL *url;
 
 - (void).cxx_destruct;
 - (double)comparableTime;
 - (id)description;
 - (double)duration;
-- (bool)hasArtworkAtPlaybackTime;
-- (unsigned long long)index;
+- (BOOL)hasArtworkAtPlaybackTime;
+- (unsigned int)index;
 - (id)initWithMarkerType:(int)arg1;
 - (int)markerType;
 - (double)maxTime;
 - (id)metadata;
 - (void)setDuration:(double)arg1;
-- (void)setIndex:(unsigned long long)arg1;
+- (void)setIndex:(unsigned int)arg1;
 - (void)setMetadata:(id)arg1;
 - (void)setTime:(double)arg1;
 - (void)setTitle:(id)arg1;

@@ -2,41 +2,39 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIDelayedAction, UITouch;
-
 @interface UIDragRecognizer : UIGestureRecognizer {
-    struct CGPoint { 
-        double x; 
-        double y; 
     double _angle;
+    BOOL _canBeginDrag;
     SEL _checkCanBeginDrag;
     double _maximumDeviation;
     double _minimumDistance;
     double _quietPeriod;
+    BOOL _restrictsToAngle;
     double _startAngle;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _startPosition;
     UIDelayedAction *_tooSlow;
     UITouch *_touch;
-    bool_canBeginDrag;
-    bool_restrictsToAngle;
     UIDelayedAction *ignoreTouch;
 }
 
-@property double angle;
-@property bool canBeginDrag;
-@property SEL checkCanBeginDrag;
-@property(retain) UIDelayedAction * ignoreTouch;
-@property double maximumDeviation;
-@property double minimumDistance;
-@property double quietPeriod;
-@property bool restrictsToAngle;
-@property double startAngle;
-@property struct CGPoint { double x1; double x2; } startPosition;
-@property(retain) UITouch * touch;
+@property (nonatomic) double angle;
+@property (nonatomic) BOOL canBeginDrag;
+@property (nonatomic) SEL checkCanBeginDrag;
+@property (nonatomic, retain) UIDelayedAction *ignoreTouch;
+@property (nonatomic) double maximumDeviation;
+@property (nonatomic) double minimumDistance;
+@property (nonatomic) double quietPeriod;
+@property (nonatomic) BOOL restrictsToAngle;
+@property (nonatomic) double startAngle;
+@property (nonatomic) struct CGPoint { float x1; float x2; } startPosition;
+@property (nonatomic, retain) UITouch *touch;
 
 - (void)_resetGestureRecognizer;
 - (double)angle;
-- (bool)canBeginDrag;
+- (BOOL)canBeginDrag;
 - (SEL)checkCanBeginDrag;
 - (void)clearIgnoreTouch;
 - (void)clearTimer;
@@ -46,20 +44,20 @@
 - (double)maximumDeviation;
 - (double)minimumDistance;
 - (double)quietPeriod;
-- (bool)restrictsToAngle;
+- (BOOL)restrictsToAngle;
 - (void)setAngle:(double)arg1;
-- (void)setCanBeginDrag:(bool)arg1;
+- (void)setCanBeginDrag:(BOOL)arg1;
 - (void)setCheckCanBeginDrag:(SEL)arg1;
 - (void)setIgnoreTouch:(id)arg1;
 - (void)setMaximumDeviation:(double)arg1;
 - (void)setMinimumDistance:(double)arg1;
 - (void)setQuietPeriod:(double)arg1;
-- (void)setRestrictsToAngle:(bool)arg1;
+- (void)setRestrictsToAngle:(BOOL)arg1;
 - (void)setStartAngle:(double)arg1;
-- (void)setStartPosition:(struct CGPoint { double x1; double x2; })arg1;
+- (void)setStartPosition:(struct CGPoint { float x1; float x2; })arg1;
 - (void)setTouch:(id)arg1;
 - (double)startAngle;
-- (struct CGPoint { double x1; double x2; })startPosition;
+- (struct CGPoint { float x1; float x2; })startPosition;
 - (void)tooSlow:(id)arg1;
 - (id)touch;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;

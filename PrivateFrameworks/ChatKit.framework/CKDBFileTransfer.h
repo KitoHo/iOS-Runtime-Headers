@@ -2,34 +2,32 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class IMMessage, NSDictionary, NSError, NSString, NSURL;
-
 @interface CKDBFileTransfer : NSObject <CKFileTransfer> {
     NSURL *_fileURL;
     NSString *_filename;
     NSString *_guid;
     NSDictionary *_transcoderUserInfo;
-    long long _transferState;
+    int _transferState;
 }
 
-@property(retain) IMMessage * IMMessage;
-@property(readonly) unsigned long long currentBytes;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(getter=isDownloadable,readonly) bool downloadable;
-@property(getter=isDownloading,readonly) bool downloading;
-@property(copy,readonly) NSError * error;
-@property(getter=isFileDataReady,readonly) bool fileDataReady;
-@property(copy,readonly) NSURL * fileURL;
-@property(getter=isFileURLFinalized,readonly) bool fileURLFinalized;
-@property(copy) NSString * filename;
-@property(copy,readonly) NSString * guid;
-@property(readonly) unsigned long long hash;
-@property(getter=isRestoring,readonly) bool restoring;
-@property(readonly) Class superclass;
-@property(readonly) unsigned long long totalBytes;
-@property(copy,readonly) NSDictionary * transcoderUserInfo;
-@property long long transferState;
+@property (nonatomic, retain) IMMessage *IMMessage;
+@property (nonatomic, readonly) unsigned long long currentBytes;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (getter=isDownloadable, nonatomic, readonly) BOOL downloadable;
+@property (getter=isDownloading, nonatomic, readonly) BOOL downloading;
+@property (nonatomic, readonly, copy) NSError *error;
+@property (getter=isFileDataReady, nonatomic, readonly) BOOL fileDataReady;
+@property (nonatomic, readonly, copy) NSURL *fileURL;
+@property (getter=isFileURLFinalized, nonatomic, readonly) BOOL fileURLFinalized;
+@property (nonatomic, copy) NSString *filename;
+@property (nonatomic, readonly, copy) NSString *guid;
+@property (readonly) unsigned int hash;
+@property (getter=isRestoring, nonatomic, readonly) BOOL restoring;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) unsigned long long totalBytes;
+@property (nonatomic, readonly, copy) NSDictionary *transcoderUserInfo;
+@property (nonatomic) int transferState;
 
 - (unsigned long long)currentBytes;
 - (void)dealloc;
@@ -40,17 +38,17 @@
 - (id)guid;
 - (id)initWithFileURL:(id)arg1 transcoderUserInfo:(id)arg2;
 - (id)initWithTransferGUID:(id)arg1 imMessage:(id)arg2;
-- (bool)isDownloadable;
-- (bool)isDownloading;
-- (bool)isFileDataReady;
-- (bool)isFileURLFinalized;
-- (bool)isRestoring;
+- (BOOL)isDownloadable;
+- (BOOL)isDownloading;
+- (BOOL)isFileDataReady;
+- (BOOL)isFileURLFinalized;
+- (BOOL)isRestoring;
 - (void)mediaObjectAdded;
 - (void)mediaObjectRemoved;
 - (void)setFilename:(id)arg1;
-- (void)setTransferState:(long long)arg1;
+- (void)setTransferState:(int)arg1;
 - (unsigned long long)totalBytes;
 - (id)transcoderUserInfo;
-- (long long)transferState;
+- (int)transferState;
 
 @end

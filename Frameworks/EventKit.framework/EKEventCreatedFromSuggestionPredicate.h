@@ -2,29 +2,27 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@class NSString;
-
 @interface EKEventCreatedFromSuggestionPredicate : EKPredicate <EKDefaultPropertiesLoading> {
     NSString *_opaqueKey;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) NSString * opaqueKey;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) NSString *opaqueKey;
+@property (readonly) Class superclass;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void)dealloc;
 - (id)defaultPropertiesToLoad;
 - (void)encodeWithCoder:(id)arg1;
-- (bool)evaluateWithObject:(id)arg1;
+- (BOOL)evaluateWithObject:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithOpaqueKey:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)opaqueKey;
 - (id)predicateFormat;
-- (bool)shouldLoadDefaultProperties;
+- (BOOL)shouldLoadDefaultProperties;
 
 @end

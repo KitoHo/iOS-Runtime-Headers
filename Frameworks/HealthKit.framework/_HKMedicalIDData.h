@@ -2,80 +2,83 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-@class HKQuantity, NSArray, NSData, NSDate, NSNumber, NSString;
-
-@interface _HKMedicalIDData : NSObject <NSSecureCoding, NSCopying> {
+@interface _HKMedicalIDData : NSObject <NSCopying, NSSecureCoding> {
     NSString *_allergyInfo;
     NSDate *_birthdate;
-    long long _bloodType;
+    int _bloodType;
     NSDate *_dateSaved;
     NSArray *_emergencyContacts;
     HKQuantity *_height;
+    BOOL _isDisabled;
     NSNumber *_isOrganDonor;
     NSString *_medicalConditions;
     NSString *_medicalNotes;
     NSString *_medicationInfo;
     NSString *_name;
     NSData *_pictureData;
-    long long _schemaVersion;
+    int _schemaVersion;
     HKQuantity *_weight;
-    bool_isDisabled;
 }
 
-@property(retain) NSString * allergyInfo;
-@property(retain) NSDate * birthdate;
-@property long long bloodType;
-@property(retain) NSDate * dateSaved;
-@property(retain) NSArray * emergencyContacts;
-@property(retain) HKQuantity * height;
-@property bool isDisabled;
-@property(retain) NSNumber * isOrganDonor;
-@property(retain) NSString * medicalConditions;
-@property(retain) NSString * medicalNotes;
-@property(retain) NSString * medicationInfo;
-@property(retain) NSString * name;
-@property(retain) NSData * pictureData;
-@property long long schemaVersion;
-@property(retain) HKQuantity * weight;
+@property (nonatomic, retain) NSString *allergyInfo;
+@property (nonatomic, retain) NSDate *birthdate;
+@property (nonatomic) int bloodType;
+@property (nonatomic, retain) NSDate *dateSaved;
+@property (nonatomic, retain) NSArray *emergencyContacts;
+@property (nonatomic, retain) HKQuantity *height;
+@property (nonatomic) BOOL isDisabled;
+@property (nonatomic, retain) NSNumber *isOrganDonor;
+@property (nonatomic, retain) NSString *medicalConditions;
+@property (nonatomic, retain) NSString *medicalNotes;
+@property (nonatomic, retain) NSString *medicationInfo;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSData *pictureData;
+@property (nonatomic) int schemaVersion;
+@property (nonatomic, retain) HKQuantity *weight;
 
-+ (bool)supportsSecureCoding;
+// Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
+
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)allergyInfo;
 - (id)birthdate;
-- (long long)bloodType;
+- (int)bloodType;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)dateSaved;
 - (id)emergencyContacts;
 - (void)encodeWithCoder:(id)arg1;
-- (bool)hasAnyData;
+- (BOOL)hasAnyData;
 - (id)height;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (bool)isDisabled;
+- (BOOL)isDisabled;
 - (id)isOrganDonor;
-- (void)loadDataFromABPerson:(void*)arg1;
 - (id)medicalConditions;
 - (id)medicalNotes;
 - (id)medicationInfo;
 - (id)name;
 - (id)pictureData;
-- (long long)schemaVersion;
+- (int)schemaVersion;
 - (void)setAllergyInfo:(id)arg1;
 - (void)setBirthdate:(id)arg1;
-- (void)setBloodType:(long long)arg1;
+- (void)setBloodType:(int)arg1;
 - (void)setDateSaved:(id)arg1;
 - (void)setEmergencyContacts:(id)arg1;
 - (void)setHeight:(id)arg1;
-- (void)setIsDisabled:(bool)arg1;
+- (void)setIsDisabled:(BOOL)arg1;
 - (void)setIsOrganDonor:(id)arg1;
 - (void)setMedicalConditions:(id)arg1;
 - (void)setMedicalNotes:(id)arg1;
 - (void)setMedicationInfo:(id)arg1;
 - (void)setName:(id)arg1;
 - (void)setPictureData:(id)arg1;
-- (void)setSchemaVersion:(long long)arg1;
+- (void)setSchemaVersion:(int)arg1;
 - (void)setWeight:(id)arg1;
 - (id)weight;
+
+// Image: /System/Library/PrivateFrameworks/HealthKitUI.framework/HealthKitUI
+
+- (void)loadDataFromABPerson:(void*)arg1;
 
 @end

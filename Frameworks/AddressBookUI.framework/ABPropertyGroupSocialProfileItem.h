@@ -2,18 +2,15 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@class CNSocialProfile;
+@interface ABPropertyGroupSocialProfileItem : ABPropertyGroupItem
 
-@interface ABPropertyGroupSocialProfileItem : ABPropertyGroupItem {
-}
-
-@property(readonly) CNSocialProfile * profile;
+@property (nonatomic, readonly) CNSocialProfile *profile;
 
 - (id)defaultActionURL;
 - (id)displayLabel;
 - (id)displayStringForValue:(id)arg1;
 - (id)editingStringValue;
-- (bool)isEquivalentToItem:(id)arg1;
+- (BOOL)isEquivalentToItem:(id)arg1;
 - (id)profile;
 - (id)valueForDisplayString:(id)arg1;
 

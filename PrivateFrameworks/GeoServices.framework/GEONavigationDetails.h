@@ -2,10 +2,10 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOComposedRoute, GEOLocation, GEONavigationGuidanceState, GEONavigationRouteSummary, GEORouteMatch, NSString;
-
 @interface GEONavigationDetails : NSObject {
-    unsigned long long _annoucementStage;
+    unsigned int _annoucementStage;
+    GEOCompanionRouteDetails *_companionRoute;
+    GEOCompanionRouteStatus *_companionStatus;
     NSString *_destinationName;
     double _distanceRemainingOnRoute;
     double _distanceToManeuverEnd;
@@ -13,28 +13,37 @@
     double _distanceToRoute;
     GEONavigationGuidanceState *_guidanceState;
     GEOLocation *_location;
+    BOOL _locationUnreliable;
+    unsigned int _nextAnnoucementStage;
     double _remainingTime;
     GEOComposedRoute *_route;
     GEORouteMatch *_routeMatch;
     GEONavigationRouteSummary *_routeSummary;
-    bool_locationUnreliable;
+    double _timeUntilNextAnnouncement;
 }
 
-@property unsigned long long announcementStage;
-@property(readonly) NSString * destinationName;
-@property double distanceRemainingOnRoute;
-@property double distanceToManeuverEnd;
-@property double distanceToManeuverStart;
-@property double distanceToRoute;
-@property(readonly) GEONavigationGuidanceState * guidanceState;
-@property(retain) GEOLocation * location;
-@property bool locationUnreliable;
-@property double remainingTime;
-@property(retain) GEOComposedRoute * route;
-@property(retain) GEORouteMatch * routeMatch;
-@property(readonly) GEONavigationRouteSummary * routeSummary;
+@property (nonatomic) unsigned int announcementStage;
+@property (nonatomic, readonly) GEOCompanionRouteDetails *companionRoute;
+@property (nonatomic, readonly) GEOCompanionRouteStatus *companionStatus;
+@property (nonatomic, readonly) NSString *destinationName;
+@property (nonatomic) double distanceRemainingOnRoute;
+@property (nonatomic) double distanceToManeuverEnd;
+@property (nonatomic) double distanceToManeuverStart;
+@property (nonatomic) double distanceToRoute;
+@property (nonatomic, readonly) GEONavigationGuidanceState *guidanceState;
+@property (nonatomic, retain) GEOLocation *location;
+@property (nonatomic) BOOL locationUnreliable;
+@property (nonatomic) int navigationState;
+@property (nonatomic, readonly) unsigned int nextAnnouncementStage;
+@property (nonatomic) double remainingTime;
+@property (nonatomic, retain) GEOComposedRoute *route;
+@property (nonatomic, retain) GEORouteMatch *routeMatch;
+@property (nonatomic, readonly) GEONavigationRouteSummary *routeSummary;
+@property (nonatomic, readonly) double timeUntilNextAnnouncement;
 
-- (unsigned long long)announcementStage;
+- (unsigned int)announcementStage;
+- (id)companionRoute;
+- (id)companionStatus;
 - (void)dealloc;
 - (id)destinationName;
 - (double)distanceRemainingOnRoute;
@@ -44,20 +53,25 @@
 - (id)guidanceState;
 - (id)initWithRoute:(id)arg1 destinationName:(id)arg2;
 - (id)location;
-- (bool)locationUnreliable;
+- (BOOL)locationUnreliable;
+- (int)navigationState;
+- (unsigned int)nextAnnouncementStage;
 - (double)remainingTime;
 - (id)route;
 - (id)routeMatch;
 - (id)routeSummary;
-- (void)setAnnouncementStage:(unsigned long long)arg1;
+- (void)setAnnouncementStage:(unsigned int)arg1;
 - (void)setDistanceRemainingOnRoute:(double)arg1;
 - (void)setDistanceToManeuverEnd:(double)arg1;
 - (void)setDistanceToManeuverStart:(double)arg1;
 - (void)setDistanceToRoute:(double)arg1;
 - (void)setLocation:(id)arg1;
-- (void)setLocationUnreliable:(bool)arg1;
+- (void)setLocationUnreliable:(BOOL)arg1;
+- (void)setNavigationState:(int)arg1;
+- (void)setNextAnnouncementStage:(unsigned int)arg1 andTime:(double)arg2;
 - (void)setRemainingTime:(double)arg1;
 - (void)setRoute:(id)arg1;
 - (void)setRouteMatch:(id)arg1;
+- (double)timeUntilNextAnnouncement;
 
 @end

@@ -2,72 +2,70 @@
    Image: /System/Library/PrivateFrameworks/iTunesStore.framework/iTunesStore
  */
 
-@class NSString, NSURL;
-
 @interface ISReview : NSObject <NSCoding, NSCopying> {
-    long long _assetType;
+    int _assetType;
     NSString *_body;
-    unsigned long long _bodyMaxLength;
+    unsigned int _bodyMaxLength;
     NSURL *_infoURL;
     unsigned long long _itemIdentifier;
     NSString *_nickname;
-    unsigned long long _nicknameMaxLength;
+    BOOL _nicknameIsConfirmed;
+    unsigned int _nicknameMaxLength;
     float _rating;
     NSURL *_submitURL;
     NSString *_title;
-    unsigned long long _titleMaxLength;
-    bool_nicknameIsConfirmed;
+    unsigned int _titleMaxLength;
 }
 
-@property long long assetType;
-@property(retain) NSString * body;
-@property unsigned long long bodyMaxLength;
-@property(readonly) bool hasSavedDraft;
-@property(retain) NSURL * infoURL;
-@property unsigned long long itemIdentifier;
-@property(retain) NSString * nickname;
-@property bool nicknameIsConfirmed;
-@property unsigned long long nicknameMaxLength;
-@property float rating;
-@property(retain) NSURL * submitURL;
-@property(retain) NSString * title;
-@property unsigned long long titleMaxLength;
+@property (nonatomic) int assetType;
+@property (nonatomic, retain) NSString *body;
+@property (nonatomic) unsigned int bodyMaxLength;
+@property (nonatomic, readonly) BOOL hasSavedDraft;
+@property (nonatomic, retain) NSURL *infoURL;
+@property (nonatomic) unsigned long long itemIdentifier;
+@property (nonatomic, retain) NSString *nickname;
+@property (nonatomic) BOOL nicknameIsConfirmed;
+@property (nonatomic) unsigned int nicknameMaxLength;
+@property (nonatomic) float rating;
+@property (nonatomic, retain) NSURL *submitURL;
+@property (nonatomic, retain) NSString *title;
+@property (nonatomic) unsigned int titleMaxLength;
 
 - (id)_draftFileName;
 - (id)_draftsDirectoryPath;
-- (long long)assetType;
+- (int)assetType;
 - (id)body;
-- (unsigned long long)bodyMaxLength;
+- (unsigned int)bodyMaxLength;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
-- (bool)hasSavedDraft;
+- (BOOL)hasSavedDraft;
 - (id)infoURL;
 - (id)initWithCoder:(id)arg1;
 - (unsigned long long)itemIdentifier;
 - (void)loadFromDictionary:(id)arg1;
-- (void)mergeWithReview:(id)arg1 preferLocalValues:(bool)arg2;
+- (void)mergeWithReview:(id)arg1 preferLocalValues:(BOOL)arg2;
 - (id)nickname;
-- (bool)nicknameIsConfirmed;
-- (unsigned long long)nicknameMaxLength;
+- (BOOL)nicknameIsConfirmed;
+- (unsigned int)nicknameMaxLength;
 - (float)rating;
-- (bool)removeDraft;
-- (bool)restoreFromDraft;
-- (bool)saveAsDraft;
-- (void)setAssetType:(long long)arg1;
+- (BOOL)removeDraft;
+- (BOOL)restoreFromDraft;
+- (BOOL)saveAsDraft;
+- (void)setAssetType:(int)arg1;
 - (void)setBody:(id)arg1;
-- (void)setBodyMaxLength:(unsigned long long)arg1;
+- (void)setBodyMaxLength:(unsigned int)arg1;
 - (void)setInfoURL:(id)arg1;
 - (void)setItemIdentifier:(unsigned long long)arg1;
 - (void)setNickname:(id)arg1;
-- (void)setNicknameIsConfirmed:(bool)arg1;
-- (void)setNicknameMaxLength:(unsigned long long)arg1;
+- (void)setNicknameIsConfirmed:(BOOL)arg1;
+- (void)setNicknameMaxLength:(unsigned int)arg1;
 - (void)setRating:(float)arg1;
 - (void)setSubmitURL:(id)arg1;
 - (void)setTitle:(id)arg1;
-- (void)setTitleMaxLength:(unsigned long long)arg1;
+- (void)setTitleMaxLength:(unsigned int)arg1;
 - (id)submitURL;
 - (id)title;
-- (unsigned long long)titleMaxLength;
+- (unsigned int)titleMaxLength;
 
 @end

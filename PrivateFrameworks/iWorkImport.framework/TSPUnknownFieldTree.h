@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSPUnknownFieldTreeNodeWithChildren;
-
 @interface TSPUnknownFieldTree : NSObject {
     TSPUnknownFieldTreeNodeWithChildren *_rootNode;
 }
 
 - (void).cxx_destruct;
-- (bool)addUnknownField:(id)arg1;
+- (BOOL)addUnknownField:(id)arg1;
 - (id)init;
 - (void)saveToArchiver:(id)arg1;
 

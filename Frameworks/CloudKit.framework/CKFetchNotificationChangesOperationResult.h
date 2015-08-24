@@ -2,26 +2,24 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class CKServerChangeToken;
-
 @interface CKFetchNotificationChangesOperationResult : CKOperationResult <NSSecureCoding> {
+    BOOL _moreComing;
     CKServerChangeToken *_serverChangeToken;
-    bool_moreComing;
 }
 
-@property bool moreComing;
-@property(retain) CKServerChangeToken * serverChangeToken;
+@property (nonatomic) BOOL moreComing;
+@property (nonatomic, retain) CKServerChangeToken *serverChangeToken;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)CKPropertiesDescription;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (bool)moreComing;
+- (BOOL)moreComing;
 - (id)serverChangeToken;
-- (void)setMoreComing:(bool)arg1;
+- (void)setMoreComing:(BOOL)arg1;
 - (void)setServerChangeToken:(id)arg1;
 
 @end

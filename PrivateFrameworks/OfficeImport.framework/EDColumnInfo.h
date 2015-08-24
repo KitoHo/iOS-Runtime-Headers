@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class EDReference, EDResources, EDWorksheet, NSString;
-
-@interface EDColumnInfo : NSObject <NSCopying, EDKeyedObject> {
-    boolmHidden;
+@interface EDColumnInfo : NSObject <EDKeyedObject, NSCopying> {
+    bool mHidden;
     unsigned char mOutlineLevel;
     EDReference *mRange;
     EDResources *mResources;
-    unsigned long long mStyleIndex;
+    unsigned int mStyleIndex;
     int mWidth;
     EDWorksheet *mWorksheet;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)columnInfoWithResources:(id)arg1 worksheet:(id)arg2;
 
@@ -25,7 +23,7 @@
 - (void)dealloc;
 - (id)initWithResources:(id)arg1 worksheet:(id)arg2;
 - (bool)isHidden;
-- (long long)key;
+- (int)key;
 - (unsigned char)outlineLevel;
 - (id)range;
 - (void)setHidden:(bool)arg1;
@@ -33,11 +31,11 @@
 - (void)setRange:(id)arg1;
 - (void)setRangeWithFirstColumn:(int)arg1 lastColumn:(int)arg2;
 - (void)setStyle:(id)arg1;
-- (void)setStyleIndex:(unsigned long long)arg1;
+- (void)setStyleIndex:(unsigned int)arg1;
 - (void)setWidth:(double)arg1;
 - (void)setWidthInXlUnits:(int)arg1;
 - (id)style;
-- (unsigned long long)styleIndex;
+- (unsigned int)styleIndex;
 - (double)width;
 - (int)widthInXlUnits;
 

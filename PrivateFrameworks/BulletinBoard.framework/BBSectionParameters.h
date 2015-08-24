@@ -2,68 +2,67 @@
    Image: /System/Library/PrivateFrameworks/BulletinBoard.framework/BulletinBoard
  */
 
-@class BBSectionIcon, BBSectionSubtypeParameters, NSLock, NSMutableDictionary, NSString;
-
 @interface BBSectionParameters : NSObject <BBUniquableObject, NSSecureCoding> {
     NSMutableDictionary *_allSubtypeParameters;
     BBSectionSubtypeParameters *_defaultSubtypeParameters;
     NSString *_displayName;
+    BOOL _displaysCriticalBulletins;
     BBSectionIcon *_icon;
     NSLock *_lock;
-    unsigned long long _messageNumberOfLines;
+    unsigned int _messageNumberOfLines;
+    BOOL _orderSectionUsingRecencyDate;
+    BOOL _showsDateInFloatingLockScreenAlert;
+    BOOL _showsSubtitle;
     NSString *_uniqueIdentifier;
-    bool_displaysCriticalBulletins;
-    bool_orderSectionUsingRecencyDate;
-    bool_showsDateInFloatingLockScreenAlert;
-    bool_showsSubtitle;
-    bool_usesVariableLayout;
+    BOOL _usesVariableLayout;
 }
 
-@property(retain) NSMutableDictionary * allSubtypeParameters;
-@property(copy,readonly) NSString * debugDescription;
-@property(retain) BBSectionSubtypeParameters * defaultSubtypeParameters;
-@property(copy,readonly) NSString * description;
-@property(copy) NSString * displayName;
-@property bool displaysCriticalBulletins;
-@property(readonly) unsigned long long hash;
-@property(retain) BBSectionIcon * icon;
-@property unsigned long long messageNumberOfLines;
-@property bool orderSectionUsingRecencyDate;
-@property bool showsDateInFloatingLockScreenAlert;
-@property bool showsSubtitle;
-@property(readonly) Class superclass;
-@property bool usesVariableLayout;
+@property (nonatomic, retain) NSMutableDictionary *allSubtypeParameters;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic, retain) BBSectionSubtypeParameters *defaultSubtypeParameters;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, copy) NSString *displayName;
+@property (nonatomic) BOOL displaysCriticalBulletins;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) BBSectionIcon *icon;
+@property (nonatomic) unsigned int messageNumberOfLines;
+@property (nonatomic) BOOL orderSectionUsingRecencyDate;
+@property (nonatomic) BOOL showsDateInFloatingLockScreenAlert;
+@property (nonatomic) BOOL showsSubtitle;
+@property (readonly) Class superclass;
+@property (nonatomic) BOOL usesVariableLayout;
 
 + (id)addSectionParametersToCache:(id)arg1;
 + (id)copyCachedSectionParametersWithIdentifier:(id)arg1;
 + (void)removeSectionParametersFromCache:(id)arg1;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)allSubtypeParameters;
+- (id)allSubtypes;
 - (void)dealloc;
 - (id)defaultSubtypeParameters;
 - (id)displayName;
-- (bool)displaysCriticalBulletins;
+- (BOOL)displaysCriticalBulletins;
 - (void)encodeWithCoder:(id)arg1;
 - (id)icon;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (unsigned long long)messageNumberOfLines;
-- (bool)orderSectionUsingRecencyDate;
-- (id)parametersForSubtype:(long long)arg1;
+- (unsigned int)messageNumberOfLines;
+- (BOOL)orderSectionUsingRecencyDate;
+- (id)parametersForSubtype:(int)arg1;
 - (void)setAllSubtypeParameters:(id)arg1;
 - (void)setDefaultSubtypeParameters:(id)arg1;
 - (void)setDisplayName:(id)arg1;
-- (void)setDisplaysCriticalBulletins:(bool)arg1;
+- (void)setDisplaysCriticalBulletins:(BOOL)arg1;
 - (void)setIcon:(id)arg1;
-- (void)setMessageNumberOfLines:(unsigned long long)arg1;
-- (void)setOrderSectionUsingRecencyDate:(bool)arg1;
-- (void)setShowsDateInFloatingLockScreenAlert:(bool)arg1;
-- (void)setShowsSubtitle:(bool)arg1;
-- (void)setUsesVariableLayout:(bool)arg1;
-- (bool)showsDateInFloatingLockScreenAlert;
-- (bool)showsSubtitle;
+- (void)setMessageNumberOfLines:(unsigned int)arg1;
+- (void)setOrderSectionUsingRecencyDate:(BOOL)arg1;
+- (void)setShowsDateInFloatingLockScreenAlert:(BOOL)arg1;
+- (void)setShowsSubtitle:(BOOL)arg1;
+- (void)setUsesVariableLayout:(BOOL)arg1;
+- (BOOL)showsDateInFloatingLockScreenAlert;
+- (BOOL)showsSubtitle;
 - (id)uniqueIdentifier;
-- (bool)usesVariableLayout;
+- (BOOL)usesVariableLayout;
 
 @end

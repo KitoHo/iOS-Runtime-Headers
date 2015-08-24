@@ -2,26 +2,24 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class <EKEventAttachmentCellControllerDelegate>, EKAttachment, EKEventAttachmentCell, NSString;
-
 @interface EKEventAttachmentCellController : NSObject <UIDocumentInteractionControllerDelegate> {
     EKAttachment *_attachment;
     EKEventAttachmentCell *_cell;
     <EKEventAttachmentCellControllerDelegate> *_delegate;
     id _downloadID;
-    bool_sourceIsManaged;
+    BOOL _sourceIsManaged;
 }
 
-@property(retain) EKAttachment * attachment;
-@property(readonly) EKEventAttachmentCell * cell;
-@property(copy,readonly) NSString * debugDescription;
-@property <EKEventAttachmentCellControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property bool sourceIsManaged;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) EKAttachment *attachment;
+@property (readonly) EKEventAttachmentCell *cell;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <EKEventAttachmentCellControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) BOOL sourceIsManaged;
+@property (readonly) Class superclass;
 
-+ (bool)_attachmentIsViewable:(id)arg1;
++ (BOOL)_attachmentIsViewable:(id)arg1;
 + (id)cellControllersForAttachments:(id)arg1 givenExistingControllers:(id)arg2;
 
 - (void).cxx_destruct;
@@ -39,8 +37,8 @@
 - (id)initWithAttachment:(id)arg1;
 - (void)setAttachment:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setSourceIsManaged:(bool)arg1;
-- (bool)sourceIsManaged;
+- (void)setSourceIsManaged:(BOOL)arg1;
+- (BOOL)sourceIsManaged;
 - (void)tearDown;
 
 @end

@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/MailServices.framework/MailServices
  */
 
-@interface MSMessageAutosave : MSMailDefaultService {
-}
+@interface MSMessageAutosave : MSMailDefaultService
 
-+ (void)autosaveMessageData:(id)arg1 withIdentifier:(id)arg2 handler:(id)arg3;
++ (void)autosaveMessageData:(id)arg1 withIdentifier:(id)arg2 handler:(id /* block */)arg3;
 + (id)autosavedMessageDataWithIdentifier:(id)arg1 error:(id*)arg2;
-+ (bool)hasAutosavedMessageWithIdentifier:(id)arg1;
++ (BOOL)hasAutosavedMessageWithIdentifier:(id)arg1;
 + (void)removeAutosavedMessageWithIdentifier:(id)arg1;
 
 @end

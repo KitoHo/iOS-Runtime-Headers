@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray;
-
 @interface GEOVLaneCharacteristic : PBCodable <NSCopying> {
     struct { 
         unsigned int roadLaneCount : 1; 
@@ -14,11 +12,11 @@
     unsigned int _roadLaneCount;
 }
 
-@property bool hasRoadLaneCount;
-@property(retain) NSMutableArray * laneDirections;
-@property(retain) NSMutableArray * laneDividers;
-@property(retain) NSMutableArray * laneTypes;
-@property unsigned int roadLaneCount;
+@property (nonatomic) BOOL hasRoadLaneCount;
+@property (nonatomic, retain) NSMutableArray *laneDirections;
+@property (nonatomic, retain) NSMutableArray *laneDividers;
+@property (nonatomic, retain) NSMutableArray *laneTypes;
+@property (nonatomic) unsigned int roadLaneCount;
 
 - (void)addLaneDirection:(id)arg1;
 - (void)addLaneDivider:(id)arg1;
@@ -31,21 +29,21 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasRoadLaneCount;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
-- (id)laneDirectionAtIndex:(unsigned long long)arg1;
+- (BOOL)hasRoadLaneCount;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)laneDirectionAtIndex:(unsigned int)arg1;
 - (id)laneDirections;
-- (unsigned long long)laneDirectionsCount;
-- (id)laneDividerAtIndex:(unsigned long long)arg1;
+- (unsigned int)laneDirectionsCount;
+- (id)laneDividerAtIndex:(unsigned int)arg1;
 - (id)laneDividers;
-- (unsigned long long)laneDividersCount;
-- (id)laneTypeAtIndex:(unsigned long long)arg1;
+- (unsigned int)laneDividersCount;
+- (id)laneTypeAtIndex:(unsigned int)arg1;
 - (id)laneTypes;
-- (unsigned long long)laneTypesCount;
-- (bool)readFrom:(id)arg1;
+- (unsigned int)laneTypesCount;
+- (BOOL)readFrom:(id)arg1;
 - (unsigned int)roadLaneCount;
-- (void)setHasRoadLaneCount:(bool)arg1;
+- (void)setHasRoadLaneCount:(BOOL)arg1;
 - (void)setLaneDirections:(id)arg1;
 - (void)setLaneDividers:(id)arg1;
 - (void)setLaneTypes:(id)arg1;

@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString, TPFootnoteLayoutController;
-
 @interface TPEndnotePageGenerator : NSObject <TPPageGenerator> {
     TPFootnoteLayoutController *_footnoteLayoutController;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void)createOrUpdatePageHintInSectionHint:(id)arg1 withState:(id)arg2;
 - (id)init;
 - (id)initWithFootnoteLayoutController:(id)arg1;
-- (bool)wantsPageInSectionHint:(id)arg1 withState:(id)arg2;
+- (BOOL)wantsPageInSectionHint:(id)arg1 withState:(id)arg2;
 
 @end

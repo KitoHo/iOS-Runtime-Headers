@@ -2,16 +2,18 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class <TSUDownloadSessionDelegate>, NSError, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSString, TSUBasicProgress, TSUDownloadManager, TSUProgress;
-
 @interface TSUDownloadSession : NSObject {
+    NSProgress *_NSProgress;
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSObject<OS_dispatch_group> *_completionGroup;
     <TSUDownloadSessionDelegate> *_delegate;
     NSObject<OS_dispatch_queue> *_delegateQueue;
+    BOOL _didFinishInitialization;
     NSError *_error;
     NSObject<OS_dispatch_group> *_initializationGroup;
+    BOOL _isCancelled;
     double _lastProgressValue;
+    NSURLResponse *_lastResponse;
     TSUDownloadManager *_manager;
     TSUBasicProgress *_progress;
     NSMutableSet *_remainingTasks;
@@ -19,34 +21,35 @@
     NSMutableDictionary *_taskProgress;
     long long _totalBytesDownloaded;
     long long _totalBytesExpectedToBeDownloaded;
-    bool_didFinishInitialization;
-    bool_isCancelled;
 }
 
-@property(readonly) bool isActive;
-@property(readonly) bool isCancelled;
-@property(readonly) TSUProgress * progress;
-@property(readonly) NSString * sessionDescription;
-@property(readonly) long long totalBytesDownloaded;
-@property(readonly) long long totalBytesExpectedToBeDownloaded;
+@property (nonatomic, readonly) NSProgress *NSProgress;
+@property (nonatomic, readonly) BOOL isActive;
+@property (nonatomic, readonly) BOOL isCancelled;
+@property (nonatomic, readonly) TSUProgress *progress;
+@property (nonatomic, readonly) NSString *sessionDescription;
+@property (nonatomic, readonly) long long totalBytesDownloaded;
+@property (nonatomic, readonly) long long totalBytesExpectedToBeDownloaded;
 
 - (void).cxx_destruct;
+- (id)NSProgress;
 - (void)cancel;
-- (void)cancelRemainingTasksNotifyingDelegate:(bool)arg1;
+- (void)cancelRemainingTasksNotifyingDelegate:(BOOL)arg1;
 - (void)dealloc;
 - (id)description;
 - (void)didFinishInitialization;
-- (bool)hasActiveTaskWithDescription:(id)arg1;
+- (BOOL)hasActiveTaskWithDescription:(id)arg1;
 - (void)headRequestForDownloadItem:(id)arg1 taskProgress:(id)arg2;
 - (id)init;
-- (id)initWithManager:(id)arg1 downloadItems:(id)arg2 description:(id)arg3 willRequestDownload:(bool)arg4 delegate:(id)arg5;
-- (bool)isActive;
-- (bool)isCancelled;
-- (void)notifyCompletionWithQueue:(id)arg1 completionHandler:(id)arg2;
+- (id)initWithManager:(id)arg1 downloadItems:(id)arg2 description:(id)arg3 willRequestDownload:(BOOL)arg4 delegate:(id)arg5;
+- (BOOL)isActive;
+- (BOOL)isCancelled;
+- (id)lastResponse;
+- (void)notifyCompletionWithQueue:(id)arg1 completionHandler:(id /* block */)arg2;
 - (id)progress;
 - (id)sessionDescription;
-- (void)taskWithDescription:(id)arg1 didCompleteWithError:(id)arg2 totalBytesWritten:(long long)arg3 totalBytesExpectedToWrite:(long long)arg4;
-- (void)taskWithDescription:(id)arg1 didWriteData:(long long)arg2 totalBytesWritten:(long long)arg3 totalBytesExpectedToWrite:(long long)arg4;
+- (void)task:(id)arg1 withDescription:(id)arg2 didCompleteWithError:(id)arg3 totalBytesWritten:(long long)arg4 totalBytesExpectedToWrite:(long long)arg5;
+- (void)task:(id)arg1 withDescription:(id)arg2 didWriteData:(long long)arg3 totalBytesWritten:(long long)arg4 totalBytesExpectedToWrite:(long long)arg5;
 - (long long)totalBytesDownloaded;
 - (long long)totalBytesExpectedToBeDownloaded;
 - (void)updateProgressAndNotifyDelegate;

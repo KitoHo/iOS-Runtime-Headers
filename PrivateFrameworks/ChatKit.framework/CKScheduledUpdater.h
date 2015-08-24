@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class NSCountedSet;
-
 @interface CKScheduledUpdater : CKManualUpdater {
     NSCountedSet *_holdingUpdatesKeys;
 }
 
-@property(retain) NSCountedSet * holdingUpdatesKeys;
+@property (nonatomic, retain) NSCountedSet *holdingUpdatesKeys;
 
 - (void)beginHoldingUpdatesForKey:(id)arg1;
 - (void)dealloc;
@@ -17,7 +15,7 @@
 - (id)holdingUpdatesKeys;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;
 - (void)invalidate;
-- (bool)isHoldingUpdates;
+- (BOOL)isHoldingUpdates;
 - (void)setHoldingUpdatesKeys:(id)arg1;
 - (void)setNeedsUpdate;
 - (void)updateIfNeeded;

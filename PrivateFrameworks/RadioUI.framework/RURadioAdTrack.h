@@ -2,46 +2,45 @@
    Image: /System/Library/PrivateFrameworks/RadioUI.framework/RadioUI
  */
 
-@class ADBannerView, NSDictionary, NSString, NSURL;
-
-@interface RURadioAdTrack : NSObject <ADBannerViewDelegate, NSCopying> {
+@interface RURadioAdTrack : NSObject <ADBannerViewDelegate, NSCopying, RURadioItemIdentifier> {
     NSURL *_URL;
-    long long _adType;
+    int _adType;
     ADBannerView *_adView;
     NSDictionary *_loudnessInfo;
 }
 
-@property(readonly) NSURL * URL;
-@property(readonly) long long actionType;
-@property(readonly) long long adType;
-@property(readonly) ADBannerView * adView;
-@property(readonly) NSURL * artworkURL;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) bool hasAction;
-@property(readonly) unsigned long long hash;
-@property(copy,readonly) NSDictionary * loudnessInfo;
-@property(readonly) Class superclass;
-@property(copy,readonly) NSString * uniqueIdentifier;
+@property (nonatomic, readonly) NSURL *URL;
+@property (nonatomic, readonly) int actionType;
+@property (nonatomic, readonly) int adType;
+@property (nonatomic, readonly) ADBannerView *adView;
+@property (nonatomic, readonly) NSURL *artworkURL;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) BOOL hasAction;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly, copy) NSDictionary *loudnessInfo;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly, copy) NSString *uniqueIdentifier;
 
 - (void).cxx_destruct;
 - (id)URL;
 - (id)_loudnessInfoForVideoAssetDictionary:(id)arg1;
-- (long long)actionType;
-- (long long)adType;
+- (int)actionType;
+- (int)adType;
 - (id)adView;
 - (id)artworkCatalog;
 - (id)artworkURL;
 - (void)bannerView:(id)arg1 didFailToReceiveAdWithError:(id)arg2;
 - (void)bannerViewActionDidFinish:(id)arg1;
-- (bool)bannerViewActionShouldBegin:(id)arg1 willLeaveApplication:(bool)arg2;
+- (BOOL)bannerViewActionShouldBegin:(id)arg1 willLeaveApplication:(BOOL)arg2;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
-- (bool)hasAction;
-- (unsigned long long)hash;
+- (BOOL)hasAction;
+- (unsigned int)hash;
 - (id)initWithAdView:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)loudnessInfo;
+- (id)radioIdentifier;
 - (void)triggerAdAction;
 - (id)uniqueIdentifier;
 

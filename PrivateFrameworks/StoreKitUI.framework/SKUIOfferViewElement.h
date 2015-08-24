@@ -2,13 +2,12 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@interface SKUIOfferViewElement : SKUIViewElement {
-}
+@interface SKUIOfferViewElement : SKUIViewElement
 
-@property(getter=isSimpleOffer,readonly) bool simpleOffer;
+@property (getter=isSimpleOffer, nonatomic, readonly) BOOL simpleOffer;
 
-- (void)enumerateChildrenUsingBlock:(id)arg1;
-- (bool)isSimpleOffer;
-- (long long)pageComponentType;
+- (void)enumerateChildrenUsingBlock:(id /* block */)arg1;
+- (BOOL)isSimpleOffer;
+- (int)pageComponentType;
 
 @end

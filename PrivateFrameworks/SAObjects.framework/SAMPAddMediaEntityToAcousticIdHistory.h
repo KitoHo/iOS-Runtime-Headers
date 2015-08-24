@@ -2,13 +2,10 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString;
+@interface SAMPAddMediaEntityToAcousticIdHistory : SABaseClientBoundCommand
 
-@interface SAMPAddMediaEntityToAcousticIdHistory : SABaseClientBoundCommand {
-}
-
-@property(copy) NSString * adamId;
-@property(copy) NSString * affiliateId;
+@property (nonatomic, copy) NSString *adamId;
+@property (nonatomic, copy) NSString *affiliateId;
 
 + (id)addMediaEntityToAcousticIdHistory;
 + (id)addMediaEntityToAcousticIdHistoryWithDictionary:(id)arg1 context:(id)arg2;
@@ -17,7 +14,7 @@
 - (id)affiliateId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setAdamId:(id)arg1;
 - (void)setAffiliateId:(id)arg1;
 

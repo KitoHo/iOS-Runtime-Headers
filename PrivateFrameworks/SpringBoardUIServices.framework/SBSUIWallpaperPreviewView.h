@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardUIServices.framework/SpringBoardUIServices
  */
 
-@class SBFLockScreenDateView, SBFWallpaperView, SBSUIWallpaperMotionButton, UITapGestureRecognizer;
-
 @interface SBSUIWallpaperPreviewView : UIView {
     SBFLockScreenDateView *_dateView;
     SBSUIWallpaperMotionButton *_motionButton;
@@ -11,18 +9,18 @@
     SBFWallpaperView *_wallpaperView;
 }
 
-@property(retain) SBFLockScreenDateView * dateView;
-@property(retain) SBFWallpaperView * wallpaperView;
+@property (nonatomic, retain) SBFLockScreenDateView *dateView;
+@property (nonatomic, retain) SBFWallpaperView *wallpaperView;
 
 - (void)_layoutDateView;
 - (void)_layoutMotionButton;
 - (void)_layoutWallpaperView;
-- (double)_motionButtonInset;
+- (float)_motionButtonInset;
 - (void)_toggleMotion;
 - (void)_updateMotionEffectsButton;
 - (id)dateView;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)layoutSubviews;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4;
 - (void)setDateView:(id)arg1;

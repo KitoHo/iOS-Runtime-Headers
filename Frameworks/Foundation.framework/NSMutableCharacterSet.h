@@ -2,15 +2,16 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@interface NSMutableCharacterSet : NSCharacterSet <NSCopying, NSMutableCopying> {
-}
+@interface NSMutableCharacterSet : NSCharacterSet <NSCopying, NSMutableCopying>
+
+// Image: /System/Library/Frameworks/Foundation.framework/Foundation
 
 + (id)alphanumericCharacterSet;
 + (id)capitalizedLetterCharacterSet;
 + (id)characterSetWithBitmapRepresentation:(id)arg1;
 + (id)characterSetWithCharactersInString:(id)arg1;
 + (id)characterSetWithContentsOfFile:(id)arg1;
-+ (id)characterSetWithRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1;
++ (id)characterSetWithRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1;
 + (id)controlCharacterSet;
 + (id)decimalDigitCharacterSet;
 + (id)decomposableCharacterSet;
@@ -25,18 +26,21 @@
 + (id)whitespaceAndNewlineCharacterSet;
 + (id)whitespaceCharacterSet;
 
-- (void)addCharactersInRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1;
+- (void)addCharactersInRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1;
 - (void)addCharactersInString:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)formIntersectionWithCharacterSet:(id)arg1;
 - (void)formUnionWithCharacterSet:(id)arg1;
 - (id)init;
-- (id)initWithCharacters:(const unsigned short*)arg1 length:(unsigned long long)arg2;
 - (id)initWithCoder:(id)arg1;
 - (void)invert;
-- (bool)isMutable;
+- (BOOL)isMutable;
 - (id)mutableCopyWithZone:(struct _NSZone { }*)arg1;
-- (void)removeCharactersInRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1;
+- (void)removeCharactersInRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1;
 - (void)removeCharactersInString:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
+
+- (id)tswp_initWithCharacters:(const unsigned short*)arg1 length:(unsigned int)arg2;
 
 @end

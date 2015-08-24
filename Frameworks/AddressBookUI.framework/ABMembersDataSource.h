@@ -2,9 +2,7 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@class <ABMembersDataSourceDelegate>, <ABStyleProvider>, ABBannerView, ABModel, ABUIPerson, NSMutableArray, NSString;
-
-@interface ABMembersDataSource : NSObject <UITableViewDelegate, UITableViewDataSource> {
+@interface ABMembersDataSource : NSObject <UITableViewDataSource, UITableViewDelegate> {
     void *_addressBook;
     ABBannerView *_bannerView;
     <ABMembersDataSourceDelegate> *_delegate;
@@ -19,14 +17,14 @@
     <ABStyleProvider> *_styleProvider;
 }
 
-@property void* addressBook;
-@property(copy,readonly) NSString * debugDescription;
-@property <ABMembersDataSourceDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) ABModel * model;
-@property(retain) <ABStyleProvider> * styleProvider;
-@property(readonly) Class superclass;
+@property (nonatomic) void*addressBook;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <ABMembersDataSourceDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) ABModel *model;
+@property (nonatomic, retain) <ABStyleProvider> *styleProvider;
+@property (readonly) Class superclass;
 
 - (void)_invalidateMeCard;
 - (void*)addressBook;
@@ -36,12 +34,12 @@
 - (id)delegate;
 - (id)displayableSectionHeaderFromSectionHeader:(id)arg1;
 - (id)displayableSectionIndexFromSectionIndex:(id)arg1;
-- (unsigned long long)displayedMemberIndexForIndexPath:(id)arg1 inTableView:(id)arg2;
-- (long long)globalRowForBanner;
-- (long long)globalRowForDisplayedMemberIndex:(unsigned long long)arg1;
-- (id)indexPathForDisplayedMemberIndex:(unsigned long long)arg1 inTableView:(id)arg2;
+- (unsigned int)displayedMemberIndexForIndexPath:(id)arg1 inTableView:(id)arg2;
+- (int)globalRowForBanner;
+- (int)globalRowForDisplayedMemberIndex:(unsigned int)arg1;
+- (id)indexPathForDisplayedMemberIndex:(unsigned int)arg1 inTableView:(id)arg2;
 - (id)model;
-- (long long)numberOfSectionsInTableView:(id)arg1;
+- (int)numberOfSectionsInTableView:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (struct __CFDictionary { }*)sectionHeaderSortingIndices;
 - (id)sectionIndexFromDisplayableSectionIndex:(id)arg1;
@@ -51,19 +49,19 @@
 - (void)setDelegate:(id)arg1;
 - (void)setModel:(id)arg1;
 - (void)setStyleProvider:(id)arg1;
-- (bool)shouldShowGroups;
+- (BOOL)shouldShowGroups;
 - (id)styleProvider;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })tableView:(id)arg1 frameForSectionIndexGivenProposedFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg2;
-- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
-- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (id)tableView:(id)arg1 indexPathForSectionIndexTitle:(id)arg2 atIndex:(long long)arg3;
-- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
-- (long long)tableView:(id)arg1 sectionForSectionIndexTitle:(id)arg2 atIndex:(long long)arg3;
-- (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })tableView:(id)arg1 frameForSectionIndexGivenProposedFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg2;
+- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
+- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 indexPathForSectionIndexTitle:(id)arg2 atIndex:(int)arg3;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (int)tableView:(id)arg1 sectionForSectionIndexTitle:(id)arg2 atIndex:(int)arg3;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(long long)arg3;
-- (id)titleForHeaderInSection:(long long)arg1;
+- (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(int)arg3;
+- (id)titleForHeaderInSection:(int)arg1;
 
 @end

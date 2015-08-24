@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class WDCharacterProperties;
-
 @interface WDFieldMarker : WDRun {
-    unsigned int mZombieEmbed : 1;
-    unsigned int mResultDirty : 1;
-    unsigned int mResultEdited : 1;
-    unsigned int mLocked : 1;
-    unsigned int mPrivateResult : 1;
-    unsigned int mNested : 1;
-    unsigned int mHasSeparator : 1;
     int mFieldPosition;
     unsigned char mFieldType;
+    unsigned int mHasSeparator;
+    unsigned int mLocked;
     int mMarkerType;
+    unsigned int mNested;
+    unsigned int mPrivateResult;
     WDCharacterProperties *mProperties;
+    unsigned int mResultDirty;
+    unsigned int mResultEdited;
+    unsigned int mZombieEmbed;
 }
 
 - (void)clearProperties;
@@ -23,25 +21,25 @@
 - (int)fieldMarkerType;
 - (int)fieldPosition;
 - (unsigned char)fieldType;
-- (bool)hasSeparator;
+- (BOOL)hasSeparator;
 - (id)initWithParagraph:(id)arg1;
-- (bool)locked;
-- (bool)nested;
-- (bool)privateResult;
+- (BOOL)locked;
+- (BOOL)nested;
+- (BOOL)privateResult;
 - (id)properties;
-- (bool)resultDirty;
-- (bool)resultEdited;
+- (BOOL)resultDirty;
+- (BOOL)resultEdited;
 - (int)runType;
 - (void)setFieldMarkerType:(int)arg1;
 - (void)setFieldPosition:(int)arg1;
 - (void)setFieldType:(unsigned char)arg1;
-- (void)setHasSeparator:(bool)arg1;
-- (void)setLocked:(bool)arg1;
-- (void)setNested:(bool)arg1;
-- (void)setPrivateResult:(bool)arg1;
-- (void)setResultDirty:(bool)arg1;
-- (void)setResultEdited:(bool)arg1;
-- (void)setZombieEmbed:(bool)arg1;
-- (bool)zombieEmbed;
+- (void)setHasSeparator:(BOOL)arg1;
+- (void)setLocked:(BOOL)arg1;
+- (void)setNested:(BOOL)arg1;
+- (void)setPrivateResult:(BOOL)arg1;
+- (void)setResultDirty:(BOOL)arg1;
+- (void)setResultEdited:(BOOL)arg1;
+- (void)setZombieEmbed:(BOOL)arg1;
+- (BOOL)zombieEmbed;
 
 @end

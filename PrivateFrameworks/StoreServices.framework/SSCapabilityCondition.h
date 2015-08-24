@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@interface SSCapabilityCondition : SSProtocolCondition {
-}
+@interface SSCapabilityCondition : SSProtocolCondition
 
-- (bool)evaluateWithContext:(id)arg1;
+- (BOOL)evaluateWithContext:(id)arg1;
 
 @end

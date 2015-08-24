@@ -2,46 +2,44 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class GKLinkedList, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
-
 @interface GKThreadsafeCache : NSObject <GKCache> {
     GKLinkedList *_cacheList;
-    unsigned long long _count;
+    unsigned int _count;
     NSMutableDictionary *_dictionary;
-    unsigned long long _maxCount;
+    unsigned int _maxCount;
     NSMutableDictionary *_missingEntryQueues;
     NSObject<OS_dispatch_queue> *_syncQueue;
 }
 
-@property(retain) GKLinkedList * cacheList;
-@property unsigned long long count;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) NSMutableDictionary * dictionary;
-@property(readonly) unsigned long long hash;
-@property unsigned long long maxCount;
-@property(retain) NSMutableDictionary * missingEntryQueues;
-@property(readonly) Class superclass;
-@property NSObject<OS_dispatch_queue> * syncQueue;
+@property (nonatomic, retain) GKLinkedList *cacheList;
+@property (nonatomic) unsigned int count;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSMutableDictionary *dictionary;
+@property (readonly) unsigned int hash;
+@property (nonatomic) unsigned int maxCount;
+@property (nonatomic, retain) NSMutableDictionary *missingEntryQueues;
+@property (readonly) Class superclass;
+@property (nonatomic) NSObject<OS_dispatch_queue> *syncQueue;
 
 - (id)cacheList;
-- (unsigned long long)count;
+- (unsigned int)count;
 - (void)dealloc;
 - (id)dictionary;
-- (id)initWithName:(id)arg1 maxCount:(unsigned long long)arg2;
+- (id)initWithName:(id)arg1 maxCount:(unsigned int)arg2;
 - (id)internalObjectForKey:(id)arg1;
 - (void)internalSetObject:(id)arg1 forKey:(id)arg2;
-- (unsigned long long)maxCount;
+- (unsigned int)maxCount;
 - (id)missingEntryQueues;
-- (id)objectForKey:(id)arg1 withMissingHandler:(id)arg2;
 - (id)objectForKey:(id)arg1;
+- (id)objectForKey:(id)arg1 withMissingHandler:(id /* block */)arg2;
 - (id)objectForKeyedSubscript:(id)arg1;
 - (void)removeAllObjects;
 - (void)removeObjectForKey:(id)arg1;
 - (void)setCacheList:(id)arg1;
-- (void)setCount:(unsigned long long)arg1;
+- (void)setCount:(unsigned int)arg1;
 - (void)setDictionary:(id)arg1;
-- (void)setMaxCount:(unsigned long long)arg1;
+- (void)setMaxCount:(unsigned int)arg1;
 - (void)setMissingEntryQueues:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (void)setObject:(id)arg1 forKeyedSubscript:(id)arg2;

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/AppSupport.framework/AppSupport
  */
 
-@class NSString;
-
 @interface CPExclusiveLock : NSObject <NSLocking> {
     int _fd;
     NSString *_name;
@@ -15,7 +13,7 @@
 - (void)lock;
 - (id)name;
 - (void)setName:(id)arg1;
-- (bool)tryLock;
+- (BOOL)tryLock;
 - (void)unlock;
 
 @end

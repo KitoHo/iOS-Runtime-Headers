@@ -2,8 +2,7 @@
    Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
  */
 
-@interface DOMImplementation : DOMObject {
-}
+@interface DOMImplementation : DOMObject
 
 - (id)createCSSStyleSheet:(id)arg1 :(id)arg2;
 - (id)createCSSStyleSheet:(id)arg1 media:(id)arg2;
@@ -14,7 +13,7 @@
 - (id)createHTMLDocument:(id)arg1;
 - (void)dealloc;
 - (void)finalize;
-- (bool)hasFeature:(id)arg1 :(id)arg2;
-- (bool)hasFeature:(id)arg1 version:(id)arg2;
+- (BOOL)hasFeature:(id)arg1 :(id)arg2;
+- (BOOL)hasFeature:(id)arg1 version:(id)arg2;
 
 @end

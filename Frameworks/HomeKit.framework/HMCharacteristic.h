@@ -2,50 +2,49 @@
    Image: /System/Library/Frameworks/HomeKit.framework/HomeKit
  */
 
-@class HMCharacteristicMetadata, HMService, NSArray, NSNumber, NSString;
-
 @interface HMCharacteristic : NSObject <NSSecureCoding> {
     NSString *_characteristicType;
     NSNumber *_instanceID;
     HMCharacteristicMetadata *_metadata;
+    BOOL _notificationEnabled;
     NSArray *_properties;
     HMService *_service;
     id _value;
-    bool_notificationEnabled;
 }
 
-@property(copy,readonly) NSString * characteristicType;
-@property(retain) NSNumber * instanceID;
-@property(readonly) HMCharacteristicMetadata * metadata;
-@property(getter=isNotificationEnabled) bool notificationEnabled;
-@property(copy,readonly) NSArray * properties;
-@property HMService * service;
-@property(copy) id value;
+@property (nonatomic, readonly, copy) NSString *characteristicType;
+@property (nonatomic, retain) NSNumber *instanceID;
+@property (nonatomic, readonly) HMCharacteristicMetadata *metadata;
+@property (getter=isNotificationEnabled, nonatomic) BOOL notificationEnabled;
+@property (nonatomic, readonly, copy) NSArray *properties;
+@property (nonatomic) HMService *service;
+@property (nonatomic, copy) id value;
 
-+ (bool)supportsSecureCoding;
++ (id)characteristicTypeAsString:(id)arg1;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)characteristicType;
 - (id)characteristicTypeDescription;
 - (void)configure:(id)arg1;
-- (void)enableNotification:(bool)arg1 completionHandler:(id)arg2;
+- (void)enableNotification:(BOOL)arg1 completionHandler:(id /* block */)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)instanceID;
-- (bool)isNotificationEnabled;
-- (id)mapCuapProperties:(long long)arg1;
-- (long long)mapToCuapProperties:(id)arg1;
+- (BOOL)isNotificationEnabled;
+- (id)mapCuapProperties:(int)arg1;
+- (int)mapToCuapProperties:(id)arg1;
 - (id)metadata;
 - (id)properties;
-- (void)readValueWithCompletionHandler:(id)arg1;
+- (void)readValueWithCompletionHandler:(id /* block */)arg1;
 - (id)service;
 - (void)setInstanceID:(id)arg1;
-- (void)setNotificationEnabled:(bool)arg1;
+- (void)setNotificationEnabled:(BOOL)arg1;
 - (void)setService:(id)arg1;
 - (void)setValue:(id)arg1;
-- (void)updateAuthorizationData:(id)arg1 completionHandler:(id)arg2;
+- (void)updateAuthorizationData:(id)arg1 completionHandler:(id /* block */)arg2;
 - (void)updateValue:(id)arg1;
 - (id)value;
-- (void)writeValue:(id)arg1 completionHandler:(id)arg2;
+- (void)writeValue:(id)arg1 completionHandler:(id /* block */)arg2;
 
 @end

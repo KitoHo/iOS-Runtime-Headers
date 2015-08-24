@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/CoreBrightness.framework/CoreBrightness
  */
 
-@class BrightnessSystemInternal, NSString, NSXPCConnection;
-
 @interface BacklightdExportedObj : NSObject <BacklightdXPCProtocol> {
-    unsigned long long _clientID;
+    unsigned int _clientID;
+    BOOL _clientIDSet;
     NSXPCConnection *_connection;
     BrightnessSystemInternal *_server;
-    bool_clientIDSet;
 }
 
-@property(retain) NSXPCConnection * connection;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property BrightnessSystemInternal * server;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) NSXPCConnection *connection;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) BrightnessSystemInternal *server;
+@property (readonly) Class superclass;
 
-- (void)clientCopyPropertyWithKey:(id)arg1 reply:(id)arg2;
+- (void)clientCopyPropertyWithKey:(id)arg1 reply:(id /* block */)arg2;
 - (void)clientSetPropertyWithKey:(id)arg1 property:(id)arg2;
 - (id)connection;
 - (id)copyClientID;

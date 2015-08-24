@@ -3,9 +3,8 @@
  */
 
 @interface GEOPlaceSearchFeedbackRequest : PBRequest <NSCopying> {
-    struct { 
-        unsigned long long _high; 
-        unsigned long long _low; 
+    long long _businessID;
+    int _feedbackType;
     struct { 
         unsigned int sessionGUID : 1; 
         unsigned int businessID : 1; 
@@ -15,33 +14,34 @@
         unsigned int numberOfResults : 1; 
         unsigned int positionInResults : 1; 
         unsigned int sequenceNumber : 1; 
-    long long _businessID;
-    int _feedbackType;
     } _has;
     int _localSearchProviderID;
     int _numberOfResults;
     int _positionInResults;
     int _sequenceNumber;
+    struct { 
+        unsigned long long _high; 
+        unsigned long long _low; 
     } _sessionGUID;
     double _timestamp;
 }
 
-@property long long businessID;
-@property int feedbackType;
-@property bool hasBusinessID;
-@property bool hasFeedbackType;
-@property bool hasLocalSearchProviderID;
-@property bool hasNumberOfResults;
-@property bool hasPositionInResults;
-@property bool hasSequenceNumber;
-@property bool hasSessionGUID;
-@property bool hasTimestamp;
-@property int localSearchProviderID;
-@property int numberOfResults;
-@property int positionInResults;
-@property int sequenceNumber;
-@property struct { unsigned long long x1; unsigned long long x2; } sessionGUID;
-@property double timestamp;
+@property (nonatomic) long long businessID;
+@property (nonatomic) int feedbackType;
+@property (nonatomic) BOOL hasBusinessID;
+@property (nonatomic) BOOL hasFeedbackType;
+@property (nonatomic) BOOL hasLocalSearchProviderID;
+@property (nonatomic) BOOL hasNumberOfResults;
+@property (nonatomic) BOOL hasPositionInResults;
+@property (nonatomic) BOOL hasSequenceNumber;
+@property (nonatomic) BOOL hasSessionGUID;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) int localSearchProviderID;
+@property (nonatomic) int numberOfResults;
+@property (nonatomic) int positionInResults;
+@property (nonatomic) int sequenceNumber;
+@property (nonatomic) struct { unsigned long long x1; unsigned long long x2; } sessionGUID;
+@property (nonatomic) double timestamp;
 
 - (long long)businessID;
 - (void)copyTo:(id)arg1;
@@ -49,35 +49,35 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (int)feedbackType;
-- (bool)hasBusinessID;
-- (bool)hasFeedbackType;
-- (bool)hasLocalSearchProviderID;
-- (bool)hasNumberOfResults;
-- (bool)hasPositionInResults;
-- (bool)hasSequenceNumber;
-- (bool)hasSessionGUID;
-- (bool)hasTimestamp;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasBusinessID;
+- (BOOL)hasFeedbackType;
+- (BOOL)hasLocalSearchProviderID;
+- (BOOL)hasNumberOfResults;
+- (BOOL)hasPositionInResults;
+- (BOOL)hasSequenceNumber;
+- (BOOL)hasSessionGUID;
+- (BOOL)hasTimestamp;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (int)localSearchProviderID;
 - (void)mergeFrom:(id)arg1;
 - (int)numberOfResults;
 - (int)positionInResults;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (unsigned int)requestTypeCode;
 - (Class)responseClass;
 - (int)sequenceNumber;
 - (struct { unsigned long long x1; unsigned long long x2; })sessionGUID;
 - (void)setBusinessID:(long long)arg1;
 - (void)setFeedbackType:(int)arg1;
-- (void)setHasBusinessID:(bool)arg1;
-- (void)setHasFeedbackType:(bool)arg1;
-- (void)setHasLocalSearchProviderID:(bool)arg1;
-- (void)setHasNumberOfResults:(bool)arg1;
-- (void)setHasPositionInResults:(bool)arg1;
-- (void)setHasSequenceNumber:(bool)arg1;
-- (void)setHasSessionGUID:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
+- (void)setHasBusinessID:(BOOL)arg1;
+- (void)setHasFeedbackType:(BOOL)arg1;
+- (void)setHasLocalSearchProviderID:(BOOL)arg1;
+- (void)setHasNumberOfResults:(BOOL)arg1;
+- (void)setHasPositionInResults:(BOOL)arg1;
+- (void)setHasSequenceNumber:(BOOL)arg1;
+- (void)setHasSessionGUID:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
 - (void)setLocalSearchProviderID:(int)arg1;
 - (void)setNumberOfResults:(int)arg1;
 - (void)setPositionInResults:(int)arg1;

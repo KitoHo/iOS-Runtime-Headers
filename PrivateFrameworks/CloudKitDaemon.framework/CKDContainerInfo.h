@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSString, NSURL;
-
 @interface CKDContainerInfo : NSObject <NSCopying, NSSecureCoding> {
     NSString *_containerScopedUserID;
     NSURL *_publicCloudDBURL;
@@ -11,12 +9,12 @@
     NSURL *_publicShareServiceURL;
 }
 
-@property(copy) NSString * containerScopedUserID;
-@property(copy) NSURL * publicCloudDBURL;
-@property(copy) NSURL * publicDeviceServiceURL;
-@property(copy) NSURL * publicShareServiceURL;
+@property (nonatomic, copy) NSString *containerScopedUserID;
+@property (nonatomic, copy) NSURL *publicCloudDBURL;
+@property (nonatomic, copy) NSURL *publicDeviceServiceURL;
+@property (nonatomic, copy) NSURL *publicShareServiceURL;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)CKPropertiesDescription;
@@ -24,9 +22,9 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)publicCloudDBURL;
 - (id)publicDeviceServiceURL;
 - (id)publicShareServiceURL;

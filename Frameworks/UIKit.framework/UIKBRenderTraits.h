@@ -2,17 +2,17 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSArray, NSMutableArray, NSString, UIKBGradient, UIKBRenderGeometry, UIKBRenderTraits, UIKBTextStyle;
-
 @interface UIKBRenderTraits : NSObject <NSCopying> {
     UIKBGradient *_backgroundGradient;
-    long long _blendForm;
+    int _blendForm;
+    BOOL _controlOpacities;
     UIKBTextStyle *_fallbackSymbolStyle;
-    double _forceOpacity;
+    float _forceOpacity;
     NSMutableArray *_foregroundRenderEffects;
     UIKBRenderGeometry *_geometry;
     NSString *_hashString;
     UIKBRenderTraits *_highlightedVariantTraits;
+    BOOL _honorControlOpacity;
     UIKBGradient *_layeredBackgroundGradient;
     UIKBGradient *_layeredForegroundGradient;
     NSMutableArray *_renderEffects;
@@ -20,26 +20,24 @@
     UIKBTextStyle *_symbolStyle;
     NSArray *_variantGeometries;
     UIKBRenderTraits *_variantTraits;
-    bool_controlOpacities;
-    bool_honorControlOpacity;
 }
 
-@property(retain) UIKBGradient * backgroundGradient;
-@property long long blendForm;
-@property bool controlOpacities;
-@property(retain) UIKBTextStyle * fallbackSymbolStyle;
-@property double forceOpacity;
-@property(readonly) NSArray * foregroundRenderEffects;
-@property(retain) UIKBRenderGeometry * geometry;
-@property(retain) NSString * hashString;
-@property(retain) UIKBRenderTraits * highlightedVariantTraits;
-@property(retain) UIKBGradient * layeredBackgroundGradient;
-@property(retain) UIKBGradient * layeredForegroundGradient;
-@property(readonly) NSArray * renderEffects;
-@property(retain) UIKBTextStyle * secondarySymbolStyle;
-@property(retain) UIKBTextStyle * symbolStyle;
-@property(retain) NSArray * variantGeometries;
-@property(retain) UIKBRenderTraits * variantTraits;
+@property (nonatomic, retain) UIKBGradient *backgroundGradient;
+@property (nonatomic) int blendForm;
+@property (nonatomic) BOOL controlOpacities;
+@property (nonatomic, retain) UIKBTextStyle *fallbackSymbolStyle;
+@property (nonatomic) float forceOpacity;
+@property (nonatomic, readonly) NSArray *foregroundRenderEffects;
+@property (nonatomic, retain) UIKBRenderGeometry *geometry;
+@property (nonatomic, retain) NSString *hashString;
+@property (nonatomic, retain) UIKBRenderTraits *highlightedVariantTraits;
+@property (nonatomic, retain) UIKBGradient *layeredBackgroundGradient;
+@property (nonatomic, retain) UIKBGradient *layeredForegroundGradient;
+@property (nonatomic, readonly) NSArray *renderEffects;
+@property (nonatomic, retain) UIKBTextStyle *secondarySymbolStyle;
+@property (nonatomic, retain) UIKBTextStyle *symbolStyle;
+@property (nonatomic, retain) NSArray *variantGeometries;
+@property (nonatomic, retain) UIKBRenderTraits *variantTraits;
 
 + (id)emptyTraits;
 + (id)traitsWithGeometry:(id)arg1;
@@ -48,18 +46,18 @@
 - (void)addForegroundRenderEffect:(id)arg1;
 - (void)addRenderEffect:(id)arg1;
 - (id)backgroundGradient;
-- (long long)blendForm;
-- (bool)controlOpacities;
+- (int)blendForm;
+- (BOOL)controlOpacities;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)fallbackSymbolStyle;
-- (double)forceOpacity;
+- (float)forceOpacity;
 - (id)foregroundRenderEffects;
 - (id)geometry;
 - (id)hashString;
 - (id)highlightedVariantTraits;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)layeredBackgroundGradient;
 - (id)layeredForegroundGradient;
 - (void)modifyForMasking;
@@ -68,10 +66,10 @@
 - (id)renderEffects;
 - (id)secondarySymbolStyle;
 - (void)setBackgroundGradient:(id)arg1;
-- (void)setBlendForm:(long long)arg1;
-- (void)setControlOpacities:(bool)arg1;
+- (void)setBlendForm:(int)arg1;
+- (void)setControlOpacities:(BOOL)arg1;
 - (void)setFallbackSymbolStyle:(id)arg1;
-- (void)setForceOpacity:(double)arg1;
+- (void)setForceOpacity:(float)arg1;
 - (void)setGeometry:(id)arg1;
 - (void)setHashString:(id)arg1;
 - (void)setHighlightedVariantTraits:(id)arg1;

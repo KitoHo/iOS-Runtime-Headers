@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CalendarUIKit.framework/CalendarUIKit
  */
 
-@class NSString;
-
 @interface CUIKUserActivityWithSource : CUIKUserActivity {
     NSString *_sourceHost;
     NSString *_sourceOwner;
@@ -11,13 +9,13 @@
 }
 
 - (void).cxx_destruct;
-- (bool)_isLocalSource;
-- (bool)_requiresHostAndOwner;
-- (bool)_supportsConsistentExternalIDAcrossDevices:(int)arg1;
-- (bool)_supportsConsistentExternalIDAcrossDevices;
+- (BOOL)_isLocalSource;
+- (BOOL)_requiresHostAndOwner;
+- (BOOL)_supportsConsistentExternalIDAcrossDevices;
+- (BOOL)_supportsConsistentExternalIDAcrossDevices:(int)arg1;
 - (id)dictionary;
 - (id)initWithDictionary:(id)arg1;
-- (id)initWithSource:(id)arg1 type:(unsigned long long)arg2;
-- (unsigned long long)isMatchForSource:(id)arg1;
+- (id)initWithSource:(id)arg1 type:(unsigned int)arg2;
+- (unsigned int)isMatchForSource:(id)arg1;
 
 @end

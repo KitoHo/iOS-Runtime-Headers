@@ -2,53 +2,51 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class <GEOMapServiceTicket>, NSArray, NSObject<NSCopying>, NSString, PLRevGeoLocationInfo;
-
 @interface PLMomentAnalyzerGeoRequestInfo : NSObject {
     NSArray *_assetIds;
     NSArray *_extraAssetIds;
     NSArray *_extraLocations;
-    unsigned long long _failureCount;
+    unsigned int _failureCount;
     NSObject<NSCopying> *_momentId;
     NSString *_momentUuid;
-    unsigned long long _requestType;
+    unsigned int _requestType;
     PLRevGeoLocationInfo *_revGeoLocationInfo;
     <GEOMapServiceTicket> *_reverseGeocodeRequest;
 }
 
-@property(copy) NSArray * assetIds;
-@property(copy) NSArray * extraAssetIds;
-@property(getter=hasExtraData,readonly) bool extraData;
-@property(copy) NSArray * extraLocations;
-@property unsigned long long failureCount;
-@property(retain) NSObject<NSCopying> * momentId;
-@property(copy) NSString * momentUuid;
-@property unsigned long long requestType;
-@property(retain) PLRevGeoLocationInfo * revGeoLocationInfo;
-@property(retain) <GEOMapServiceTicket> * reverseGeocodeRequest;
+@property (nonatomic, copy) NSArray *assetIds;
+@property (nonatomic, copy) NSArray *extraAssetIds;
+@property (getter=hasExtraData, nonatomic, readonly) BOOL extraData;
+@property (nonatomic, copy) NSArray *extraLocations;
+@property (nonatomic) unsigned int failureCount;
+@property (nonatomic, retain) NSObject<NSCopying> *momentId;
+@property (nonatomic, copy) NSString *momentUuid;
+@property (nonatomic) unsigned int requestType;
+@property (nonatomic, retain) PLRevGeoLocationInfo *revGeoLocationInfo;
+@property (nonatomic, retain) <GEOMapServiceTicket> *reverseGeocodeRequest;
 
 - (id)assetIds;
 - (void)dealloc;
 - (id)description;
 - (id)extraAssetIds;
 - (id)extraLocations;
-- (unsigned long long)failureCount;
-- (bool)hasExtraData;
-- (unsigned long long)hash;
-- (id)initWithRequestType:(unsigned long long)arg1 momentId:(id)arg2 momentUuid:(id)arg3 assetIds:(id)arg4 reverseGeocodeRequest:(id)arg5;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)failureCount;
+- (BOOL)hasExtraData;
+- (unsigned int)hash;
+- (id)initWithRequestType:(unsigned int)arg1 momentId:(id)arg2 momentUuid:(id)arg3 assetIds:(id)arg4 reverseGeocodeRequest:(id)arg5;
+- (BOOL)isEqual:(id)arg1;
 - (id)momentId;
 - (id)momentUuid;
-- (unsigned long long)requestType;
+- (unsigned int)requestType;
 - (id)revGeoLocationInfo;
 - (id)reverseGeocodeRequest;
 - (void)setAssetIds:(id)arg1;
 - (void)setExtraAssetIds:(id)arg1;
 - (void)setExtraLocations:(id)arg1;
-- (void)setFailureCount:(unsigned long long)arg1;
+- (void)setFailureCount:(unsigned int)arg1;
 - (void)setMomentId:(id)arg1;
 - (void)setMomentUuid:(id)arg1;
-- (void)setRequestType:(unsigned long long)arg1;
+- (void)setRequestType:(unsigned int)arg1;
 - (void)setRevGeoLocationInfo:(id)arg1;
 - (void)setReverseGeocodeRequest:(id)arg1;
 

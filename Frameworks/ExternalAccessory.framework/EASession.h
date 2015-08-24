@@ -2,22 +2,20 @@
    Image: /System/Library/Frameworks/ExternalAccessory.framework/ExternalAccessory
  */
 
-@class EAAccessory, NSInputStream, NSOutputStream, NSString;
-
 @interface EASession : NSObject {
     EAAccessory *_accessory;
     NSInputStream *_inputStream;
+    BOOL _openCompleted;
     NSOutputStream *_outputStream;
     NSString *_protocolString;
     unsigned int _sessionID;
     int _sock;
-    bool_openCompleted;
 }
 
-@property(readonly) EAAccessory * accessory;
-@property(readonly) NSInputStream * inputStream;
-@property(readonly) NSOutputStream * outputStream;
-@property(readonly) NSString * protocolString;
+@property (nonatomic, readonly) EAAccessory *accessory;
+@property (nonatomic, readonly) NSInputStream *inputStream;
+@property (nonatomic, readonly) NSOutputStream *outputStream;
+@property (nonatomic, readonly) NSString *protocolString;
 
 - (void)_endStreams;
 - (unsigned int)_sessionID;
@@ -29,9 +27,9 @@
 - (id)init;
 - (id)initWithAccessory:(id)arg1 forProtocol:(id)arg2;
 - (id)inputStream;
-- (bool)isOpenCompleted;
+- (BOOL)isOpenCompleted;
 - (id)outputStream;
 - (id)protocolString;
-- (void)setOpenCompleted:(bool)arg1;
+- (void)setOpenCompleted:(BOOL)arg1;
 
 @end

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSData, NSString;
-
 @interface PKPaymentToken : NSObject <NSSecureCoding> {
     NSData *_paymentData;
     NSString *_paymentInstrumentName;
@@ -11,12 +9,12 @@
     NSString *_transactionIdentifier;
 }
 
-@property(copy) NSData * paymentData;
-@property(copy) NSString * paymentInstrumentName;
-@property(copy) NSString * paymentNetwork;
-@property(copy) NSString * transactionIdentifier;
+@property (nonatomic, copy) NSData *paymentData;
+@property (nonatomic, copy) NSString *paymentInstrumentName;
+@property (nonatomic, copy) NSString *paymentNetwork;
+@property (nonatomic, copy) NSString *transactionIdentifier;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void)dealloc;
 - (id)description;

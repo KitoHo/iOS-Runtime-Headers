@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class NSSet, NSString;
-
-@interface AFPerson : NSObject <AFTranscriptionType> {
+@interface AFPerson : AFSiriModelObject <AFTranscriptionType> {
     NSSet *_contactHandles;
     NSString *_fullName;
 }
 
-@property(copy) NSSet * contactHandles;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(copy) NSString * fullName;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (nonatomic, copy) NSSet *contactHandles;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, copy) NSString *fullName;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)contactHandles;

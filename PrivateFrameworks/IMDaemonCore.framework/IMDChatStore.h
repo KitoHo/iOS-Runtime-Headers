@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/IMDaemonCore.framework/IMDaemonCore
  */
 
-@class NSString;
-
 @interface IMDChatStore : NSObject {
     NSString *_lastModificationStamp;
 }
 
-@property(retain) NSString * modificationStamp;
+@property (retain) NSString *modificationStamp;
 
 + (id)sharedInstance;
 
@@ -27,6 +25,6 @@
 - (void)setModificationStamp:(id)arg1;
 - (id)storeChat:(id)arg1;
 - (void)unarchiveChat:(id)arg1;
-- (unsigned long long)unreadCountForChat:(id)arg1;
+- (unsigned int)unreadCountForChat:(id)arg1;
 
 @end

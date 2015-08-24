@@ -2,35 +2,29 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class GKLabel, UIImageView;
-
 @interface GKNotificationBannerView : UIView {
-    id _completionHandler;
+    id /* block */ _completionHandler;
     double _duration;
     UIImageView *_imageView;
     GKLabel *_messageLabel;
-    double _preferredWidthPad;
+    float _preferredWidthPad;
     GKLabel *_titleLabel;
-    id _touchHandler;
+    id /* block */ _touchHandler;
 }
 
-@property(copy) id completionHandler;
-@property double duration;
-@property(readonly) UIImageView * imageView;
-@property(readonly) GKLabel * messageLabel;
-@property(readonly) double preferredWidthPad;
-@property(readonly) GKLabel * titleLabel;
-@property(copy) id touchHandler;
+@property (nonatomic, copy) id /* block */ completionHandler;
+@property (nonatomic) double duration;
+@property (nonatomic, readonly) UIImageView *imageView;
+@property (nonatomic, readonly) GKLabel *messageLabel;
+@property (nonatomic, readonly) float preferredWidthPad;
+@property (nonatomic, readonly) GKLabel *titleLabel;
+@property (nonatomic, copy) id /* block */ touchHandler;
 
-+ (bool)_preventsAppearanceProxyCustomization;
++ (BOOL)_preventsAppearanceProxyCustomization;
 
 - (void)_wasTouched:(id)arg1;
 - (void)callCompletionHandler;
-- (id)completionHandler;
+- (id /* block */)completionHandler;
 - (void)dealloc;
 - (double)duration;
 - (id)imageView;
@@ -40,13 +34,13 @@
 - (id)initWithTitle:(id)arg1 player:(id)arg2 message:(id)arg3;
 - (void)layoutSubviews;
 - (id)messageLabel;
-- (double)preferredWidthPad;
-- (void)setCompletionHandler:(id)arg1;
+- (float)preferredWidthPad;
+- (void)setCompletionHandler:(id /* block */)arg1;
 - (void)setDuration:(double)arg1;
-- (void)setTouchHandler:(id)arg1;
-- (void)showWithCompletionHandler:(id)arg1;
-- (void)showWithTouchHandler:(id)arg1;
+- (void)setTouchHandler:(id /* block */)arg1;
+- (void)showWithCompletionHandler:(id /* block */)arg1;
+- (void)showWithTouchHandler:(id /* block */)arg1;
 - (id)titleLabel;
-- (id)touchHandler;
+- (id /* block */)touchHandler;
 
 @end

@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOComposedWaypoint, NSString;
-
 @interface GEONavigationRouteSummary : PBCodable <NSCopying> {
-    struct { 
-        unsigned int transportType : 1; 
     GEOComposedWaypoint *_destination;
     NSString *_destinationName;
+    struct { 
+        unsigned int transportType : 1; 
     } _has;
     GEOComposedWaypoint *_origin;
     int _transportType;
 }
 
-@property(retain) GEOComposedWaypoint * destination;
-@property(retain) NSString * destinationName;
-@property(readonly) bool hasDestination;
-@property(readonly) bool hasDestinationName;
-@property(readonly) bool hasOrigin;
-@property bool hasTransportType;
-@property(retain) GEOComposedWaypoint * origin;
-@property int transportType;
+@property (nonatomic, retain) GEOComposedWaypoint *destination;
+@property (nonatomic, retain) NSString *destinationName;
+@property (nonatomic, readonly) BOOL hasDestination;
+@property (nonatomic, readonly) BOOL hasDestinationName;
+@property (nonatomic, readonly) BOOL hasOrigin;
+@property (nonatomic) BOOL hasTransportType;
+@property (nonatomic, retain) GEOComposedWaypoint *origin;
+@property (nonatomic) int transportType;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -30,19 +28,19 @@
 - (id)destination;
 - (id)destinationName;
 - (id)dictionaryRepresentation;
-- (bool)hasDestination;
-- (bool)hasDestinationName;
-- (bool)hasOrigin;
-- (bool)hasTransportType;
-- (unsigned long long)hash;
+- (BOOL)hasDestination;
+- (BOOL)hasDestinationName;
+- (BOOL)hasOrigin;
+- (BOOL)hasTransportType;
+- (unsigned int)hash;
 - (id)initWithRoute:(id)arg1 destinationName:(id)arg2;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)origin;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setDestination:(id)arg1;
 - (void)setDestinationName:(id)arg1;
-- (void)setHasTransportType:(bool)arg1;
+- (void)setHasTransportType:(BOOL)arg1;
 - (void)setOrigin:(id)arg1;
 - (void)setRoute:(id)arg1;
 - (void)setTransportType:(int)arg1;

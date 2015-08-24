@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class NSMutableArray;
-
 @interface BWDepthFirstEnumerator : BWNodeEnumerator {
-    unsigned long long _currentSourceIndex;
+    unsigned int _currentSourceIndex;
     NSMutableArray *_stack;
 }
 

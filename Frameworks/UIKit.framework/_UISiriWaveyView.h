@@ -2,9 +2,18 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class <_UISiriWaveyViewDelegate>, CADisplayLink, EAGLContext;
-
 @interface _UISiriWaveyView : UIView {
+    int _attribPosition;
+    <_UISiriWaveyViewDelegate> *_delegate;
+    CADisplayLink *_displayLink;
+    EAGLContext *_eaglContext;
+    unsigned int _framebufferHandle;
+    BOOL _isInitialized;
+    BOOL _justStarted;
+    const float *_lineWidth;
+    int _mode;
+    unsigned int _powerPointer;
+    unsigned int _programHandle;
     struct { 
         struct { 
             float m_x; 
@@ -30,19 +39,11 @@
             float m_z; 
             float m_w; 
         } m_trans; 
-    int _attribPosition;
-    <_UISiriWaveyViewDelegate> *_delegate;
-    CADisplayLink *_displayLink;
-    EAGLContext *_eaglContext;
-    unsigned int _framebufferHandle;
-    const float *_lineWidth;
-    int _mode;
-    unsigned int _powerPointer;
-    unsigned int _programHandle;
-    float _projection11;
     } _projection;
+    float _projection11;
     unsigned int _renderbufferHandle;
-    float _runningPowerLevels[5];
+    float _runningPowerLevels;
+    UIScreen *_screen;
     double _startTime;
     int _state;
     unsigned int _textureHandle;
@@ -56,25 +57,23 @@
     unsigned int _vertexBufferHandle;
     int _viewHeight;
     int _viewWidth;
-    bool_isInitialized;
-    bool_justStarted;
 }
 
-@property <_UISiriWaveyViewDelegate> * delegate;
-@property int mode;
+@property (nonatomic) <_UISiriWaveyViewDelegate> *delegate;
+@property (nonatomic) int mode;
 
 + (Class)layerClass;
 
 - (void)_cleanupGL;
 - (float)_currentMicPowerLevel;
-- (bool)_initGL;
+- (BOOL)_initGL;
 - (float)_powerLevelForMicPower:(float)arg1;
-- (bool)_resizeFromLayer:(id)arg1;
+- (BOOL)_resizeFromLayer:(id)arg1;
 - (void)_setupDisplayLink;
-- (bool)_setupFramebuffer;
-- (bool)_setupShaders;
-- (bool)_setupTexture;
-- (bool)_setupVertexBuffer;
+- (BOOL)_setupFramebuffer;
+- (BOOL)_setupShaders;
+- (BOOL)_setupTexture;
+- (BOOL)_setupVertexBuffer;
 - (void)_tearDownDisplayLink;
 - (void)_updateCurveLayer:(id)arg1;
 - (float)_updateMedianWithNewValue:(float)arg1;
@@ -82,13 +81,14 @@
 - (void)dealloc;
 - (id)delegate;
 - (void)didMoveToSuperview;
-- (bool)inDictationMode;
-- (bool)inSiriMode;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (BOOL)inDictationMode;
+- (BOOL)inSiriMode;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1 screen:(id)arg2;
 - (void)layoutSubviews;
 - (int)mode;
 - (void)setDelegate:(id)arg1;
-- (void)setHidden:(bool)arg1;
+- (void)setHidden:(BOOL)arg1;
 - (void)setMode:(int)arg1;
 - (void)start;
 - (void)startListening;

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class NSArray;
-
 @interface BWMetadataObjectFormat : BWFormat {
     NSArray *_metadataIdentifiers;
 }
@@ -15,6 +13,6 @@
 - (void)dealloc;
 - (id)debugDescription;
 - (id)description;
-- (unsigned int)mediaType;
+- (unsigned long)mediaType;
 
 @end

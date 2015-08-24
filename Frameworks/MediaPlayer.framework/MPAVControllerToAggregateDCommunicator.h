@@ -2,13 +2,11 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class MPAVItem;
-
 @interface MPAVControllerToAggregateDCommunicator : NSObject {
     MPAVItem *_item;
-    unsigned long long _lastMediaType;
+    unsigned int _lastMediaType;
     double _playbackStartTime;
-    bool_playbackStartTimeIsValid;
+    BOOL _playbackStartTimeIsValid;
 }
 
 - (void).cxx_destruct;

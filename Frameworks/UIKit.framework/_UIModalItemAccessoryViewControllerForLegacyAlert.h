@@ -2,14 +2,12 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIView;
-
 @interface _UIModalItemAccessoryViewControllerForLegacyAlert : UIViewController {
     UIView *_accessoryView;
 }
 
 - (void)_setAccessoryView:(id)arg1;
 - (void)dealloc;
-- (void)viewWillAppear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 
 @end

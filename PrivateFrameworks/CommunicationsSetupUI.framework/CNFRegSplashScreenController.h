@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/CommunicationsSetupUI.framework/CommunicationsSetupUI
  */
 
-@class <CNFRegFirstRunDelegate>, CNFRegController, NSString, UIBarButtonItem, UIButton;
-
 @interface CNFRegSplashScreenController : PSViewController <CNFRegFirstRunExperience> {
     <CNFRegFirstRunDelegate> *_delegate;
     UIButton *_learnMoreButton;
     CNFRegController *_regController;
 }
 
-@property(readonly) long long currentAppearanceStyle;
-@property(retain) UIBarButtonItem * customLeftButton;
-@property(retain) UIBarButtonItem * customRightButton;
-@property(copy,readonly) NSString * debugDescription;
-@property <CNFRegFirstRunDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) CNFRegController * regController;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) int currentAppearanceStyle;
+@property (nonatomic, retain) UIBarButtonItem *customLeftButton;
+@property (nonatomic, retain) UIBarButtonItem *customRightButton;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <CNFRegFirstRunDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) CNFRegController *regController;
+@property (readonly) Class superclass;
 
 - (void)_getStartedPressed:(id)arg1;
 - (void)_learnMorePressed:(id)arg1;
-- (long long)currentAppearanceStyle;
+- (int)currentAppearanceStyle;
 - (id)customLeftButton;
 - (id)customRightButton;
 - (void)dealloc;
@@ -35,9 +33,9 @@
 - (void)setCustomRightButton:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setRegController:(id)arg1;
-- (bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (id)userInteractionColor;
-- (void)viewWillAppear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 - (void)willBecomeActive;
 
 @end

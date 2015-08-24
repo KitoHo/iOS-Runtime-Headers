@@ -2,8 +2,7 @@
    Image: /usr/lib/system/libdispatch.dylib
  */
 
-@interface OS_voucher : OS_object <OS_voucher> {
-}
+@interface OS_voucher : OS_object <OS_voucher>
 
 + (void)load;
 

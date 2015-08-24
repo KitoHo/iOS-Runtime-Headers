@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/CellularPlanManager.framework/CellularPlanManager
  */
 
-@class NSString;
-
 @interface CTCellularPlanSubscriptionDataUsage : NSObject <NSCopying, NSSecureCoding> {
     double _dataCapacity;
     NSString *_dataCategory;
     double _dataUsed;
 }
 
-@property(readonly) double dataCapacity;
-@property(readonly) NSString * dataCategory;
-@property(readonly) double dataUsed;
+@property (nonatomic, readonly) double dataCapacity;
+@property (nonatomic, readonly) NSString *dataCategory;
+@property (nonatomic, readonly) double dataUsed;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (double)dataCapacity;

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CommunicationsSetupUI.framework/CommunicationsSetupUI
  */
 
-@class CNFRegSplashSignInController, PSSpecifier, UIButton, UIImageView, UILabel, UIProgressIndicator, UITextField, UserPassBox;
-
 @interface CNFRegSigninLearnMoreView : UIView <PSHeaderFooterView> {
     UILabel *_appleIDLabel;
     CNFRegSplashSignInController *_controller;
@@ -12,7 +10,7 @@
     UIButton *_learnMoreButton;
     UITextField *_passwordField;
     UILabel *_passwordLabel;
-    long long _serviceType;
+    int _serviceType;
     UIButton *_signInButton;
     UIProgressIndicator *_signInSpinner;
     PSSpecifier *_specifier;
@@ -23,8 +21,8 @@
     UILabel *_verbiageLabel;
 }
 
-@property CNFRegSplashSignInController * controller;
-@property long long serviceType;
+@property (nonatomic) CNFRegSplashSignInController *controller;
+@property (nonatomic) int serviceType;
 
 - (void)_learnMorePressed:(id)arg1;
 - (id)_splashImage;
@@ -41,13 +39,13 @@
 - (id)passwordField;
 - (id)passwordLabel;
 - (id)passwordTextField;
-- (double)preferredHeightForWidth:(double)arg1;
-- (long long)serviceType;
+- (float)preferredHeightForWidth:(float)arg1;
+- (int)serviceType;
 - (void)setController:(id)arg1;
 - (void)setCreateNewButtonTarget:(id)arg1 selector:(SEL)arg2;
-- (void)setFieldsEnabled:(bool)arg1;
+- (void)setFieldsEnabled:(BOOL)arg1;
 - (void)setForgotIDButtonTarget:(id)arg1 selector:(SEL)arg2;
-- (void)setServiceType:(long long)arg1;
+- (void)setServiceType:(int)arg1;
 - (void)setSignInButtonTarget:(id)arg1 selector:(SEL)arg2;
 - (id)signInButton;
 - (id)signInSpinner;

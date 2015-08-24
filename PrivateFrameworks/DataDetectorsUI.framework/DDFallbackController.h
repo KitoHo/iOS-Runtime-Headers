@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/DataDetectorsUI.framework/DataDetectorsUI
  */
 
-@class UIWindow;
-
 @interface DDFallbackController : UIViewController {
     UIWindow *_baseWindow;
     id _interactionDelegate;
     UIWindow *_ourWindow;
-    long long _startOrientation;
+    int _startOrientation;
 }
 
 - (void)dealloc;
-- (void)dismissViewControllerAnimated:(bool)arg1 completion:(id)arg2;
+- (void)dismissViewControllerAnimated:(BOOL)arg1 completion:(id /* block */)arg2;
 - (id)initWithWindow:(id)arg1 interactionDelegate:(id)arg2;
 - (void)loadView;
-- (void)presentViewController:(id)arg1 animated:(bool)arg2 completion:(id)arg3;
-- (bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)presentViewController:(id)arg1 animated:(BOOL)arg2 completion:(id /* block */)arg3;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 
 @end

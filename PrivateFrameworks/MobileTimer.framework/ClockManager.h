@@ -2,45 +2,43 @@
    Image: /System/Library/PrivateFrameworks/MobileTimer.framework/MobileTimer
  */
 
-@class NSArray, NSMutableArray, ObjectUpdates;
-
 @interface ClockManager : NSObject {
     ObjectUpdates *_localNotificationUpdates;
+    BOOL _performingUpgrade;
     NSMutableArray *_scheduledLocalNotifications;
-    bool_performingUpgrade;
-    boolignoringNotificationPostRequests;
-    boolrunningInAssistantPlugin;
-    boolrunningInSpringBoard;
+    BOOL ignoringNotificationPostRequests;
+    BOOL runningInAssistantPlugin;
+    BOOL runningInSpringBoard;
 }
 
-@property(getter=isIgnoringNotificationPostRequests) bool ignoringNotificationPostRequests;
-@property(getter=isRunningInAssistantPlugin) bool runningInAssistantPlugin;
-@property(getter=isRunningInSpringBoard) bool runningInSpringBoard;
-@property(readonly) NSArray * scheduledLocalNotificationsCache;
-@property(readonly) ObjectUpdates * updatesToLocalNotificationsCache;
+@property (getter=isIgnoringNotificationPostRequests, nonatomic) BOOL ignoringNotificationPostRequests;
+@property (getter=isRunningInAssistantPlugin, nonatomic) BOOL runningInAssistantPlugin;
+@property (getter=isRunningInSpringBoard, nonatomic) BOOL runningInSpringBoard;
+@property (nonatomic, readonly) NSArray *scheduledLocalNotificationsCache;
+@property (nonatomic, readonly) ObjectUpdates *updatesToLocalNotificationsCache;
 
 + (void)loadUserPreferences;
-+ (void)saveAndNotifyForUserPreferences:(bool)arg1 localNotifications:(bool)arg2;
++ (void)saveAndNotifyForUserPreferences:(BOOL)arg1 localNotifications:(BOOL)arg2;
 + (int)sectionFromClockAppURL:(id)arg1;
 + (id)sharedManager;
 + (id)urlForClockAppSection:(int)arg1;
 
 - (void)cancelLocalNotification:(id)arg1;
 - (void)dealloc;
-- (bool)discardOldVersion;
-- (bool)isIgnoringNotificationPostRequests;
-- (bool)isRunningInAssistantPlugin;
-- (bool)isRunningInSpringBoard;
+- (BOOL)discardOldVersion;
+- (BOOL)isIgnoringNotificationPostRequests;
+- (BOOL)isRunningInAssistantPlugin;
+- (BOOL)isRunningInSpringBoard;
 - (void)postUserPreferencesChangedNotification;
 - (void)refreshScheduledLocalNotificationsCache;
 - (void)resetUpdatesToLocalNotificationsCache;
 - (void)scheduleLocalNotification:(id)arg1;
 - (id)scheduledLocalNotificationsCache;
-- (void)setIgnoringNotificationPostRequests:(bool)arg1;
-- (void)setRunningInAssistantPlugin:(bool)arg1;
-- (void)setRunningInSpringBoard:(bool)arg1;
+- (void)setIgnoringNotificationPostRequests:(BOOL)arg1;
+- (void)setRunningInAssistantPlugin:(BOOL)arg1;
+- (void)setRunningInSpringBoard:(BOOL)arg1;
 - (id)updatesToLocalNotificationsCache;
-- (bool)upgrade;
-- (bool)upgradeIfNeverAttempted;
+- (BOOL)upgrade;
+- (BOOL)upgradeIfNeverAttempted;
 
 @end

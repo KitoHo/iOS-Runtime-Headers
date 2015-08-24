@@ -2,48 +2,42 @@
    Image: /System/Library/Frameworks/iAd.framework/iAd
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <ADAdSlotDelegate>, NSArray, NSData, NSMutableArray, NSString;
-
 @interface ADAdSlot : NSObject <ADBannerViewInternalDelegate, NSSecureCoding> {
-    id _completionHandler;
+    id /* block */ _completionHandler;
     <ADAdSlotDelegate> *_delegate;
+    BOOL _didBeginPlayback;
+    BOOL _didReportFinish;
+    BOOL _didRequest;
     NSData *_followingSongData;
+    BOOL _gatewayAdSlot;
     NSString *_identifier;
     NSMutableArray *_pendingBannerLoads;
     NSData *_previousSongData;
     NSData *_stationData;
     NSMutableArray *_visuallyDisengagedBanners;
     NSMutableArray *_visuallyEngagedBanners;
-    bool_didBeginPlayback;
-    bool_didReportFinish;
-    bool_didRequest;
-    bool_gatewayAdSlot;
 }
 
-@property(retain,readonly) NSArray * ads;
-@property(copy) id completionHandler;
-@property(copy,readonly) NSString * debugDescription;
-@property <ADAdSlotDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property bool didBeginPlayback;
-@property bool didReportFinish;
-@property bool didRequest;
-@property(copy) NSData * followingSongData;
-@property bool gatewayAdSlot;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * identifier;
-@property(retain) NSMutableArray * pendingBannerLoads;
-@property(copy) NSData * previousSongData;
-@property(copy) NSData * stationData;
-@property(readonly) Class superclass;
-@property(retain) NSMutableArray * visuallyDisengagedBanners;
-@property(retain) NSMutableArray * visuallyEngagedBanners;
+@property (nonatomic, readonly, retain) NSArray *ads;
+@property (nonatomic, copy) id /* block */ completionHandler;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <ADAdSlotDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) BOOL didBeginPlayback;
+@property (nonatomic) BOOL didReportFinish;
+@property (nonatomic) BOOL didRequest;
+@property (nonatomic, copy) NSData *followingSongData;
+@property (nonatomic) BOOL gatewayAdSlot;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic, retain) NSMutableArray *pendingBannerLoads;
+@property (nonatomic, copy) NSData *previousSongData;
+@property (nonatomic, copy) NSData *stationData;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSMutableArray *visuallyDisengagedBanners;
+@property (nonatomic, retain) NSMutableArray *visuallyEngagedBanners;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)_bannersForAds:(id)arg1;
 - (void)_considerInvokingCompletionHandler;
@@ -51,30 +45,30 @@
 - (id)ads;
 - (void)bannerView:(id)arg1 didFailToReceiveAdWithError:(id)arg2;
 - (void)bannerViewDidLoadAd:(id)arg1;
-- (id)completionHandler;
+- (id /* block */)completionHandler;
 - (void)dealloc;
 - (id)delegate;
 - (id)description;
-- (bool)didBeginPlayback;
-- (void)didFinishPlaybackOfAds:(id)arg1 skippedCount:(long long)arg2;
-- (bool)didReportFinish;
-- (bool)didRequest;
+- (BOOL)didBeginPlayback;
+- (void)didFinishPlaybackOfAds:(id)arg1 skippedCount:(int)arg2;
+- (BOOL)didReportFinish;
+- (BOOL)didRequest;
 - (void)encodeWithCoder:(id)arg1;
 - (id)followingSongData;
-- (bool)gatewayAdSlot;
+- (BOOL)gatewayAdSlot;
 - (id)identifier;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (void)loadVisuallyEngagedAds:(id)arg1 visuallyDisengagedAds:(id)arg2 completionHandler:(id)arg3;
+- (void)loadVisuallyEngagedAds:(id)arg1 visuallyDisengagedAds:(id)arg2 completionHandler:(id /* block */)arg3;
 - (id)pendingBannerLoads;
 - (id)previousSongData;
-- (void)setCompletionHandler:(id)arg1;
+- (void)setCompletionHandler:(id /* block */)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setDidBeginPlayback:(bool)arg1;
-- (void)setDidReportFinish:(bool)arg1;
-- (void)setDidRequest:(bool)arg1;
+- (void)setDidBeginPlayback:(BOOL)arg1;
+- (void)setDidReportFinish:(BOOL)arg1;
+- (void)setDidRequest:(BOOL)arg1;
 - (void)setFollowingSongData:(id)arg1;
-- (void)setGatewayAdSlot:(bool)arg1;
+- (void)setGatewayAdSlot:(BOOL)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setPendingBannerLoads:(id)arg1;
 - (void)setPreviousSongData:(id)arg1;

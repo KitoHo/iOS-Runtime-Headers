@@ -2,48 +2,46 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class GKPlayerInternal, NSString;
-
 @interface GKLeaderboardScoreRequest : NSObject <NSSecureCoding> {
+    BOOL _friendsOnly;
     NSString *_gameBundleID;
     NSString *_groupIdentifier;
     NSString *_identifier;
     GKPlayerInternal *_playerInternal;
-    long long _timeScope;
-    bool_friendsOnly;
-    bool_prefetch;
+    BOOL _prefetch;
+    int _timeScope;
 }
 
-@property bool friendsOnly;
-@property(copy) NSString * gameBundleID;
-@property(copy) NSString * groupIdentifier;
-@property(copy) NSString * identifier;
-@property(copy) GKPlayerInternal * playerInternal;
-@property(getter=isPrefetch) bool prefetch;
-@property long long timeScope;
+@property (nonatomic) BOOL friendsOnly;
+@property (nonatomic, copy) NSString *gameBundleID;
+@property (nonatomic, copy) NSString *groupIdentifier;
+@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic, copy) GKPlayerInternal *playerInternal;
+@property (getter=isPrefetch, nonatomic) BOOL prefetch;
+@property (nonatomic) int timeScope;
 
 + (id)requestForPlayerInternals:(id)arg1;
-+ (id)requestForRankRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1;
-+ (bool)supportsSecureCoding;
++ (id)requestForRankRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1;
++ (BOOL)supportsSecureCoding;
 
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
-- (bool)friendsOnly;
+- (BOOL)friendsOnly;
 - (id)gameBundleID;
 - (id)groupIdentifier;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)identifier;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)isPrefetch;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isPrefetch;
 - (id)playerInternal;
-- (void)setFriendsOnly:(bool)arg1;
+- (void)setFriendsOnly:(BOOL)arg1;
 - (void)setGameBundleID:(id)arg1;
 - (void)setGroupIdentifier:(id)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setPlayerInternal:(id)arg1;
-- (void)setPrefetch:(bool)arg1;
-- (void)setTimeScope:(long long)arg1;
-- (long long)timeScope;
+- (void)setPrefetch:(BOOL)arg1;
+- (void)setTimeScope:(int)arg1;
+- (int)timeScope;
 
 @end

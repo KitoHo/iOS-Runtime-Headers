@@ -2,51 +2,54 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSString;
-
-@interface NSSortDescriptor : NSObject <NSSecureCoding, NSCopying> {
+@interface NSSortDescriptor : NSObject <NSCopying, NSSecureCoding> {
     NSString *_key;
     SEL _selector;
     id _selectorOrBlock;
-    unsigned long long _sortDescriptorFlags;
+    unsigned int _sortDescriptorFlags;
 }
 
-@property(readonly) bool ascending;
-@property(readonly) id comparator;
-@property(copy,readonly) NSString * key;
-@property(retain,readonly) id reversedSortDescriptor;
-@property(readonly) SEL selector;
+@property (readonly) BOOL ascending;
+@property (readonly) id /* block */ comparator;
+@property (readonly, copy) NSString *key;
+@property (readonly, retain) id reversedSortDescriptor;
+@property (readonly) SEL selector;
+
+// Image: /System/Library/Frameworks/Foundation.framework/Foundation
 
 + (id)_defaultSelectorName;
 + (void)initialize;
-+ (id)sortDescriptorWithKey:(id)arg1 ascending:(bool)arg2 comparator:(id)arg3;
-+ (id)sortDescriptorWithKey:(id)arg1 ascending:(bool)arg2 selector:(SEL)arg3;
-+ (id)sortDescriptorWithKey:(id)arg1 ascending:(bool)arg2;
-+ (bool)supportsSecureCoding;
++ (id)sortDescriptorWithKey:(id)arg1 ascending:(BOOL)arg2;
++ (id)sortDescriptorWithKey:(id)arg1 ascending:(BOOL)arg2 comparator:(id /* block */)arg3;
++ (id)sortDescriptorWithKey:(id)arg1 ascending:(BOOL)arg2 selector:(SEL)arg3;
++ (BOOL)supportsSecureCoding;
 
-- (id)CKDPQuerySort;
 - (void)_disallowEvaluation;
-- (bool)_isEqualToSortDescriptor:(id)arg1;
+- (BOOL)_isEqualToSortDescriptor:(id)arg1;
 - (id)_selectorName;
-- (void)_setAscending:(bool)arg1;
+- (void)_setAscending:(BOOL)arg1;
 - (void)_setKey:(id)arg1;
 - (void)_setSelectorName:(id)arg1;
 - (void)allowEvaluation;
-- (bool)ascending;
-- (id)comparator;
-- (long long)compareObject:(id)arg1 toObject:(id)arg2;
+- (BOOL)ascending;
+- (id /* block */)comparator;
+- (int)compareObject:(id)arg1 toObject:(id)arg2;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithKey:(id)arg1 ascending:(bool)arg2 comparator:(id)arg3;
-- (id)initWithKey:(id)arg1 ascending:(bool)arg2 selector:(SEL)arg3;
-- (id)initWithKey:(id)arg1 ascending:(bool)arg2;
-- (bool)isEqual:(id)arg1;
+- (id)initWithKey:(id)arg1 ascending:(BOOL)arg2;
+- (id)initWithKey:(id)arg1 ascending:(BOOL)arg2 comparator:(id /* block */)arg3;
+- (id)initWithKey:(id)arg1 ascending:(BOOL)arg2 selector:(SEL)arg3;
+- (BOOL)isEqual:(id)arg1;
 - (id)key;
 - (id)replacementObjectForPortCoder:(id)arg1;
 - (id)reversedSortDescriptor;
 - (SEL)selector;
+
+// Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
+
+- (id)CKDPQuerySort;
 
 @end

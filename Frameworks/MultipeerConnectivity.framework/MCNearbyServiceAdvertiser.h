@@ -2,41 +2,39 @@
    Image: /System/Library/Frameworks/MultipeerConnectivity.framework/MultipeerConnectivity
  */
 
-@class <MCNearbyServiceAdvertiserDelegate>, MCPeerID, NSData, NSDictionary, NSMutableDictionary, NSNetService, NSObject<OS_dispatch_queue>, NSString;
-
 @interface MCNearbyServiceAdvertiser : NSObject <NSNetServiceDelegate> {
     NSData *_TXTRecordData;
     <MCNearbyServiceAdvertiserDelegate> *_delegate;
     NSDictionary *_discoveryInfo;
     NSString *_formattedServiceType;
     NSMutableDictionary *_invites;
+    BOOL _isAdvertising;
     MCPeerID *_myPeerID;
     NSNetService *_networkServer;
-    long long _outgoingInviteID;
+    int _outgoingInviteID;
     NSMutableDictionary *_peers;
     NSString *_serviceType;
     NSObject<OS_dispatch_queue> *_syncQueue;
-    bool_isAdvertising;
-    bool_wasAdvertising;
+    BOOL _wasAdvertising;
 }
 
-@property(retain) NSData * TXTRecordData;
-@property(copy,readonly) NSString * debugDescription;
-@property <MCNearbyServiceAdvertiserDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(copy) NSDictionary * discoveryInfo;
-@property(copy) NSString * formattedServiceType;
-@property(readonly) unsigned long long hash;
-@property(retain) NSMutableDictionary * invites;
-@property bool isAdvertising;
-@property(readonly) MCPeerID * myPeerID;
-@property(retain) NSNetService * networkServer;
-@property long long outgoingInviteID;
-@property(retain) NSMutableDictionary * peers;
-@property(copy) NSString * serviceType;
-@property(readonly) Class superclass;
-@property(retain) NSObject<OS_dispatch_queue> * syncQueue;
-@property bool wasAdvertising;
+@property (nonatomic, retain) NSData *TXTRecordData;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <MCNearbyServiceAdvertiserDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, copy) NSDictionary *discoveryInfo;
+@property (nonatomic, copy) NSString *formattedServiceType;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NSMutableDictionary *invites;
+@property (nonatomic) BOOL isAdvertising;
+@property (nonatomic, readonly) MCPeerID *myPeerID;
+@property (nonatomic, retain) NSNetService *networkServer;
+@property (nonatomic) int outgoingInviteID;
+@property (nonatomic, retain) NSMutableDictionary *peers;
+@property (nonatomic, copy) NSString *serviceType;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *syncQueue;
+@property (nonatomic) BOOL wasAdvertising;
 
 - (id)TXTRecordData;
 - (void)applicationDidEnterBackgroundNotification:(id)arg1;
@@ -50,7 +48,7 @@
 - (id)init;
 - (id)initWithPeer:(id)arg1 discoveryInfo:(id)arg2 serviceType:(id)arg3;
 - (id)invites;
-- (bool)isAdvertising;
+- (BOOL)isAdvertising;
 - (id)makeTXTRecordDataWithDiscoveryInfo:(id)arg1;
 - (id)myPeerID;
 - (void)netService:(id)arg1 didAcceptConnectionWithInputStream:(id)arg2 outputStream:(id)arg3;
@@ -58,7 +56,7 @@
 - (void)netServiceDidPublish:(id)arg1;
 - (void)netServiceDidStop:(id)arg1;
 - (id)networkServer;
-- (long long)outgoingInviteID;
+- (int)outgoingInviteID;
 - (void)parseIDString:(id*)arg1 displayName:(id*)arg2 fromIdentifier:(id)arg3;
 - (id)peers;
 - (id)serviceType;
@@ -66,14 +64,14 @@
 - (void)setDiscoveryInfo:(id)arg1;
 - (void)setFormattedServiceType:(id)arg1;
 - (void)setInvites:(id)arg1;
-- (void)setIsAdvertising:(bool)arg1;
+- (void)setIsAdvertising:(BOOL)arg1;
 - (void)setNetworkServer:(id)arg1;
-- (void)setOutgoingInviteID:(long long)arg1;
+- (void)setOutgoingInviteID:(int)arg1;
 - (void)setPeers:(id)arg1;
 - (void)setServiceType:(id)arg1;
 - (void)setSyncQueue:(id)arg1;
 - (void)setTXTRecordData:(id)arg1;
-- (void)setWasAdvertising:(bool)arg1;
+- (void)setWasAdvertising:(BOOL)arg1;
 - (void)startAdvertisingPeer;
 - (void)stopAdvertisingPeer;
 - (void)syncAttachConnection:(id)arg1 toPeer:(id)arg2;
@@ -83,11 +81,11 @@
 - (void)syncHandleInviteConnect:(id)arg1 fromPeer:(id)arg2;
 - (id)syncQueue;
 - (void)syncReceivedData:(id)arg1 fromPeer:(id)arg2;
-- (void)syncSendData:(id)arg1 toPeer:(id)arg2 withCompletionHandler:(id)arg3;
-- (void)syncSendDictionary:(id)arg1 toPeer:(id)arg2 withCompletionHandler:(id)arg3;
+- (void)syncSendData:(id)arg1 toPeer:(id)arg2 withCompletionHandler:(id /* block */)arg3;
+- (void)syncSendDictionary:(id)arg1 toPeer:(id)arg2 withCompletionHandler:(id /* block */)arg3;
 - (void)syncStartAdvertisingPeer;
 - (void)syncStopAdvertisingPeer;
 - (id)txtRecordDataWithDiscoveryInfo:(id)arg1;
-- (bool)wasAdvertising;
+- (BOOL)wasAdvertising;
 
 @end

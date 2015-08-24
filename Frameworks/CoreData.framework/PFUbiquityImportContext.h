@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSDictionary, NSMutableDictionary, NSString, PFUbiquityBaselineHeuristics, PFUbiquityKnowledgeVector, PFUbiquityPeer, PFUbiquityStoreMetadata, PFUbiquityStoreSaveSnapshot, PFUbiquitySwitchboardCacheWrapper, PFUbiquityTransactionLog, _PFUbiquityStack;
-
 @interface PFUbiquityImportContext : NSObject {
     PFUbiquityPeer *_actingPeer;
     PFUbiquitySwitchboardCacheWrapper *_cacheWrapper;
@@ -19,18 +17,18 @@
     PFUbiquityTransactionLog *_transactionLog;
 }
 
-@property(readonly) PFUbiquityPeer * actingPeer;
-@property(retain) PFUbiquitySwitchboardCacheWrapper * cacheWrapper;
-@property(retain) PFUbiquityKnowledgeVector * currentKnowledgeVector;
-@property(retain) NSString * exportingPeerID;
-@property(readonly) NSMutableDictionary * globalIDToFetchedObject;
-@property(retain) NSDictionary * globalIDToLocalIDURICache;
-@property(retain) PFUbiquityBaselineHeuristics * heuristics;
-@property(retain) PFUbiquityKnowledgeVector * knowledgeVector;
-@property(retain) _PFUbiquityStack * stack;
-@property(retain) PFUbiquityStoreMetadata * storeMetadata;
-@property(retain) PFUbiquityStoreSaveSnapshot * storeSaveSnapshot;
-@property(retain) PFUbiquityTransactionLog * transactionLog;
+@property (nonatomic, readonly) PFUbiquityPeer *actingPeer;
+@property (nonatomic, retain) PFUbiquitySwitchboardCacheWrapper *cacheWrapper;
+@property (nonatomic, retain) PFUbiquityKnowledgeVector *currentKnowledgeVector;
+@property (nonatomic, retain) NSString *exportingPeerID;
+@property (nonatomic, readonly) NSMutableDictionary *globalIDToFetchedObject;
+@property (nonatomic, retain) NSDictionary *globalIDToLocalIDURICache;
+@property (nonatomic, retain) PFUbiquityBaselineHeuristics *heuristics;
+@property (nonatomic, retain) PFUbiquityKnowledgeVector *knowledgeVector;
+@property (nonatomic, retain) _PFUbiquityStack *stack;
+@property (nonatomic, retain) PFUbiquityStoreMetadata *storeMetadata;
+@property (nonatomic, retain) PFUbiquityStoreSaveSnapshot *storeSaveSnapshot;
+@property (nonatomic, retain) PFUbiquityTransactionLog *transactionLog;
 
 - (id)actingPeer;
 - (id)cacheWrapper;
@@ -44,7 +42,7 @@
 - (id)initWithStack:(id)arg1 andStoreMetadata:(id)arg2;
 - (id)initWithStoreName:(id)arg1 andUbiquityRootLocation:(id)arg2 withLocalPeerID:(id)arg3;
 - (id)knowledgeVector;
-- (bool)prefetchManagedObjectsInContext:(id)arg1 error:(id*)arg2;
+- (BOOL)prefetchManagedObjectsInContext:(id)arg1 error:(id*)arg2;
 - (void)setActingPeer:(id)arg1;
 - (void)setCacheWrapper:(id)arg1;
 - (void)setCurrentKnowledgeVector:(id)arg1;

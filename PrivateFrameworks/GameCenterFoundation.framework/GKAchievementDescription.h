@@ -2,51 +2,55 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class GKAchievementInternal, NSString, UIImage;
-
 @interface GKAchievementDescription : NSObject <NSCoding, NSSecureCoding> {
     UIImage *_image;
     GKAchievementInternal *_internal;
 }
 
-@property(copy,readonly) NSString * achievedDescription;
-@property(retain,readonly) NSString * groupIdentifier;
-@property(getter=isHidden,readonly) bool hidden;
-@property(copy,readonly) NSString * identifier;
-@property(retain) UIImage * image;
-@property(retain) GKAchievementInternal * internal;
-@property(readonly) long long maximumPoints;
-@property(getter=isReplayable,readonly) bool replayable;
-@property(copy,readonly) NSString * title;
-@property(copy,readonly) NSString * unachievedDescription;
+@property (nonatomic, readonly, copy) NSString *achievedDescription;
+@property (nonatomic, readonly, retain) NSString *groupIdentifier;
+@property (getter=isHidden, nonatomic, readonly) BOOL hidden;
+@property (nonatomic, readonly, copy) NSString *identifier;
+@property (nonatomic, retain) UIImage *image;
+@property (retain) GKAchievementInternal *internal;
+@property (nonatomic, readonly) int maximumPoints;
+@property (getter=isReplayable, nonatomic, readonly) BOOL replayable;
+@property (nonatomic, readonly, copy) NSString *title;
+@property (nonatomic, readonly, copy) NSString *unachievedDescription;
 
-+ (id)incompleteAchievementImage;
+// Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
+
 + (id)instanceMethodSignatureForSelector:(SEL)arg1;
-+ (bool)instancesRespondToSelector:(SEL)arg1;
-+ (void)loadAchievementDescriptionsForGame:(id)arg1 withCompletionHandler:(id)arg2;
-+ (void)loadAchievementDescriptionsWithCompletionHandler:(id)arg1;
-+ (id)placeholderCompletedAchievementImage;
-+ (bool)supportsSecureCoding;
++ (BOOL)instancesRespondToSelector:(SEL)arg1;
++ (void)loadAchievementDescriptionsForGame:(id)arg1 withCompletionHandler:(id /* block */)arg2;
++ (void)loadAchievementDescriptionsWithCompletionHandler:(id /* block */)arg1;
++ (BOOL)supportsSecureCoding;
 
 - (void)dealloc;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)forwardingTargetForSelector:(SEL)arg1;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)image;
-- (id)imageURL;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithInternalRepresentation:(id)arg1;
 - (id)internal;
-- (bool)isEqual:(id)arg1;
-- (void)loadImageWithCompletionHandler:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
-- (bool)respondsToSelector:(SEL)arg1;
+- (BOOL)respondsToSelector:(SEL)arg1;
 - (void)setImage:(id)arg1;
 - (void)setInternal:(id)arg1;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
-- (void)showBanner;
 - (id)valueForUndefinedKey:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
+
++ (id)incompleteAchievementImage;
++ (id)placeholderCompletedAchievementImage;
+
+- (id)imageURL;
+- (void)loadImageWithCompletionHandler:(id /* block */)arg1;
+- (void)showBanner;
 
 @end

@@ -2,26 +2,20 @@
    Image: /System/Library/PrivateFrameworks/Weather.framework/Weather
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <WeatherUpdaterDelegate>, NSMutableArray;
-
 @interface TWCUpdater : WeatherJSONHTTPRequest {
     <WeatherUpdaterDelegate> *_delegate;
     NSMutableArray *_pendingCities;
     NSMutableArray *_updatingCities;
-    id _weatherCompletionUpdaterHandler;
+    id /* block */ _weatherCompletionUpdaterHandler;
 }
 
-@property <WeatherUpdaterDelegate> * delegate;
-@property(copy) id weatherCompletionUpdaterHandler;
+@property (nonatomic) <WeatherUpdaterDelegate> *delegate;
+@property (nonatomic, copy) id /* block */ weatherCompletionUpdaterHandler;
 
 - (id)_GMTOffsetRegularExpression;
 - (id)_ISO8601Calendar;
 - (id)_ISO8601DateFormatter;
-- (void)_failed:(unsigned long long)arg1;
+- (void)_failed:(unsigned int)arg1;
 - (void)_processCurrentConditions:(id)arg1;
 - (void)_processDailyForecasts:(id)arg1;
 - (void)_processHourlyForecasts:(id)arg1;
@@ -34,17 +28,17 @@
 - (void)didProcessJSONObject;
 - (void)failCity:(id)arg1;
 - (void)failWithError:(id)arg1;
-- (void)handleCompletionForCity:(id)arg1 withUpdateDetail:(unsigned long long)arg2;
+- (void)handleCompletionForCity:(id)arg1 withUpdateDetail:(unsigned int)arg2;
 - (void)handleNilCity;
 - (id)init;
-- (bool)isDataValid:(id)arg1;
-- (bool)isUpdatingCity:(id)arg1;
+- (BOOL)isDataValid:(id)arg1;
+- (BOOL)isUpdatingCity:(id)arg1;
 - (void)loadRequestForURLPortion:(id)arg1;
 - (void)parsedResultCity:(id)arg1;
 - (void)processJSONObject:(id)arg1;
-- (void)runAndClearWeatherCompletionWithDetail:(unsigned long long)arg1;
+- (void)runAndClearWeatherCompletionWithDetail:(unsigned int)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setWeatherCompletionUpdaterHandler:(id)arg1;
-- (id)weatherCompletionUpdaterHandler;
+- (void)setWeatherCompletionUpdaterHandler:(id /* block */)arg1;
+- (id /* block */)weatherCompletionUpdaterHandler;
 
 @end

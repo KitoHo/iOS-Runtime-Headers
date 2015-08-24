@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/AXHearingAidSupport.framework/AXHearingAidSupport
  */
 
-@class MPAVRoutingController, NSString;
-
 @interface AXHAUtilities : NSObject <MPAVRoutingControllerDelegate> {
+    BOOL _hearingAidRouteAvailable;
     MPAVRoutingController *_routingController;
-    bool_hearingAidRouteAvailable;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property bool hearingAidRouteAvailable;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) BOOL hearingAidRouteAvailable;
+@property (readonly) Class superclass;
 
 + (id)XDCObjectFromObject:(id)arg1;
 + (id)copyXPCMessageFromDictionary:(id)arg1 inReplyToXPCMessage:(id)arg2 error:(id*)arg3;
@@ -23,11 +21,11 @@
 + (id)sharedUtilityProvider;
 
 - (void)dealloc;
-- (bool)hearingAidRouteAvailable;
-- (bool)hearingAidStreamSelected;
+- (BOOL)hearingAidRouteAvailable;
+- (BOOL)hearingAidStreamSelected;
 - (id)init;
 - (void)routesDidChange:(id)arg1;
 - (void)routingControllerAvailableRoutesDidChange:(id)arg1;
-- (void)setHearingAidRouteAvailable:(bool)arg1;
+- (void)setHearingAidRouteAvailable:(BOOL)arg1;
 
 @end

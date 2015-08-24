@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSString, UILabel;
-
 @interface SUTextContentView : UITextContentView {
     UILabel *_placeholderLabel;
 }
 
-@property(retain) NSString * placeholder;
+@property (nonatomic, retain) NSString *placeholder;
 
-- (bool)becomeFirstResponder;
+- (BOOL)becomeFirstResponder;
 - (void)dealloc;
 - (void)keyboardInputChangedSelection:(id)arg1;
 - (void)layoutSubviews;
 - (id)placeholder;
-- (bool)resignFirstResponder;
+- (BOOL)resignFirstResponder;
 - (void)setBackgroundColor:(id)arg1;
 - (void)setPlaceholder:(id)arg1;
 - (void)setText:(id)arg1;

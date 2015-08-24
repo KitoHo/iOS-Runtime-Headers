@@ -2,12 +2,10 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class _UIDynamicSlider;
-
 @interface _UIDynamicSliderAnimator : UIDynamicAnimator {
     _UIDynamicSlider *_slider;
 }
 
-- (bool)_animatorStep:(double)arg1;
+- (BOOL)_animatorStep:(double)arg1;
 
 @end

@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSArray;
-
 @interface NSPullChangeHistoryRequest : NSPersistentStoreRequest {
     NSArray *_generationTokens;
 }
@@ -12,7 +10,7 @@
 - (id)description;
 - (id)generationTokens;
 - (id)initWithGenerationTokens:(id)arg1;
-- (unsigned long long)requestType;
+- (unsigned int)requestType;
 - (void)setGenerationTokens:(id)arg1;
 
 @end

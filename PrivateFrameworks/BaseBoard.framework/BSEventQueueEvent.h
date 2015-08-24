@@ -2,31 +2,25 @@
    Image: /System/Library/PrivateFrameworks/BaseBoard.framework/BaseBoard
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSString;
-
 @interface BSEventQueueEvent : NSObject {
-    id _handler;
+    id /* block */ _handler;
     NSString *_name;
 }
 
-@property(copy) id handler;
-@property(copy) NSString * name;
+@property (nonatomic, copy) id /* block */ handler;
+@property (nonatomic, copy) NSString *name;
 
-+ (id)eventWithName:(id)arg1 handler:(id)arg2;
++ (id)eventWithName:(id)arg1 handler:(id /* block */)arg2;
 
 - (void)_execute;
 - (void)dealloc;
 - (id)description;
 - (void)execute;
 - (void)executeFromEventQueue;
-- (id)handler;
-- (bool)isEqualToEvent:(id)arg1;
+- (id /* block */)handler;
+- (BOOL)isEqualToEvent:(id)arg1;
 - (id)name;
-- (void)setHandler:(id)arg1;
+- (void)setHandler:(id /* block */)arg1;
 - (void)setName:(id)arg1;
 
 @end

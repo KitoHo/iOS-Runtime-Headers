@@ -2,12 +2,11 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface UIWebFormRotatingAccessoryPopover : UIWebRotatingNodePopover <UIWebRotatingNodePopoverDelegate> {
-}
+@interface UIWebFormRotatingAccessoryPopover : UIWebRotatingNodePopover <UIWebRotatingNodePopoverDelegate>
 
 - (void)accessoryDone;
 - (id)initWithDOMNode:(id)arg1;
-- (unsigned long long)popoverArrowDirections;
+- (unsigned int)popoverArrowDirections;
 - (void)popoverWasDismissed:(id)arg1;
 
 @end

@@ -2,15 +2,7 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSString;
-
 @interface GQDTTableModel : NSObject <GQDNameMappable> {
-    boolmNameVisible;
     struct __CFArray { } *mCells;
     unsigned short mColumnCount;
     struct __CFArray { } *mColumnGroupDisplayTypes;
@@ -20,16 +12,17 @@
     unsigned short mHeaderColumnCount;
     unsigned short mHeaderRowCount;
     struct __CFString { } *mName;
+    BOOL mNameVisible;
     int mNumGroupLevels;
     unsigned short mRowCount;
     struct __CFArray { } *mRowHeights;
     struct __CFArray { } *mRowVisibilities;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (const struct StateSpec { int (**x1)(); char *x2; int x3; int x4; struct Action {} *x5; int (*x6)(); int (*x7)(); int (*x8)(); struct ActionFinder {} *x9; }*)stateForReading;
 
@@ -42,11 +35,11 @@
 - (void)dealloc;
 - (unsigned short)firstVisibleColumn;
 - (unsigned short)footerRowCount;
-- (bool)hasGroupDisplayType:(unsigned short)arg1 level:(int)arg2 displayType:(int*)arg3 isTypeVisible:(bool*)arg4;
+- (BOOL)hasGroupDisplayType:(unsigned short)arg1 level:(int)arg2 displayType:(int*)arg3 isTypeVisible:(BOOL*)arg4;
 - (unsigned short)headerColumnCount;
 - (unsigned short)headerRowCount;
 - (float)heightForRow:(unsigned short)arg1;
-- (bool)isNameVisible;
+- (BOOL)isNameVisible;
 - (struct __CFString { }*)name;
 - (int)numGroupLevels;
 - (int)readAttributesForGrid:(struct _xmlTextReader { }*)arg1;
@@ -54,7 +47,7 @@
 - (unsigned short)rowCount;
 - (void)setCells:(struct __CFArray { }*)arg1;
 - (void)setNumGroupLevels:(int)arg1;
-- (int)typeOfVectorAlongGridline:(unsigned short)arg1 offset:(unsigned short)arg2 length:(unsigned short)arg3 vertical:(bool)arg4;
+- (int)typeOfVectorAlongGridline:(unsigned short)arg1 offset:(unsigned short)arg2 length:(unsigned short)arg3 vertical:(BOOL)arg4;
 - (bool)visibilityForColumn:(unsigned short)arg1;
 - (bool)visibilityForRow:(unsigned short)arg1;
 - (float)widthForColumn:(unsigned short)arg1;

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class MFAccount, MFAuthScheme, MFConnection;
-
 @interface MFSASLAuthenticator : NSObject {
     MFAccount *_account;
     MFAuthScheme *_authScheme;
@@ -14,17 +12,17 @@
 - (id)account;
 - (id)authScheme;
 - (int)authenticationState;
-- (bool)base64EncodeResponseData;
-- (bool)couldRetry;
+- (BOOL)base64EncodeResponseData;
+- (BOOL)couldRetry;
 - (void)dealloc;
 - (id)initWithAuthScheme:(id)arg1 account:(id)arg2 connection:(id)arg3;
-- (bool)isUsingSSL;
-- (bool)justSentPlainTextPassword;
+- (BOOL)isUsingSSL;
+- (BOOL)justSentPlainTextPassword;
 - (id)responseForServerData:(id)arg1;
 - (id)saslName;
 - (id)securityLayer;
 - (void)setAuthenticationState:(int)arg1;
 - (void)setMissingPasswordError;
-- (bool)supportsInitialClientResponse;
+- (BOOL)supportsInitialClientResponse;
 
 @end

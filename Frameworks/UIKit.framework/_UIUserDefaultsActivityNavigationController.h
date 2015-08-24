@@ -2,19 +2,16 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString;
+@interface _UIUserDefaultsActivityNavigationController : UINavigationController <_UIAppearanceRestriction>
 
-@interface _UIUserDefaultsActivityNavigationController : UINavigationController <_UIAppearanceRestriction> {
-}
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
++ (BOOL)_preventsAppearanceProxyCustomization;
 
-+ (bool)_preventsAppearanceProxyCustomization;
-
-- (struct CGSize { double x1; double x2; })preferredContentSize;
-- (void)setPreferredContentSize:(struct CGSize { double x1; double x2; })arg1;
+- (struct CGSize { float x1; float x2; })preferredContentSize;
+- (void)setPreferredContentSize:(struct CGSize { float x1; float x2; })arg1;
 
 @end

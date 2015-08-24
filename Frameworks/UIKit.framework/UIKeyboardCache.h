@@ -2,15 +2,13 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class CPBitmapStore, NSSet;
-
 @interface UIKeyboardCache : NSObject {
+    BOOL _isCommitting;
     NSSet *_layouts;
     CPBitmapStore *_store;
-    bool_isCommitting;
 }
 
-+ (bool)enabled;
++ (BOOL)enabled;
 + (id)sharedInstance;
 
 - (struct CGImage { }*)cachedCompositeImageForCacheKeys:(id)arg1 fromLayout:(id)arg2 opacities:(id)arg3;
@@ -20,7 +18,7 @@
 - (void)dealloc;
 - (id)displayImagesForView:(id)arg1 fromLayout:(id)arg2 imageFlags:(id)arg3;
 - (void)displayView:(id)arg1 fromLayout:(id)arg2;
-- (void)displayView:(id)arg1 imageWidth:(double)arg2 fromLayout:(id)arg3;
+- (void)displayView:(id)arg1 imageWidth:(float)arg2 fromLayout:(id)arg3;
 - (id)init;
 - (id)uniqueLayoutsFromInputModes:(id)arg1;
 - (void)updateCacheForInputModes:(id)arg1;

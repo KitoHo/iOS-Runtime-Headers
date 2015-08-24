@@ -2,18 +2,20 @@
    Image: /System/Library/Frameworks/Photos.framework/Photos
  */
 
-@class NSString;
-
 @interface PHCollection : PHObject {
-    unsigned long long _estimatedPhotosCount;
-    unsigned long long _estimatedVideosCount;
+    BOOL _customSortAscending;
+    int _customSortKey;
+    unsigned int _estimatedPhotosCount;
+    unsigned int _estimatedVideosCount;
 }
 
-@property(readonly) bool canContainAssets;
-@property(readonly) bool canContainCollections;
-@property(readonly) unsigned long long estimatedPhotosCount;
-@property(readonly) unsigned long long estimatedVideosCount;
-@property(readonly) NSString * localizedTitle;
+@property (nonatomic, readonly) BOOL canContainAssets;
+@property (nonatomic, readonly) BOOL canContainCollections;
+@property (nonatomic, readonly) BOOL customSortAscending;
+@property (nonatomic, readonly) int customSortKey;
+@property (nonatomic, readonly) unsigned int estimatedPhotosCount;
+@property (nonatomic, readonly) unsigned int estimatedVideosCount;
+@property (nonatomic, readonly) NSString *localizedTitle;
 
 + (id)_transformValueExpression:(id)arg1 forKeyPath:(id)arg2;
 + (id)entityKeyForPropertyKey:(id)arg1;
@@ -22,16 +24,19 @@
 + (id)fetchPredicateFromComparisonPredicate:(id)arg1;
 + (id)fetchTopLevelUserCollectionsWithOptions:(id)arg1;
 + (id)managedEntityName;
-+ (bool)managedObjectSupportsTrashedState;
++ (BOOL)managedObjectSupportsTrashedState;
 
-- (bool)canContainAssets;
-- (bool)canContainCollections;
-- (bool)canPerformEditOperation:(long long)arg1;
-- (bool)collectionCanBePinned;
-- (bool)collectionHasFixedOrder;
+- (BOOL)canContainAssets;
+- (BOOL)canContainCollections;
+- (BOOL)canPerformEditOperation:(int)arg1;
+- (BOOL)collectionCanBePinned;
+- (BOOL)collectionHasFixedOrder;
+- (BOOL)customSortAscending;
+- (int)customSortKey;
 - (id)description;
-- (unsigned long long)estimatedPhotosCount;
-- (unsigned long long)estimatedVideosCount;
+- (unsigned int)estimatedPhotosCount;
+- (unsigned int)estimatedVideosCount;
+- (id)initWithFetchDictionary:(id)arg1 propertyHint:(unsigned int)arg2 photoLibrary:(id)arg3;
 - (id)localizedTitle;
 
 @end

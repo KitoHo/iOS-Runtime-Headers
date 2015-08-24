@@ -2,28 +2,24 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSDate, NSNumber, NSString;
+@interface SASetRequestOrigin : SABaseCommand <SAServerBoundCommand>
 
-@interface SASetRequestOrigin : SABaseCommand <SAServerBoundCommand> {
-}
-
-@property(copy) NSString * aceId;
-@property(retain) NSNumber * age;
-@property double altitude;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(copy) NSString * desiredAccuracy;
-@property double direction;
-@property(readonly) unsigned long long hash;
-@property double horizontalAccuracy;
-@property double latitude;
-@property double longitude;
-@property(copy) NSString * refId;
-@property double speed;
-@property(copy) NSString * status;
-@property(readonly) Class superclass;
-@property(copy) NSDate * timestamp;
-@property double verticalAccuracy;
+@property (nonatomic, copy) NSString *aceId;
+@property (nonatomic, copy) NSNumber *age;
+@property (nonatomic) double altitude;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, copy) NSString *desiredAccuracy;
+@property (nonatomic) double direction;
+@property (readonly) unsigned int hash;
+@property (nonatomic) double horizontalAccuracy;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
+@property (nonatomic, copy) NSString *refId;
+@property (nonatomic) double speed;
+@property (nonatomic, copy) NSString *status;
+@property (readonly) Class superclass;
+@property (nonatomic) double verticalAccuracy;
 
 + (id)setRequestOrigin;
 + (id)setRequestOriginWithDictionary:(id)arg1 context:(id)arg2;
@@ -46,11 +42,9 @@
 - (void)setLongitude:(double)arg1;
 - (void)setSpeed:(double)arg1;
 - (void)setStatus:(id)arg1;
-- (void)setTimestamp:(id)arg1;
 - (void)setVerticalAccuracy:(double)arg1;
 - (double)speed;
 - (id)status;
-- (id)timestamp;
 - (double)verticalAccuracy;
 
 @end

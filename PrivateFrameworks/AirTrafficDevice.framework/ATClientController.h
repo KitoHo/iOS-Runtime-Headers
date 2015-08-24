@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/AirTrafficDevice.framework/AirTrafficDevice
  */
 
-@class NSDictionary;
-
 @interface ATClientController : NSObject {
     NSDictionary *_clientMap;
     struct __CFDictionary { } *_queueMap;
@@ -13,7 +11,7 @@
 + (id)sharedInstance;
 
 - (void).cxx_destruct;
-- (bool)_loadClientsForDataclasses:(id)arg1;
+- (BOOL)_loadClientsForDataclasses:(id)arg1;
 - (id)_queueForClient:(id)arg1;
 - (id)allClients;
 - (id)clientForDataclass:(id)arg1;

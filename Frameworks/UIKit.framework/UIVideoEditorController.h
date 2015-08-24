@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class <UINavigationControllerDelegate><UIVideoEditorControllerDelegate>, NSMutableDictionary, NSString;
-
 @interface UIVideoEditorController : UINavigationController {
     struct { 
         unsigned int visible : 1; 
@@ -14,18 +12,18 @@
     NSMutableDictionary *_properties;
 }
 
-@property <UINavigationControllerDelegate><UIVideoEditorControllerDelegate> * delegate;
-@property double videoMaximumDuration;
-@property(copy) NSString * videoPath;
-@property long long videoQuality;
+@property (nonatomic) <UINavigationControllerDelegate><UIVideoEditorControllerDelegate> *delegate;
+@property (nonatomic) double videoMaximumDuration;
+@property (nonatomic, copy) NSString *videoPath;
+@property (nonatomic) int videoQuality;
 
-+ (bool)canEditVideoAtPath:(id)arg1;
++ (BOOL)canEditVideoAtPath:(id)arg1;
 
 - (void)_autoDismiss;
 - (id)_createInitialController;
-- (bool)_didRevertStatusBar;
+- (BOOL)_didRevertStatusBar;
 - (void)_initializeProperties;
-- (bool)_isSupportedInterfaceOrientation:(long long)arg1;
+- (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
 - (id)_properties;
 - (void)_removeAllChildren;
 - (void)_setProperties:(id)arg1;
@@ -40,13 +38,13 @@
 - (id)init;
 - (void)setVideoMaximumDuration:(double)arg1;
 - (void)setVideoPath:(id)arg1;
-- (void)setVideoQuality:(long long)arg1;
+- (void)setVideoQuality:(int)arg1;
 - (double)videoMaximumDuration;
 - (id)videoPath;
-- (long long)videoQuality;
-- (void)viewDidDisappear:(bool)arg1;
-- (void)viewWillAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (int)videoQuality;
+- (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillUnload;
 
 @end

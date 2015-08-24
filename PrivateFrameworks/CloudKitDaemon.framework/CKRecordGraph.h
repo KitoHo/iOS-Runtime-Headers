@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSArray, NSMutableSet;
-
 @interface CKRecordGraph : NSObject {
     NSMutableSet *_nodes;
     NSArray *_sortedRecords;
 }
 
-@property(copy) NSMutableSet * nodes;
-@property(retain) NSArray * sortedRecords;
+@property (nonatomic, copy) NSMutableSet *nodes;
+@property (nonatomic, retain) NSArray *sortedRecords;
 
 - (void).cxx_destruct;
-- (bool)addRecords:(id)arg1 error:(id*)arg2;
+- (BOOL)addRecords:(id)arg1 error:(id*)arg2;
 - (id)description;
 - (id)init;
 - (id)nodes;

@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPQuery, CKDPRecordZoneIdentifier, CKDPRequestedFields, NSData;
-
 @interface CKDPQueryRetrieveRequest : PBRequest <NSCopying> {
+    NSData *_continuationMarker;
     struct { 
         unsigned int limit : 1; 
-    NSData *_continuationMarker;
     } _has;
     unsigned int _limit;
     CKDPQuery *_query;
@@ -15,16 +13,16 @@
     CKDPRecordZoneIdentifier *_zoneIdentifier;
 }
 
-@property(retain) NSData * continuationMarker;
-@property(readonly) bool hasContinuationMarker;
-@property bool hasLimit;
-@property(readonly) bool hasQuery;
-@property(readonly) bool hasRequestedFields;
-@property(readonly) bool hasZoneIdentifier;
-@property unsigned int limit;
-@property(retain) CKDPQuery * query;
-@property(retain) CKDPRequestedFields * requestedFields;
-@property(retain) CKDPRecordZoneIdentifier * zoneIdentifier;
+@property (nonatomic, retain) NSData *continuationMarker;
+@property (nonatomic, readonly) BOOL hasContinuationMarker;
+@property (nonatomic) BOOL hasLimit;
+@property (nonatomic, readonly) BOOL hasQuery;
+@property (nonatomic, readonly) BOOL hasRequestedFields;
+@property (nonatomic, readonly) BOOL hasZoneIdentifier;
+@property (nonatomic) unsigned int limit;
+@property (nonatomic, retain) CKDPQuery *query;
+@property (nonatomic, retain) CKDPRequestedFields *requestedFields;
+@property (nonatomic, retain) CKDPRecordZoneIdentifier *zoneIdentifier;
 
 + (id)options;
 
@@ -34,22 +32,22 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasContinuationMarker;
-- (bool)hasLimit;
-- (bool)hasQuery;
-- (bool)hasRequestedFields;
-- (bool)hasZoneIdentifier;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasContinuationMarker;
+- (BOOL)hasLimit;
+- (BOOL)hasQuery;
+- (BOOL)hasRequestedFields;
+- (BOOL)hasZoneIdentifier;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (unsigned int)limit;
 - (void)mergeFrom:(id)arg1;
 - (id)query;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (unsigned int)requestTypeCode;
 - (id)requestedFields;
 - (Class)responseClass;
 - (void)setContinuationMarker:(id)arg1;
-- (void)setHasLimit:(bool)arg1;
+- (void)setHasLimit:(BOOL)arg1;
 - (void)setLimit:(unsigned int)arg1;
 - (void)setQuery:(id)arg1;
 - (void)setRequestedFields:(id)arg1;

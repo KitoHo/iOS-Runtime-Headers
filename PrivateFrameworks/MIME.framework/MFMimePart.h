@@ -2,12 +2,7 @@
    Image: /System/Library/PrivateFrameworks/MIME.framework/MIME
  */
 
-@class MFMimePart, MFPartialNetworkDataConsumer, MFWeakReferenceHolder, NSData, NSMutableDictionary, NSString, NSURL;
-
 @interface MFMimePart : NSObject {
-    struct _NSRange { 
-        unsigned long long location; 
-        unsigned long long length; 
     MFWeakReferenceHolder *_body;
     NSMutableDictionary *_bodyParameters;
     NSString *_contentTransferEncoding;
@@ -19,39 +14,40 @@
     NSURL *_parentPartURL;
     NSURL *_partURL;
     MFPartialNetworkDataConsumer *_partialDataConsumer;
+    struct _NSRange { 
+        unsigned int location; 
+        unsigned int length; 
     } _range;
     NSString *_subtype;
     NSString *_type;
 }
 
+// Image: /System/Library/PrivateFrameworks/MIME.framework/MIME
+
 + (Class)attachmentClass;
 + (void)initialize;
-+ (bool)isRecognizedClassForContent:(id)arg1;
-+ (bool)parseContentTypeHeader:(id)arg1 type:(id*)arg2 subtype:(id*)arg3 info:(id*)arg4;
-+ (bool)parseContentTypeHeader:(id)arg1 type:(id*)arg2 subtype:(id*)arg3;
++ (BOOL)isRecognizedClassForContent:(id)arg1;
++ (BOOL)parseContentTypeHeader:(id)arg1 type:(id*)arg2 subtype:(id*)arg3;
++ (BOOL)parseContentTypeHeader:(id)arg1 type:(id*)arg2 subtype:(id*)arg3 info:(id*)arg4;
 
-- (id)SMIMEError;
-- (void)_contents:(id*)arg1 toOffset:(unsigned long long)arg2 resultOffset:(unsigned long long*)arg3 downloadIfNecessary:(bool)arg4 asHTML:(bool)arg5 isComplete:(bool*)arg6;
-- (void)_ensureBodyDataToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long*)arg2 downloadIfNecessary:(bool)arg3 isComplete:(bool*)arg4 decoded:(id*)arg5;
+- (void)_contents:(id*)arg1 toOffset:(unsigned int)arg2 resultOffset:(unsigned int*)arg3 downloadIfNecessary:(BOOL)arg4 asHTML:(BOOL)arg5 isComplete:(BOOL*)arg6;
+- (void)_ensureBodyDataToOffset:(unsigned int)arg1 resultOffset:(unsigned int*)arg2 downloadIfNecessary:(BOOL)arg3 isComplete:(BOOL*)arg4 decoded:(id*)arg5;
 - (id)_fullMimeTypeEvenInsideAppleDouble;
-- (bool)_hasCompleteBodyDataToOffset:(unsigned long long)arg1;
-- (bool)_needsSignatureVerification:(id*)arg1;
+- (BOOL)_hasCompleteBodyDataToOffset:(unsigned int)arg1;
 - (id)_partThatIsAttachment;
-- (void)_setDecryptedMessageBody:(id)arg1 isEncrypted:(bool)arg2 isSigned:(bool)arg3;
+- (void)_setDecryptedMessageBody:(id)arg1 isEncrypted:(BOOL)arg2 isSigned:(BOOL)arg3;
 - (void)_setRFC822DecodedMessageBody:(id)arg1;
-- (void)_setSMIMEError:(id)arg1;
-- (void)_setSigners:(id)arg1;
-- (bool)_shouldContinueDecodingProcess;
+- (BOOL)_shouldContinueDecodingProcess;
 - (void)addSubpart:(id)arg1;
-- (id)alternativeAtIndex:(long long)arg1;
+- (id)alternativeAtIndex:(int)arg1;
 - (unsigned int)approximateRawSize;
 - (id)attachmentFilename;
 - (id)attachmentURLs;
 - (id)attachments;
 - (id)bodyData;
-- (id)bodyDataForcingDownload:(bool)arg1;
-- (id)bodyDataToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long*)arg2 downloadIfNecessary:(bool)arg3;
-- (id)bodyDataToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long*)arg2;
+- (id)bodyDataForcingDownload:(BOOL)arg1;
+- (id)bodyDataToOffset:(unsigned int)arg1 resultOffset:(unsigned int*)arg2;
+- (id)bodyDataToOffset:(unsigned int)arg1 resultOffset:(unsigned int*)arg2 downloadIfNecessary:(BOOL)arg3;
 - (id)bodyParameterForKey:(id)arg1;
 - (id)bodyParameterKeys;
 - (id)chosenAlternativePart;
@@ -60,32 +56,29 @@
 - (id)contentDescription;
 - (id)contentID;
 - (id)contentLocation;
-- (id)contentToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long*)arg2 asHTML:(bool)arg3;
-- (id)contentToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long*)arg2 downloadIfNecessary:(bool)arg3 asHTML:(bool)arg4 isComplete:(bool*)arg5;
-- (id)contentToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long*)arg2 downloadIfNecessary:(bool)arg3 asHTML:(bool)arg4;
+- (id)contentToOffset:(unsigned int)arg1 resultOffset:(unsigned int*)arg2 asHTML:(BOOL)arg3;
+- (id)contentToOffset:(unsigned int)arg1 resultOffset:(unsigned int*)arg2 downloadIfNecessary:(BOOL)arg3 asHTML:(BOOL)arg4;
+- (id)contentToOffset:(unsigned int)arg1 resultOffset:(unsigned int*)arg2 downloadIfNecessary:(BOOL)arg3 asHTML:(BOOL)arg4 isComplete:(BOOL*)arg5;
 - (id)contentTransferEncoding;
 - (id)contentsForTextSystem;
-- (id)contentsForTextSystemForcingDownload:(bool)arg1;
-- (id)contentsForTextSystemToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long*)arg2 downloadIfNecessary:(bool)arg3 asHTML:(bool)arg4 isComplete:(bool*)arg5;
-- (id)contentsForTextSystemToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long*)arg2 downloadIfNecessary:(bool)arg3 asHTML:(bool)arg4;
-- (id)contentsForTextSystemToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long*)arg2 downloadIfNecessary:(bool)arg3;
-- (id)contentsForTextSystemToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long*)arg2;
-- (id)copyBodyDataToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long*)arg2 downloadIfNecessary:(bool)arg3 isComplete:(bool*)arg4;
-- (id)copyBodyDataToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long*)arg2 downloadIfNecessary:(bool)arg3;
-- (id)copyBodyDataToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long*)arg2;
-- (id)copySigners;
+- (id)contentsForTextSystemForcingDownload:(BOOL)arg1;
+- (id)contentsForTextSystemToOffset:(unsigned int)arg1 resultOffset:(unsigned int*)arg2;
+- (id)contentsForTextSystemToOffset:(unsigned int)arg1 resultOffset:(unsigned int*)arg2 downloadIfNecessary:(BOOL)arg3;
+- (id)contentsForTextSystemToOffset:(unsigned int)arg1 resultOffset:(unsigned int*)arg2 downloadIfNecessary:(BOOL)arg3 asHTML:(BOOL)arg4;
+- (id)contentsForTextSystemToOffset:(unsigned int)arg1 resultOffset:(unsigned int*)arg2 downloadIfNecessary:(BOOL)arg3 asHTML:(BOOL)arg4 isComplete:(BOOL*)arg5;
+- (id)copyBodyDataToOffset:(unsigned int)arg1 resultOffset:(unsigned int*)arg2;
+- (id)copyBodyDataToOffset:(unsigned int)arg1 resultOffset:(unsigned int*)arg2 downloadIfNecessary:(BOOL)arg3;
+- (id)copyBodyDataToOffset:(unsigned int)arg1 resultOffset:(unsigned int*)arg2 downloadIfNecessary:(BOOL)arg3 isComplete:(BOOL*)arg4;
 - (void)dealloc;
 - (id)decodeApplicationOctet_stream;
-- (id)decodeApplicationPkcs7_mime;
 - (id)decodeApplicationZip;
 - (void)decodeIfNecessary;
 - (id)decodeMultipart;
 - (id)decodeMultipartAlternative;
 - (id)decodeMultipartRelated;
-- (id)decodeMultipartSigned;
 - (id)decodeText;
 - (id)decodedDataForData:(id)arg1;
-- (id)decryptedMessageBodyIsEncrypted:(bool*)arg1 isSigned:(bool*)arg2;
+- (id)decryptedMessageBodyIsEncrypted:(BOOL*)arg1 isSigned:(BOOL*)arg2;
 - (id)description;
 - (id)disposition;
 - (id)dispositionParameterForKey:(id)arg1;
@@ -93,31 +86,29 @@
 - (void)download;
 - (id)fileWrapper;
 - (id)fileWrapperForDecodedObject:(id)arg1 withFileData:(id*)arg2;
-- (id)fileWrapperForcingDownload:(bool)arg1;
+- (id)fileWrapperForcingDownload:(BOOL)arg1;
 - (id)firstChildPart;
-- (void)getNumberOfAttachments:(unsigned int*)arg1 isSigned:(bool*)arg2 isEncrypted:(bool*)arg3;
-- (bool)hasContents;
+- (void)getNumberOfAttachments:(unsigned int*)arg1 isSigned:(BOOL*)arg2 isEncrypted:(BOOL*)arg3;
+- (BOOL)hasContents;
 - (id)init;
-- (bool)isAttachment;
-- (bool)isGenerated;
-- (bool)isHTML;
-- (bool)isReadableText;
-- (bool)isRich;
+- (BOOL)isAttachment;
+- (BOOL)isGenerated;
+- (BOOL)isHTML;
+- (BOOL)isReadableText;
+- (BOOL)isRich;
 - (id)languages;
 - (id)mimeBody;
-- (id)newEncryptedPartWithData:(id)arg1 compositionSpecification:(id)arg2 encryptedData:(id*)arg3;
-- (id)newSignedPartWithData:(id)arg1 sender:(id)arg2 compositionSpecification:(id)arg3 signatureData:(id*)arg4;
 - (id)nextSiblingPart;
-- (long long)numberOfAlternatives;
+- (int)numberOfAlternatives;
 - (unsigned int)numberOfAttachments;
 - (id)parentPart;
-- (bool)parseIMAPPropertyList:(id)arg1;
-- (bool)parseMimeBody;
-- (bool)parseMimeBodyDownloadIfNecessary:(bool)arg1;
+- (BOOL)parseIMAPPropertyList:(id)arg1;
+- (BOOL)parseMimeBody;
+- (BOOL)parseMimeBodyDownloadIfNecessary:(BOOL)arg1;
 - (id)partNumber;
 - (id)partURL;
 - (id)preservedHeaderValueForKey:(id)arg1;
-- (struct _NSRange { unsigned long long x1; unsigned long long x2; })range;
+- (struct _NSRange { unsigned int x1; unsigned int x2; })range;
 - (id)rfc822DecodedMessageBody;
 - (void)setBodyParameter:(id)arg1 forKey:(id)arg2;
 - (void)setContentDescription:(id)arg1;
@@ -126,24 +117,36 @@
 - (void)setContentTransferEncoding:(id)arg1;
 - (void)setDisposition:(id)arg1;
 - (void)setDispositionParameter:(id)arg1 forKey:(id)arg2;
-- (void)setIsGenerated:(bool)arg1;
+- (void)setIsGenerated:(BOOL)arg1;
 - (void)setLanguages:(id)arg1;
 - (void)setMimeBody:(id)arg1;
-- (void)setRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1;
+- (void)setRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1;
 - (void)setSubparts:(id)arg1;
 - (void)setSubtype:(id)arg1;
 - (void)setType:(id)arg1;
-- (bool)shouldConsiderInlineOverridingExchangeServer;
+- (BOOL)shouldConsiderInlineOverridingExchangeServer;
 - (id)signedData;
 - (id)startPart;
-- (id)storeData:(id)arg1 inMessage:(id)arg2 isComplete:(bool)arg3;
-- (id)subpartAtIndex:(long long)arg1;
+- (id)storeData:(id)arg1 inMessage:(id)arg2 isComplete:(BOOL)arg3;
+- (id)subpartAtIndex:(int)arg1;
 - (id)subparts;
 - (id)subtype;
-- (unsigned int)textEncoding;
+- (unsigned long)textEncoding;
 - (id)textHtmlPart;
-- (unsigned long long)totalTextSize;
+- (unsigned int)totalTextSize;
 - (id)type;
-- (bool)usesKnownSignatureProtocol;
+- (BOOL)usesKnownSignatureProtocol;
+
+// Image: /System/Library/PrivateFrameworks/Message.framework/Message
+
+- (id)SMIMEError;
+- (BOOL)_needsSignatureVerification:(id*)arg1;
+- (void)_setSMIMEError:(id)arg1;
+- (void)_setSigners:(id)arg1;
+- (id)copySigners;
+- (id)decodeApplicationPkcs7_mime;
+- (id)decodeMultipartSigned;
+- (id)newEncryptedPartWithData:(id)arg1 compositionSpecification:(id)arg2 encryptedData:(id*)arg3;
+- (id)newSignedPartWithData:(id)arg1 sender:(id)arg2 compositionSpecification:(id)arg3 signatureData:(id*)arg4;
 
 @end

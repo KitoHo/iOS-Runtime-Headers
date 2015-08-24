@@ -2,14 +2,11 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class SKUIShelfViewElement;
+@interface SKUIShelfPageComponent : SKUIPageComponent
 
-@interface SKUIShelfPageComponent : SKUIPageComponent {
-}
+@property (nonatomic, readonly) SKUIShelfViewElement *viewElement;
 
-@property(readonly) SKUIShelfViewElement * viewElement;
-
-- (long long)componentType;
+- (int)componentType;
 - (id)initWithViewElement:(id)arg1;
 
 @end

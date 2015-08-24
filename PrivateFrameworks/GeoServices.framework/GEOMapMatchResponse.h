@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSData;
-
 @interface GEOMapMatchResponse : PBCodable <NSCopying> {
     struct { 
         unsigned int matchingStatus : 1; 
@@ -14,28 +12,28 @@
     NSData *_zilchPoints;
 }
 
-@property bool hasMatchingStatus;
-@property bool hasStatus;
-@property(readonly) bool hasZilchPoints;
-@property int matchingStatus;
-@property int status;
-@property(retain) NSData * zilchPoints;
+@property (nonatomic) BOOL hasMatchingStatus;
+@property (nonatomic) BOOL hasStatus;
+@property (nonatomic, readonly) BOOL hasZilchPoints;
+@property (nonatomic) int matchingStatus;
+@property (nonatomic) int status;
+@property (nonatomic, retain) NSData *zilchPoints;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasMatchingStatus;
-- (bool)hasStatus;
-- (bool)hasZilchPoints;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasMatchingStatus;
+- (BOOL)hasStatus;
+- (BOOL)hasZilchPoints;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (int)matchingStatus;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
-- (void)setHasMatchingStatus:(bool)arg1;
-- (void)setHasStatus:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasMatchingStatus:(BOOL)arg1;
+- (void)setHasStatus:(BOOL)arg1;
 - (void)setMatchingStatus:(int)arg1;
 - (void)setStatus:(int)arg1;
 - (void)setZilchPoints:(id)arg1;

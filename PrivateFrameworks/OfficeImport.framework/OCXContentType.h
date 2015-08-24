@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface OCXContentType : NSObject {
     NSString *mContentType;
     NSString *mExtension;
     NSString *mPath;
 }
 
-@property(readonly) NSString * contentType;
-@property(readonly) NSString * path;
+@property (nonatomic, readonly) NSString *contentType;
+@property (nonatomic, readonly) NSString *path;
 
 - (id)contentType;
 - (void)dealloc;
 - (id)initWithContentType:(id)arg1 extension:(id)arg2;
 - (id)initWithContentType:(id)arg1 path:(id)arg2;
-- (bool)isOverride;
+- (BOOL)isOverride;
 - (id)path;
 - (void)writeToStreamWriter:(id)arg1;
 

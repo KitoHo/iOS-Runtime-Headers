@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class <GEOTileRequesterDelegate>, GEOResourceManifestConfiguration, GEOTileKeyList, GEOTileKeyMap, NSData, NSLocale, NSString, NSThread;
-
 @interface GEOTileRequester : NSObject {
     NSData *_auditToken;
     NSString *_bundleIdentifier;
@@ -15,24 +13,24 @@
     GEOTileKeyList *_keyList;
     NSLocale *_locale;
     GEOResourceManifestConfiguration *_manifestConfiguration;
+    BOOL _requireWiFi;
     NSThread *_thread;
-    bool_requireWiFi;
 }
 
-@property(retain) NSData * auditToken;
-@property(retain) NSString * bundleIdentifier;
-@property(retain) NSString * bundleVersion;
-@property(readonly) GEOTileKeyMap * cachedData;
-@property(readonly) GEOTileKeyMap * cachedEtags;
-@property(retain) id context;
-@property(retain) <GEOTileRequesterDelegate> * delegate;
-@property(readonly) GEOTileKeyList * keyList;
-@property bool requireWiFi;
-@property(retain) NSThread * thread;
+@property (nonatomic, retain) NSData *auditToken;
+@property (nonatomic, retain) NSString *bundleIdentifier;
+@property (nonatomic, retain) NSString *bundleVersion;
+@property (nonatomic, readonly) GEOTileKeyMap *cachedData;
+@property (nonatomic, readonly) GEOTileKeyMap *cachedEtags;
+@property (nonatomic, retain) id context;
+@property (nonatomic, retain) <GEOTileRequesterDelegate> *delegate;
+@property (nonatomic, readonly) GEOTileKeyList *keyList;
+@property (nonatomic) BOOL requireWiFi;
+@property (nonatomic, retain) NSThread *thread;
 
-+ (unsigned long long)expiringTilesetsCount;
++ (unsigned int)expiringTilesetsCount;
 + (struct { unsigned int x1; double x2; }*)newExpiringTilesets;
-+ (bool)skipNetworkForKeysWhenPreloading:(id)arg1;
++ (BOOL)skipNetworkForKeysWhenPreloading:(id)arg1;
 + (unsigned char)tileProviderIdentifier;
 
 - (id)auditToken;
@@ -46,13 +44,13 @@
 - (id)delegate;
 - (id)initWithKeyList:(id)arg1 manifestConfiguration:(id)arg2 locale:(id)arg3 cachedEtags:(id)arg4 cachedData:(id)arg5;
 - (id)keyList;
-- (bool)requireWiFi;
+- (BOOL)requireWiFi;
 - (void)setAuditToken:(id)arg1;
 - (void)setBundleIdentifier:(id)arg1;
 - (void)setBundleVersion:(id)arg1;
 - (void)setContext:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setRequireWiFi:(bool)arg1;
+- (void)setRequireWiFi:(BOOL)arg1;
 - (void)setThread:(id)arg1;
 - (void)start;
 - (id)thread;

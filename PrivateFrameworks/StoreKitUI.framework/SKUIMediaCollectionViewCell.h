@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class SKUIEmbeddedMediaView;
-
 @interface SKUIMediaCollectionViewCell : SKUICollectionViewCell {
     struct UIEdgeInsets { 
-        double top; 
-        double left; 
-        double bottom; 
-        double right; 
+        float top; 
+        float left; 
+        float bottom; 
+        float right; 
     } _contentInset;
     SKUIEmbeddedMediaView *_mediaView;
 }
 
-@property struct UIEdgeInsets { double x1; double x2; double x3; double x4; } contentInset;
-@property(readonly) SKUIEmbeddedMediaView * mediaView;
+@property (nonatomic) struct UIEdgeInsets { float x1; float x2; float x3; float x4; } contentInset;
+@property (nonatomic, readonly) SKUIEmbeddedMediaView *mediaView;
 
 - (void).cxx_destruct;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })contentInset;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })contentInset;
 - (void)layoutSubviews;
 - (id)mediaView;
 - (void)setBackgroundColor:(id)arg1;
-- (void)setContentInset:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; })arg1;
+- (void)setContentInset:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg1;
 
 @end

@@ -2,42 +2,40 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class CMGestureManager;
-
 @interface CKRaiseGesture : NSObject {
     SEL _action;
+    BOOL _enabled;
     CMGestureManager *_gestureManager;
-    long long _gestureState;
+    int _gestureState;
+    BOOL _proximityState;
     id _target;
-    bool_enabled;
-    bool_proximityState;
 }
 
-@property SEL action;
-@property(getter=isEnabled) bool enabled;
-@property(retain) CMGestureManager * gestureManager;
-@property long long gestureState;
-@property bool proximityState;
-@property(getter=isRecognized,readonly) bool recognized;
-@property id target;
+@property (nonatomic) SEL action;
+@property (getter=isEnabled, nonatomic) BOOL enabled;
+@property (nonatomic, retain) CMGestureManager *gestureManager;
+@property (nonatomic) int gestureState;
+@property (nonatomic) BOOL proximityState;
+@property (getter=isRecognized, nonatomic, readonly) BOOL recognized;
+@property (nonatomic) id target;
 
-+ (bool)isRaiseGestureEnabled;
-+ (bool)isRaiseGestureSupported;
++ (BOOL)isRaiseGestureEnabled;
++ (BOOL)isRaiseGestureSupported;
 
 - (SEL)action;
 - (void)dealloc;
 - (id)gestureManager;
-- (long long)gestureState;
+- (int)gestureState;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;
-- (bool)isEnabled;
-- (bool)isRecognized;
-- (bool)proximityState;
+- (BOOL)isEnabled;
+- (BOOL)isRecognized;
+- (BOOL)proximityState;
 - (void)proximityStateDidChange:(id)arg1;
 - (void)setAction:(SEL)arg1;
-- (void)setEnabled:(bool)arg1;
+- (void)setEnabled:(BOOL)arg1;
 - (void)setGestureManager:(id)arg1;
-- (void)setGestureState:(long long)arg1;
-- (void)setProximityState:(bool)arg1;
+- (void)setGestureState:(int)arg1;
+- (void)setProximityState:(BOOL)arg1;
 - (void)setTarget:(id)arg1;
 - (id)target;
 

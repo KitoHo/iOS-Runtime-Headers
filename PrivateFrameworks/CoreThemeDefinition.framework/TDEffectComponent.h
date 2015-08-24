@@ -2,17 +2,14 @@
    Image: /System/Library/PrivateFrameworks/CoreThemeDefinition.framework/CoreThemeDefinition
  */
 
-@class NSSet, TDEffectRenditionSpec, TDEffectType;
+@interface TDEffectComponent : NSManagedObject
 
-@interface TDEffectComponent : NSManagedObject {
-}
+@property (nonatomic, retain) TDEffectType *effectType;
+@property (nonatomic) BOOL isEnabled;
+@property (nonatomic, retain) NSSet *parameters;
+@property (nonatomic, retain) TDEffectRenditionSpec *rendition;
 
-@property(retain) TDEffectType * effectType;
-@property bool isEnabled;
-@property(retain) NSSet * parameters;
-@property(retain) TDEffectRenditionSpec * rendition;
-
-- (void)setEffectParametersFromPreset:(id)arg1 atIndex:(unsigned long long)arg2 withDocument:(id)arg3;
-- (void)updatePresetParameters:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)setEffectParametersFromPreset:(id)arg1 atIndex:(unsigned int)arg2 withDocument:(id)arg3;
+- (void)updatePresetParameters:(id)arg1 atIndex:(unsigned int)arg2;
 
 @end

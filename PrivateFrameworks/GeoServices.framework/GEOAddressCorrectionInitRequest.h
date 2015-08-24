@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSString;
-
 @interface GEOAddressCorrectionInitRequest : PBRequest <NSCopying> {
     NSString *_personID;
     NSString *_token;
 }
 
-@property(readonly) bool hasPersonID;
-@property(readonly) bool hasToken;
-@property(retain) NSString * personID;
-@property(retain) NSString * token;
+@property (nonatomic, readonly) BOOL hasPersonID;
+@property (nonatomic, readonly) BOOL hasToken;
+@property (nonatomic, retain) NSString *personID;
+@property (nonatomic, retain) NSString *token;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasPersonID;
-- (bool)hasToken;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasPersonID;
+- (BOOL)hasToken;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)personID;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (unsigned int)requestTypeCode;
 - (Class)responseClass;
 - (void)setPersonID:(id)arg1;

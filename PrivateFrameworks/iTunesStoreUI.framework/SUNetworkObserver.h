@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class ISStoreURLOperation, NSString, NSTimer;
-
 @interface SUNetworkObserver : NSObject <ISSingleton, ISStoreURLOperationDelegate> {
     ISStoreURLOperation *_partnerDetectOperation;
     NSString *_partnerIdentifier;
+    BOOL _partnersEnabled;
     NSTimer *_startupTimer;
-    long long _storeServicesNetworkUsageCount;
-    bool_partnersEnabled;
+    int _storeServicesNetworkUsageCount;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) NSString * partnerIdentifier;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NSString *partnerIdentifier;
+@property (readonly) Class superclass;
 
 + (void)setSharedInstance:(id)arg1;
 + (id)sharedInstance;
@@ -39,7 +37,7 @@
 - (id)init;
 - (id)partnerIdentifier;
 - (void)setPartnerIdentifier:(id)arg1;
-- (void)setPartnersEnabled:(bool)arg1;
+- (void)setPartnersEnabled:(BOOL)arg1;
 - (void)startNetworkAvailabilityTimer;
 
 @end

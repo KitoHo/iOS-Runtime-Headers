@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@interface ML3DAAPExportItem : ML3ExportItem {
-}
+@interface ML3DAAPExportItem : ML3ExportItem
 
 - (unsigned int)_daapCodeForPropertyKey:(unsigned int)arg1;
 - (int)_daapMediaKindForMLMediaType:(int)arg1;
 - (int)_daapPlaylistKind;
-- (int)_daapSortTypeForTrackOrder:(unsigned int)arg1;
-- (void)_exportChildItemsToWriter:(id)arg1;
+- (int)_daapSortTypeForTrackOrder:(unsigned long)arg1;
 - (id)exportData;
 - (int)longValueForProperty:(unsigned int)arg1;
 - (long long)longlongValueForProperty:(unsigned int)arg1;

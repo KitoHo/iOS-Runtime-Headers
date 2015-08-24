@@ -2,24 +2,22 @@
    Image: /System/Library/Frameworks/CoreBluetooth.framework/CoreBluetooth
  */
 
-@class CBUUID, NSArray, NSNumber;
-
 @interface CBMutableService : CBService {
     NSNumber *_ID;
 }
 
-@property(retain) NSNumber * ID;
-@property(retain) CBUUID * UUID;
-@property(retain) NSArray * characteristics;
-@property(retain) NSArray * includedServices;
-@property bool isPrimary;
+@property (retain) NSNumber *ID;
+@property (nonatomic, retain) CBUUID *UUID;
+@property (retain) NSArray *characteristics;
+@property (retain) NSArray *includedServices;
+@property (nonatomic) BOOL isPrimary;
 
 - (id)ID;
 - (void)dealloc;
 - (id)description;
 - (void)handlePowerNotOn;
 - (id)initWithDictionary:(id)arg1;
-- (id)initWithType:(id)arg1 primary:(bool)arg2;
+- (id)initWithType:(id)arg1 primary:(BOOL)arg2;
 - (void)setCharacteristics:(id)arg1;
 - (void)setID:(id)arg1;
 

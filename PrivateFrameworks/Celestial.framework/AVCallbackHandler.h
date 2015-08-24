@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class NSCondition;
-
 @interface AVCallbackHandler : NSObject {
     SEL _action;
     NSCondition *_condition;
@@ -18,7 +16,7 @@
 
 - (SEL)action;
 - (void)dealloc;
-- (bool)hasParams;
+- (BOOL)hasParams;
 - (id)init;
 - (SEL)mainThreadAction;
 - (void)setAction:(SEL)arg1;

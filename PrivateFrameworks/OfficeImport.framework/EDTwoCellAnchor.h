@@ -3,19 +3,19 @@
  */
 
 @interface EDTwoCellAnchor : EDAnchor {
-    struct EDCellAnchorMarker { 
-        int columnIndex; 
-        float columnAdjustment; 
-        int rowIndex; 
-        float rowAdjustment; 
-    struct EDCellAnchorMarker { 
-        int columnIndex; 
-        float columnAdjustment; 
-        int rowIndex; 
-        float rowAdjustment; 
-    boolmIsRelative;
     int mEditAs;
+    struct EDCellAnchorMarker { 
+        int columnIndex; 
+        float columnAdjustment; 
+        int rowIndex; 
+        float rowAdjustment; 
     } mFrom;
+    BOOL mIsRelative;
+    struct EDCellAnchorMarker { 
+        int columnIndex; 
+        float columnAdjustment; 
+        int rowIndex; 
+        float rowAdjustment; 
     } mTo;
 }
 
@@ -23,10 +23,10 @@
 - (int)editAs;
 - (struct EDCellAnchorMarker { int x1; float x2; int x3; float x4; })from;
 - (id)init;
-- (bool)isRelative;
+- (BOOL)isRelative;
 - (void)setEditAs:(int)arg1;
 - (void)setFrom:(struct EDCellAnchorMarker { int x1; float x2; int x3; float x4; })arg1;
-- (void)setRelative:(bool)arg1;
+- (void)setRelative:(BOOL)arg1;
 - (void)setTo:(struct EDCellAnchorMarker { int x1; float x2; int x3; float x4; })arg1;
 - (struct EDCellAnchorMarker { int x1; float x2; int x3; float x4; })to;
 

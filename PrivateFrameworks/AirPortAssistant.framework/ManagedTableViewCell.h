@@ -2,60 +2,58 @@
    Image: /System/Library/PrivateFrameworks/AirPortAssistant.framework/AirPortAssistant
  */
 
-@class NSIndexPath, NSMutableDictionary, TableViewManager;
-
 @interface ManagedTableViewCell : UITableViewCell {
+    NSMutableDictionary *_cellDict;
+    float _cellXEdgeInset;
+    float _computedRightmostEditTextInset;
+    NSIndexPath *_currentIndexPath;
+    float _forcedRightmostEditTextInset;
     struct CGRect { 
         struct CGPoint { 
-            double x; 
-            double y; 
+            float x; 
+            float y; 
         } origin; 
         struct CGSize { 
-            double width; 
-            double height; 
+            float width; 
+            float height; 
         } size; 
-    NSMutableDictionary *_cellDict;
-    double _cellXEdgeInset;
-    double _computedRightmostEditTextInset;
-    NSIndexPath *_currentIndexPath;
-    double _forcedRightmostEditTextInset;
     } _modifiedContentViewFrame;
-    double _neededContentHeight;
+    float _neededContentHeight;
     TableViewManager *_parentTableManager;
 }
 
-@property(retain) NSMutableDictionary * cellDict;
-@property(readonly) double computedRightmostEditTextInset;
-@property(retain) NSIndexPath * currentIndexPath;
-@property double forcedRightmostEditTextInset;
-@property(readonly) double neededContentHeight;
-@property TableViewManager * parentTableManager;
+@property (nonatomic, retain) NSMutableDictionary *cellDict;
+@property (nonatomic, readonly) float computedRightmostEditTextInset;
+@property (nonatomic, retain) NSIndexPath *currentIndexPath;
+@property (nonatomic) float forcedRightmostEditTextInset;
+@property (nonatomic, readonly) float neededContentHeight;
+@property (nonatomic) TableViewManager *parentTableManager;
 
 - (id)accessibilityValue;
-- (double)calculateFrameSizeForView:(id)arg1 forItem:(id)arg2 atItemIndex:(unsigned long long)arg3 withRemainingContentWidth:(double)arg4;
-- (void)calculatePositionForView:(id)arg1 forItem:(id)arg2 atItemIndex:(unsigned long long)arg3;
+- (float)calculateFrameSizeForView:(id)arg1 forItem:(id)arg2 atItemIndex:(unsigned int)arg3 withRemainingContentWidth:(float)arg4;
+- (void)calculatePositionForView:(id)arg1 forItem:(id)arg2 atItemIndex:(unsigned int)arg3;
 - (id)cellDict;
-- (double)computedRightmostEditTextInset;
+- (float)computedRightmostEditTextInset;
 - (id)currentIndexPath;
 - (void)dealloc;
-- (double)edgeInsetValue:(id)arg1;
-- (double)forcedRightmostEditTextInset;
-- (double)horizontalSpacingForView:(id)arg1 withItem:(id)arg2;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (float)edgeInsetValue:(id)arg1;
+- (float)forcedRightmostEditTextInset;
+- (float)horizontalSpacingForView:(id)arg1 withItem:(id)arg2;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (void)layoutSubviews;
-- (double)leftInsetForView:(id)arg1 withItem:(id)arg2;
-- (double)neededContentHeight;
+- (float)leftInsetForView:(id)arg1 withItem:(id)arg2;
+- (float)neededContentHeight;
 - (id)parentTableManager;
 - (void)prepareForReuse;
 - (void)repositionView:(id)arg1 ifOverlapsPreviousView:(id)arg2;
-- (double)rightInsetForView:(id)arg1 withItem:(id)arg2;
+- (float)rightInsetForView:(id)arg1 withItem:(id)arg2;
 - (void)setCellDict:(id)arg1;
 - (void)setCurrentIndexPath:(id)arg1;
-- (void)setForcedRightmostEditTextInset:(double)arg1;
+- (void)setForcedRightmostEditTextInset:(float)arg1;
 - (void)setParentTableManager:(id)arg1;
-- (double)usableContentWidth;
-- (double)usableContentWidthForItem:(id)arg1 withVerticalNeighborView:(id)arg2;
-- (double)verticalInset;
-- (double)verticalSpacingForView:(id)arg1 withItem:(id)arg2;
+- (float)usableContentWidth;
+- (float)usableContentWidthForItem:(id)arg1 withVerticalNeighborView:(id)arg2;
+- (float)verticalInset;
+- (float)verticalSpacingForView:(id)arg1 withItem:(id)arg2;
 
 @end

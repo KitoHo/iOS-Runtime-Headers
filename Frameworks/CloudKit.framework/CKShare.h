@@ -2,82 +2,131 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class CKShareID, CKSharedItemID, NSArray, NSData, NSMapTable, NSMutableArray, NSMutableSet, NSString;
-
-@interface CKShare : NSObject <NSSecureCoding, NSCopying> {
-    NSMapTable *_addedParticipantsToOutgoingInvitationsTable;
-    NSMutableArray *_existingParticipants;
-    NSMutableSet *_pendingServerParticipants;
+@interface CKShare : NSObject <NSCopying, NSSecureCoding> {
+    NSMutableArray *_addedParticipants;
+    NSString *_baseToken;
+    CKContainerID *_containerID;
+    NSString *_etag;
+    BOOL _isKnownToServer;
+    NSMutableArray *_participants;
+    NSString *_previousProtectionEtag;
+    NSString *_previousPublicProtectionEtag;
     NSData *_protectionData;
-    NSString *_protectionVersion;
+    NSString *_protectionEtag;
+    int _publicPermission;
+    NSData *_publicProtectionData;
+    NSString *_publicProtectionEtag;
+    NSData *_publicSharingIdentity;
     NSMutableArray *_removedParticipants;
+    NSString *_routingKey;
     CKShareID *_shareID;
-    CKSharedItemID *_sharedItemID;
-    bool_isKnownToServer;
+    NSURL *_shareURL;
 }
 
-@property(retain) NSMapTable * addedParticipantsToOutgoingInvitationsTable;
-@property(copy,readonly) NSArray * allParticipants;
-@property(retain) NSMutableArray * existingParticipants;
-@property bool isKnownToServer;
-@property(retain) NSMutableSet * pendingServerParticipants;
-@property(retain) NSData * protectionData;
-@property(retain) NSString * protectionVersion;
-@property(retain) NSMutableArray * removedParticipants;
-@property(copy) CKShareID * shareID;
-@property(copy) CKSharedItemID * sharedItemID;
+@property (nonatomic, retain) NSMutableArray *addedParticipants;
+@property (nonatomic, readonly) NSArray *allParticipants;
+@property (nonatomic, retain) NSString *baseToken;
+@property (nonatomic, retain) CKContainerID *containerID;
+@property (nonatomic, readonly) CKShareParticipant *currentUserParticipant;
+@property (nonatomic, readonly) NSData *encryptedFullTokenData;
+@property (nonatomic, copy) NSString *etag;
+@property (nonatomic, readonly) NSString *fullToken;
+@property (nonatomic) BOOL isKnownToServer;
+@property (nonatomic, readonly) CKShareParticipant *owner;
+@property (nonatomic, retain) NSMutableArray *participants;
+@property (nonatomic, retain) NSString *previousProtectionEtag;
+@property (nonatomic, retain) NSString *previousPublicProtectionEtag;
+@property (nonatomic, retain) NSData *protectionData;
+@property (nonatomic, retain) NSString *protectionEtag;
+@property (nonatomic) int publicPermission;
+@property (nonatomic, retain) NSData *publicProtectionData;
+@property (nonatomic, retain) NSString *publicProtectionEtag;
+@property (nonatomic, retain) NSData *publicSharingIdentity;
+@property (nonatomic, retain) NSMutableArray *removedParticipants;
+@property (nonatomic, retain) NSString *routingKey;
+@property (nonatomic, copy) CKShareID *shareID;
+@property (nonatomic, readonly, copy) NSURL *shareURL;
+@property (nonatomic, readonly) NSData *shortSharingTokenData;
+@property (nonatomic, readonly) NSData *shortSharingTokenHashData;
 
-+ (bool)supportsSecureCoding;
+// Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
+
++ (id)decryptFullToken:(id)arg1 shortSharingTokenData:(id)arg2;
++ (id)encryptFullToken:(id)arg1 shortSharingTokenData:(id)arg2;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)CKAssignToContainerWithID:(id)arg1;
 - (id)CKPropertiesDescription;
-- (void)_addParticipant:(id)arg1 invitationMessage:(id)arg2 invitationImageURL:(id)arg3;
-- (id)_addParticipantWithUserRecordID:(id)arg1 emailAddress:(id)arg2 invitationMessage:(id)arg3 invitationImageURL:(id)arg4;
-- (id)_initBare;
-- (id)_initWithSharedItemID:(id)arg1 shareID:(id)arg2 error:(id*)arg3;
-- (id)_knownParticipantEqualToParticipant:(id)arg1;
-- (id)_matchingParticipantWithUserRecordID:(id)arg1 emailAddress:(id)arg2;
-- (void)_mergeServerParticipants:(id)arg1;
-- (void)_updateFromPendingServerParticipants;
-- (long long)acceptanceStatusForParticipant:(id)arg1;
-- (id)addParticipantWithEmailAddress:(id)arg1 invitationMessage:(id)arg2 invitationImageURL:(id)arg3;
-- (id)addParticipantWithUserRecordID:(id)arg1 invitationMessage:(id)arg2 invitationImageURL:(id)arg3;
-- (id)addedParticipantsToOutgoingInvitationsTable;
+- (id)_knownParticipantEqualToParticipant:(id)arg1 inArray:(id)arg2;
+- (id)addParticipant:(id)arg1;
+- (id)addedParticipants;
 - (id)allParticipants;
+- (id)baseToken;
+- (void)clearModifiedParticipants;
+- (id)containerID;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
+- (id)currentUserParticipant;
 - (id)debugDescription;
+- (id)decryptFullToken:(id)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (id)existingParticipants;
-- (unsigned long long)hash;
+- (id)encryptedFullTokenData;
+- (id)etag;
+- (id)fullToken;
+- (unsigned int)hash;
+- (id)iWorkShareURLWithAppName:(id)arg1 documentName:(id)arg2 error:(id*)arg3;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithItem:(id)arg1 error:(id*)arg2;
-- (id)initWithItem:(id)arg1 shareName:(id)arg2 error:(id*)arg3;
-- (id)initWithItem:(id)arg1 shareName:(id)arg2;
-- (id)initWithItem:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)isKnownToServer;
-- (long long)itemPermissionForParticipant:(id)arg1;
-- (long long)participantListPermissionForParticipant:(id)arg1;
-- (id)pendingServerParticipants;
+- (id)initWithShareID:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isKnownToServer;
+- (id)owner;
+- (id)participants;
+- (id)previousProtectionEtag;
+- (id)previousPublicProtectionEtag;
+- (id)privateToken;
 - (id)protectionData;
-- (id)protectionVersion;
-- (void)removeParticipant:(id)arg1;
+- (id)protectionEtag;
+- (int)publicPermission;
+- (id)publicProtectionData;
+- (id)publicProtectionEtag;
+- (id)publicSharingIdentity;
+- (id)removeParticipant:(id)arg1;
 - (id)removedParticipants;
-- (void)setAddedParticipantsToOutgoingInvitationsTable:(id)arg1;
-- (void)setExistingParticipants:(id)arg1;
-- (void)setIsKnownToServer:(bool)arg1;
-- (void)setItemPermission:(long long)arg1 forParticipant:(id)arg2;
-- (void)setParticipantListPermission:(long long)arg1 forParticipant:(id)arg2;
-- (void)setPendingServerParticipants:(id)arg1;
+- (id)routingKey;
+- (void)setAddedParticipants:(id)arg1;
+- (void)setBaseToken:(id)arg1;
+- (void)setContainerID:(id)arg1;
+- (void)setEtag:(id)arg1;
+- (void)setIsKnownToServer:(BOOL)arg1;
+- (void)setParticipants:(id)arg1;
+- (void)setPreviousProtectionEtag:(id)arg1;
+- (void)setPreviousPublicProtectionEtag:(id)arg1;
 - (void)setProtectionData:(id)arg1;
-- (void)setProtectionVersion:(id)arg1;
+- (void)setProtectionEtag:(id)arg1;
+- (void)setPublicPermission:(int)arg1;
+- (void)setPublicProtectionData:(id)arg1;
+- (void)setPublicProtectionEtag:(id)arg1;
+- (void)setPublicSharingIdentity:(id)arg1;
 - (void)setRemovedParticipants:(id)arg1;
+- (void)setRoutingKey:(id)arg1;
 - (void)setShareID:(id)arg1;
-- (void)setSharedItemID:(id)arg1;
 - (id)shareID;
-- (id)sharedItemID;
+- (id)shareURL;
+- (id)shortSharingToken;
+- (id)shortSharingTokenData;
+- (id)shortSharingTokenHashData;
+- (id)shortToken;
+- (void)updateFromServerShare:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
+
+- (struct _OpaquePCSShareProtection { }*)privatePCS;
+- (struct _OpaquePCSShareProtection { }*)publicPCS;
+- (void)setPrivatePCS:(struct _OpaquePCSShareProtection { }*)arg1;
+- (void)setPublicPCS:(struct _OpaquePCSShareProtection { }*)arg1;
+- (void)setSharePCSData:(id)arg1;
+- (void)setSharePCSData:(id)arg1 isUnitTestAccount:(BOOL)arg2;
 
 @end

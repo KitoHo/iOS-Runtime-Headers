@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/DataAccess.framework/DataAccess
  */
 
-@class NSString;
-
 @interface DAMessageMoveRequest : NSObject {
     id _context;
     NSString *_fromFolder;
@@ -11,18 +9,18 @@
     NSString *_toFolder;
 }
 
-@property(retain) id context;
-@property(copy) NSString * fromFolder;
-@property(copy) NSString * message;
-@property(copy) NSString * toFolder;
+@property (nonatomic, retain) id context;
+@property (nonatomic, copy) NSString *fromFolder;
+@property (nonatomic, copy) NSString *message;
+@property (nonatomic, copy) NSString *toFolder;
 
 - (void).cxx_destruct;
 - (id)context;
 - (id)description;
 - (id)fromFolder;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initMoveRequestWithMessage:(id)arg1 fromFolder:(id)arg2 toFolder:(id)arg3;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)message;
 - (void)setContext:(id)arg1;
 - (void)setFromFolder:(id)arg1;

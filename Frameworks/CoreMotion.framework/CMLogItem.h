@@ -2,13 +2,13 @@
    Image: /System/Library/Frameworks/CoreMotion.framework/CoreMotion
  */
 
-@interface CMLogItem : NSObject <NSSecureCoding, NSCopying> {
+@interface CMLogItem : NSObject <NSCopying, NSSecureCoding> {
     id _internalLogItem;
 }
 
-@property(readonly) double timestamp;
+@property (nonatomic, readonly) double timestamp;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;

@@ -2,32 +2,29 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSDate, NSString;
+@interface SACalendarRecurrence : AceObject <SAAceSerializable>
 
-@interface SACalendarRecurrence : AceObject <SAAceSerializable> {
-}
-
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property long long endCount;
-@property(copy) NSDate * endDate;
-@property int frequency;
-@property(readonly) unsigned long long hash;
-@property long long interval;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) int endCount;
+@property (nonatomic, copy) NSDate *endDate;
+@property (nonatomic) int frequency;
+@property (readonly) unsigned int hash;
+@property (nonatomic) int interval;
+@property (readonly) Class superclass;
 
 + (id)recurrence;
 + (id)recurrenceWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
-- (long long)endCount;
+- (int)endCount;
 - (id)endDate;
 - (int)frequency;
 - (id)groupIdentifier;
-- (long long)interval;
-- (void)setEndCount:(long long)arg1;
+- (int)interval;
+- (void)setEndCount:(int)arg1;
 - (void)setEndDate:(id)arg1;
 - (void)setFrequency:(int)arg1;
-- (void)setInterval:(long long)arg1;
+- (void)setInterval:(int)arg1;
 
 @end

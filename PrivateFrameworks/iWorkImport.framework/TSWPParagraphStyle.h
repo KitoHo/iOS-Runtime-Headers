@@ -2,26 +2,18 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSString;
-
-@interface TSWPParagraphStyle : TSSStyle <TSSPreset, TSDMixing> {
+@interface TSWPParagraphStyle : TSSStyle <TSDMixing, TSSPreset> {
     void *_coreTextParagraphStyle;
     struct __CFDictionary { } *_scalePercentStyleCaches;
     struct __CFDictionary { } *_styleCache;
 }
 
-@property(readonly) NSString * presetKind;
+@property (nonatomic, readonly) NSString *presetKind;
 
 + (float)defaultFloatValueForProperty:(int)arg1;
 + (int)defaultIntValueForProperty:(int)arg1;
 + (id)defaultPropertyMap;
 + (id)defaultStyleWithContext:(id)arg1;
-+ (id)defaultStyleWithDefaultPropertiesInContext:(id)arg1;
 + (id)defaultValueForProperty:(int)arg1;
 + (id)deprecatedProperties;
 + (void)initialize;
@@ -30,36 +22,37 @@
 + (id)paragraphProperties;
 + (id)paragraphPropertiesAllowingNSNull;
 + (id)presetStyleDescriptor;
-+ (id)presetStyleDescriptorForOrdinal:(unsigned long long)arg1;
++ (id)presetStyleDescriptorForOrdinal:(unsigned int)arg1;
 + (id)properties;
 + (id)propertiesAllowingNSNull;
 + (id)styleSummaryForPropertyMap:(id)arg1;
 
-- (const struct ParagraphStyleArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; struct StyleArchive {} *x3; struct CharacterStylePropertiesArchive {} *x4; struct ParagraphStylePropertiesArchive {} *x5; unsigned int x6; int x7; unsigned int x8[1]; }*)paragraphStyleArchiveFromUnarchiver:(id)arg1;
-- (double)ascent;
+- (float)ascent;
+- (id)boxedValueForProperty:(int)arg1 oldBoxedValue:(id)arg2 transformedByTransform:(struct CGAffineTransform { float x1; float x2; float x3; float x4; float x5; float x6; })arg3;
 - (void)clearStyleCaches;
 - (void)dealloc;
-- (struct __CTFont { }*)findCachedFontForCharacterStyle:(id)arg1 scalePercent:(unsigned long long)arg2;
+- (struct __CTFont { }*)findCachedFontForCharacterStyle:(id)arg1 scalePercent:(unsigned int)arg2;
 - (id)followingParagraphStyle;
 - (id)fullPropertyMap;
-- (struct __CFDictionary { }*)getTypesetterAttributes:(id)arg1 scalePercent:(unsigned long long)arg2 isRightToLeft:(bool)arg3;
+- (struct __CFDictionary { }*)getTypesetterAttributes:(id)arg1 scalePercent:(unsigned int)arg2 isRightToLeft:(BOOL)arg3;
 - (id)initFromUnarchiver:(id)arg1;
 - (id)initialListStyle;
-- (void)loadFromArchive:(const struct ParagraphStyleArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; struct StyleArchive {} *x3; struct CharacterStylePropertiesArchive {} *x4; struct ParagraphStylePropertiesArchive {} *x5; unsigned int x6; int x7; unsigned int x8[1]; }*)arg1 unarchiver:(id)arg2;
-- (void)localizeForBidi:(bool)arg1;
+- (void)loadFromArchive:(const struct ParagraphStyleArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct StyleArchive {} *x5; struct CharacterStylePropertiesArchive {} *x6; struct ParagraphStylePropertiesArchive {} *x7; unsigned int x8; }*)arg1 unarchiver:(id)arg2;
+- (void)localizeForBidi:(BOOL)arg1;
 - (void)localizeForRightToLeft;
 - (SEL)mapThemePropertyMapSelector;
-- (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
-- (long long)mixingTypeWithObject:(id)arg1;
+- (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
+- (int)mixingTypeWithObject:(id)arg1 context:(id)arg2;
 - (BOOL)p_coreTextWritingDirectionFromWPWritingDirection:(int)arg1;
 - (struct __CTParagraphStyle { }*)p_createCoreTextParagraphStyleWithCharacterStyle:(id)arg1 writingDirection:(int)arg2;
-- (struct __CFDictionary { }*)p_newCoreTextCharacterStyle:(id)arg1 allowLigatures:(bool)arg2 scalePercent:(unsigned long long)arg3;
+- (struct __CFDictionary { }*)p_newCoreTextCharacterStyle:(id)arg1 allowLigatures:(BOOL)arg2 scalePercent:(unsigned int)arg3;
+- (const struct ParagraphStyleArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct StyleArchive {} *x5; struct CharacterStylePropertiesArchive {} *x6; struct ParagraphStylePropertiesArchive {} *x7; unsigned int x8; }*)paragraphStyleArchiveFromUnarchiver:(id)arg1;
 - (id)presetKind;
-- (void)saveToArchive:(struct ParagraphStyleArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; struct StyleArchive {} *x3; struct CharacterStylePropertiesArchive {} *x4; struct ParagraphStylePropertiesArchive {} *x5; unsigned int x6; int x7; unsigned int x8[1]; }*)arg1 archiver:(id)arg2;
+- (void)saveToArchive:(struct ParagraphStyleArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct StyleArchive {} *x5; struct CharacterStylePropertiesArchive {} *x6; struct ParagraphStylePropertiesArchive {} *x7; unsigned int x8; }*)arg1 archiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
 - (void)setInitialListStyle:(id)arg1;
 - (void)setOverridePropertyMap:(id)arg1;
 - (id)styleSummary;
-- (bool)transformsFontSizes;
+- (BOOL)transformsFontSizes;
 
 @end

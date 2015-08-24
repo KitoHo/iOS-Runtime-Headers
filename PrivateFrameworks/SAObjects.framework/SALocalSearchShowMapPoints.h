@@ -2,19 +2,16 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSNumber, NSString, SALocalSearchMapItem, SALocalSearchMapItemList;
+@interface SALocalSearchShowMapPoints : SADomainCommand
 
-@interface SALocalSearchShowMapPoints : SADomainCommand {
-}
-
-@property(copy) NSString * directionsType;
-@property(retain) SALocalSearchMapItem * itemDestination;
-@property(retain) SALocalSearchMapItem * itemSource;
-@property(copy) NSString * language;
-@property(copy) NSNumber * regionOfInterestRadiusInMiles;
-@property(retain) SALocalSearchMapItemList * searchItems;
-@property bool showDirections;
-@property bool showTraffic;
+@property (nonatomic, copy) NSString *directionsType;
+@property (nonatomic, retain) SALocalSearchMapItem *itemDestination;
+@property (nonatomic, retain) SALocalSearchMapItem *itemSource;
+@property (nonatomic, copy) NSString *language;
+@property (nonatomic, copy) NSNumber *regionOfInterestRadiusInMiles;
+@property (nonatomic, retain) SALocalSearchMapItemList *searchItems;
+@property (nonatomic) BOOL showDirections;
+@property (nonatomic) BOOL showTraffic;
 
 + (id)showMapPoints;
 + (id)showMapPointsWithDictionary:(id)arg1 context:(id)arg2;
@@ -26,7 +23,7 @@
 - (id)itemSource;
 - (id)language;
 - (id)regionOfInterestRadiusInMiles;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (id)searchItems;
 - (void)setDirectionsType:(id)arg1;
 - (void)setItemDestination:(id)arg1;
@@ -34,9 +31,9 @@
 - (void)setLanguage:(id)arg1;
 - (void)setRegionOfInterestRadiusInMiles:(id)arg1;
 - (void)setSearchItems:(id)arg1;
-- (void)setShowDirections:(bool)arg1;
-- (void)setShowTraffic:(bool)arg1;
-- (bool)showDirections;
-- (bool)showTraffic;
+- (void)setShowDirections:(BOOL)arg1;
+- (void)setShowTraffic:(BOOL)arg1;
+- (BOOL)showDirections;
+- (BOOL)showTraffic;
 
 @end

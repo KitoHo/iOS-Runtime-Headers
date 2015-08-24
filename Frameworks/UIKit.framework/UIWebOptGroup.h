@@ -2,22 +2,20 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class <UIWebSelectedItemPrivate>, NSArray;
-
 @interface UIWebOptGroup : NSObject {
     <UIWebSelectedItemPrivate> *_group;
-    long long _offset;
+    int _offset;
     NSArray *_options;
 }
 
-@property(retain) <UIWebSelectedItemPrivate> * group;
-@property(readonly) long long offset;
-@property(retain) NSArray * options;
+@property (nonatomic, retain) <UIWebSelectedItemPrivate> *group;
+@property (nonatomic, readonly) int offset;
+@property (nonatomic, retain) NSArray *options;
 
 - (void)dealloc;
 - (id)group;
-- (id)initWithGroup:(id)arg1 itemOffset:(long long)arg2;
-- (long long)offset;
+- (id)initWithGroup:(id)arg1 itemOffset:(int)arg2;
+- (int)offset;
 - (id)options;
 - (void)setGroup:(id)arg1;
 - (void)setOptions:(id)arg1;

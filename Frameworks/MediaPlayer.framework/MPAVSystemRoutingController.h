@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class NSObject<OS_dispatch_queue>, NSPointerArray;
-
 @interface MPAVSystemRoutingController : NSObject {
-    long long _clientDiscoveryMode;
+    int _clientDiscoveryMode;
     NSPointerArray *_clientRoutingControllers;
     int _debugNotifyToken;
     NSObject<OS_dispatch_queue> *_serialQueue;

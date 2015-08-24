@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/NotificationCenter.framework/NotificationCenter
  */
 
-@class NSDate;
-
 @interface _NCWidgetControllerRequestLimiter : NSObject {
+    BOOL _isThrottled;
     NSDate *_lastRequestDate;
-    long long _requestCount;
-    bool_isThrottled;
+    int _requestCount;
 }
 
 + (id)sharedInstance;
 
 - (void)dealloc;
-- (bool)isRequestPermitted;
+- (BOOL)isRequestPermitted;
 
 @end

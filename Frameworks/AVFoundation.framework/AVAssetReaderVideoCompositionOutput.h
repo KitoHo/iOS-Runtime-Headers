@@ -2,26 +2,24 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class <AVVideoCompositing>, AVAssetReaderVideoCompositionOutputInternal, AVVideoComposition, NSArray, NSDictionary;
-
 @interface AVAssetReaderVideoCompositionOutput : AVAssetReaderOutput {
     AVAssetReaderVideoCompositionOutputInternal *_videoCompositionOutputInternal;
 }
 
-@property(readonly) <AVVideoCompositing> * customVideoCompositor;
-@property(copy) AVVideoComposition * videoComposition;
-@property(readonly) NSDictionary * videoSettings;
-@property(readonly) NSArray * videoTracks;
+@property (nonatomic, readonly) <AVVideoCompositing> *customVideoCompositor;
+@property (nonatomic, copy) AVVideoComposition *videoComposition;
+@property (nonatomic, readonly) NSDictionary *videoSettings;
+@property (nonatomic, readonly) NSArray *videoTracks;
 
 + (id)assetReaderVideoCompositionOutputWithVideoTracks:(id)arg1 videoSettings:(id)arg2;
 
 - (id)_asset;
-- (bool)_enableTrackExtractionReturningError:(id*)arg1;
-- (id)_errorForOSStatus:(int)arg1;
-- (bool)_prepareForReadingReturningError:(id*)arg1;
-- (void)_setVideoComposition:(id)arg1 customVideoCompositorSession:(id)arg2;
+- (BOOL)_enableTrackExtractionReturningError:(id*)arg1;
+- (id)_errorForOSStatus:(long)arg1;
+- (BOOL)_prepareForReadingReturningError:(id*)arg1;
 - (void)_setVideoComposition:(id)arg1;
-- (bool)alwaysCopiesSampleData;
+- (void)_setVideoComposition:(id)arg1 customVideoCompositorSession:(id)arg2;
+- (BOOL)alwaysCopiesSampleData;
 - (id)customVideoCompositor;
 - (void)dealloc;
 - (id)description;

@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreLocation.framework/CoreLocation
  */
 
-@class NSDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>;
-
 @interface CLTilesManagerClient : NSObject {
     NSDictionary *fNotificationHandlers;
     NSObject<OS_dispatch_queue> *fQueue;
@@ -14,13 +12,13 @@
 + (id)sharedClient;
 
 - (void)dealloc;
-- (bool)executeAsynchronousQuery:(id)arg1 onQueue:(id)arg2 responseBlock:(id)arg3;
+- (BOOL)executeAsynchronousQuery:(id)arg1 onQueue:(id)arg2 responseBlock:(id /* block */)arg3;
 - (id)init;
 - (void)onNotificationReceived:(id)arg1;
-- (bool)precacheHint:(id)arg1 onQueue:(id)arg2 responseBlock:(id)arg3;
+- (BOOL)precacheHint:(id)arg1 onQueue:(id)arg2 responseBlock:(id /* block */)arg3;
 - (void)reconnect;
-- (bool)registerTo:(id)arg1 onQueue:(id)arg2 block:(id)arg3;
-- (void)sendNotificationRegistrationMessage:(id)arg1 isRegister:(bool)arg2;
-- (bool)unregisterFrom:(id)arg1;
+- (BOOL)registerTo:(id)arg1 onQueue:(id)arg2 block:(id /* block */)arg3;
+- (void)sendNotificationRegistrationMessage:(id)arg1 isRegister:(BOOL)arg2;
+- (BOOL)unregisterFrom:(id)arg1;
 
 @end

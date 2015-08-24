@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class NSMutableArray;
-
 @interface VKPMatchingTree : PBCodable <NSCopying> {
     struct { 
         unsigned int styleReference : 1; 
@@ -14,11 +12,11 @@
     NSMutableArray *_subTrees;
 }
 
-@property bool hasStyleReference;
-@property unsigned int key;
-@property unsigned int score;
-@property unsigned int styleReference;
-@property(retain) NSMutableArray * subTrees;
+@property (nonatomic) BOOL hasStyleReference;
+@property (nonatomic) unsigned int key;
+@property (nonatomic) unsigned int score;
+@property (nonatomic) unsigned int styleReference;
+@property (nonatomic, retain) NSMutableArray *subTrees;
 
 - (void)addSubTree:(id)arg1;
 - (void)clearSubTrees;
@@ -27,22 +25,22 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasStyleReference;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasStyleReference;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (unsigned int)key;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (unsigned int)score;
-- (void)setHasStyleReference:(bool)arg1;
+- (void)setHasStyleReference:(BOOL)arg1;
 - (void)setKey:(unsigned int)arg1;
 - (void)setScore:(unsigned int)arg1;
 - (void)setStyleReference:(unsigned int)arg1;
 - (void)setSubTrees:(id)arg1;
 - (unsigned int)styleReference;
-- (id)subTreeAtIndex:(unsigned long long)arg1;
+- (id)subTreeAtIndex:(unsigned int)arg1;
 - (id)subTrees;
-- (unsigned long long)subTreesCount;
+- (unsigned int)subTreesCount;
 - (void)writeTo:(id)arg1;
 
 @end

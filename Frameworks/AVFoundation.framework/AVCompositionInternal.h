@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVAssetInspector, AVAssetInspectorLoader, NSMutableArray;
-
 @interface AVCompositionInternal : NSObject {
-    struct CGSize { 
-        double width; 
-        double height; 
     AVAssetInspector *assetInspector;
-    long long assetInspectorInitializationOnce;
+    long assetInspectorInitializationOnce;
     AVAssetInspectorLoader *assetInspectorLoader;
     struct OpaqueFigFormatReader { } *formatReader;
-    long long formatReaderInitializationOnce;
+    long formatReaderInitializationOnce;
     struct OpaqueFigMutableComposition { } *mutableComposition;
+    struct CGSize { 
+        float width; 
+        float height; 
     } naturalSize;
     NSMutableArray *tracks;
-    long long tracksInitializationOnce;
+    long tracksInitializationOnce;
 }
 
 @end

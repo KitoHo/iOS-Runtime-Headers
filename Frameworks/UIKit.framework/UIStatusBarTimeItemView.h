@@ -2,15 +2,14 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString;
-
 @interface UIStatusBarTimeItemView : UIStatusBarItemView {
     NSString *_timeString;
 }
 
 - (id)contentsImage;
 - (void)dealloc;
-- (long long)textStyle;
-- (bool)updateForNewData:(id)arg1 actions:(int)arg2;
+- (float)extraRightPadding;
+- (int)textStyle;
+- (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
 
 @end

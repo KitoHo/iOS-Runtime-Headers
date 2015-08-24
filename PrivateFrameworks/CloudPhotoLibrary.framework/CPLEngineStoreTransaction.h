@@ -2,28 +2,26 @@
    Image: /System/Library/PrivateFrameworks/CloudPhotoLibrary.framework/CloudPhotoLibrary
  */
 
-@class NSError, NSString, NSThread;
-
 @interface CPLEngineStoreTransaction : NSObject {
     NSThread *_currentThread;
     NSError *_error;
+    BOOL _forWrite;
     NSString *_name;
-    bool_forWrite;
 }
 
-@property(copy) NSError * error;
-@property(copy) NSString * name;
+@property (nonatomic, copy) NSError *error;
+@property (nonatomic, copy) NSString *name;
 
 - (void).cxx_destruct;
-- (bool)_forWrite;
+- (BOOL)_forWrite;
 - (void)_transactionDidFinish;
 - (void)_transactionWillBeginOnThread:(id)arg1;
-- (bool)canRead;
-- (bool)canWrite;
+- (BOOL)canRead;
+- (BOOL)canWrite;
 - (id)description;
-- (bool)do:(id)arg1;
+- (BOOL)do:(id /* block */)arg1;
 - (id)error;
-- (id)initForWrite:(bool)arg1;
+- (id)initForWrite:(BOOL)arg1;
 - (id)name;
 - (void)setError:(id)arg1;
 - (void)setName:(id)arg1;

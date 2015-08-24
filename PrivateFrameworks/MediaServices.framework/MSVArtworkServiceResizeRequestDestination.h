@@ -2,28 +2,29 @@
    Image: /System/Library/PrivateFrameworks/MediaServices.framework/MediaServices
  */
 
-@class NSURL;
-
 @interface MSVArtworkServiceResizeRequestDestination : NSObject <NSSecureCoding> {
+    float _destinationCompressionQuality;
     struct CGSize { 
-        double width; 
-        double height; 
+        float width; 
+        float height; 
     } _destinationSize;
     NSURL *_destinationURL;
 }
 
-@property(readonly) struct CGSize { double x1; double x2; } destinationSize;
-@property(readonly) NSURL * destinationURL;
+@property (nonatomic, readonly) float destinationCompressionQuality;
+@property (nonatomic, readonly) struct CGSize { float x1; float x2; } destinationSize;
+@property (nonatomic, readonly) NSURL *destinationURL;
 
-+ (id)destinationWithSize:(struct CGSize { double x1; double x2; })arg1 url:(id)arg2;
-+ (bool)supportsSecureCoding;
++ (id)destinationWithSize:(struct CGSize { float x1; float x2; })arg1 compressionQuality:(float)arg2 url:(id)arg3;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)description;
-- (struct CGSize { double x1; double x2; })destinationSize;
+- (float)destinationCompressionQuality;
+- (struct CGSize { float x1; float x2; })destinationSize;
 - (id)destinationURL;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithDestinationSize:(struct CGSize { double x1; double x2; })arg1 destinationURL:(id)arg2;
+- (id)initWithDestinationSize:(struct CGSize { float x1; float x2; })arg1 destinationCompressionQuality:(float)arg2 destinationURL:(id)arg3;
 
 @end

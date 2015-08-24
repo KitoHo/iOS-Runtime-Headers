@@ -2,19 +2,18 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@interface GKBubblePathAnimator : NSObject {
-}
+@interface GKBubblePathAnimator : NSObject
 
-@property(readonly) long long animatorType;
+@property (nonatomic, readonly) int animatorType;
 
 + (id)hiTimingFunction;
 + (id)sharedBubblePathAnimator;
 
-- (void)animateTransition:(id)arg1 completionHandler:(id)arg2;
 - (void)animateTransition:(id)arg1;
-- (long long)animatorType;
-- (bool)bubblesOnscreenAtBeginning;
-- (bool)bubblesOnscreenAtEnd;
+- (void)animateTransition:(id)arg1 completionHandler:(id /* block */)arg2;
+- (int)animatorType;
+- (BOOL)bubblesOnscreenAtBeginning;
+- (BOOL)bubblesOnscreenAtEnd;
 - (id)effectiveViewForContext:(id)arg1;
 - (double)minimumDurationForViewAnimations;
 

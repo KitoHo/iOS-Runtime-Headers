@@ -6,12 +6,12 @@
     id _observer;
 }
 
-@property(readonly) id observer;
+@property (nonatomic, readonly) id observer;
 
 - (void)dealloc;
 - (id)description;
 - (id)initWithObserver:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)observer;
 
 @end

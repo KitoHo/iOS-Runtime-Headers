@@ -2,8 +2,7 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-@interface _HKEntitlements : NSObject {
-}
+@interface _HKEntitlements : NSObject
 
 + (void)_setEntitlementsForCurrentTask:(id)arg1;
 + (id)entitlementsForCurrentTask;
@@ -12,7 +11,7 @@
 + (id)entitlementsWithDictionary:(id)arg1;
 
 - (id)applicationIdentifier;
-- (bool)hasEntitlement:(id)arg1;
+- (BOOL)hasEntitlement:(id)arg1;
 - (id)stringForEntitlement:(id)arg1;
 - (id)valueForEntitlement:(id)arg1;
 

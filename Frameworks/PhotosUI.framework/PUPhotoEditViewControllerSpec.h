@@ -2,19 +2,18 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@interface PUPhotoEditViewControllerSpec : PUViewControllerSpec {
-}
+@interface PUPhotoEditViewControllerSpec : PUViewControllerSpec
 
-@property(readonly) struct UIEdgeInsets { double x1; double x2; double x3; double x4; } previewViewInsetsLandscape;
-@property(readonly) struct UIEdgeInsets { double x1; double x2; double x3; double x4; } previewViewInsetsPortrait;
-@property(readonly) bool shouldDisplayExtensionButtonInMainToolbar;
-@property(readonly) bool shouldDisplaySecondaryToolButtonsInMainToolbar;
-@property(readonly) double toolbarLongSideMargin;
+@property (nonatomic, readonly) struct UIEdgeInsets { float x1; float x2; float x3; float x4; } previewViewInsetsLandscape;
+@property (nonatomic, readonly) struct UIEdgeInsets { float x1; float x2; float x3; float x4; } previewViewInsetsPortrait;
+@property (nonatomic, readonly) BOOL shouldDisplayExtensionButtonInMainToolbar;
+@property (nonatomic, readonly) BOOL shouldDisplaySecondaryToolButtonsInMainToolbar;
+@property (nonatomic, readonly) float toolbarLongSideMargin;
 
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })previewViewInsetsLandscape;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })previewViewInsetsPortrait;
-- (bool)shouldDisplayExtensionButtonInMainToolbar;
-- (bool)shouldDisplaySecondaryToolButtonsInMainToolbar;
-- (double)toolbarLongSideMargin;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })previewViewInsetsLandscape;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })previewViewInsetsPortrait;
+- (BOOL)shouldDisplayExtensionButtonInMainToolbar;
+- (BOOL)shouldDisplaySecondaryToolButtonsInMainToolbar;
+- (float)toolbarLongSideMargin;
 
 @end

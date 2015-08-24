@@ -2,53 +2,52 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString, UIViewController, _UIDocumentPickerContainerModel, _UIDocumentPickerViewServiceViewController, _UINavigationControllerPalette;
-
 @interface _UIDocumentPickerContainerViewController : UIViewController <_UIDocumentPickerServiceInvalidating> {
-    UIViewController *_childViewController;
+    UIViewController<_UIDocumentPickerContainedViewController> *_childViewController;
     _UIDocumentPickerContainerModel *_model;
+    BOOL _rootContainer;
     _UINavigationControllerPalette *_searchPalette;
-    _UIDocumentPickerViewServiceViewController *_serviceViewController;
-    bool_rootContainer;
+    _UIDocumentPickerViewServiceViewController *_weak_serviceViewController;
 }
 
-@property(retain) UIViewController * childViewController;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) _UIDocumentPickerContainerModel * model;
-@property(getter=isRootContainer) bool rootContainer;
-@property(retain) _UINavigationControllerPalette * searchPalette;
-@property _UIDocumentPickerViewServiceViewController * serviceViewController;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) UIViewController<_UIDocumentPickerContainedViewController> *childViewController;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) _UIDocumentPickerContainerModel *model;
+@property (getter=isRootContainer, nonatomic) BOOL rootContainer;
+@property (nonatomic, retain) _UINavigationControllerPalette *searchPalette;
+@property (nonatomic) <_UIDocumentPickerServiceViewController> *serviceViewController;
+@property (readonly) Class superclass;
 
-- (void)_doneButtonPressed;
 - (id)_mangledFilenameForURL:(id)arg1;
 - (void)_pickCurrentLocationForUpload:(id)arg1;
+- (void)_sortOrderViewChanged:(id)arg1;
 - (void)_tryExportingFile:(id)arg1 toLocation:(id)arg2;
 - (void)_updateForServiceView;
 - (id)childViewController;
 - (void)dealloc;
 - (void)didMoveToParentViewController:(id)arg1;
-- (void)displayModeChanged;
 - (void)ensureChildViewController;
 - (id)initWithModel:(id)arg1;
 - (id)initWithURL:(id)arg1;
 - (void)invalidate;
-- (bool)isRootContainer;
+- (BOOL)isRootContainer;
 - (id)model;
 - (id)searchPalette;
 - (id)serviceViewController;
-- (void)setChildViewController:(id)arg1 animated:(bool)arg2;
 - (void)setChildViewController:(id)arg1;
+- (void)setChildViewController:(id)arg1 animated:(BOOL)arg2;
 - (void)setModel:(id)arg1;
-- (void)setRootContainer:(bool)arg1;
+- (void)setRootContainer:(BOOL)arg1;
 - (void)setSearchPalette:(id)arg1;
 - (void)setServiceViewController:(id)arg1;
 - (void)setupPalettes;
 - (void)teardownPalettes;
 - (id)url;
-- (void)viewWillAppear:(bool)arg1;
+- (void)viewDidLayoutSubviews;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 - (void)willMoveToParentViewController:(id)arg1;
 
 @end

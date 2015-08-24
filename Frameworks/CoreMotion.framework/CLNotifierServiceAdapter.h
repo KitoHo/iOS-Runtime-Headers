@@ -2,15 +2,6 @@
    Image: /System/Library/Frameworks/CoreMotion.framework/CoreMotion
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
 @interface CLNotifierServiceAdapter : CLIntersiloService <CLNotifierServiceProtocol> {
     struct map<unsigned long, int, std::__1::less<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, int> > > { 
         struct __tree<std::__1::__value_type<unsigned long, int>, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, int>, std::__1::less<unsigned long>, true>, std::__1::allocator<std::__1::__value_type<unsigned long, int> > > { 
@@ -21,29 +12,26 @@
                 } __first_; 
             } __pair1_; 
             struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, int>, std::__1::less<unsigned long>, true> > { 
-                unsigned long long __first_; 
+                unsigned long __first_; 
             } __pair3_; 
         } __tree_; 
-     /* Encoded args for previous method: v24@0:8R@16 */
-     /* Encoded args for previous method: v28@0:8R@16i24 */
-     /* Encoded args for previous method: v36@0:8R@16i24@28 */
     } _clients;
     struct CLNotifierBase { int (**x1)(); } *_notifier;
 }
 
-@property(readonly) struct CLNotifierBase { int (**x1)(); }* notifier;
-@property bool valid;
+@property (nonatomic, readonly) struct CLNotifierBase { int (**x1)(); }*notifier;
+@property (nonatomic) BOOL valid;
 
-- (struct CLNotifierBase { int (**x1)(); }*)notifier;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)debugDescription;
-- (void)forget:(/* Warning: Unrecognized filer type: 'R' using 'void*' */ void*)arg1;
+- (void)forget:(void *)arg1; // needs 1 arg types, found 2: /* Warning: Unrecognized filer type: 'R' using 'void*' */ void*, id
 - (id)initInSilo:(id)arg1;
 - (void)invalidate;
+- (struct CLNotifierBase { int (**x1)(); }*)notifier;
 - (int)notifierClientNumForCoparty:(id)arg1;
-- (void)register:(/* Warning: Unrecognized filer type: 'R' using 'void*' */ void*)arg1 forNotification:(int)arg2 registrationInfo:(id)arg3;
+- (void)register:(void *)arg1 forNotification:(void *)arg2 registrationInfo:(void *)arg3; // needs 3 arg types, found 4: /* Warning: Unrecognized filer type: 'R' using 'void*' */ void*, id, int, id
 - (void)setAdaptedNotifier:(struct CLNotifierBase { int (**x1)(); }*)arg1;
-- (void)unregister:(/* Warning: Unrecognized filer type: 'R' using 'void*' */ void*)arg1 forNotification:(int)arg2;
+- (void)unregister:(void *)arg1 forNotification:(void *)arg2; // needs 2 arg types, found 3: /* Warning: Unrecognized filer type: 'R' using 'void*' */ void*, id, int
 
 @end

@@ -2,34 +2,32 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class NSArray, NSNumber, NSString, WBSParsecImageRepresentation;
-
 @interface WBSParsecSearchSimpleResult : WBSParsecSearchResult {
     NSString *_descriptionLeadInText;
     NSNumber *_descriptionMaximumNumberOfLines;
+    BOOL _descriptionTextCanWrap;
     NSString *_footnote;
+    BOOL _hasSingleLineDescriptionAndTitle;
     NSArray *_moreIconRepresentations;
     WBSParsecImageRepresentation *_titleGlyph;
     NSNumber *_titleMaximumNumberOfLines;
-    bool_descriptionTextCanWrap;
-    bool_hasSingleLineDescriptionAndTitle;
 }
 
-@property(readonly) NSString * descriptionLeadInText;
-@property(readonly) NSNumber * descriptionMaximumNumberOfLines;
-@property(readonly) bool descriptionTextCanWrap;
-@property(readonly) NSString * footnote;
-@property(readonly) bool hasMoreIcons;
-@property(readonly) bool hasSingleLineDescriptionAndTitle;
-@property(readonly) NSNumber * titleMaximumNumberOfLines;
+@property (nonatomic, readonly) NSString *descriptionLeadInText;
+@property (nonatomic, readonly) NSNumber *descriptionMaximumNumberOfLines;
+@property (nonatomic, readonly) BOOL descriptionTextCanWrap;
+@property (nonatomic, readonly) NSString *footnote;
+@property (nonatomic, readonly) BOOL hasMoreIcons;
+@property (nonatomic, readonly) BOOL hasSingleLineDescriptionAndTitle;
+@property (nonatomic, readonly) NSNumber *titleMaximumNumberOfLines;
 
 - (void).cxx_destruct;
 - (id)descriptionLeadInText;
 - (id)descriptionMaximumNumberOfLines;
-- (bool)descriptionTextCanWrap;
+- (BOOL)descriptionTextCanWrap;
 - (id)footnote;
-- (bool)hasMoreIcons;
-- (bool)hasSingleLineDescriptionAndTitle;
+- (BOOL)hasMoreIcons;
+- (BOOL)hasSingleLineDescriptionAndTitle;
 - (id)initWithDictionary:(id)arg1;
 - (id)moreIconsWithSession:(id)arg1;
 - (id)titleGlyphWithSession:(id)arg1;

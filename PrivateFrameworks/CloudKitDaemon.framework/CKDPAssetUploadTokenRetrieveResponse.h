@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSMutableArray;
-
 @interface CKDPAssetUploadTokenRetrieveResponse : PBCodable <NSCopying> {
     NSMutableArray *_uploadTokens;
 }
 
-@property(retain) NSMutableArray * uploadTokens;
+@property (nonatomic, retain) NSMutableArray *uploadTokens;
 
 - (void).cxx_destruct;
 - (void)addUploadTokens:(id)arg1;
@@ -17,14 +15,14 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setUploadTokens:(id)arg1;
 - (id)uploadTokens;
-- (id)uploadTokensAtIndex:(unsigned long long)arg1;
-- (unsigned long long)uploadTokensCount;
+- (id)uploadTokensAtIndex:(unsigned int)arg1;
+- (unsigned int)uploadTokensCount;
 - (void)writeTo:(id)arg1;
 
 @end

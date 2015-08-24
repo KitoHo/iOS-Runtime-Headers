@@ -2,13 +2,14 @@
    Image: /System/Library/PrivateFrameworks/ResponseKit.framework/ResponseKit
  */
 
-@interface RKAssets : NSObject {
-}
+@interface RKAssets : NSObject
 
 + (id)alternativeInversions;
 + (id)appreciationKeywords;
++ (id)categoryKeywordMap;
 + (id)categoryKeywords;
-+ (id)categoryResponses;
++ (id)categoryResponsesEditable;
++ (id)categoryResponsesNonEditable;
 + (id)fixedPhrases;
 + (id)polarTagKeywords;
 + (id)sensitiveSubjectKeywords;

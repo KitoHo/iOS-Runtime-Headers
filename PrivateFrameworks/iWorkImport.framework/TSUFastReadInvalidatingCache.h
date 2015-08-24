@@ -2,24 +2,18 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSCondition;
-
 @interface TSUFastReadInvalidatingCache : NSObject {
-    boolmIsGenerating;
-    boolmReentrant;
     NSCondition *mCondition;
-    id mGenerator;
+    id /* block */ mGenerator;
+    BOOL mIsGenerating;
     long long mReaderCount;
+    BOOL mReentrant;
     NSArray *mToDispose;
     id mValue;
 }
 
 - (void)dealloc;
-- (id)initForReentrant:(bool)arg1 withGenerator:(id)arg2;
+- (id)initForReentrant:(BOOL)arg1 withGenerator:(id /* block */)arg2;
 - (void)invalidate;
 - (void)p_setValue:(id)arg1;
 - (id)value;

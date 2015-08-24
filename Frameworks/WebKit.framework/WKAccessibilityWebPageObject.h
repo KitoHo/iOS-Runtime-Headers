@@ -2,16 +2,14 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-@class NSData;
-
 @interface WKAccessibilityWebPageObject : WKAccessibilityWebPageObjectBase {
     NSData *_remoteTokenData;
 }
 
-@property(retain) NSData * remoteTokenData;
+@property (nonatomic, retain) NSData *remoteTokenData;
 
 - (void)_accessibilityCategoryInstalled:(id)arg1;
-- (id)accessibilityHitTest:(struct CGPoint { double x1; double x2; })arg1;
+- (id)accessibilityHitTest:(struct CGPoint { float x1; float x2; })arg1;
 - (void)dealloc;
 - (id)init;
 - (double)pageScale;

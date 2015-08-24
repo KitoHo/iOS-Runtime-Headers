@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CalDAV.framework/CalDAV
  */
 
-@class CalDAVCalendarServerAccessItem, CalDAVCalendarServerOrganizerItem, CalDAVSupportedCalendarComponentSet, CoreDAVHrefItem, CoreDAVItemWithHrefChildItem, CoreDAVItemWithNoChildren, CoreDAVLeafItem;
-
 @interface CalDAVCalendarServerInviteNotificationItem : CoreDAVItem {
     CalDAVCalendarServerAccessItem *_access;
     CoreDAVItemWithNoChildren *_calendarPublic;
@@ -16,15 +14,15 @@
     CoreDAVLeafItem *_uid;
 }
 
-@property(retain) CalDAVCalendarServerAccessItem * access;
-@property(retain) CoreDAVItemWithNoChildren * calendarPublic;
-@property(retain) CoreDAVItemWithHrefChildItem * hostURL;
-@property(retain) CoreDAVHrefItem * href;
-@property(retain) CoreDAVItemWithNoChildren * inviteStatus;
-@property(retain) CalDAVCalendarServerOrganizerItem * organizer;
-@property(retain) CoreDAVLeafItem * summary;
-@property(retain) CalDAVSupportedCalendarComponentSet * supportedCalendarComponentSet;
-@property(retain) CoreDAVLeafItem * uid;
+@property (nonatomic, retain) CalDAVCalendarServerAccessItem *access;
+@property (nonatomic, retain) CoreDAVItemWithNoChildren *calendarPublic;
+@property (nonatomic, retain) CoreDAVItemWithHrefChildItem *hostURL;
+@property (nonatomic, retain) CoreDAVHrefItem *href;
+@property (nonatomic, retain) CoreDAVItemWithNoChildren *inviteStatus;
+@property (nonatomic, retain) CalDAVCalendarServerOrganizerItem *organizer;
+@property (nonatomic, retain) CoreDAVLeafItem *summary;
+@property (nonatomic, retain) CalDAVSupportedCalendarComponentSet *supportedCalendarComponentSet;
+@property (nonatomic, retain) CoreDAVLeafItem *uid;
 
 - (id)access;
 - (id)calendarPublic;
@@ -36,7 +34,7 @@
 - (id)init;
 - (id)initForReplyWithUID:(id)arg1 href:(id)arg2 hostURL:(id)arg3 summary:(id)arg4;
 - (id)inviteStatus;
-- (bool)isComponentSupportedForString:(id)arg1;
+- (BOOL)isComponentSupportedForString:(id)arg1;
 - (id)organizer;
 - (void)setAccess:(id)arg1;
 - (void)setCalendarPublic:(id)arg1;

@@ -2,73 +2,65 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class TSDDrawableInfo;
-
 @interface TSWPDrawableAttachment : TSWPAttachment {
-    double _cachedDescent;
-    unsigned long long _cachedHash;
     TSDDrawableInfo *_drawableInfo;
-    double _hOffset;
+    float _hOffset;
     int _hOffsetType;
-    double _vOffset;
+    float _vOffset;
     int _vOffsetType;
-    bool_cachedWasPICT;
 }
 
-@property(readonly) double descent;
-@property(retain,readonly) TSDDrawableInfo * drawable;
-@property double hOffset;
-@property int hOffsetType;
-@property double vOffset;
-@property int vOffsetType;
+@property (nonatomic, readonly) float descent;
+@property (nonatomic, readonly, retain) TSDDrawableInfo *drawable;
+@property (nonatomic) float hOffset;
+@property (nonatomic) int hOffsetType;
+@property (nonatomic) float vOffset;
+@property (nonatomic) int vOffsetType;
 
 + (void)setPositionerClass:(Class)arg1;
 
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
 - (void)attachDrawable:(id)arg1;
+- (void)clearParentStorageForDealloc;
 - (id)copyWithContext:(id)arg1;
 - (void)dealloc;
-- (double)descent;
+- (float)descent;
 - (id)detachDrawable;
 - (id)drawable;
 - (int)elementKind;
-- (unsigned long long)enabledKnobMask;
-- (double)hOffset;
+- (float)hOffset;
 - (int)hOffsetType;
 - (void)infoChanged;
 - (id)init;
 - (id)initFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1 drawable:(id)arg2;
 - (void)invalidate;
-- (bool)isAnchored;
-- (bool)isDrawable;
-- (bool)isEqual:(id)arg1;
-- (bool)isHTMLWrap;
-- (bool)isPartitioned;
-- (bool)isSearchable;
-- (void)loadMessage:(const struct DrawableAttachmentArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; struct Reference {} *x3; unsigned int x4; float x5; unsigned int x6; float x7; int x8; unsigned int x9[1]; }*)arg1 fromUnarchiver:(id)arg2;
+- (BOOL)isAnchored;
+- (BOOL)isDrawable;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isHTMLWrap;
+- (BOOL)isPartitioned;
+- (BOOL)isSearchable;
+- (void)loadMessage:(const struct DrawableAttachmentArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct Reference {} *x5; unsigned int x6; float x7; unsigned int x8; float x9; }*)arg1 fromUnarchiver:(id)arg2;
+- (id)objectsForStyleMigrating;
 - (Class)positionerClass;
-- (void)saveMessage:(struct DrawableAttachmentArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; struct Reference {} *x3; unsigned int x4; float x5; unsigned int x6; float x7; int x8; unsigned int x9[1]; }*)arg1 toArchiver:(id)arg2;
+- (void)saveMessage:(struct DrawableAttachmentArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct Reference {} *x5; unsigned int x6; float x7; unsigned int x8; float x9; }*)arg1 toArchiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (void)setHOffset:(double)arg1;
+- (void)setHOffset:(float)arg1;
 - (void)setHOffsetType:(int)arg1;
 - (void)setParentStorage:(id)arg1;
-- (void)setVOffset:(double)arg1;
+- (void)setVOffset:(float)arg1;
 - (void)setVOffsetType:(int)arg1;
-- (bool)specifiesEnabledKnobMask;
+- (BOOL)specifiesEnabledKnobMask;
 - (id)subclassInitFromUnarchiver:(id)arg1;
+- (BOOL)supportsUUID;
 - (id)textRepresentationForCopy;
 - (id)textStorages;
-- (double)vOffset;
+- (float)vOffset;
 - (int)vOffsetType;
-- (void)wasAddedToDocumentRoot:(id)arg1 context:(id)arg2;
+- (void)wasAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)wasRemovedFromDocumentRoot:(id)arg1;
-- (void)willBeAddedToDocumentRoot:(id)arg1 context:(id)arg2;
+- (void)willBeAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
 
 @end

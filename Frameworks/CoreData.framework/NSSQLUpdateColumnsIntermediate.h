@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSArray;
-
 @interface NSSQLUpdateColumnsIntermediate : NSSQLIntermediate {
     NSArray *_propertiesToUpdate;
     NSArray *_valuesToUpdateTo;
@@ -16,8 +14,8 @@
 - (void)dealloc;
 - (id)generateSQLStringInContext:(id)arg1;
 - (id)initWithProperties:(id)arg1 values:(id)arg2 inScope:(id)arg3;
-- (bool)isDestination:(id)arg1 compatibleDestinationFor:(id)arg2;
-- (bool)isRelationship:(id)arg1 compatibleWith:(id)arg2;
-- (bool)isUpdateColumnsScoped;
+- (BOOL)isDestination:(id)arg1 compatibleDestinationFor:(id)arg2;
+- (BOOL)isRelationship:(id)arg1 compatibleWith:(id)arg2;
+- (BOOL)isUpdateColumnsScoped;
 
 @end

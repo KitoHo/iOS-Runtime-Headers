@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/CoreMediaStream.framework/CoreMediaStream
  */
 
-@class NSDictionary, NSString;
-
 @interface MSASEnqueuedCommand : NSObject <NSCoding> {
     NSString *_command;
     NSDictionary *_invariantParam;
     NSDictionary *_variantParam;
 }
 
-@property(copy) NSString * command;
-@property(retain) NSDictionary * invariantParam;
-@property(retain) NSDictionary * variantParam;
+@property (nonatomic, copy) NSString *command;
+@property (nonatomic, retain) NSDictionary *invariantParam;
+@property (nonatomic, retain) NSDictionary *variantParam;
 
 + (id)command;
 + (id)commandwithCommand:(id)arg1 variantParam:(id)arg2 invariantParam:(id)arg3;
 
 - (void).cxx_destruct;
-- (bool)canBeGroupedWithCommand:(id)arg1;
+- (BOOL)canBeGroupedWithCommand:(id)arg1;
 - (id)command;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;

@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
  */
 
-@class CFPDSource;
-
 @interface CFPrefsDirectSource : CFPrefsPlistSource {
     unsigned long long _inode;
+    BOOL _managed;
     CFPDSource *_underlyingSource;
-    bool_managed;
 }
 
 - (unsigned char)alreadylocked_requestNewData;
-- (void*)copyReplyForDirectMessage:(id)arg1 error:(bool*)arg2;
-- (id)createRequestNewContentMessageForDaemon:(bool)arg1;
+- (void*)copyReplyForDirectMessage:(id)arg1 error:(BOOL*)arg2;
+- (id)createRequestNewContentMessageForDaemon:(BOOL)arg1;
 - (void)dealloc;
-- (bool)managed;
-- (void)sendFullyPreparedMessage:(id)arg1 settingValue:(void*)arg2 forKey:(struct __CFString { }*)arg3;
-- (bool)sendMessage:(id)arg1;
-- (void)setManaged:(bool)arg1;
+- (BOOL)managed;
+- (void)sendFullyPreparedMessage:(id)arg1 settingValue:(void*)arg2 forKey:(struct __CFString { }*)arg3 retryCount:(int)arg4;
+- (BOOL)sendMessage:(id)arg1;
+- (void)setManaged:(BOOL)arg1;
 
 @end

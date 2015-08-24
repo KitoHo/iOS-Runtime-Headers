@@ -2,18 +2,12 @@
    Image: /System/Library/PrivateFrameworks/RemoteUI.framework/RemoteUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <RUIObjectModelDelegate>, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, NSTimer, NSURL, RUIAlertView, RUIElement, RUIPage, RUIStyle;
-
-@interface RUIObjectModel : NSObject <RemoteUIWebViewControllerDelegate, UIWebViewDelegate, RUITableViewDelegate, RUIPasscodeViewDelegate, RUIPageDelegate, RUIAlertViewDelegate> {
+@interface RUIObjectModel : NSObject <RUIAlertViewDelegate, RUIPageDelegate, RUIPasscodeViewDelegate, RUITableViewDelegate, RemoteUIWebViewControllerDelegate, UIWebViewDelegate> {
     NSDictionary *_alert;
     RUIAlertView *_alertElement;
     NSDictionary *_clientInfo;
     NSDictionary *_confirmationAttributes;
-    id _confirmationCompletion;
+    id /* block */ _confirmationCompletion;
     RUIElement *_confirmationElement;
     NSString *_confirmationURLString;
     struct OpaqueJSContext { } *_ctx;
@@ -24,7 +18,7 @@
     NSString *_inlineScript;
     NSString *_name;
     NSMutableDictionary *_namedPages;
-    long long _nextButtonStyle;
+    int _nextButtonStyle;
     int _refreshDelay;
     NSTimer *_refreshTimer;
     NSString *_refreshURL;
@@ -36,48 +30,48 @@
     NSString *_validationFunction;
 }
 
-@property(retain) NSDictionary * alert;
-@property(readonly) RUIAlertView * alertElement;
-@property(readonly) NSArray * allPages;
-@property(retain) NSDictionary * clientInfo;
-@property(copy,readonly) NSString * debugDescription;
-@property(readonly) NSArray * defaultPages;
-@property <RUIObjectModelDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) NSArray * displayedPages;
-@property(readonly) unsigned long long hash;
-@property(retain) NSString * inlineScript;
-@property(retain) NSString * name;
-@property(readonly) NSDictionary * namedPages;
-@property long long nextButtonStyle;
-@property(readonly) NSArray * pages;
-@property int refreshDelay;
-@property(retain) NSString * refreshURL;
-@property(retain) NSURL * scriptURL;
-@property(retain) NSDictionary * serverInfo;
-@property(retain) NSURL * sourceURL;
-@property(retain) RUIStyle * style;
-@property(readonly) Class superclass;
-@property(retain) NSDictionary * updateInfo;
-@property(retain) NSString * validationFunction;
-@property(readonly) RUIPage * visiblePage;
+@property (nonatomic, retain) NSDictionary *alert;
+@property (nonatomic, readonly) RUIAlertView *alertElement;
+@property (nonatomic, readonly) NSArray *allPages;
+@property (nonatomic, retain) NSDictionary *clientInfo;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic, readonly) NSArray *defaultPages;
+@property (nonatomic) <RUIObjectModelDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) NSArray *displayedPages;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NSString *inlineScript;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, readonly) NSDictionary *namedPages;
+@property (nonatomic) int nextButtonStyle;
+@property (nonatomic, readonly) NSArray *pages;
+@property (nonatomic) int refreshDelay;
+@property (nonatomic, retain) NSString *refreshURL;
+@property (nonatomic, retain) NSURL *scriptURL;
+@property (nonatomic, retain) NSDictionary *serverInfo;
+@property (nonatomic, retain) NSURL *sourceURL;
+@property (nonatomic, retain) RUIStyle *style;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSDictionary *updateInfo;
+@property (nonatomic, retain) NSString *validationFunction;
+@property (nonatomic, readonly) RUIPage *visiblePage;
 
 + (id)objectModelForXMLNamed:(id)arg1;
 
 - (void).cxx_destruct;
 - (void)RUIPage:(id)arg1 pressedNavBarButton:(id)arg2;
-- (void)RUIPage:(id)arg1 toggledEditing:(bool)arg2;
+- (void)RUIPage:(id)arg1 toggledEditing:(BOOL)arg2;
 - (void)_cleanupConfirmation;
 - (void)_displaySupplementalPage:(id)arg1;
 - (id)_firstPageForPresentation;
 - (void)_handleElementChange:(id)arg1;
 - (void)_handleElementChangeConfirmed:(id)arg1;
-- (void)_handleLinkPress:(id)arg1 attributes:(id)arg2 completion:(id)arg3;
-- (void)_handleLinkPressConfirmed:(id)arg1 attributes:(id)arg2 completion:(id)arg3;
+- (void)_handleLinkPress:(id)arg1 attributes:(id)arg2 completion:(id /* block */)arg3;
+- (void)_handleLinkPressConfirmed:(id)arg1 attributes:(id)arg2 completion:(id /* block */)arg3;
 - (void)_nextPage;
 - (id)_pageContainingTableView:(id)arg1;
 - (id)_parentViewController;
-- (void)_populatePageNavItem:(id)arg1 withNextButton:(bool)arg2;
+- (void)_populatePageNavItem:(id)arg1 withNextButton:(BOOL)arg2;
 - (void)_presentConfirmationWithAttributes:(id)arg1;
 - (void)_presentSecondConfirmationWithAttributes:(id)arg1;
 - (void)_startNavigationBarSpinnerIfNeededForAttributes:(id)arg1;
@@ -86,8 +80,8 @@
 - (id)alert;
 - (id)alertController;
 - (id)alertElement;
-- (void)alertView:(id)arg1 pressedButton:(id)arg2 attributes:(id)arg3 completion:(id)arg4;
-- (void)alertView:(id)arg1 pressedLink:(id)arg2 attributes:(id)arg3 completion:(id)arg4;
+- (void)alertView:(id)arg1 pressedButton:(id)arg2 attributes:(id)arg3 completion:(id /* block */)arg4;
+- (void)alertView:(id)arg1 pressedLink:(id)arg2 attributes:(id)arg3 completion:(id /* block */)arg4;
 - (id)allPages;
 - (void)back:(id)arg1;
 - (void)cleanupRefreshTimer;
@@ -104,27 +98,27 @@
 - (id)description;
 - (id)displayedPages;
 - (id)elementsWithName:(id)arg1;
-- (bool)goBack;
-- (bool)hasAttributeOrAttributeFunctionNamed:(id)arg1 withAttributes:(id)arg2;
-- (bool)hasConfirmationAttributes:(id)arg1;
-- (bool)hasSecondConfirmationAttributes:(id)arg1;
+- (BOOL)goBack;
+- (BOOL)hasAttributeOrAttributeFunctionNamed:(id)arg1 withAttributes:(id)arg2;
+- (BOOL)hasConfirmationAttributes:(id)arg1;
+- (BOOL)hasSecondConfirmationAttributes:(id)arg1;
 - (id)init;
 - (id)inlineScript;
 - (id)invokeScriptFunction:(id)arg1 withArguments:(id)arg2;
 - (id)name;
 - (id)namedPages;
 - (id)newNavigationControllerForPresentation;
-- (long long)nextButtonStyle;
+- (int)nextButtonStyle;
 - (id)objectForJSValue:(struct OpaqueJSValue { }*)arg1;
 - (void)pageDidDisappear:(id)arg1;
 - (id)pages;
-- (void)passcodeViewOM:(id)arg1 pressedLink:(id)arg2 attributes:(id)arg3 completion:(id)arg4;
+- (void)passcodeViewOM:(id)arg1 pressedLink:(id)arg2 attributes:(id)arg3 completion:(id /* block */)arg4;
 - (void)populatePostbackDictionary:(id)arg1;
 - (id)postbackData;
 - (id)postbackDictionary;
-- (bool)prepareScriptContext;
-- (void)presentInParentViewController:(id)arg1 animated:(bool)arg2;
-- (void)presentWithBlock:(id)arg1;
+- (BOOL)prepareScriptContext;
+- (void)presentInParentViewController:(id)arg1 animated:(BOOL)arg2;
+- (void)presentWithBlock:(id /* block */)arg1;
 - (int)refreshDelay;
 - (void)refreshTimeout;
 - (id)refreshURL;
@@ -141,7 +135,7 @@
 - (void)setInlineScript:(id)arg1;
 - (void)setJSGlobalContext:(struct OpaqueJSContext { }*)arg1;
 - (void)setName:(id)arg1;
-- (void)setNextButtonStyle:(long long)arg1;
+- (void)setNextButtonStyle:(int)arg1;
 - (void)setPages:(id)arg1;
 - (void)setRefreshDelay:(int)arg1;
 - (void)setRefreshURL:(id)arg1;
@@ -154,19 +148,19 @@
 - (id)sourceURL;
 - (id)stringForAttributeName:(id)arg1 withAttributes:(id)arg2;
 - (id)style;
-- (unsigned long long)supportedInterfaceOrientationsForRUIPage:(id)arg1;
+- (unsigned int)supportedInterfaceOrientationsForRUIPage:(id)arg1;
 - (id)tableFooterViewForAttributes:(id)arg1;
 - (id)tableHeaderViewForAttributes:(id)arg1;
-- (bool)tableViewOM:(id)arg1 deleteRowAtIndexPath:(id)arg2;
+- (BOOL)tableViewOM:(id)arg1 deleteRowAtIndexPath:(id)arg2;
 - (void)tableViewOM:(id)arg1 elementDidChange:(id)arg2;
-- (void)tableViewOM:(id)arg1 pressedLink:(id)arg2 attributes:(id)arg3 completion:(id)arg4;
 - (void)tableViewOM:(id)arg1 pressedLink:(id)arg2 attributes:(id)arg3;
+- (void)tableViewOM:(id)arg1 pressedLink:(id)arg2 attributes:(id)arg3 completion:(id /* block */)arg4;
 - (void)tableViewOMDidChange:(id)arg1;
 - (void)tableViewOMSubmitForm:(id)arg1;
 - (id)updateInfo;
-- (bool)validateWithFunction:(id)arg1;
+- (BOOL)validateWithFunction:(id)arg1;
 - (id)validationFunction;
 - (id)visiblePage;
-- (bool)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(long long)arg3;
+- (BOOL)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(int)arg3;
 
 @end

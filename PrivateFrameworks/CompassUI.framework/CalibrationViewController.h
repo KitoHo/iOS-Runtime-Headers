@@ -2,45 +2,46 @@
    Image: /System/Library/PrivateFrameworks/CompassUI.framework/CompassUI
  */
 
-@class CAShapeLayer, CalibrationBallView, CompassBackgroundView, NSMutableArray, UILabel;
-
 @interface CalibrationViewController : UIViewController {
-    struct CGPoint { 
-        double x; 
-        double y; 
-    struct Matrix<double, 3, 1> { 
-        double _e[3]; 
     double _angleOfAwesome;
     double _angleToRim;
     CalibrationBallView *_ballView;
     NSMutableArray *_calibrationConstraints;
+    UIButton *_cancelButton;
     CompassBackgroundView *_compassBackgroundView;
     CAShapeLayer *_compassBackgroundViewMask;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _compassOriginPoint;
-    double _compassRadius;
+    float _compassRadius;
+    BOOL _ignoreMotionUpdates;
     UILabel *_instructionLabel;
-    unsigned long long _numCompleteTics;
+    unsigned int _numCompleteTics;
+    struct Matrix<double, 3, 1> { 
+        double _e[3]; 
     } _previousGravity;
     double _previousHorizontalAngle;
     double _previousTimestamp;
     int _quantizationType;
+    BOOL _shouldCompleteTics;
     double _startTicAngle;
     float *_ticsShowingArray;
     UILabel *_titleLabel;
-    bool_ignoreMotionUpdates;
-    bool_shouldCompleteTics;
 }
 
 - (id).cxx_construct;
+- (void).cxx_destruct;
 - (double)_correctedAngleForCurrentOrientation:(double)arg1;
 - (void)addConstraints;
-- (bool)circleIsCompleted;
+- (void)cancel;
+- (BOOL)circleIsCompleted;
 - (double)completeCircle;
 - (void)dealloc;
 - (void)hideAllTics;
 - (id)init;
-- (id)initWithOriginPoint:(struct CGPoint { double x1; double x2; })arg1;
-- (bool)prefersStatusBarHidden;
+- (id)initWithOriginPoint:(struct CGPoint { float x1; float x2; })arg1;
+- (BOOL)prefersStatusBarHidden;
 - (float)quantizedPercentage:(double)arg1 forAngle:(double)arg2;
 - (void)reset;
 - (void)setBallAngle:(double)arg1 tiltAngle:(double)arg2;
@@ -50,11 +51,11 @@
 - (void)updateMaskingPath;
 - (id)updatedMaskingPath;
 - (void)userDefaultsChanged:(id)arg1;
-- (void)viewDidAppear:(bool)arg1;
-- (void)viewDidDisappear:(bool)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
-- (void)viewWillAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

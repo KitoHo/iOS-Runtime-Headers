@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@interface SKUIBannerCloseButton : UIButton {
-}
+@interface SKUIBannerCloseButton : UIButton
 
 - (void)layoutSubviews;
-- (void)setHighlighted:(bool)arg1;
+- (void)setHighlighted:(BOOL)arg1;
 
 @end

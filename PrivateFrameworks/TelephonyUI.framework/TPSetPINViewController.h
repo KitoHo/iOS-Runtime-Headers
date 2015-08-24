@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/TelephonyUI.framework/TelephonyUI
  */
 
-@class <TPSetPINViewControllerDelegate>, NSString, TPPasscodeView, TPSimpleNumberPad, UILabel, UIView;
-
 @interface TPSetPINViewController : UIViewController <TPSimpleNumberPadDelegate> {
+    BOOL _confirmPIN;
     UIView *_customBackgroundView;
     <TPSetPINViewControllerDelegate> *_delegate;
     int _initialState;
@@ -20,41 +19,40 @@
     int _state;
     UILabel *_statusLabel;
     NSString *_unconfirmedPIN;
-    bool_confirmPIN;
 }
 
-@property bool confirmPIN;
-@property(retain) UIView * customBackgroundView;
-@property <TPSetPINViewControllerDelegate> * delegate;
+@property BOOL confirmPIN;
+@property (retain) UIView *customBackgroundView;
+@property <TPSetPINViewControllerDelegate> *delegate;
 @property int initialState;
 @property unsigned int maxPINLength;
 @property unsigned int minPINLength;
-@property(retain) TPSimpleNumberPad * numberPad;
-@property(retain) NSString * oldPIN;
-@property(retain) TPPasscodeView * passcodeView;
-@property(retain) NSString * promptTextForConfirmingNewPIN;
-@property(retain) NSString * promptTextForNewPIN;
-@property(retain) NSString * promptTextForOldPIN;
-@property(retain) NSString * promptTextForSavingPIN;
-@property int state;
-@property(retain) UILabel * statusLabel;
-@property(retain) NSString * unconfirmedPIN;
+@property (retain) TPSimpleNumberPad *numberPad;
+@property (retain) NSString *oldPIN;
+@property (retain) TPPasscodeView *passcodeView;
+@property (nonatomic, retain) NSString *promptTextForConfirmingNewPIN;
+@property (nonatomic, retain) NSString *promptTextForNewPIN;
+@property (nonatomic, retain) NSString *promptTextForOldPIN;
+@property (nonatomic, retain) NSString *promptTextForSavingPIN;
+@property (nonatomic) int state;
+@property (retain) UILabel *statusLabel;
+@property (retain) NSString *unconfirmedPIN;
 
 - (void)_cancelButtonTapped;
 - (void)_doneButtonTapped;
-- (id)_initForMinLength:(unsigned int)arg1 maxLength:(unsigned int)arg2 confirmPIN:(bool)arg3;
+- (id)_initForMinLength:(unsigned int)arg1 maxLength:(unsigned int)arg2 confirmPIN:(BOOL)arg3;
 - (void)_setPromptText:(id)arg1 oldPromptTextPointer:(id*)arg2;
 - (void)_updateDeleteAllowed;
 - (void)_updateNavBarButtons;
 - (void)_updateStatusLabel;
 - (void)_updateUIForStateChange;
-- (bool)confirmPIN;
+- (BOOL)confirmPIN;
 - (id)customBackgroundView;
 - (void)dealloc;
 - (id)delegate;
 - (id)init;
-- (id)initForChangePINWithMinLength:(unsigned int)arg1 maxLength:(unsigned int)arg2 confirmPIN:(bool)arg3;
-- (id)initForNewPINWithMinLength:(unsigned int)arg1 maxLength:(unsigned int)arg2 confirmPIN:(bool)arg3;
+- (id)initForChangePINWithMinLength:(unsigned int)arg1 maxLength:(unsigned int)arg2 confirmPIN:(BOOL)arg3;
+- (id)initForNewPINWithMinLength:(unsigned int)arg1 maxLength:(unsigned int)arg2 confirmPIN:(BOOL)arg3;
 - (int)initialState;
 - (void)loadView;
 - (unsigned int)maxPINLength;
@@ -66,9 +64,9 @@
 - (id)promptTextForNewPIN;
 - (id)promptTextForOldPIN;
 - (id)promptTextForSavingPIN;
-- (void)resetWithErrorPrompt:(id)arg1 title:(id)arg2;
 - (void)resetWithErrorPrompt:(id)arg1;
-- (void)setConfirmPIN:(bool)arg1;
+- (void)resetWithErrorPrompt:(id)arg1 title:(id)arg2;
+- (void)setConfirmPIN:(BOOL)arg1;
 - (void)setCustomBackgroundView:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setInitialState:(int)arg1;
@@ -89,6 +87,6 @@
 - (int)state;
 - (id)statusLabel;
 - (id)unconfirmedPIN;
-- (bool)wantsFullScreenLayout;
+- (BOOL)wantsFullScreenLayout;
 
 @end

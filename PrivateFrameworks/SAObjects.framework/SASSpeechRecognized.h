@@ -2,26 +2,28 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString, SASRecognition;
+@interface SASSpeechRecognized : SABaseClientBoundCommand
 
-@interface SASSpeechRecognized : SABaseClientBoundCommand {
-}
+@property (nonatomic, retain) SASRecognition *recognition;
+@property (nonatomic, copy) NSString *sessionId;
 
-@property(retain) SASRecognition * recognition;
-@property(copy) NSString * sessionId;
+// Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
 
 + (id)speechRecognized;
 + (id)speechRecognizedWithDictionary:(id)arg1 context:(id)arg2;
 
-- (id)af_bestTextInterpretation;
-- (id)af_correctionContext;
-- (id)af_userUtteranceValue;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)recognition;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (id)sessionId;
 - (void)setRecognition:(id)arg1;
 - (void)setSessionId:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
+
+- (id)af_bestTextInterpretation;
+- (id)af_correctionContext;
+- (id)af_userUtteranceValue;
 
 @end

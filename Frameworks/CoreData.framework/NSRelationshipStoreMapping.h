@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSArray, NSString;
-
 @interface NSRelationshipStoreMapping : NSPropertyStoreMapping {
     NSString *_destinationEntityExternalName;
     NSArray *_foreignKeys;
@@ -16,7 +14,7 @@
 - (void)dealloc;
 - (id)destinationEntityExternalName;
 - (id)foreignKeys;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (unsigned int)joinSemantic;
 - (id)joins;
 - (id)relationship;

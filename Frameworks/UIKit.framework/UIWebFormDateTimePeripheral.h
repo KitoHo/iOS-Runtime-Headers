@@ -2,20 +2,18 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class <UIWebFormControl>, DOMHTMLInputElement;
-
 @interface UIWebFormDateTimePeripheral : NSObject <UIFormPeripheral> {
     <UIWebFormControl> *_control;
     DOMHTMLInputElement *_inputElement;
 }
 
-@property(retain) <UIWebFormControl> * _control;
-@property(retain) DOMHTMLInputElement * _inputElement;
+@property (nonatomic, retain) <UIWebFormControl> *_control;
+@property (nonatomic, retain) DOMHTMLInputElement *_inputElement;
 
 + (id)createPeripheralWithDOMHTMLInputElement:(id)arg1;
 
 - (id)_control;
-- (long long)_datePickerModeForInputType:(id)arg1;
+- (int)_datePickerModeForInputType:(id)arg1;
 - (id)_inputElement;
 - (id)assistantView;
 - (void)beginEditing;

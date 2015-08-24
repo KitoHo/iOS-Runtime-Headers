@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class _NSUndoObject;
-
 @interface _NSUndoObject : NSObject {
     id _target;
     _NSUndoObject *next;
@@ -13,8 +11,8 @@
 - (id)init;
 - (id)initWithTarget:(id)arg1;
 - (void)invoke;
-- (bool)isBeginMark;
-- (bool)isEndMark;
+- (BOOL)isBeginMark;
+- (BOOL)isEndMark;
 - (id)target;
 
 @end

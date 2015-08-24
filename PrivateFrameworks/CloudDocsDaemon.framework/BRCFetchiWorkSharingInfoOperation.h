@@ -2,19 +2,21 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-@class CKRecordID;
-
-@interface BRCFetchiWorkSharingInfoOperation : BRCOperation {
+@interface BRCFetchiWorkSharingInfoOperation : _BRCOperation <BRCOperationSubclass> {
     CKRecordID *_recordID;
 }
 
-@property(retain) CKRecordID * recordID;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) CKRecordID *recordID;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (id)initWithItem:(id)arg1;
+- (id)initWithDocumentItem:(id)arg1;
 - (void)main;
 - (id)recordID;
 - (void)setRecordID:(id)arg1;
-- (bool)shouldRetryForError:(id)arg1;
+- (BOOL)shouldRetryForError:(id)arg1;
 
 @end

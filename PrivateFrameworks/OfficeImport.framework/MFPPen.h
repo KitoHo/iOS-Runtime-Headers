@@ -2,16 +2,7 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class MFPBrush, MFPCustomLineCap;
-
 @interface MFPPen : NSObject {
-    struct CGAffineTransform { 
-        double a; 
-        double b; 
-        double c; 
-        double d; 
-        double tx; 
-        double ty; 
     int mAlignment;
     MFPBrush *mBrush;
     float *mCompoundArray;
@@ -27,6 +18,13 @@
     int mLineJoin;
     float mMiterLimit;
     int mStartCap;
+    struct CGAffineTransform { 
+        float a; 
+        float b; 
+        float c; 
+        float d; 
+        float tx; 
+        float ty; 
     } mTransform;
     float mWidth;
 }
@@ -59,18 +57,18 @@
 - (void)setCustomStartCap:(id)arg1;
 - (void)setDashCap:(int)arg1;
 - (void)setDashOffset:(float)arg1;
-- (void)setDashPattern:(const float*)arg1 count:(int)arg2 toPath:(id)arg3;
 - (void)setDashPattern:(const float*)arg1 count:(int)arg2;
+- (void)setDashPattern:(const float*)arg1 count:(int)arg2 toPath:(id)arg3;
 - (void)setDashStyle:(int)arg1;
 - (void)setEndCap:(int)arg1;
 - (void)setLineJoin:(int)arg1;
 - (void)setMiterLimit:(float)arg1;
 - (void)setStartCap:(int)arg1;
-- (void)setTransform:(struct CGAffineTransform { double x1; double x2; double x3; double x4; double x5; double x6; })arg1;
+- (void)setTransform:(struct CGAffineTransform { float x1; float x2; float x3; float x4; float x5; float x6; })arg1;
 - (void)setWidth:(float)arg1;
 - (int)startCap;
 - (void)strokePath:(id)arg1;
-- (struct CGAffineTransform { double x1; double x2; double x3; double x4; double x5; double x6; })transform;
+- (struct CGAffineTransform { float x1; float x2; float x3; float x4; float x5; float x6; })transform;
 - (float)width;
 
 @end

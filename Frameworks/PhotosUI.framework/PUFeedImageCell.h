@@ -2,50 +2,48 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class PUImageViewExtraction, UIButton, UIImage, UIImageView, UIView<PLVideoOverlayButton>;
-
 @interface PUFeedImageCell : PUFeedCell {
-    struct CGSize { 
-        double width; 
-        double height; 
     UIImageView *__centerOverlayImageView;
     UIButton *__commentButton;
-    long long __imageTag;
+    int __imageTag;
     UIImageView *__imageView;
     UIView<PLVideoOverlayButton> *__overlayPlayButton;
     PUImageViewExtraction *__overlayPlayButtonBackgroundExtraction;
     UIImageView *__overlayPlayButtonBackgroundImageView;
-    long long _commentCount;
+    BOOL __shouldHideCenterOverlayImageView;
+    BOOL __shouldHideCommentButton;
+    BOOL __shouldHideOverlayPlayButton;
+    BOOL __shouldUpdateOverlayPlayButtonBackground;
+    int _commentCount;
     UIImage *_image;
-    long long _imageAlignment;
-    long long _imageContentMode;
+    int _imageAlignment;
+    int _imageContentMode;
+    BOOL _imageHidden;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _maximumImageSize;
-    long long _overlayOptions;
-    bool__shouldHideCenterOverlayImageView;
-    bool__shouldHideCommentButton;
-    bool__shouldHideOverlayPlayButton;
-    bool__shouldUpdateOverlayPlayButtonBackground;
-    bool_imageHidden;
+    int _overlayOptions;
 }
 
-@property(setter=_setCenterOverlayImageView:,retain) UIImageView * _centerOverlayImageView;
-@property(setter=_setCommentButton:,retain) UIButton * _commentButton;
-@property(setter=_setImageTag:) long long _imageTag;
-@property(setter=_setImageView:,retain) UIImageView * _imageView;
-@property(setter=_setOverlayPlayButton:,retain) UIView<PLVideoOverlayButton> * _overlayPlayButton;
-@property(setter=_setOverlayPlayButtonBackgroundExtraction:,retain) PUImageViewExtraction * _overlayPlayButtonBackgroundExtraction;
-@property(setter=_setOverlayPlayButtonBackgroundImageView:,retain) UIImageView * _overlayPlayButtonBackgroundImageView;
-@property(setter=_setShouldHideCenterOverlayImageView:) bool _shouldHideCenterOverlayImageView;
-@property(setter=_setShouldHideCommentButton:) bool _shouldHideCommentButton;
-@property(setter=_setShouldHideOverlayPlayButton:) bool _shouldHideOverlayPlayButton;
-@property(setter=_setShouldUpdateOverlayPlayButtonBackground:) bool _shouldUpdateOverlayPlayButtonBackground;
-@property long long commentCount;
-@property(retain) UIImage * image;
-@property long long imageAlignment;
-@property long long imageContentMode;
-@property(getter=isImageHidden) bool imageHidden;
-@property struct CGSize { double x1; double x2; } maximumImageSize;
-@property long long overlayOptions;
+@property (setter=_setCenterOverlayImageView:, nonatomic, retain) UIImageView *_centerOverlayImageView;
+@property (setter=_setCommentButton:, nonatomic, retain) UIButton *_commentButton;
+@property (setter=_setImageTag:, nonatomic) int _imageTag;
+@property (setter=_setImageView:, nonatomic, retain) UIImageView *_imageView;
+@property (setter=_setOverlayPlayButton:, nonatomic, retain) UIView<PLVideoOverlayButton> *_overlayPlayButton;
+@property (setter=_setOverlayPlayButtonBackgroundExtraction:, nonatomic, retain) PUImageViewExtraction *_overlayPlayButtonBackgroundExtraction;
+@property (setter=_setOverlayPlayButtonBackgroundImageView:, nonatomic, retain) UIImageView *_overlayPlayButtonBackgroundImageView;
+@property (setter=_setShouldHideCenterOverlayImageView:, nonatomic) BOOL _shouldHideCenterOverlayImageView;
+@property (setter=_setShouldHideCommentButton:, nonatomic) BOOL _shouldHideCommentButton;
+@property (setter=_setShouldHideOverlayPlayButton:, nonatomic) BOOL _shouldHideOverlayPlayButton;
+@property (setter=_setShouldUpdateOverlayPlayButtonBackground:, nonatomic) BOOL _shouldUpdateOverlayPlayButtonBackground;
+@property (nonatomic) int commentCount;
+@property (nonatomic, retain) UIImage *image;
+@property (nonatomic) int imageAlignment;
+@property (nonatomic) int imageContentMode;
+@property (getter=isImageHidden, nonatomic) BOOL imageHidden;
+@property (nonatomic) struct CGSize { float x1; float x2; } maximumImageSize;
+@property (nonatomic) int overlayOptions;
 
 + (Class)_contentViewClass;
 
@@ -55,7 +53,7 @@
 - (void)_handleCommentButton:(id)arg1;
 - (void)_handlePlayButton:(id)arg1;
 - (id)_imageCellDelegate;
-- (long long)_imageTag;
+- (int)_imageTag;
 - (id)_imageView;
 - (void)_invalidateOverlayPlayButtonBackground;
 - (id)_overlayPlayButton;
@@ -63,39 +61,39 @@
 - (id)_overlayPlayButtonBackgroundImageView;
 - (void)_setCenterOverlayImageView:(id)arg1;
 - (void)_setCommentButton:(id)arg1;
-- (void)_setImageTag:(long long)arg1;
+- (void)_setImageTag:(int)arg1;
 - (void)_setImageView:(id)arg1;
 - (void)_setOverlayPlayButton:(id)arg1;
 - (void)_setOverlayPlayButtonBackgroundExtraction:(id)arg1;
 - (void)_setOverlayPlayButtonBackgroundImageView:(id)arg1;
-- (void)_setShouldHideCenterOverlayImageView:(bool)arg1;
-- (void)_setShouldHideCommentButton:(bool)arg1;
-- (void)_setShouldHideOverlayPlayButton:(bool)arg1;
-- (void)_setShouldUpdateOverlayPlayButtonBackground:(bool)arg1;
-- (bool)_shouldHideCenterOverlayImageView;
-- (bool)_shouldHideCommentButton;
-- (bool)_shouldHideOverlayPlayButton;
-- (bool)_shouldUpdateOverlayPlayButtonBackground;
+- (void)_setShouldHideCenterOverlayImageView:(BOOL)arg1;
+- (void)_setShouldHideCommentButton:(BOOL)arg1;
+- (void)_setShouldHideOverlayPlayButton:(BOOL)arg1;
+- (void)_setShouldUpdateOverlayPlayButtonBackground:(BOOL)arg1;
+- (BOOL)_shouldHideCenterOverlayImageView;
+- (BOOL)_shouldHideCommentButton;
+- (BOOL)_shouldHideOverlayPlayButton;
+- (BOOL)_shouldUpdateOverlayPlayButtonBackground;
 - (void)_updateCommentButton;
 - (void)_updateOverlays;
-- (long long)commentCount;
+- (int)commentCount;
 - (id)image;
-- (long long)imageAlignment;
-- (long long)imageContentMode;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (bool)isImageHidden;
+- (int)imageAlignment;
+- (int)imageContentMode;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (BOOL)isImageHidden;
 - (void)layoutSubviews;
-- (struct CGSize { double x1; double x2; })maximumImageSize;
-- (long long)overlayOptions;
+- (struct CGSize { float x1; float x2; })maximumImageSize;
+- (int)overlayOptions;
 - (void)prepareForReuse;
-- (void)setCommentCount:(long long)arg1;
-- (void)setImage:(id)arg1 withTag:(long long)arg2;
+- (void)setCommentCount:(int)arg1;
 - (void)setImage:(id)arg1;
-- (void)setImageAlignment:(long long)arg1;
-- (void)setImageContentMode:(long long)arg1;
-- (void)setImageHidden:(bool)arg1;
-- (void)setMaximumImageSize:(struct CGSize { double x1; double x2; })arg1;
-- (void)setOverlayOptions:(long long)arg1;
-- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
+- (void)setImage:(id)arg1 withTag:(int)arg2;
+- (void)setImageAlignment:(int)arg1;
+- (void)setImageContentMode:(int)arg1;
+- (void)setImageHidden:(BOOL)arg1;
+- (void)setMaximumImageSize:(struct CGSize { float x1; float x2; })arg1;
+- (void)setOverlayOptions:(int)arg1;
+- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
 
 @end

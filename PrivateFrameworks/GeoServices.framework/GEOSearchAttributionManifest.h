@@ -2,28 +2,34 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray;
-
 @interface GEOSearchAttributionManifest : PBCodable <NSCopying> {
+    NSMutableArray *_actionComponentMapEntries;
     NSMutableArray *_searchAttributionSources;
 }
 
-@property(retain) NSMutableArray * searchAttributionSources;
+@property (nonatomic, retain) NSMutableArray *actionComponentMapEntries;
+@property (nonatomic, retain) NSMutableArray *searchAttributionSources;
 
+- (id)actionComponentMapEntries;
+- (id)actionComponentMapEntriesAtIndex:(unsigned int)arg1;
+- (unsigned int)actionComponentMapEntriesCount;
+- (void)addActionComponentMapEntries:(id)arg1;
 - (void)addSearchAttributionSources:(id)arg1;
+- (void)clearActionComponentMapEntries;
 - (void)clearSearchAttributionSources;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)searchAttributionSources;
-- (id)searchAttributionSourcesAtIndex:(unsigned long long)arg1;
-- (unsigned long long)searchAttributionSourcesCount;
+- (id)searchAttributionSourcesAtIndex:(unsigned int)arg1;
+- (unsigned int)searchAttributionSourcesCount;
+- (void)setActionComponentMapEntries:(id)arg1;
 - (void)setSearchAttributionSources:(id)arg1;
 - (void)writeTo:(id)arg1;
 

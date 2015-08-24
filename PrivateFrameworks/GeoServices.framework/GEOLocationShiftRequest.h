@@ -13,18 +13,18 @@
     } _pixel;
 }
 
-@property struct { double x1; double x2; int x3; struct { unsigned int x_4_1_1 : 1; } x4; } pixel;
+@property (nonatomic) struct { double x1; double x2; int x3; struct { unsigned int x_4_1_1 : 1; } x4; } pixel;
 
 - (struct { double x1; double x2; })coordinate;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (struct { double x1; double x2; int x3; struct { unsigned int x_4_1_1 : 1; } x4; })pixel;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (unsigned int)requestTypeCode;
 - (Class)responseClass;
 - (void)setPixel:(struct { double x1; double x2; int x3; struct { unsigned int x_4_1_1 : 1; } x4; })arg1;

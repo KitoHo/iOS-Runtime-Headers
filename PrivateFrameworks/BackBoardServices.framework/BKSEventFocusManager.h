@@ -2,34 +2,34 @@
    Image: /System/Library/PrivateFrameworks/BackBoardServices.framework/BackBoardServices
  */
 
-@class NSMutableSet;
-
 @interface BKSEventFocusManager : NSObject {
     NSMutableSet *_currentState;
-    NSMutableSet *_pendingState;
-    bool_needsFlush;
-    bool_systemAppControlsFocusOnMainDisplay;
+    BOOL _needsFlush;
+    NSMutableDictionary *_pendingStatesByPriority;
+    BOOL _systemAppControlsFocusOnMainDisplay;
 }
 
-@property(readonly) NSMutableSet * currentState;
-@property bool needsFlush;
-@property(readonly) NSMutableSet * pendingState;
-@property bool systemAppControlsFocusOnMainDisplay;
+@property (nonatomic, readonly) NSMutableSet *currentState;
+@property (nonatomic) BOOL needsFlush;
+@property (nonatomic, readonly) NSMutableDictionary *pendingStatesByPriority;
+@property (nonatomic) BOOL systemAppControlsFocusOnMainDisplay;
 
 + (id)sharedInstance;
 
-- (void)_pruneSet:(id)arg1 ofDeferralsPassingTest:(id)arg2;
+- (void)_pruneSet:(id)arg1 ofDeferralsPassingTest:(id /* block */)arg2;
 - (id)currentState;
 - (void)dealloc;
 - (void)deferEventsForClientWithProperties:(id)arg1 toClientWithProperties:(id)arg2;
+- (void)deferEventsForClientWithProperties:(id)arg1 toClientWithProperties:(id)arg2 withPriority:(int)arg3;
 - (id)description;
 - (void)flush;
 - (id)init;
-- (bool)needsFlush;
-- (id)pendingState;
+- (BOOL)needsFlush;
+- (id)pendingStatesByPriority;
+- (void)reallyFlushWithSet:(id)arg1;
 - (void)setForegroundApplicationOnMainDisplay:(id)arg1 pid:(int)arg2;
-- (void)setNeedsFlush:(bool)arg1;
-- (void)setSystemAppControlsFocusOnMainDisplay:(bool)arg1;
-- (bool)systemAppControlsFocusOnMainDisplay;
+- (void)setNeedsFlush:(BOOL)arg1;
+- (void)setSystemAppControlsFocusOnMainDisplay:(BOOL)arg1;
+- (BOOL)systemAppControlsFocusOnMainDisplay;
 
 @end

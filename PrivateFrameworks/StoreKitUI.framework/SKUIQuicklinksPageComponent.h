@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, NSString;
-
 @interface SKUIQuicklinksPageComponent : SKUIPageComponent <SSMetricsEventFieldProvider> {
     NSArray *_links;
     NSString *_title;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) NSArray * links;
-@property(readonly) Class superclass;
-@property(readonly) NSString * title;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) NSArray *links;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) NSString *title;
 
 - (void).cxx_destruct;
 - (void)_setLinksWithLinksArray:(id)arg1 context:(id)arg2;
-- (long long)componentType;
+- (int)componentType;
 - (id)initWithCustomPageContext:(id)arg1;
-- (id)initWithFeaturedContentContext:(id)arg1 kind:(long long)arg2;
+- (id)initWithFeaturedContentContext:(id)arg1 kind:(int)arg2;
 - (id)links;
 - (id)metricsElementName;
 - (id)title;

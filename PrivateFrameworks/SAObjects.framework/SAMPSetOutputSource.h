@@ -2,12 +2,9 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSURL;
+@interface SAMPSetOutputSource : SADomainCommand
 
-@interface SAMPSetOutputSource : SADomainCommand {
-}
-
-@property(copy) NSURL * outputSourceId;
+@property (nonatomic, copy) NSURL *outputSourceId;
 
 + (id)setOutputSource;
 + (id)setOutputSourceWithDictionary:(id)arg1 context:(id)arg2;
@@ -15,7 +12,7 @@
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)outputSourceId;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setOutputSourceId:(id)arg1;
 
 @end

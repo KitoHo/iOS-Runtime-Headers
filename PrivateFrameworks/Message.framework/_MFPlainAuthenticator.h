@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@interface _MFPlainAuthenticator : MFSASLAuthenticator {
-}
+@interface _MFPlainAuthenticator : MFSASLAuthenticator
 
-- (bool)justSentPlainTextPassword;
+- (BOOL)justSentPlainTextPassword;
 - (id)responseForServerData:(id)arg1;
 - (id)saslName;
 

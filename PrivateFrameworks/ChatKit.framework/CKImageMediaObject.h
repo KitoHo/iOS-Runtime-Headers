@@ -2,31 +2,32 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class CKImageData;
-
 @interface CKImageMediaObject : CKMediaObject {
     CKImageData *_backgroundImageData;
     CKImageData *_imageData;
+    UIImage *_thumbnail;
 }
 
-@property(retain,readonly) CKImageData * imageData;
+@property (nonatomic, readonly, retain) CKImageData *imageData;
+@property (nonatomic, retain) UIImage *thumbnail;
 
 + (id)UTITypes;
 + (Class)__ck_attachmentItemClass;
-+ (id)attachmentSummary:(unsigned long long)arg1;
++ (id)attachmentSummary:(unsigned int)arg1;
 + (id)fallbackFilenamePrefix;
 + (Class)imageDataClass;
-+ (bool)isPreviewable;
++ (BOOL)isPreviewable;
 
-- (struct CGSize { double x1; double x2; })bbSize;
-- (bool)canBeAttachmentContiguous;
-- (bool)canExport;
+- (struct CGSize { float x1; float x2; })bbSize;
+- (BOOL)canExport;
 - (void)dealloc;
 - (void)export:(id)arg1;
-- (id)generateThumbnailFillToSize:(struct CGSize { double x1; double x2; })arg1 contentAlignmentInsets:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; })arg2;
-- (id)generateThumbnailForWidth:(double)arg1 orientation:(BOOL)arg2;
+- (id)generateThumbnailFillToSize:(struct CGSize { float x1; float x2; })arg1 contentAlignmentInsets:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg2;
+- (id)generateThumbnailForWidth:(float)arg1 orientation:(BOOL)arg2;
 - (id)imageData;
 - (id)location;
 - (int)mediaType;
+- (void)setThumbnail:(id)arg1;
+- (id)thumbnail;
 
 @end

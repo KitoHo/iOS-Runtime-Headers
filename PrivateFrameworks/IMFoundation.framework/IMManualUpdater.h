@@ -3,22 +3,22 @@
  */
 
 @interface IMManualUpdater : NSObject {
-    unsigned int _needsUpdate : 1;
     SEL _action;
+    unsigned int _needsUpdate;
     id _target;
 }
 
-@property SEL action;
-@property bool needsUpdate;
-@property id target;
+@property (nonatomic) SEL action;
+@property (nonatomic) BOOL needsUpdate;
+@property (nonatomic) id target;
 
 - (SEL)action;
 - (id)description;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;
-- (bool)needsUpdate;
+- (BOOL)needsUpdate;
 - (void)setAction:(SEL)arg1;
-- (void)setNeedsUpdate:(bool)arg1;
 - (void)setNeedsUpdate;
+- (void)setNeedsUpdate:(BOOL)arg1;
 - (void)setTarget:(id)arg1;
 - (id)target;
 - (void)updateIfNeeded;

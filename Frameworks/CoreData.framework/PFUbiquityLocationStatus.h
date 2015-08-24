@@ -2,68 +2,66 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSError, PFUbiquityLocation;
-
 @interface PFUbiquityLocationStatus : NSObject {
     NSError *_error;
-    unsigned long long _hash;
+    unsigned int _hash;
+    BOOL _isDeleted;
+    BOOL _isDownloaded;
+    BOOL _isDownloading;
+    BOOL _isExported;
+    BOOL _isFailed;
+    BOOL _isImported;
+    BOOL _isLive;
+    BOOL _isScheduled;
+    BOOL _isUploaded;
+    BOOL _isUploading;
     PFUbiquityLocation *_location;
     long long _numBytes;
-    long long _numNotifications;
-    bool_isDeleted;
-    bool_isDownloaded;
-    bool_isDownloading;
-    bool_isExported;
-    bool_isFailed;
-    bool_isImported;
-    bool_isLive;
-    bool_isScheduled;
-    bool_isUploaded;
-    bool_isUploading;
+    int _numNotifications;
 }
 
-@property(readonly) NSError * error;
-@property(readonly) bool isDeleted;
-@property(readonly) bool isDownloaded;
-@property bool isDownloading;
-@property(readonly) bool isExported;
-@property(readonly) bool isFailed;
-@property(readonly) bool isImported;
-@property(readonly) bool isLive;
-@property(readonly) bool isScheduled;
-@property(readonly) bool isUploaded;
-@property(readonly) bool isUploading;
-@property(readonly) PFUbiquityLocation * location;
-@property(readonly) long long numBytes;
-@property(readonly) long long numNotifications;
+@property (nonatomic, readonly) NSError *error;
+@property (nonatomic, readonly) BOOL isDeleted;
+@property (nonatomic, readonly) BOOL isDownloaded;
+@property (nonatomic) BOOL isDownloading;
+@property (nonatomic, readonly) BOOL isExported;
+@property (nonatomic, readonly) BOOL isFailed;
+@property (nonatomic, readonly) BOOL isImported;
+@property (nonatomic, readonly) BOOL isLive;
+@property (nonatomic, readonly) BOOL isScheduled;
+@property (nonatomic, readonly) BOOL isUploaded;
+@property (nonatomic, readonly) BOOL isUploading;
+@property (nonatomic, readonly) PFUbiquityLocation *location;
+@property (nonatomic, readonly) long long numBytes;
+@property (nonatomic, readonly) int numNotifications;
 
 - (void)checkFileURLState;
 - (void)dealloc;
 - (id)description;
 - (void)encounteredError:(id)arg1;
 - (id)error;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
 - (id)initWithLocation:(id)arg1;
-- (bool)isDeleted;
-- (bool)isDownloaded;
-- (bool)isDownloading;
-- (bool)isExported;
-- (bool)isFailed;
-- (bool)isImported;
-- (bool)isLive;
-- (bool)isScheduled;
-- (bool)isUploaded;
-- (bool)isUploading;
+- (BOOL)isDeleted;
+- (BOOL)isDownloaded;
+- (BOOL)isDownloading;
+- (BOOL)isExported;
+- (BOOL)isFailed;
+- (BOOL)isImported;
+- (BOOL)isLive;
+- (BOOL)isScheduled;
+- (BOOL)isUploaded;
+- (BOOL)isUploading;
 - (id)location;
 - (void)logImportWasCancelled;
 - (void)logWasExported;
 - (void)logWasImported;
 - (void)logWasScheduled;
 - (long long)numBytes;
-- (long long)numNotifications;
+- (int)numNotifications;
 - (void)recoveredFromError;
-- (void)setIsDownloading:(bool)arg1;
+- (void)setIsDownloading:(BOOL)arg1;
 - (void)statusDidChange;
 
 @end

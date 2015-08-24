@@ -2,59 +2,71 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray, NSString;
-
 @interface GEOSearchAttributionSource : PBCodable <NSCopying> {
+    NSMutableArray *_attributionApps;
     struct { 
         int *list; 
-        unsigned long long count; 
-        unsigned long long size; 
-    NSMutableArray *_attributionApps;
+        unsigned int count; 
+        unsigned int size; 
     } _attributionRequirements;
     NSMutableArray *_localizedAttributions;
     NSString *_sourceIdentifier;
     unsigned int _sourceVersion;
+    NSMutableArray *_supportedComponentActions;
+    NSString *_webBaseActionURL;
 }
 
-@property(retain) NSMutableArray * attributionApps;
-@property(readonly) int* attributionRequirements;
-@property(readonly) unsigned long long attributionRequirementsCount;
-@property(retain) NSMutableArray * localizedAttributions;
-@property(retain) NSString * sourceIdentifier;
-@property unsigned int sourceVersion;
+@property (nonatomic, retain) NSMutableArray *attributionApps;
+@property (nonatomic, readonly) int*attributionRequirements;
+@property (nonatomic, readonly) unsigned int attributionRequirementsCount;
+@property (nonatomic, readonly) BOOL hasWebBaseActionURL;
+@property (nonatomic, retain) NSMutableArray *localizedAttributions;
+@property (nonatomic, retain) NSString *sourceIdentifier;
+@property (nonatomic) unsigned int sourceVersion;
+@property (nonatomic, retain) NSMutableArray *supportedComponentActions;
+@property (nonatomic, retain) NSString *webBaseActionURL;
 
 - (void)addAttributionApps:(id)arg1;
 - (void)addAttributionRequirements:(int)arg1;
 - (void)addLocalizedAttribution:(id)arg1;
+- (void)addSupportedComponentActions:(id)arg1;
 - (id)attributionApps;
-- (id)attributionAppsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)attributionAppsCount;
+- (id)attributionAppsAtIndex:(unsigned int)arg1;
+- (unsigned int)attributionAppsCount;
 - (int*)attributionRequirements;
-- (int)attributionRequirementsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)attributionRequirementsCount;
+- (int)attributionRequirementsAtIndex:(unsigned int)arg1;
+- (unsigned int)attributionRequirementsCount;
 - (id)bestLocalizedAttribution;
 - (void)clearAttributionApps;
 - (void)clearAttributionRequirements;
 - (void)clearLocalizedAttributions;
+- (void)clearSupportedComponentActions;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
-- (id)localizedAttributionAtIndex:(unsigned long long)arg1;
+- (BOOL)hasWebBaseActionURL;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)localizedAttributionAtIndex:(unsigned int)arg1;
 - (id)localizedAttributions;
-- (unsigned long long)localizedAttributionsCount;
+- (unsigned int)localizedAttributionsCount;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setAttributionApps:(id)arg1;
-- (void)setAttributionRequirements:(int*)arg1 count:(unsigned long long)arg2;
+- (void)setAttributionRequirements:(int*)arg1 count:(unsigned int)arg2;
 - (void)setLocalizedAttributions:(id)arg1;
 - (void)setSourceIdentifier:(id)arg1;
 - (void)setSourceVersion:(unsigned int)arg1;
+- (void)setSupportedComponentActions:(id)arg1;
+- (void)setWebBaseActionURL:(id)arg1;
 - (id)sourceIdentifier;
 - (unsigned int)sourceVersion;
+- (id)supportedComponentActions;
+- (id)supportedComponentActionsAtIndex:(unsigned int)arg1;
+- (unsigned int)supportedComponentActionsCount;
+- (id)webBaseActionURL;
 - (void)writeTo:(id)arg1;
 
 @end

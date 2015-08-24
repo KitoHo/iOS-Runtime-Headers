@@ -2,29 +2,26 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString;
+@interface SAMPBasicPodcastAppSearch : SADomainCommand
 
-@interface SAMPBasicPodcastAppSearch : SADomainCommand {
-}
-
-@property bool acceptPodcastCollections;
-@property bool acceptPodcastStations;
-@property long long maxResults;
-@property(copy) NSString * query;
+@property (nonatomic) BOOL acceptPodcastCollections;
+@property (nonatomic) BOOL acceptPodcastStations;
+@property (nonatomic) int maxResults;
+@property (nonatomic, copy) NSString *query;
 
 + (id)basicPodcastAppSearch;
 + (id)basicPodcastAppSearchWithDictionary:(id)arg1 context:(id)arg2;
 
-- (bool)acceptPodcastCollections;
-- (bool)acceptPodcastStations;
+- (BOOL)acceptPodcastCollections;
+- (BOOL)acceptPodcastStations;
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (long long)maxResults;
+- (int)maxResults;
 - (id)query;
-- (bool)requiresResponse;
-- (void)setAcceptPodcastCollections:(bool)arg1;
-- (void)setAcceptPodcastStations:(bool)arg1;
-- (void)setMaxResults:(long long)arg1;
+- (BOOL)requiresResponse;
+- (void)setAcceptPodcastCollections:(BOOL)arg1;
+- (void)setAcceptPodcastStations:(BOOL)arg1;
+- (void)setMaxResults:(int)arg1;
 - (void)setQuery:(id)arg1;
 
 @end

@@ -2,60 +2,59 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class <GEOResourceManifestServerProxyDelegate>, GEOActiveTileGroup, GEOResourceLoader, GEOResourceManifestConfiguration, GEOResourceManifestDownload, NSError, NSLock, NSMutableArray, NSMutableData, NSMutableDictionary, NSString, NSTimer, NSURLConnection;
-
-@interface GEOResourceManifestServerLocalProxy : NSObject <NSURLConnectionDelegate, GEOResourceManifestServerProxy> {
+@interface GEOResourceManifestServerLocalProxy : NSObject <GEOResourceManifestServerProxy, NSURLConnectionDelegate> {
     GEOActiveTileGroup *_activeTileGroup;
     NSString *_authToken;
     NSLock *_authTokenLock;
     GEOResourceManifestConfiguration *_configuration;
     NSURLConnection *_connection;
     <GEOResourceManifestServerProxyDelegate> *_delegate;
+    double _lastManifestRetryTimestamp;
     NSError *_lastResourceManifestLoadError;
-    unsigned long long _manifestRetryCount;
+    double _lastTileGroupRetryTimestamp;
+    NSString *_loadingTileGroupUniqueIdentifier;
+    unsigned int _manifestRetryCount;
     NSMutableArray *_manifestUpdateCompletionHandlers;
     NSTimer *_manifestUpdateTimer;
     GEOResourceLoader *_resourceLoader;
     GEOResourceManifestDownload *_resourceManifest;
-    NSMutableDictionary *_resourceRetainCounts;
     NSMutableData *_responseData;
     NSString *_responseETag;
-    unsigned long long _tileGroupRetryCount;
+    BOOL _started;
+    unsigned int _tileGroupRetryCount;
     NSTimer *_tileGroupUpdateTimer;
-    bool_isObservingManifestReachability;
-    bool_isObservingTileGroupReachability;
-    bool_started;
+    BOOL _wantsManifestUpdateOnReachabilityChange;
+    BOOL _wantsTileGroupUpdateOnReachabilityChange;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <GEOResourceManifestServerProxyDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <GEOResourceManifestServerProxyDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void)_activeTileGroupOverridesChanged:(id)arg1;
 - (void)_cancelConnection;
-- (bool)_changeActiveTileGroup:(id)arg1 flushTileCache:(bool)arg2;
+- (void)_changeActiveTileGroup:(id)arg1 flushTileCache:(BOOL)arg2 completionHandler:(id /* block */)arg3;
 - (void)_cleanupConnection;
 - (void)_considerChangingActiveTileGroup;
 - (void)_countryProvidersDidChange:(id)arg1;
-- (void)_forceChangeActiveTileGroup:(id)arg1 flushTileCache:(bool)arg2 ignoreIdentifier:(bool)arg3;
+- (void)_forceChangeActiveTileGroup:(id)arg1 flushTileCache:(BOOL)arg2 ignoreIdentifier:(BOOL)arg3;
 - (id)_idealTileGroupToUse;
 - (void)_loadFromDisk;
 - (id)_manifestURL;
 - (void)_notifyManifestUpdateCompletionHandlers:(id)arg1;
 - (void)_purgeOldRegionalResources;
+- (void)_purgeOldResources;
 - (void)_reachabilityChanged:(id)arg1;
-- (void)_registerReachabilityObserver:(unsigned long long)arg1;
 - (id)_resourceInfosForTileGroup:(id)arg1;
-- (void)_retainResource:(id)arg1;
 - (void)_scheduleTileGroupUpdateTimerWithTimeInterval:(double)arg1;
 - (void)_scheduleUpdateTimerWithTimeInterval:(double)arg1;
 - (void)_startServer;
 - (void)_tileGroupTimerFired:(id)arg1;
-- (void)_updateManifest:(id)arg1;
 - (void)_updateManifest;
-- (bool)_updateManifestIfNecessary:(id)arg1;
+- (void)_updateManifest:(id /* block */)arg1;
+- (BOOL)_updateManifestIfNecessary:(id /* block */)arg1;
 - (void)_updateTimerFired:(id)arg1;
 - (void)_writeActiveTileGroupToDisk:(id)arg1;
 - (void)_writeManifestToDisk:(id)arg1;
@@ -68,17 +67,15 @@
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)dealloc;
 - (id)delegate;
-- (void)forceUpdate:(id)arg1;
-- (void)getResourceManifestWithHandler:(id)arg1;
+- (void)forceUpdate:(id /* block */)arg1;
+- (void)getResourceManifestWithHandler:(id /* block */)arg1;
 - (id)initWithDelegate:(id)arg1 configuration:(id)arg2;
 - (void)openConnection;
-- (oneway void)releaseResources:(id)arg1;
 - (oneway void)resetActiveTileGroup;
-- (oneway void)retainResources:(id)arg1;
 - (id)serverQueue;
 - (oneway void)setActiveTileGroupIdentifier:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setManifestToken:(id)arg1 completionHandler:(id)arg2;
-- (void)updateIfNecessary:(id)arg1;
+- (void)setManifestToken:(id)arg1 completionHandler:(id /* block */)arg2;
+- (void)updateIfNecessary:(id /* block */)arg1;
 
 @end

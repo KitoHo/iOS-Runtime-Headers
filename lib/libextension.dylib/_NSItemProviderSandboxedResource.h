@@ -2,30 +2,28 @@
    Image: /usr/lib/libextension.dylib
  */
 
-@class NSData, NSURL;
-
-@interface _NSItemProviderSandboxedResource : NSObject <NSSecureCoding, NSCopying> {
+@interface _NSItemProviderSandboxedResource : NSObject <NSCopying, NSSecureCoding> {
+    BOOL _accessingSecurityScopedResource;
     NSURL *_resourceURL;
     NSData *_sandboxExtensionToken;
-    bool_accessingSecurityScopedResource;
 }
 
-@property(getter=isAccessingSecurityScopedResource) bool accessingSecurityScopedResource;
-@property(copy) NSURL * resourceURL;
-@property(copy) NSData * sandboxExtensionToken;
+@property (getter=isAccessingSecurityScopedResource, nonatomic) BOOL accessingSecurityScopedResource;
+@property (nonatomic, copy) NSURL *resourceURL;
+@property (nonatomic, copy) NSData *sandboxExtensionToken;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithContentsOfURL:(id)arg1 error:(id*)arg2;
-- (bool)isAccessingSecurityScopedResource;
+- (BOOL)isAccessingSecurityScopedResource;
 - (id)resolveURLAndReturnError:(id*)arg1;
 - (id)resourceURL;
 - (id)sandboxExtensionToken;
-- (void)setAccessingSecurityScopedResource:(bool)arg1;
+- (void)setAccessingSecurityScopedResource:(BOOL)arg1;
 - (void)setResourceURL:(id)arg1;
 - (void)setSandboxExtensionToken:(id)arg1;
 

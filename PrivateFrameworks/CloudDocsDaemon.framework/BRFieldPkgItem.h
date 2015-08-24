@@ -2,68 +2,66 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-@class NSData, NSString;
-
 @interface BRFieldPkgItem : PBCodable <NSCopying> {
     struct { 
         unsigned int mtime : 1; 
         unsigned int isExecutable : 1; 
         unsigned int isWritable : 1; 
     } _has;
+    BOOL _isExecutable;
+    BOOL _isWritable;
     long long _mtime;
     NSString *_path;
     NSData *_quarantineInfo;
     NSData *_signature;
     NSString *_symlinkContent;
     int _type;
-    bool_isExecutable;
-    bool_isWritable;
 }
 
-@property bool hasIsExecutable;
-@property bool hasIsWritable;
-@property bool hasMtime;
-@property(readonly) bool hasPath;
-@property(readonly) bool hasQuarantineInfo;
-@property(readonly) bool hasSignature;
-@property(readonly) bool hasSymlinkContent;
-@property bool isExecutable;
-@property bool isWritable;
-@property long long mtime;
-@property(retain) NSString * path;
-@property(retain) NSData * quarantineInfo;
-@property(retain) NSData * signature;
-@property(retain) NSString * symlinkContent;
-@property int type;
+@property (nonatomic) BOOL hasIsExecutable;
+@property (nonatomic) BOOL hasIsWritable;
+@property (nonatomic) BOOL hasMtime;
+@property (nonatomic, readonly) BOOL hasPath;
+@property (nonatomic, readonly) BOOL hasQuarantineInfo;
+@property (nonatomic, readonly) BOOL hasSignature;
+@property (nonatomic, readonly) BOOL hasSymlinkContent;
+@property (nonatomic) BOOL isExecutable;
+@property (nonatomic) BOOL isWritable;
+@property (nonatomic) long long mtime;
+@property (nonatomic, retain) NSString *path;
+@property (nonatomic, retain) NSData *quarantineInfo;
+@property (nonatomic, retain) NSData *signature;
+@property (nonatomic, retain) NSString *symlinkContent;
+@property (nonatomic) int type;
 
 - (void).cxx_destruct;
 - (void)clear;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasIsExecutable;
-- (bool)hasIsWritable;
-- (bool)hasMtime;
-- (bool)hasPath;
-- (bool)hasQuarantineInfo;
-- (bool)hasSignature;
-- (bool)hasSymlinkContent;
-- (unsigned long long)hash;
+- (BOOL)hasIsExecutable;
+- (BOOL)hasIsWritable;
+- (BOOL)hasMtime;
+- (BOOL)hasPath;
+- (BOOL)hasQuarantineInfo;
+- (BOOL)hasSignature;
+- (BOOL)hasSymlinkContent;
+- (unsigned int)hash;
 - (id)initWithPkgItem:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)isExecutable;
-- (bool)isWritable;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isExecutable;
+- (BOOL)isWritable;
+- (void)mergeFrom:(id)arg1;
 - (long long)mtime;
 - (id)path;
 - (id)quarantineInfo;
-- (bool)readFrom:(id)arg1;
-- (void)setHasIsExecutable:(bool)arg1;
-- (void)setHasIsWritable:(bool)arg1;
-- (void)setHasMtime:(bool)arg1;
-- (void)setIsExecutable:(bool)arg1;
-- (void)setIsWritable:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasIsExecutable:(BOOL)arg1;
+- (void)setHasIsWritable:(BOOL)arg1;
+- (void)setHasMtime:(BOOL)arg1;
+- (void)setIsExecutable:(BOOL)arg1;
+- (void)setIsWritable:(BOOL)arg1;
 - (void)setMtime:(long long)arg1;
 - (void)setPath:(id)arg1;
 - (void)setQuarantineInfo:(id)arg1;

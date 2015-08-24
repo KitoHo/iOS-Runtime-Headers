@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/HomeSharing.framework/HomeSharing
  */
 
-@class <HSMediaLibraryImportObserverDelegate>, NSTimer;
-
 @interface HSMediaLibraryImportObserver : NSObject {
-    unsigned long long _consecutiveUpdateFailures;
+    unsigned int _consecutiveUpdateFailures;
     <HSMediaLibraryImportObserverDelegate> *_delegate;
+    BOOL _stopped;
     double _updateInterval;
     NSTimer *_updateTimer;
-    bool_stopped;
-    bool_updating;
+    BOOL _updating;
 }
 
-@property <HSMediaLibraryImportObserverDelegate> * delegate;
-@property double updateInterval;
-@property(getter=isUpdating,readonly) bool updating;
+@property (nonatomic) <HSMediaLibraryImportObserverDelegate> *delegate;
+@property (nonatomic) double updateInterval;
+@property (getter=isUpdating, nonatomic, readonly) BOOL updating;
 
 - (void).cxx_destruct;
 - (void)_updateImportStatus:(id)arg1;
@@ -23,7 +21,7 @@
 - (void)dealloc;
 - (id)delegate;
 - (id)init;
-- (bool)isUpdating;
+- (BOOL)isUpdating;
 - (void)setDelegate:(id)arg1;
 - (void)setUpdateInterval:(double)arg1;
 - (void)stopUpdating;

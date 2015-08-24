@@ -2,18 +2,16 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class TIDocumentState, TITextInputTraits;
-
 @interface _UIInputViewControllerState : NSObject <NSCopying, NSSecureCoding> {
     TIDocumentState *_documentState;
     TITextInputTraits *_textInputTraits;
 }
 
-@property(retain) TIDocumentState * documentState;
-@property(retain) TITextInputTraits * textInputTraits;
+@property (nonatomic, retain) TIDocumentState *documentState;
+@property (nonatomic, retain) TITextInputTraits *textInputTraits;
 
 + (id)stateForKeyboardState:(id)arg1;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)createDocumentStateIfNecessary;
@@ -22,7 +20,7 @@
 - (id)documentState;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)setDocumentState:(id)arg1;
 - (void)setTextInputTraits:(id)arg1;
 - (id)textInputTraits;

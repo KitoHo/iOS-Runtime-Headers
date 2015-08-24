@@ -2,26 +2,23 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString;
+@interface SALocalSearchRangePeriod : AceObject <SALocalSearchPeriod>
 
-@interface SALocalSearchRangePeriod : AceObject <SALocalSearchPeriod> {
-}
-
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property long long endSecondsSinceMidnight;
-@property(readonly) unsigned long long hash;
-@property long long startSecondsSinceMidnight;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) int endSecondsSinceMidnight;
+@property (readonly) unsigned int hash;
+@property (nonatomic) int startSecondsSinceMidnight;
+@property (readonly) Class superclass;
 
 + (id)rangePeriod;
 + (id)rangePeriodWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
-- (long long)endSecondsSinceMidnight;
+- (int)endSecondsSinceMidnight;
 - (id)groupIdentifier;
-- (void)setEndSecondsSinceMidnight:(long long)arg1;
-- (void)setStartSecondsSinceMidnight:(long long)arg1;
-- (long long)startSecondsSinceMidnight;
+- (void)setEndSecondsSinceMidnight:(int)arg1;
+- (void)setStartSecondsSinceMidnight:(int)arg1;
+- (int)startSecondsSinceMidnight;
 
 @end

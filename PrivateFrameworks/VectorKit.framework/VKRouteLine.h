@@ -2,79 +2,77 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class NSSet, NSString, VKPolylineOverlay, VKPolylineOverlayRenderRegion;
-
 @interface VKRouteLine : NSObject <GEORouteMapMatchingDataSource> {
     struct { 
         double x0; 
         double x1; 
         double y0; 
         double y1; 
+    } _bounds;
+    double _boundsInWorldUnit;
+    double _boundsUnitsPerMeter;
+    BOOL _curve;
+    BOOL _hasNewRoadMatches;
     struct { 
         double v[4][4]; 
+    } _inverseMatrix;
+    double _lastTrafficTimeStamp;
+    double _lastUserLocationMatchTimestamp;
+    BOOL _matchToRoads;
+    double _metersPerPoint;
+    VKPolylineOverlay *_overlay;
+    VKPolylineOverlayRenderRegion *_renderRegion;
+    NSSet *_retainedTiles;
     struct vector<geo::fast_shared_ptr<vk::RouteLineSection>, std::__1::allocator<geo::fast_shared_ptr<vk::RouteLineSection> > > { 
         struct fast_shared_ptr<vk::RouteLineSection> {} *__begin_; 
         struct fast_shared_ptr<vk::RouteLineSection> {} *__end_; 
         struct __compressed_pair<geo::fast_shared_ptr<vk::RouteLineSection> *, std::__1::allocator<geo::fast_shared_ptr<vk::RouteLineSection> > > { 
             struct fast_shared_ptr<vk::RouteLineSection> {} *__first_; 
         } __end_cap_; 
-    struct fast_shared_ptr<vk::RouteLineSection> { 
-        struct _fast_shared_ptr_control {} *_control; 
+    } _sections;
+    double _simplificationEpsilonPoints;
+    struct Matrix<float, 2, 1> { 
+        float _e[2]; 
+    } _userLocation;
     struct PolylineCoordinate { 
         unsigned int index; 
         float offset; 
-    struct Matrix<float, 2, 1> { 
-        float _e[2]; 
-    } _bounds;
-    double _boundsInWorldUnit;
-    double _boundsUnitsPerMeter;
-    } _inverseMatrix;
-    double _lastTrafficTimeStamp;
-    double _lastUserLocationMatchTimestamp;
-    double _metersPerPoint;
-    VKPolylineOverlay *_overlay;
-    VKPolylineOverlayRenderRegion *_renderRegion;
-    NSSet *_retainedTiles;
-    } _sections;
-    double _simplificationEpsilonPoints;
-    } _userLocation;
     } _userLocationIndex;
+    struct fast_shared_ptr<vk::RouteLineSection> { 
+        struct _fast_shared_ptr_control {} *_control; 
     } _userLocationSection;
     double _viewUnitsPerPoint;
-    bool_curve;
-    bool_hasNewRoadMatches;
-    bool_matchToRoads;
 }
 
-@property(readonly) struct { double x1; double x2; double x3; double x4; } bounds;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property bool hasNewRoadMatches;
-@property(readonly) unsigned long long hash;
-@property(readonly) bool needsUpdate;
-@property VKPolylineOverlay * overlay;
-@property double simplificationEpsilonPoints;
-@property(readonly) Class superclass;
-@property(readonly) struct PolylineCoordinate { unsigned int x1; float x2; }* userLocationIndex;
-@property(readonly) struct fast_shared_ptr<vk::RouteLineSection> { struct _fast_shared_ptr_control {} *x1; } userLocationSection;
+@property (nonatomic, readonly) struct { double x1; double x2; double x3; double x4; } bounds;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property BOOL hasNewRoadMatches;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) BOOL needsUpdate;
+@property (nonatomic) VKPolylineOverlay *overlay;
+@property (nonatomic) double simplificationEpsilonPoints;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) struct PolylineCoordinate { unsigned int x1; float x2; }*userLocationIndex;
+@property (nonatomic, readonly) struct fast_shared_ptr<vk::RouteLineSection> { struct _fast_shared_ptr_control {} *x1; } userLocationSection;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)_updateBounds:(id)arg1;
 - (void)_updateTilesCovered:(id)arg1;
 - (struct { double x1; double x2; double x3; double x4; })bounds;
-- (bool)buildRouteLineForPainter:(id)arg1 keysInView:(id)arg2 tiles:(id)arg3 containerModel:(id)arg4 viewUnitsPerPoint:(double)arg5 force:(bool)arg6 curve:(bool)arg7 selected:(bool)arg8;
-- (void)createMeshIfNecessary:(long long)arg1;
+- (BOOL)buildRouteLineForPainter:(id)arg1 keysInView:(id)arg2 tiles:(id)arg3 containerModel:(id)arg4 viewUnitsPerPoint:(double)arg5 force:(BOOL)arg6 curve:(BOOL)arg7 selected:(BOOL)arg8;
+- (void)createMeshIfNecessary:(int)arg1;
 - (void)dealloc;
-- (void)forEachMapMatchingSection:(id)arg1;
-- (void)forEachSection:(id)arg1;
-- (void)generateArrowsForManeuverDisplayMode:(int)arg1 routeLineWidth:(double)arg2;
-- (bool)hasNewRoadMatches;
-- (bool)isTrafficUpToDate;
-- (bool)isTrafficUptoDate:(double)arg1;
-- (bool)needsUpdate;
+- (void)forEachMapMatchingSection:(id /* block */)arg1;
+- (void)forEachSection:(id /* block */)arg1;
+- (void)generateArrowsForManeuverDisplayMode:(int)arg1 routeLineWidth:(float)arg2;
+- (BOOL)hasNewRoadMatches;
+- (BOOL)isTrafficUpToDate;
+- (BOOL)isTrafficUptoDate:(double)arg1;
+- (BOOL)needsUpdate;
 - (id)overlay;
-- (void)setHasNewRoadMatches:(bool)arg1;
+- (void)setHasNewRoadMatches:(BOOL)arg1;
 - (void)setOverlay:(id)arg1;
 - (void)setSimplificationEpsilonPoints:(double)arg1;
 - (double)simplificationEpsilonPoints;

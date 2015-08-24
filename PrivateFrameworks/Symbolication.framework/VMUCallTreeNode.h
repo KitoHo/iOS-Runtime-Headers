@@ -2,52 +2,50 @@
    Image: /System/Library/PrivateFrameworks/Symbolication.framework/Symbolication
  */
 
-@class NSString, VMUCallTreeNode;
-
 @interface VMUCallTreeNode : NSObject {
-    union { 
-        void *theChild; 
-        void **theChildren; 
     unsigned long long _address;
     unsigned int _count;
     NSString *_name;
     unsigned long long _numBytes;
     unsigned int _numChildren;
     VMUCallTreeNode *_parent;
+    union { 
+        void *theChild; 
+        void **theChildren; 
     } _un;
 }
 
 + (id)makeFakeRootForNode:(id)arg1;
 + (id)nodeWithName:(id)arg1 address:(unsigned long long)arg2 count:(unsigned int)arg3 numBytes:(unsigned long long)arg4;
-+ (id)rootForSamples:(id)arg1 symbolicator:(struct _CSTypeRef { unsigned long long x1; unsigned long long x2; })arg2 sampler:(id)arg3 options:(unsigned long long)arg4;
-+ (id)rootForSamples:(id)arg1 symbolicator:(struct _CSTypeRef { unsigned long long x1; unsigned long long x2; })arg2;
++ (id)rootForSamples:(id)arg1 symbolicator:(struct _CSTypeRef { unsigned int x1; unsigned int x2; })arg2;
++ (id)rootForSamples:(id)arg1 symbolicator:(struct _CSTypeRef { unsigned int x1; unsigned int x2; })arg2 sampler:(id)arg3 options:(unsigned int)arg4;
 
 - (void)addChild:(id)arg1;
 - (unsigned long long)address;
 - (id)allChildren;
 - (id)browserName;
-- (bool)callTreeHasBranches;
+- (BOOL)callTreeHasBranches;
 - (id)chargeLibrariesInSet:(id)arg1 toCaller:(id)arg2 parentLibrary:(id)arg3;
-- (id)chargeLibrariesToCallers:(id)arg1 keepBoundaries:(bool)arg2;
-- (id)chargeSystemLibrariesToCallersAndKeepBoundaries:(bool)arg1;
+- (id)chargeLibrariesToCallers:(id)arg1 keepBoundaries:(BOOL)arg2;
+- (id)chargeSystemLibrariesToCallersAndKeepBoundaries:(BOOL)arg1;
 - (id)childAtIndex:(unsigned int)arg1;
-- (long long)compare:(id)arg1;
-- (long long)comparePuttingMainThreadFirst:(id)arg1;
-- (long long)compareSizeAndCount:(id)arg1;
+- (int)compare:(id)arg1;
+- (int)comparePuttingMainThreadFirst:(id)arg1;
+- (int)compareSizeAndCount:(id)arg1;
 - (unsigned int)count;
 - (void)countFunctionOccurrencesInTree:(id)arg1;
 - (void)dealloc;
-- (id)filterOutSymbols:(id)arg1 required:(id)arg2;
 - (id)filterOutSymbols:(id)arg1;
-- (id)findOrAddChildWithName:(id)arg1 address:(unsigned long long)arg2 nodeSearchType:(int)arg3 isLeafNode:(bool)arg4;
+- (id)filterOutSymbols:(id)arg1 required:(id)arg2;
 - (id)findOrAddChildWithName:(id)arg1 address:(unsigned long long)arg2;
-- (id)fullOutputWithThreshold:(unsigned int)arg1 showPseudoNodes:(bool)arg2;
+- (id)findOrAddChildWithName:(id)arg1 address:(unsigned long long)arg2 nodeSearchType:(int)arg3 isLeafNode:(BOOL)arg4;
 - (id)fullOutputWithThreshold:(unsigned int)arg1;
+- (id)fullOutputWithThreshold:(unsigned int)arg1 showPseudoNodes:(BOOL)arg2;
 - (void)getBrowserName:(id)arg1;
 - (id)initWithName:(id)arg1 address:(unsigned long long)arg2 count:(unsigned int)arg3 numBytes:(unsigned long long)arg4;
 - (id)invertedNode;
-- (bool)isMallocBlockContentNode;
-- (bool)isPseudo;
+- (BOOL)isMallocBlockContentNode;
+- (BOOL)isPseudo;
 - (id)largestTopOfStackPath;
 - (id)name;
 - (id)nameWithStringsForSymbol:(id)arg1 library:(id)arg2 loadAddress:(id)arg3 offset:(id)arg4 address:(id)arg5 suffix:(id)arg6;
@@ -62,10 +60,10 @@
 - (id)pseudoNodeTopOfStackChild;
 - (void)setChildren:(id)arg1;
 - (void)setNumChildren:(unsigned int)arg1;
-- (id)sortedChildrenWithPseudoNode:(id)arg1 withCompare:(SEL)arg2;
 - (id)sortedChildrenWithPseudoNode;
-- (id)stringFromCallTreeIndentIfNoBranches:(bool)arg1 showPseudoNodes:(bool)arg2;
-- (id)stringFromCallTreeIndentIfNoBranches:(bool)arg1;
-- (bool)symbolNameIsUnknown;
+- (id)sortedChildrenWithPseudoNode:(id)arg1 withCompare:(SEL)arg2;
+- (id)stringFromCallTreeIndentIfNoBranches:(BOOL)arg1;
+- (id)stringFromCallTreeIndentIfNoBranches:(BOOL)arg1 showPseudoNodes:(BOOL)arg2;
+- (BOOL)symbolNameIsUnknown;
 
 @end

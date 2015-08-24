@@ -2,41 +2,39 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSData, NSDate, NSString, NSURL, PKContent, PKDataAccessor, PKDisplayProfile, PKImageSet;
-
 @interface PKObject : NSObject <NSCopying, NSSecureCoding> {
     NSString *_authenticationToken;
     PKContent *_content;
     PKDataAccessor *_dataAccessor;
     PKDisplayProfile *_displayProfile;
-    PKImageSet *_imageSets[5];
+    PKImageSet *_imageSets;
     NSData *_manifestHash;
-    double _preferredImageScale;
+    float _preferredImageScale;
     NSString *_preferredImageSuffix;
-    long long _settings;
-    long long _shareCount;
+    int _settings;
+    int _shareCount;
     NSString *_uniqueID;
     NSURL *_webServiceURL;
 }
 
-@property(retain,readonly) NSData * archiveData;
-@property(copy) NSString * authenticationToken;
-@property(retain) PKContent * content;
-@property(retain) PKDataAccessor * dataAccessor;
-@property(retain) PKDisplayProfile * displayProfile;
-@property(copy) NSData * manifestHash;
-@property(retain,readonly) NSDate * modificationDate;
-@property double preferredImageScale;
-@property(retain) NSString * preferredImageSuffix;
-@property(readonly) bool remoteAssetsDownloaded;
-@property(retain,readonly) NSData * serializedFileWrapper;
-@property long long settings;
-@property long long shareCount;
-@property(copy) NSString * uniqueID;
-@property(copy) NSURL * webServiceURL;
+@property (nonatomic, readonly, retain) NSData *archiveData;
+@property (nonatomic, copy) NSString *authenticationToken;
+@property (nonatomic, retain) PKContent *content;
+@property (nonatomic, retain) PKDataAccessor *dataAccessor;
+@property (nonatomic, retain) PKDisplayProfile *displayProfile;
+@property (nonatomic, copy) NSData *manifestHash;
+@property (nonatomic, readonly, retain) NSDate *modificationDate;
+@property (nonatomic) float preferredImageScale;
+@property (nonatomic, retain) NSString *preferredImageSuffix;
+@property (nonatomic, readonly) BOOL remoteAssetsDownloaded;
+@property (nonatomic, readonly, retain) NSData *serializedFileWrapper;
+@property (nonatomic) int settings;
+@property (nonatomic) int shareCount;
+@property (nonatomic, copy) NSString *uniqueID;
+@property (nonatomic, copy) NSURL *webServiceURL;
 
-+ (bool)isValidObjectWithFileURL:(id)arg1 warnings:(id*)arg2 orError:(id*)arg3;
-+ (bool)supportsSecureCoding;
++ (BOOL)isValidObjectWithFileURL:(id)arg1 warnings:(id*)arg2 orError:(id*)arg3;
++ (BOOL)supportsSecureCoding;
 
 - (id)allImageSetsLoadedIfNecessary;
 - (id)archiveData;
@@ -47,12 +45,12 @@
 - (id)dataAccessor;
 - (void)dealloc;
 - (id)displayProfile;
-- (void)downloadRemoteAssetsWithCompletion:(id)arg1;
+- (void)downloadRemoteAssetsWithCompletion:(id /* block */)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)flushFormattedFieldValues;
 - (void)flushLoadedContent;
 - (void)flushLoadedImageSets;
-- (id)imageSetLoadedIfNeeded:(long long)arg1;
+- (id)imageSetLoadedIfNeeded:(int)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithData:(id)arg1 error:(id*)arg2;
 - (id)initWithData:(id)arg1 warnings:(id*)arg2 orError:(id*)arg3;
@@ -60,23 +58,23 @@
 - (id)initWithDictionary:(id)arg1 bundle:(id)arg2;
 - (id)initWithFileURL:(id)arg1 error:(id*)arg2;
 - (id)initWithFileURL:(id)arg1 warnings:(id*)arg2 orError:(id*)arg3;
-- (bool)isContentLoaded;
-- (bool)isImageSetLoaded:(long long)arg1;
-- (bool)isImageSetType:(long long)arg1 equalToImageSetTypeFromObject:(id)arg2;
-- (void)loadContentAsyncWithCompletion:(id)arg1;
+- (BOOL)isContentLoaded;
+- (BOOL)isImageSetLoaded:(int)arg1;
+- (BOOL)isImageSetType:(int)arg1 equalToImageSetTypeFromObject:(id)arg2;
+- (void)loadContentAsyncWithCompletion:(id /* block */)arg1;
 - (void)loadContentSync;
-- (void)loadImageSetAsync:(long long)arg1 preheat:(bool)arg2 withCompletion:(id)arg3;
-- (void)loadImageSetSync:(long long)arg1 preheat:(bool)arg2;
+- (void)loadImageSetAsync:(int)arg1 preheat:(BOOL)arg2 withCompletion:(id /* block */)arg3;
+- (void)loadImageSetSync:(int)arg1 preheat:(BOOL)arg2;
 - (id)localizedString:(id)arg1;
 - (id)manifestHash;
 - (id)modificationDate;
 - (void)noteShared;
-- (double)preferredImageScale;
+- (float)preferredImageScale;
 - (id)preferredImageSuffix;
-- (void)reloadDisplayProfileOfType:(long long)arg1;
-- (bool)remoteAssetsDownloaded;
-- (void)requestUpdateWithCompletion:(id)arg1;
-- (void)revocationStatusWithCompletion:(id)arg1;
+- (void)reloadDisplayProfileOfType:(int)arg1;
+- (BOOL)remoteAssetsDownloaded;
+- (void)requestUpdateWithCompletion:(id /* block */)arg1;
+- (void)revocationStatusWithCompletion:(id /* block */)arg1;
 - (id)serializedFileWrapper;
 - (void)setAuthenticationToken:(id)arg1;
 - (void)setContent:(id)arg1;
@@ -84,14 +82,14 @@
 - (void)setDisplayProfile:(id)arg1;
 - (void)setManifestHash:(id)arg1;
 - (void)setMissingImageSetsFromObject:(id)arg1;
-- (void)setPreferredImageScale:(double)arg1;
+- (void)setPreferredImageScale:(float)arg1;
 - (void)setPreferredImageSuffix:(id)arg1;
-- (void)setSettings:(long long)arg1;
-- (void)setShareCount:(long long)arg1;
+- (void)setSettings:(int)arg1;
+- (void)setShareCount:(int)arg1;
 - (void)setUniqueID:(id)arg1;
 - (void)setWebServiceURL:(id)arg1;
-- (long long)settings;
-- (long long)shareCount;
+- (int)settings;
+- (int)shareCount;
 - (id)uniqueID;
 - (id)webServiceURL;
 

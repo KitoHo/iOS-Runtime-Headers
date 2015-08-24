@@ -2,20 +2,18 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface UIStatusBarExternalForegroundStyleAttributes : UIStatusBarNewUIForegroundStyleAttributes {
-}
+@interface UIStatusBarExternalForegroundStyleAttributes : UIStatusBarForegroundStyleAttributes
 
-- (long long)activityIndicatorStyleWithSyncActivity:(bool)arg1;
-- (double)batteryAccessoryMargin;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })edgeInsetsForBatteryInsides;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })edgeInsetsForBluetoothBatteryInsides;
-- (double)edgePadding;
+- (int)activityIndicatorStyleWithSyncActivity:(BOOL)arg1;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })edgeInsetsForBatteryInsides;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })edgeInsetsForBluetoothBatteryInsides;
+- (float)edgePadding;
 - (id)expandedNameForImageName:(id)arg1;
-- (id)makeTextFontForStyle:(long long)arg1;
-- (double)scale;
-- (double)standardPadding;
+- (id)makeTextFontForStyle:(int)arg1;
+- (float)scale;
+- (float)standardPadding;
 - (id)textForNetworkType:(int)arg1;
-- (double)textOffsetForStyle:(long long)arg1;
-- (bool)usesVerticalLayout;
+- (float)textOffsetForStyle:(int)arg1;
+- (BOOL)usesVerticalLayout;
 
 @end

@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/DataAccess.framework/DataAccess
  */
 
-@class NSString;
-
 @interface DADataHandler : NSObject {
     NSString *_changeTrackingID;
     void *_container;
 }
 
-@property(copy) NSString * changeTrackingID;
-@property void* container;
+@property (nonatomic, copy) NSString *changeTrackingID;
+@property (nonatomic) void*container;
 
-+ (id)newDataHandlerForDataclass:(long long)arg1 container:(void*)arg2 changeTrackingID:(id)arg3;
++ (id)newDataHandlerForDataclass:(int)arg1 container:(void*)arg2 changeTrackingID:(id)arg3;
 
 - (void).cxx_destruct;
 - (id)changeTrackingID;
-- (bool)closeDBAndSave:(bool)arg1;
+- (BOOL)closeDBAndSave:(BOOL)arg1;
 - (void*)container;
 - (void*)copyLocalObjectFromId:(int)arg1;
 - (id)copyOfAllLocalObjectsInContainer;
-- (long long)dataclass;
+- (int)dataclass;
 - (void)dealloc;
 - (void)drainContainer;
 - (void)drainSuperfluousChanges;
@@ -28,9 +26,9 @@
 - (int)getIdFromLocalObject:(void*)arg1;
 - (id)initWithContainer:(void*)arg1 changeTrackingID:(id)arg2;
 - (void)openDB;
-- (bool)saveContainer;
+- (BOOL)saveContainer;
 - (void)setChangeTrackingID:(id)arg1;
 - (void)setContainer:(void*)arg1;
-- (bool)wipeServerIds;
+- (BOOL)wipeServerIds;
 
 @end

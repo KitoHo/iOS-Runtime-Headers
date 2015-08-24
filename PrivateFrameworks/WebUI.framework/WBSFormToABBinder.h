@@ -2,13 +2,12 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@interface WBSFormToABBinder : NSObject {
-}
+@interface WBSFormToABBinder : NSObject
 
 + (struct __WBSFieldLabelPatternMatcherArray { }*)addressBookFieldLabelPatternMatchers;
 + (id)allSynonymsForMatch:(id)arg1;
 + (struct __WBSFieldLabelPatternMatcherArray { }*)emailFieldLabelPatternMatchers;
-+ (unsigned long long)indexOfBestMatchForString:(id)arg1 inArray:(id)arg2;
++ (unsigned int)indexOfBestMatchForString:(id)arg1 inArray:(id)arg2;
 + (id)specifierForAutocompleteToken:(id)arg1;
 + (id)specifierForLabel:(id)arg1;
 

@@ -2,88 +2,82 @@
    Image: /System/Library/PrivateFrameworks/VoiceServices.framework/VoiceServices
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSAttributedString, NSString, NSURL;
-
 @interface VSSpeechRequest : NSObject <NSSecureCoding> {
     NSAttributedString *_attributedText;
     unsigned int _audioQueueFlags;
     unsigned int _audioSessionID;
-    long long _footprint;
-    long long _gender;
+    BOOL _audioSessionIDIsValid;
+    int _footprint;
+    int _gender;
     NSString *_languageCode;
+    BOOL _maintainsInput;
     NSURL *_outputPath;
-    id _pauseHandler;
+    id /* block */ _pauseHandler;
     double _pitch;
     double _rate;
-    id _stopHandler;
+    id /* block */ _stopHandler;
     NSString *_text;
+    BOOL _useCustomVoice;
     NSString *_voiceName;
     double _volume;
-    bool_audioSessionIDIsValid;
-    bool_maintainsInput;
-    bool_useCustomVoice;
 }
 
-@property(copy) NSAttributedString * attributedText;
-@property unsigned int audioQueueFlags;
-@property unsigned int audioSessionID;
-@property bool audioSessionIDIsValid;
-@property long long footprint;
-@property long long gender;
-@property(copy) NSString * languageCode;
-@property bool maintainsInput;
-@property(copy) NSURL * outputPath;
-@property(copy) id pauseHandler;
-@property double pitch;
-@property double rate;
-@property(copy) id stopHandler;
-@property(copy) NSString * text;
-@property bool useCustomVoice;
-@property(copy) NSString * voiceName;
-@property double volume;
+@property (nonatomic, copy) NSAttributedString *attributedText;
+@property (nonatomic) unsigned int audioQueueFlags;
+@property (nonatomic) unsigned int audioSessionID;
+@property (nonatomic) BOOL audioSessionIDIsValid;
+@property (nonatomic) int footprint;
+@property (nonatomic) int gender;
+@property (nonatomic, copy) NSString *languageCode;
+@property (nonatomic) BOOL maintainsInput;
+@property (nonatomic, copy) NSURL *outputPath;
+@property (nonatomic, copy) id /* block */ pauseHandler;
+@property (nonatomic) double pitch;
+@property (nonatomic) double rate;
+@property (nonatomic, copy) id /* block */ stopHandler;
+@property (nonatomic, copy) NSString *text;
+@property (nonatomic) BOOL useCustomVoice;
+@property (nonatomic, copy) NSString *voiceName;
+@property (nonatomic) double volume;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)attributedText;
 - (unsigned int)audioQueueFlags;
 - (unsigned int)audioSessionID;
-- (bool)audioSessionIDIsValid;
+- (BOOL)audioSessionIDIsValid;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (long long)footprint;
-- (long long)gender;
+- (int)footprint;
+- (int)gender;
 - (id)initWithCoder:(id)arg1;
 - (id)languageCode;
-- (bool)maintainsInput;
+- (BOOL)maintainsInput;
 - (id)outputPath;
-- (id)pauseHandler;
+- (id /* block */)pauseHandler;
 - (double)pitch;
 - (double)rate;
 - (void)setAttributedText:(id)arg1;
 - (void)setAudioQueueFlags:(unsigned int)arg1;
 - (void)setAudioSessionID:(unsigned int)arg1;
-- (void)setAudioSessionIDIsValid:(bool)arg1;
-- (void)setFootprint:(long long)arg1;
-- (void)setGender:(long long)arg1;
+- (void)setAudioSessionIDIsValid:(BOOL)arg1;
+- (void)setFootprint:(int)arg1;
+- (void)setGender:(int)arg1;
 - (void)setLanguageCode:(id)arg1;
-- (void)setMaintainsInput:(bool)arg1;
+- (void)setMaintainsInput:(BOOL)arg1;
 - (void)setOutputPath:(id)arg1;
-- (void)setPauseHandler:(id)arg1;
+- (void)setPauseHandler:(id /* block */)arg1;
 - (void)setPitch:(double)arg1;
 - (void)setRate:(double)arg1;
-- (void)setStopHandler:(id)arg1;
+- (void)setStopHandler:(id /* block */)arg1;
 - (void)setText:(id)arg1;
-- (void)setUseCustomVoice:(bool)arg1;
+- (void)setUseCustomVoice:(BOOL)arg1;
 - (void)setVoiceName:(id)arg1;
 - (void)setVolume:(double)arg1;
-- (id)stopHandler;
+- (id /* block */)stopHandler;
 - (id)text;
-- (bool)useCustomVoice;
+- (BOOL)useCustomVoice;
 - (id)voiceName;
 - (double)volume;
 

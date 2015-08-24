@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSSet;
-
 @interface PLCloudFeedEntriesChangeNotification : PLChangeNotification {
     NSSet *_deletedEntries;
     NSSet *_insertedEntries;
+    BOOL _shouldReload;
     NSSet *_updatedEntries;
-    bool_shouldReload;
 }
 
-@property(copy) NSSet * deletedEntries;
-@property(copy) NSSet * insertedEntries;
-@property bool shouldReload;
-@property(copy) NSSet * updatedEntries;
+@property (nonatomic, copy) NSSet *deletedEntries;
+@property (nonatomic, copy) NSSet *insertedEntries;
+@property (nonatomic) BOOL shouldReload;
+@property (nonatomic, copy) NSSet *updatedEntries;
 
 + (id)notificationWithFullReload;
 + (id)notificationWithInsertedEntries:(id)arg1 updatedEntries:(id)arg2 deletedEntries:(id)arg3;
@@ -28,9 +26,9 @@
 - (id)object;
 - (void)setDeletedEntries:(id)arg1;
 - (void)setInsertedEntries:(id)arg1;
-- (void)setShouldReload:(bool)arg1;
+- (void)setShouldReload:(BOOL)arg1;
 - (void)setUpdatedEntries:(id)arg1;
-- (bool)shouldReload;
+- (BOOL)shouldReload;
 - (id)updatedEntries;
 - (id)userInfo;
 

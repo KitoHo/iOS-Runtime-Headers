@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class CKNotificationID, NSArray, NSNumber, NSString;
-
 @interface CKNotification : NSObject <NSSecureCoding> {
     NSString *_alertActionLocalizationKey;
     NSString *_alertBody;
@@ -12,27 +10,27 @@
     NSString *_alertLocalizationKey;
     NSNumber *_badge;
     NSString *_containerIdentifier;
+    BOOL _isPruned;
     CKNotificationID *_notificationID;
-    long long _notificationType;
+    int _notificationType;
     NSString *_soundName;
-    bool_isPruned;
 }
 
-@property(copy) NSString * alertActionLocalizationKey;
-@property(copy) NSString * alertBody;
-@property(copy) NSString * alertLaunchImage;
-@property(copy) NSArray * alertLocalizationArgs;
-@property(copy) NSString * alertLocalizationKey;
-@property(copy) NSNumber * badge;
-@property(copy) NSString * containerIdentifier;
-@property bool isPruned;
-@property(copy) CKNotificationID * notificationID;
-@property long long notificationType;
-@property(copy) NSString * soundName;
+@property (nonatomic, copy) NSString *alertActionLocalizationKey;
+@property (nonatomic, copy) NSString *alertBody;
+@property (nonatomic, copy) NSString *alertLaunchImage;
+@property (nonatomic, copy) NSArray *alertLocalizationArgs;
+@property (nonatomic, copy) NSString *alertLocalizationKey;
+@property (nonatomic, copy) NSNumber *badge;
+@property (nonatomic, copy) NSString *containerIdentifier;
+@property (nonatomic) BOOL isPruned;
+@property (nonatomic, copy) CKNotificationID *notificationID;
+@property (nonatomic) int notificationType;
+@property (nonatomic, copy) NSString *soundName;
 
 + (id)_realNotificationFromRemoteNotificationDictionary:(id)arg1;
 + (id)notificationFromRemoteNotificationDictionary:(id)arg1;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)CKPropertiesDescription;
@@ -49,10 +47,10 @@
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithRemoteNotificationDictionary:(id)arg1;
-- (bool)isPruned;
-- (bool)isRead;
+- (BOOL)isPruned;
+- (BOOL)isRead;
 - (id)notificationID;
-- (long long)notificationType;
+- (int)notificationType;
 - (void)setAlertActionLocalizationKey:(id)arg1;
 - (void)setAlertBody:(id)arg1;
 - (void)setAlertLaunchImage:(id)arg1;
@@ -60,9 +58,9 @@
 - (void)setAlertLocalizationKey:(id)arg1;
 - (void)setBadge:(id)arg1;
 - (void)setContainerIdentifier:(id)arg1;
-- (void)setIsPruned:(bool)arg1;
+- (void)setIsPruned:(BOOL)arg1;
 - (void)setNotificationID:(id)arg1;
-- (void)setNotificationType:(long long)arg1;
+- (void)setNotificationType:(int)arg1;
 - (void)setSoundName:(id)arg1;
 - (id)soundName;
 

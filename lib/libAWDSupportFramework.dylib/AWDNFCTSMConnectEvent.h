@@ -2,9 +2,8 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSData;
-
 @interface AWDNFCTSMConnectEvent : PBCodable <NSCopying> {
+    BOOL _connected;
     struct { 
         unsigned int timeDeltaFromReference : 1; 
         unsigned int timestamp : 1; 
@@ -15,41 +14,40 @@
     unsigned long long _timeDeltaFromReference;
     unsigned long long _timestamp;
     NSData *_uuidReference;
-    bool_connected;
 }
 
-@property bool connected;
-@property bool hasConnected;
-@property bool hasHttpStatus;
-@property bool hasTimeDeltaFromReference;
-@property bool hasTimestamp;
-@property(readonly) bool hasUuidReference;
-@property unsigned int httpStatus;
-@property unsigned long long timeDeltaFromReference;
-@property unsigned long long timestamp;
-@property(retain) NSData * uuidReference;
+@property (nonatomic) BOOL connected;
+@property (nonatomic) BOOL hasConnected;
+@property (nonatomic) BOOL hasHttpStatus;
+@property (nonatomic) BOOL hasTimeDeltaFromReference;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic, readonly) BOOL hasUuidReference;
+@property (nonatomic) unsigned int httpStatus;
+@property (nonatomic) unsigned long long timeDeltaFromReference;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic, retain) NSData *uuidReference;
 
-- (bool)connected;
+- (BOOL)connected;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasConnected;
-- (bool)hasHttpStatus;
-- (bool)hasTimeDeltaFromReference;
-- (bool)hasTimestamp;
-- (bool)hasUuidReference;
-- (unsigned long long)hash;
+- (BOOL)hasConnected;
+- (BOOL)hasHttpStatus;
+- (BOOL)hasTimeDeltaFromReference;
+- (BOOL)hasTimestamp;
+- (BOOL)hasUuidReference;
+- (unsigned int)hash;
 - (unsigned int)httpStatus;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
-- (void)setConnected:(bool)arg1;
-- (void)setHasConnected:(bool)arg1;
-- (void)setHasHttpStatus:(bool)arg1;
-- (void)setHasTimeDeltaFromReference:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setConnected:(BOOL)arg1;
+- (void)setHasConnected:(BOOL)arg1;
+- (void)setHasHttpStatus:(BOOL)arg1;
+- (void)setHasTimeDeltaFromReference:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
 - (void)setHttpStatus:(unsigned int)arg1;
 - (void)setTimeDeltaFromReference:(unsigned long long)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;

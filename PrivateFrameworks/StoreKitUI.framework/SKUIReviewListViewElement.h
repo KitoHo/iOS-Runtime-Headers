@@ -2,14 +2,11 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray;
+@interface SKUIReviewListViewElement : SKUIViewElement
 
-@interface SKUIReviewListViewElement : SKUIViewElement {
-}
+@property (nonatomic, readonly) NSArray *reviews;
 
-@property(readonly) NSArray * reviews;
-
-- (long long)pageComponentType;
+- (int)pageComponentType;
 - (id)reviews;
 
 @end

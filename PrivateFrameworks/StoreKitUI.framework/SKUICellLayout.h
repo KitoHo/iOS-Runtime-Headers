@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class SKUIClientContext, UIView;
-
 @interface SKUICellLayout : NSObject {
     UIView *_cell;
     SKUIClientContext *_clientContext;
     UIView *_contentView;
-    bool_parentWantsCellNeedsLayout;
+    BOOL _parentWantsCellNeedsLayout;
 }
 
-@property(retain) SKUIClientContext * clientContext;
-@property(readonly) UIView * contentView;
-@property(readonly) UIView * parentCellView;
+@property (nonatomic, retain) SKUIClientContext *clientContext;
+@property (nonatomic, readonly) UIView *contentView;
+@property (nonatomic, readonly) UIView *parentCellView;
 
 - (void).cxx_destruct;
 - (id)clientContext;
@@ -28,8 +26,8 @@
 - (void)setBackgroundColor:(id)arg1;
 - (void)setClientContext:(id)arg1;
 - (void)setColoringWithColorScheme:(id)arg1;
-- (void)setHighlighted:(bool)arg1;
+- (void)setHighlighted:(BOOL)arg1;
 - (void)setNeedsLayout;
-- (void)setSelected:(bool)arg1;
+- (void)setSelected:(BOOL)arg1;
 
 @end

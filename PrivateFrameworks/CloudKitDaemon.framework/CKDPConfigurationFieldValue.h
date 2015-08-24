@@ -2,44 +2,42 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSData, NSMutableArray, NSString;
-
 @interface CKDPConfigurationFieldValue : PBCodable <NSCopying> {
+    BOOL _boolValue;
+    NSData *_bytesValue;
+    double _doubleValue;
+    NSMutableArray *_fieldValues;
     struct { 
         unsigned int doubleValue : 1; 
         unsigned int longValue : 1; 
         unsigned int type : 1; 
         unsigned int boolValue : 1; 
-    NSData *_bytesValue;
-    double _doubleValue;
-    NSMutableArray *_fieldValues;
     } _has;
     NSMutableArray *_listValues;
     long long _longValue;
     NSString *_stringValue;
     int _type;
-    bool_boolValue;
 }
 
-@property bool boolValue;
-@property(retain) NSData * bytesValue;
-@property double doubleValue;
-@property(retain) NSMutableArray * fieldValues;
-@property bool hasBoolValue;
-@property(readonly) bool hasBytesValue;
-@property bool hasDoubleValue;
-@property bool hasLongValue;
-@property(readonly) bool hasStringValue;
-@property bool hasType;
-@property(retain) NSMutableArray * listValues;
-@property long long longValue;
-@property(retain) NSString * stringValue;
-@property int type;
+@property (nonatomic) BOOL boolValue;
+@property (nonatomic, retain) NSData *bytesValue;
+@property (nonatomic) double doubleValue;
+@property (nonatomic, retain) NSMutableArray *fieldValues;
+@property (nonatomic) BOOL hasBoolValue;
+@property (nonatomic, readonly) BOOL hasBytesValue;
+@property (nonatomic) BOOL hasDoubleValue;
+@property (nonatomic) BOOL hasLongValue;
+@property (nonatomic, readonly) BOOL hasStringValue;
+@property (nonatomic) BOOL hasType;
+@property (nonatomic, retain) NSMutableArray *listValues;
+@property (nonatomic) long long longValue;
+@property (nonatomic, retain) NSString *stringValue;
+@property (nonatomic) int type;
 
 - (void).cxx_destruct;
 - (void)addFieldValues:(id)arg1;
 - (void)addListValues:(id)arg1;
-- (bool)boolValue;
+- (BOOL)boolValue;
 - (id)bytesValue;
 - (void)clearFieldValues;
 - (void)clearListValues;
@@ -49,30 +47,30 @@
 - (id)dictionaryRepresentation;
 - (double)doubleValue;
 - (id)fieldValues;
-- (id)fieldValuesAtIndex:(unsigned long long)arg1;
-- (unsigned long long)fieldValuesCount;
-- (bool)hasBoolValue;
-- (bool)hasBytesValue;
-- (bool)hasDoubleValue;
-- (bool)hasLongValue;
-- (bool)hasStringValue;
-- (bool)hasType;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (id)fieldValuesAtIndex:(unsigned int)arg1;
+- (unsigned int)fieldValuesCount;
+- (BOOL)hasBoolValue;
+- (BOOL)hasBytesValue;
+- (BOOL)hasDoubleValue;
+- (BOOL)hasLongValue;
+- (BOOL)hasStringValue;
+- (BOOL)hasType;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)listValues;
-- (id)listValuesAtIndex:(unsigned long long)arg1;
-- (unsigned long long)listValuesCount;
+- (id)listValuesAtIndex:(unsigned int)arg1;
+- (unsigned int)listValuesCount;
 - (long long)longValue;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
-- (void)setBoolValue:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setBoolValue:(BOOL)arg1;
 - (void)setBytesValue:(id)arg1;
 - (void)setDoubleValue:(double)arg1;
 - (void)setFieldValues:(id)arg1;
-- (void)setHasBoolValue:(bool)arg1;
-- (void)setHasDoubleValue:(bool)arg1;
-- (void)setHasLongValue:(bool)arg1;
-- (void)setHasType:(bool)arg1;
+- (void)setHasBoolValue:(BOOL)arg1;
+- (void)setHasDoubleValue:(BOOL)arg1;
+- (void)setHasLongValue:(BOOL)arg1;
+- (void)setHasType:(BOOL)arg1;
 - (void)setListValues:(id)arg1;
 - (void)setLongValue:(long long)arg1;
 - (void)setStringValue:(id)arg1;

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSDictionary, NSNumber, NSString, NSURL, SKUICountdown, SKUIItem;
-
 @interface SKUILink : NSObject <SSMetricsEventFieldProvider> {
     SKUICountdown *_countdown;
     SKUIItem *_item;
@@ -13,26 +11,26 @@
     NSURL *_url;
 }
 
-@property(readonly) NSURL * URL;
-@property(getter=isActionable,readonly) bool actionable;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) SKUIItem * item;
-@property(readonly) NSNumber * itemIdentifier;
-@property(readonly) NSDictionary * linkDictionary;
-@property(readonly) Class superclass;
-@property(readonly) NSString * targetString;
-@property(readonly) NSString * title;
+@property (nonatomic, readonly) NSURL *URL;
+@property (getter=isActionable, nonatomic, readonly) BOOL actionable;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) SKUIItem *item;
+@property (nonatomic, readonly) NSNumber *itemIdentifier;
+@property (nonatomic, readonly) NSDictionary *linkDictionary;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) NSString *targetString;
+@property (nonatomic, readonly) NSString *title;
 
 - (void).cxx_destruct;
 - (id)URL;
 - (void)_setItem:(id)arg1;
 - (id)initWithComponentContext:(id)arg1;
 - (id)initWithLinkDictionary:(id)arg1;
-- (id)initWithURL:(id)arg1 title:(id)arg2 targetString:(id)arg3;
 - (id)initWithURL:(id)arg1;
-- (bool)isActionable;
+- (id)initWithURL:(id)arg1 title:(id)arg2 targetString:(id)arg3;
+- (BOOL)isActionable;
 - (id)item;
 - (id)itemIdentifier;
 - (id)linkDictionary;

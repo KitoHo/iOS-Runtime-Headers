@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSDGLTextureLoader : NSObject {
-}
+@interface TSDGLTextureLoader : NSObject
 
-+ (id)p_textureInfoFromCGImage:(struct CGImage { }*)arg1 generateMipmaps:(bool)arg2;
-+ (id)textureWithCGImage:(struct CGImage { }*)arg1 generateMipmaps:(bool)arg2 error:(id*)arg3;
-+ (id)textureWithContentsOfFile:(id)arg1 generateMipmaps:(bool)arg2 error:(id*)arg3;
++ (id)p_textureInfoFromCGImage:(struct CGImage { }*)arg1 generateMipmaps:(BOOL)arg2;
++ (id)textureWithCGImage:(struct CGImage { }*)arg1 generateMipmaps:(BOOL)arg2 error:(id*)arg3;
++ (id)textureWithContentsOfFile:(id)arg1 generateMipmaps:(BOOL)arg2 error:(id*)arg3;
 
 @end

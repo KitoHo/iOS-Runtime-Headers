@@ -2,56 +2,54 @@
    Image: /System/Library/PrivateFrameworks/TextInput.framework/TextInput
  */
 
-@class NSString;
-
 @interface TIKeyboardCandidate : NSObject <NSCopying, NSSecureCoding, TIKeyboardCandidateCoding> {
     NSString *_alternativeText;
 }
 
-@property(copy) NSString * alternativeText;
-@property(readonly) NSString * candidate;
-@property(getter=isCompletionCandidate,readonly) bool completionCandidate;
-@property(copy,readonly) NSString * debugDescription;
-@property(readonly) unsigned long long deleteCount;
-@property(copy,readonly) NSString * description;
-@property(getter=isEmojiCandidate,readonly) bool emojiCandidate;
-@property(getter=isExtensionCandidate,readonly) bool extensionCandidate;
-@property(getter=isFullwidthCandidate,readonly) bool fullwidthCandidate;
-@property(readonly) unsigned long long hash;
-@property(getter=isInlineCompletionCandidate,readonly) bool inlineCompletionCandidate;
-@property(readonly) NSString * input;
-@property(readonly) bool isAutocorrection;
-@property(readonly) bool isForShortcutConversion;
-@property(readonly) NSString * label;
-@property(readonly) Class superclass;
-@property(readonly) unsigned int usageTrackingMask;
-@property(readonly) unsigned long long wordOriginFeedbackID;
+@property (nonatomic, copy) NSString *alternativeText;
+@property (nonatomic, readonly) NSString *candidate;
+@property (getter=isCompletionCandidate, nonatomic, readonly) BOOL completionCandidate;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic, readonly) unsigned int deleteCount;
+@property (readonly, copy) NSString *description;
+@property (getter=isEmojiCandidate, nonatomic, readonly) BOOL emojiCandidate;
+@property (getter=isExtensionCandidate, nonatomic, readonly) BOOL extensionCandidate;
+@property (getter=isFullwidthCandidate, nonatomic, readonly) BOOL fullwidthCandidate;
+@property (readonly) unsigned int hash;
+@property (getter=isInlineCompletionCandidate, nonatomic, readonly) BOOL inlineCompletionCandidate;
+@property (nonatomic, readonly) NSString *input;
+@property (nonatomic, readonly) BOOL isAutocorrection;
+@property (nonatomic, readonly) BOOL isForShortcutConversion;
+@property (nonatomic, readonly) NSString *label;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) unsigned int usageTrackingMask;
+@property (nonatomic, readonly) unsigned int wordOriginFeedbackID;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 + (int)type;
 
 - (id)alternativeText;
 - (id)candidate;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
-- (unsigned long long)deleteCount;
+- (unsigned int)deleteCount;
 - (void)encodeWithCandidateResultSetCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithCandidateResultSetCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)input;
-- (bool)isAutocorrection;
-- (bool)isCompletionCandidate;
-- (bool)isEmojiCandidate;
-- (bool)isEqual:(id)arg1;
-- (bool)isExtensionCandidate;
-- (bool)isForShortcutConversion;
-- (bool)isFullwidthCandidate;
-- (bool)isInlineCompletionCandidate;
+- (BOOL)isAutocorrection;
+- (BOOL)isCompletionCandidate;
+- (BOOL)isEmojiCandidate;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isExtensionCandidate;
+- (BOOL)isForShortcutConversion;
+- (BOOL)isFullwidthCandidate;
+- (BOOL)isInlineCompletionCandidate;
 - (id)label;
 - (void)setAlternativeText:(id)arg1;
 - (unsigned int)usageTrackingMask;
-- (unsigned long long)wordOriginFeedbackID;
+- (unsigned int)wordOriginFeedbackID;
 
 @end

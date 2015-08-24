@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/BulletinBoard.framework/BulletinBoard
  */
 
-@class NSString;
-
 @interface BBZeroingWeakReference : NSObject {
     NSString *_debug;
     id _object;
@@ -13,10 +11,10 @@
 
 - (void)dealloc;
 - (id)description;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
 - (id)initWithObject:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)object;
 
 @end

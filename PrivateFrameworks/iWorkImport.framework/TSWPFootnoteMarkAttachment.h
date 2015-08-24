@@ -2,13 +2,12 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSWPFootnoteMarkAttachment : TSWPTextualAttachment {
-}
+@interface TSWPFootnoteMarkAttachment : TSWPTextualAttachment
 
 - (id)copyWithContext:(id)arg1;
 - (int)elementKind;
 - (void)saveToArchiver:(id)arg1;
-- (bool)shouldStyleBeExtended;
+- (BOOL)shouldStyleBeExtended;
 - (id)stringEquivalent;
 
 @end

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class GKFriendsSplittingDataSource, GKGameRecentPlayersDataSource, GKNearbyPlayersDataSource, NSSet;
-
 @interface GKInvitePickerDataSource : GKSegmentedSectionDataSource {
     GKFriendsSplittingDataSource *_friendsSplittingDataSource;
     NSSet *_hiddenPlayers;
@@ -11,17 +9,17 @@
     GKGameRecentPlayersDataSource *_recentPlayersDataSource;
 }
 
-@property(retain) GKFriendsSplittingDataSource * friendsSplittingDataSource;
-@property(retain) NSSet * hiddenPlayers;
-@property(retain) GKNearbyPlayersDataSource * nearbyPlayersDataSource;
-@property(retain) GKGameRecentPlayersDataSource * recentPlayersDataSource;
+@property (nonatomic, retain) GKFriendsSplittingDataSource *friendsSplittingDataSource;
+@property (nonatomic, retain) NSSet *hiddenPlayers;
+@property (nonatomic, retain) GKNearbyPlayersDataSource *nearbyPlayersDataSource;
+@property (nonatomic, retain) GKGameRecentPlayersDataSource *recentPlayersDataSource;
 
-- (bool)canSelectIndexPath:(id)arg1;
+- (BOOL)canSelectIndexPath:(id)arg1;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (void)collectionViewWillBecomeActive:(id)arg1;
 - (void)dealloc;
 - (id)friendsSplittingDataSource;
-- (bool)hasPlayer:(id)arg1;
+- (BOOL)hasPlayer:(id)arg1;
 - (id)hiddenPlayers;
 - (id)indexPathsForPlayer:(id)arg1;
 - (id)init;

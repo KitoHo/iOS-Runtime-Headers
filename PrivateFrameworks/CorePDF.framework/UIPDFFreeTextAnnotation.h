@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/CorePDF.framework/CorePDF
  */
 
-@interface UIPDFFreeTextAnnotation : UIPDFAnnotation {
-}
+@interface UIPDFFreeTextAnnotation : UIPDFAnnotation
 
 - (int)annotationType;
-- (bool)hasPopUp;
+- (BOOL)hasPopUp;
 
 @end

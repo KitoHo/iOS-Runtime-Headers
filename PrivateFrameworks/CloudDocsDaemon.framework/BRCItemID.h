@@ -2,48 +2,49 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-@class NSString;
-
-@interface BRCItemID : NSObject <NSCopying, NSSecureCoding, PQLBindable, PQLResultSetInitializer> {
+@interface BRCItemID : NSObject <NSCopying, NSSecureCoding, PQLValuable> {
     unsigned char _kind;
-    unsigned char _uuid[16];
+    unsigned char _uuid;
 }
 
-@property(readonly) const char * UTF8String;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) bool isDocuments;
-@property(readonly) bool isRoot;
-@property(readonly) NSString * itemIDString;
-@property(readonly) unsigned char kind;
-@property(readonly) NSString * shortItemIDString;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) const char *UTF8String;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) BOOL isDocuments;
+@property (nonatomic, readonly) BOOL isRoot;
+@property (nonatomic, readonly) NSString *itemIDString;
+@property (nonatomic, readonly) NSString *shortItemIDString;
+@property (readonly) Class superclass;
 
 + (id)documentsItemID;
 + (void)initialize;
++ (id)newFromSqliteValue:(struct Mem { }*)arg1;
++ (id)newItemIDFromEnclosureUUID:(id)arg1;
++ (id)parseMangledItemID:(id)arg1 mangledContainerID:(id*)arg2 etag:(id*)arg3;
 + (id)rootItemID;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (const char *)UTF8String;
+- (id)contentsRecordIDInZoneID:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
+- (id)derivedAliasItemIDWithOwnerName:(id)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
-- (id)initFromPQLResultSet:(id)arg1 error:(id*)arg2;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithItemID:(id)arg1;
-- (id)initWithKind:(unsigned char)arg1 bytes:(const void*)arg2 length:(unsigned long long)arg3;
-- (id)initWithSqlite3Value:(struct Mem { }*)arg1;
+- (id)initWithKind:(unsigned char)arg1 bytes:(const void*)arg2 length:(unsigned int)arg3;
 - (id)initWithString:(id)arg1;
-- (bool)isDocuments;
-- (bool)isEqual:(id)arg1;
-- (bool)isEqualToItemID:(id)arg1;
-- (bool)isRoot;
+- (BOOL)isDocuments;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToItemID:(id)arg1;
+- (BOOL)isRoot;
 - (id)itemIDString;
-- (unsigned char)kind;
+- (id)itemUUIDString;
 - (id)shortItemIDString;
 - (void)sqliteBind:(struct sqlite3_stmt { }*)arg1 index:(int)arg2;
+- (id)validatingDirectoryReferenceInZoneID:(id)arg1;
 
 @end

@@ -2,11 +2,12 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSFileAccessNode, NSMutableDictionary, NSString;
-
 @interface NSFileAccessNode : NSObject {
     id _accessClaimOrClaims;
     NSMutableDictionary *_childrenByNormalizedName;
+    BOOL _isArbitrationBoundary;
+    BOOL _isFilePackage;
+    BOOL _isFilePackageIsFigured;
     NSFileAccessNode *_lastRequestedChild;
     NSString *_lastRequestedChildName;
     NSString *_name;
@@ -17,14 +18,11 @@
     id _progressSubscriberOrSubscribers;
     id _provider;
     NSFileAccessNode *_symbolicLinkDestination;
-    unsigned long long _symbolicLinkReferenceCount;
-    bool_isArbitrationBoundary;
-    bool_isFilePackage;
-    bool_isFilePackageIsFigured;
+    unsigned int _symbolicLinkReferenceCount;
 }
 
-- (id)_childrenExcludingExcessNodes:(bool)arg1;
-- (bool)_mayContainCriticalDebuggingInformation;
+- (id)_childrenExcludingExcessNodes:(BOOL)arg1;
+- (BOOL)_mayContainCriticalDebuggingInformation;
 - (void)addAccessClaim:(id)arg1;
 - (void)addPresenter:(id)arg1;
 - (void)addProgressPublisher:(id)arg1;
@@ -33,40 +31,40 @@
 - (void)assertDescendantsLive;
 - (void)assertLive;
 - (id)biggestFilePackageLocation;
-- (id)childForRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1 ofPath:(id)arg2;
+- (id)childForRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1 ofPath:(id)arg2;
 - (void)dealloc;
-- (id)descendantAtPath:(id)arg1 componentRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg2 create:(bool)arg3;
-- (id)descendantAtPath:(id)arg1 componentRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg2 forAddingLeafNode:(id)arg3 create:(bool)arg4;
+- (id)descendantAtPath:(id)arg1 componentRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg2 create:(BOOL)arg3;
+- (id)descendantAtPath:(id)arg1 componentRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg2 forAddingLeafNode:(id)arg3 create:(BOOL)arg4;
 - (id)descendantForFileURL:(id)arg1;
 - (id)description;
-- (id)descriptionWithIndenting:(id)arg1 excludingExcessNodes:(bool)arg2;
-- (void)forEachAccessClaimOnItemOrContainedItemPerformProcedure:(id)arg1;
-- (void)forEachAccessClaimOnItemPerformProcedure:(id)arg1;
-- (void)forEachDescendantPerformProcedure:(id)arg1;
-- (void)forEachPresenterOfContainedItemPerformProcedure:(id)arg1;
-- (void)forEachPresenterOfContainingFilePackagePerformProcedure:(id)arg1;
-- (void)forEachPresenterOfContainingItemPerformProcedure:(id)arg1;
-- (void)forEachPresenterOfItemOrContainedItemPerformProcedure:(id)arg1;
-- (void)forEachPresenterOfItemOrContainingItemPerformProcedure:(id)arg1;
-- (void)forEachPresenterOfItemPerformProcedure:(id)arg1;
-- (void)forEachProgressPublisherOfItemOrContainedItemPerformProcedure:(id)arg1;
-- (void)forEachProgressPublisherOfItemPerformProcedure:(id)arg1;
-- (void)forEachProgressSubscriberOfItemOrContainingItemPerformProcedure:(id)arg1;
-- (void)forEachProgressSubscriberOfItemPerformProcedure:(id)arg1;
-- (void)forEachProgressThingOfItemOrContainedItemPerformProcedure:(id)arg1;
-- (void)forEachReactorToItemOrContainedItemPerformProcedure:(id)arg1;
-- (void)forEachRelevantAccessClaimPerformProcedure:(id)arg1;
+- (id)descriptionWithIndenting:(id)arg1 excludingExcessNodes:(BOOL)arg2;
+- (void)forEachAccessClaimOnItemOrContainedItemPerformProcedure:(id /* block */)arg1;
+- (void)forEachAccessClaimOnItemPerformProcedure:(id /* block */)arg1;
+- (void)forEachDescendantPerformProcedure:(id /* block */)arg1;
+- (void)forEachPresenterOfContainedItemPerformProcedure:(id /* block */)arg1;
+- (void)forEachPresenterOfContainingFilePackagePerformProcedure:(id /* block */)arg1;
+- (void)forEachPresenterOfContainingItemPerformProcedure:(id /* block */)arg1;
+- (void)forEachPresenterOfItemOrContainedItemPerformProcedure:(id /* block */)arg1;
+- (void)forEachPresenterOfItemOrContainingItemPerformProcedure:(id /* block */)arg1;
+- (void)forEachPresenterOfItemPerformProcedure:(id /* block */)arg1;
+- (void)forEachProgressPublisherOfItemOrContainedItemPerformProcedure:(id /* block */)arg1;
+- (void)forEachProgressPublisherOfItemPerformProcedure:(id /* block */)arg1;
+- (void)forEachProgressSubscriberOfItemOrContainingItemPerformProcedure:(id /* block */)arg1;
+- (void)forEachProgressSubscriberOfItemPerformProcedure:(id /* block */)arg1;
+- (void)forEachProgressThingOfItemOrContainedItemPerformProcedure:(id /* block */)arg1;
+- (void)forEachReactorToItemOrContainedItemPerformProcedure:(id /* block */)arg1;
+- (void)forEachRelevantAccessClaimPerformProcedure:(id /* block */)arg1;
 - (id)initWithParent:(id)arg1 name:(id)arg2 normalizedName:(id)arg3;
-- (bool)itemIsFilePackage;
-- (bool)itemIsInItemAtLocation:(id)arg1;
-- (bool)itemIsItemAtLocation:(id)arg1;
-- (bool)itemIsSubarbitrable;
+- (BOOL)itemIsFilePackage;
+- (BOOL)itemIsInItemAtLocation:(id)arg1;
+- (BOOL)itemIsItemAtLocation:(id)arg1;
+- (BOOL)itemIsSubarbitrable;
 - (id)itemProvider;
 - (id)normalizationOfChildName:(id)arg1;
 - (id)parent;
 - (id)pathExceptPrivate;
 - (id)pathFromAncestor:(id)arg1;
-- (id)pathToDescendantForFileURL:(id)arg1 componentRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; }*)arg2;
+- (id)pathToDescendantForFileURL:(id)arg1 componentRange:(struct _NSRange { unsigned int x1; unsigned int x2; }*)arg2;
 - (void)removeAccessClaim:(id)arg1;
 - (void)removeChildForNormalizedName:(id)arg1;
 - (void)removePresenter:(id)arg1;

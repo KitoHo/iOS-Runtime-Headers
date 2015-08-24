@@ -2,68 +2,66 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class SUCellConfiguration, SUItemOfferButton, SUTableCellContentView, UIBezierPath, UIColor;
-
 @interface SUTableCell : UITableViewCell {
-    struct { 
-        unsigned long long localIndex; 
-        unsigned long long localCount; 
-        unsigned long long globalIndex; 
-        unsigned long long globalCount; 
-    unsigned int _hideHighlight : 1;
     UIColor *_bottomBorderColor;
     SUTableCellContentView *_configurationView;
-    long long _editState;
+    int _editState;
+    unsigned int _hideHighlight;
     SUItemOfferButton *_itemOfferButton;
+    struct { 
+        unsigned int localIndex; 
+        unsigned int localCount; 
+        unsigned int globalIndex; 
+        unsigned int globalCount; 
     } _position;
     UIColor *_topBorderColor;
 }
 
-@property(retain) UIColor * bottomBorderColor;
-@property int clipCorners;
-@property(readonly) UIBezierPath * clippingPath;
-@property(retain) SUCellConfiguration * configuration;
-@property bool drawAsDisabled;
-@property long long editState;
-@property bool highlightsOnlyContentView;
-@property(retain,readonly) SUItemOfferButton * itemOfferButton;
-@property struct { unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; } position;
-@property bool showHighlight;
-@property(retain) UIColor * topBorderColor;
-@property bool usesSubviews;
+@property (nonatomic, retain) UIColor *bottomBorderColor;
+@property (nonatomic) int clipCorners;
+@property (nonatomic, readonly) UIBezierPath *clippingPath;
+@property (nonatomic, retain) SUCellConfiguration *configuration;
+@property (nonatomic) BOOL drawAsDisabled;
+@property (nonatomic) int editState;
+@property (nonatomic) BOOL highlightsOnlyContentView;
+@property (nonatomic, readonly, retain) SUItemOfferButton *itemOfferButton;
+@property (nonatomic) struct { unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; } position;
+@property (nonatomic) BOOL showHighlight;
+@property (nonatomic, retain) UIColor *topBorderColor;
+@property (nonatomic) BOOL usesSubviews;
 
-- (bool)_canDrawContent;
+- (BOOL)_canDrawContent;
 - (id)bottomBorderColor;
 - (int)clipCorners;
 - (id)clippingPath;
 - (id)configuration;
 - (id)copyPurchaseAnimationView;
 - (void)dealloc;
-- (bool)drawAsDisabled;
-- (void)drawRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (long long)editState;
-- (bool)highlightsOnlyContentView;
-- (id)hitTest:(struct CGPoint { double x1; double x2; })arg1 withEvent:(id)arg2;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (BOOL)drawAsDisabled;
+- (void)drawRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (int)editState;
+- (BOOL)highlightsOnlyContentView;
+- (id)hitTest:(struct CGPoint { float x1; float x2; })arg1 withEvent:(id)arg2;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (id)itemOfferButton;
 - (void)layoutSubviews;
-- (struct { unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; })position;
+- (struct { unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; })position;
 - (void)setBottomBorderColor:(id)arg1;
 - (void)setClipCorners:(int)arg1;
 - (void)setConfiguration:(id)arg1;
-- (void)setDrawAsDisabled:(bool)arg1;
-- (void)setEditState:(long long)arg1;
-- (void)setEditing:(bool)arg1 animated:(bool)arg2;
-- (void)setHighlighted:(bool)arg1 animated:(bool)arg2;
-- (void)setHighlightsOnlyContentView:(bool)arg1;
-- (void)setPosition:(struct { unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; })arg1;
-- (void)setSelected:(bool)arg1 animated:(bool)arg2;
-- (void)setShowHighlight:(bool)arg1;
-- (void)setShowingDeleteConfirmation:(bool)arg1;
+- (void)setDrawAsDisabled:(BOOL)arg1;
+- (void)setEditState:(int)arg1;
+- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setHighlightsOnlyContentView:(BOOL)arg1;
+- (void)setPosition:(struct { unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; })arg1;
+- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setShowHighlight:(BOOL)arg1;
+- (void)setShowingDeleteConfirmation:(BOOL)arg1;
 - (void)setTopBorderColor:(id)arg1;
-- (void)setUsesSubviews:(bool)arg1;
-- (bool)showHighlight;
+- (void)setUsesSubviews:(BOOL)arg1;
+- (BOOL)showHighlight;
 - (id)topBorderColor;
-- (bool)usesSubviews;
+- (BOOL)usesSubviews;
 
 @end

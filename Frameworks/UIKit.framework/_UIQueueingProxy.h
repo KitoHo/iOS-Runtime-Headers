@@ -2,28 +2,22 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSMutableArray;
-
 @interface _UIQueueingProxy : _UITargetedProxy {
     int _lock;
     NSMutableArray *_queuedInvocations;
-    id _shouldSuspendInvocationBlock;
-    unsigned long long _suspensionCount;
+    id /* block */ _shouldSuspendInvocationBlock;
+    unsigned int _suspensionCount;
 }
 
-+ (id)proxyWithTarget:(id)arg1 shouldSuspendInvocationBlock:(id)arg2;
 + (id)proxyWithTarget:(id)arg1;
++ (id)proxyWithTarget:(id)arg1 shouldSuspendInvocationBlock:(id /* block */)arg2;
 
 - (void)_dispatchSuspendedMessages;
 - (void)dealloc;
 - (id)description;
 - (void)forwardInvocation:(id)arg1;
 - (void)removeAllEnqueuedInvocations;
-- (bool)respondsToSelector:(SEL)arg1;
+- (BOOL)respondsToSelector:(SEL)arg1;
 - (void)resume;
 - (void)suspend;
 

@@ -9,15 +9,15 @@
     } _coordinate;
 }
 
-@property struct { double x1; double x2; } coordinate;
+@property (nonatomic) struct { double x1; double x2; } coordinate;
 
 + (id)UTITypes;
 
-- (id)_generateThumbnailFillToSize:(struct CGSize { double x1; double x2; })arg1;
+- (id)_generateThumbnailFillToSize:(struct CGSize { float x1; float x2; })arg1;
 - (struct { double x1; double x2; })coordinate;
-- (void)generatePreviewWithCompletion:(id)arg1;
-- (id)initWithFileURL:(id)arg1 size:(struct CGSize { double x1; double x2; })arg2 guid:(id)arg3;
-- (bool)isDroppedPin;
+- (void)generatePreviewWithCompletion:(id /* block */)arg1;
+- (id)initWithFileURL:(id)arg1 size:(struct CGSize { float x1; float x2; })arg2 guid:(id)arg3;
+- (BOOL)isDroppedPin;
 - (id)pin;
 - (void)setCoordinate:(struct { double x1; double x2; })arg1;
 - (id)vCardURLProperties;

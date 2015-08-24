@@ -2,34 +2,41 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@class NSString;
-
 @interface MIPGenre : PBCodable <NSCopying> {
     struct { 
+        unsigned int persistentId : 1; 
         unsigned int storeId : 1; 
     } _has;
     NSString *_name;
+    long long _persistentId;
     long long _storeId;
 }
 
-@property(readonly) bool hasName;
-@property bool hasStoreId;
-@property(retain) NSString * name;
-@property long long storeId;
+@property (nonatomic, readonly) BOOL hasName;
+@property (nonatomic) BOOL hasPersistentId;
+@property (nonatomic) BOOL hasStoreId;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic) long long persistentId;
+@property (nonatomic) long long storeId;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasName;
-- (bool)hasStoreId;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasName;
+- (BOOL)hasPersistentId;
+- (BOOL)hasStoreId;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)mergeFrom:(id)arg1;
 - (id)name;
-- (bool)readFrom:(id)arg1;
-- (void)setHasStoreId:(bool)arg1;
+- (long long)persistentId;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasPersistentId:(BOOL)arg1;
+- (void)setHasStoreId:(BOOL)arg1;
 - (void)setName:(id)arg1;
+- (void)setPersistentId:(long long)arg1;
 - (void)setStoreId:(long long)arg1;
 - (long long)storeId;
 - (void)writeTo:(id)arg1;

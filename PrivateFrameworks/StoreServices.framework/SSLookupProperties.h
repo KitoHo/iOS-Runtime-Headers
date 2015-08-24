@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class CLLocation, NSMutableDictionary, NSNumber, NSString;
-
 @interface SSLookupProperties : NSObject <NSCopying, SSXPCCoding> {
-    long long _localizationStyle;
+    int _localizationStyle;
     CLLocation *_location;
     NSMutableDictionary *_requestParameters;
     NSNumber *_timeoutInterval;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * keyProfile;
-@property long long localizationStyle;
-@property(copy) CLLocation * location;
-@property(readonly) Class superclass;
-@property(copy) NSNumber * timeoutInterval;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSString *keyProfile;
+@property (nonatomic) int localizationStyle;
+@property (nonatomic, copy) CLLocation *location;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSNumber *timeoutInterval;
 
 - (id)copyRequestParameters;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -26,10 +24,10 @@
 - (void)dealloc;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)keyProfile;
-- (long long)localizationStyle;
+- (int)localizationStyle;
 - (id)location;
 - (void)setKeyProfile:(id)arg1;
-- (void)setLocalizationStyle:(long long)arg1;
+- (void)setLocalizationStyle:(int)arg1;
 - (void)setLocation:(id)arg1;
 - (void)setTimeoutInterval:(id)arg1;
 - (void)setValue:(id)arg1 forRequestParameter:(id)arg2;

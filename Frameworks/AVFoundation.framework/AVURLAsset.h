@@ -2,19 +2,19 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVAssetCache, AVAssetResourceLoader, AVURLAssetInternal, NSString, NSURL;
-
 @interface AVURLAsset : AVAsset {
     AVURLAssetInternal *_URLAsset;
 }
 
-@property(copy,readonly) NSURL * URL;
-@property(readonly) AVAssetCache * assetCache;
-@property(readonly) NSString * cacheKey;
-@property(readonly) double rc_durationInSeconds;
-@property(readonly) AVAssetResourceLoader * resourceLoader;
-@property(readonly) bool shouldMatchDataInCacheByURLPathComponentOnly;
-@property(readonly) bool shouldMatchDataInCacheByURLWithoutQueryComponent;
+@property (nonatomic, readonly, copy) NSURL *URL;
+@property (nonatomic, readonly) AVAssetCache *assetCache;
+@property (nonatomic, readonly) NSString *cacheKey;
+@property (nonatomic, readonly) double rc_durationInSeconds;
+@property (nonatomic, readonly) AVAssetResourceLoader *resourceLoader;
+@property (nonatomic, readonly) BOOL shouldMatchDataInCacheByURLPathComponentOnly;
+@property (nonatomic, readonly) BOOL shouldMatchDataInCacheByURLWithoutQueryComponent;
+
+// Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
 
 + (id)URLAssetWithURL:(id)arg1 options:(id)arg2;
 + (id)_UTTypes;
@@ -27,8 +27,7 @@
 + (id)_streamingUTTypes;
 + (id)audiovisualMIMETypes;
 + (id)audiovisualTypes;
-+ (bool)isPlayableExtendedMIMEType:(id)arg1;
-+ (id)rc_preciseTimingAssetWithURL:(id)arg1;
++ (BOOL)isPlayableExtendedMIMEType:(id)arg1;
 
 - (id)SHA1Digest;
 - (id)URL;
@@ -42,11 +41,11 @@
 - (struct OpaqueFigFormatReader { }*)_formatReader;
 - (id)_handleURLAssetInitializationOptionsReturningFigAssetCreationOptions:(id)arg1 selector:(SEL)arg2;
 - (void)_handleURLRequest:(id)arg1;
-- (bool)_hasResourceLoaderDelegate;
+- (BOOL)_hasResourceLoaderDelegate;
 - (struct OpaqueFigPlaybackItem { }*)_playbackItem;
 - (void)_removeFigAssetNotifications;
 - (void)_setAssetInspectorLoader:(id)arg1;
-- (bool)_shouldOptimizeAccessForLinearMoviePlayback;
+- (BOOL)_shouldOptimizeAccessForLinearMoviePlayback;
 - (id)_tracks;
 - (void)_tracksDidChange;
 - (id)assetCache;
@@ -60,12 +59,17 @@
 - (id)init;
 - (id)initWithURL:(id)arg1 options:(id)arg2;
 - (id)lyrics;
-- (double)rc_durationInSeconds;
-- (unsigned long long)referenceRestrictions;
+- (unsigned int)referenceRestrictions;
 - (id)resolvedURL;
 - (id)resourceLoader;
-- (bool)shouldMatchDataInCacheByURLPathComponentOnly;
-- (bool)shouldMatchDataInCacheByURLWithoutQueryComponent;
+- (BOOL)shouldMatchDataInCacheByURLPathComponentOnly;
+- (BOOL)shouldMatchDataInCacheByURLWithoutQueryComponent;
 - (id)tracks;
+
+// Image: /System/Library/PrivateFrameworks/VoiceMemos.framework/VoiceMemos
+
++ (id)rc_preciseTimingAssetWithURL:(id)arg1;
+
+- (double)rc_durationInSeconds;
 
 @end

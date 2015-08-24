@@ -2,40 +2,38 @@
    Image: /System/Library/PrivateFrameworks/MobileBackup.framework/MobileBackup
  */
 
-@class NSData, NSDate, NSDictionary, NSMutableDictionary, NSString;
-
 @interface MBProperties : NSObject {
     NSMutableDictionary *_plist;
-    bool_protect;
-    bool_protected;
+    BOOL _protect;
+    BOOL _protected;
 }
 
-@property(retain) NSString * activeAppleID;
-@property(readonly) NSDictionary * appleIDs;
-@property(readonly) NSString * buildVersion;
-@property(readonly) NSDictionary * containers;
-@property(retain) NSDate * date;
-@property(readonly) NSString * deviceID;
-@property(readonly) NSString * deviceName;
-@property(getter=isEncrypted) bool encrypted;
-@property(readonly) bool hasCorruptSQLiteDBs;
-@property(retain) NSData * keybagData;
-@property(retain) NSDictionary * lockdownKeys;
-@property(getter=wasPasscodeSet) bool passcodeSet;
-@property(readonly) NSString * productType;
-@property(readonly) id propertyList;
-@property(getter=isProtected) bool protected;
-@property(readonly) NSString * serialNumber;
-@property double systemDomainsVersion;
-@property double version;
+@property (nonatomic, retain) NSString *activeAppleID;
+@property (nonatomic, readonly) NSDictionary *appleIDs;
+@property (nonatomic, readonly) NSString *buildVersion;
+@property (nonatomic, readonly) NSDictionary *containers;
+@property (nonatomic, retain) NSDate *date;
+@property (nonatomic, readonly) NSString *deviceID;
+@property (nonatomic, readonly) NSString *deviceName;
+@property (getter=isEncrypted, nonatomic) BOOL encrypted;
+@property (nonatomic, readonly) BOOL hasCorruptSQLiteDBs;
+@property (nonatomic, retain) NSData *keybagData;
+@property (nonatomic, retain) NSDictionary *lockdownKeys;
+@property (getter=wasPasscodeSet, nonatomic) BOOL passcodeSet;
+@property (nonatomic, readonly) NSString *productType;
+@property (nonatomic, readonly) id propertyList;
+@property (getter=isProtected, nonatomic) BOOL protected;
+@property (nonatomic, readonly) NSString *serialNumber;
+@property (nonatomic) double systemDomainsVersion;
+@property (nonatomic) double version;
 
 + (id)properties;
 + (id)propertiesWithFile:(id)arg1 error:(id*)arg2;
 
-- (bool)_boolForKey:(id)arg1;
+- (BOOL)_boolForKey:(id)arg1;
 - (id)_dataForKey:(id)arg1;
 - (id)_dictionaryForKey:(id)arg1;
-- (void)_setBool:(bool)arg1 forKey:(id)arg2;
+- (void)_setBool:(BOOL)arg1 forKey:(id)arg2;
 - (void)_setData:(id)arg1 forKey:(id)arg2;
 - (void)_setDictionary:(id)arg1 forKey:(id)arg2;
 - (id)_stringForLockdownKey:(id)arg1;
@@ -52,12 +50,12 @@
 - (id)description;
 - (id)deviceID;
 - (id)deviceName;
-- (bool)hasCorruptSQLiteDBs;
+- (BOOL)hasCorruptSQLiteDBs;
 - (id)init;
 - (id)initWithData:(id)arg1 error:(id*)arg2;
 - (id)initWithFile:(id)arg1 error:(id*)arg2;
-- (bool)isEncrypted;
-- (bool)isProtected;
+- (BOOL)isEncrypted;
+- (BOOL)isProtected;
 - (id)keybagData;
 - (id)lockdownKeys;
 - (id)objectForKey:(id)arg1;
@@ -67,17 +65,17 @@
 - (id)serialNumber;
 - (void)setActiveAppleID:(id)arg1;
 - (void)setDate:(id)arg1;
-- (void)setEncrypted:(bool)arg1;
+- (void)setEncrypted:(BOOL)arg1;
 - (void)setKeybagData:(id)arg1;
 - (void)setLockdownKeys:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
-- (void)setPasscodeSet:(bool)arg1;
-- (void)setProtected:(bool)arg1;
+- (void)setPasscodeSet:(BOOL)arg1;
+- (void)setProtected:(BOOL)arg1;
 - (void)setSystemDomainsVersion:(double)arg1;
 - (void)setVersion:(double)arg1;
 - (double)systemDomainsVersion;
 - (double)version;
-- (bool)wasPasscodeSet;
-- (bool)writeToFile:(id)arg1 error:(id*)arg2;
+- (BOOL)wasPasscodeSet;
+- (BOOL)writeToFile:(id)arg1 error:(id*)arg2;
 
 @end

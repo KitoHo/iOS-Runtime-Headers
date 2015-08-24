@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/CalDAV.framework/CalDAV
  */
 
-@class <CalDAVCalendar>, <CalDAVPrincipal>, CalDAVBulkUploadTaskGroup;
-
 @interface CalDAVMergeUploadTaskGroup : CoreDAVTaskGroup {
     <CalDAVCalendar> *_calendar;
     <CalDAVPrincipal> *_principal;
+    BOOL _shouldTrySyncTokenForBulkUpload;
     CalDAVBulkUploadTaskGroup *_uploadTaskGroup;
-    bool_shouldTrySyncTokenForBulkUpload;
 }
 
 - (void)_performBulkUpload;

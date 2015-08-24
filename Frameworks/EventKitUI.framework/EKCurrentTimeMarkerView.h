@@ -2,40 +2,38 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class UILabel;
-
 @interface EKCurrentTimeMarkerView : UIView {
     UILabel *_currentTimeLabel;
-    bool_showsLine;
-    bool_showsThumb;
+    BOOL _showsLine;
+    BOOL _showsThumb;
 }
 
-@property(readonly) struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } currentTimeFrame;
-@property(retain) UILabel * currentTimeLabel;
-@property(readonly) double markerMidHeight;
-@property(readonly) double markerWidth;
-@property bool showsLine;
-@property bool showsThumb;
+@property (nonatomic, readonly) struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } currentTimeFrame;
+@property (nonatomic, retain) UILabel *currentTimeLabel;
+@property (nonatomic, readonly) float markerMidHeight;
+@property (nonatomic, readonly) float markerWidth;
+@property (nonatomic) BOOL showsLine;
+@property (nonatomic) BOOL showsThumb;
 
-+ (double)_spacingAdjustmentFontSize;
++ (float)_spacingAdjustmentFontSize;
 + (id)timeMarkerFont;
 
 - (void).cxx_destruct;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })_lineFrame;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })_lineFrame;
 - (void)_updateTimeLabelColor;
-- (void)_updateTimeWithForce:(bool)arg1;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })currentTimeFrame;
+- (void)_updateTimeWithForce:(BOOL)arg1;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })currentTimeFrame;
 - (id)currentTimeLabel;
-- (void)drawRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)drawRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)invalidateFonts;
-- (double)markerMidHeight;
-- (double)markerWidth;
+- (float)markerMidHeight;
+- (float)markerWidth;
 - (void)setCurrentTimeLabel:(id)arg1;
-- (void)setShowsLine:(bool)arg1;
-- (void)setShowsThumb:(bool)arg1;
-- (bool)showsLine;
-- (bool)showsThumb;
+- (void)setShowsLine:(BOOL)arg1;
+- (void)setShowsThumb:(BOOL)arg1;
+- (BOOL)showsLine;
+- (BOOL)showsThumb;
 - (void)tintColorDidChange;
 - (void)updateTime;
 

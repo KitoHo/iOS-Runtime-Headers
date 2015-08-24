@@ -2,58 +2,57 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@class IKDOMNode, NSDate, NSString;
-
 @interface IKDOMEvent : IKJSObject <IKJSDOMEvent> {
+    BOOL _bubbles;
+    BOOL _cancelable;
     IKDOMNode *_currentTarget;
-    long long _dispatchState;
-    long long _eventPhase;
+    BOOL _defaultPrevented;
+    int _dispatchState;
+    int _eventPhase;
+    BOOL _inUse;
     IKDOMNode *_target;
     NSDate *_timeStamp;
     NSString *_type;
     NSString *_xmlAttribute;
-    bool_bubbles;
-    bool_cancelable;
-    bool_defaultPrevented;
-    bool_inUse;
 }
 
-@property(readonly) bool bubbles;
-@property(readonly) bool cancelable;
-@property(retain) IKDOMNode * currentTarget;
-@property bool defaultPrevented;
-@property long long dispatchState;
-@property long long eventPhase;
-@property(getter=isInUse) bool inUse;
-@property(retain) IKDOMNode * target;
-@property(readonly) NSDate * timeStamp;
-@property(retain,readonly) NSString * type;
-@property(retain,readonly) NSString * xmlAttribute;
+@property (nonatomic, readonly) BOOL bubbles;
+@property (nonatomic, readonly) BOOL cancelable;
+@property (nonatomic, retain) IKDOMNode *currentTarget;
+@property (nonatomic) BOOL defaultPrevented;
+@property (nonatomic) int dispatchState;
+@property (nonatomic) int eventPhase;
+@property (getter=isInUse, nonatomic) BOOL inUse;
+@property (nonatomic, retain) IKDOMNode *target;
+@property (nonatomic, readonly) NSDate *timeStamp;
+@property (nonatomic, readonly, retain) NSString *type;
+@property (nonatomic, readonly, retain) NSString *xmlAttribute;
 
 - (void).cxx_destruct;
-- (bool)bubbles;
-- (bool)cancelable;
+- (BOOL)bubbles;
+- (BOOL)cancelable;
 - (id)currentTarget;
-- (bool)defaultPrevented;
-- (long long)dispatchState;
-- (long long)eventPhase;
-- (id)initWithAppContext:(id)arg1 type:(id)arg2 xmlAttribute:(id)arg3 canBubble:(bool)arg4 isCancelable:(bool)arg5;
-- (bool)isImmediatePropagationStopped;
-- (bool)isInUse;
-- (bool)isPropagationStopped;
+- (BOOL)defaultPrevented;
+- (int)dispatchState;
+- (int)eventPhase;
+- (id)initWithAppContext:(id)arg1 type:(id)arg2 xmlAttribute:(id)arg3 canBubble:(BOOL)arg4 isCancelable:(BOOL)arg5;
+- (id)initWithType:(id)arg1 eventInit:(id)arg2;
+- (BOOL)isImmediatePropagationStopped;
+- (BOOL)isInUse;
+- (BOOL)isPropagationStopped;
 - (void)preventDefault;
 - (void)setCurrentTarget:(id)arg1;
-- (void)setDefaultPrevented:(bool)arg1;
-- (void)setDispatchState:(long long)arg1;
-- (void)setEventPhase:(long long)arg1;
-- (void)setInUse:(bool)arg1;
+- (void)setDefaultPrevented:(BOOL)arg1;
+- (void)setDispatchState:(int)arg1;
+- (void)setEventPhase:(int)arg1;
+- (void)setInUse:(BOOL)arg1;
 - (void)setTarget:(id)arg1;
 - (void)stopImmediatePropagation;
 - (void)stopPropagation;
 - (id)target;
 - (id)timeStamp;
 - (id)type;
-- (void)updateDispatchStateWithCurrentTarget:(id)arg1 phase:(long long)arg2;
+- (void)updateDispatchStateWithCurrentTarget:(id)arg1 phase:(int)arg2;
 - (id)xmlAttribute;
 
 @end

@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class NSArray, UIImage;
-
 @interface CKAnimatedImage : NSObject {
     NSArray *_durations;
     UIImage *_image;
 }
 
-@property(copy) NSArray * durations;
-@property(retain) UIImage * image;
-@property(readonly) struct CGSize { double x1; double x2; } size;
+@property (nonatomic, copy) NSArray *durations;
+@property (nonatomic, retain) UIImage *image;
+@property (nonatomic, readonly) struct CGSize { float x1; float x2; } size;
 
 + (id)animatedImageWithContentsOfCPBitmapURL:(id)arg1;
 
@@ -24,7 +22,7 @@
 - (id)initWithImages:(id)arg1 durations:(id)arg2;
 - (void)setDurations:(id)arg1;
 - (void)setImage:(id)arg1;
-- (struct CGSize { double x1; double x2; })size;
-- (bool)writeToCPBitmapURL:(id)arg1;
+- (struct CGSize { float x1; float x2; })size;
+- (BOOL)writeToCPBitmapURL:(id)arg1;
 
 @end

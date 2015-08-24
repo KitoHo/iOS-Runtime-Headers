@@ -2,31 +2,27 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSMutableDictionary;
-
 @interface PLRevGeoPlace : NSObject {
-    NSMutableDictionary *_placeTypeInfoMap;
-    bool_isHome;
+    BOOL _isHome;
+    NSMutableArray *_placeTypeInfoMap;
 }
 
-@property bool isHome;
-@property(readonly) NSMutableDictionary * placeTypeInfoMap;
+@property (nonatomic) BOOL isHome;
 
-+ (id)sortedAdditionalPlaceInfoComparator;
++ (id /* block */)sortedAdditionalPlaceInfoComparator;
 
-- (unsigned long long)_dominantOrderTypeForPlaceType:(int)arg1 lastOrderType:(unsigned long long)arg2;
-- (void)addPlaceName:(id)arg1 placeInfo:(id)arg2 forOrderType:(unsigned long long)arg3 updateExisting:(bool)arg4;
-- (id)bestPlaceInfoForOrderType:(unsigned long long)arg1;
+- (void)_addPlaceName:(id)arg1 placeInfo:(id)arg2 forOrderType:(unsigned int)arg3;
+- (unsigned int)_dominantOrderTypeForPlaceType:(int)arg1 lastOrderType:(unsigned int)arg2;
+- (void)_mergeGEOMapItem:(id)arg1;
+- (id)_placeInfosForOrderType:(unsigned int)arg1 createIfNeeded:(BOOL)arg2;
+- (void)_removePlacesInPlaceInfos:(id)arg1 fromOrderType:(unsigned int)arg2;
+- (id)bestPlaceInfoForOrderType:(unsigned int)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)init;
 - (id)initWithGEOMapItem:(id)arg1;
-- (bool)isHome;
-- (void)mergeCommonDataForGEOMapItem:(id)arg1 updateExisting:(bool)arg2;
-- (void)mergeGEOMapItem:(id)arg1 updateExisting:(bool)arg2;
-- (id)placeInfoSetForOrderType:(unsigned long long)arg1;
-- (id)placeTypeInfoMap;
-- (void)removePlacesInPlaceInfoSet:(id)arg1 fromOrderType:(unsigned long long)arg2;
-- (void)setIsHome:(bool)arg1;
+- (BOOL)isHome;
+- (id)placeInfosForOrderType:(unsigned int)arg1;
+- (void)setIsHome:(BOOL)arg1;
 
 @end

@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSNumber, TSCH3DTexture;
-
-@interface TSCH3DTextureResource : TSCH3DResource <TSCHUnretainedParent, TSCH3DOptimizedTextureResource> {
+@interface TSCH3DTextureResource : TSCH3DResource <TSCH3DOptimizedTextureResource, TSCHUnretainedParent> {
     NSNumber *mCachedHash;
     TSCH3DTexture *mParent;
 }
 
-- (bool)canLoadCachedFullMipmapBufferForDataCache:(id)arg1;
+- (BOOL)canLoadCachedFullMipmapBufferForDataCache:(id)arg1;
 - (void)clearParent;
 - (id)databufferForDataCache:(id)arg1;
 - (void)dealloc;
 - (id)get;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithParent:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)optimizedMipmapBuffer;
 - (id)p_parent;
 

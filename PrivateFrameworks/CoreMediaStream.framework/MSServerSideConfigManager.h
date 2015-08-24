@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CoreMediaStream.framework/CoreMediaStream
  */
 
-@class MSMediaStreamDaemon, MSServerSideConfigProtocol, NSDictionary, NSString;
-
 @interface MSServerSideConfigManager : NSObject <MSServerSideConfigProtocolDelegate> {
     NSDictionary *_config;
     NSString *_configPath;
@@ -13,13 +11,13 @@
     int _state;
 }
 
-@property(retain) NSDictionary * config;
-@property MSMediaStreamDaemon * daemon;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) NSString * personID;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) NSDictionary *config;
+@property (nonatomic) MSMediaStreamDaemon *daemon;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) NSString *personID;
+@property (readonly) Class superclass;
 
 + (void)abortAllActivities;
 + (id)configManagerForPersonID:(id)arg1;
@@ -28,7 +26,7 @@
 + (void)forgetPersonID:(id)arg1;
 + (int)intValueForParameter:(id)arg1 forPersonID:(id)arg2 defaultValue:(int)arg3;
 + (long long)longLongValueForParameter:(id)arg1 forPersonID:(id)arg2 defaultValue:(long long)arg3;
-+ (long long)longValueForParameter:(id)arg1 forPersonID:(id)arg2 defaultValue:(long long)arg3;
++ (long)longValueForParameter:(id)arg1 forPersonID:(id)arg2 defaultValue:(long)arg3;
 + (id)objectForKey:(id)arg1 forPersonID:(id)arg2 defaultValue:(id)arg3;
 
 - (void).cxx_destruct;

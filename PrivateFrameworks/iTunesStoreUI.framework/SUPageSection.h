@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSString, SSMutableURLRequestProperties, SSURLRequestProperties, UIImage;
-
 @interface SUPageSection : NSObject {
     double _expirationTime;
     NSString *_identifier;
     UIImage *_image;
-    long long _structuredPageType;
+    int _structuredPageType;
     NSString *_title;
     SSMutableURLRequestProperties *_urlRequestProperties;
     id _userInfo;
 }
 
-@property(copy) SSURLRequestProperties * URLRequestProperties;
-@property double expirationTime;
-@property(retain) NSString * identifier;
-@property(retain) UIImage * image;
-@property(readonly) id segmentedControlItem;
-@property long long structuredPageType;
-@property(retain) NSString * title;
-@property(retain) id userInfo;
+@property (nonatomic, copy) SSURLRequestProperties *URLRequestProperties;
+@property (nonatomic) double expirationTime;
+@property (nonatomic, retain) NSString *identifier;
+@property (nonatomic, retain) UIImage *image;
+@property (nonatomic, readonly) id segmentedControlItem;
+@property (nonatomic) int structuredPageType;
+@property (nonatomic, retain) NSString *title;
+@property (nonatomic, retain) id userInfo;
 
 - (id)URLRequestProperties;
 - (void)_setURL:(id)arg1;
@@ -31,17 +29,17 @@
 - (id)identifier;
 - (id)image;
 - (id)init;
-- (bool)isEqual:(id)arg1;
-- (bool)loadFromDictionary:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)loadFromDictionary:(id)arg1;
 - (id)segmentedControlItem;
 - (void)setExpirationTime:(double)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setImage:(id)arg1;
-- (void)setStructuredPageType:(long long)arg1;
+- (void)setStructuredPageType:(int)arg1;
 - (void)setTitle:(id)arg1;
 - (void)setURLRequestProperties:(id)arg1;
 - (void)setUserInfo:(id)arg1;
-- (long long)structuredPageType;
+- (int)structuredPageType;
 - (id)title;
 - (id)userInfo;
 

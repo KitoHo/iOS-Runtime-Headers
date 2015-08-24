@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class PKPass, UIImage;
-
 @interface CKPassbookMediaObject : CKMediaObject {
     UIImage *_icon;
     PKPass *_pass;
 }
 
-@property(retain) UIImage * icon;
-@property(retain) PKPass * pass;
+@property (nonatomic, retain) UIImage *icon;
+@property (nonatomic, retain) PKPass *pass;
 
 + (id)UTITypes;
-+ (id)attachmentSummary:(unsigned long long)arg1;
++ (id)attachmentSummary:(unsigned int)arg1;
 + (id)fallbackFilenamePrefix;
-+ (bool)isPreviewable;
++ (BOOL)isPreviewable;
 
 - (void)dealloc;
-- (id)generateThumbnailFillToSize:(struct CGSize { double x1; double x2; })arg1 contentAlignmentInsets:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; })arg2;
-- (id)generateThumbnailForWidth:(double)arg1 orientation:(BOOL)arg2;
+- (id)generateThumbnailFillToSize:(struct CGSize { float x1; float x2; })arg1 contentAlignmentInsets:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg2;
+- (id)generateThumbnailForWidth:(float)arg1 orientation:(BOOL)arg2;
 - (id)icon;
 - (int)mediaType;
 - (id)pass;
 - (id)passView;
 - (void)setIcon:(id)arg1;
 - (void)setPass:(id)arg1;
-- (bool)shouldBeQuickLooked;
-- (bool)shouldShowDisclosure;
-- (bool)shouldShowViewer;
+- (BOOL)shouldBeQuickLooked;
+- (BOOL)shouldShowDisclosure;
+- (BOOL)shouldShowViewer;
 - (id)subtitle;
 - (id)title;
 

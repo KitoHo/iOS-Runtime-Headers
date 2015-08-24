@@ -2,10 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface TSCH3Dvec2DataBuffer : TSCH3DFloatVectorDataBuffer {
     struct vector<glm::detail::tvec2<float>, std::__1::allocator<glm::detail::tvec2<float> > > { 
         struct tvec2<float> {} *__begin_; 
@@ -16,18 +12,18 @@
     } mContainer;
 }
 
-@property(readonly) /* Warning: unhandled struct encoding: '{vector<glm::detail::tvec2<float>' */ struct * container; /* unknown property attribute:  std::__1::allocator<glm::detail::tvec2<float> > >=^{tvec2<float>}}} */
+@property (nonatomic, readonly) /* Warning: unhandled struct encoding: '{vector<glm::detail::tvec2<float>' */ struct *container; /* unknown property attribute:  std::__1::allocator<glm::detail::tvec2<float> > >=^{tvec2<float>}}} */
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)clear;
-- (unsigned long long)componentByteSize;
-- (unsigned long long)components;
+- (unsigned int)componentByteSize;
+- (unsigned int)components;
 - (struct vector<glm::detail::tvec2<float>, std::__1::allocator<glm::detail::tvec2<float> > > { struct tvec2<float> {} *x1; struct tvec2<float> {} *x2; struct __compressed_pair<glm::detail::tvec2<float> *, std::__1::allocator<glm::detail::tvec2<float> > > { struct tvec2<float> {} *x_3_1_1; } x3; }*)container;
-- (unsigned long long)count;
+- (unsigned int)count;
 - (const void*)data;
 - (id)elementsAtIndices:(id)arg1;
 - (void)fillCapacity;
-- (id)initWithCapacity:(unsigned long long)arg1;
+- (id)initWithCapacity:(unsigned int)arg1;
 
 @end

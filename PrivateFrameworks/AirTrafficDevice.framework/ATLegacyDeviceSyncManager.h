@@ -2,48 +2,42 @@
    Image: /System/Library/PrivateFrameworks/AirTrafficDevice.framework/AirTrafficDevice
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class ATAsset, ATClientController, ATLegacyAssetLink, ATLegacyMessageLink, ATSession, ATUserDefaults, NSDate, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
-
-@interface ATLegacyDeviceSyncManager : ATDeviceSyncManager <ATEnvironmentMonitorObserver, ATSessionObserver, ATLegacyAssetLinkProgressDelegate> {
+@interface ATLegacyDeviceSyncManager : ATDeviceSyncManager <ATEnvironmentMonitorObserver, ATLegacyAssetLinkProgressDelegate, ATSessionObserver> {
     ATLegacyAssetLink *_assetLink;
+    BOOL _automaticSync;
     struct CacheDeleteToken { } *_cacheDeleteToken;
     ATClientController *_clientController;
-    id _clientProgressCallback;
+    id /* block */ _clientProgressCallback;
     ATAsset *_currentAsset;
     NSString *_currentDataclass;
     ATLegacyMessageLink *_currentMessageLink;
     double _currentOverallProgress;
     unsigned int _currentStage;
     NSString *_currentStatus;
+    double _currentSyncProgress;
     NSMutableDictionary *_dataclassTimers;
     NSMutableArray *_dataclasses;
     ATUserDefaults *_defaults;
-    NSMutableDictionary *_diskUsageInfo;
-    NSObject<OS_dispatch_queue> *_diskUsageQueue;
-    unsigned int _grappaId;
+    ATDeviceDiskUsageProvider *_diskUsageProvider;
+    unsigned long _grappaId;
+    BOOL _localSyncRequest;
+    BOOL _localSyncRequestCanceled;
     NSMutableArray *_messageLinks;
     NSDate *_startTime;
     ATSession *_syncSession;
     NSObject<OS_dispatch_queue> *_workQueue;
-    bool_automaticSync;
-    bool_localSyncRequest;
-    bool_localSyncRequestCanceled;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
-@property(retain) ATSession * syncSession;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) ATSession *syncSession;
 
 + (id)legacyDeviceSyncManager;
 
 - (void).cxx_destruct;
-- (bool)_currentLinkIsWifiConnection;
+- (BOOL)_currentLinkIsWifiConnection;
 - (void)_handleAssetMetricsMessage:(id)arg1 fromLink:(id)arg2;
 - (void)_handleCapabilitiesMessage:(id)arg1 fromLink:(id)arg2;
 - (void)_handleFinishedSyncingMetadataMessage:(id)arg1 fromLink:(id)arg2;
@@ -57,7 +51,6 @@
 - (void)_sendDiskUsageForDataClasses:(id)arg1;
 - (void)_sendInstalledAssets;
 - (void)_sendSyncAllowed;
-- (void)_updatePurgeableStorageUsage;
 - (void)assetLink:(id)arg1 didUpdateOverallProgress:(double)arg2;
 - (void)cancelSyncOnMessageLink:(id)arg1;
 - (void)environmentMonitorDidChangePower:(id)arg1;

@@ -2,15 +2,10 @@
    Image: /System/Library/PrivateFrameworks/BulletinBoard.framework/BulletinBoard
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class BBAssertion, NSArray, NSDictionary, NSString;
-
 @interface BBResponse : NSObject <NSSecureCoding> {
     NSString *_actionID;
-    long long _actionType;
+    int _actionType;
+    BOOL _activated;
     NSString *_bulletinID;
     NSString *_buttonID;
     NSDictionary *_context;
@@ -18,27 +13,26 @@
     NSArray *_lifeAssertions;
     NSString *_originID;
     NSString *_replyText;
-    id _sendBlock;
-    bool_activated;
-    bool_sent;
+    id /* block */ _sendBlock;
+    BOOL _sent;
 }
 
-@property(copy) NSString * actionID;
-@property long long actionType;
-@property bool activated;
-@property(retain) NSString * bulletinID;
-@property(copy) NSString * buttonID;
-@property(copy) NSDictionary * context;
-@property(copy) NSArray * lifeAssertions;
-@property(copy) NSString * originID;
-@property(copy) NSString * replyText;
-@property(copy) id sendBlock;
+@property (nonatomic, copy) NSString *actionID;
+@property (nonatomic) int actionType;
+@property (nonatomic) BOOL activated;
+@property (nonatomic, retain) NSString *bulletinID;
+@property (nonatomic, copy) NSString *buttonID;
+@property (nonatomic, copy) NSDictionary *context;
+@property (nonatomic, copy) NSArray *lifeAssertions;
+@property (nonatomic, copy) NSString *originID;
+@property (nonatomic, copy) NSString *replyText;
+@property (nonatomic, copy) id /* block */ sendBlock;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)actionID;
-- (long long)actionType;
-- (bool)activated;
+- (int)actionType;
+- (BOOL)activated;
 - (id)bulletinID;
 - (id)buttonID;
 - (id)context;
@@ -49,16 +43,16 @@
 - (id)originID;
 - (id)replyText;
 - (void)send;
-- (id)sendBlock;
+- (id /* block */)sendBlock;
 - (void)setActionID:(id)arg1;
-- (void)setActionType:(long long)arg1;
-- (void)setActivated:(bool)arg1;
+- (void)setActionType:(int)arg1;
+- (void)setActivated:(BOOL)arg1;
 - (void)setBulletinID:(id)arg1;
 - (void)setButtonID:(id)arg1;
 - (void)setContext:(id)arg1;
 - (void)setLifeAssertions:(id)arg1;
 - (void)setOriginID:(id)arg1;
 - (void)setReplyText:(id)arg1;
-- (void)setSendBlock:(id)arg1;
+- (void)setSendBlock:(id /* block */)arg1;
 
 @end

@@ -2,33 +2,30 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSDate, NSNumber, NSString, NSURL, SALocalSearchReviewList;
+@interface SAMovieMovie : SADomainObject
 
-@interface SAMovieMovie : SADomainObject {
-}
-
-@property(copy) NSArray * actors;
-@property(copy) NSArray * directors;
-@property(copy) NSArray * genres;
-@property(copy) NSURL * hiResTrailerUri;
-@property(copy) NSURL * iTunesUri;
-@property bool is3d;
-@property(copy) NSNumber * isAvailableOnItunesForPurchase;
-@property(copy) NSNumber * isAvailableOnItunesForRent;
-@property(copy) NSURL * lowResTrailerUri;
-@property(copy) NSString * name;
-@property(copy) NSArray * posterImages;
-@property(copy) NSURL * posterUri;
-@property(copy) NSNumber * qualityRating;
-@property(copy) NSString * rating;
-@property(retain) SALocalSearchReviewList * reviews;
-@property(copy) NSURL * rottenTomatoesUri;
-@property long long runtimeInMinutes;
-@property(copy) NSArray * studios;
-@property(copy) NSString * synopsis;
-@property(copy) NSString * theaterShowtimeSearchRegionDescription;
-@property(copy) NSArray * theaterShowtimes;
-@property(copy) NSDate * theatricalReleaseDate;
+@property (nonatomic, copy) NSArray *actors;
+@property (nonatomic, copy) NSArray *directors;
+@property (nonatomic, copy) NSArray *genres;
+@property (nonatomic, copy) NSURL *hiResTrailerUri;
+@property (nonatomic, copy) NSURL *iTunesUri;
+@property (nonatomic) BOOL is3d;
+@property (nonatomic, copy) NSNumber *isAvailableOnItunesForPurchase;
+@property (nonatomic, copy) NSNumber *isAvailableOnItunesForRent;
+@property (nonatomic, copy) NSURL *lowResTrailerUri;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSArray *posterImages;
+@property (nonatomic, copy) NSURL *posterUri;
+@property (nonatomic, copy) NSNumber *qualityRating;
+@property (nonatomic, copy) NSString *rating;
+@property (nonatomic, retain) SALocalSearchReviewList *reviews;
+@property (nonatomic, copy) NSURL *rottenTomatoesUri;
+@property (nonatomic) int runtimeInMinutes;
+@property (nonatomic, copy) NSArray *studios;
+@property (nonatomic, copy) NSString *synopsis;
+@property (nonatomic, copy) NSString *theaterShowtimeSearchRegionDescription;
+@property (nonatomic, copy) NSArray *theaterShowtimes;
+@property (nonatomic, copy) NSDate *theatricalReleaseDate;
 
 + (id)movie;
 + (id)movieWithDictionary:(id)arg1 context:(id)arg2;
@@ -40,7 +37,7 @@
 - (id)groupIdentifier;
 - (id)hiResTrailerUri;
 - (id)iTunesUri;
-- (bool)is3d;
+- (BOOL)is3d;
 - (id)isAvailableOnItunesForPurchase;
 - (id)isAvailableOnItunesForRent;
 - (id)lowResTrailerUri;
@@ -51,13 +48,13 @@
 - (id)rating;
 - (id)reviews;
 - (id)rottenTomatoesUri;
-- (long long)runtimeInMinutes;
+- (int)runtimeInMinutes;
 - (void)setActors:(id)arg1;
 - (void)setDirectors:(id)arg1;
 - (void)setGenres:(id)arg1;
 - (void)setHiResTrailerUri:(id)arg1;
 - (void)setITunesUri:(id)arg1;
-- (void)setIs3d:(bool)arg1;
+- (void)setIs3d:(BOOL)arg1;
 - (void)setIsAvailableOnItunesForPurchase:(id)arg1;
 - (void)setIsAvailableOnItunesForRent:(id)arg1;
 - (void)setLowResTrailerUri:(id)arg1;
@@ -68,7 +65,7 @@
 - (void)setRating:(id)arg1;
 - (void)setReviews:(id)arg1;
 - (void)setRottenTomatoesUri:(id)arg1;
-- (void)setRuntimeInMinutes:(long long)arg1;
+- (void)setRuntimeInMinutes:(int)arg1;
 - (void)setStudios:(id)arg1;
 - (void)setSynopsis:(id)arg1;
 - (void)setTheaterShowtimeSearchRegionDescription:(id)arg1;

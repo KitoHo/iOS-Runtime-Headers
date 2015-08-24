@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPResponseOperationResultError;
-
 @interface CKDPResponseOperationResult : PBCodable <NSCopying> {
-    struct { 
-        unsigned int code : 1; 
     int _code;
     CKDPResponseOperationResultError *_error;
+    struct { 
+        unsigned int code : 1; 
     } _has;
 }
 
-@property int code;
-@property(retain) CKDPResponseOperationResultError * error;
-@property bool hasCode;
-@property(readonly) bool hasError;
+@property (nonatomic) int code;
+@property (nonatomic, retain) CKDPResponseOperationResultError *error;
+@property (nonatomic) BOOL hasCode;
+@property (nonatomic, readonly) BOOL hasError;
 
 - (void).cxx_destruct;
 - (int)code;
@@ -24,15 +22,15 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)error;
-- (bool)hasCode;
-- (bool)hasError;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasCode;
+- (BOOL)hasError;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setCode:(int)arg1;
 - (void)setError:(id)arg1;
-- (void)setHasCode:(bool)arg1;
+- (void)setHasCode:(BOOL)arg1;
 - (void)writeTo:(id)arg1;
 
 @end

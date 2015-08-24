@@ -2,38 +2,36 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray;
-
 @interface GEOPlaceSearchFeedbackCollection : PBCodable <NSCopying> {
-    struct { 
-        unsigned long long _high; 
-        unsigned long long _low; 
+    NSMutableArray *_actionCaptures;
+    unsigned long long _businessID;
     struct { 
         unsigned int sessionID : 1; 
         unsigned int businessID : 1; 
         unsigned int placeID : 1; 
         unsigned int localSearchProviderID : 1; 
-    NSMutableArray *_actionCaptures;
-    unsigned long long _businessID;
     } _has;
     int _localSearchProviderID;
     long long _placeID;
+    struct { 
+        unsigned long long _high; 
+        unsigned long long _low; 
     } _sessionID;
 }
 
-@property(retain) NSMutableArray * actionCaptures;
-@property unsigned long long businessID;
-@property bool hasBusinessID;
-@property bool hasLocalSearchProviderID;
-@property bool hasPlaceID;
-@property bool hasSessionID;
-@property int localSearchProviderID;
-@property long long placeID;
-@property struct { unsigned long long x1; unsigned long long x2; } sessionID;
+@property (nonatomic, retain) NSMutableArray *actionCaptures;
+@property (nonatomic) unsigned long long businessID;
+@property (nonatomic) BOOL hasBusinessID;
+@property (nonatomic) BOOL hasLocalSearchProviderID;
+@property (nonatomic) BOOL hasPlaceID;
+@property (nonatomic) BOOL hasSessionID;
+@property (nonatomic) int localSearchProviderID;
+@property (nonatomic) long long placeID;
+@property (nonatomic) struct { unsigned long long x1; unsigned long long x2; } sessionID;
 
-- (id)actionCaptureAtIndex:(unsigned long long)arg1;
+- (id)actionCaptureAtIndex:(unsigned int)arg1;
 - (id)actionCaptures;
-- (unsigned long long)actionCapturesCount;
+- (unsigned int)actionCapturesCount;
 - (void)addActionCapture:(id)arg1;
 - (unsigned long long)businessID;
 - (void)clearActionCaptures;
@@ -42,23 +40,23 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasBusinessID;
-- (bool)hasLocalSearchProviderID;
-- (bool)hasPlaceID;
-- (bool)hasSessionID;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasBusinessID;
+- (BOOL)hasLocalSearchProviderID;
+- (BOOL)hasPlaceID;
+- (BOOL)hasSessionID;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (int)localSearchProviderID;
 - (void)mergeFrom:(id)arg1;
 - (long long)placeID;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (struct { unsigned long long x1; unsigned long long x2; })sessionID;
 - (void)setActionCaptures:(id)arg1;
 - (void)setBusinessID:(unsigned long long)arg1;
-- (void)setHasBusinessID:(bool)arg1;
-- (void)setHasLocalSearchProviderID:(bool)arg1;
-- (void)setHasPlaceID:(bool)arg1;
-- (void)setHasSessionID:(bool)arg1;
+- (void)setHasBusinessID:(BOOL)arg1;
+- (void)setHasLocalSearchProviderID:(BOOL)arg1;
+- (void)setHasPlaceID:(BOOL)arg1;
+- (void)setHasSessionID:(BOOL)arg1;
 - (void)setLocalSearchProviderID:(int)arg1;
 - (void)setPlaceID:(long long)arg1;
 - (void)setSessionID:(struct { unsigned long long x1; unsigned long long x2; })arg1;

@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIImage, NSNumber;
-
 @interface CISmartBlackAndWhite : CIFilter {
     NSNumber *inputGrain;
     NSNumber *inputHue;
@@ -14,19 +12,19 @@
     NSNumber *inputTone;
 }
 
-@property(copy) NSNumber * inputGrain;
-@property(copy) NSNumber * inputHue;
-@property(retain) CIImage * inputImage;
-@property(copy) NSNumber * inputNeutralGamma;
-@property(copy) NSNumber * inputScaleFactor;
-@property(copy) NSNumber * inputStrength;
-@property(copy) NSNumber * inputTone;
+@property (nonatomic, copy) NSNumber *inputGrain;
+@property (nonatomic, copy) NSNumber *inputHue;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, copy) NSNumber *inputNeutralGamma;
+@property (nonatomic, copy) NSNumber *inputScaleFactor;
+@property (nonatomic, copy) NSNumber *inputStrength;
+@property (nonatomic, copy) NSNumber *inputTone;
 
 + (id)customAttributes;
 
 - (id)_kernel;
 - (float*)createHueArray;
-- (void)getNonNormalizedSettings:(struct { boolx1; float x2; float x3; float x4; float x5; float x6[3]; }*)arg1;
+- (void)getNonNormalizedSettings:(struct { bool x1; float x2; float x3; float x4; float x5; float x6[3]; }*)arg1;
 - (id)hueArrayImage:(float*)arg1;
 - (id)inputGrain;
 - (id)inputHue;

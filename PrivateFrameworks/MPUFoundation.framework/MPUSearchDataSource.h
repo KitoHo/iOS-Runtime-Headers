@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/MPUFoundation.framework/MPUFoundation
  */
 
-@class MPUQueryDataSource, NSArray, NSOperationQueue, NSString, _MPUSearchOperation;
-
 @interface MPUSearchDataSource : MPUQueryDataSource {
     MPUQueryDataSource *_dataSource;
     NSOperationQueue *_operationQueue;
@@ -12,19 +10,20 @@
     NSString *_searchString;
 }
 
-@property(readonly) MPUQueryDataSource * dataSource;
-@property(readonly) NSString * searchString;
+@property (nonatomic, readonly) MPUQueryDataSource *dataSource;
+@property (nonatomic, readonly) NSString *searchString;
 
 - (void).cxx_destruct;
 - (void)_searchOperation:(id)arg1 didFinishWithResults:(id)arg2;
-- (id)_searchPropertiesForGroupingType:(long long)arg1;
-- (unsigned long long)count;
+- (id)_searchPropertiesForGroupingType:(int)arg1;
+- (unsigned int)count;
 - (id)dataSource;
 - (void)dealloc;
 - (id)entities;
 - (void)filterResultsUsingSearchString:(id)arg1;
-- (id)initWithDataSource:(id)arg1 operationQueue:(id)arg2;
+- (void)filterResultsUsingSearchString:(id)arg1 completion:(id /* block */)arg2;
 - (id)initWithDataSource:(id)arg1;
+- (id)initWithDataSource:(id)arg1 operationQueue:(id)arg2;
 - (id)searchString;
 
 @end

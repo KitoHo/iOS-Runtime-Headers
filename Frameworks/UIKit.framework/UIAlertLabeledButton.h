@@ -2,20 +2,18 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UILabel;
-
 @interface UIAlertLabeledButton : UIAlertButton {
-    double _titleOffset;
+    float _titleOffset;
     UILabel *_typeLabel;
 }
 
-@property double titleOffset;
-@property(readonly) UILabel * typeLabel;
+@property (nonatomic) float titleOffset;
+@property (nonatomic, readonly) UILabel *typeLabel;
 
 - (void)dealloc;
 - (void)layoutSubviews;
-- (void)setTitleOffset:(double)arg1;
-- (double)titleOffset;
+- (void)setTitleOffset:(float)arg1;
+- (float)titleOffset;
 - (id)typeLabel;
 
 @end

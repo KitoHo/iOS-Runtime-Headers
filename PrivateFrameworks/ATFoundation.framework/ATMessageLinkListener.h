@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/ATFoundation.framework/ATFoundation
  */
 
-@class <ATMessageLinkListenerDelegate>;
-
 @interface ATMessageLinkListener : NSObject {
     <ATMessageLinkListenerDelegate> *_delegate;
 }
 
-@property <ATMessageLinkListenerDelegate> * delegate;
+@property (nonatomic) <ATMessageLinkListenerDelegate> *delegate;
 
 - (void).cxx_destruct;
 - (id)delegate;
 - (void)setDelegate:(id)arg1;
-- (bool)start;
+- (BOOL)start;
 - (void)stop;
 
 @end

@@ -2,51 +2,49 @@
    Image: /System/Library/Frameworks/MobileCoreServices.framework/MobileCoreServices
  */
 
-@class NSArray, NSDictionary, NSString, NSURL, NSUUID;
-
 @interface LSBundleProxy : LSResourceProxy {
     NSURL *_appStoreReceiptURL;
     NSString *_bundleExecutable;
-    unsigned long long _bundleFlags;
+    unsigned int _bundleFlags;
     NSString *_bundleType;
     NSURL *_bundleURL;
     NSString *_bundleVersion;
     NSUUID *_cacheGUID;
     NSDictionary *_entitlements;
     NSDictionary *_environmentVariables;
+    BOOL _foundBackingBundle;
     NSDictionary *_groupContainerURLs;
     NSString *_localizedShortName;
     NSArray *_machOUUIDs;
-    unsigned long long _plistContentFlags;
-    unsigned long long _sequenceNumber;
+    unsigned int _plistContentFlags;
+    unsigned int _sequenceNumber;
     NSString *_signerIdentity;
-    bool_foundBackingBundle;
 }
 
-@property(readonly) NSURL * appStoreReceiptURL;
-@property(readonly) NSURL * bundleContainerURL;
-@property(readonly) NSString * bundleExecutable;
-@property(readonly) NSString * bundleIdentifier;
-@property(readonly) NSString * bundleType;
-@property(readonly) NSURL * bundleURL;
-@property(readonly) NSString * bundleVersion;
-@property(readonly) NSUUID * cacheGUID;
-@property(readonly) NSURL * containerURL;
-@property(readonly) NSURL * dataContainerURL;
-@property(readonly) NSDictionary * entitlements;
-@property(readonly) NSDictionary * environmentVariables;
-@property(readonly) bool foundBackingBundle;
-@property(readonly) NSDictionary * groupContainerURLs;
-@property(readonly) NSString * localizedShortName;
-@property(readonly) NSArray * machOUUIDs;
-@property(readonly) unsigned long long sequenceNumber;
-@property(readonly) NSString * signerIdentity;
+@property (nonatomic, readonly) NSURL *appStoreReceiptURL;
+@property (nonatomic, readonly) NSURL *bundleContainerURL;
+@property (nonatomic, readonly) NSString *bundleExecutable;
+@property (nonatomic, readonly) NSString *bundleIdentifier;
+@property (nonatomic, readonly) NSString *bundleType;
+@property (nonatomic, readonly) NSURL *bundleURL;
+@property (nonatomic, readonly) NSString *bundleVersion;
+@property (nonatomic, readonly) NSUUID *cacheGUID;
+@property (nonatomic, readonly) NSURL *containerURL;
+@property (nonatomic, readonly) NSURL *dataContainerURL;
+@property (nonatomic, readonly) NSDictionary *entitlements;
+@property (nonatomic, readonly) NSDictionary *environmentVariables;
+@property (nonatomic, readonly) BOOL foundBackingBundle;
+@property (nonatomic, readonly) NSDictionary *groupContainerURLs;
+@property (nonatomic, readonly) NSString *localizedShortName;
+@property (nonatomic, readonly) NSArray *machOUUIDs;
+@property (nonatomic, readonly) unsigned int sequenceNumber;
+@property (nonatomic, readonly) NSString *signerIdentity;
 
 + (id)bundleProxyForIdentifier:(id)arg1;
 + (id)bundleProxyForURL:(id)arg1;
 
 - (unsigned char)_createContext:(struct LSContext { struct LSDatabase {} *x1; }*)arg1 andGetBundle:(unsigned int*)arg2 withData:(const struct LSBundleData {}**)arg3;
-- (id)_initWithBundleUnit:(unsigned int)arg1 bundleType:(unsigned long long)arg2 BundleID:(id)arg3 localizedName:(id)arg4 bundleContainerURL:(id)arg5 dataContainerURL:(id)arg6 resourcesDirectoryURL:(id)arg7 iconsDictionary:(id)arg8 iconFileNames:(id)arg9 version:(id)arg10;
+- (id)_initWithBundleUnit:(unsigned long)arg1 bundleType:(unsigned int)arg2 BundleID:(id)arg3 localizedName:(id)arg4 bundleContainerURL:(id)arg5 dataContainerURL:(id)arg6 resourcesDirectoryURL:(id)arg7 iconsDictionary:(id)arg8 iconFileNames:(id)arg9 version:(id)arg10;
 - (id)_plistValueForKey:(id)arg1;
 - (id)appStoreReceiptURL;
 - (id)bundleContainerURL;
@@ -61,13 +59,13 @@
 - (void)dealloc;
 - (id)entitlements;
 - (id)environmentVariables;
-- (bool)foundBackingBundle;
+- (BOOL)foundBackingBundle;
 - (id)groupContainerURLs;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)localizedShortName;
 - (id)machOUUIDs;
-- (unsigned long long)sequenceNumber;
+- (unsigned int)sequenceNumber;
 - (void)setLocalizedShortName:(id)arg1;
 - (id)signerIdentity;
 

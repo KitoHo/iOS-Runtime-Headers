@@ -2,12 +2,11 @@
    Image: /System/Library/Frameworks/Accounts.framework/Accounts
  */
 
-@interface ACAccountMigrationLock : CPExclusiveLock {
-}
+@interface ACAccountMigrationLock : CPExclusiveLock
 
 + (id)_currentSystemVersion;
 + (id)createAccountMigrationLock;
-+ (bool)migrationFinished;
++ (BOOL)migrationFinished;
 + (void)signalMigrationFinished;
 + (void)writeMigrationVersionPref;
 

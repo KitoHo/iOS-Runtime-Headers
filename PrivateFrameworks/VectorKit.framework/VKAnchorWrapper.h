@@ -2,32 +2,30 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class MDDisplayLayer, NSString, VKAnchor, VKLayoutContext;
-
 @interface VKAnchorWrapper : NSObject <VKAnchorDelegate> {
-    struct CGPoint { 
-        double x; 
-        double y; 
+    VKAnchor *_anchor;
+    MDDisplayLayer *_displayLayer;
+    BOOL _followsTerrain;
+    BOOL _isUpdating;
     struct { 
         double latitude; 
         double longitude; 
-    VKAnchor *_anchor;
-    MDDisplayLayer *_displayLayer;
     } _lastCoordinate;
     VKLayoutContext *_lastLayoutContext;
     double _pointsPerMeter;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _screenPointInCanvas;
-    bool_followsTerrain;
-    bool_isUpdating;
 }
 
-@property(readonly) struct { double x1; double x2; } coordinate;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property MDDisplayLayer * displayLayer;
-@property bool followsTerrain;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) struct { double x1; double x2; } coordinate;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) MDDisplayLayer *displayLayer;
+@property (nonatomic) BOOL followsTerrain;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (id).cxx_construct;
 - (id)_anchorWithContext:(id)arg1;
@@ -36,12 +34,12 @@
 - (struct { double x1; double x2; })coordinate;
 - (void)dealloc;
 - (id)displayLayer;
-- (bool)followsTerrain;
+- (BOOL)followsTerrain;
 - (void)layoutWithContext:(id)arg1;
-- (struct CGPoint { double x1; double x2; })pointInLayer:(id)arg1;
-- (double)pointOffsetForDistanceOffset:(double)arg1;
+- (struct CGPoint { float x1; float x2; })pointInLayer:(id)arg1;
+- (float)pointOffsetForDistanceOffset:(double)arg1;
 - (void)setDisplayLayer:(id)arg1;
-- (void)setFollowsTerrain:(bool)arg1;
+- (void)setFollowsTerrain:(BOOL)arg1;
 - (void)updateIfNeeded;
 
 @end

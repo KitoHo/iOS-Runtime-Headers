@@ -2,20 +2,17 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardFoundation.framework/SpringBoardFoundation
  */
 
-@class <SBFProceduralWallpaperDelegate>, NSString;
+@interface SBFProceduralWallpaper : UIView <SBFProceduralWallpaper>
 
-@interface SBFProceduralWallpaper : UIView <SBFProceduralWallpaper> {
-}
-
-@property(copy,readonly) NSString * debugDescription;
-@property <SBFProceduralWallpaperDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <SBFProceduralWallpaperDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)identifier;
 
-- (void)setAnimating:(bool)arg1;
+- (void)setAnimating:(BOOL)arg1;
 - (id)view;
 
 @end

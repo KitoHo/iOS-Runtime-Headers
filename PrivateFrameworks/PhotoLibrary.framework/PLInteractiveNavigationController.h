@@ -2,16 +2,7 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-@class <PLInteractiveNavigationControllerDelegate>, NSMutableArray, NSString, PLExpandableView, PLInteractiveNavigationControllerView, UIView, UIViewController;
-
-@interface PLInteractiveNavigationController : UIViewController <UINavigationBarDelegate, PLExpandableViewDelegate> {
-    struct { 
-        unsigned int operation : 3; 
-        unsigned int visible : 1; 
-        unsigned int programmaticPopInProgress : 1; 
-        unsigned int finishingCurrentOperation : 1; 
-        unsigned int previousControllerWasEditing : 1; 
-        unsigned int propagateEditingMode : 1; 
+@interface PLInteractiveNavigationController : UIViewController <PLExpandableViewDelegate, UINavigationBarDelegate> {
     struct { 
         unsigned int blockAppearanceCallbacks : 1; 
         unsigned int inExplicitAppearanceTransition : 1; 
@@ -26,29 +17,36 @@
     UIView *_overlayView;
     UIViewController *_previousViewController;
     NSMutableArray *_stack;
+    struct { 
+        unsigned int operation : 3; 
+        unsigned int visible : 1; 
+        unsigned int programmaticPopInProgress : 1; 
+        unsigned int finishingCurrentOperation : 1; 
+        unsigned int previousControllerWasEditing : 1; 
+        unsigned int propagateEditingMode : 1; 
     } _stackFlags;
     <PLInteractiveNavigationControllerDelegate> *delegate;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <PLInteractiveNavigationControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(retain) UIView * footerView;
-@property(getter=footerViewIsHidden) bool footerViewHidden;
-@property(readonly) unsigned long long hash;
-@property(retain) UIView * headerView;
-@property(getter=headerViewIsHidden) bool headerViewHidden;
-@property bool shouldPropagateEditingMode;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <PLInteractiveNavigationControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) UIView *footerView;
+@property (getter=footerViewIsHidden, nonatomic) BOOL footerViewHidden;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) UIView *headerView;
+@property (getter=headerViewIsHidden, nonatomic) BOOL headerViewHidden;
+@property (nonatomic) BOOL shouldPropagateEditingMode;
+@property (readonly) Class superclass;
 
 - (void)_addViewController:(id)arg1;
 - (id)_contentView;
 - (void)_finishCurrentOperation;
 - (void)_finishCurrentOperationBeforePushingViewController:(id)arg1;
 - (void)_finishedAnimatingTopAlpha:(id)arg1 finished:(id)arg2 topItem:(id)arg3;
-- (void)_getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; boolx5; double x6; int x7; }*)arg1;
-- (void)_notifyAction:(SEL)arg1 expandableView:(id)arg2 duration:(double)arg3;
+- (void)_getRotationContentSettings:(struct { BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; float x6; int x7; }*)arg1;
 - (void)_notifyAction:(SEL)arg1 expandableView:(id)arg2;
+- (void)_notifyAction:(SEL)arg1 expandableView:(id)arg2 duration:(double)arg3;
 - (void)_performNavBarPushPop:(int)arg1 transition:(int)arg2;
 - (void)_processNavBarPushPopQueue;
 - (void)_removeTopViewController;
@@ -56,8 +54,8 @@
 - (void)_setInteractiveView:(id)arg1;
 - (void)_setOverlayView:(id)arg1;
 - (void)_setPreviousViewController:(id)arg1;
-- (bool)_validateOperation:(int)arg1 errorString:(id)arg2;
-- (bool)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
+- (BOOL)_validateOperation:(int)arg1 errorString:(id)arg2;
+- (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
 - (void)beginPoppingViewControllerInteractivelyUsingView:(id)arg1;
 - (void)beginPushingViewController:(id)arg1 interactivelyUsingView:(id)arg2;
 - (id)bottomViewController;
@@ -65,7 +63,7 @@
 - (void)cancelPushingViewController;
 - (void)dealloc;
 - (id)delegate;
-- (void)didRotateFromInterfaceOrientation:(long long)arg1;
+- (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)expandableView:(id)arg1 expansionFractionChanged:(float)arg2;
 - (void)expandableView:(id)arg1 willCancelCollapsingWithDuration:(double)arg2;
 - (void)expandableView:(id)arg1 willCancelExpandingWithDuration:(double)arg2;
@@ -80,43 +78,43 @@
 - (void)finishPoppingViewController;
 - (void)finishPushingViewController;
 - (id)footerView;
-- (bool)footerViewIsHidden;
+- (BOOL)footerViewIsHidden;
 - (id)headerView;
-- (bool)headerViewIsHidden;
+- (BOOL)headerViewIsHidden;
 - (id)init;
 - (id)initWithRootViewController:(id)arg1;
-- (bool)isPoppingViewController;
-- (bool)isPushingViewController;
+- (BOOL)isPoppingViewController;
+- (BOOL)isPushingViewController;
 - (void)loadView;
+- (id)navigationBar;
 - (void)navigationBar:(id)arg1 didPopItem:(id)arg2;
 - (void)navigationBar:(id)arg1 didPushItem:(id)arg2;
-- (bool)navigationBar:(id)arg1 shouldPopItem:(id)arg2;
-- (id)navigationBar;
-- (bool)pl_behavesLikeNavigationControllerForNotifications;
+- (BOOL)navigationBar:(id)arg1 shouldPopItem:(id)arg2;
+- (BOOL)pl_behavesLikeNavigationControllerForNotifications;
 - (void)popToRootViewController;
-- (void)popToRootViewControllerAnimated:(bool)arg1 completion:(id)arg2;
+- (void)popToRootViewControllerAnimated:(BOOL)arg1 completion:(id /* block */)arg2;
 - (void)popToViewController:(id)arg1;
 - (void)popViewController;
-- (void)popViewControllerAnimated:(bool)arg1 completion:(id)arg2;
+- (void)popViewControllerAnimated:(BOOL)arg1 completion:(id /* block */)arg2;
 - (void)replaceTopViewControllerWithViewController:(id)arg1;
 - (id)rotatingFooterView;
 - (id)rotatingHeaderView;
 - (void)setDelegate:(id)arg1;
 - (void)setFooterView:(id)arg1;
-- (void)setFooterViewHidden:(bool)arg1 animated:(bool)arg2;
-- (void)setFooterViewHidden:(bool)arg1;
+- (void)setFooterViewHidden:(BOOL)arg1;
+- (void)setFooterViewHidden:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)setHeaderView:(id)arg1;
-- (void)setHeaderViewHidden:(bool)arg1 animated:(bool)arg2;
-- (void)setHeaderViewHidden:(bool)arg1;
-- (void)setShouldPropagateEditingMode:(bool)arg1;
-- (void)setTopViewControllerAlpha:(double)arg1;
-- (void)setTransitionProgress:(double)arg1 withDuration:(double)arg2;
-- (bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
-- (bool)shouldPropagateEditingMode;
+- (void)setHeaderViewHidden:(BOOL)arg1;
+- (void)setHeaderViewHidden:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setShouldPropagateEditingMode:(BOOL)arg1;
+- (void)setTopViewControllerAlpha:(float)arg1;
+- (void)setTransitionProgress:(float)arg1 withDuration:(double)arg2;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (BOOL)shouldPropagateEditingMode;
 - (id)topViewController;
 - (id)viewControllerNavigationItems;
 - (id)viewControllers;
-- (void)viewDidAppear:(bool)arg1;
-- (void)viewWillAppear:(bool)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 
 @end

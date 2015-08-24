@@ -6,11 +6,11 @@
     id _delegate;
 }
 
-@property(retain) id delegate;
+@property (nonatomic, retain) id delegate;
 
 - (void)dealloc;
 - (id)delegate;
-- (bool)isOpaque;
+- (BOOL)isOpaque;
 - (void)setDelegate:(id)arg1;
 - (id)textureSourceForContext:(void*)arg1;
 

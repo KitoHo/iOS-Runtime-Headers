@@ -2,12 +2,6 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class VKViewVolume;
-
 @interface VKViewTransform : NSObject {
     struct shared_ptr<vk::ViewTransform> { 
         struct ViewTransform {} *__ptr_; 
@@ -15,27 +9,27 @@
     } _viewTransform;
 }
 
-@property(readonly) /* Warning: unhandled struct encoding: '{Matrix<double' */ struct  upVector; /* unknown property attribute:  1>=[3d]} */
-@property(readonly) struct  rightVector; /* unknown property attribute:  1>=[3d]} */
-@property(readonly) struct  forwardVector; /* unknown property attribute:  1>=[3d]} */
-@property(readonly) float contentScale;
-@property(readonly) int coordinateSpace;
-@property(readonly) float degreesFromPlumb;
-@property(readonly) double farPlaneDistance;
-@property(readonly) double focusDistance;
-@property(readonly) struct VKPoint { double x1; double x2; double x3; } focusPoint;
-@property(readonly) float heading;
-@property(readonly) bool isGeocentric;
-@property(readonly) bool isMercator;
-@property(readonly) double nearPlaneDistance;
-@property const struct { double x1[4][4]; }* scaledViewProjectionMatrix;
-@property(readonly) struct CGSize { double x1; double x2; } screenSizeInPixels;
-@property(readonly) struct CGSize { double x1; double x2; } screenSizeInPoints;
-@property(readonly) struct VKPoint { double x1; double x2; double x3; } translation;
-@property(readonly) struct VKPoint { double x1; double x2; double x3; } translationInMercator;
-@property(readonly) const struct { double x1[4][4]; }* viewProjectionMatrix;
-@property(readonly) VKViewVolume * viewVolume;
-@property(readonly) double widthOverDepth;
+@property (nonatomic, readonly) float contentScale;
+@property (nonatomic, readonly) int coordinateSpace;
+@property (nonatomic, readonly) float degreesFromPlumb;
+@property (nonatomic, readonly) double farPlaneDistance;
+@property (nonatomic, readonly) double focusDistance;
+@property (nonatomic, readonly) struct VKPoint { double x1; double x2; double x3; } focusPoint;
+@property (nonatomic, readonly) /* Warning: unhandled struct encoding: '{Matrix<double' */ struct  forwardVector; /* unknown property attribute:  1>=[3d]} */
+@property (nonatomic, readonly) float heading;
+@property (nonatomic, readonly) BOOL isGeocentric;
+@property (nonatomic, readonly) BOOL isMercator;
+@property (nonatomic, readonly) double nearPlaneDistance;
+@property (nonatomic, readonly) /* Warning: unhandled struct encoding: '{Matrix<double' */ struct  rightVector; /* unknown property attribute:  1>=[3d]} */
+@property (nonatomic) const struct { double x1[4][4]; }*scaledViewProjectionMatrix;
+@property (nonatomic, readonly) struct CGSize { float x1; float x2; } screenSizeInPixels;
+@property (nonatomic, readonly) struct CGSize { float x1; float x2; } screenSizeInPoints;
+@property (nonatomic, readonly) struct VKPoint { double x1; double x2; double x3; } translation;
+@property (nonatomic, readonly) struct VKPoint { double x1; double x2; double x3; } translationInMercator;
+@property (nonatomic, readonly) /* Warning: unhandled struct encoding: '{Matrix<double' */ struct  upVector; /* unknown property attribute:  1>=[3d]} */
+@property (nonatomic, readonly) const struct { double x1[4][4]; }*viewProjectionMatrix;
+@property (nonatomic, readonly) VKViewVolume *viewVolume;
+@property (nonatomic, readonly) double widthOverDepth;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
@@ -47,18 +41,18 @@
 - (struct VKPoint { double x1; double x2; double x3; })focusPoint;
 - (struct Matrix<double, 3, 1> { double x1[3]; })forwardVector;
 - (struct VKPoint { double x1; double x2; double x3; })groundPointFromPixel:(struct Matrix<float, 2, 1> { float x1[2]; })arg1;
-- (struct VKPoint { double x1; double x2; double x3; })groundPointFromScreenPoint:(struct CGPoint { double x1; double x2; })arg1;
+- (struct VKPoint { double x1; double x2; double x3; })groundPointFromScreenPoint:(struct CGPoint { float x1; float x2; })arg1;
 - (float)heading;
 - (id)init;
-- (bool)isGeocentric;
-- (bool)isMercator;
+- (BOOL)isGeocentric;
+- (BOOL)isMercator;
 - (double)nearPlaneDistance;
 - (struct { double x1[4][4]; })orientationMatrixAtWorldPoint:(struct VKPoint { double x1; double x2; double x3; })arg1;
 - (struct Matrix<double, 3, 1> { double x1[3]; })rightVector;
 - (const struct { double x1[4][4]; }*)scaledViewProjectionMatrix;
-- (struct CGSize { double x1; double x2; })screenSizeInPixels;
-- (struct CGSize { double x1; double x2; })screenSizeInPoints;
-- (void)setCoordinateSpace:(int)arg1 screenSizeInPixels:(struct CGSize { double x1; double x2; })arg2 contentScale:(float)arg3 frustum:(struct { boolx1; double x2; double x3; double x4; double x5; })arg4 position:(struct VKPoint { double x1; double x2; double x3; })arg5 orientation:(const struct { double x1[4][4]; }*)arg6 horizontalOffset:(float)arg7;
+- (struct CGSize { float x1; float x2; })screenSizeInPixels;
+- (struct CGSize { float x1; float x2; })screenSizeInPoints;
+- (void)setCoordinateSpace:(int)arg1 screenSizeInPixels:(struct CGSize { float x1; float x2; })arg2 contentScale:(float)arg3 frustum:(struct { BOOL x1; double x2; double x3; double x4; double x5; })arg4 position:(struct VKPoint { double x1; double x2; double x3; })arg5 orientation:(const struct { double x1[4][4]; }*)arg6 horizontalOffset:(float)arg7;
 - (void)setScaledViewProjectionMatrix:(const struct { double x1[4][4]; }*)arg1;
 - (struct VKPoint { double x1; double x2; double x3; })translation;
 - (struct VKPoint { double x1; double x2; double x3; })translationInMercator;

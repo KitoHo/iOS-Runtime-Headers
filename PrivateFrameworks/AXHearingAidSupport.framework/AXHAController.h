@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/AXHearingAidSupport.framework/AXHearingAidSupport
  */
 
-@class AXHATimer, AXHearingAidDevice, NSDictionary, NSMutableArray, NSMutableDictionary, NSString;
-
 @interface AXHAController : NSObject <AXHAControllerBrowserDelegateProtocol> {
     NSDictionary *_availableDevicesDescription;
     NSMutableArray *_clients;
     NSMutableDictionary *_handlers;
+    BOOL _isListening;
     AXHATimer *_liveListenLevelsTimer;
     AXHearingAidDevice *_pairedDevice;
-    bool_isListening;
 }
 
-@property(retain) NSDictionary * availableDevicesDescription;
-@property(retain) NSMutableArray * clients;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) NSMutableDictionary * handlers;
-@property(readonly) unsigned long long hash;
-@property(retain) AXHearingAidDevice * pairedDevice;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) NSDictionary *availableDevicesDescription;
+@property (nonatomic, retain) NSMutableArray *clients;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSMutableDictionary *handlers;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) AXHearingAidDevice *pairedDevice;
+@property (readonly) Class superclass;
 
 + (id)entitlementsForMessageID:(unsigned long long)arg1;
 + (id)sharedController;
@@ -31,16 +29,16 @@
 - (id)clients;
 - (id)connectToControllerWithID:(id)arg1;
 - (void)connectToPairedDevice;
-- (bool)connection:(id)arg1 hasEntitlementForMessage:(unsigned long long)arg2;
+- (BOOL)connection:(id)arg1 hasEntitlementForMessage:(unsigned long long)arg2;
 - (id)currentDeviceController;
 - (void)dealloc;
 - (id)disconnectAndForceSlave:(id)arg1;
 - (void)handleMessage:(id)arg1 forIdentifier:(unsigned long long)arg2;
 - (void)handleNewConnection:(id)arg1;
 - (id)handlers;
-- (bool)hearingAidsPaired;
+- (BOOL)hearingAidsPaired;
 - (id)liveListenController;
-- (bool)message:(id)arg1 hasEntitlement:(id)arg2;
+- (BOOL)message:(id)arg1 hasEntitlement:(id)arg2;
 - (id)pairedDevice;
 - (void)passConnectionToController:(id)arg1;
 - (id)readAvailableControllers:(id)arg1;
@@ -56,7 +54,7 @@
 - (void)setAvailableDevicesDescription:(id)arg1;
 - (void)setClients:(id)arg1;
 - (void)setHandlers:(id)arg1;
-- (void)setListenForAvailableDeviceUpdates:(bool)arg1;
+- (void)setListenForAvailableDeviceUpdates:(BOOL)arg1;
 - (void)setPairedDevice:(id)arg1;
 - (void)setPairedHearingAid:(id)arg1;
 - (void)startSearchCycle;

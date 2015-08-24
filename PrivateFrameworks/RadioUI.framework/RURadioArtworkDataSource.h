@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/RadioUI.framework/RadioUI
  */
 
-@class CPLRUDictionary, NSObject<OS_dispatch_queue>, NSString;
-
 @interface RURadioArtworkDataSource : NSObject <MPArtworkDataSource> {
-    unsigned long long _backgroundCacheSize;
-    unsigned long long _cacheSize;
+    unsigned int _backgroundCacheSize;
+    unsigned int _cacheSize;
     CPLRUDictionary *_cachedArtworkRepresentations;
     NSObject<OS_dispatch_queue> *_cachedArtworkRepresentationsAccessQueue;
-    long long _resumeToForegroundCacheSize;
+    int _resumeToForegroundCacheSize;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)sharedRadioArtworkDataSource;
 
@@ -25,14 +23,14 @@
 - (void)_handleDidEnterBackgroundNotification:(id)arg1;
 - (void)_handleDidReceiveMemoryWarningNotification:(id)arg1;
 - (void)_handleWillEnterForegroundNotification:(id)arg1;
-- (void)_setCacheSize:(unsigned long long)arg1 preserveExisting:(bool)arg2;
-- (bool)areRepresentationsAvailableForCatalog:(id)arg1;
-- (bool)areRepresentationsForCatalog:(id)arg1 visuallyIdenticalToRepresentationsForCatalog:(id)arg2;
+- (void)_setCacheSize:(unsigned int)arg1 preserveExisting:(BOOL)arg2;
+- (BOOL)areRepresentationsAvailableForCatalog:(id)arg1;
 - (void)cancelLoadingRepresentationForArtworkCatalog:(id)arg1;
 - (void)dealloc;
 - (id)existingRepresentationForArtworkCatalog:(id)arg1;
 - (id)init;
-- (bool)isRepresentation:(id)arg1 bestRepresentationForArtworkCatalog:(id)arg2;
-- (void)loadRepresentationForArtworkCatalog:(id)arg1 completionHandler:(id)arg2;
+- (BOOL)isRepresentation:(id)arg1 bestRepresentationForArtworkCatalog:(id)arg2;
+- (void)loadRepresentationForArtworkCatalog:(id)arg1 completionHandler:(id /* block */)arg2;
+- (id)visualIdenticalityIdentifierForCatalog:(id)arg1;
 
 @end

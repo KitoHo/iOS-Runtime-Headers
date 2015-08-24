@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPAsset, CKDPDate, CKDPLocationCoordinate, CKDPPackage, CKDPRecordReference, NSData, NSMutableArray, NSString;
-
 @interface CKDPRecordFieldValue : PBCodable <NSCopying> {
-    struct { 
-        unsigned int doubleValue : 1; 
-        unsigned int signedValue : 1; 
-        unsigned int type : 1; 
     CKDPAsset *_assetValue;
     NSData *_bytesValue;
     CKDPDate *_dateValue;
     double _doubleValue;
+    struct { 
+        unsigned int doubleValue : 1; 
+        unsigned int signedValue : 1; 
+        unsigned int type : 1; 
     } _has;
     NSMutableArray *_listValues;
     CKDPLocationCoordinate *_locationValue;
@@ -23,27 +21,27 @@
     int _type;
 }
 
-@property(retain) CKDPAsset * assetValue;
-@property(retain) NSData * bytesValue;
-@property(retain) CKDPDate * dateValue;
-@property double doubleValue;
-@property(readonly) bool hasAssetValue;
-@property(readonly) bool hasBytesValue;
-@property(readonly) bool hasDateValue;
-@property bool hasDoubleValue;
-@property(readonly) bool hasLocationValue;
-@property(readonly) bool hasPackageValue;
-@property(readonly) bool hasReferenceValue;
-@property bool hasSignedValue;
-@property(readonly) bool hasStringValue;
-@property bool hasType;
-@property(retain) NSMutableArray * listValues;
-@property(retain) CKDPLocationCoordinate * locationValue;
-@property(retain) CKDPPackage * packageValue;
-@property(retain) CKDPRecordReference * referenceValue;
-@property long long signedValue;
-@property(retain) NSString * stringValue;
-@property int type;
+@property (nonatomic, retain) CKDPAsset *assetValue;
+@property (nonatomic, retain) NSData *bytesValue;
+@property (nonatomic, retain) CKDPDate *dateValue;
+@property (nonatomic) double doubleValue;
+@property (nonatomic, readonly) BOOL hasAssetValue;
+@property (nonatomic, readonly) BOOL hasBytesValue;
+@property (nonatomic, readonly) BOOL hasDateValue;
+@property (nonatomic) BOOL hasDoubleValue;
+@property (nonatomic, readonly) BOOL hasLocationValue;
+@property (nonatomic, readonly) BOOL hasPackageValue;
+@property (nonatomic, readonly) BOOL hasReferenceValue;
+@property (nonatomic) BOOL hasSignedValue;
+@property (nonatomic, readonly) BOOL hasStringValue;
+@property (nonatomic) BOOL hasType;
+@property (nonatomic, retain) NSMutableArray *listValues;
+@property (nonatomic, retain) CKDPLocationCoordinate *locationValue;
+@property (nonatomic, retain) CKDPPackage *packageValue;
+@property (nonatomic, retain) CKDPRecordReference *referenceValue;
+@property (nonatomic) long long signedValue;
+@property (nonatomic, retain) NSString *stringValue;
+@property (nonatomic) int type;
 
 - (void).cxx_destruct;
 - (id)_descriptionForType:(int)arg1;
@@ -59,33 +57,33 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (double)doubleValue;
-- (bool)hasAssetValue;
-- (bool)hasBytesValue;
-- (bool)hasDateValue;
-- (bool)hasDoubleValue;
-- (bool)hasLocationValue;
-- (bool)hasPackageValue;
-- (bool)hasReferenceValue;
-- (bool)hasSignedValue;
-- (bool)hasStringValue;
-- (bool)hasType;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
-- (id)listValueAtIndex:(unsigned long long)arg1;
+- (BOOL)hasAssetValue;
+- (BOOL)hasBytesValue;
+- (BOOL)hasDateValue;
+- (BOOL)hasDoubleValue;
+- (BOOL)hasLocationValue;
+- (BOOL)hasPackageValue;
+- (BOOL)hasReferenceValue;
+- (BOOL)hasSignedValue;
+- (BOOL)hasStringValue;
+- (BOOL)hasType;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)listValueAtIndex:(unsigned int)arg1;
 - (id)listValues;
-- (unsigned long long)listValuesCount;
+- (unsigned int)listValuesCount;
 - (id)locationValue;
 - (void)mergeFrom:(id)arg1;
 - (id)packageValue;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)referenceValue;
 - (void)setAssetValue:(id)arg1;
 - (void)setBytesValue:(id)arg1;
 - (void)setDateValue:(id)arg1;
 - (void)setDoubleValue:(double)arg1;
-- (void)setHasDoubleValue:(bool)arg1;
-- (void)setHasSignedValue:(bool)arg1;
-- (void)setHasType:(bool)arg1;
+- (void)setHasDoubleValue:(BOOL)arg1;
+- (void)setHasSignedValue:(BOOL)arg1;
+- (void)setHasType:(BOOL)arg1;
 - (void)setListValues:(id)arg1;
 - (void)setLocationValue:(id)arg1;
 - (void)setPackageValue:(id)arg1;

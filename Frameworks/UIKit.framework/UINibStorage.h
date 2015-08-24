@@ -2,44 +2,42 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSBundle, NSData, NSString, UINibDecoder;
-
 @interface UINibStorage : NSObject {
     NSData *archiveData;
-    boolcaptureImplicitLoadingContextOnDecode;
-    boolinstantiatingForSimulator;
     NSBundle *bundle;
     NSString *bundleDirectoryName;
     NSString *bundleResourceName;
+    BOOL captureImplicitLoadingContextOnDecode;
     NSString *identifierForStringsFile;
+    BOOL instantiatingForSimulator;
     UINibDecoder *nibDecoder;
 }
 
-@property(copy) NSData * archiveData;
-@property(retain) NSBundle * bundle;
-@property(copy) NSString * bundleDirectoryName;
-@property(copy) NSString * bundleResourceName;
-@property bool captureImplicitLoadingContextOnDecode;
-@property(copy) NSString * identifierForStringsFile;
-@property bool instantiatingForSimulator;
-@property(retain) UINibDecoder * nibDecoder;
+@property (nonatomic, copy) NSData *archiveData;
+@property (nonatomic, retain) NSBundle *bundle;
+@property (nonatomic, copy) NSString *bundleDirectoryName;
+@property (nonatomic, copy) NSString *bundleResourceName;
+@property BOOL captureImplicitLoadingContextOnDecode;
+@property (nonatomic, copy) NSString *identifierForStringsFile;
+@property (nonatomic) BOOL instantiatingForSimulator;
+@property (nonatomic, retain) UINibDecoder *nibDecoder;
 
 - (id)archiveData;
 - (id)bundle;
 - (id)bundleDirectoryName;
 - (id)bundleResourceName;
-- (bool)captureImplicitLoadingContextOnDecode;
+- (BOOL)captureImplicitLoadingContextOnDecode;
 - (void)dealloc;
 - (id)identifierForStringsFile;
-- (bool)instantiatingForSimulator;
+- (BOOL)instantiatingForSimulator;
 - (id)nibDecoder;
 - (void)setArchiveData:(id)arg1;
 - (void)setBundle:(id)arg1;
 - (void)setBundleDirectoryName:(id)arg1;
 - (void)setBundleResourceName:(id)arg1;
-- (void)setCaptureImplicitLoadingContextOnDecode:(bool)arg1;
+- (void)setCaptureImplicitLoadingContextOnDecode:(BOOL)arg1;
 - (void)setIdentifierForStringsFile:(id)arg1;
-- (void)setInstantiatingForSimulator:(bool)arg1;
+- (void)setInstantiatingForSimulator:(BOOL)arg1;
 - (void)setNibDecoder:(id)arg1;
 
 @end

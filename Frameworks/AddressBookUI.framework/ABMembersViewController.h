@@ -2,9 +2,7 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@class ABMembersController, CNContact, NSString, _UIAccessDeniedView;
-
-@interface ABMembersViewController : ABAbstractViewController <ABNewPersonViewControllerDelegate, ABMembersControllerDelegate, ABViewControllerBannerViewProtocol, ABPersonEditDelegate> {
+@interface ABMembersViewController : ABAbstractViewController <ABMembersControllerDelegate, ABNewPersonViewControllerDelegate, ABPersonEditDelegate, ABViewControllerBannerViewProtocol> {
     _UIAccessDeniedView *_accessDeniedView;
     id _insertionLabel;
     int _insertionProperty;
@@ -12,33 +10,34 @@
     int _leftButtonBehavior;
     ABMembersController *_membersController;
     int _rightButtonBehavior;
-    bool_shouldHandleExternalChangeOnPersonViewControllers;
+    BOOL _shouldHandleExternalChangeOnPersonViewControllers;
 }
 
-@property(readonly) _UIAccessDeniedView * accessDeniedView;
-@property(readonly) bool allowsCancel;
-@property(readonly) bool allowsCardEditing;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) bool shouldShowGroups;
-@property(readonly) Class superclass;
-@property(readonly) CNContact * unsavedContact;
+@property (nonatomic, readonly) _UIAccessDeniedView *accessDeniedView;
+@property (readonly) BOOL allowsCancel;
+@property (readonly) BOOL allowsCardEditing;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) BOOL isSearchingWithNoContactSelected;
+@property (readonly) BOOL shouldShowGroups;
+@property (readonly) Class superclass;
+@property (readonly) CNContact *unsavedContact;
 
 - (void)_applicationEnteringBackground;
 - (void)_applicationEnteringForeground;
-- (void)_getRotationContentSettings:(struct { boolx1; boolx2; boolx3; boolx4; boolx5; double x6; int x7; }*)arg1;
+- (void)_getRotationContentSettings:(struct { BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; float x6; int x7; }*)arg1;
 - (void)_updateForModel;
 - (int)abViewControllerType;
 - (id)accessDeniedView;
 - (void)addPerson:(id)arg1;
 - (id)addPersonPresentationTarget;
-- (void)addPersonWithContact:(id)arg1 animated:(bool)arg2;
-- (bool)allowsCancel;
-- (bool)allowsCardEditing;
-- (bool)allowsShowingPersonsCards;
+- (void)addPersonWithContact:(id)arg1 animated:(BOOL)arg2;
+- (BOOL)allowsCancel;
+- (BOOL)allowsCardEditing;
+- (BOOL)allowsShowingPersonsCards;
 - (void)applicationDidResume;
-- (bool)canHandleSnapbackIdentifier:(id)arg1 animated:(bool)arg2;
+- (BOOL)canHandleSnapbackIdentifier:(id)arg1 animated:(BOOL)arg2;
 - (void)cancel:(id)arg1;
 - (void)cancelRefreshingAccount;
 - (void)cancelSearching:(id)arg1;
@@ -50,56 +49,57 @@
 - (id)indexPathForMember:(void*)arg1;
 - (id)initWithModel:(id)arg1;
 - (void)insertProperty:(int*)arg1 insertValue:(id*)arg2 insertLabel:(id*)arg3;
-- (bool)isNavigationButtonEnabled:(int)arg1;
+- (BOOL)isNavigationButtonEnabled:(int)arg1;
+- (BOOL)isSearchingWithNoContactSelected;
 - (void)linksUpdatedForPerson:(void*)arg1;
 - (void)loadState;
 - (void)loadView;
-- (bool)membersController:(id)arg1 shouldAllowSelectingPersonWithRecordID:(int)arg2;
 - (id)membersController;
+- (BOOL)membersController:(id)arg1 shouldAllowSelectingPersonWithRecordID:(int)arg2;
 - (void)membersControllerDidEndSearching:(id)arg1;
 - (void)membersControllerDidEndServerSearch:(id)arg1;
 - (void)membersControllerWillEndSearching:(id)arg1;
 - (void)membersControllerWillStartSearching:(id)arg1;
-- (void)model:(id)arg1 localChangeWithInfo:(struct __CFDictionary { }*)arg2;
 - (id)model;
+- (void)model:(id)arg1 localChangeWithInfo:(struct __CFDictionary { }*)arg2;
 - (void)modelDatabaseChange:(id)arg1;
 - (void)nameUpdatedForPerson:(void*)arg1;
-- (void)newPersonViewController:(id)arg1 didCompleteWithNewPerson:(void*)arg2 informDelegate:(bool)arg3;
 - (void)newPersonViewController:(id)arg1 didCompleteWithNewPerson:(void*)arg2;
+- (void)newPersonViewController:(id)arg1 didCompleteWithNewPerson:(void*)arg2 informDelegate:(BOOL)arg3;
 - (void)peoplePickerNavigationControllerNavigationBarStoppedAnimating:(id)arg1;
-- (bool)personViewController:(id)arg1 shouldContinueAfterEditingConfirmed:(bool)arg2 forPerson:(void*)arg3;
+- (BOOL)personViewController:(id)arg1 shouldContinueAfterEditingConfirmed:(BOOL)arg2 forPerson:(void*)arg3;
 - (void)personWasDeleted;
 - (void)personWasSelected:(void*)arg1;
 - (void)preferredPersonDidChangeToPerson:(void*)arg1;
-- (void)presentAddPersonViewController:(id)arg1 animated:(bool)arg2;
+- (void)presentAddPersonViewController:(id)arg1 animated:(BOOL)arg2;
 - (void)presentGroupsViewController;
 - (void)reallyHandleExternalChangeOnPersonViewControllers;
 - (void)refreshEverythingNow;
 - (void)resetInsertionData;
 - (void)resetStateForDisplayedFilterChange;
 - (void)scrollMemberToTop:(void*)arg1;
-- (bool)selectAndScrollMemberVisible:(void*)arg1;
+- (BOOL)selectAndScrollMemberVisible:(void*)arg1;
 - (void)setAddressBook:(void*)arg1;
 - (void)setBannerTitle:(id)arg1 value:(id)arg2;
 - (void)setStyleProvider:(id)arg1;
-- (bool)shouldShowGroups;
-- (bool)showCardForPerson:(void*)arg1 animate:(bool)arg2 selectAndScrollToPerson:(bool)arg3;
-- (bool)showCardForPerson:(void*)arg1 animate:(bool)arg2;
-- (bool)showCardForPerson:(void*)arg1 withMemberCell:(id)arg2 animate:(bool)arg3 selectAndScrollToPerson:(bool)arg4;
-- (bool)showCardForPerson:(void*)arg1 withMemberCell:(id)arg2 animate:(bool)arg3;
-- (void)showInsertEditorForPerson:(void*)arg1 animate:(bool)arg2;
+- (BOOL)shouldShowGroups;
+- (BOOL)showCardForPerson:(void*)arg1 animate:(BOOL)arg2;
+- (BOOL)showCardForPerson:(void*)arg1 animate:(BOOL)arg2 selectAndScrollToPerson:(BOOL)arg3;
+- (BOOL)showCardForPerson:(void*)arg1 withMemberCell:(id)arg2 animate:(BOOL)arg3;
+- (BOOL)showCardForPerson:(void*)arg1 withMemberCell:(id)arg2 animate:(BOOL)arg3 selectAndScrollToPerson:(BOOL)arg4;
+- (void)showInsertEditorForPerson:(void*)arg1 animate:(BOOL)arg2;
 - (void)startRefreshingAccount;
 - (id)styleProvider;
 - (id)tableView;
 - (id)unsavedContact;
-- (void)updateLeftNavigationButtonAnimated:(bool)arg1;
-- (void)updateNavigationButtonsAnimated:(bool)arg1;
-- (void)updateNavigationButtonsInSearchMode:(bool)arg1 animated:(bool)arg2;
-- (void)updateNavigationButtonsInSearchMode:(bool)arg1;
+- (void)updateLeftNavigationButtonAnimated:(BOOL)arg1;
+- (void)updateNavigationButtonsAnimated:(BOOL)arg1;
+- (void)updateNavigationButtonsInSearchMode:(BOOL)arg1;
+- (void)updateNavigationButtonsInSearchMode:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)updateTitle;
 - (void)updateView;
-- (void)viewDidAppear:(bool)arg1;
-- (void)viewWillAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

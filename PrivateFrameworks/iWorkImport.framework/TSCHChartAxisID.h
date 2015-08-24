@@ -2,32 +2,27 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
 @interface TSCHChartAxisID : NSObject <NSCopying> {
-    unsigned long long mOrdinal;
+    unsigned int mOrdinal;
     int mType;
 }
 
-@property(readonly) unsigned long long ordinal;
-@property(readonly) int type;
+@property (readonly) unsigned int ordinal;
+@property (readonly) int type;
 
-+ (id)axisIDWithType:(int)arg1 ordinal:(unsigned long long)arg2;
++ (id)axisIDWithType:(int)arg1 ordinal:(unsigned int)arg2;
 
-- (long long)compare:(id)arg1;
+- (int)compare:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)debuggingName;
 - (id)description;
-- (unsigned long long)hash;
-- (id)initWithArchive:(const struct ChartAxisIDArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; int x3; unsigned int x4; int x5; unsigned int x6[1]; }*)arg1;
-- (id)initWithType:(int)arg1 ordinal:(unsigned long long)arg2;
-- (bool)intersectsAxisID:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (unsigned long long)ordinal;
-- (void)saveToArchive:(struct ChartAxisIDArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; int x3; unsigned int x4; int x5; unsigned int x6[1]; }*)arg1;
+- (unsigned int)hash;
+- (id)initWithArchive:(const struct ChartAxisIDArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; int x5; unsigned int x6; }*)arg1;
+- (id)initWithType:(int)arg1 ordinal:(unsigned int)arg2;
+- (BOOL)intersectsAxisID:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)ordinal;
+- (void)saveToArchive:(struct ChartAxisIDArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; int x5; unsigned int x6; }*)arg1;
 - (int)type;
 
 @end

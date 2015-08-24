@@ -2,36 +2,31 @@
    Image: /System/Library/Frameworks/Metal.framework/Metal
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class MTLToolsObject;
-
 @interface MTLToolsObject : NSObject {
     id _baseObject;
     struct ILayerLockingPolicy { int (**x1)(); } *_lockingPolicy;
     MTLToolsObject *_parent;
+    MTLToolsObject *_strongParent;
 }
 
-@property(retain) id baseObject;
-@property struct ILayerLockingPolicy { int (**x1)(); }* lockingPolicy;
-@property(readonly) MTLToolsObject * parent;
-@property(readonly) MTLToolsObject * strongParent;
+@property (nonatomic, retain) id baseObject;
+@property (nonatomic) struct ILayerLockingPolicy { int (**x1)(); }*lockingPolicy;
+@property (nonatomic, readonly) MTLToolsObject *parent;
+@property (nonatomic, readonly) MTLToolsObject *strongParent;
 
 + (id)dispatchQueue;
 + (void)visitObjects:(id)arg1 withVisitor:(id)arg2;
 
-- (struct ILayerLockingPolicy { int (**x1)(); }*)lockingPolicy;
 - (void).cxx_destruct;
 - (void)acceptVisitor:(id)arg1;
 - (id)baseObject;
 - (id)baseObjectWithClass:(Class)arg1;
 - (void)dealloc;
 - (id)description;
-- (id)initWithBaseObject:(id)arg1 parent:(id)arg2 lockingPolicy:(struct ILayerLockingPolicy { int (**x1)(); }*)arg3;
 - (id)initWithBaseObject:(id)arg1 parent:(id)arg2;
+- (id)initWithBaseObject:(id)arg1 parent:(id)arg2 lockingPolicy:(struct ILayerLockingPolicy { int (**x1)(); }*)arg3;
+- (id)initWithBaseObject:(id)arg1 strongParent:(id)arg2;
+- (struct ILayerLockingPolicy { int (**x1)(); }*)lockingPolicy;
 - (id)originalObject;
 - (id)parent;
 - (void)setBaseObject:(id)arg1;

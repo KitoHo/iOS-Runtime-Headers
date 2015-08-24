@@ -2,66 +2,84 @@
    Image: /System/Library/PrivateFrameworks/CoreUI.framework/CoreUI
  */
 
-@class CUIRenditionKey, NSString;
-
 @interface CUINamedImage : NSObject {
+    struct _cuiniproperties { 
+        unsigned int isVectorBased : 1; 
+        unsigned int hasSliceInformation : 1; 
+        unsigned int hasAlignmentInformation : 1; 
+        unsigned int resizingMode : 2; 
+        unsigned int templateRenderingMode : 3; 
+        unsigned int exifOrientation : 4; 
+        unsigned int _reserved : 20; 
+    } _imageProperties;
     CUIRenditionKey *_key;
     NSString *_name;
-    unsigned long long _storageRef;
+    float _scale;
+    NSString *_signature;
+    unsigned int _storageRef;
 }
 
-@property(readonly) struct { double x1; double x2; double x3; double x4; } alignmentEdgeInsets;
-@property(readonly) struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } alignmentRect;
-@property(readonly) int blendMode;
-@property(readonly) struct { double x1; double x2; double x3; double x4; } edgeInsets;
-@property(readonly) int exifOrientation;
-@property(readonly) bool hasSliceInformation;
-@property(readonly) struct CGImage { }* image;
-@property(readonly) long long imageType;
-@property(readonly) bool isStructured;
-@property(readonly) bool isTemplate;
-@property(readonly) bool isVectorBased;
-@property(copy) NSString * name;
-@property(readonly) double opacity;
-@property(readonly) long long resizingMode;
-@property(readonly) double scale;
-@property(readonly) struct CGSize { double x1; double x2; } size;
-@property(readonly) long long templateRenderingMode;
+@property (nonatomic, readonly) struct { float x1; float x2; float x3; float x4; } alignmentEdgeInsets;
+@property (nonatomic, readonly) int blendMode;
+@property (nonatomic, readonly) struct { float x1; float x2; float x3; float x4; } edgeInsets;
+@property (nonatomic, readonly) int exifOrientation;
+@property (nonatomic, readonly) BOOL hasAlignmentInformation;
+@property (nonatomic, readonly) BOOL hasSliceInformation;
+@property (nonatomic, readonly) struct CGImage { }*image;
+@property (nonatomic, readonly) int imageType;
+@property (nonatomic, readonly) BOOL isStructured;
+@property (nonatomic, readonly) BOOL isTemplate;
+@property (nonatomic, readonly) BOOL isVectorBased;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, readonly) float opacity;
+@property (nonatomic, readonly) int resizingMode;
+@property (nonatomic) float scale;
+@property (nonatomic, readonly) struct CGSize { float x1; float x2; } size;
+@property (nonatomic, readonly) int templateRenderingMode;
 
-- (id)UIImage;
+// Image: /System/Library/PrivateFrameworks/CoreUI.framework/CoreUI
+
+- (void)_cacheRenditionProperties;
 - (id)_rendition;
 - (id)_renditionForSpecificKey:(id)arg1;
 - (id)_themeStore;
-- (struct { double x1; double x2; double x3; double x4; })alignmentEdgeInsets;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })alignmentRect;
+- (struct { float x1; float x2; float x3; float x4; })alignmentEdgeInsets;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })alignmentRect;
 - (id)baseKey;
 - (int)blendMode;
 - (void)dealloc;
 - (id)description;
-- (struct { double x1; double x2; double x3; double x4; })edgeInsets;
+- (struct { float x1; float x2; float x3; float x4; })edgeInsets;
 - (int)exifOrientation;
-- (long long)graphicsClass;
-- (bool)hasSliceInformation;
-- (long long)idiom;
+- (int)graphicsClass;
+- (BOOL)hasAlignmentInformation;
+- (BOOL)hasSliceInformation;
+- (int)idiom;
 - (struct CGImage { }*)image;
-- (long long)imageType;
-- (id)initWithName:(id)arg1 usingRenditionKey:(id)arg2 fromTheme:(unsigned long long)arg3;
-- (bool)isStructured;
-- (bool)isTemplate;
-- (bool)isVectorBased;
-- (long long)memoryClass;
+- (int)imageType;
+- (id)initWithName:(id)arg1 usingRenditionKey:(id)arg2 fromTheme:(unsigned int)arg3;
+- (BOOL)isStructured;
+- (BOOL)isTemplate;
+- (BOOL)isVectorBased;
+- (int)memoryClass;
 - (id)name;
-- (double)opacity;
-- (double)positionOfSliceBoundary:(unsigned int)arg1;
+- (float)opacity;
+- (float)positionOfSliceBoundary:(unsigned int)arg1;
 - (id)renditionKey;
-- (long long)resizingMode;
-- (double)scale;
+- (int)resizingMode;
+- (int)resizingModeWithSubtype:(int)arg1;
+- (float)scale;
 - (void)setName:(id)arg1;
-- (struct CGSize { double x1; double x2; })size;
-- (long long)sizeClassHorizontal;
-- (long long)sizeClassVertical;
-- (unsigned long long)subtype;
-- (long long)templateRenderingMode;
+- (void)setScale:(float)arg1;
+- (struct CGSize { float x1; float x2; })size;
+- (int)sizeClassHorizontal;
+- (int)sizeClassVertical;
+- (unsigned int)subtype;
+- (int)templateRenderingMode;
+
+// Image: /System/Library/Frameworks/UIKit.framework/UIKit
+
+- (id)UIImage;
 - (id)traitCollection;
 
 @end

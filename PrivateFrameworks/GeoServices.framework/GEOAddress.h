@@ -2,30 +2,30 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOStructuredAddress, NSMutableArray, NSString;
-
-@interface GEOAddress : PBCodable <NSCopying, GEOURLSerializable> {
-    struct { 
-        unsigned int formattedAddressType : 1; 
+@interface GEOAddress : PBCodable <GEOURLSerializable, NSCopying> {
     NSMutableArray *_formattedAddressLines;
     int _formattedAddressType;
+    struct { 
+        unsigned int formattedAddressType : 1; 
     } _has;
     GEOStructuredAddress *_structuredAddress;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) NSMutableArray * formattedAddressLines;
-@property int formattedAddressType;
-@property bool hasFormattedAddressType;
-@property(readonly) bool hasStructuredAddress;
-@property(readonly) unsigned long long hash;
-@property(retain) GEOStructuredAddress * structuredAddress;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSMutableArray *formattedAddressLines;
+@property (nonatomic) int formattedAddressType;
+@property (nonatomic) BOOL hasFormattedAddressType;
+@property (nonatomic, readonly) BOOL hasStructuredAddress;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) GEOStructuredAddress *structuredAddress;
+@property (readonly) Class superclass;
+
+// Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
 
 + (id)geoAddressForPlaceData:(id)arg1;
 
-- (bool)_isEquivalentURLRepresentationTo:(id)arg1;
+- (BOOL)_isEquivalentURLRepresentationTo:(id)arg1;
 - (void)addFormattedAddressLine:(id)arg1;
 - (id)addressDictionary;
 - (id)bestName;
@@ -35,26 +35,29 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (id)formattedAddressLineAtIndex:(unsigned long long)arg1;
+- (id)formattedAddressLineAtIndex:(unsigned int)arg1;
 - (id)formattedAddressLines;
-- (unsigned long long)formattedAddressLinesCount;
+- (unsigned int)formattedAddressLinesCount;
 - (int)formattedAddressType;
-- (bool)hasFormattedAddressType;
-- (bool)hasStructuredAddress;
-- (unsigned long long)hash;
+- (BOOL)hasFormattedAddressType;
+- (BOOL)hasStructuredAddress;
+- (unsigned int)hash;
 - (id)initWithAddressDictionary:(id)arg1;
 - (id)initWithAddressString:(id)arg1;
 - (id)initWithUrlRepresentation:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setFormattedAddressLines:(id)arg1;
 - (void)setFormattedAddressType:(int)arg1;
-- (void)setHasFormattedAddressType:(bool)arg1;
+- (void)setHasFormattedAddressType:(BOOL)arg1;
 - (void)setStructuredAddress:(id)arg1;
-- (id)singleLineAddress;
 - (id)structuredAddress;
 - (id)urlRepresentation;
 - (void)writeTo:(id)arg1;
+
+// Image: /System/Library/Frameworks/MapKit.framework/MapKit
+
+- (id)singleLineAddress;
 
 @end

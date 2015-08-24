@@ -2,42 +2,40 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class GKPlaceholderContentStateMachine, GKPlaceholderView, NSArray, NSString, UIActivityIndicatorView;
-
 @interface GKCollectionViewPlaceholderView : UICollectionReusableView <GKStateMachineDelegate> {
-    long long _alignment;
+    int _alignment;
     NSArray *_cachedConstraints;
     NSString *_errorMessage;
     NSString *_errorTitle;
     UIActivityIndicatorView *_loadingIndicatorView;
     GKPlaceholderContentStateMachine *_loadingMachine;
-    NSString *_loadingState;
     SEL _noContentButtonAction;
     id _noContentButtonTarget;
+    NSString *_noContentButtonTitle;
     NSString *_noContentMessage;
     NSString *_noContentTitle;
     GKPlaceholderView *_placeholderView;
 }
 
-@property long long alignment;
-@property(retain) NSArray * cachedConstraints;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) NSString * errorMessage;
-@property(retain) NSString * errorTitle;
-@property(readonly) unsigned long long hash;
-@property(retain) UIActivityIndicatorView * loadingIndicatorView;
-@property(retain) GKPlaceholderContentStateMachine * loadingMachine;
-@property(retain) NSString * loadingState;
-@property SEL noContentButtonAction;
-@property id noContentButtonTarget;
-@property(retain) NSString * noContentButtonTitle;
-@property(retain) NSString * noContentMessage;
-@property(retain) NSString * noContentTitle;
-@property(retain) GKPlaceholderView * placeholderView;
-@property(readonly) Class superclass;
+@property (nonatomic) int alignment;
+@property (nonatomic, retain) NSArray *cachedConstraints;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSString *errorMessage;
+@property (nonatomic, retain) NSString *errorTitle;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) UIActivityIndicatorView *loadingIndicatorView;
+@property (nonatomic, retain) GKPlaceholderContentStateMachine *loadingMachine;
+@property (nonatomic, retain) NSString *loadingState;
+@property (nonatomic) SEL noContentButtonAction;
+@property (nonatomic) id noContentButtonTarget;
+@property (nonatomic, retain) NSString *noContentButtonTitle;
+@property (nonatomic, retain) NSString *noContentMessage;
+@property (nonatomic, retain) NSString *noContentTitle;
+@property (nonatomic, retain) GKPlaceholderView *placeholderView;
+@property (readonly) Class superclass;
 
-- (long long)alignment;
+- (int)alignment;
 - (void)buttonPressed;
 - (id)cachedConstraints;
 - (void)dealloc;
@@ -50,7 +48,7 @@
 - (void)didExitNoContentState;
 - (id)errorMessage;
 - (id)errorTitle;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (id)loadingIndicatorView;
 - (id)loadingMachine;
 - (id)loadingState;
@@ -60,7 +58,7 @@
 - (id)noContentMessage;
 - (id)noContentTitle;
 - (id)placeholderView;
-- (void)setAlignment:(long long)arg1;
+- (void)setAlignment:(int)arg1;
 - (void)setCachedConstraints:(id)arg1;
 - (void)setErrorMessage:(id)arg1;
 - (void)setErrorTitle:(id)arg1;

@@ -2,22 +2,20 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class NSString, UIView<_MKCalloutAccessoryView>;
-
 @interface _MKCalloutAccessoryWrapperView : UIView <_MKCalloutAccessoryView> {
     UIView<_MKCalloutAccessoryView> *_view;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)_mapkit_accessoryControlToExtendWithCallout;
 - (void)_mapkit_setCalloutBackgroundColor:(id)arg1;
 - (void)_mapkit_setCalloutTextColor:(id)arg1;
 - (id)initWithView:(id)arg1;
-- (struct CGSize { double x1; double x2; })intrinsicContentSize;
+- (struct CGSize { float x1; float x2; })intrinsicContentSize;
 
 @end

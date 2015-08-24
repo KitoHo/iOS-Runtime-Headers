@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@interface MCProfileTrustEvaluator : NSObject {
-}
+@interface MCProfileTrustEvaluator : NSObject
 
-- (bool)sanitizedProfileSignerCertificateChainIsAllowedToWriteDefaults:(id)arg1;
+- (BOOL)sanitizedProfileSignerCertificateChainIsAllowedToWriteDefaults:(id)arg1;
 
 @end

@@ -2,11 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
 @interface TSPUnknownFieldTreeNodeWithChildren : TSPUnknownFieldTreeNode {
     struct map<int, TSPUnknownFieldTreeNode *, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, TSPUnknownFieldTreeNode *> > > { 
         struct __tree<std::__1::__value_type<int, TSPUnknownFieldTreeNode *>, std::__1::__map_value_compare<int, std::__1::__value_type<int, TSPUnknownFieldTreeNode *>, std::__1::less<int>, true>, std::__1::allocator<std::__1::__value_type<int, TSPUnknownFieldTreeNode *> > > { 
@@ -17,7 +12,7 @@
                 } __first_; 
             } __pair1_; 
             struct __compressed_pair<unsigned long, std::__1::__map_value_compare<int, std::__1::__value_type<int, TSPUnknownFieldTreeNode *>, std::__1::less<int>, true> > { 
-                unsigned long long __first_; 
+                unsigned long __first_; 
             } __pair3_; 
         } __tree_; 
     } _children;
@@ -25,7 +20,7 @@
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (bool)addChildNode:(id)arg1 forFieldNumber:(int)arg2;
+- (BOOL)addChildNode:(id)arg1 forFieldNumber:(int)arg2;
 - (id)childNodeForFieldNumber:(int)arg1;
 - (void)saveToArchiver:(id)arg1 message:(struct Message { int (**x1)(); }*)arg2;
 

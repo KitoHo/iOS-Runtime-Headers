@@ -2,30 +2,36 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSString;
-
 @interface PKPaymentApplication : NSObject <NSSecureCoding> {
     NSString *_applicationIdentifier;
     NSString *_dpanIdentifier;
     NSString *_dpanSuffix;
-    long long _paymentNetworkIdentifier;
+    BOOL _inAppPINRequired;
+    NSDecimalNumber *_inAppPINRequiredAmount;
+    NSString *_inAppPINRequiredCurrency;
+    int _paymentNetworkIdentifier;
+    NSString *_sanitizedDPAN;
     NSString *_secureElementIdentifier;
-    long long _state;
-    bool_supportsContactlessPayment;
-    bool_supportsInAppPayment;
+    int _state;
+    BOOL _supportsContactlessPayment;
+    BOOL _supportsInAppPayment;
 }
 
-@property(copy) NSString * applicationIdentifier;
-@property(setter=setDPANIdentifier:,copy) NSString * dpanIdentifier;
-@property(setter=setDPANSuffix:,copy) NSString * dpanSuffix;
-@property long long paymentNetworkIdentifier;
-@property(copy) NSString * secureElementIdentifier;
-@property long long state;
-@property(readonly) NSString * stateAsString;
-@property bool supportsContactlessPayment;
-@property bool supportsInAppPayment;
+@property (nonatomic, copy) NSString *applicationIdentifier;
+@property (setter=setDPANIdentifier:, nonatomic, copy) NSString *dpanIdentifier;
+@property (setter=setDPANSuffix:, nonatomic, copy) NSString *dpanSuffix;
+@property (nonatomic) BOOL inAppPINRequired;
+@property (nonatomic, copy) NSDecimalNumber *inAppPINRequiredAmount;
+@property (nonatomic, copy) NSString *inAppPINRequiredCurrency;
+@property (nonatomic) int paymentNetworkIdentifier;
+@property (setter=setSanitizedDPAN:, nonatomic, copy) NSString *sanitizedDPAN;
+@property (nonatomic, copy) NSString *secureElementIdentifier;
+@property (nonatomic) int state;
+@property (nonatomic, readonly) NSString *stateAsString;
+@property (nonatomic) BOOL supportsContactlessPayment;
+@property (nonatomic) BOOL supportsInAppPayment;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)applicationIdentifier;
 - (void)dealloc;
@@ -33,24 +39,32 @@
 - (id)dpanIdentifier;
 - (id)dpanSuffix;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned long long)hash;
+- (unsigned int)hash;
+- (BOOL)inAppPINRequired;
+- (id)inAppPINRequiredAmount;
+- (id)inAppPINRequiredCurrency;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithPaymentApplicationDictionary:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)isEqualToPaymentApplication:(id)arg1;
-- (long long)paymentNetworkIdentifier;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToPaymentApplication:(id)arg1;
+- (int)paymentNetworkIdentifier;
+- (id)sanitizedDPAN;
 - (id)secureElementIdentifier;
 - (void)setApplicationIdentifier:(id)arg1;
 - (void)setDPANIdentifier:(id)arg1;
 - (void)setDPANSuffix:(id)arg1;
-- (void)setPaymentNetworkIdentifier:(long long)arg1;
+- (void)setInAppPINRequired:(BOOL)arg1;
+- (void)setInAppPINRequiredAmount:(id)arg1;
+- (void)setInAppPINRequiredCurrency:(id)arg1;
+- (void)setPaymentNetworkIdentifier:(int)arg1;
+- (void)setSanitizedDPAN:(id)arg1;
 - (void)setSecureElementIdentifier:(id)arg1;
-- (void)setState:(long long)arg1;
-- (void)setSupportsContactlessPayment:(bool)arg1;
-- (void)setSupportsInAppPayment:(bool)arg1;
-- (long long)state;
+- (void)setState:(int)arg1;
+- (void)setSupportsContactlessPayment:(BOOL)arg1;
+- (void)setSupportsInAppPayment:(BOOL)arg1;
+- (int)state;
 - (id)stateAsString;
-- (bool)supportsContactlessPayment;
-- (bool)supportsInAppPayment;
+- (BOOL)supportsContactlessPayment;
+- (BOOL)supportsInAppPayment;
 
 @end

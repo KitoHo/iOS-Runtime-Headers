@@ -2,51 +2,49 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class CLRegion, NSCalendar, NSDate, NSDictionary, NSString, NSTimeZone;
+@interface UILocalNotification : NSObject <NSCoding, NSCopying>
 
-@interface UILocalNotification : NSObject <NSCopying, NSCoding> {
-}
-
-@property(copy) NSString * alertAction;
-@property(copy) NSString * alertBody;
-@property(copy) NSString * alertLaunchImage;
-@property bool allowSnooze;
-@property long long applicationIconBadgeNumber;
-@property(copy) NSString * category;
-@property(copy) NSString * customLockSliderLabel;
-@property(copy) NSDate * fireDate;
-@property bool fireNotificationsWhenAppRunning;
-@property(copy) NSString * firedNotificationName;
-@property bool hasAction;
-@property bool hideAlertTitle;
-@property bool interruptAudioAndLockDevice;
-@property bool isTransient;
-@property(copy) CLRegion * region;
-@property bool regionTriggersOnce;
-@property int remainingRepeatCount;
-@property(copy) NSCalendar * repeatCalendar;
-@property unsigned long long repeatInterval;
-@property bool resumeApplicationInBackground;
-@property bool showAlarmStatusBarItem;
-@property(copy) NSString * snoozedNotificationName;
-@property(copy) NSString * soundName;
-@property int soundType;
-@property(copy) NSTimeZone * timeZone;
-@property int totalRepeatCount;
-@property(copy) NSDictionary * userInfo;
+@property (nonatomic, copy) NSString *alertAction;
+@property (nonatomic, copy) NSString *alertBody;
+@property (nonatomic, copy) NSString *alertLaunchImage;
+@property (nonatomic, copy) NSString *alertTitle;
+@property (nonatomic) BOOL allowSnooze;
+@property (nonatomic) int applicationIconBadgeNumber;
+@property (nonatomic, copy) NSString *category;
+@property (nonatomic, copy) NSString *customLockSliderLabel;
+@property (nonatomic, copy) NSDate *fireDate;
+@property (nonatomic) BOOL fireNotificationsWhenAppRunning;
+@property (nonatomic, copy) NSString *firedNotificationName;
+@property (nonatomic) BOOL hasAction;
+@property (nonatomic) BOOL hideAlertTitle;
+@property (nonatomic) BOOL interruptAudioAndLockDevice;
+@property (nonatomic) BOOL isTransient;
+@property (nonatomic, copy) CLRegion *region;
+@property (nonatomic) BOOL regionTriggersOnce;
+@property (nonatomic) int remainingRepeatCount;
+@property (nonatomic, copy) NSCalendar *repeatCalendar;
+@property (nonatomic) unsigned int repeatInterval;
+@property (nonatomic) BOOL resumeApplicationInBackground;
+@property (nonatomic) BOOL showAlarmStatusBarItem;
+@property (nonatomic, copy) NSString *snoozedNotificationName;
+@property (nonatomic, copy) NSString *soundName;
+@property (nonatomic) int soundType;
+@property (nonatomic, copy) NSTimeZone *timeZone;
+@property (nonatomic) int totalRepeatCount;
+@property (nonatomic, copy) NSDictionary *userInfo;
 
 + (id)alloc;
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
 
 - (void)clearNonSystemProperties;
-- (long long)compareFireDates:(id)arg1;
+- (int)compareFireDates:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (bool)isTriggeredByDate;
-- (bool)isTriggeredByRegion;
-- (bool)isValid;
+- (BOOL)isTriggeredByDate;
+- (BOOL)isTriggeredByRegion;
+- (BOOL)isValid;
 - (id)nextFireDateAfterDate:(id)arg1 localTimeZone:(id)arg2;
 - (id)nextFireDateForLastFireDate:(id)arg1;
 - (void)validate;

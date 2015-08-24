@@ -2,57 +2,55 @@
    Image: /System/Library/Frameworks/Metal.framework/Metal
  */
 
-@class NSMutableArray, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSObject<OS_dispatch_source>, NSString;
-
 @interface _MTLCommandQueue : NSObject {
-    struct _opaque_pthread_mutex_t { 
-        long long __sig; 
-        BOOL __opaque[56]; 
-    struct _opaque_pthread_mutex_t { 
-        long long __sig; 
-        BOOL __opaque[56]; 
     int _backgroundTrackingPID;
     NSObject<OS_dispatch_semaphore> *_commandBufferSemaphore;
     NSObject<OS_dispatch_queue> *_commandQueueDispatch;
     NSObject<OS_dispatch_source> *_commandQueueEventSource;
+    BOOL _executionEnabled;
     NSString *_label;
     NSMutableArray *_pendingQueue;
+    struct _opaque_pthread_mutex_t { 
+        long __sig; 
+        BOOL __opaque[40]; 
     } _pendingQueueLock;
+    BOOL _profilingEnabled;
+    BOOL _skipRender;
     NSObject<OS_dispatch_group> *_submittedGroup;
     NSMutableArray *_submittedQueue;
+    struct _opaque_pthread_mutex_t { 
+        long __sig; 
+        BOOL __opaque[40]; 
     } _submittedQueueLock;
-    bool_executionEnabled;
-    bool_profilingEnabled;
-    bool_skipRender;
 }
 
 @property int backgroundTrackingPID;
-@property bool executionEnabled;
-@property(copy) NSString * label;
-@property(getter=isProfilingEnabled) bool profilingEnabled;
-@property bool skipRender;
+@property BOOL executionEnabled;
+@property (copy) NSString *label;
+@property (getter=isProfilingEnabled) BOOL profilingEnabled;
+@property BOOL skipRender;
 
 - (void)_submitAvailableCommandBuffers;
 - (int)backgroundTrackingPID;
 - (void)commandBufferDidComplete:(id)arg1 timestamp:(unsigned long long)arg2 error:(unsigned int)arg3;
 - (void)commitCommandBuffer:(id)arg1;
-- (void)completeCommandBuffers:(id*)arg1 count:(unsigned long long)arg2;
+- (void)completeCommandBuffers:(id*)arg1 count:(unsigned int)arg2;
 - (void)dealloc;
 - (id)description;
 - (void)enqueueCommandBuffer:(id)arg1;
-- (bool)executionEnabled;
+- (BOOL)executionEnabled;
 - (void)finish;
-- (id)initWithDevice:(id)arg1 maxCommandBufferCount:(unsigned long long)arg2;
 - (id)initWithDevice:(id)arg1;
+- (id)initWithDevice:(id)arg1 maxCommandBufferCount:(unsigned long)arg2;
 - (void)insertDebugCaptureBoundary;
-- (bool)isProfilingEnabled;
+- (BOOL)isProfilingEnabled;
 - (id)label;
 - (void)setBackgroundTrackingPID:(int)arg1;
-- (void)setExecutionEnabled:(bool)arg1;
+- (void)setExecutionEnabled:(BOOL)arg1;
 - (void)setLabel:(id)arg1;
-- (void)setProfilingEnabled:(bool)arg1;
-- (void)setSkipRender:(bool)arg1;
-- (bool)skipRender;
-- (void)submitCommandBuffers:(const id*)arg1 count:(unsigned long long)arg2;
+- (void)setProfilingEnabled:(BOOL)arg1;
+- (void)setSkipRender:(BOOL)arg1;
+- (BOOL)skipRender;
+- (void)submitCommandBuffers:(const id*)arg1 count:(unsigned int)arg2;
 
 @end

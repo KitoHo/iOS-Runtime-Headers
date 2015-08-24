@@ -2,41 +2,39 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class NSDictionary, NSString, WBSCloudHistoryVisit, WBSCloudHistoryVisitIdentifier;
-
 @interface WBSCloudHistoryVisit : NSObject {
+    BOOL _httpNonGet;
+    BOOL _loadSuccessful;
     WBSCloudHistoryVisit *_redirectDestinationVisit;
     WBSCloudHistoryVisitIdentifier *_redirectDestinationVisitIdentifier;
     WBSCloudHistoryVisit *_redirectSourceVisit;
     WBSCloudHistoryVisitIdentifier *_redirectSourceVisitIdentifier;
     NSString *_title;
     WBSCloudHistoryVisitIdentifier *_visitIdentifier;
-    bool_httpNonGet;
-    bool_loadSuccessful;
 }
 
-@property(readonly) NSDictionary * dictionaryRepresentation;
-@property(getter=wasHTTPNonGet) bool httpNonGet;
-@property(getter=loadWasSuccessful) bool loadSuccessful;
-@property WBSCloudHistoryVisit * redirectDestinationVisit;
-@property(copy) WBSCloudHistoryVisitIdentifier * redirectDestinationVisitIdentifier;
-@property WBSCloudHistoryVisit * redirectSourceVisit;
-@property(copy) WBSCloudHistoryVisitIdentifier * redirectSourceVisitIdentifier;
-@property(copy) NSString * title;
-@property(copy) WBSCloudHistoryVisitIdentifier * visitIdentifier;
+@property (nonatomic, readonly) NSDictionary *dictionaryRepresentation;
+@property (getter=wasHTTPNonGet, nonatomic) BOOL httpNonGet;
+@property (getter=loadWasSuccessful, nonatomic) BOOL loadSuccessful;
+@property (nonatomic) WBSCloudHistoryVisit *redirectDestinationVisit;
+@property (nonatomic, copy) WBSCloudHistoryVisitIdentifier *redirectDestinationVisitIdentifier;
+@property (nonatomic) WBSCloudHistoryVisit *redirectSourceVisit;
+@property (nonatomic, copy) WBSCloudHistoryVisitIdentifier *redirectSourceVisitIdentifier;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) WBSCloudHistoryVisitIdentifier *visitIdentifier;
 
 - (void).cxx_destruct;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithHistoryVisit:(id)arg1;
-- (bool)loadWasSuccessful;
+- (BOOL)loadWasSuccessful;
 - (id)redirectDestinationVisit;
 - (id)redirectDestinationVisitIdentifier;
 - (id)redirectSourceVisit;
 - (id)redirectSourceVisitIdentifier;
-- (void)setHttpNonGet:(bool)arg1;
-- (void)setLoadSuccessful:(bool)arg1;
+- (void)setHttpNonGet:(BOOL)arg1;
+- (void)setLoadSuccessful:(BOOL)arg1;
 - (void)setRedirectDestinationVisit:(id)arg1;
 - (void)setRedirectDestinationVisitIdentifier:(id)arg1;
 - (void)setRedirectSourceVisit:(id)arg1;
@@ -45,6 +43,6 @@
 - (void)setVisitIdentifier:(id)arg1;
 - (id)title;
 - (id)visitIdentifier;
-- (bool)wasHTTPNonGet;
+- (BOOL)wasHTTPNonGet;
 
 @end

@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/IMFoundation.framework/IMFoundation
  */
 
-@class IMXMLReparserContext, NSError, NSMutableString, NSString, NSXMLParser;
-
 @interface IMXMLReparser : NSObject <NSXMLParserDelegate> {
     IMXMLReparserContext *_context;
-    unsigned long long _depth;
+    unsigned int _depth;
     NSError *_error;
     NSMutableString *_output;
     NSXMLParser *_parser;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-- (bool)parseWithContext:(id)arg1;
+- (BOOL)parseWithContext:(id)arg1;
 - (void)parser:(id)arg1 didEndElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4;
 - (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;
 - (void)parser:(id)arg1 foundCharacters:(id)arg2;

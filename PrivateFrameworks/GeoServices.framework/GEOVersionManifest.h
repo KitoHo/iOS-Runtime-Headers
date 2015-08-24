@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray;
-
 @interface GEOVersionManifest : PBCodable <NSCopying> {
     NSMutableArray *_serviceVersions;
 }
 
-@property(retain) NSMutableArray * serviceVersions;
+@property (nonatomic, retain) NSMutableArray *serviceVersions;
 
 - (void)addServiceVersion:(id)arg1;
 - (void)clearServiceVersions;
@@ -17,13 +15,13 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
-- (id)serviceVersionAtIndex:(unsigned long long)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (id)serviceVersionAtIndex:(unsigned int)arg1;
 - (id)serviceVersions;
-- (unsigned long long)serviceVersionsCount;
+- (unsigned int)serviceVersionsCount;
 - (void)setServiceVersions:(id)arg1;
 - (void)writeTo:(id)arg1;
 

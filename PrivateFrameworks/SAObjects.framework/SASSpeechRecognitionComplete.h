@@ -2,19 +2,16 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString;
+@interface SASSpeechRecognitionComplete : SABaseClientBoundCommand
 
-@interface SASSpeechRecognitionComplete : SABaseClientBoundCommand {
-}
-
-@property(copy) NSString * sessionId;
+@property (nonatomic, copy) NSString *sessionId;
 
 + (id)speechRecognitionComplete;
 + (id)speechRecognitionCompleteWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (id)sessionId;
 - (void)setSessionId:(id)arg1;
 

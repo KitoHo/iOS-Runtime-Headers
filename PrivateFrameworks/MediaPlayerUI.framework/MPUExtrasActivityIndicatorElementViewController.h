@@ -2,17 +2,13 @@
    Image: /System/Library/PrivateFrameworks/MediaPlayerUI.framework/MediaPlayerUI
  */
 
-@class IKActivityIndicatorElement, MPUExtrasActivityIndicator;
-
 @interface MPUExtrasActivityIndicatorElementViewController : MPUExtrasViewElementViewController {
     MPUExtrasActivityIndicator *_activityView;
 }
 
-@property(readonly) IKActivityIndicatorElement * viewElement;
-
 - (void).cxx_destruct;
 - (void)_prepareLayout;
-- (bool)matchParentHeight;
+- (BOOL)matchParentHeight;
 - (void)viewDidLoad;
 
 @end

@@ -2,16 +2,14 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString;
-
 @interface _UIPopoverViewBackgroundComponentView : UIView {
     NSString *directionSelector;
 }
 
-@property(retain) NSString * directionSelector;
+@property (nonatomic, retain) NSString *directionSelector;
 
-- (id)_generateBackdropMaskViewForFlag:(long long)arg1;
-- (bool)_shouldAnimatePropertyWithKey:(id)arg1;
+- (id)_generateBackdropMaskViewForFlag:(int)arg1;
+- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
 - (void)dealloc;
 - (id)directionSelector;
 - (void)setDirectionSelector:(id)arg1;

@@ -2,8 +2,9 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSKAddedToDocumentContext : NSObject {
-}
+@interface TSKAddedToDocumentContext : NSObject
+
+@property (retain) <TSKMultiTableRemapping> *multiTableRemapper;
 
 + (id)changeTrackingSubstorageForCopyContext;
 + (id)dragCopyContext;
@@ -21,26 +22,29 @@
 + (id)unhidingContext;
 
 - (void)addDrawable:(id)arg1;
+- (void)addDrawables:(id)arg1;
+- (void)addInsertedTableInfo:(id)arg1;
 - (id)addedDrawables;
-- (bool)autoUpdateSmartFields;
-- (bool)changeTrackingSubstorage;
+- (BOOL)autoUpdateSmartFields;
+- (BOOL)changeTrackingSubstorage;
 - (id)importerID;
-- (bool)invokeDOLC;
-- (bool)matchStyle;
-- (bool)preserveChangeTracking;
-- (void)setTableIDMap:(struct __CFDictionary { }*)arg1;
-- (bool)syncChanges;
-- (struct __CFDictionary { }*)tableIDMap;
+- (id)insertedTableInfos;
+- (BOOL)invokeDOLC;
+- (BOOL)matchStyle;
+- (id)multiTableRemapper;
+- (BOOL)preserveChangeTracking;
+- (void)setMultiTableRemapper:(id)arg1;
+- (BOOL)syncChanges;
 - (id)undoContext;
-- (bool)uniqueBookmarks;
-- (bool)wasDragMoved;
-- (bool)wasDragOperation;
-- (bool)wasImported;
-- (bool)wasImportedFromMasterTemplate;
-- (bool)wasMoved;
-- (bool)wasPasted;
-- (bool)wasUnarchived;
-- (bool)wasUndoDelete;
-- (bool)wasUnhidden;
+- (BOOL)uniqueBookmarks;
+- (BOOL)wasDragMoved;
+- (BOOL)wasDragOperation;
+- (BOOL)wasImported;
+- (BOOL)wasImportedFromMasterTemplate;
+- (BOOL)wasMoved;
+- (BOOL)wasPasted;
+- (BOOL)wasUnarchived;
+- (BOOL)wasUndoDelete;
+- (BOOL)wasUnhidden;
 
 @end

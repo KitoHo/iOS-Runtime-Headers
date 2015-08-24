@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/MediaPlayerUI.framework/MediaPlayerUI
  */
 
-@class IKDocumentBannerElement, NSArray, NSLayoutConstraint, UIImageView, UIScrollView, UIView;
-
 @interface MPUExtrasBannerController : NSObject {
     UIView *_anchorView;
     NSLayoutConstraint *_anchorViewConstraint;
@@ -15,20 +13,20 @@
     UIView *_maskView;
     UIScrollView *_trackingScrollView;
     UIImageView *_vignetteImageView;
-    unsigned long long _vignetteType;
+    unsigned int _vignetteType;
 }
 
-@property(readonly) NSLayoutConstraint * anchorConstraint;
-@property(retain) UIView * anchorView;
-@property(readonly) IKDocumentBannerElement * bannerElement;
-@property(retain) UIImageView * bannerImageView;
-@property(retain) NSLayoutConstraint * bannerImageViewHeightConstraint;
-@property(retain) NSArray * installedConstraints;
-@property UIView * installedView;
-@property(retain) UIView * maskView;
-@property UIScrollView * trackingScrollView;
-@property(retain) UIImageView * vignetteImageView;
-@property unsigned long long vignetteType;
+@property (nonatomic, readonly) NSLayoutConstraint *anchorConstraint;
+@property (nonatomic, retain) UIView *anchorView;
+@property (nonatomic, readonly) IKDocumentBannerElement *bannerElement;
+@property (nonatomic, retain) UIImageView *bannerImageView;
+@property (nonatomic, retain) NSLayoutConstraint *bannerImageViewHeightConstraint;
+@property (nonatomic, retain) NSArray *installedConstraints;
+@property (nonatomic) UIView *installedView;
+@property (nonatomic, retain) UIView *maskView;
+@property (nonatomic) UIScrollView *trackingScrollView;
+@property (nonatomic, retain) UIImageView *vignetteImageView;
+@property (nonatomic) unsigned int vignetteType;
 
 - (void).cxx_destruct;
 - (void)_configureBanner;
@@ -52,9 +50,9 @@
 - (void)setMaskView:(id)arg1;
 - (void)setTrackingScrollView:(id)arg1;
 - (void)setVignetteImageView:(id)arg1;
-- (void)setVignetteType:(unsigned long long)arg1;
+- (void)setVignetteType:(unsigned int)arg1;
 - (id)trackingScrollView;
 - (id)vignetteImageView;
-- (unsigned long long)vignetteType;
+- (unsigned int)vignetteType;
 
 @end

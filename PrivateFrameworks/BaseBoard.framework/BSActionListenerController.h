@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/BaseBoard.framework/BaseBoard
  */
 
-@class BSActionListener, NSObject<OS_dispatch_queue>;
-
 @interface BSActionListenerController : NSObject {
     BSActionListener *_listener;
     unsigned int _listenerCount;
     unsigned int _listenerTearDownToken;
     NSObject<OS_dispatch_queue> *_queue;
-    unsigned long long _transactionCount;
+    unsigned int _transactionCount;
 }
 
 + (id)sharedInstance;

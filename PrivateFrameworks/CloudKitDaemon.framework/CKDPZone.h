@@ -2,26 +2,18 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPProtectionInfo, CKDPRecordZoneIdentifier, CKDPShareIdentifier, NSString;
-
 @interface CKDPZone : PBCodable <NSCopying> {
     NSString *_etag;
     CKDPProtectionInfo *_protectionInfo;
-    CKDPShareIdentifier *_shareId;
     CKDPRecordZoneIdentifier *_zoneIdentifier;
-    NSString *_zoneProtectionInfoTag;
 }
 
-@property(retain) NSString * etag;
-@property(readonly) bool hasEtag;
-@property(readonly) bool hasProtectionInfo;
-@property(readonly) bool hasShareId;
-@property(readonly) bool hasZoneIdentifier;
-@property(readonly) bool hasZoneProtectionInfoTag;
-@property(retain) CKDPProtectionInfo * protectionInfo;
-@property(retain) CKDPShareIdentifier * shareId;
-@property(retain) CKDPRecordZoneIdentifier * zoneIdentifier;
-@property(retain) NSString * zoneProtectionInfoTag;
+@property (nonatomic, retain) NSString *etag;
+@property (nonatomic, readonly) BOOL hasEtag;
+@property (nonatomic, readonly) BOOL hasProtectionInfo;
+@property (nonatomic, readonly) BOOL hasZoneIdentifier;
+@property (nonatomic, retain) CKDPProtectionInfo *protectionInfo;
+@property (nonatomic, retain) CKDPRecordZoneIdentifier *zoneIdentifier;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
@@ -29,24 +21,18 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)etag;
-- (bool)hasEtag;
-- (bool)hasProtectionInfo;
-- (bool)hasShareId;
-- (bool)hasZoneIdentifier;
-- (bool)hasZoneProtectionInfoTag;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasEtag;
+- (BOOL)hasProtectionInfo;
+- (BOOL)hasZoneIdentifier;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)protectionInfo;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setEtag:(id)arg1;
 - (void)setProtectionInfo:(id)arg1;
-- (void)setShareId:(id)arg1;
 - (void)setZoneIdentifier:(id)arg1;
-- (void)setZoneProtectionInfoTag:(id)arg1;
-- (id)shareId;
 - (void)writeTo:(id)arg1;
 - (id)zoneIdentifier;
-- (id)zoneProtectionInfoTag;
 
 @end

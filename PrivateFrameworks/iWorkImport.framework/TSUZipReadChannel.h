@@ -2,34 +2,31 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class <TSUReadChannel>, NSObject<OS_dispatch_queue>, NSString, TSUZipArchive, TSUZipEntry;
-
 @interface TSUZipReadChannel : NSObject <TSUReadChannel> {
     TSUZipArchive *_archive;
     <TSUReadChannel> *_archiveReadChannel;
     TSUZipEntry *_entry;
-    NSObject<OS_dispatch_queue> *_readQueue;
-    bool_validateCRC;
+    BOOL _validateCRC;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) bool isValid;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) BOOL isValid;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (void)addBarrier:(id)arg1;
+- (void)addBarrier:(id /* block */)arg1;
 - (void)close;
 - (void)dealloc;
-- (void)handleFailureWithQueue:(id)arg1 handler:(id)arg2 error:(id)arg3;
-- (id)initWithEntry:(id)arg1 archive:(id)arg2 validateCRC:(bool)arg3;
-- (bool)isValid;
-- (bool)processData:(id)arg1 CRC:(unsigned int*)arg2 isDone:(bool)arg3 queue:(id)arg4 handler:(id)arg5;
-- (bool)readFileHeaderFromData:(id)arg1 headerLength:(unsigned long long*)arg2;
-- (void)readFromOffset:(long long)arg1 length:(unsigned long long)arg2 queue:(id)arg3 handler:(id)arg4;
-- (void)readWithFileHeaderLength:(unsigned long long)arg1 queue:(id)arg2 handler:(id)arg3;
-- (void)readWithQueue:(id)arg1 handler:(id)arg2;
-- (void)setLowWater:(unsigned long long)arg1;
+- (void)handleFailureWithHandler:(id /* block */)arg1 error:(id)arg2;
+- (id)initWithEntry:(id)arg1 archive:(id)arg2 validateCRC:(BOOL)arg3;
+- (BOOL)isValid;
+- (BOOL)processData:(id)arg1 CRC:(unsigned int*)arg2 isDone:(BOOL)arg3 handler:(id /* block */)arg4;
+- (BOOL)readFileHeaderFromData:(id)arg1 headerLength:(unsigned int*)arg2;
+- (void)readFromOffset:(long long)arg1 length:(unsigned long)arg2 handler:(id /* block */)arg3;
+- (void)readWithFileHeaderLength:(unsigned long)arg1 handler:(id /* block */)arg2;
+- (void)readWithHandler:(id /* block */)arg1;
+- (void)setLowWater:(unsigned long)arg1;
 
 @end

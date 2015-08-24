@@ -2,32 +2,26 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSString;
-
 @interface TSKSearch : NSObject {
-    id _hitBlock;
-    unsigned long long _options;
+    id /* block */ _hitBlock;
+    BOOL _isComplete;
+    unsigned int _options;
     NSString *_string;
-    bool_isComplete;
 }
 
-@property(copy) id hitBlock;
-@property bool isComplete;
-@property unsigned long long options;
-@property(copy) NSString * string;
+@property (nonatomic, copy) id /* block */ hitBlock;
+@property (nonatomic) BOOL isComplete;
+@property (nonatomic) unsigned int options;
+@property (nonatomic, copy) NSString *string;
 
 - (void)dealloc;
-- (id)hitBlock;
-- (id)initWithString:(id)arg1 options:(unsigned long long)arg2 hitBlock:(id)arg3;
-- (bool)isComplete;
-- (unsigned long long)options;
-- (void)setHitBlock:(id)arg1;
-- (void)setIsComplete:(bool)arg1;
-- (void)setOptions:(unsigned long long)arg1;
+- (id /* block */)hitBlock;
+- (id)initWithString:(id)arg1 options:(unsigned int)arg2 hitBlock:(id /* block */)arg3;
+- (BOOL)isComplete;
+- (unsigned int)options;
+- (void)setHitBlock:(id /* block */)arg1;
+- (void)setIsComplete:(BOOL)arg1;
+- (void)setOptions:(unsigned int)arg1;
 - (void)setString:(id)arg1;
 - (id)string;
 

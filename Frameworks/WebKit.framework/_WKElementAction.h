@@ -2,37 +2,31 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSString;
-
 @interface _WKElementAction : NSObject {
+    id /* block */ _actionHandler;
+    id /* block */ _dismissalHandler;
     struct RetainPtr<NSString> { 
         void *m_ptr; 
-    id _actionHandler;
-    id _dismissalHandler;
     } _title;
-    long long _type;
+    int _type;
 }
 
-@property(copy) id dismissalHandler;
-@property(readonly) NSString * title;
-@property(readonly) long long type;
+@property (nonatomic, copy) id /* block */ dismissalHandler;
+@property (nonatomic, readonly) NSString *title;
+@property (nonatomic, readonly) int type;
 
-+ (id)elementActionWithTitle:(id)arg1 actionHandler:(id)arg2;
-+ (id)elementActionWithType:(long long)arg1 customTitle:(id)arg2;
-+ (id)elementActionWithType:(long long)arg1;
++ (id)elementActionWithTitle:(id)arg1 actionHandler:(id /* block */)arg2;
++ (id)elementActionWithType:(int)arg1;
++ (id)elementActionWithType:(int)arg1 customTitle:(id)arg2;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (id)_initWithTitle:(id)arg1 actionHandler:(id)arg2 type:(long long)arg3;
-- (void)_runActionWithElementInfo:(id)arg1 view:(id)arg2;
+- (id)_initWithTitle:(id)arg1 actionHandler:(id /* block */)arg2 type:(int)arg3;
+- (void)_runActionWithElementInfo:(id)arg1 forActionSheetAssistant:(id)arg2;
 - (void)dealloc;
-- (id)dismissalHandler;
-- (void)setDismissalHandler:(id)arg1;
+- (id /* block */)dismissalHandler;
+- (void)setDismissalHandler:(id /* block */)arg1;
 - (id)title;
-- (long long)type;
+- (int)type;
 
 @end

@@ -2,19 +2,16 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray;
+@interface SAUIUpdateViews : SABaseClientBoundCommand
 
-@interface SAUIUpdateViews : SABaseClientBoundCommand {
-}
-
-@property(copy) NSArray * views;
+@property (nonatomic, copy) NSArray *views;
 
 + (id)updateViews;
 + (id)updateViewsWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setViews:(id)arg1;
 - (id)views;
 

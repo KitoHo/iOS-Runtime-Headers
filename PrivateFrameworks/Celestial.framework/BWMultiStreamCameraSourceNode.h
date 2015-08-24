@@ -2,91 +2,93 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class BWDeferredMetadataCache, BWFigVideoCaptureDevice, BWNodeOutput, NSArray, NSDictionary, NSMutableArray, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSString;
-
 @interface BWMultiStreamCameraSourceNode : BWSourceNode <BWFigCameraSourceNode> {
-    struct { 
-        int width; 
-        int height; 
-    struct { 
-        int width; 
-        int height; 
-    struct { 
-        int width; 
-        int height; 
-    struct { 
-        int width; 
-        int height; 
-    struct CGSize { 
-        double width; 
-        double height; 
-    struct BWStreamOutputStorage { 
-        boolready; 
-        boolenabled; 
-        BWNodeOutput *nodeOutput; 
-        struct opaqueCMSimpleQueue {} *simpleQueue; 
-        NSObject<OS_dispatch_queue> *bufferServicingQueue; 
-        struct opaqueCMFormatDescription {} *cachedFormatDescription; 
-        int frameCount; 
     float _aeMaxGain;
     BWFigVideoCaptureDevice *_captureDevice;
+    BOOL _chromaNoiseReductionEnabled;
     int _clientSpecifiedFormatIndex;
+    struct { 
+        int width; 
+        int height; 
     } _cropAspectRatio;
+    int _currentFirmwareStillImageOutputRetainedBufferCount;
+    BOOL _deferMetadataCreation;
     BWDeferredMetadataCache *_deferredMetadataCache;
     BWNodeOutput *_detectedFacesOutput;
     NSDictionary *_detectedFacesOutputConfiguration;
+    BOOL _detectedFacesOutputEnabled;
     NSMutableArray *_detectedFacesRingBuffer;
     struct OpaqueFigSimpleMutex { } *_detectedFacesRingBufferMutex;
+    BOOL _discardUnstableSphereVideoFrames;
+    NSMutableDictionary *_dutyCycleMetadataCache;
+    int _firmwareStillImageOutputRetainedBufferCountOverride;
     float _lastRequestedZoomFactor;
     float _maxFrameRate;
     float _maxISPZoomFactor;
     int _maxIntegrationTimeOverride;
     float _minFrameRate;
     int _motionAttachmentsSource;
-    } _outputsStorage[4];
+    struct BWStreamOutputStorage { 
+        BOOL ready; 
+        BOOL enabled; 
+        BWNodeOutput *nodeOutput; 
+        struct opaqueCMSimpleQueue {} *simpleQueue; 
+        NSObject<OS_dispatch_queue> *bufferServicingQueue; 
+        struct opaqueCMFormatDescription {} *cachedFormatDescription; 
+        int frameCount; 
+    } _outputsStorage;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _overscanPercentage;
+    struct { 
+        int width; 
+        int height; 
     } _preferredPreviewDimensions;
     BWNodeOutput *_previewOutput;
+    BOOL _previewOutputEnabled;
     NSString *_previewOutputID;
     int _resolvedFormatIndex;
+    BOOL _resolvedFormatIndexUpToDate;
+    struct { 
+        int width; 
+        int height; 
     } _sensorCropDimensions;
     BWNodeOutput *_stillImageOutput;
+    BOOL _stillImageOutputEnabled;
     struct OpaqueFigCaptureStream { } *_stream;
     NSObject<OS_dispatch_queue> *_streamEventDispatchQueue;
     NSObject<OS_dispatch_group> *_streamEventNotificationGroup;
     int _streamFormatIndex;
     NSArray *_supportedFormats;
+    BOOL _temporalNoiseReductionEnabled;
+    BOOL _usesFirmwareStillImageOutput;
+    struct { 
+        int width; 
+        int height; 
     } _videoCaptureDimensions;
     BWNodeOutput *_videoCaptureOutput;
-    unsigned int _videoPixelFormat;
-    bool_chromaNoiseReductionEnabled;
-    bool_deferMetadataCreation;
-    bool_detectedFacesOutputEnabled;
-    bool_discardUnstableSphereVideoFrames;
-    bool_highResStillImageCaptureEnabled;
-    bool_previewOutputEnabled;
-    bool_resolvedFormatIndexUpToDate;
-    bool_stillImageOutputEnabled;
-    bool_temporalNoiseReductionEnabled;
-    bool_videoCaptureOutputEnabled;
-    bool_videoStabilizationEnabled;
+    BOOL _videoCaptureOutputEnabled;
+    unsigned long _videoPixelFormat;
+    BOOL _videoStabilizationEnabled;
 }
 
-@property(readonly) BWFigVideoCaptureDevice * captureDevice;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) BWNodeOutput * detectedFacesOutput;
-@property(readonly) unsigned long long hash;
-@property(readonly) BWNodeOutput * previewOutput;
-@property(readonly) BWNodeOutput * stillImageOutput;
-@property(readonly) Class superclass;
-@property(readonly) BWNodeOutput * videoCaptureOutput;
+@property (readonly) BWFigVideoCaptureDevice *captureDevice;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) BWNodeOutput *detectedFacesOutput;
+@property (readonly) unsigned int hash;
+@property (readonly) BWNodeOutput *previewOutput;
+@property (readonly) BWNodeOutput *stillImageOutput;
+@property (readonly) Class superclass;
+@property (readonly) BWNodeOutput *videoCaptureOutput;
 
 + (id)cameraSourceNodeWithCaptureDevice:(id)arg1;
 + (void)initialize;
 
-- (int)_bringStreamUpToDate;
+- (long)_bringStreamUpToDate;
 - (void)_enableOutputs;
+- (int)_firmwareStillImageOutputRetainedBufferCountForClientBracketCount:(int)arg1;
 - (void)_flushOutRemainingBuffers;
 - (id)_initWithCaptureDevice:(id)arg1;
 - (float)_ispAppliedZoomFactorFromSampleBufferMetadataDictionary:(id)arg1 outputIndex:(int)arg2;
@@ -94,74 +96,78 @@
 - (void)_registerForStreamNotifications;
 - (void)_registerStreamOutputHandlers;
 - (void)_serviceZoomForPTS:(struct { long long x1; int x2; unsigned int x3; long long x4; })arg1;
-- (bool)_shouldEnableStreamCaptureOutput;
-- (bool)_shouldEnableStreamPreviewOutput;
+- (BOOL)_shouldEnableStreamCaptureOutput;
+- (BOOL)_shouldEnableStreamPreviewOutput;
 - (void)_unregisterFromStreamNotifications;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })_updateDigitalZoomForOutputIndex:(int)arg1 sampleBuffer:(struct opaqueCMSampleBuffer { }*)arg2;
-- (int)_updateFormatIndex;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })_updateDigitalZoomForOutputIndex:(int)arg1 sampleBuffer:(struct opaqueCMSampleBuffer { }*)arg2;
+- (void)_updateDutyCycleMetadataCacheForActiveFormatIndex:(int)arg1;
+- (long)_updateFormatIndex;
 - (float)_updateMaxIspZoomFactor;
 - (void)_updateMetadataConfigurations;
-- (int)_updateOutputConfigurations;
+- (long)_updateOutputConfigurations;
 - (void)_updatePreviewOutputID;
 - (void)_updateStreamOutputToNodeOutputMapping;
 - (float)aeMaxGain;
 - (id)captureDevice;
-- (bool)chromaNoiseReductionEnabled;
+- (BOOL)chromaNoiseReductionEnabled;
 - (struct OpaqueCMClock { }*)clock;
 - (id)colorInfoForOutput:(id)arg1;
 - (struct { int x1; int x2; })cropAspectRatio;
 - (void)dealloc;
 - (id)detectedFacesOutput;
 - (id)detectedFacesOutputConfiguration;
-- (bool)detectedFacesOutputEnabled;
-- (bool)discardUnstableSphereVideoFrames;
+- (BOOL)detectedFacesOutputEnabled;
+- (BOOL)discardUnstableSphereVideoFrames;
+- (int)firmwareStillImageOutputRetainedBufferCountOverride;
 - (int)formatIndex;
-- (bool)hasNonLiveConfigurationChanges;
-- (bool)highResStillImageCaptureEnabled;
+- (BOOL)hasNonLiveConfigurationChanges;
 - (void)makeCurrentConfigurationLive;
 - (float)maxFrameRate;
 - (int)maxIntegrationTimeOverride;
 - (float)minFrameRate;
 - (int)motionAttachmentsSource;
 - (id)nodeSubType;
-- (struct CGSize { double x1; double x2; })overscanPercentage;
+- (struct CGSize { float x1; float x2; })overscanPercentage;
 - (struct { int x1; int x2; })preferredPreviewDimensions;
+- (long)prepareForClientStillImageBracketWithCount:(int)arg1;
 - (void)prepareForCurrentConfigurationToBecomeLive;
 - (id)previewOutput;
-- (bool)previewOutputEnabled;
+- (BOOL)previewOutputEnabled;
 - (struct { int x1; int x2; })sensorCropDimensions;
 - (void)setAeMaxGain:(float)arg1;
-- (void)setChromaNoiseReductionEnabled:(bool)arg1;
+- (void)setChromaNoiseReductionEnabled:(BOOL)arg1;
 - (void)setCropAspectRatio:(struct { int x1; int x2; })arg1;
 - (void)setDetectedFacesOutputConfiguration:(id)arg1;
-- (void)setDetectedFacesOutputEnabled:(bool)arg1;
-- (void)setDiscardUnstableSphereVideoFrames:(bool)arg1;
+- (void)setDetectedFacesOutputEnabled:(BOOL)arg1;
+- (void)setDiscardUnstableSphereVideoFrames:(BOOL)arg1;
+- (void)setFirmwareStillImageOutputRetainedBufferCountOverride:(int)arg1;
 - (void)setFormatIndex:(int)arg1;
-- (void)setHighResStillImageCaptureEnabled:(bool)arg1;
 - (void)setMaxFrameRate:(float)arg1;
 - (void)setMaxIntegrationTimeOverride:(int)arg1;
 - (void)setMinFrameRate:(float)arg1;
 - (void)setMotionAttachmentsSource:(int)arg1;
-- (void)setOverscanPercentage:(struct CGSize { double x1; double x2; })arg1;
+- (void)setOverscanPercentage:(struct CGSize { float x1; float x2; })arg1;
 - (void)setPreferredPreviewDimensions:(struct { int x1; int x2; })arg1;
-- (void)setPreviewOutputEnabled:(bool)arg1;
+- (void)setPreviewOutputEnabled:(BOOL)arg1;
 - (void)setSensorCropDimensions:(struct { int x1; int x2; })arg1;
-- (void)setStillImageOutputEnabled:(bool)arg1;
-- (void)setTemporalNoiseReductionEnabled:(bool)arg1;
+- (void)setStillImageOutputEnabled:(BOOL)arg1;
+- (void)setTemporalNoiseReductionEnabled:(BOOL)arg1;
+- (void)setUsesFirmwareStillImageOutput:(BOOL)arg1;
 - (void)setVideoCaptureDimensions:(struct { int x1; int x2; })arg1;
-- (void)setVideoCaptureOutputEnabled:(bool)arg1;
-- (void)setVideoPixelFormat:(unsigned int)arg1;
-- (void)setVideoStabilizationEnabled:(bool)arg1;
-- (bool)start:(id*)arg1;
+- (void)setVideoCaptureOutputEnabled:(BOOL)arg1;
+- (void)setVideoPixelFormat:(unsigned long)arg1;
+- (void)setVideoStabilizationEnabled:(BOOL)arg1;
+- (BOOL)start:(id*)arg1;
 - (id)stillImageOutput;
-- (bool)stillImageOutputEnabled;
-- (bool)stop:(id*)arg1;
-- (bool)temporalNoiseReductionEnabled;
+- (BOOL)stillImageOutputEnabled;
+- (BOOL)stop:(id*)arg1;
+- (BOOL)temporalNoiseReductionEnabled;
 - (void)updateOutputRequirements;
+- (BOOL)usesFirmwareStillImageOutput;
 - (struct { int x1; int x2; })videoCaptureDimensions;
 - (id)videoCaptureOutput;
-- (bool)videoCaptureOutputEnabled;
-- (unsigned int)videoPixelFormat;
-- (bool)videoStabilizationEnabled;
+- (BOOL)videoCaptureOutputEnabled;
+- (unsigned long)videoPixelFormat;
+- (BOOL)videoStabilizationEnabled;
 
 @end

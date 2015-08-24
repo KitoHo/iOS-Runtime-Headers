@@ -2,38 +2,34 @@
    Image: /System/Library/Frameworks/SpriteKit.framework/SpriteKit
  */
 
-@class CIFilter, SKShader;
+@interface SKEffectNode : SKNode
 
-@interface SKEffectNode : SKNode {
-}
+@property (nonatomic) int blendMode;
+@property (nonatomic, retain) CIFilter *filter;
+@property (nonatomic, retain) SKShader *shader;
+@property (nonatomic) BOOL shouldCenterFilter;
+@property (nonatomic) BOOL shouldEnableEffects;
+@property (nonatomic) BOOL shouldRasterize;
 
-@property long long blendMode;
-@property(retain) CIFilter * filter;
-@property(retain) SKShader * shader;
-@property bool shouldCenterFilter;
-@property bool shouldEnableEffects;
-@property bool shouldRasterize;
-
-- (void)_flippedChangedFrom:(bool)arg1 to:(bool)arg2;
+- (void)_flippedChangedFrom:(BOOL)arg1 to:(BOOL)arg2;
 - (void)_scaleFactorChangedFrom:(float)arg1 to:(float)arg2;
-- (long long)blendMode;
+- (int)blendMode;
 - (void)dealloc;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)filter;
-- (unsigned long long)hash;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEqualToNode:(id)arg1;
-- (void)setBlendMode:(long long)arg1;
+- (BOOL)isEqualToNode:(id)arg1;
+- (void)setBlendMode:(int)arg1;
 - (void)setFilter:(id)arg1;
 - (void)setShader:(id)arg1;
-- (void)setShouldCenterFilter:(bool)arg1;
-- (void)setShouldEnableEffects:(bool)arg1;
-- (void)setShouldRasterize:(bool)arg1;
+- (void)setShouldCenterFilter:(BOOL)arg1;
+- (void)setShouldEnableEffects:(BOOL)arg1;
+- (void)setShouldRasterize:(BOOL)arg1;
 - (id)shader;
-- (bool)shouldCenterFilter;
-- (bool)shouldEnableEffects;
-- (bool)shouldRasterize;
+- (BOOL)shouldCenterFilter;
+- (BOOL)shouldEnableEffects;
+- (BOOL)shouldRasterize;
 
 @end

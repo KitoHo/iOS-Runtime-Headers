@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSArray, NSString;
-
 @interface PLRevGeoCompoundNameInfo : NSObject {
+    BOOL _isContinuation;
     NSString *_namePrefix;
     NSString *_nameSuffix;
     NSArray *_sortedNames;
-    bool_isContinuation;
-    bool_suffixWhenPrefixOnly;
+    BOOL _suffixWhenPrefixOnly;
 }
 
-@property bool isContinuation;
-@property(copy,readonly) NSArray * localizedSortedNames;
-@property(copy,readonly) NSString * localizedTitleForNameInfo;
-@property(copy) NSString * namePrefix;
-@property(copy) NSString * nameSuffix;
-@property(copy) NSArray * sortedNames;
-@property bool suffixWhenPrefixOnly;
+@property (nonatomic) BOOL isContinuation;
+@property (nonatomic, readonly, copy) NSArray *localizedSortedNames;
+@property (nonatomic, readonly, copy) NSString *localizedTitleForNameInfo;
+@property (nonatomic, copy) NSString *namePrefix;
+@property (nonatomic, copy) NSString *nameSuffix;
+@property (nonatomic, copy) NSArray *sortedNames;
+@property (nonatomic) BOOL suffixWhenPrefixOnly;
 
 + (id)_localizedNameForName:(id)arg1;
 
@@ -26,17 +24,17 @@
 - (id)description;
 - (id)dictionaryForInfo;
 - (id)initWithDictionary:(id)arg1;
-- (bool)isContinuation;
+- (BOOL)isContinuation;
 - (id)localizedSortedNames;
 - (id)localizedTitleForNameInfo;
 - (id)namePrefix;
 - (id)nameSuffix;
-- (void)setIsContinuation:(bool)arg1;
+- (void)setIsContinuation:(BOOL)arg1;
 - (void)setNamePrefix:(id)arg1;
 - (void)setNameSuffix:(id)arg1;
 - (void)setSortedNames:(id)arg1;
-- (void)setSuffixWhenPrefixOnly:(bool)arg1;
+- (void)setSuffixWhenPrefixOnly:(BOOL)arg1;
 - (id)sortedNames;
-- (bool)suffixWhenPrefixOnly;
+- (BOOL)suffixWhenPrefixOnly;
 
 @end

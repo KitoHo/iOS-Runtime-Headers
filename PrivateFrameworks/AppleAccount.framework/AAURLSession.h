@@ -2,19 +2,18 @@
    Image: /System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount
  */
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSURLSession;
-
-@interface AAURLSession : NSObject <NSURLSessionDelegate, NSURLSessionDataDelegate> {
+@interface AAURLSession : NSObject <NSURLSessionDataDelegate, NSURLSessionDelegate> {
     NSMutableDictionary *_pendingCompletionsByTask;
     NSMutableDictionary *_receivedDataByTask;
+    NSMutableDictionary *_retryCountByRequest;
     NSObject<OS_dispatch_queue> *_sessionQueue;
     NSURLSession *_urlSession;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)sharedURLSession;
 
@@ -23,8 +22,10 @@
 - (void)URLSession:(id)arg1 didBecomeInvalidWithError:(id)arg2;
 - (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
 - (id)_URLSession;
-- (void)beginDataTaskWithRequest:(id)arg1 completionHandler:(id)arg2;
-- (void)beginDataTaskWithURL:(id)arg1 completionHandler:(id)arg2;
+- (BOOL)_isRecoverableError:(id)arg1;
+- (BOOL)_unsafe_retryTaskIfPossible:(id)arg1;
+- (void)beginDataTaskWithRequest:(id)arg1 completionHandler:(id /* block */)arg2;
+- (void)beginDataTaskWithURL:(id)arg1 completionHandler:(id /* block */)arg2;
 - (id)init;
 
 @end

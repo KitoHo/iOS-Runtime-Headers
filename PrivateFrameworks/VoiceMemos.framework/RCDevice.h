@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/VoiceMemos.framework/VoiceMemos
  */
 
-@interface RCDevice : NSObject {
-}
+@interface RCDevice : NSObject
 
-+ (double)audioInputWaveformFlushInterval;
-+ (unsigned long long)timeDisplayUpdateFrameInterval;
++ (float)audioInputWaveformFlushInterval;
++ (unsigned int)timeDisplayUpdateFrameInterval;
 
 @end

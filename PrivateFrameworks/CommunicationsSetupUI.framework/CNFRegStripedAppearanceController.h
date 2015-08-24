@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/CommunicationsSetupUI.framework/CommunicationsSetupUI
  */
 
-@interface CNFRegStripedAppearanceController : CNFRegAppearanceController {
-}
+@interface CNFRegStripedAppearanceController : CNFRegAppearanceController
 
 - (id)webViewBackgroundColor;
 - (id)webViewBackgroundView;
-- (bool)webViewDrawsShadows;
-- (bool)webViewIsOpaque;
+- (BOOL)webViewDrawsShadows;
+- (BOOL)webViewIsOpaque;
 
 @end

@@ -2,15 +2,14 @@
    Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
  */
 
-@interface DOMHTMLPreElement : DOMHTMLElement {
-}
+@interface DOMHTMLPreElement : DOMHTMLElement
 
 @property int width;
-@property bool wrap;
+@property BOOL wrap;
 
 - (void)setWidth:(int)arg1;
-- (void)setWrap:(bool)arg1;
+- (void)setWrap:(BOOL)arg1;
 - (int)width;
-- (bool)wrap;
+- (BOOL)wrap;
 
 @end

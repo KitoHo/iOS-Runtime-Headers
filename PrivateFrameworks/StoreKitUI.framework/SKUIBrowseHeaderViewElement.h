@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@interface SKUIBrowseHeaderViewElement : SKUIHeaderViewElement {
-}
+@interface SKUIBrowseHeaderViewElement : SKUIHeaderViewElement
 
-- (long long)pageComponentType;
+- (int)pageComponentType;
 
 @end

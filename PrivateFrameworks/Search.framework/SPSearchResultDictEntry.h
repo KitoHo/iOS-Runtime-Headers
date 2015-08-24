@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/Search.framework/Search
  */
 
-@class NSData, NSString;
-
 @interface SPSearchResultDictEntry : PBCodable <NSCopying> {
     NSData *_encodedValue;
     NSString *_key;
 }
 
-@property(retain) NSData * encodedValue;
-@property(retain) NSString * key;
+@property (nonatomic, retain) NSData *encodedValue;
+@property (nonatomic, retain) NSString *key;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -18,10 +16,10 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)encodedValue;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)key;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setEncodedValue:(id)arg1;
 - (void)setKey:(id)arg1;
 - (void)writeTo:(id)arg1;

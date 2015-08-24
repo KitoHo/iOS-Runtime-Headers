@@ -4,20 +4,20 @@
 
 @interface GEORPProblemNotificationAvailabilityResponse : PBCodable <NSCopying> {
     struct { 
-        int *list; 
-        unsigned long long count; 
-        unsigned long long size; 
-    struct { 
         unsigned int statusCode : 1; 
     } _has;
     int _statusCode;
+    struct { 
+        int *list; 
+        unsigned int count; 
+        unsigned int size; 
     } _supportedProblemTypes;
 }
 
-@property bool hasStatusCode;
-@property int statusCode;
-@property(readonly) int* supportedProblemTypes;
-@property(readonly) unsigned long long supportedProblemTypesCount;
+@property (nonatomic) BOOL hasStatusCode;
+@property (nonatomic) int statusCode;
+@property (nonatomic, readonly) int*supportedProblemTypes;
+@property (nonatomic, readonly) unsigned int supportedProblemTypesCount;
 
 - (void)addSupportedProblemType:(int)arg1;
 - (void)clearSupportedProblemTypes;
@@ -26,18 +26,18 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasStatusCode;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasStatusCode;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
-- (void)setHasStatusCode:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasStatusCode:(BOOL)arg1;
 - (void)setStatusCode:(int)arg1;
-- (void)setSupportedProblemTypes:(int*)arg1 count:(unsigned long long)arg2;
+- (void)setSupportedProblemTypes:(int*)arg1 count:(unsigned int)arg2;
 - (int)statusCode;
-- (int)supportedProblemTypeAtIndex:(unsigned long long)arg1;
+- (int)supportedProblemTypeAtIndex:(unsigned int)arg1;
 - (int*)supportedProblemTypes;
-- (unsigned long long)supportedProblemTypesCount;
+- (unsigned int)supportedProblemTypesCount;
 - (void)writeTo:(id)arg1;
 
 @end

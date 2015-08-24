@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/Conference.framework/Conference
  */
 
-@class FTRegConnectionHandler, IMAccount;
-
 @interface CNFInternalAccountViewController : PSListController {
     IMAccount *_account;
     FTRegConnectionHandler *_connectionHandler;
 }
 
-@property(retain) IMAccount * account;
+@property (nonatomic, retain) IMAccount *account;
 
 - (void)_handleAccountNotification:(id)arg1;
 - (void)_handleDaemonConnected:(id)arg1;
@@ -25,14 +23,14 @@
 - (id)bundle;
 - (void)dealloc;
 - (id)initWithAccount:(id)arg1;
-- (bool)isConnectedToDaemon;
+- (BOOL)isConnectedToDaemon;
 - (id)registrationFailureReason:(id)arg1;
 - (id)registrationStatus:(id)arg1;
 - (void)setAccount:(id)arg1;
 - (id)specifierForAlias:(id)arg1;
 - (id)specifiers;
 - (id)statusForAlias:(id)arg1;
-- (void)viewDidAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

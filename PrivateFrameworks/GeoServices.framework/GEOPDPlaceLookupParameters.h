@@ -4,20 +4,20 @@
 
 @interface GEOPDPlaceLookupParameters : PBCodable <NSCopying> {
     struct { 
-        unsigned long long *list; 
-        unsigned long long count; 
-        unsigned long long size; 
-    struct { 
         unsigned int resultProviderId : 1; 
     } _has;
+    struct { 
+        unsigned long long *list; 
+        unsigned int count; 
+        unsigned int size; 
     } _muids;
     int _resultProviderId;
 }
 
-@property bool hasResultProviderId;
-@property(readonly) unsigned long long* muids;
-@property(readonly) unsigned long long muidsCount;
-@property int resultProviderId;
+@property (nonatomic) BOOL hasResultProviderId;
+@property (nonatomic, readonly) unsigned long long*muids;
+@property (nonatomic, readonly) unsigned int muidsCount;
+@property (nonatomic) int resultProviderId;
 
 - (void)addMuid:(unsigned long long)arg1;
 - (void)clearMuids;
@@ -26,18 +26,18 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasResultProviderId;
-- (unsigned long long)hash;
+- (BOOL)hasResultProviderId;
+- (unsigned int)hash;
 - (id)initWithMUIDs:(id)arg1 resultProviderID:(int)arg2;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (unsigned long long)muidAtIndex:(unsigned long long)arg1;
+- (unsigned long long)muidAtIndex:(unsigned int)arg1;
 - (unsigned long long*)muids;
-- (unsigned long long)muidsCount;
-- (bool)readFrom:(id)arg1;
+- (unsigned int)muidsCount;
+- (BOOL)readFrom:(id)arg1;
 - (int)resultProviderId;
-- (void)setHasResultProviderId:(bool)arg1;
-- (void)setMuids:(unsigned long long*)arg1 count:(unsigned long long)arg2;
+- (void)setHasResultProviderId:(BOOL)arg1;
+- (void)setMuids:(unsigned long long*)arg1 count:(unsigned int)arg2;
 - (void)setResultProviderId:(int)arg1;
 - (void)writeTo:(id)arg1;
 

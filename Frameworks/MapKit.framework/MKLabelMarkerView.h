@@ -2,10 +2,9 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@interface MKLabelMarkerView : MKAnnotationView {
-}
+@interface MKLabelMarkerView : MKAnnotationView
 
-+ (bool)_followsTerrain;
++ (BOOL)_followsTerrain;
 
 - (void)_deregisterObserver;
 - (void)_registerObserver;

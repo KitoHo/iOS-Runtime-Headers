@@ -2,32 +2,33 @@
    Image: /System/Library/PrivateFrameworks/CloudPhotoLibrary.framework/CloudPhotoLibrary
  */
 
-@class CPLEngineLibrary, CPLPlatformObject, NSCountedSet, NSDate, NSObject<OS_dispatch_queue>, NSString;
-
 @interface CPLEngineScheduler : NSObject <CPLAbstractObject, CPLEngineComponent> {
-    unsigned long long _currentRequestGeneration;
-    unsigned long long _currentSyncState;
+    unsigned int _currentRequestGeneration;
+    unsigned int _currentSyncState;
+    unsigned int _disablingMinglingCount;
     NSCountedSet *_disablingReasons;
     CPLEngineLibrary *_engineLibrary;
-    unsigned long long _foregroundCalls;
+    unsigned int _foregroundCalls;
     double _intervalForRetry;
-    unsigned long long _lastRequestGeneration;
+    unsigned int _lastRequestGeneration;
     NSDate *_lastSyncSessionDateCausedByForeground;
     NSDate *_nextScheduledDate;
+    BOOL _opened;
     CPLPlatformObject *_platformObject;
     NSObject<OS_dispatch_queue> *_queue;
-    unsigned long long _requiredFirstState;
+    unsigned int _requiredFirstState;
+    BOOL _shouldDoSecondNormalPullPhase;
+    BOOL _shouldRetryASyncSessionForResourcesUpload;
     NSDate *_unavailabilityLimitDate;
-    bool_opened;
-    bool_shouldRetryASyncSessionForResourcesUpload;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) CPLEngineLibrary * engineLibrary;
-@property(readonly) unsigned long long hash;
-@property(readonly) CPLPlatformObject * platformObject;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) CPLEngineLibrary *engineLibrary;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) CPLPlatformObject *platformObject;
+@property (nonatomic, readonly) BOOL shouldDoSecondNormalPullPhase;
+@property (readonly) Class superclass;
 
 + (id)platformImplementationProtocol;
 
@@ -36,26 +37,30 @@
 - (void)_disableRetryAfterLocked;
 - (void)_disableSynchronizationWithReasonLocked:(id)arg1;
 - (void)_enableSynchronizationWithReasonLocked:(id)arg1;
-- (void)_handleResetClientCacheWithError:(id)arg1 completionHandler:(id)arg2;
-- (void)_handleResetCloudCacheWithError:(id)arg1 completionHandler:(id)arg2;
+- (void)_handleResetClientCacheWithError:(id)arg1 completionHandler:(id /* block */)arg2;
+- (void)_handleResetCloudCacheWithError:(id)arg1 completionHandler:(id /* block */)arg2;
 - (void)_noteServerIsUnavailableWithErrorLocked:(id)arg1;
-- (void)_noteSyncSessionNeededFromState:(unsigned long long)arg1;
+- (void)_noteSyncSessionNeededFromState:(unsigned int)arg1;
 - (void)_reallyStartSyncSession;
 - (void)_reallyUnscheduleSession;
 - (void)_scheduleNextSyncSession;
 - (void)_startRequiredSyncSession;
-- (bool)_syncSessionIsPossible;
+- (BOOL)_syncSessionIsPossible;
 - (void)_unscheduleNextSyncSession;
-- (void)closeAndDeactivate:(bool)arg1 completionHandler:(id)arg2;
+- (void)closeAndDeactivate:(BOOL)arg1 completionHandler:(id /* block */)arg2;
 - (id)componentName;
+- (void)disableMingling;
 - (void)disableSynchronizationWithReason:(id)arg1;
+- (void)enableMingling;
 - (void)enableSynchronizationWithReason:(id)arg1;
 - (id)engineLibrary;
-- (void)getStatusDictionaryWithCompletionHandler:(id)arg1;
-- (void)getStatusWithCompletionHandler:(id)arg1;
+- (void)getStatusDictionaryWithCompletionHandler:(id /* block */)arg1;
+- (void)getStatusWithCompletionHandler:(id /* block */)arg1;
 - (id)initWithEngineLibrary:(id)arg1;
-- (bool)isClientInForeground;
-- (bool)isSynchronizationDisabledWithReasonError:(id*)arg1;
+- (BOOL)isClientInForeground;
+- (BOOL)isMinglingEnabled;
+- (BOOL)isSynchronizationDisabledWithReasonError:(id*)arg1;
+- (void)kickOffSyncSession;
 - (void)noteClientIsInBackground;
 - (void)noteClientIsInForeground;
 - (void)noteClientIsInSyncWithClientCache;
@@ -68,12 +73,13 @@
 - (void)noteResourceUploadQueueIsFull;
 - (void)noteServerHasChanges;
 - (void)noteServerIsUnavailableWithError:(id)arg1;
-- (void)noteSyncSessionFailedDuringPhase:(unsigned long long)arg1 withError:(id)arg2;
-- (void)noteSyncSessionStateWillBeAttempted:(unsigned long long)arg1;
+- (void)noteSyncSessionFailedDuringPhase:(unsigned int)arg1 withError:(id)arg2;
+- (void)noteSyncSessionStateWillBeAttempted:(unsigned int)arg1;
 - (void)noteSyncSessionSucceeded;
-- (void)openWithCompletionHandler:(id)arg1;
+- (void)openWithCompletionHandler:(id /* block */)arg1;
 - (id)platformObject;
 - (void)resetBackoffInterval;
+- (BOOL)shouldDoSecondNormalPullPhase;
 - (void)startRequiredSyncSessionNow;
 
 @end

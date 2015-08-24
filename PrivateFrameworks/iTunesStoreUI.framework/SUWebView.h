@@ -2,44 +2,42 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class <SUWebViewDelegate>, NSString, UIColor, UIView;
-
 @interface SUWebView : UIWebView {
-    unsigned int _scrollingDisabled : 1;
+    BOOL _isPinned;
     UIColor *_originalBackgroundColor;
     BOOL _originalShowsBackgroundShadow;
-    double _pinnedHeaderInsetAdjustment;
+    float _pinnedHeaderInsetAdjustment;
     UIView *_pinnedHeaderView;
-    long long _synchronousLayoutCount;
+    unsigned int _scrollingDisabled;
+    BOOL _showsTopBackgroundShadow;
+    int _synchronousLayoutCount;
     UIColor *_topBackgroundColor;
-    bool_isPinned;
-    bool_showsTopBackgroundShadow;
 }
 
-@property <SUWebViewDelegate> * delegate;
-@property(getter=isScrollingEnabled) bool scrollingEnabled;
-@property bool showsTopBackgroundShadow;
-@property(readonly) NSString * title;
-@property(retain) UIColor * topBackgroundColor;
-@property(readonly) id windowScriptObject;
+@property (nonatomic) <SUWebViewDelegate> *delegate;
+@property (getter=isScrollingEnabled, nonatomic) BOOL scrollingEnabled;
+@property (nonatomic) BOOL showsTopBackgroundShadow;
+@property (nonatomic, readonly) NSString *title;
+@property (nonatomic, retain) UIColor *topBackgroundColor;
+@property (nonatomic, readonly) id windowScriptObject;
 
-- (void)_setPinnedHeaderView:(id)arg1 withTopInsetAdjustment:(double)arg2;
+- (void)_setPinnedHeaderView:(id)arg1 withTopInsetAdjustment:(float)arg2;
 - (void)_setRichTextReaderViewportSettings;
 - (void)beginSynchronousLayout;
 - (void)dealloc;
 - (void)endSynchronousLayout;
-- (bool)getStatusBarStyle:(long long*)arg1;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (bool)isScrollingEnabled;
+- (BOOL)getStatusBarStyle:(int*)arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (BOOL)isScrollingEnabled;
 - (void)loadArchive:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
-- (void)setScrollingEnabled:(bool)arg1;
-- (void)setShowsTopBackgroundShadow:(bool)arg1;
+- (void)setScrollingEnabled:(BOOL)arg1;
+- (void)setShowsTopBackgroundShadow:(BOOL)arg1;
 - (void)setTopBackgroundColor:(id)arg1;
-- (bool)showsTopBackgroundShadow;
+- (BOOL)showsTopBackgroundShadow;
 - (id)title;
 - (id)topBackgroundColor;
-- (void)view:(id)arg1 didSetFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg2 oldFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg3;
+- (void)view:(id)arg1 didSetFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg2 oldFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg3;
 - (id)windowScriptObject;
 
 @end

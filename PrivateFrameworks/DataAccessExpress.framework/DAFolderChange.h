@@ -2,51 +2,54 @@
    Image: /System/Library/PrivateFrameworks/DataAccessExpress.framework/DataAccessExpress
  */
 
-@class <DAFolderChangeConsumer>, NSString;
-
 @interface DAFolderChange : NSObject <NSSecureCoding> {
-    long long _changeType;
+    int _changeType;
     <DAFolderChangeConsumer> *_consumer;
-    long long _dataclass;
+    int _dataclass;
     NSString *_displayName;
     NSString *_folderId;
     NSString *_parentFolderId;
+    BOOL _renameOnCollision;
     unsigned int _taskId;
-    bool_renameOnCollision;
 }
 
-@property long long changeType;
-@property <DAFolderChangeConsumer> * consumer;
-@property long long dataclass;
-@property(retain) NSString * displayName;
-@property(retain) NSString * folderId;
-@property(retain) NSString * parentFolderId;
-@property bool renameOnCollision;
-@property unsigned int taskId;
+@property (nonatomic) int changeType;
+@property (nonatomic) <DAFolderChangeConsumer> *consumer;
+@property (nonatomic) int dataclass;
+@property (nonatomic, retain) NSString *displayName;
+@property (nonatomic, retain) NSString *folderId;
+@property (nonatomic, retain) NSString *parentFolderId;
+@property (nonatomic) BOOL renameOnCollision;
+@property (nonatomic) unsigned int taskId;
 
-+ (bool)supportsSecureCoding;
+// Image: /System/Library/PrivateFrameworks/DataAccessExpress.framework/DataAccessExpress
+
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (long long)changeType;
+- (int)changeType;
 - (id)consumer;
-- (long long)dataclass;
+- (int)dataclass;
 - (id)description;
 - (id)displayName;
 - (void)encodeWithCoder:(id)arg1;
 - (id)folderId;
-- (id)initFolderChangeWithChangeType:(long long)arg1 folderId:(id)arg2 parentFolderId:(id)arg3 displayName:(id)arg4 dataclass:(long long)arg5 consumer:(id)arg6;
+- (id)initFolderChangeWithChangeType:(int)arg1 folderId:(id)arg2 parentFolderId:(id)arg3 displayName:(id)arg4 dataclass:(int)arg5 consumer:(id)arg6;
 - (id)initWithCoder:(id)arg1;
-- (id)mf_deferredOperation;
 - (id)parentFolderId;
-- (bool)renameOnCollision;
-- (void)setChangeType:(long long)arg1;
+- (BOOL)renameOnCollision;
+- (void)setChangeType:(int)arg1;
 - (void)setConsumer:(id)arg1;
-- (void)setDataclass:(long long)arg1;
+- (void)setDataclass:(int)arg1;
 - (void)setDisplayName:(id)arg1;
 - (void)setFolderId:(id)arg1;
 - (void)setParentFolderId:(id)arg1;
-- (void)setRenameOnCollision:(bool)arg1;
+- (void)setRenameOnCollision:(BOOL)arg1;
 - (void)setTaskId:(unsigned int)arg1;
 - (unsigned int)taskId;
+
+// Image: /System/Library/PrivateFrameworks/Message.framework/Message
+
+- (id)mf_deferredOperation;
 
 @end

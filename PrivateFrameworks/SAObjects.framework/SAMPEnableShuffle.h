@@ -2,18 +2,17 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@interface SAMPEnableShuffle : SADomainCommand {
-}
+@interface SAMPEnableShuffle : SADomainCommand
 
-@property bool enable;
+@property (nonatomic) BOOL enable;
 
 + (id)enableShuffle;
 + (id)enableShuffleWithDictionary:(id)arg1 context:(id)arg2;
 
-- (bool)enable;
+- (BOOL)enable;
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (bool)requiresResponse;
-- (void)setEnable:(bool)arg1;
+- (BOOL)requiresResponse;
+- (void)setEnable:(BOOL)arg1;
 
 @end

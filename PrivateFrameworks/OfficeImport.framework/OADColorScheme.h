@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableDictionary;
-
 @interface OADColorScheme : NSObject <NSCopying> {
     NSMutableDictionary *mColors;
 }
 
 - (void)addColor:(id)arg1 index:(int)arg2;
 - (void)addDefaultColors;
-- (unsigned long long)colorCount;
+- (unsigned int)colorCount;
 - (id)colorForIndex:(int)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)init;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)setColor:(id)arg1 index:(int)arg2;
 
 @end

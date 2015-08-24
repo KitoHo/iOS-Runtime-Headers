@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CorePDF.framework/CorePDF
  */
 
-@class CPCharSequence;
-
 @interface CPZoneMaker : NSObject {
     CPCharSequence *charactersOnPage;
 }
@@ -17,6 +15,6 @@
 - (void)makeZonesWithBoundaryIn:(id)arg1;
 - (void)mergeQualifyingRectanglesIn:(id)arg1;
 - (id)newZoneForStraddlersFrom:(id)arg1;
-- (bool)overlap:(id)arg1 with:(id)arg2;
+- (BOOL)overlap:(id)arg1 with:(id)arg2;
 
 @end

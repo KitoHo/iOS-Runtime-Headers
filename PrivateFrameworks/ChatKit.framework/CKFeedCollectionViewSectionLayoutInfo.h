@@ -2,96 +2,94 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class NSArray;
-
 @interface CKFeedCollectionViewSectionLayoutInfo : NSObject {
-    struct CGPoint { 
-        double x; 
-        double y; 
-    struct CGSize { 
-        double width; 
-        double height; 
-    struct CGSize { 
-        double width; 
-        double height; 
-    struct CGSize { 
-        double width; 
-        double height; 
-    struct UIEdgeInsets { 
-        double top; 
-        double left; 
-        double bottom; 
-        double right; 
-    long long _firstJoinedSection;
+    int _firstJoinedSection;
     NSArray *_fixedLayoutAttributes;
     NSArray *_floatingLayoutAttributes;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _footerSize;
     id _groupID;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _headerSize;
-    long long _lastJoinedSection;
+    BOOL _hidden;
+    int _lastJoinedSection;
+    struct UIEdgeInsets { 
+        float top; 
+        float left; 
+        float bottom; 
+        float right; 
     } _margins;
-    long long _nextVisibleSection;
-    long long _numberOfTilesOmitted;
+    int _nextVisibleSection;
+    int _numberOfTilesOmitted;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _origin;
-    long long _previousVisibleSection;
-    long long _sectionType;
+    int _previousVisibleSection;
+    int _sectionType;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _size;
     NSArray *_tileLayoutAttributes;
-    bool_hidden;
 }
 
-@property long long firstJoinedSection;
-@property(retain) NSArray * fixedLayoutAttributes;
-@property(retain) NSArray * floatingLayoutAttributes;
-@property struct CGSize { double x1; double x2; } footerSize;
-@property(readonly) struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } frame;
-@property(retain) id groupID;
-@property struct CGSize { double x1; double x2; } headerSize;
-@property(getter=isHidden) bool hidden;
-@property long long lastJoinedSection;
-@property struct UIEdgeInsets { double x1; double x2; double x3; double x4; } margins;
-@property long long nextVisibleSection;
-@property long long numberOfTilesOmitted;
-@property struct CGPoint { double x1; double x2; } origin;
-@property long long previousVisibleSection;
-@property long long sectionType;
-@property struct CGSize { double x1; double x2; } size;
-@property(retain) NSArray * tileLayoutAttributes;
+@property (nonatomic) int firstJoinedSection;
+@property (nonatomic, retain) NSArray *fixedLayoutAttributes;
+@property (nonatomic, retain) NSArray *floatingLayoutAttributes;
+@property (nonatomic) struct CGSize { float x1; float x2; } footerSize;
+@property (nonatomic, readonly) struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } frame;
+@property (nonatomic, retain) id groupID;
+@property (nonatomic) struct CGSize { float x1; float x2; } headerSize;
+@property (getter=isHidden, nonatomic) BOOL hidden;
+@property (nonatomic) int lastJoinedSection;
+@property (nonatomic) struct UIEdgeInsets { float x1; float x2; float x3; float x4; } margins;
+@property (nonatomic) int nextVisibleSection;
+@property (nonatomic) int numberOfTilesOmitted;
+@property (nonatomic) struct CGPoint { float x1; float x2; } origin;
+@property (nonatomic) int previousVisibleSection;
+@property (nonatomic) int sectionType;
+@property (nonatomic) struct CGSize { float x1; float x2; } size;
+@property (nonatomic, retain) NSArray *tileLayoutAttributes;
 
 - (void).cxx_destruct;
-- (long long)firstJoinedSection;
+- (int)firstJoinedSection;
 - (id)fixedLayoutAttributes;
 - (id)floatingLayoutAttributes;
-- (struct CGSize { double x1; double x2; })footerSize;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })frame;
+- (struct CGSize { float x1; float x2; })footerSize;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })frame;
 - (id)groupID;
-- (struct CGSize { double x1; double x2; })headerSize;
+- (struct CGSize { float x1; float x2; })headerSize;
 - (id)init;
-- (bool)isHidden;
-- (long long)lastJoinedSection;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })margins;
-- (long long)nextVisibleSection;
-- (long long)numberOfTilesOmitted;
-- (struct CGPoint { double x1; double x2; })origin;
-- (long long)previousVisibleSection;
-- (long long)sectionType;
-- (void)setFirstJoinedSection:(long long)arg1;
+- (BOOL)isHidden;
+- (int)lastJoinedSection;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })margins;
+- (int)nextVisibleSection;
+- (int)numberOfTilesOmitted;
+- (struct CGPoint { float x1; float x2; })origin;
+- (int)previousVisibleSection;
+- (int)sectionType;
+- (void)setFirstJoinedSection:(int)arg1;
 - (void)setFixedLayoutAttributes:(id)arg1;
 - (void)setFloatingLayoutAttributes:(id)arg1;
-- (void)setFooterSize:(struct CGSize { double x1; double x2; })arg1;
+- (void)setFooterSize:(struct CGSize { float x1; float x2; })arg1;
 - (void)setGroupID:(id)arg1;
-- (void)setHeaderSize:(struct CGSize { double x1; double x2; })arg1;
-- (void)setHidden:(bool)arg1;
-- (void)setLastJoinedSection:(long long)arg1;
-- (void)setMargins:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; })arg1;
-- (void)setNextVisibleSection:(long long)arg1;
-- (void)setNumberOfTilesOmitted:(long long)arg1;
-- (void)setOrigin:(struct CGPoint { double x1; double x2; })arg1;
-- (void)setPreviousVisibleSection:(long long)arg1;
-- (void)setSectionType:(long long)arg1;
-- (void)setSize:(struct CGSize { double x1; double x2; })arg1;
+- (void)setHeaderSize:(struct CGSize { float x1; float x2; })arg1;
+- (void)setHidden:(BOOL)arg1;
+- (void)setLastJoinedSection:(int)arg1;
+- (void)setMargins:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg1;
+- (void)setNextVisibleSection:(int)arg1;
+- (void)setNumberOfTilesOmitted:(int)arg1;
+- (void)setOrigin:(struct CGPoint { float x1; float x2; })arg1;
+- (void)setPreviousVisibleSection:(int)arg1;
+- (void)setSectionType:(int)arg1;
+- (void)setSize:(struct CGSize { float x1; float x2; })arg1;
 - (void)setTileLayoutAttributes:(id)arg1;
-- (struct CGSize { double x1; double x2; })size;
+- (struct CGSize { float x1; float x2; })size;
 - (id)tileLayoutAttributes;
 
 @end

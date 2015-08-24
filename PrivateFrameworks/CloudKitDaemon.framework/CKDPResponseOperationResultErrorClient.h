@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPOplockFailure, CKDPUniqueFieldFailure;
-
 @interface CKDPResponseOperationResultErrorClient : PBCodable <NSCopying> {
     struct { 
         unsigned int type : 1; 
@@ -13,12 +11,12 @@
     CKDPUniqueFieldFailure *_uniqueFieldFailure;
 }
 
-@property(readonly) bool hasOplockFailure;
-@property bool hasType;
-@property(readonly) bool hasUniqueFieldFailure;
-@property(retain) CKDPOplockFailure * oplockFailure;
-@property int type;
-@property(retain) CKDPUniqueFieldFailure * uniqueFieldFailure;
+@property (nonatomic, readonly) BOOL hasOplockFailure;
+@property (nonatomic) BOOL hasType;
+@property (nonatomic, readonly) BOOL hasUniqueFieldFailure;
+@property (nonatomic, retain) CKDPOplockFailure *oplockFailure;
+@property (nonatomic) int type;
+@property (nonatomic, retain) CKDPUniqueFieldFailure *uniqueFieldFailure;
 
 - (void).cxx_destruct;
 - (id)_prettyDictionaryRepresentation;
@@ -26,15 +24,15 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasOplockFailure;
-- (bool)hasType;
-- (bool)hasUniqueFieldFailure;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasOplockFailure;
+- (BOOL)hasType;
+- (BOOL)hasUniqueFieldFailure;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)oplockFailure;
-- (bool)readFrom:(id)arg1;
-- (void)setHasType:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasType:(BOOL)arg1;
 - (void)setOplockFailure:(id)arg1;
 - (void)setType:(int)arg1;
 - (void)setUniqueFieldFailure:(id)arg1;

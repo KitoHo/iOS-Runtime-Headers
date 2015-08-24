@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPIdentifier, CKDPShareIdentifier, NSData;
-
 @interface CKDPLikedId : PBCodable <NSCopying> {
     CKDPIdentifier *_commentIdentifier;
     NSData *_itemId;
     CKDPShareIdentifier *_shareIdentifier;
 }
 
-@property(retain) CKDPIdentifier * commentIdentifier;
-@property(readonly) bool hasCommentIdentifier;
-@property(readonly) bool hasItemId;
-@property(readonly) bool hasShareIdentifier;
-@property(retain) NSData * itemId;
-@property(retain) CKDPShareIdentifier * shareIdentifier;
+@property (nonatomic, retain) CKDPIdentifier *commentIdentifier;
+@property (nonatomic, readonly) BOOL hasCommentIdentifier;
+@property (nonatomic, readonly) BOOL hasItemId;
+@property (nonatomic, readonly) BOOL hasShareIdentifier;
+@property (nonatomic, retain) NSData *itemId;
+@property (nonatomic, retain) CKDPShareIdentifier *shareIdentifier;
 
 - (void).cxx_destruct;
 - (id)commentIdentifier;
@@ -23,14 +21,14 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasCommentIdentifier;
-- (bool)hasItemId;
-- (bool)hasShareIdentifier;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasCommentIdentifier;
+- (BOOL)hasItemId;
+- (BOOL)hasShareIdentifier;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)itemId;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setCommentIdentifier:(id)arg1;
 - (void)setItemId:(id)arg1;
 - (void)setShareIdentifier:(id)arg1;

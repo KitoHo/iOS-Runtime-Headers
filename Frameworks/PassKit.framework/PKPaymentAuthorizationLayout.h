@@ -2,35 +2,33 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class NSString, PKPaymentAuthorizationServiceViewController, UITraitCollection;
-
 @interface PKPaymentAuthorizationLayout : NSObject <UITraitEnvironment> {
-    double _contentHeightPadding;
-    double _contentMargin;
-    PKPaymentAuthorizationServiceViewController *_controller;
-    double _headerMargin;
-    double _valueLeftMargin;
+    float _contentHeightPadding;
+    float _contentMargin;
+    UIViewController *_controller;
+    float _headerMargin;
+    float _valueLeftMargin;
 }
 
-@property(readonly) double contentHeightPadding;
-@property(readonly) double contentMargin;
-@property PKPaymentAuthorizationServiceViewController * controller;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) double headerMargin;
-@property(readonly) Class superclass;
-@property(readonly) UITraitCollection * traitCollection;
-@property(readonly) double valueLeftMargin;
+@property (nonatomic, readonly) float contentHeightPadding;
+@property (nonatomic, readonly) float contentMargin;
+@property (nonatomic) UIViewController *controller;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) float headerMargin;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) UITraitCollection *traitCollection;
+@property (nonatomic, readonly) float valueLeftMargin;
 
-- (double)contentHeightPadding;
-- (double)contentMargin;
+- (float)contentHeightPadding;
+- (float)contentMargin;
 - (id)controller;
-- (double)headerMargin;
+- (float)headerMargin;
 - (id)initWithController:(id)arg1;
 - (void)setController:(id)arg1;
 - (id)traitCollection;
 - (void)traitCollectionDidChange:(id)arg1;
-- (double)valueLeftMargin;
+- (float)valueLeftMargin;
 
 @end

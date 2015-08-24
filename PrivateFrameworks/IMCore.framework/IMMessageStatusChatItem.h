@@ -2,41 +2,44 @@
    Image: /System/Library/PrivateFrameworks/IMCore.framework/IMCore
  */
 
-@class NSDate, NSString;
-
 @interface IMMessageStatusChatItem : IMTranscriptChatItem {
-    unsigned long long _count;
-    long long _expireStatusType;
-    long long _statusType;
+    unsigned int _count;
+    int _expireStatusType;
+    int _statusType;
     NSDate *_time;
     NSDate *_timeAdded;
     NSDate *_timeStale;
 }
 
-@property(readonly) unsigned long long count;
-@property(retain,readonly) NSString * errorText;
-@property(readonly) long long expireStatusType;
-@property(readonly) bool isFromMe;
-@property(readonly) long long messageStatusType;
-@property(readonly) long long statusType;
-@property(retain,readonly) NSDate * time;
+@property (nonatomic, readonly) unsigned int count;
+@property (nonatomic, readonly, retain) NSString *errorText;
+@property (nonatomic, readonly) int expireStatusType;
+@property (nonatomic, readonly) BOOL isFromMe;
+@property (nonatomic, readonly) int messageStatusType;
+@property (nonatomic, readonly) int statusType;
+@property (nonatomic, readonly, retain) NSDate *time;
 
-- (Class)__ck_chatItemClass;
-- (id)_initWithItem:(id)arg1 expireStatusType:(long long)arg2 count:(unsigned long long)arg3;
-- (id)_initWithItem:(id)arg1 statusType:(long long)arg2 time:(id)arg3 count:(unsigned long long)arg4 expireStatusType:(long long)arg5;
-- (id)_initWithItem:(id)arg1 statusType:(long long)arg2 time:(id)arg3 count:(unsigned long long)arg4;
+// Image: /System/Library/PrivateFrameworks/IMCore.framework/IMCore
+
+- (id)_initWithItem:(id)arg1 expireStatusType:(int)arg2 count:(unsigned int)arg3;
+- (id)_initWithItem:(id)arg1 statusType:(int)arg2 time:(id)arg3 count:(unsigned int)arg4;
+- (id)_initWithItem:(id)arg1 statusType:(int)arg2 time:(id)arg3 count:(unsigned int)arg4 expireStatusType:(int)arg5;
 - (void)_setTimeAdded:(id)arg1;
 - (id)_timeAdded;
 - (id)_timeStale;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (unsigned long long)count;
+- (unsigned int)count;
 - (void)dealloc;
 - (id)description;
 - (id)errorText;
-- (long long)expireStatusType;
-- (bool)isFromMe;
-- (long long)messageStatusType;
-- (long long)statusType;
+- (int)expireStatusType;
+- (BOOL)isFromMe;
+- (int)messageStatusType;
+- (int)statusType;
 - (id)time;
+
+// Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
+
+- (Class)__ck_chatItemClass;
 
 @end

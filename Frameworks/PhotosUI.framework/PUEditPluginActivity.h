@@ -2,23 +2,21 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class PUEditPlugin;
-
 @interface PUEditPluginActivity : UIActivity {
     PUEditPlugin *_plugin;
 }
 
-@property(readonly) PUEditPlugin * plugin;
+@property (nonatomic, readonly) PUEditPlugin *plugin;
 
-+ (long long)activityCategory;
++ (int)activityCategory;
 
 - (void).cxx_destruct;
 - (id)_activityImage;
 - (id)_activitySettingsImage;
-- (bool)_isHiddenByDefault;
+- (BOOL)_isHiddenByDefault;
 - (id)activityTitle;
 - (id)activityType;
-- (bool)canPerformWithActivityItems:(id)arg1;
+- (BOOL)canPerformWithActivityItems:(id)arg1;
 - (id)initWithPlugin:(id)arg1;
 - (id)plugin;
 

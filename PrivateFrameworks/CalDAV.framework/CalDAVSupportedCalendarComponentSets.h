@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/CalDAV.framework/CalDAV
  */
 
-@class NSMutableSet;
-
 @interface CalDAVSupportedCalendarComponentSets : CoreDAVItem {
     NSMutableSet *_componentSets;
 }
 
-+ (bool)allowedCalendars:(id)arg1 contains:(id)arg2;
++ (BOOL)allowedCalendars:(id)arg1 contains:(id)arg2;
 
 - (void)addCompSet:(id)arg1;
 - (id)childrenToWrite;

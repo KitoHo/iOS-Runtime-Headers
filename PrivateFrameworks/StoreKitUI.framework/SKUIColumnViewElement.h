@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class SKUIHeaderViewElement;
-
 @interface SKUIColumnViewElement : SKUIViewElement {
-    long long _columnSpan;
+    int _columnSpan;
 }
 
-@property(readonly) long long columnSpan;
-@property(readonly) SKUIHeaderViewElement * headerElement;
+@property (nonatomic, readonly) int columnSpan;
+@property (nonatomic, readonly) SKUIHeaderViewElement *headerElement;
 
 - (id)applyUpdatesWithElement:(id)arg1;
-- (long long)columnSpan;
-- (void)enumerateChildrenUsingBlock:(id)arg1;
+- (int)columnSpan;
+- (void)enumerateChildrenUsingBlock:(id /* block */)arg1;
 - (id)headerElement;
 - (id)initWithDOMElement:(id)arg1 parent:(id)arg2 elementFactory:(id)arg3;
-- (long long)pageComponentType;
+- (int)pageComponentType;
 
 @end

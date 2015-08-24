@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSDictionary, NSString;
-
 @interface NSConcreteNotification : NSNotification {
-    booldyingObject;
+    BOOL dyingObject;
     NSString *name;
     id object;
     NSDictionary *userInfo;

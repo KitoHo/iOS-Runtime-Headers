@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSData;
-
 @interface CKDPNotificationSyncRequest : PBRequest <NSCopying> {
     struct { 
         unsigned int maxChanges : 1; 
@@ -12,10 +10,10 @@
     NSData *_serverChangeToken;
 }
 
-@property bool hasMaxChanges;
-@property(readonly) bool hasServerChangeToken;
-@property unsigned int maxChanges;
-@property(retain) NSData * serverChangeToken;
+@property (nonatomic) BOOL hasMaxChanges;
+@property (nonatomic, readonly) BOOL hasServerChangeToken;
+@property (nonatomic) unsigned int maxChanges;
+@property (nonatomic, retain) NSData *serverChangeToken;
 
 + (id)options;
 
@@ -24,15 +22,15 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasMaxChanges;
-- (bool)hasServerChangeToken;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasMaxChanges;
+- (BOOL)hasServerChangeToken;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (unsigned int)maxChanges;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)serverChangeToken;
-- (void)setHasMaxChanges:(bool)arg1;
+- (void)setHasMaxChanges:(BOOL)arg1;
 - (void)setMaxChanges:(unsigned int)arg1;
 - (void)setServerChangeToken:(id)arg1;
 - (void)writeTo:(id)arg1;

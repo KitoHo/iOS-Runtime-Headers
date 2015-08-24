@@ -2,16 +2,13 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSString, NSURL;
+@interface SAStockAdd : SABaseClientBoundCommand
 
-@interface SAStockAdd : SABaseClientBoundCommand {
-}
-
-@property(copy) NSString * companyName;
-@property(copy) NSArray * stockReferences;
-@property(copy) NSArray * stocks;
-@property(copy) NSURL * targetAppId;
-@property(copy) NSString * tickerSymbol;
+@property (nonatomic, copy) NSString *companyName;
+@property (nonatomic, copy) NSArray *stockReferences;
+@property (nonatomic, copy) NSArray *stocks;
+@property (nonatomic, copy) NSURL *targetAppId;
+@property (nonatomic, copy) NSString *tickerSymbol;
 
 + (id)add;
 + (id)addWithDictionary:(id)arg1 context:(id)arg2;
@@ -19,7 +16,7 @@
 - (id)companyName;
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setCompanyName:(id)arg1;
 - (void)setStockReferences:(id)arg1;
 - (void)setStocks:(id)arg1;

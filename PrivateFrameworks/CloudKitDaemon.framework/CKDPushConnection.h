@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class APSConnection, NSMapTable, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
-
 @interface CKDPushConnection : NSObject <APSConnectionDelegate> {
     APSConnection *_apsConnection;
     NSString *_apsEnvironmentString;
     NSMapTable *_callbacks;
+    BOOL _darkWakeEnabled;
     NSMutableSet *_enabledTopics;
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableDictionary *_tokensCache;
@@ -16,21 +15,22 @@
     NSMutableDictionary *_topicsToWaitingAppContainerTuples;
 }
 
-@property(retain) APSConnection * apsConnection;
-@property(retain) NSString * apsEnvironmentString;
-@property(retain) NSMapTable * callbacks;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) NSMutableSet * enabledTopics;
-@property(readonly) unsigned long long hash;
-@property(retain) NSObject<OS_dispatch_queue> * queue;
-@property(readonly) Class superclass;
-@property(retain) NSMutableDictionary * tokensCache;
-@property(retain) NSMutableSet * topicsAwaitingPrivateToken;
-@property(retain) NSMutableSet * topicsAwaitingPublicToken;
-@property(retain) NSMutableDictionary * topicsToWaitingAppContainerTuples;
+@property (nonatomic, retain) APSConnection *apsConnection;
+@property (nonatomic, retain) NSString *apsEnvironmentString;
+@property (nonatomic, retain) NSMapTable *callbacks;
+@property (nonatomic) BOOL darkWakeEnabled;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSMutableSet *enabledTopics;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *queue;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSMutableDictionary *tokensCache;
+@property (nonatomic, retain) NSMutableSet *topicsAwaitingPrivateToken;
+@property (nonatomic, retain) NSMutableSet *topicsAwaitingPublicToken;
+@property (nonatomic, retain) NSMutableDictionary *topicsToWaitingAppContainerTuples;
 
-+ (id)sharedConnectionForAPSEnvironmentString:(id)arg1;
++ (id)sharedConnectionForAPSEnvironmentString:(id)arg1 darkWakeEnabled:(BOOL)arg2;
 
 - (void).cxx_destruct;
 - (void)_addWaitingAppContainerTuple:(id)arg1 forTopic:(id)arg2;
@@ -39,19 +39,21 @@
 - (id)apsConnection;
 - (id)apsEnvironmentString;
 - (id)callbacks;
-- (void)connection:(id)arg1 didChangeConnectedStatus:(bool)arg2;
+- (void)connection:(id)arg1 didChangeConnectedStatus:(BOOL)arg2;
 - (void)connection:(id)arg1 didReceivePublicToken:(id)arg2;
 - (void)connection:(id)arg1 didReceiveToken:(id)arg2 forTopic:(id)arg3 identifier:(id)arg4;
 - (void)connectionDidReconnect:(id)arg1;
+- (BOOL)darkWakeEnabled;
 - (void)dealloc;
 - (id)enabledTopics;
-- (id)initWithEnvironment:(id)arg1;
+- (id)initWithEnvironment:(id)arg1 darkWakeEnabled:(BOOL)arg2;
 - (id)queue;
-- (void)requestTokenForAppContainerTuple:(id)arg1 useAPSPublicToken:(bool)arg2;
+- (void)requestTokenForAppContainerTuple:(id)arg1 useAPSPublicToken:(BOOL)arg2;
 - (void)revokeTokenForAppContainerTuple:(id)arg1;
 - (void)setAPSEnvironmentString:(id)arg1;
 - (void)setApsConnection:(id)arg1;
 - (void)setCallbacks:(id)arg1;
+- (void)setDarkWakeEnabled:(BOOL)arg1;
 - (void)setEnabledTopics:(id)arg1;
 - (void)setQueue:(id)arg1;
 - (void)setTokensCache:(id)arg1;

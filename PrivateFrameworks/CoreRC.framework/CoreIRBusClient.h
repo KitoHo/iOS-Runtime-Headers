@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/CoreRC.framework/CoreRC
  */
 
-@interface CoreIRBusClient : CoreIRBus {
-}
+@interface CoreIRBusClient : CoreIRBus
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)addExternalDevice:(id*)arg1;
 - (Class)classForCoder;

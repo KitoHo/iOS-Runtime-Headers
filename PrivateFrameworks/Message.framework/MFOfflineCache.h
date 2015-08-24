@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class MFMailMessageLibrary, MFOfflineCacheReplayContext, NSMutableArray, NSString;
-
 @interface MFOfflineCache : NSObject {
-    long long _accountLibraryID;
+    int _accountLibraryID;
     NSMutableArray *_deferredOperations;
+    BOOL _isReplaying;
     unsigned int _lastTemporaryMessageID;
     MFMailMessageLibrary *_library;
     MFOfflineCacheReplayContext *_replayContext;
-    bool_isReplaying;
 }
 
-@property(readonly) NSString * nextTemporaryMessageID;
+@property (nonatomic, readonly) NSString *nextTemporaryMessageID;
 
 - (void)_applyReplayContextTransformation:(id)arg1;
 - (void)dealloc;
 - (void)deferOperation:(id)arg1;
 - (void)deleteOfflineCacheData;
-- (void)enumerateOperationsUsingBlock:(id)arg1;
-- (bool)hasDeferredOperations;
+- (void)enumerateOperationsUsingBlock:(id /* block */)arg1;
+- (BOOL)hasDeferredOperations;
 - (id)init;
 - (id)initWithLibrary:(id)arg1 account:(id)arg2;
 - (id)nextTemporaryMessageID;
 - (void)replaceTransferFailureSnapshotTemporaryID:(id)arg1 withTemporaryID:(id)arg2;
-- (bool)replayOperationsUsingBlock:(id)arg1;
+- (BOOL)replayOperationsUsingBlock:(id /* block */)arg1;
 - (id)selectedMailboxID;
 - (void)setSelectedMailboxID:(id)arg1;
 - (void)setTransferFailureSnapshot:(id)arg1 forTemporaryID:(id)arg2;

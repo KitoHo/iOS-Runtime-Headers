@@ -2,8 +2,7 @@
    Image: /System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities
  */
 
-@interface AXSubsystem : NSObject {
-}
+@interface AXSubsystem : NSObject
 
 + (id)_errorWithMessage:(id)arg1 underlyingError:(id)arg2;
 + (int)defaultLogLevel;
@@ -13,12 +12,12 @@
 + (void)initialize;
 + (void)resetPreferredLogLevel;
 + (void)setPreferredLogLevel:(int)arg1;
-+ (void)setShouldLogToFile:(bool)arg1;
-+ (bool)shouldIncludeBacktraceInLogs;
-+ (bool)shouldLogToFile;
-+ (bool)shouldProcessMessageForLogs;
++ (void)setShouldLogToFile:(BOOL)arg1;
++ (BOOL)shouldIncludeBacktraceInLogs;
++ (BOOL)shouldLogToFile;
++ (BOOL)shouldProcessMessageForLogs;
 + (id)subsystems;
-+ (bool)willLog;
++ (BOOL)willLog;
 + (id)wrapError:(id)arg1 description:(id)arg2;
 
 @end

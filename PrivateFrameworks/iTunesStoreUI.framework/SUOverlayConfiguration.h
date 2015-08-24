@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSRegularExpression, NSString;
-
 @interface SUOverlayConfiguration : NSObject {
-    struct CGSize { 
-        double width; 
-        double height; 
     NSRegularExpression *_bagKeyPattern;
-    long long _cornerRadius;
+    int _cornerRadius;
+    BOOL _shouldShowNavigationBar;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _size;
     NSString *_transitionName;
     NSRegularExpression *_urlPattern;
-    bool_shouldShowNavigationBar;
 }
 
-@property(readonly) long long cornerRadius;
-@property(readonly) bool shouldShowNavigationBar;
-@property(readonly) struct CGSize { double x1; double x2; } size;
-@property(readonly) NSString * transitionName;
+@property (nonatomic, readonly) int cornerRadius;
+@property (nonatomic, readonly) BOOL shouldShowNavigationBar;
+@property (nonatomic, readonly) struct CGSize { float x1; float x2; } size;
+@property (nonatomic, readonly) NSString *transitionName;
 
-- (long long)cornerRadius;
+- (int)cornerRadius;
 - (void)dealloc;
 - (id)init;
 - (id)initWithDictionary:(id)arg1;
-- (bool)matchesURL:(id)arg1;
-- (bool)matchesURLBagKey:(id)arg1;
-- (bool)shouldShowNavigationBar;
-- (struct CGSize { double x1; double x2; })size;
+- (BOOL)matchesURL:(id)arg1;
+- (BOOL)matchesURLBagKey:(id)arg1;
+- (BOOL)shouldShowNavigationBar;
+- (struct CGSize { float x1; float x2; })size;
 - (id)transitionName;
 
 @end

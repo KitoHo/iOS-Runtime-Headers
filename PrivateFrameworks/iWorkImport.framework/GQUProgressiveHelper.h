@@ -2,18 +2,13 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
 @interface GQUProgressiveHelper : NSObject {
-    boolmStartedMainHTML;
     struct { int (*x1)(); int (*x2)(); int (*x3)(); int (*x4)(); int (*x5)(); } *mCallBacks;
     const void *mClient;
     struct __CFString { } *mNumbersSheetUri;
     float mPreviewHeight;
     float mPreviewWidth;
+    BOOL mStartedMainHTML;
     unsigned char started;
 }
 
@@ -26,8 +21,8 @@
 - (float)getPreviewHeight;
 - (float)getPreviewWidth;
 - (id)initWithClient:(const void*)arg1 andCallbacks:(struct { int (*x1)(); int (*x2)(); int (*x3)(); int (*x4)(); int (*x5)(); }*)arg2;
-- (bool)previewHasStreamedMainHTML;
-- (bool)progressiveStreamStarted;
+- (BOOL)previewHasStreamedMainHTML;
+- (BOOL)progressiveStreamStarted;
 - (void)setNumbersSheetUri:(struct __CFString { }*)arg1;
 - (void)setPreviewHeight:(float)arg1 andWidth:(float)arg2;
 - (void)startDataWithOptions:(struct __CFDictionary { }*)arg1;

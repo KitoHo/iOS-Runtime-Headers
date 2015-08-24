@@ -2,42 +2,40 @@
    Image: /System/Library/PrivateFrameworks/MediaPlayerUI.framework/MediaPlayerUI
  */
 
-@class <MPUTabBarControllerDelegate>, NSArray, NSString;
-
 @interface MPUTabBarController : UITabBarController {
     NSArray *_customizableViewControllerIdentifiers;
     Class _viewControllerFactoryClass;
     NSArray *_viewControllerIdentifiers;
 }
 
-@property(copy) NSArray * customizableViewControllerIdentifiers;
-@property <MPUTabBarControllerDelegate> * delegate;
-@property(readonly) NSArray * filteredViewControllerIdentifiers;
-@property(copy) NSString * selectedViewControllerIdentifier;
-@property(retain) Class viewControllerFactoryClass;
-@property(copy) NSArray * viewControllerIdentifiers;
+@property (nonatomic, copy) NSArray *customizableViewControllerIdentifiers;
+@property (nonatomic) <MPUTabBarControllerDelegate> *delegate;
+@property (nonatomic, readonly) NSArray *filteredViewControllerIdentifiers;
+@property (nonatomic, copy) NSString *selectedViewControllerIdentifier;
+@property (nonatomic, retain) Class viewControllerFactoryClass;
+@property (nonatomic, copy) NSArray *viewControllerIdentifiers;
 
 + (Class)_moreNavigationControllerClass;
 
 - (void).cxx_destruct;
 - (id)_existingViewControllerForIdentifier:(id)arg1;
 - (id)_identifierForViewController:(id)arg1;
-- (id)_identifierForViewControllerAtIndex:(unsigned long long)arg1;
-- (void)_reloadTabBarFromIdentifiersAnimated:(bool)arg1;
+- (id)_identifierForViewControllerAtIndex:(unsigned int)arg1;
+- (void)_reloadTabBarFromIdentifiersAnimated:(BOOL)arg1;
 - (id)_viewControllerForIdentifier:(id)arg1;
 - (id)customizableViewControllerIdentifiers;
 - (id)filteredViewControllerIdentifiers;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (bool)presentModalViewControllerIfAppropriate:(id)arg1;
-- (void)reloadTabsAnimated:(bool)arg1;
-- (void)reloadTabsPurgingExistingTabs:(bool)arg1;
+- (BOOL)presentModalViewControllerIfAppropriate:(id)arg1;
+- (void)reloadTabsAnimated:(BOOL)arg1;
+- (void)reloadTabsPurgingExistingTabs:(BOOL)arg1;
 - (id)selectedViewControllerIdentifier;
 - (void)setCustomizableViewControllerIdentifiers:(id)arg1;
 - (void)setSelectedViewControllerIdentifier:(id)arg1;
 - (void)setViewControllerFactoryClass:(Class)arg1;
-- (void)setViewControllerIdentifiers:(id)arg1 animated:(bool)arg2;
 - (void)setViewControllerIdentifiers:(id)arg1;
-- (bool)shouldSelectViewController:(id)arg1;
+- (void)setViewControllerIdentifiers:(id)arg1 animated:(BOOL)arg2;
+- (BOOL)shouldSelectViewController:(id)arg1;
 - (Class)viewControllerFactoryClass;
 - (id)viewControllerIdentifiers;
 

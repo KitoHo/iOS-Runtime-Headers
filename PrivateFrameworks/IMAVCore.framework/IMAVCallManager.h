@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/IMAVCore.framework/IMAVCore
  */
 
-@class IMPowerAssertion, NSArray, NSDate, NSMutableArray, NSMutableDictionary;
-
 @interface IMAVCallManager : NSObject {
     unsigned int _acCallState;
     NSMutableArray *_acChatProxyArray;
@@ -20,11 +18,11 @@
     unsigned int _telephonyCallState;
 }
 
-@property(retain,readonly) NSArray * _FTCalls;
-@property(setter=_setTelephonyCallState:) unsigned int _telephonyCallState;
-@property(readonly) unsigned int callState;
-@property(retain,readonly) NSArray * calls;
-@property(readonly) bool hasActiveCall;
+@property (nonatomic, readonly, retain) NSArray *_FTCalls;
+@property (setter=_setTelephonyCallState:, nonatomic) unsigned int _telephonyCallState;
+@property (nonatomic, readonly) unsigned int callState;
+@property (nonatomic, readonly, retain) NSArray *calls;
+@property (nonatomic, readonly) BOOL hasActiveCall;
 
 + (id)sharedInstance;
 
@@ -39,19 +37,19 @@
 - (unsigned int)_callStateForType:(unsigned int)arg1;
 - (id)_calls;
 - (id)_copyMutableFTCalls;
-- (bool)_hasActiveAudioCall;
-- (bool)_hasActiveFaceTimeCall;
-- (bool)_hasActiveTelephonyCall;
+- (BOOL)_hasActiveAudioCall;
+- (BOOL)_hasActiveFaceTimeCall;
+- (BOOL)_hasActiveTelephonyCall;
 - (id)_mutableFTCalls;
 - (id)_nonRetainingChatList;
 - (void)_postStateChangeIfNecessary;
-- (void)_postStateChangeNamed:(id)arg1 fromState:(unsigned int)arg2 toState:(unsigned int)arg3 postType:(bool)arg4 type:(unsigned int)arg5;
+- (void)_postStateChangeNamed:(id)arg1 fromState:(unsigned int)arg2 toState:(unsigned int)arg3 postType:(BOOL)arg4 type:(unsigned int)arg5;
 - (void)_removeIMAVChatFromChatList:(id)arg1;
 - (void)_sendProxyUpdate;
-- (void)_setACCallState:(unsigned int)arg1 quietly:(bool)arg2;
 - (void)_setACCallState:(unsigned int)arg1;
-- (void)_setAVCallState:(unsigned int)arg1 quietly:(bool)arg2;
+- (void)_setACCallState:(unsigned int)arg1 quietly:(BOOL)arg2;
 - (void)_setAVCallState:(unsigned int)arg1;
+- (void)_setAVCallState:(unsigned int)arg1 quietly:(BOOL)arg2;
 - (void)_setTelephonyCallState:(unsigned int)arg1;
 - (unsigned int)_telephonyCallState;
 - (void)_updateACCallState;
@@ -62,7 +60,7 @@
 - (unsigned int)callState;
 - (id)calls;
 - (void)dealloc;
-- (bool)hasActiveCall;
+- (BOOL)hasActiveCall;
 - (id)init;
 
 @end

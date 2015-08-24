@@ -2,23 +2,22 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface KNMacMutableUILayout : KNMacUILayout {
-}
+@interface KNMacMutableUILayout : KNMacUILayout
 
-@property long long inspectorPaneViewMode;
-@property(getter=isShowingInspectorPane) bool showingInspectorPane;
-@property(getter=isShowingLightTable) bool showingLightTable;
-@property(getter=isShowingMasterSlides) bool showingMasterSlides;
-@property(getter=isShowingPresenterNotes) bool showingPresenterNotes;
-@property(getter=isShowingSidebar) bool showingSidebar;
-@property long long sidebarViewMode;
+@property (nonatomic) int inspectorPaneViewMode;
+@property (getter=isShowingInspectorPane, nonatomic) BOOL showingInspectorPane;
+@property (getter=isShowingLightTable, nonatomic) BOOL showingLightTable;
+@property (getter=isShowingMasterSlides, nonatomic) BOOL showingMasterSlides;
+@property (getter=isShowingPresenterNotes, nonatomic) BOOL showingPresenterNotes;
+@property (getter=isShowingSidebar, nonatomic) BOOL showingSidebar;
+@property (nonatomic) int sidebarViewMode;
 
-- (void)setInspectorPaneViewMode:(long long)arg1;
-- (void)setShowingInspectorPane:(bool)arg1;
-- (void)setShowingLightTable:(bool)arg1;
-- (void)setShowingMasterSlides:(bool)arg1;
-- (void)setShowingPresenterNotes:(bool)arg1;
-- (void)setShowingSidebar:(bool)arg1;
-- (void)setSidebarViewMode:(long long)arg1;
+- (void)setInspectorPaneViewMode:(int)arg1;
+- (void)setShowingInspectorPane:(BOOL)arg1;
+- (void)setShowingLightTable:(BOOL)arg1;
+- (void)setShowingMasterSlides:(BOOL)arg1;
+- (void)setShowingPresenterNotes:(BOOL)arg1;
+- (void)setShowingSidebar:(BOOL)arg1;
+- (void)setSidebarViewMode:(int)arg1;
 
 @end

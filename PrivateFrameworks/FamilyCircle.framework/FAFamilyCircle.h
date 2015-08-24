@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/FamilyCircle.framework/FamilyCircle
  */
 
-@class FAFamilyCloudKitProperties, NSArray, NSDictionary;
-
 @interface FAFamilyCircle : NSObject <NSSecureCoding> {
     NSDictionary *__serverResponse;
     FAFamilyCloudKitProperties *_cloudKitProperties;
     NSArray *_members;
 }
 
-@property(readonly) NSDictionary * _serverResponse;
-@property(readonly) FAFamilyCloudKitProperties * cloudKitProperties;
-@property(readonly) NSArray * members;
+@property (readonly) NSDictionary *_serverResponse;
+@property (readonly) FAFamilyCloudKitProperties *cloudKitProperties;
+@property (readonly) NSArray *members;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)_serverResponse;

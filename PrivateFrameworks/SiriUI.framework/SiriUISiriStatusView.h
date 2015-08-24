@@ -2,34 +2,33 @@
    Image: /System/Library/PrivateFrameworks/SiriUI.framework/SiriUI
  */
 
-@class <SiriUISiriStatusViewAnimationDelegate>, <SiriUISiriStatusViewDelegate>, NSString, SiriUIMicButton, UIImageView, UILongPressGestureRecognizer, UIView, _UISiriWaveyView;
-
-@interface SiriUISiriStatusView : UIView <_UISiriWaveyViewDelegate, UIGestureRecognizerDelegate, SiriUISiriStatusViewProtocol> {
+@interface SiriUISiriStatusView : UIView <SiriUISiriStatusViewProtocol, UIGestureRecognizerDelegate, _UISiriWaveyViewDelegate> {
     <SiriUISiriStatusViewAnimationDelegate> *_animationDelegate;
-    SiriUIMicButton *_button;
+    UIButton *_button;
     <SiriUISiriStatusViewDelegate> *_delegate;
-    double _disabledMicOpacity;
-    long long _imageSet;
+    float _disabledMicOpacity;
+    int _imageSet;
     double _lastStateChangeTime;
     UILongPressGestureRecognizer *_longPressRecognizer;
     UIView *_micOutlineLineView;
-    long long _mode;
+    int _mode;
+    UIScreen *_screen;
     UIImageView *_siriMicGlyphView;
     _UISiriWaveyView *_waveyView;
-    double _waveyViewWidth;
+    float _waveyViewWidth;
 }
 
-@property <SiriUISiriStatusViewAnimationDelegate> * animationDelegate;
-@property(copy,readonly) NSString * debugDescription;
-@property <SiriUISiriStatusViewDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property double disabledMicOpacity;
-@property(readonly) unsigned long long hash;
-@property long long mode;
-@property(readonly) Class superclass;
-@property double waveyViewWidth;
+@property (nonatomic) <SiriUISiriStatusViewAnimationDelegate> *animationDelegate;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <SiriUISiriStatusViewDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) float disabledMicOpacity;
+@property (readonly) unsigned int hash;
+@property (nonatomic) int mode;
+@property (readonly) Class superclass;
+@property (nonatomic) float waveyViewWidth;
 
-+ (double)statusViewHeightForWidthSizeClass:(bool)arg1;
++ (float)statusViewHeightForWidthSizeClass:(BOOL)arg1;
 
 - (void).cxx_destruct;
 - (id)_animationForCGImages:(id)arg1;
@@ -38,11 +37,10 @@
 - (void)_hideWaveform;
 - (id)_lastToThinkingCGImage;
 - (void)_micButtonHeld:(id)arg1;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })_micButtonHitRect;
 - (void)_micButtonTapped:(id)arg1;
-- (double)_micGlyphYAdjustment;
+- (float)_micGlyphYAdjustment;
 - (void)_setMicOutlineLayerContents:(struct CGImage { }*)arg1;
-- (void)_setPressedImageEnabled:(bool)arg1;
+- (void)_setPressedImageEnabled:(BOOL)arg1;
 - (void)_showWaveform;
 - (void)_startListening;
 - (void)_startThinkingFromListening;
@@ -52,24 +50,26 @@
 - (id)_transitionToListeningAnimation;
 - (id)_transitionToThinkingAnimation;
 - (id)_transitionToThinkingCompleteAnimation;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })_waveyViewFrame;
 - (void)_zoomInMicGlyphForAnimationDuration:(double)arg1;
 - (void)_zoomOutMicGlyph;
 - (id)animationDelegate;
-- (void)animationDidStop:(id)arg1 finished:(bool)arg2;
+- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
 - (float)audioLevelForWaveyView:(id)arg1;
 - (void)dealloc;
 - (id)delegate;
-- (double)disabledMicOpacity;
-- (bool)gestureRecognizerShouldBegin:(id)arg1;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 forImageSet:(long long)arg2;
+- (float)disabledMicOpacity;
+- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1 forImageSet:(int)arg2;
 - (void)layoutSubviews;
-- (long long)mode;
+- (int)mode;
+- (BOOL)pointInside:(struct CGPoint { float x1; float x2; })arg1 withEvent:(id)arg2;
 - (void)setAnimationDelegate:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setDisabledMicOpacity:(double)arg1;
-- (void)setMode:(long long)arg1;
-- (void)setWaveyViewWidth:(double)arg1;
-- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
-- (double)waveyViewWidth;
+- (void)setDisabledMicOpacity:(float)arg1;
+- (void)setMode:(int)arg1;
+- (void)setWaveyViewWidth:(float)arg1;
+- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
+- (float)waveyViewWidth;
 
 @end

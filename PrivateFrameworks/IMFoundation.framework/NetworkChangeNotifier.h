@@ -2,44 +2,42 @@
    Image: /System/Library/PrivateFrameworks/IMFoundation.framework/IMFoundation
  */
 
-@class IMConnectionMonitor, NSArray, NSString;
-
-@interface NetworkChangeNotifier : NSObject <IMSystemMonitorListener, IMConnectionMonitorDelegate> {
+@interface NetworkChangeNotifier : NSObject <IMConnectionMonitorDelegate, IMSystemMonitorListener> {
     IMConnectionMonitor *_connectionMonitor;
+    BOOL _lastPostedNetworkUp;
     NSString *_myIP;
     NSArray *_myIPs;
     struct __SCDynamicStore { } *_store;
-    bool_lastPostedNetworkUp;
 }
 
-@property(retain) IMConnectionMonitor * connectionMonitor;
-@property(readonly) struct __SCDynamicStore { }* getDynamicStore;
-@property(readonly) bool isNetworkUp;
-@property bool lastPostedNetworkUp;
-@property(readonly) NSString * myGatewayAddress;
-@property(retain) NSString * myIP;
-@property(readonly) NSString * myIPAddress;
-@property(readonly) NSArray * myIPAddresses;
-@property(retain) NSArray * myIPs;
-@property struct __SCDynamicStore { }* store;
+@property (nonatomic, retain) IMConnectionMonitor *connectionMonitor;
+@property (nonatomic, readonly) struct __SCDynamicStore { }*getDynamicStore;
+@property (nonatomic, readonly) BOOL isNetworkUp;
+@property (nonatomic) BOOL lastPostedNetworkUp;
+@property (nonatomic, readonly) NSString *myGatewayAddress;
+@property (nonatomic, retain) NSString *myIP;
+@property (nonatomic, readonly) NSString *myIPAddress;
+@property (nonatomic, readonly) NSArray *myIPAddresses;
+@property (nonatomic, retain) NSArray *myIPs;
+@property (nonatomic) struct __SCDynamicStore { }*store;
 
 + (void)disableNotifications;
-+ (bool)enableNotifications;
++ (BOOL)enableNotifications;
 + (id)sharedInstance;
 
 - (void)_clearIPCache;
-- (bool)_listenForChanges;
+- (BOOL)_listenForChanges;
 - (id)connectionMonitor;
 - (void)connectionMonitorDidUpdate:(id)arg1;
 - (void)dealloc;
 - (struct __SCDynamicStore { }*)getDynamicStore;
 - (id)init;
-- (bool)isNetworkUp;
-- (bool)isPrimaryCellular;
-- (bool)lastPostedNetworkUp;
-- (unsigned long long)linkQualityForInterfaceType:(unsigned long long)arg1;
+- (BOOL)isNetworkUp;
+- (BOOL)isPrimaryCellular;
+- (BOOL)lastPostedNetworkUp;
+- (unsigned int)linkQualityForInterfaceType:(unsigned int)arg1;
 - (int)linkQualityValueForInterface:(id)arg1;
-- (int)linkQualityValueForInterfaceType:(unsigned long long)arg1;
+- (int)linkQualityValueForInterfaceType:(unsigned int)arg1;
 - (id)myGatewayAddress;
 - (id)myIP;
 - (id)myIPAddress;
@@ -47,7 +45,7 @@
 - (id)myIPs;
 - (id)primaryInterfaceName;
 - (void)setConnectionMonitor:(id)arg1;
-- (void)setLastPostedNetworkUp:(bool)arg1;
+- (void)setLastPostedNetworkUp:(BOOL)arg1;
 - (void)setMyIP:(id)arg1;
 - (void)setMyIPs:(id)arg1;
 - (void)setStore:(struct __SCDynamicStore { }*)arg1;

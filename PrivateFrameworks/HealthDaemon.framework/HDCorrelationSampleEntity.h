@@ -2,19 +2,18 @@
    Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
  */
 
-@interface HDCorrelationSampleEntity : HDSampleEntity {
-}
+@interface HDCorrelationSampleEntity : HDSampleEntity
 
 + (Class)_associatedDataObjectClass;
 + (id)_objectsWithIDs:(id)arg1 healthDaemon:(id)arg2;
 + (id)_tableValuesFromDataObject:(id)arg1;
-+ (bool)acceptsObject:(id)arg1;
-+ (void)applyRelatedPropertiesToObject:(id)arg1 entity:(id)arg2 properties:(id)arg3 values:(id*)arg4 authorizationFilter:(id)arg5 healthDaemon:(id)arg6;
++ (BOOL)acceptsObject:(id)arg1;
++ (id)codableObjectsFromObjectCollection:(id)arg1;
 + (id)createTableSQL;
-+ (bool)isBackedByTable;
-+ (void)load;
++ (id)deleteStatementsForRelatedEntitiesInDatabase:(id)arg1;
++ (BOOL)isBackedByTable;
++ (Class)propertyApplierClass;
 
-- (bool)deleteAssociatedEntitiesInDatabase:(id)arg1 error:(id*)arg2;
-- (bool)deleteFromDatabase:(id)arg1;
+- (BOOL)deleteFromDatabase:(id)arg1 error:(id*)arg2;
 
 @end

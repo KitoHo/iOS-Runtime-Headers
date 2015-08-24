@@ -2,22 +2,20 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class MPMediaItemCollection, MPMediaQuery, MPStoreCompletionOfferResponse, MPStoreOfferContentRating, NSArray;
-
 @interface MPStoreOfferMediaItemCollection : MPMediaItemCollection {
     MPStoreOfferContentRating *_collectionContentRating;
+    BOOL _hasHiddenRestrictedContent;
     MPMediaItemCollection *_localCollection;
     MPMediaQuery *_localItemsQuery;
-    long long _preferredStoreOfferVariant;
+    int _preferredStoreOfferVariant;
     MPStoreCompletionOfferResponse *_storeOfferResponse;
     NSArray *_unmergedStoreMediaItems;
-    bool_hasHiddenRestrictedContent;
 }
 
-@property(readonly) bool isCollectionOfferPresentable;
-@property(readonly) NSArray * items;
-@property(readonly) NSArray * itemsByRemovingLocalItems;
-@property(readonly) NSArray * itemsByRemovingStoreOffers;
+@property (nonatomic, readonly) BOOL isCollectionOfferPresentable;
+@property (nonatomic, readonly) NSArray *items;
+@property (nonatomic, readonly) NSArray *itemsByRemovingLocalItems;
+@property (nonatomic, readonly) NSArray *itemsByRemovingStoreOffers;
 
 + (id)albumOrderedChildItemIDsForLookupCollectionPropertyValues:(id)arg1;
 + (id)collectionLookupKeyForMediaProperty:(id)arg1;
@@ -25,35 +23,35 @@
 + (id)defaultPropertyValues;
 + (id)mediaValueForStoreLookupCollectionPropertyValues:(id)arg1 mediaProperty:(id)arg2;
 + (id)offerDictionariesForLookupCollectionPropertyValues:(id)arg1;
-+ (long long)offerPassTypeForLookupCollectionPropertyValues:(id)arg1;
++ (int)offerPassTypeForLookupCollectionPropertyValues:(id)arg1;
 
 - (void).cxx_destruct;
-- (bool)_checkIsUsableOffer;
-- (bool)_hasRestrictedContent;
+- (BOOL)_checkIsUsableOffer;
+- (BOOL)_hasRestrictedContent;
 - (void)_loadLocalCollection;
 - (id)_lookupOfferDictionaries;
-- (bool)_offeredItemAlreadyExists;
-- (id)buyOfferForVariant:(long long)arg1;
-- (id)copyByOverlayingMediaItemsWithItemsQuery:(id)arg1 preferredStoreOfferVariant:(long long)arg2;
+- (BOOL)_offeredItemAlreadyExists;
+- (id)buyOfferForVariant:(int)arg1;
+- (id)copyByOverlayingMediaItemsWithItemsQuery:(id)arg1 preferredStoreOfferVariant:(int)arg2;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (long long)countOfItemsByRemovingLocalItems;
+- (int)countOfItemsByRemovingLocalItems;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (bool)hasDownloadableStoreOfferItemsForVariant:(long long)arg1;
-- (bool)hasPurchasableStoreOfferItemsForVariant:(long long)arg1;
-- (unsigned long long)hash;
+- (BOOL)hasDownloadableStoreOfferItemsForVariant:(int)arg1;
+- (BOOL)hasPurchasableStoreOfferItemsForVariant:(int)arg1;
+- (unsigned int)hash;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithStoreOfferResponse:(id)arg1 preferredStoreOfferVariant:(long long)arg2 offerMediaItems:(id)arg3 localItemsQuery:(id)arg4;
-- (id)initWithStoreOfferResponse:(id)arg1 preferredStoreOfferVariant:(long long)arg2;
-- (bool)isCheaperToPurchaseIndividualItems;
-- (bool)isCollectionOfferPresentable;
-- (bool)isDownloadable;
-- (bool)isEqual:(id)arg1;
+- (id)initWithStoreOfferResponse:(id)arg1 preferredStoreOfferVariant:(int)arg2;
+- (id)initWithStoreOfferResponse:(id)arg1 preferredStoreOfferVariant:(int)arg2 offerMediaItems:(id)arg3 localItemsQuery:(id)arg4;
+- (BOOL)isCheaperToPurchaseIndividualItems;
+- (BOOL)isCollectionOfferPresentable;
+- (BOOL)isDownloadable;
+- (BOOL)isEqual:(id)arg1;
 - (id)itemsByRemovingLocalItems;
 - (id)itemsByRemovingStoreOffers;
 - (id)mediaLibrary;
 - (unsigned long long)persistentID;
-- (long long)preferredStoreOfferVariant;
+- (int)preferredStoreOfferVariant;
 - (id)title;
 - (id)valueForProperty:(id)arg1;
 - (id)valuesForProperties:(id)arg1;

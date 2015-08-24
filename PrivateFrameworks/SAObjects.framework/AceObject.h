@@ -2,25 +2,27 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSData, NSMutableDictionary, NSString;
-
 @interface AceObject : NSObject <AceObject> {
     NSString *_aceId;
+    NSNumber *_deserializationDuration;
     NSMutableDictionary *_dict;
     NSData *_plistData;
     NSString *_refId;
 }
 
-@property(copy) NSString * aceId;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) NSMutableDictionary * dict;
-@property(readonly) unsigned long long hash;
-@property(readonly) NSData * plistData;
-@property(copy) NSString * refId;
-@property(readonly) Class superclass;
+@property (nonatomic, copy) NSString *aceId;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) NSMutableDictionary *dict;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) NSData *plistData;
+@property (nonatomic, copy) NSString *refId;
+@property (readonly) Class superclass;
+
+// Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
 
 + (id)_aceObjectWithMutableDictionary:(id)arg1 context:(id)arg2;
++ (id)_filteredDictionaryForKeySet:(struct __CFSet { }*)arg1 plistData:(id)arg2;
 + (id)_newAceObjectWithMutableDictionary:(id)arg1;
 + (id)aceObjectArrayWithDictionaryArray:(id)arg1 baseClass:(Class)arg2 context:(id)arg3;
 + (id)aceObjectArrayWithDictionaryArray:(id)arg1 baseProtocol:(id)arg2 context:(id)arg3;
@@ -33,10 +35,9 @@
 + (id)dictionaryWithAceObjectDictionary:(id)arg1;
 + (id)newAceObjectWithDictionary:(id)arg1 context:(id)arg2;
 + (id)newAceObjectWithGenericCommand:(id)arg1 context:(id)arg2;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
-- (bool)_afui_isUsefulUserResultCommand;
-- (void)_appendDescriptionOfObject:(id)arg1 toString:(id)arg2 atDepth:(long long)arg3 withPrefixes:(id)arg4;
+- (void)_appendDescriptionOfObject:(id)arg1 toString:(id)arg2 atDepth:(int)arg3 withPrefixes:(id)arg4;
 - (void)_deserializeFromPlistData;
 - (id)_dict;
 - (id)_initWithMutableDictionary:(id)arg1;
@@ -46,28 +47,35 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
+- (id)deserializationDuration;
 - (id)dict;
 - (id)dictionary;
 - (void)encodeWithCoder:(id)arg1;
 - (id)encodedClassName;
 - (id)forceEagerDeserialization;
 - (id)groupIdentifier;
-- (bool)hasArrayForPropertyForKey:(id)arg1;
-- (unsigned long long)hash;
+- (BOOL)hasArrayForPropertyForKey:(id)arg1;
+- (unsigned int)hash;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithDictionary:(id)arg1 context:(id)arg2;
 - (id)initWithDictionary:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (id)initWithDictionary:(id)arg1 context:(id)arg2;
+- (BOOL)isEqual:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone { }*)arg1;
 - (id)plistData;
 - (id)properties;
 - (id)propertyForKey:(id)arg1;
+- (id)propertyForKeyWithoutDeserializing:(id)arg1;
 - (id)refId;
 - (void)setAceId:(id)arg1;
 - (void)setProperty:(id)arg1 forKey:(id)arg2;
 - (void)setRefId:(id)arg1;
 - (void)setTopLevelProperty:(id)arg1 forKey:(id)arg2;
 - (id)topLevelPropertyForKey:(id)arg1;
+- (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
+
+// Image: /System/Library/PrivateFrameworks/AssistantUI.framework/AssistantUI
+
+- (BOOL)_afui_isUsefulUserResultCommand;
 
 @end

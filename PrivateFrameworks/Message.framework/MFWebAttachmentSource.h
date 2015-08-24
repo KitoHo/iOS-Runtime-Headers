@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class MFLock, NSMutableDictionary;
-
 @interface MFWebAttachmentSource : NSObject {
     NSMutableDictionary *_attachmentsByURL;
     MFLock *_attachmentsLock;
     NSMutableDictionary *_removedAttachmentsByURL;
 }
 
-@property bool keepRemovedAttachments;
+@property BOOL keepRemovedAttachments;
 
 + (id)_setOfAllSources;
 + (id)allSources;
 
-- (id)attachmentForURL:(id)arg1 includeRemoved:(bool)arg2;
 - (id)attachmentForURL:(id)arg1;
+- (id)attachmentForURL:(id)arg1 includeRemoved:(BOOL)arg2;
 - (void)dealloc;
 - (id)description;
 - (id)init;
-- (bool)keepRemovedAttachments;
+- (BOOL)keepRemovedAttachments;
 - (void)removeAttachmentForURL:(id)arg1;
-- (bool)setAttachment:(id)arg1 forURL:(id)arg2;
-- (void)setKeepRemovedAttachments:(bool)arg1;
+- (BOOL)setAttachment:(id)arg1 forURL:(id)arg2;
+- (void)setKeepRemovedAttachments:(BOOL)arg1;
 
 @end

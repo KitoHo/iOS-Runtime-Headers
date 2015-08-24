@@ -3,42 +3,42 @@
  */
 
 @interface SKUIStorePageItemPinningLayoutInformation : NSObject {
+    float _afterPinningLocationYAdditions;
     struct CGRect { 
         struct CGPoint { 
-            double x; 
-            double y; 
+            float x; 
+            float y; 
         } origin; 
         struct CGSize { 
-            double width; 
-            double height; 
+            float width; 
+            float height; 
         } size; 
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    double _afterPinningLocationYAdditions;
     } _availablePinningFrame;
-    double _beforePinningLocationYAdditions;
+    float _beforePinningLocationYAdditions;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _layoutAttributesFrame;
 }
 
-@property double afterPinningLocationYAdditions;
-@property struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } availablePinningFrame;
-@property double beforePinningLocationYAdditions;
-@property struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } layoutAttributesFrame;
+@property (nonatomic) float afterPinningLocationYAdditions;
+@property (nonatomic) struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } availablePinningFrame;
+@property (nonatomic) float beforePinningLocationYAdditions;
+@property (nonatomic) struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } layoutAttributesFrame;
 
-- (double)afterPinningLocationYAdditions;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })availablePinningFrame;
-- (double)beforePinningLocationYAdditions;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })layoutAttributesFrame;
-- (void)setAfterPinningLocationYAdditions:(double)arg1;
-- (void)setAvailablePinningFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (void)setBeforePinningLocationYAdditions:(double)arg1;
-- (void)setLayoutAttributesFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (float)afterPinningLocationYAdditions;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })availablePinningFrame;
+- (float)beforePinningLocationYAdditions;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })layoutAttributesFrame;
+- (void)setAfterPinningLocationYAdditions:(float)arg1;
+- (void)setAvailablePinningFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (void)setBeforePinningLocationYAdditions:(float)arg1;
+- (void)setLayoutAttributesFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 
 @end

@@ -2,52 +2,50 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardFoundation.framework/SpringBoardFoundation
  */
 
-@class BSAnimationSettings;
-
 @interface SBFAnimationSettings : SBFAnimationCurveSettings {
-    long long _animationType;
+    int _animationType;
     double _calculatedDuration;
-    double _damping;
+    float _damping;
     double _delay;
     double _duration;
-    double _epsilon;
+    float _epsilon;
     BSAnimationSettings *_exportedSettings;
-    double _mass;
-    double _stiffness;
+    float _mass;
+    float _stiffness;
 }
 
-@property long long animationType;
-@property double calculatedDuration;
-@property double damping;
-@property double delay;
-@property double duration;
-@property double epsilon;
-@property double mass;
-@property double stiffness;
+@property (nonatomic) int animationType;
+@property (nonatomic) double calculatedDuration;
+@property (nonatomic) float damping;
+@property (nonatomic) double delay;
+@property (nonatomic) double duration;
+@property (nonatomic) float epsilon;
+@property (nonatomic) float mass;
+@property (nonatomic) float stiffness;
 
-+ (id)_moduleWithSectionTitle:(id)arg1 delay:(bool)arg2;
 + (id)_moduleWithSectionTitle:(id)arg1;
++ (id)_moduleWithSectionTitle:(id)arg1 delay:(BOOL)arg2;
 + (id)settingsControllerModule;
 
 - (id)BSAnimationSettings;
 - (void)_invalidate;
-- (long long)animationType;
+- (int)animationType;
 - (double)calculatedDuration;
-- (double)damping;
+- (float)damping;
 - (void)dealloc;
 - (double)delay;
 - (double)duration;
-- (double)epsilon;
-- (double)mass;
-- (void)setAnimationType:(long long)arg1;
+- (float)epsilon;
+- (float)mass;
+- (void)setAnimationType:(int)arg1;
 - (void)setCalculatedDuration:(double)arg1;
-- (void)setDamping:(double)arg1;
+- (void)setDamping:(float)arg1;
 - (void)setDefaultValues;
 - (void)setDelay:(double)arg1;
 - (void)setDuration:(double)arg1;
-- (void)setEpsilon:(double)arg1;
-- (void)setMass:(double)arg1;
-- (void)setStiffness:(double)arg1;
-- (double)stiffness;
+- (void)setEpsilon:(float)arg1;
+- (void)setMass:(float)arg1;
+- (void)setStiffness:(float)arg1;
+- (float)stiffness;
 
 @end

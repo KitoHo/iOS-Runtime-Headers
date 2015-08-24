@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPRecordIdentifier, CKDPRequestedFields, NSString;
-
 @interface CKDPRecordRetrieveVersionsRequest : PBRequest <NSCopying> {
     NSString *_minimumVersionEtag;
     CKDPRecordIdentifier *_recordIdentifier;
     CKDPRequestedFields *_requestedFields;
 }
 
-@property(readonly) bool hasMinimumVersionEtag;
-@property(readonly) bool hasRecordIdentifier;
-@property(readonly) bool hasRequestedFields;
-@property(retain) NSString * minimumVersionEtag;
-@property(retain) CKDPRecordIdentifier * recordIdentifier;
-@property(retain) CKDPRequestedFields * requestedFields;
+@property (nonatomic, readonly) BOOL hasMinimumVersionEtag;
+@property (nonatomic, readonly) BOOL hasRecordIdentifier;
+@property (nonatomic, readonly) BOOL hasRequestedFields;
+@property (nonatomic, retain) NSString *minimumVersionEtag;
+@property (nonatomic, retain) CKDPRecordIdentifier *recordIdentifier;
+@property (nonatomic, retain) CKDPRequestedFields *requestedFields;
 
 + (id)options;
 
@@ -24,14 +22,14 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasMinimumVersionEtag;
-- (bool)hasRecordIdentifier;
-- (bool)hasRequestedFields;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasMinimumVersionEtag;
+- (BOOL)hasRecordIdentifier;
+- (BOOL)hasRequestedFields;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)minimumVersionEtag;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)recordIdentifier;
 - (unsigned int)requestTypeCode;
 - (id)requestedFields;

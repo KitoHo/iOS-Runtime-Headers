@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVAssetProxyInternal;
-
 @interface AVAssetProxy : AVAsset {
     AVAssetProxyInternal *_assetProxy;
 }
@@ -20,7 +18,7 @@
 - (void)dealloc;
 - (void)finalize;
 - (id)initWithPropertyList:(id)arg1;
-- (bool)isProxy;
+- (BOOL)isProxy;
 - (id)tracks;
 
 @end

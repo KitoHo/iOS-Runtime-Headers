@@ -2,21 +2,20 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@interface SASettingSetBool : SASettingSetValue {
-}
+@interface SASettingSetBool : SASettingSetValue
 
-@property bool toggle;
-@property bool value;
+@property (nonatomic) BOOL toggle;
+@property (nonatomic) BOOL value;
 
 + (id)setBool;
 + (id)setBoolWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (bool)requiresResponse;
-- (void)setToggle:(bool)arg1;
-- (void)setValue:(bool)arg1;
-- (bool)toggle;
-- (bool)value;
+- (BOOL)requiresResponse;
+- (void)setToggle:(BOOL)arg1;
+- (void)setValue:(BOOL)arg1;
+- (BOOL)toggle;
+- (BOOL)value;
 
 @end

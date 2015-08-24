@@ -2,11 +2,6 @@
    Image: /System/Library/PrivateFrameworks/WebKitLegacy.framework/WebKitLegacy
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
 @interface WebUndoStep : NSObject {
     struct RefPtr<WebCore::UndoStep> { 
         struct UndoStep {} *m_ptr; 
@@ -16,11 +11,11 @@
 + (void)initialize;
 + (id)stepWithUndoStep:(struct PassRefPtr<WebCore::UndoStep> { struct UndoStep {} *x1; })arg1;
 
-- (struct UndoStep { int (**x1)(); unsigned int x2; }*)step;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)dealloc;
 - (void)finalize;
 - (id)initWithUndoStep:(struct PassRefPtr<WebCore::UndoStep> { struct UndoStep {} *x1; })arg1;
+- (struct UndoStep { int (**x1)(); unsigned int x2; }*)step;
 
 @end

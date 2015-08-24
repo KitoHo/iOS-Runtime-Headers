@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/Stocks.framework/Stocks
  */
 
-@class ChartLabelInfo, NSMutableArray;
-
 @interface ChartLabelInfoManager : NSObject {
     NSMutableArray *_integerLabelInfoArray;
     NSMutableArray *_monthLabelInfoArrays;
+    BOOL _use24hrTime;
     ChartLabelInfo *_yAxisLabelInfo;
-    bool_use24hrTime;
 }
 
-+ (struct __CFString { }*)_CFDateFormatterPropertyForMonthLabelLength:(long long)arg1;
++ (struct __CFString { }*)_CFDateFormatterPropertyForMonthLabelLength:(int)arg1;
 + (id)chartLabelFont;
 + (void)clearSharedManager;
 + (id)sharedLabelInfoManager;
@@ -21,9 +19,9 @@
 - (id)init;
 - (id)labelInfoForYAxis;
 - (id)labelInfoWithString:(id)arg1;
-- (id)labelInfoWithUnsignedInteger:(unsigned long long)arg1;
-- (id)monthLabelInfoArrayForLabelLength:(long long)arg1;
+- (id)labelInfoWithUnsignedInteger:(unsigned int)arg1;
+- (id)monthLabelInfoArrayForLabelLength:(int)arg1;
 - (void)resetLocale;
-- (bool)use24hrTime;
+- (BOOL)use24hrTime;
 
 @end

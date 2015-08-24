@@ -2,8 +2,7 @@
    Image: /System/Library/PrivateFrameworks/IMCore.framework/IMCore
  */
 
-@interface IMAddressBook : NSObject {
-}
+@interface IMAddressBook : NSObject
 
 + (void*)_abAddressBookRef;
 + (id)_threadedABAddressBookLock;
@@ -11,8 +10,8 @@
 + (void)_watchLocaleChanges;
 + (id*)abAddressBook;
 + (void*)abAddressBookRef;
-+ (bool)addressBookEnabled;
-+ (void)performBlock:(id)arg1;
-+ (void)setAddressBookEnabled:(bool)arg1;
++ (BOOL)addressBookEnabled;
++ (void)performBlock:(id /* block */)arg1;
++ (void)setAddressBookEnabled:(BOOL)arg1;
 
 @end

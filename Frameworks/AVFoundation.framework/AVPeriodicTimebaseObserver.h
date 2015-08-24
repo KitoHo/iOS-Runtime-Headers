@@ -2,41 +2,37 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface AVPeriodicTimebaseObserver : AVTimebaseObserver {
+    id /* block */ _block;
     struct { 
         long long value; 
         int timescale; 
         unsigned int flags; 
         long long epoch; 
-    struct { 
-        long long value; 
-        int timescale; 
-        unsigned int flags; 
-        long long epoch; 
-    struct { 
-        long long value; 
-        int timescale; 
-        unsigned int flags; 
-        long long epoch; 
-    struct { 
-        long long value; 
-        int timescale; 
-        unsigned int flags; 
-        long long epoch; 
-    struct { 
-        long long value; 
-        int timescale; 
-        unsigned int flags; 
-        long long epoch; 
-    id _block;
     } _intervalRequested;
+    struct { 
+        long long value; 
+        int timescale; 
+        unsigned int flags; 
+        long long epoch; 
     } _lastIntervalUsed;
+    struct { 
+        long long value; 
+        int timescale; 
+        unsigned int flags; 
+        long long epoch; 
     } _lastNonperiodicFireTime;
+    struct { 
+        long long value; 
+        int timescale; 
+        unsigned int flags; 
+        long long epoch; 
     } _lastPeriodicFireTime;
+    struct { 
+        long long value; 
+        int timescale; 
+        unsigned int flags; 
+        long long epoch; 
     } _lastStopTime;
     unsigned int _sequenceNum;
 }
@@ -46,6 +42,6 @@
 - (void)_handleTimeDiscontinuity;
 - (void)_resetNextFireTime;
 - (void)dealloc;
-- (id)initWithTimebase:(struct OpaqueCMTimebase { }*)arg1 interval:(struct { long long x1; int x2; unsigned int x3; long long x4; })arg2 queue:(id)arg3 block:(id)arg4;
+- (id)initWithTimebase:(struct OpaqueCMTimebase { }*)arg1 interval:(struct { long long x1; int x2; unsigned int x3; long long x4; })arg2 queue:(id)arg3 block:(id /* block */)arg4;
 
 @end

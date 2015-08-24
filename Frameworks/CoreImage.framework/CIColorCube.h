@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIImage, NSData, NSNumber;
-
 @interface CIColorCube : CIFilter {
     CIImage *_cubeImage;
     NSData *inputCubeData;
@@ -11,13 +9,13 @@
     CIImage *inputImage;
 }
 
-@property(copy) NSData * inputCubeData;
-@property(retain) NSNumber * inputCubeDimension;
-@property(retain) CIImage * inputImage;
+@property (nonatomic, copy) NSData *inputCubeData;
+@property (nonatomic, retain) NSNumber *inputCubeDimension;
+@property (nonatomic, retain) CIImage *inputImage;
 
 + (id)customAttributes;
 
-- (bool)_checkInputs;
+- (BOOL)_checkInputs;
 - (id)_kernel;
 - (id)cubeImage;
 - (void)dealloc;

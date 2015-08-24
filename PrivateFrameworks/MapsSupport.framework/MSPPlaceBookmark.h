@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/MapsSupport.framework/MapsSupport
  */
 
-@class GEOLatLng, GEOMapItemStorage, NSString, PBUnknownFields;
-
 @interface MSPPlaceBookmark : PBCodable <NSCopying> {
+    GEOLatLng *_droppedPinCoordinate;
     struct { 
         unsigned int origin : 1; 
-    GEOLatLng *_droppedPinCoordinate;
     } _has;
     GEOMapItemStorage *_mapItemStorage;
     int _origin;
@@ -15,15 +13,15 @@
     PBUnknownFields *_unknownFields;
 }
 
-@property(retain) GEOLatLng * droppedPinCoordinate;
-@property(readonly) bool hasDroppedPinCoordinate;
-@property(readonly) bool hasMapItemStorage;
-@property bool hasOrigin;
-@property(readonly) bool hasTitle;
-@property(retain) GEOMapItemStorage * mapItemStorage;
-@property int origin;
-@property(retain) NSString * title;
-@property(readonly) PBUnknownFields * unknownFields;
+@property (nonatomic, retain) GEOLatLng *droppedPinCoordinate;
+@property (nonatomic, readonly) BOOL hasDroppedPinCoordinate;
+@property (nonatomic, readonly) BOOL hasMapItemStorage;
+@property (nonatomic) BOOL hasOrigin;
+@property (nonatomic, readonly) BOOL hasTitle;
+@property (nonatomic, retain) GEOMapItemStorage *mapItemStorage;
+@property (nonatomic) int origin;
+@property (nonatomic, retain) NSString *title;
+@property (nonatomic, readonly) PBUnknownFields *unknownFields;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
@@ -31,18 +29,18 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)droppedPinCoordinate;
-- (bool)hasDroppedPinCoordinate;
-- (bool)hasMapItemStorage;
-- (bool)hasOrigin;
-- (bool)hasTitle;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasDroppedPinCoordinate;
+- (BOOL)hasMapItemStorage;
+- (BOOL)hasOrigin;
+- (BOOL)hasTitle;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)mapItemStorage;
 - (void)mergeFrom:(id)arg1;
 - (int)origin;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setDroppedPinCoordinate:(id)arg1;
-- (void)setHasOrigin:(bool)arg1;
+- (void)setHasOrigin:(BOOL)arg1;
 - (void)setMapItemStorage:(id)arg1;
 - (void)setOrigin:(int)arg1;
 - (void)setTitle:(id)arg1;

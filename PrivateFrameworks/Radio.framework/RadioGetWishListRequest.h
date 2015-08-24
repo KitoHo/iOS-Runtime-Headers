@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/Radio.framework/Radio
  */
 
-@class SSURLConnectionRequest;
-
 @interface RadioGetWishListRequest : RadioRequest {
-    unsigned long long _maxNumberOfTracks;
+    unsigned int _maxNumberOfTracks;
     SSURLConnectionRequest *_request;
 }
 
-@property unsigned long long maxNumberOfTracks;
+@property (nonatomic) unsigned int maxNumberOfTracks;
 
 - (void).cxx_destruct;
 - (void)cancel;
 - (id)init;
-- (unsigned long long)maxNumberOfTracks;
-- (void)setMaxNumberOfTracks:(unsigned long long)arg1;
-- (void)startWithCompletionHandler:(id)arg1;
+- (unsigned int)maxNumberOfTracks;
+- (void)setMaxNumberOfTracks:(unsigned int)arg1;
+- (void)startWithCompletionHandler:(id /* block */)arg1;
 
 @end

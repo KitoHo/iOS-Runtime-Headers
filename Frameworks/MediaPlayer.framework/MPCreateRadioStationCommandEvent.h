@@ -2,19 +2,17 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class NSURL;
-
 @interface MPCreateRadioStationCommandEvent : MPRemoteCommandEvent {
+    BOOL _requestingPlaybackInitialization;
     NSURL *_stationURL;
-    bool_requestingPlaybackInitialization;
 }
 
-@property(getter=isRequestingPlaybackInitialization,readonly) bool requestingPlaybackInitialization;
-@property(readonly) NSURL * stationURL;
+@property (getter=isRequestingPlaybackInitialization, nonatomic, readonly) BOOL requestingPlaybackInitialization;
+@property (nonatomic, readonly) NSURL *stationURL;
 
 - (void).cxx_destruct;
 - (id)initWithCommand:(id)arg1 mediaRemoteType:(unsigned int)arg2 options:(id)arg3;
-- (bool)isRequestingPlaybackInitialization;
+- (BOOL)isRequestingPlaybackInitialization;
 - (id)stationURL;
 
 @end

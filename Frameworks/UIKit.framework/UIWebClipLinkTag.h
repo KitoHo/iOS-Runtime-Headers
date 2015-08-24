@@ -2,32 +2,30 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString, NSURL;
-
 @interface UIWebClipLinkTag : NSObject {
     NSString *_href;
+    BOOL _mediaMatchesLandscapeOrientation;
+    BOOL _mediaMatchesPortraitOrientation;
     NSString *_rel;
     NSString *_sizes;
-    bool_mediaMatchesLandscapeOrientation;
-    bool_mediaMatchesPortraitOrientation;
 }
 
-@property(copy) NSString * href;
-@property(readonly) NSURL * hrefURL;
-@property bool mediaMatchesLandscapeOrientation;
-@property bool mediaMatchesPortraitOrientation;
-@property(copy) NSString * rel;
-@property(copy) NSString * sizes;
+@property (nonatomic, copy) NSString *href;
+@property (nonatomic, readonly) NSURL *hrefURL;
+@property (nonatomic) BOOL mediaMatchesLandscapeOrientation;
+@property (nonatomic) BOOL mediaMatchesPortraitOrientation;
+@property (nonatomic, copy) NSString *rel;
+@property (nonatomic, copy) NSString *sizes;
 
 - (void)dealloc;
 - (id)href;
 - (id)hrefURL;
-- (bool)mediaMatchesLandscapeOrientation;
-- (bool)mediaMatchesPortraitOrientation;
+- (BOOL)mediaMatchesLandscapeOrientation;
+- (BOOL)mediaMatchesPortraitOrientation;
 - (id)rel;
 - (void)setHref:(id)arg1;
-- (void)setMediaMatchesLandscapeOrientation:(bool)arg1;
-- (void)setMediaMatchesPortraitOrientation:(bool)arg1;
+- (void)setMediaMatchesLandscapeOrientation:(BOOL)arg1;
+- (void)setMediaMatchesPortraitOrientation:(BOOL)arg1;
 - (void)setRel:(id)arg1;
 - (void)setSizes:(id)arg1;
 - (id)sizes;

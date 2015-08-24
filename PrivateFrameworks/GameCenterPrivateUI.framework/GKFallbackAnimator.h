@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@interface GKFallbackAnimator : GKBubblePathAnimator {
-}
+@interface GKFallbackAnimator : GKBubblePathAnimator
 
 - (void)animateTransition:(id)arg1;
-- (long long)animatorType;
+- (int)animatorType;
 - (double)minimumDurationForViewAnimations;
 
 @end

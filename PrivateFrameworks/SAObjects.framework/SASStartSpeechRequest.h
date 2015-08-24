@@ -2,30 +2,27 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSDictionary;
+@interface SASStartSpeechRequest : SASStartSpeech
 
-@interface SASStartSpeechRequest : SASStartSpeech {
-}
-
-@property bool eyesFree;
-@property bool handsFree;
-@property bool talkOnly;
-@property(copy) NSDictionary * voiceTriggerEventInfo;
-@property(copy) NSArray * voiceTriggerPhrases;
+@property (nonatomic) BOOL eyesFree;
+@property (nonatomic) BOOL handsFree;
+@property (nonatomic) BOOL talkOnly;
+@property (nonatomic, copy) NSDictionary *voiceTriggerEventInfo;
+@property (nonatomic, copy) NSArray *voiceTriggerPhrases;
 
 + (id)startSpeechRequest;
 + (id)startSpeechRequestWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
-- (bool)eyesFree;
+- (BOOL)eyesFree;
 - (id)groupIdentifier;
-- (bool)handsFree;
-- (void)setEyesFree:(bool)arg1;
-- (void)setHandsFree:(bool)arg1;
-- (void)setTalkOnly:(bool)arg1;
+- (BOOL)handsFree;
+- (void)setEyesFree:(BOOL)arg1;
+- (void)setHandsFree:(BOOL)arg1;
+- (void)setTalkOnly:(BOOL)arg1;
 - (void)setVoiceTriggerEventInfo:(id)arg1;
 - (void)setVoiceTriggerPhrases:(id)arg1;
-- (bool)talkOnly;
+- (BOOL)talkOnly;
 - (id)voiceTriggerEventInfo;
 - (id)voiceTriggerPhrases;
 

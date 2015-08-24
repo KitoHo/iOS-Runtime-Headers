@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@interface _CKExpirableComposition : CKComposition {
-}
+@interface _CKExpirableComposition : CKComposition
 
 + (id)compositionWithMediaObject:(id)arg1 subject:(id)arg2;
 
-- (bool)isSaveable;
-- (bool)isSendAnimated;
+- (BOOL)isSaveable;
+- (BOOL)isSendAnimated;
 
 @end

@@ -2,13 +2,11 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSLocale;
-
 @interface NSAutoLocale : NSLocale {
     NSLocale *loc;
 }
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)_init;
 - (unsigned char)_nullLocale;

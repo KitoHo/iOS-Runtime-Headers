@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/AirPortAssistant.framework/AirPortAssistant
  */
 
-@class <TableViewManagerDelegate>, TableViewManager, UITableView;
-
 @interface AUUITableViewController : UITableViewController <TableViewManagerDelegate> {
     TableViewManager *_tableManager;
 }
 
-@property <TableViewManagerDelegate> * delegate;
-@property(readonly) TableViewManager * tableManager;
-@property(retain) UITableView * tableView;
+@property (nonatomic) <TableViewManagerDelegate> *delegate;
+@property (nonatomic, readonly) TableViewManager *tableManager;
+@property (nonatomic, retain) UITableView *tableView;
 
 - (void)dealloc;
 - (id)delegate;
@@ -21,7 +19,7 @@
 - (void)setDelegate:(id)arg1;
 - (void)setTableView:(id)arg1;
 - (id)tableManager;
-- (void)viewWillAppear:(bool)arg1;
-- (void)viewWillDisappear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 
 @end

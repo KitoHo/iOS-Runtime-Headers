@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@interface PLSharedManagedObjectContext : PLManagedObjectContext {
-}
+@interface PLSharedManagedObjectContext : PLManagedObjectContext
 
-- (void)_mergeChangesFromDidSaveDictionary:(id)arg1 usingObjectIDs:(bool)arg2;
-- (bool)isUserInterfaceContext;
+- (void)_mergeChangesFromDidSaveDictionary:(id)arg1 usingObjectIDs:(BOOL)arg2;
+- (BOOL)isUserInterfaceContext;
 - (void)setupLocalChangeNotifications;
 - (void)tearDownLocalChangeNotifications;
 

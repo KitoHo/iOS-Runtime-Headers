@@ -2,68 +2,64 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface AVCaptureStillImageRequest_FigRecorder : NSObject <NSCopying> {
-    struct CGSize { 
-        double width; 
-        double height; 
-    long long _HDRMode;
-    unsigned int _imageDataFormatType;
-    id _iosurfaceCompletionBlock;
+    int _HDRMode;
+    unsigned long _imageDataFormatType;
+    id /* block */ _iosurfaceCompletionBlock;
     float _jpegQuality;
+    BOOL _jpegQualitySpecified;
+    BOOL _noiseReductionEnabled;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _previewImageSize;
-    id _sbufCompletionBlock;
-    unsigned int _shutterSoundID;
-    long long _stillImageOrientation;
-    bool_jpegQualitySpecified;
-    bool_noiseReductionEnabled;
-    bool_stillImageMirrored;
-    bool_suspendsVideoProcessing;
+    id /* block */ _sbufCompletionBlock;
+    unsigned long _shutterSoundID;
+    BOOL _stillImageMirrored;
+    int _stillImageOrientation;
+    BOOL _suspendsVideoProcessing;
 }
 
-@property long long HDRMode;
-@property unsigned int imageDataFormatType;
-@property(copy) id iosurfaceCompletionBlock;
+@property int HDRMode;
+@property unsigned long imageDataFormatType;
+@property (copy) id /* block */ iosurfaceCompletionBlock;
 @property float jpegQuality;
-@property bool jpegQualitySpecified;
-@property bool noiseReductionEnabled;
-@property struct CGSize { double x1; double x2; } previewImageSize;
-@property(copy) id sbufCompletionBlock;
-@property unsigned int shutterSoundID;
-@property(getter=isStillImageMirrored) bool stillImageMirrored;
-@property long long stillImageOrientation;
-@property bool suspendsVideoProcessing;
+@property BOOL jpegQualitySpecified;
+@property BOOL noiseReductionEnabled;
+@property struct CGSize { float x1; float x2; } previewImageSize;
+@property (copy) id /* block */ sbufCompletionBlock;
+@property unsigned long shutterSoundID;
+@property (getter=isStillImageMirrored) BOOL stillImageMirrored;
+@property int stillImageOrientation;
+@property BOOL suspendsVideoProcessing;
 
 + (id)request;
 
-- (long long)HDRMode;
+- (int)HDRMode;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
-- (unsigned int)imageDataFormatType;
-- (id)iosurfaceCompletionBlock;
-- (bool)isStillImageMirrored;
+- (unsigned long)imageDataFormatType;
+- (id /* block */)iosurfaceCompletionBlock;
+- (BOOL)isStillImageMirrored;
 - (float)jpegQuality;
-- (bool)jpegQualitySpecified;
-- (bool)noiseReductionEnabled;
-- (struct CGSize { double x1; double x2; })previewImageSize;
-- (id)sbufCompletionBlock;
-- (void)setHDRMode:(long long)arg1;
-- (void)setImageDataFormatType:(unsigned int)arg1;
-- (void)setIosurfaceCompletionBlock:(id)arg1;
+- (BOOL)jpegQualitySpecified;
+- (BOOL)noiseReductionEnabled;
+- (struct CGSize { float x1; float x2; })previewImageSize;
+- (id /* block */)sbufCompletionBlock;
+- (void)setHDRMode:(int)arg1;
+- (void)setImageDataFormatType:(unsigned long)arg1;
+- (void)setIosurfaceCompletionBlock:(id /* block */)arg1;
 - (void)setJpegQuality:(float)arg1;
-- (void)setJpegQualitySpecified:(bool)arg1;
-- (void)setNoiseReductionEnabled:(bool)arg1;
-- (void)setPreviewImageSize:(struct CGSize { double x1; double x2; })arg1;
-- (void)setSbufCompletionBlock:(id)arg1;
-- (void)setShutterSoundID:(unsigned int)arg1;
-- (void)setStillImageMirrored:(bool)arg1;
-- (void)setStillImageOrientation:(long long)arg1;
-- (void)setSuspendsVideoProcessing:(bool)arg1;
-- (unsigned int)shutterSoundID;
-- (long long)stillImageOrientation;
-- (bool)suspendsVideoProcessing;
+- (void)setJpegQualitySpecified:(BOOL)arg1;
+- (void)setNoiseReductionEnabled:(BOOL)arg1;
+- (void)setPreviewImageSize:(struct CGSize { float x1; float x2; })arg1;
+- (void)setSbufCompletionBlock:(id /* block */)arg1;
+- (void)setShutterSoundID:(unsigned long)arg1;
+- (void)setStillImageMirrored:(BOOL)arg1;
+- (void)setStillImageOrientation:(int)arg1;
+- (void)setSuspendsVideoProcessing:(BOOL)arg1;
+- (unsigned long)shutterSoundID;
+- (int)stillImageOrientation;
+- (BOOL)suspendsVideoProcessing;
 
 @end

@@ -2,24 +2,22 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@class CNSocialProfile, NSString;
-
 @interface ABPropertySocialProfileEditingCell : ABPropertySimpleEditingCell <ABPickerControllerDelegate> {
     NSString *_previousValue;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) CNSocialProfile * profile;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) CNSocialProfile *profile;
+@property (readonly) Class superclass;
 
 - (void)dealloc;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (void)labelButtonClicked:(id)arg1;
 - (void)picker:(id)arg1 didPickItem:(id)arg2;
 - (void)pickerDidCancel:(id)arg1;
 - (id)profile;
-- (struct { id x1; unsigned long long x2; })suggestionsForString:(id)arg1 inputIndex:(unsigned int)arg2;
+- (struct { id x1; })suggestionsForString:(id)arg1 inputIndex:(unsigned int)arg2;
 
 @end

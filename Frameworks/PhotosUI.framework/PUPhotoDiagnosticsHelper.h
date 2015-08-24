@@ -2,28 +2,26 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class <PUPhotoDiagnosticsHelperDelegate>, NSString, PUPhotoDiagnosticsHelper, UIViewController;
-
-@interface PUPhotoDiagnosticsHelper : NSObject <UIAlertViewDelegate, MFMailComposeViewControllerDelegate> {
+@interface PUPhotoDiagnosticsHelper : NSObject <MFMailComposeViewControllerDelegate, UIAlertViewDelegate> {
     PUPhotoDiagnosticsHelper *__keepSelf;
     <PUPhotoDiagnosticsHelperDelegate> *_delegate;
     UIViewController *_referenceViewController;
 }
 
-@property(setter=_setKeepSelf:,retain) PUPhotoDiagnosticsHelper * _keepSelf;
-@property(copy,readonly) NSString * debugDescription;
-@property <PUPhotoDiagnosticsHelperDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property UIViewController * referenceViewController;
-@property(readonly) Class superclass;
+@property (setter=_setKeepSelf:, nonatomic, retain) PUPhotoDiagnosticsHelper *_keepSelf;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <PUPhotoDiagnosticsHelperDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) UIViewController *referenceViewController;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (void)_composeMessageForDiagnosticInformation:(id)arg1 withProblemType:(long long)arg2;
-- (void)_finishedWithDataSent:(bool)arg1;
+- (void)_composeMessageForDiagnosticInformation:(id)arg1 withProblemType:(int)arg2;
+- (void)_finishedWithDataSent:(BOOL)arg1;
 - (id)_keepSelf;
 - (void)_setKeepSelf:(id)arg1;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)collectDiagnosticsWithInformation:(id)arg1;
 - (id)delegate;
 - (id)initWithReferenceViewController:(id)arg1;

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSURL, SKUIApplicationLicensePage, SSVLoadURLOperation, UIWebView;
-
 @interface SKUIApplicationLicenseViewController : SKUIViewController {
     SKUIApplicationLicensePage *_licensePage;
     SSVLoadURLOperation *_loadOperation;
@@ -17,6 +15,6 @@
 - (id)initWithLicenseAgreementURL:(id)arg1;
 - (void)loadView;
 - (void)reloadData;
-- (void)viewWillAppear:(bool)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 
 @end

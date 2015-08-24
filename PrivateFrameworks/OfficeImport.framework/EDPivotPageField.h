@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface EDPivotPageField : NSObject {
     NSString *mCap;
-    unsigned long long mFieldId;
+    unsigned long mFieldId;
     NSString *mName;
 }
 
@@ -14,11 +12,11 @@
 
 - (id)cap;
 - (void)dealloc;
-- (unsigned long long)fieldId;
+- (unsigned long)fieldId;
 - (id)init;
 - (id)name;
 - (void)setCap:(id)arg1;
-- (void)setFieldId:(unsigned long long)arg1;
+- (void)setFieldId:(unsigned long)arg1;
 - (void)setName:(id)arg1;
 
 @end

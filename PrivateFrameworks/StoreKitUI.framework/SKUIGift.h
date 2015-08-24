@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, NSDate, NSString, SKUIGiftTheme, SKUIItem;
-
 @interface SKUIGift : NSObject <NSCopying> {
-    long long _category;
+    int _category;
     NSDate *_deliveryDate;
-    long long _giftAmount;
+    int _giftAmount;
     NSString *_giftAmountString;
     SKUIItem *_item;
     NSString *_message;
@@ -18,26 +16,26 @@
     NSString *_totalGiftAmountString;
 }
 
-@property(copy) NSDate * deliveryDate;
-@property long long giftAmount;
-@property(copy) NSString * giftAmountString;
-@property(readonly) long long giftCategory;
-@property(readonly) SKUIItem * item;
-@property(copy) NSString * message;
-@property(copy) NSArray * recipientAddresses;
-@property(copy) NSString * senderEmailAddress;
-@property(copy) NSString * senderName;
-@property(copy) SKUIGiftTheme * theme;
-@property(copy) NSString * totalGiftAmountString;
+@property (nonatomic, copy) NSDate *deliveryDate;
+@property (nonatomic) int giftAmount;
+@property (nonatomic, copy) NSString *giftAmountString;
+@property (nonatomic, readonly) int giftCategory;
+@property (nonatomic, readonly) SKUIItem *item;
+@property (nonatomic, copy) NSString *message;
+@property (nonatomic, copy) NSArray *recipientAddresses;
+@property (nonatomic, copy) NSString *senderEmailAddress;
+@property (nonatomic, copy) NSString *senderName;
+@property (nonatomic, copy) SKUIGiftTheme *theme;
+@property (nonatomic, copy) NSString *totalGiftAmountString;
 
 - (void).cxx_destruct;
 - (id)HTTPBodyDictionary;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)deliveryDate;
-- (long long)giftAmount;
+- (int)giftAmount;
 - (id)giftAmountString;
-- (long long)giftCategory;
-- (id)initWithGiftCategory:(long long)arg1;
+- (int)giftCategory;
+- (id)initWithGiftCategory:(int)arg1;
 - (id)initWithItem:(id)arg1;
 - (id)item;
 - (id)message;
@@ -46,7 +44,7 @@
 - (id)senderEmailAddress;
 - (id)senderName;
 - (void)setDeliveryDate:(id)arg1;
-- (void)setGiftAmount:(long long)arg1;
+- (void)setGiftAmount:(int)arg1;
 - (void)setGiftAmountString:(id)arg1;
 - (void)setMessage:(id)arg1;
 - (void)setRecipientAddresses:(id)arg1;

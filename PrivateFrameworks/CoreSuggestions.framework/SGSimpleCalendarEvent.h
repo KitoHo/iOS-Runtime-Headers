@@ -2,14 +2,13 @@
    Image: /System/Library/PrivateFrameworks/CoreSuggestions.framework/CoreSuggestions
  */
 
-@class NSArray, NSDate, NSString, NSTimeZone, NSURL, SGSimpleNamedEmailAddress;
-
-@interface SGSimpleCalendarEvent : NSObject <NSSecureCoding, NSCopying> {
+@interface SGSimpleCalendarEvent : NSObject <NSCopying, NSSecureCoding> {
     NSURL *_URL;
     NSString *_calendar;
     NSDate *_creationDate;
     NSDate *_end;
     NSString *_identifier;
+    BOOL _isAllDay;
     NSDate *_lastModifiedDate;
     NSString *_location;
     NSString *_notes;
@@ -18,27 +17,26 @@
     NSDate *_start;
     NSTimeZone *_timeZone;
     NSString *_title;
-    bool_isAllDay;
 }
 
-@property(readonly) NSURL * URL;
-@property(readonly) NSString * calendar;
-@property(readonly) NSDate * creationDate;
-@property(readonly) NSDate * end;
-@property(readonly) NSString * identifier;
-@property(readonly) bool isAllDay;
-@property(readonly) NSDate * lastModifiedDate;
-@property(readonly) NSString * location;
-@property(readonly) NSString * notes;
-@property(readonly) SGSimpleNamedEmailAddress * organizer;
-@property(readonly) NSArray * participants;
-@property(readonly) NSDate * start;
-@property(readonly) NSTimeZone * timeZone;
-@property(readonly) NSString * title;
+@property (nonatomic, readonly) NSURL *URL;
+@property (nonatomic, readonly) NSString *calendar;
+@property (nonatomic, readonly) NSDate *creationDate;
+@property (nonatomic, readonly) NSDate *end;
+@property (nonatomic, readonly) NSString *identifier;
+@property (nonatomic, readonly) BOOL isAllDay;
+@property (nonatomic, readonly) NSDate *lastModifiedDate;
+@property (nonatomic, readonly) NSString *location;
+@property (nonatomic, readonly) NSString *notes;
+@property (nonatomic, readonly) SGSimpleNamedEmailAddress *organizer;
+@property (nonatomic, readonly) NSArray *participants;
+@property (nonatomic, readonly) NSDate *start;
+@property (nonatomic, readonly) NSTimeZone *timeZone;
+@property (nonatomic, readonly) NSString *title;
 
 + (id)eventWithIdentifier:(id)arg1 properties:(id)arg2;
-+ (id)eventWithIdentifier:(id)arg1 title:(id)arg2 start:(id)arg3 end:(id)arg4 timeZone:(id)arg5 creationDate:(id)arg6 lastModifiedDate:(id)arg7 isAllDay:(bool)arg8 calendar:(id)arg9 notes:(id)arg10 location:(id)arg11 organizer:(id)arg12 participants:(id)arg13 url:(id)arg14;
-+ (bool)supportsSecureCoding;
++ (id)eventWithIdentifier:(id)arg1 title:(id)arg2 start:(id)arg3 end:(id)arg4 timeZone:(id)arg5 creationDate:(id)arg6 lastModifiedDate:(id)arg7 isAllDay:(BOOL)arg8 calendar:(id)arg9 notes:(id)arg10 location:(id)arg11 organizer:(id)arg12 participants:(id)arg13 url:(id)arg14;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)URL;
@@ -49,14 +47,14 @@
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)end;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)identifier;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithEKEvent:(id)arg1;
-- (id)initWithIdentifier:(id)arg1 title:(id)arg2 start:(id)arg3 end:(id)arg4 timeZone:(id)arg5 creationDate:(id)arg6 lastModifiedDate:(id)arg7 isAllDay:(bool)arg8 calendar:(id)arg9 notes:(id)arg10 location:(id)arg11 organizer:(id)arg12 participants:(id)arg13 url:(id)arg14;
-- (bool)isAllDay;
-- (bool)isEqual:(id)arg1;
-- (bool)isEqualToSimpleCalendarEvent:(id)arg1;
+- (id)initWithIdentifier:(id)arg1 title:(id)arg2 start:(id)arg3 end:(id)arg4 timeZone:(id)arg5 creationDate:(id)arg6 lastModifiedDate:(id)arg7 isAllDay:(BOOL)arg8 calendar:(id)arg9 notes:(id)arg10 location:(id)arg11 organizer:(id)arg12 participants:(id)arg13 url:(id)arg14;
+- (BOOL)isAllDay;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToSimpleCalendarEvent:(id)arg1;
 - (id)lastModifiedDate;
 - (id)location;
 - (id)notes;

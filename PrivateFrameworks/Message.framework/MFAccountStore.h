@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class ACAccountStore;
-
 @interface MFAccountStore : NSObject {
     ACAccountStore *_accountStore;
     int _accountStoreLock;
 }
 
-@property(readonly) ACAccountStore * persistentStore;
+@property (readonly) ACAccountStore *persistentStore;
 
-+ (id)_accountWithAccountClass:(Class)arg1 persistentAccount:(id)arg2 useExisting:(bool)arg3;
-+ (bool)_shouldUpdateAccountsInPlace;
++ (id)_accountWithAccountClass:(Class)arg1 persistentAccount:(id)arg2 useExisting:(BOOL)arg3;
++ (BOOL)_shouldUpdateAccountsInPlace;
 + (id)sharedAccountStore;
 
-- (id)_accountWithPersistentAccount:(id)arg1 useExisting:(bool)arg2;
+- (id)_accountWithPersistentAccount:(id)arg1 useExisting:(BOOL)arg2;
 - (void)_accountsStoreChanged:(id)arg1;
 - (id)accountsWithTypeIdentifiers:(id)arg1 error:(id*)arg2;
 - (void)dealloc;

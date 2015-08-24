@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class <AVVideoCompositing>, AVVideoComposition, AVVideoCompositionRenderContext, AVWeakReference, NSDictionary, NSError, NSObject<OS_dispatch_queue>;
-
 @interface AVCustomVideoCompositorSession : NSObject {
     <AVVideoCompositing> *_clientCustomCompositor;
     NSObject<OS_dispatch_queue> *_clientCustomCompositorQ;
@@ -12,23 +10,23 @@
     NSDictionary *_clientRequiredPixelBufferAttributes;
     struct OpaqueFigVideoCompositor { } *_figCustomCompositor;
     NSObject<OS_dispatch_queue> *_finishedRequestQ;
+    BOOL _hasRegisteredFigCustomCompositorCallbacks;
     AVVideoCompositionRenderContext *_renderContext;
     NSObject<OS_dispatch_queue> *_renderContextQ;
     AVVideoComposition *_videoComposition;
+    BOOL _videoCompositionDidChange;
     NSObject<OS_dispatch_queue> *_videoCompositionQ;
     AVWeakReference *_weakSelf;
-    bool_hasRegisteredFigCustomCompositorCallbacks;
-    bool_videoCompositionDidChange;
 }
 
 + (id)sessionWithVideoComposition:(id)arg1 recyclingSession:(id)arg2;
 
 - (void)_cleanupFigCallbacks;
-- (int)_compositionFrame:(struct OpaqueFigVideoCompositorFrame { }*)arg1 atTime:(struct { long long x1; int x2; unsigned int x3; long long x4; })arg2 requiresRenderUsingSources:(id)arg3 withInstruction:(void*)arg4;
+- (long)_compositionFrame:(struct OpaqueFigVideoCompositorFrame { }*)arg1 atTime:(struct { long long x1; int x2; unsigned int x3; long long x4; })arg2 requiresRenderUsingSources:(id)arg3 withInstruction:(void*)arg4;
 - (struct OpaqueFigVideoCompositor { }*)_copyFigVideoCompositor;
 - (void)_customCompositorFigPropertyDidChange;
-- (int)_customCompositorShouldCancelPendingFrames;
-- (int)_setupFigCallbacks;
+- (long)_customCompositorShouldCancelPendingFrames;
+- (long)_setupFigCallbacks;
 - (void)_willDeallocOrFinalize;
 - (id)customVideoCompositor;
 - (void)dealloc;

@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class MPVolumeView;
-
 @interface MPVolumeViewController : UIViewController {
     MPVolumeView *_volumeView;
 }
 
-@property(readonly) MPVolumeView * volumeView;
+@property (nonatomic, readonly) MPVolumeView *volumeView;
 
 - (void).cxx_destruct;
 - (id)init;
-- (struct CGSize { double x1; double x2; })preferredContentSize;
+- (struct CGSize { float x1; float x2; })preferredContentSize;
 - (void)viewDidLoad;
 - (id)volumeView;
 

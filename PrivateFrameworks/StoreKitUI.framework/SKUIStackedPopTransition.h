@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSString, SKUIStackedBar;
-
 @interface SKUIStackedPopTransition : NSObject <UIViewControllerAnimatedTransitioning> {
     SKUIStackedBar *_fromBar;
-    double _split;
+    float _split;
     SKUIStackedBar *_toBar;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) SKUIStackedBar * fromBar;
-@property(readonly) unsigned long long hash;
-@property double split;
-@property(readonly) Class superclass;
-@property(retain) SKUIStackedBar * toBar;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) SKUIStackedBar *fromBar;
+@property (readonly) unsigned int hash;
+@property (nonatomic) float split;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) SKUIStackedBar *toBar;
 
 - (void).cxx_destruct;
 - (void)animateTransition:(id)arg1;
 - (id)fromBar;
 - (void)setFromBar:(id)arg1;
-- (void)setSplit:(double)arg1;
+- (void)setSplit:(float)arg1;
 - (void)setToBar:(id)arg1;
-- (double)split;
+- (float)split;
 - (id)toBar;
 - (double)transitionDuration:(id)arg1;
 

@@ -2,24 +2,22 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDAppBBPower : PBCodable <NSCopying> {
+    NSString *_bundleName;
     struct { 
         unsigned int powerMicroWatt : 1; 
         unsigned int rAT : 1; 
-    NSString *_bundleName;
     } _has;
     unsigned int _powerMicroWatt;
     int _rAT;
 }
 
-@property(retain) NSString * bundleName;
-@property(readonly) bool hasBundleName;
-@property bool hasPowerMicroWatt;
-@property bool hasRAT;
-@property unsigned int powerMicroWatt;
-@property int rAT;
+@property (nonatomic, retain) NSString *bundleName;
+@property (nonatomic, readonly) BOOL hasBundleName;
+@property (nonatomic) BOOL hasPowerMicroWatt;
+@property (nonatomic) BOOL hasRAT;
+@property (nonatomic) unsigned int powerMicroWatt;
+@property (nonatomic) int rAT;
 
 - (id)bundleName;
 - (void)copyTo:(id)arg1;
@@ -27,18 +25,18 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasBundleName;
-- (bool)hasPowerMicroWatt;
-- (bool)hasRAT;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasBundleName;
+- (BOOL)hasPowerMicroWatt;
+- (BOOL)hasRAT;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (unsigned int)powerMicroWatt;
 - (int)rAT;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setBundleName:(id)arg1;
-- (void)setHasPowerMicroWatt:(bool)arg1;
-- (void)setHasRAT:(bool)arg1;
+- (void)setHasPowerMicroWatt:(BOOL)arg1;
+- (void)setHasRAT:(BOOL)arg1;
 - (void)setPowerMicroWatt:(unsigned int)arg1;
 - (void)setRAT:(int)arg1;
 - (void)writeTo:(id)arg1;

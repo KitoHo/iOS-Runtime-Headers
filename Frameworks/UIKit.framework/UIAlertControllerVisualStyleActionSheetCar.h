@@ -2,24 +2,25 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface UIAlertControllerVisualStyleActionSheetCar : UIAlertControllerVisualStyleActionSheet {
-}
+@interface UIAlertControllerVisualStyleActionSheetCar : UIAlertControllerVisualStyleActionSheet
 
 - (id)actionHighlightedBackgroundView;
 - (id)backgroundView;
 - (id)defaultActionBackgroundColorWhenSeparate;
 - (id)defaultActionFont;
 - (id)highlightedActionContentColor;
-- (double)horizontalContentMargin;
-- (long long)maximumNumberOfLinesInMessageLabel;
-- (long long)maximumNumberOfLinesInTitleLabel;
+- (float)horizontalContentMargin;
+- (float)marginAboveTitleLabelFirstBaseline;
+- (float)marginBelowLastLabelLastBaseline;
+- (int)maximumNumberOfLinesInMessageLabel;
+- (int)maximumNumberOfLinesInTitleLabel;
 - (id)messageLabelColor;
 - (id)messageLabelFont;
-- (double)minimumActionHeight;
+- (float)minimumActionHeight;
 - (id)regularActionFont;
 - (id)titleLabelColor;
 - (id)titleLabelFont;
-- (double)verticalContentMargin;
-- (double)visualAltitude;
+- (float)verticalContentMargin;
+- (float)visualAltitude;
 
 @end

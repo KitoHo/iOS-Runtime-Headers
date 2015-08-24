@@ -2,12 +2,6 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class AVAssetExportSession, NSString, NSTimer, PFVideoAVObjectBuilder, PLProgressView;
-
 @interface PLVideoRemaker : NSObject {
     PFVideoAVObjectBuilder *__videoAVObjectBuilder;
     id _delegate;
@@ -15,7 +9,7 @@
     AVAssetExportSession *_exportSession;
     int _mode;
     float _percentComplete;
-    id _progressHandler;
+    id /* block */ _progressHandler;
     NSTimer *_progressTimer;
     PLProgressView *_progressView;
     double _trimEndTime;
@@ -23,8 +17,8 @@
     NSString *_trimmedPath;
 }
 
-@property(retain,readonly) PFVideoAVObjectBuilder * _videoAVObjectBuilder;
-@property(copy) id progressHandler;
+@property (nonatomic, readonly, retain) PFVideoAVObjectBuilder *_videoAVObjectBuilder;
+@property (nonatomic, copy) id /* block */ progressHandler;
 
 + (long long)approximateByteSizeForMode:(int)arg1 duration:(double)arg2;
 + (long long)fileLengthLimitForRemakerMode:(int)arg1;
@@ -33,7 +27,7 @@
 + (double)maximumDurationForTrimMode:(int)arg1;
 
 - (void)_didEndRemakingWithTemporaryPath:(id)arg1;
-- (void)_exportCompletedWithSuccess:(bool)arg1;
+- (void)_exportCompletedWithSuccess:(BOOL)arg1;
 - (id)_fileFormatForURL:(id)arg1;
 - (void)_removeProgressTimer;
 - (void)_resetProgressTimer;
@@ -44,16 +38,16 @@
 - (id)delegate;
 - (double)duration;
 - (id)initWithAVAsset:(id)arg1;
-- (id)initWithManagedAsset:(id)arg1 applyVideoAdjustments:(bool)arg2;
+- (id)initWithManagedAsset:(id)arg1 applyVideoAdjustments:(BOOL)arg2;
 - (id)messageForRemakingProgress;
 - (int)mode;
-- (id)progressHandler;
+- (id /* block */)progressHandler;
 - (id)progressView;
 - (void)remake;
 - (void)setDelegate:(id)arg1;
 - (void)setDuration:(double)arg1;
 - (void)setMode:(int)arg1;
-- (void)setProgressHandler:(id)arg1;
+- (void)setProgressHandler:(id /* block */)arg1;
 - (void)setTrimEndTime:(double)arg1;
 - (void)setTrimStartTime:(double)arg1;
 - (double)trimEndTime;

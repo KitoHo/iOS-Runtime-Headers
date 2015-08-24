@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPUserPrivacySettings, NSString;
-
 @interface CKDPUserPrivacySettingsUpdateRequest : PBRequest <NSCopying> {
     NSString *_bundleIdentifier;
     CKDPUserPrivacySettings *_userPrivacySettings;
 }
 
-@property(retain) NSString * bundleIdentifier;
-@property(readonly) bool hasBundleIdentifier;
-@property(readonly) bool hasUserPrivacySettings;
-@property(retain) CKDPUserPrivacySettings * userPrivacySettings;
+@property (nonatomic, retain) NSString *bundleIdentifier;
+@property (nonatomic, readonly) BOOL hasBundleIdentifier;
+@property (nonatomic, readonly) BOOL hasUserPrivacySettings;
+@property (nonatomic, retain) CKDPUserPrivacySettings *userPrivacySettings;
 
 + (id)options;
 
@@ -22,12 +20,12 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasBundleIdentifier;
-- (bool)hasUserPrivacySettings;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasBundleIdentifier;
+- (BOOL)hasUserPrivacySettings;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (unsigned int)requestTypeCode;
 - (Class)responseClass;
 - (void)setBundleIdentifier:(id)arg1;

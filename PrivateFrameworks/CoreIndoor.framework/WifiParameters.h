@@ -3,41 +3,41 @@
  */
 
 @interface WifiParameters : PBCodable <NSCopying> {
+    int _batching;
     struct { 
         unsigned int batching : 1; 
         unsigned int historyTimespanSeconds : 1; 
         unsigned int scanPeriodSeconds : 1; 
-    int _batching;
     } _has;
     float _historyTimespanSeconds;
     float _scanPeriodSeconds;
 }
 
-@property int batching;
-@property bool hasBatching;
-@property bool hasHistoryTimespanSeconds;
-@property bool hasScanPeriodSeconds;
-@property float historyTimespanSeconds;
-@property float scanPeriodSeconds;
+@property (nonatomic) int batching;
+@property (nonatomic) BOOL hasBatching;
+@property (nonatomic) BOOL hasHistoryTimespanSeconds;
+@property (nonatomic) BOOL hasScanPeriodSeconds;
+@property (nonatomic) float historyTimespanSeconds;
+@property (nonatomic) float scanPeriodSeconds;
 
 - (int)batching;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasBatching;
-- (bool)hasHistoryTimespanSeconds;
-- (bool)hasScanPeriodSeconds;
-- (unsigned long long)hash;
+- (BOOL)hasBatching;
+- (BOOL)hasHistoryTimespanSeconds;
+- (BOOL)hasScanPeriodSeconds;
+- (unsigned int)hash;
 - (float)historyTimespanSeconds;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (float)scanPeriodSeconds;
 - (void)setBatching:(int)arg1;
-- (void)setHasBatching:(bool)arg1;
-- (void)setHasHistoryTimespanSeconds:(bool)arg1;
-- (void)setHasScanPeriodSeconds:(bool)arg1;
+- (void)setHasBatching:(BOOL)arg1;
+- (void)setHasHistoryTimespanSeconds:(BOOL)arg1;
+- (void)setHasScanPeriodSeconds:(BOOL)arg1;
 - (void)setHistoryTimespanSeconds:(float)arg1;
 - (void)setScanPeriodSeconds:(float)arg1;
 - (void)writeTo:(id)arg1;

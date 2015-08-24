@@ -2,75 +2,73 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class <EKICSPreviewControllerDelegate>, EKEventStore, EKEventViewController, EKICSPreviewModel, UIViewController;
-
 @interface EKICSPreviewController : NSObject {
     int _actionsState;
-    long long _cancelButtonType;
+    BOOL _allowsEditing;
+    BOOL _allowsImport;
+    BOOL _allowsInvalidProperties;
+    BOOL _allowsSubitems;
+    BOOL _allowsToDos;
+    int _cancelButtonType;
     UIViewController *_contentViewController;
     EKEventViewController *_currentImport;
     EKEventStore *_eventStore;
+    BOOL _hasCustomCancelButton;
+    BOOL _importing;
     EKICSPreviewModel *_model;
     <EKICSPreviewControllerDelegate> *_previewDelegate;
-    bool_allowsEditing;
-    bool_allowsImport;
-    bool_allowsInvalidProperties;
-    bool_allowsSubitems;
-    bool_allowsToDos;
-    bool_hasCustomCancelButton;
-    bool_importing;
 }
 
-@property int actionsState;
-@property bool allowsEditing;
-@property bool allowsImport;
-@property bool allowsInvalidProperties;
-@property bool allowsSubitems;
-@property bool allowsToDos;
-@property(readonly) bool isImporting;
-@property <EKICSPreviewControllerDelegate> * previewDelegate;
-@property(readonly) unsigned long long totalEventCount;
-@property(readonly) unsigned long long unimportedEventCount;
+@property (nonatomic) int actionsState;
+@property (nonatomic) BOOL allowsEditing;
+@property (nonatomic) BOOL allowsImport;
+@property (nonatomic) BOOL allowsInvalidProperties;
+@property (nonatomic) BOOL allowsSubitems;
+@property (nonatomic) BOOL allowsToDos;
+@property (nonatomic, readonly) BOOL isImporting;
+@property (nonatomic) <EKICSPreviewControllerDelegate> *previewDelegate;
+@property (nonatomic, readonly) unsigned int totalEventCount;
+@property (nonatomic, readonly) unsigned int unimportedEventCount;
 
 - (void).cxx_destruct;
-- (void)_createCancelButtonWithType:(long long)arg1 target:(id)arg2 action:(SEL)arg3;
+- (void)_createCancelButtonWithType:(int)arg1 target:(id)arg2 action:(SEL)arg3;
 - (void)_databaseChanged:(id)arg1;
 - (void)_updateCancelButton;
 - (int)actionsState;
-- (bool)allowsEditing;
-- (bool)allowsImport;
-- (bool)allowsInvalidProperties;
-- (bool)allowsSubitems;
-- (bool)allowsToDos;
+- (BOOL)allowsEditing;
+- (BOOL)allowsImport;
+- (BOOL)allowsInvalidProperties;
+- (BOOL)allowsSubitems;
+- (BOOL)allowsToDos;
 - (void)calendarChooserDidCancel:(id)arg1;
 - (void)calendarChooserDidFinish:(id)arg1;
 - (void)dealloc;
-- (id)detailViewForEvent:(id)arg1 eventInRealStore:(bool)arg2;
+- (id)detailViewForEvent:(id)arg1 eventInRealStore:(BOOL)arg2;
 - (void)eventViewControllerDidRequestAddToCalendar:(id)arg1;
 - (void)icsPreviewListController:(id)arg1 didSelectEvent:(id)arg2;
 - (void)icsPreviewListControllerDidRequestImportAll:(id)arg1;
 - (void)importAllIntoCalendar:(id)arg1;
 - (void)importAllRequested:(id)arg1;
 - (void)importEventFromController:(id)arg1 intoCalendar:(id)arg2;
-- (id)initWithData:(id)arg1 eventStore:(id)arg2 options:(unsigned long long)arg3;
 - (id)initWithData:(id)arg1 eventStore:(id)arg2;
-- (id)initWithURL:(id)arg1 eventStore:(id)arg2 options:(unsigned long long)arg3;
+- (id)initWithData:(id)arg1 eventStore:(id)arg2 options:(unsigned int)arg3;
 - (id)initWithURL:(id)arg1 eventStore:(id)arg2;
-- (bool)isImporting;
+- (id)initWithURL:(id)arg1 eventStore:(id)arg2 options:(unsigned int)arg3;
+- (BOOL)isImporting;
 - (id)popoverContentController;
 - (void)presentCalendarChooserForController:(id)arg1;
 - (id)previewDelegate;
 - (void)removeCancelButton;
 - (void)setActionsState:(int)arg1;
-- (void)setAllowsEditing:(bool)arg1;
-- (void)setAllowsImport:(bool)arg1;
-- (void)setAllowsInvalidProperties:(bool)arg1;
-- (void)setAllowsSubitems:(bool)arg1;
-- (void)setAllowsToDos:(bool)arg1;
+- (void)setAllowsEditing:(BOOL)arg1;
+- (void)setAllowsImport:(BOOL)arg1;
+- (void)setAllowsInvalidProperties:(BOOL)arg1;
+- (void)setAllowsSubitems:(BOOL)arg1;
+- (void)setAllowsToDos:(BOOL)arg1;
 - (void)setCancelButtonWithTarget:(id)arg1 action:(SEL)arg2;
 - (void)setPreviewDelegate:(id)arg1;
-- (unsigned long long)totalEventCount;
-- (unsigned long long)unimportedEventCount;
+- (unsigned int)totalEventCount;
+- (unsigned int)unimportedEventCount;
 - (id)viewController;
 
 @end

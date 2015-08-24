@@ -2,47 +2,45 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPCommentSummary, NSData, NSMutableArray;
-
 @interface CKDPGetCommentsResponse : PBCodable <NSCopying> {
-    struct { 
-        unsigned int totalCount : 1; 
     NSMutableArray *_comments;
     NSData *_continuationMarker;
+    struct { 
+        unsigned int totalCount : 1; 
     } _has;
     CKDPCommentSummary *_summary;
     int _totalCount;
 }
 
-@property(retain) NSMutableArray * comments;
-@property(retain) NSData * continuationMarker;
-@property(readonly) bool hasContinuationMarker;
-@property(readonly) bool hasSummary;
-@property bool hasTotalCount;
-@property(retain) CKDPCommentSummary * summary;
-@property int totalCount;
+@property (nonatomic, retain) NSMutableArray *comments;
+@property (nonatomic, retain) NSData *continuationMarker;
+@property (nonatomic, readonly) BOOL hasContinuationMarker;
+@property (nonatomic, readonly) BOOL hasSummary;
+@property (nonatomic) BOOL hasTotalCount;
+@property (nonatomic, retain) CKDPCommentSummary *summary;
+@property (nonatomic) int totalCount;
 
 - (void).cxx_destruct;
 - (void)addComments:(id)arg1;
 - (void)clearComments;
 - (id)comments;
-- (id)commentsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)commentsCount;
+- (id)commentsAtIndex:(unsigned int)arg1;
+- (unsigned int)commentsCount;
 - (id)continuationMarker;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasContinuationMarker;
-- (bool)hasSummary;
-- (bool)hasTotalCount;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasContinuationMarker;
+- (BOOL)hasSummary;
+- (BOOL)hasTotalCount;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setComments:(id)arg1;
 - (void)setContinuationMarker:(id)arg1;
-- (void)setHasTotalCount:(bool)arg1;
+- (void)setHasTotalCount:(BOOL)arg1;
 - (void)setSummary:(id)arg1;
 - (void)setTotalCount:(int)arg1;
 - (id)summary;

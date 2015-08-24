@@ -2,28 +2,18 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSLock, NSXPCConnection;
-
 @interface PKInAppPaymentService : NSObject {
-    NSXPCConnection *_connection;
-    NSLock *_connectionLock;
+    PKXPCService *_remoteService;
 }
 
-- (id)_connection;
-- (id)_connectionWithTeardownExisting:(bool)arg1 createNewIfNecessary:(bool)arg2;
-- (id)_errorHandlerWithCompletion:(id)arg1;
-- (void)_establishPaymentServiceConnection;
-- (void)_registerForApplicationLifeCycleNotifications;
-- (void)_registerForInAppPaymentServiceNotifications;
-- (void)_sendResumed;
-- (void)_sendSuspended;
-- (void)_tearDownPaymentServiceConnection;
-- (void)_unregisterForApplicationLifeCycleNotifications;
-- (void)_unregisterForPaymentServiceNotifications;
+- (id)_remoteObjectProxy;
+- (id)_remoteObjectProxyWithErrorHandler:(id /* block */)arg1;
+- (id)_remoteObjectProxyWithFailureHandler:(id /* block */)arg1;
+- (id)_remoteObjectProxyWithSemaphore:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (void)presentInAppPaymentInterfaceWithPaymentRequest:(id)arg1 forHostIdentifier:(id)arg2 orientation:(id)arg3 completion:(id)arg4;
-- (void)registerPaymentListenerEndpoint:(id)arg1 forHostIdentifier:(id)arg2 completion:(id)arg3;
-- (void)retrievePaymentListenerEndpointForHostIdentifier:(id)arg1 completion:(id)arg2;
+- (void)presentInAppPaymentInterfaceWithPaymentRequest:(id)arg1 forHostIdentifier:(id)arg2 orientation:(id)arg3 completion:(id /* block */)arg4;
+- (void)registerPaymentListenerEndpoint:(id)arg1 forHostIdentifier:(id)arg2 completion:(id /* block */)arg3;
+- (void)retrievePaymentListenerEndpointForHostIdentifier:(id)arg1 completion:(id /* block */)arg2;
 
 @end

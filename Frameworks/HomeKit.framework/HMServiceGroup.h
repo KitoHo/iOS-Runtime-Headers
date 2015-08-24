@@ -2,40 +2,37 @@
    Image: /System/Library/Frameworks/HomeKit.framework/HomeKit
  */
 
-@class HMHome, HMMessageDispatcher, NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSUUID;
-
 @interface HMServiceGroup : NSObject <HMMessageReceiver, NSSecureCoding> {
     NSMutableArray *_currentServices;
     HMHome *_home;
     HMMessageDispatcher *_msgDispatcher;
     NSString *_name;
-    NSMutableDictionary *_pendingRequests;
     NSUUID *_uuid;
     NSObject<OS_dispatch_queue> *_workQueue;
 }
 
-@property(retain) NSMutableArray * currentServices;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property HMHome * home;
-@property(readonly) NSObject<OS_dispatch_queue> * messageReceiveQueue;
-@property(readonly) NSUUID * messageTargetUUID;
-@property(retain) HMMessageDispatcher * msgDispatcher;
-@property(copy,readonly) NSString * name;
-@property(retain) NSMutableDictionary * pendingRequests;
-@property(copy,readonly) NSArray * services;
-@property(readonly) Class superclass;
-@property(retain) NSUUID * uuid;
-@property(retain) NSObject<OS_dispatch_queue> * workQueue;
+@property (nonatomic, retain) NSMutableArray *currentServices;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) HMHome *home;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property (nonatomic, readonly) NSUUID *messageTargetUUID;
+@property (nonatomic, retain) HMMessageDispatcher *msgDispatcher;
+@property (nonatomic, readonly, copy) NSString *name;
+@property (nonatomic, readonly, copy) NSArray *services;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSUUID *uuid;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *workQueue;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)_registerNotificationHandlers;
-- (void)addService:(id)arg1 completionHandler:(id)arg2;
+- (void)addService:(id)arg1 completionHandler:(id /* block */)arg2;
 - (void)configure:(id)arg1 uuid:(id)arg2 messageDispatcher:(id)arg3;
 - (id)currentServices;
+- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (void)handleServiceAddedNotification:(id)arg1;
 - (void)handleServiceGroupRenamedNotification:(id)arg1;
@@ -49,17 +46,16 @@
 - (id)messageTargetUUID;
 - (id)msgDispatcher;
 - (id)name;
-- (id)pendingRequests;
-- (void)removeService:(id)arg1 completionHandler:(id)arg2;
-- (void)removeServicesForAccessory:(id)arg1;
+- (void)removeService:(id)arg1 completionHandler:(id /* block */)arg2;
+- (void)removeServices:(id)arg1;
 - (id)services;
 - (void)setCurrentServices:(id)arg1;
 - (void)setHome:(id)arg1;
 - (void)setMsgDispatcher:(id)arg1;
-- (void)setPendingRequests:(id)arg1;
 - (void)setUuid:(id)arg1;
 - (void)setWorkQueue:(id)arg1;
-- (void)updateName:(id)arg1 completionHandler:(id)arg2;
+- (void)unconfigure;
+- (void)updateName:(id)arg1 completionHandler:(id /* block */)arg2;
 - (id)uuid;
 - (id)workQueue;
 

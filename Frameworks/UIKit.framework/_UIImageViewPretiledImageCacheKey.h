@@ -2,20 +2,18 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIImage;
-
 @interface _UIImageViewPretiledImageCacheKey : NSObject {
-    struct CGSize { 
-        double width; 
-        double height; 
     UIImage *_originalImage;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _pretiledSize;
 }
 
-+ (id)cacheKeyWithOriginalImage:(id)arg1 pretiledSize:(struct CGSize { double x1; double x2; })arg2;
++ (id)cacheKeyWithOriginalImage:(id)arg1 pretiledSize:(struct CGSize { float x1; float x2; })arg2;
 
 - (id)description;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 
 @end

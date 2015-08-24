@@ -3,6 +3,7 @@
  */
 
 @interface AWDPowerBBNonDataMetrics : PBCodable <NSCopying> {
+    unsigned int _aPWakeCacheFlushCnt;
     struct { 
         unsigned int timestamp : 1; 
         unsigned int aPWakeCacheFlushCnt : 1; 
@@ -11,7 +12,6 @@
         unsigned int registrationPowerMicroWatt : 1; 
         unsigned int scanPowerMicroWatt : 1; 
         unsigned int voicePowerMicroWatt : 1; 
-    unsigned int _aPWakeCacheFlushCnt;
     } _has;
     unsigned int _idlePowerMicroWatt;
     unsigned int _oOSPowerMicroWatt;
@@ -21,49 +21,49 @@
     unsigned int _voicePowerMicroWatt;
 }
 
-@property unsigned int aPWakeCacheFlushCnt;
-@property bool hasAPWakeCacheFlushCnt;
-@property bool hasIdlePowerMicroWatt;
-@property bool hasOOSPowerMicroWatt;
-@property bool hasRegistrationPowerMicroWatt;
-@property bool hasScanPowerMicroWatt;
-@property bool hasTimestamp;
-@property bool hasVoicePowerMicroWatt;
-@property unsigned int idlePowerMicroWatt;
-@property unsigned int oOSPowerMicroWatt;
-@property unsigned int registrationPowerMicroWatt;
-@property unsigned int scanPowerMicroWatt;
-@property unsigned long long timestamp;
-@property unsigned int voicePowerMicroWatt;
+@property (nonatomic) unsigned int aPWakeCacheFlushCnt;
+@property (nonatomic) BOOL hasAPWakeCacheFlushCnt;
+@property (nonatomic) BOOL hasIdlePowerMicroWatt;
+@property (nonatomic) BOOL hasOOSPowerMicroWatt;
+@property (nonatomic) BOOL hasRegistrationPowerMicroWatt;
+@property (nonatomic) BOOL hasScanPowerMicroWatt;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) BOOL hasVoicePowerMicroWatt;
+@property (nonatomic) unsigned int idlePowerMicroWatt;
+@property (nonatomic) unsigned int oOSPowerMicroWatt;
+@property (nonatomic) unsigned int registrationPowerMicroWatt;
+@property (nonatomic) unsigned int scanPowerMicroWatt;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) unsigned int voicePowerMicroWatt;
 
 - (unsigned int)aPWakeCacheFlushCnt;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasAPWakeCacheFlushCnt;
-- (bool)hasIdlePowerMicroWatt;
-- (bool)hasOOSPowerMicroWatt;
-- (bool)hasRegistrationPowerMicroWatt;
-- (bool)hasScanPowerMicroWatt;
-- (bool)hasTimestamp;
-- (bool)hasVoicePowerMicroWatt;
-- (unsigned long long)hash;
+- (BOOL)hasAPWakeCacheFlushCnt;
+- (BOOL)hasIdlePowerMicroWatt;
+- (BOOL)hasOOSPowerMicroWatt;
+- (BOOL)hasRegistrationPowerMicroWatt;
+- (BOOL)hasScanPowerMicroWatt;
+- (BOOL)hasTimestamp;
+- (BOOL)hasVoicePowerMicroWatt;
+- (unsigned int)hash;
 - (unsigned int)idlePowerMicroWatt;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (unsigned int)oOSPowerMicroWatt;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (unsigned int)registrationPowerMicroWatt;
 - (unsigned int)scanPowerMicroWatt;
 - (void)setAPWakeCacheFlushCnt:(unsigned int)arg1;
-- (void)setHasAPWakeCacheFlushCnt:(bool)arg1;
-- (void)setHasIdlePowerMicroWatt:(bool)arg1;
-- (void)setHasOOSPowerMicroWatt:(bool)arg1;
-- (void)setHasRegistrationPowerMicroWatt:(bool)arg1;
-- (void)setHasScanPowerMicroWatt:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
-- (void)setHasVoicePowerMicroWatt:(bool)arg1;
+- (void)setHasAPWakeCacheFlushCnt:(BOOL)arg1;
+- (void)setHasIdlePowerMicroWatt:(BOOL)arg1;
+- (void)setHasOOSPowerMicroWatt:(BOOL)arg1;
+- (void)setHasRegistrationPowerMicroWatt:(BOOL)arg1;
+- (void)setHasScanPowerMicroWatt:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasVoicePowerMicroWatt:(BOOL)arg1;
 - (void)setIdlePowerMicroWatt:(unsigned int)arg1;
 - (void)setOOSPowerMicroWatt:(unsigned int)arg1;
 - (void)setRegistrationPowerMicroWatt:(unsigned int)arg1;

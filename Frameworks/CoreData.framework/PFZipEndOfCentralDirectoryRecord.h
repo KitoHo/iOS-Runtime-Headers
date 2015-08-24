@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSString;
-
 @interface PFZipEndOfCentralDirectoryRecord : NSObject {
     unsigned int _byteSizeOfCentralDirectory;
     unsigned int _centralDirectoryOffset;
@@ -15,14 +13,14 @@
     unsigned short _totalNumberOfCentralDirectoryRecords;
 }
 
-@property unsigned int byteSizeOfCentralDirectory;
-@property unsigned int centralDirectoryOffset;
-@property(retain) NSString * comment;
-@property(readonly) unsigned short commentLength;
-@property unsigned short diskWhereCentralDirectoryStarts;
-@property unsigned short numberOfCentralDirectoryRecordsOnThisDisk;
-@property unsigned short numberOfDisk;
-@property unsigned short totalNumberOfCentralDirectoryRecords;
+@property (nonatomic) unsigned int byteSizeOfCentralDirectory;
+@property (nonatomic) unsigned int centralDirectoryOffset;
+@property (nonatomic, retain) NSString *comment;
+@property (nonatomic, readonly) unsigned short commentLength;
+@property (nonatomic) unsigned short diskWhereCentralDirectoryStarts;
+@property (nonatomic) unsigned short numberOfCentralDirectoryRecordsOnThisDisk;
+@property (nonatomic) unsigned short numberOfDisk;
+@property (nonatomic) unsigned short totalNumberOfCentralDirectoryRecords;
 
 - (void)appendToData:(id)arg1;
 - (unsigned int)byteSizeOfCentralDirectory;
@@ -33,8 +31,8 @@
 - (id)description;
 - (unsigned short)diskWhereCentralDirectoryStarts;
 - (id)init;
-- (unsigned long long)loadFromBytes:(const char *)arg1 offset:(unsigned long long)arg2;
-- (unsigned long long)loadFromData:(id)arg1 offset:(unsigned long long)arg2;
+- (unsigned int)loadFromBytes:(const char *)arg1 offset:(unsigned int)arg2;
+- (unsigned int)loadFromData:(id)arg1 offset:(unsigned int)arg2;
 - (unsigned short)numberOfCentralDirectoryRecordsOnThisDisk;
 - (unsigned short)numberOfDisk;
 - (void)setByteSizeOfCentralDirectory:(unsigned int)arg1;

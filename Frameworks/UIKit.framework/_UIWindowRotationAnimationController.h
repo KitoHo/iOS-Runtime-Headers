@@ -2,36 +2,28 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface _UIWindowRotationAnimationController : _UIWindowAnimationController {
-    id _animations;
+    id /* block */ _animations;
     double _duration;
-    bool_earlyLayoutIsNeeded;
-    bool_skipCallbacks;
-    bool_updateStatusBarIfNecessary;
+    BOOL _skipCallbacks;
+    BOOL _updateStatusBarIfNecessary;
 }
 
-@property(copy) id animations;
-@property double duration;
-@property bool earlyLayoutIsNeeded;
-@property bool skipCallbacks;
-@property bool updateStatusBarIfNecessary;
+@property (nonatomic, copy) id /* block */ animations;
+@property (nonatomic) double duration;
+@property (nonatomic) BOOL skipCallbacks;
+@property (nonatomic) BOOL updateStatusBarIfNecessary;
 
 - (void)animateTransition:(id)arg1;
-- (id)animations;
+- (id /* block */)animations;
 - (void)dealloc;
 - (double)duration;
-- (bool)earlyLayoutIsNeeded;
-- (void)setAnimations:(id)arg1;
+- (void)setAnimations:(id /* block */)arg1;
 - (void)setDuration:(double)arg1;
-- (void)setEarlyLayoutIsNeeded:(bool)arg1;
-- (void)setSkipCallbacks:(bool)arg1;
-- (void)setUpdateStatusBarIfNecessary:(bool)arg1;
-- (bool)skipCallbacks;
+- (void)setSkipCallbacks:(BOOL)arg1;
+- (void)setUpdateStatusBarIfNecessary:(BOOL)arg1;
+- (BOOL)skipCallbacks;
 - (double)transitionDuration:(id)arg1;
-- (bool)updateStatusBarIfNecessary;
+- (BOOL)updateStatusBarIfNecessary;
 
 @end

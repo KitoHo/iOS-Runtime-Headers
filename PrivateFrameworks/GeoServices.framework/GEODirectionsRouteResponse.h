@@ -2,13 +2,12 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@interface GEODirectionsRouteResponse : GEODirectionsResponse {
-}
+@interface GEODirectionsRouteResponse : GEODirectionsResponse
 
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)initWithDictionaryRepresentation:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)writeTo:(id)arg1;
 
 @end

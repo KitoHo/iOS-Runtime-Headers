@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/CoreMediaStream.framework/CoreMediaStream
  */
 
-@class NSObject<OS_dispatch_queue>, NSTimer;
-
 @interface MSDaemon : NSObject {
     int _UIBusyCount;
     int _busyCount;
     NSTimer *_hysteresisTimer;
     NSObject<OS_dispatch_queue> *_idleCountQueue;
-    bool_stabilizedIsBusy;
+    BOOL _stabilizedIsBusy;
 }
 
-@property int UIBusyCount;
-@property int busyCount;
-@property(retain) NSTimer * hysteresisTimer;
-@property(retain) NSObject<OS_dispatch_queue> * idleCountQueue;
-@property bool stabilizedIsBusy;
+@property (nonatomic) int UIBusyCount;
+@property (nonatomic) int busyCount;
+@property (nonatomic, retain) NSTimer *hysteresisTimer;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *idleCountQueue;
+@property (nonatomic) BOOL stabilizedIsBusy;
 
 - (void).cxx_destruct;
 - (int)UIBusyCount;
-- (void)_didChangeIdleBusyState:(bool)arg1;
+- (void)_didChangeIdleBusyState:(BOOL)arg1;
 - (void)_hysteresisTimerDidFire:(id)arg1;
 - (int)busyCount;
 - (void)dealloc;
@@ -29,7 +27,7 @@
 - (id)hysteresisTimer;
 - (id)idleCountQueue;
 - (id)init;
-- (bool)isBusy;
+- (BOOL)isBusy;
 - (void)releaseBusy;
 - (void)releasePowerAssertion;
 - (void)releaseUIBusy;
@@ -39,10 +37,10 @@
 - (void)setBusyCount:(int)arg1;
 - (void)setHysteresisTimer:(id)arg1;
 - (void)setIdleCountQueue:(id)arg1;
-- (void)setStabilizedIsBusy:(bool)arg1;
+- (void)setStabilizedIsBusy:(BOOL)arg1;
 - (void)setUIBusyCount:(int)arg1;
 - (void)stabilizedDidIdle;
 - (void)stabilizedDidUnidle;
-- (bool)stabilizedIsBusy;
+- (BOOL)stabilizedIsBusy;
 
 @end

@@ -2,51 +2,49 @@
    Image: /System/Library/PrivateFrameworks/VoiceMemos.framework/VoiceMemos
  */
 
-@class AVAudioSession, NSArray, NSString;
-
 @interface _RCMPRoutingController : MPAVRoutingController {
     NSString *_AVAudioSessionCategory;
     NSString *_AVSystemControllerCategory;
     NSString *_activeInputRouteName;
     AVAudioSession *_audioSession;
     NSArray *_cachedRoutes;
-    bool_disableRouteChangeNotificationHandling;
-    bool_hasCategoryEverBeenActive;
-    bool_isCategoryActive;
-    bool_needsOutputRoutesFetch;
+    BOOL _disableRouteChangeNotificationHandling;
+    BOOL _hasCategoryEverBeenActive;
+    BOOL _isCategoryActive;
+    BOOL _needsOutputRoutesFetch;
 }
 
-@property(readonly) NSString * AVAudioSessionCategory;
-@property(readonly) NSString * AVSystemControllerCategory;
-@property(readonly) NSString * activeInputRouteName;
-@property(readonly) bool hasCategoryEverBeenActive;
-@property(readonly) bool isAudioSessionAppropriateForQueryingInputRoutes;
-@property(readonly) bool isAudioSessionAppropriateForQueryingOutputRoutes;
-@property(readonly) bool isRoutingToAirPlayMirrorDestination;
-@property(readonly) bool isRoutingToPhoneCall;
-@property(readonly) bool isTemporarilyIgnoringRouteChangeNotifications;
+@property (nonatomic, readonly) NSString *AVAudioSessionCategory;
+@property (nonatomic, readonly) NSString *AVSystemControllerCategory;
+@property (nonatomic, readonly) NSString *activeInputRouteName;
+@property (nonatomic, readonly) BOOL hasCategoryEverBeenActive;
+@property (nonatomic, readonly) BOOL isAudioSessionAppropriateForQueryingInputRoutes;
+@property (nonatomic, readonly) BOOL isAudioSessionAppropriateForQueryingOutputRoutes;
+@property (nonatomic, readonly) BOOL isRoutingToAirPlayMirrorDestination;
+@property (nonatomic, readonly) BOOL isRoutingToPhoneCall;
+@property (nonatomic, readonly) BOOL isTemporarilyIgnoringRouteChangeNotifications;
 
 - (void).cxx_destruct;
 - (id)AVAudioSessionCategory;
 - (id)AVSystemControllerCategory;
 - (void)_configureAudioCategory;
-- (bool)_determineIfAudioOutputCategoryIsCurrent;
+- (BOOL)_determineIfAudioOutputCategoryIsCurrent;
 - (id)activeInputRouteName;
 - (void)audioSessionInterruptionNotification:(id)arg1;
 - (void)audioSessionRouteChangeNotification:(id)arg1;
 - (void)dealloc;
-- (void)fetchAvailableRoutesWithCompletionHandler:(id)arg1;
-- (bool)hasCategoryEverBeenActive;
+- (void)fetchAvailableRoutesWithCompletionHandler:(id /* block */)arg1;
+- (BOOL)hasCategoryEverBeenActive;
 - (id)initWithName:(id)arg1;
-- (bool)isAudioSessionAppropriateForQueryingInputRoutes;
-- (bool)isAudioSessionAppropriateForQueryingOutputRoutes;
-- (bool)isCategoryConfiguredForVoiceMemos;
-- (bool)isRoutingToAirPlayMirrorDestination;
-- (bool)isRoutingToPhoneCall;
-- (bool)isTemporarilyIgnoringRouteChangeNotifications;
-- (void)makeAudioSessionCategoryActive:(bool)arg1;
-- (bool)routeOtherThanHandsetAndSpeakerAvailable;
+- (BOOL)isAudioSessionAppropriateForQueryingInputRoutes;
+- (BOOL)isAudioSessionAppropriateForQueryingOutputRoutes;
+- (BOOL)isCategoryConfiguredForVoiceMemos;
+- (BOOL)isRoutingToAirPlayMirrorDestination;
+- (BOOL)isRoutingToPhoneCall;
+- (BOOL)isTemporarilyIgnoringRouteChangeNotifications;
+- (void)makeAudioSessionCategoryActive:(BOOL)arg1;
+- (BOOL)routeOtherThanHandsetAndSpeakerAvailable;
 - (void)routingToAirPlayMirroringDidChangeNotification:(id)arg1;
-- (void)setIsCategoryActive:(bool)arg1;
+- (void)setIsCategoryActive:(BOOL)arg1;
 
 @end

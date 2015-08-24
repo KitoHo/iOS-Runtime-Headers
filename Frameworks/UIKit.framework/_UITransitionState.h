@@ -2,32 +2,26 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSDate;
-
 @interface _UITransitionState : NSObject {
     NSDate *_beginDate;
-    id _completion;
-    long long _transitionDirection;
+    id /* block */ _completion;
+    int _transitionDirection;
 }
 
-@property(getter=isActive,readonly) bool active;
-@property(readonly) NSDate * beginDate;
-@property(readonly) long long effectiveTransitionDirection;
-@property(readonly) long long transitionDirection;
+@property (getter=isActive, nonatomic, readonly) BOOL active;
+@property (nonatomic, readonly) NSDate *beginDate;
+@property (nonatomic, readonly) int effectiveTransitionDirection;
+@property (nonatomic, readonly) int transitionDirection;
 
 - (id)beginDate;
-- (void)cleanupWithFinishedState:(bool)arg1 completedState:(bool)arg2;
+- (void)cleanupWithFinishedState:(BOOL)arg1 completedState:(BOOL)arg2;
 - (void)dealloc;
 - (id)description;
-- (long long)effectiveTransitionDirection;
-- (id)initWithTransitionDirection:(long long)arg1 completion:(id)arg2;
-- (bool)isActive;
-- (bool)isCompatibleWithTransitionInDirection:(long long)arg1;
+- (int)effectiveTransitionDirection;
+- (id)initWithTransitionDirection:(int)arg1 completion:(id /* block */)arg2;
+- (BOOL)isActive;
+- (BOOL)isCompatibleWithTransitionInDirection:(int)arg1;
 - (void)markBeginDate;
-- (long long)transitionDirection;
+- (int)transitionDirection;
 
 @end

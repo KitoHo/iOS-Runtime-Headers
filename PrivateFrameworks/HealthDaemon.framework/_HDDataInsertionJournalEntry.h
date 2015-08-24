@@ -2,25 +2,24 @@
    Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
  */
 
-@class HKObject;
-
 @interface _HDDataInsertionJournalEntry : HDJournalEntry {
     HKObject *_dataObject;
-    unsigned long long _provenance;
+    int _provenance;
 }
 
-@property(readonly) HKObject * dataObject;
-@property(readonly) unsigned long long provenance;
+@property (nonatomic, readonly) HKObject *dataObject;
+@property (nonatomic, readonly) int provenance;
 
-+ (bool)supportsSecureCoding;
++ (void)applyEntries:(id)arg1 withDaemon:(id)arg2;
++ (int)behavior;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (bool)applyWithDaemon:(id)arg1;
 - (id)dataObject;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithDataObject:(id)arg1 provenance:(unsigned long long)arg2;
-- (unsigned long long)provenance;
+- (id)initWithDataObject:(id)arg1 provenance:(int)arg2;
+- (int)provenance;
 
 @end

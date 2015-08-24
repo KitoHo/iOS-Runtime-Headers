@@ -2,26 +2,23 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class MFBrush, MFFont, MFPalette, MFPath, MFPen, MFTransform, NSObject<MFDeviceDriver>, OITSUColor;
-
 @interface MFDeviceContext : NSObject <NSCopying> {
-    struct CGPoint { 
-        double x; 
-        double y; 
-    struct CGPoint { 
-        double x; 
-        double y; 
-    boolm_textUpdateCP;
     int m_arcDirection;
     OITSUColor *m_bkColour;
     int m_bkMode;
     MFBrush *m_brush;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } m_brushOrg;
     NSObject<MFDeviceDriver> *m_driver;
     MFFont *m_font;
     double m_miterLimit;
     MFPath *m_path;
     MFPen *m_pen;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } m_penPos;
     int m_polyFillMode;
     int m_rop2;
@@ -33,6 +30,7 @@
     OITSUColor *m_textColour;
     int m_textDirection;
     int m_textHorizontalAlign;
+    bool m_textUpdateCP;
     int m_textVerticalAlign;
     MFTransform *m_transform;
 }
@@ -46,13 +44,13 @@
 - (id)getBkColour;
 - (int)getBkMode;
 - (id)getBrush;
-- (struct CGPoint { double x1; double x2; })getBrushOrg;
+- (struct CGPoint { float x1; float x2; })getBrushOrg;
 - (id)getCurrentTransform;
 - (id)getFont;
 - (double)getMiterLimit;
 - (id)getPath;
 - (id)getPen;
-- (struct CGPoint { double x1; double x2; })getPenPosition;
+- (struct CGPoint { float x1; float x2; })getPenPosition;
 - (int)getPolyFillMode;
 - (int)getRop2;
 - (id)getSelectedPalette;
@@ -70,13 +68,13 @@
 - (void)setBkColour:(id)arg1;
 - (void)setBkMode:(int)arg1;
 - (void)setBrush:(id)arg1;
-- (void)setBrushOrg:(struct CGPoint { double x1; double x2; })arg1;
+- (void)setBrushOrg:(struct CGPoint { float x1; float x2; })arg1;
 - (void)setCurrentTransform:(id)arg1;
 - (void)setFont:(id)arg1;
 - (void)setMiterLimit:(double)arg1;
 - (void)setPath:(id)arg1;
 - (void)setPen:(id)arg1;
-- (void)setPenPosition:(struct CGPoint { double x1; double x2; })arg1;
+- (void)setPenPosition:(struct CGPoint { float x1; float x2; })arg1;
 - (void)setPolyFillMode:(int)arg1;
 - (void)setRop2:(int)arg1;
 - (void)setSelectedPalette:(id)arg1;

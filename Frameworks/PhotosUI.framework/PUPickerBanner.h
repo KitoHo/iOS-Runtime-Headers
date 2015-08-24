@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class PUPickerBannerView, UIView;
-
 @interface PUPickerBanner : PUAbstractNavigationBanner {
     UIView *_view;
 }
 
-@property(readonly) PUPickerBannerView * bannerView;
+@property (nonatomic, readonly) PUPickerBannerView *bannerView;
 
 - (void).cxx_destruct;
 - (id)bannerView;
-- (double)height;
+- (float)height;
 - (id)view;
 
 @end

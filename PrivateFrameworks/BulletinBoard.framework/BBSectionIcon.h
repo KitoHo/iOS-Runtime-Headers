@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/BulletinBoard.framework/BulletinBoard
  */
 
-@class NSSet;
-
 @interface BBSectionIcon : NSObject <NSCopying, NSSecureCoding> {
     NSSet *_variants;
 }
 
-@property(copy) NSSet * variants;
+@property (nonatomic, copy) NSSet *variants;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
-- (id)_bestVariantForFormat:(long long)arg1;
+- (id)_bestVariantForFormat:(int)arg1;
 - (id)_bestVariantForUIFormat:(int)arg1;
 - (void)addVariant:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;

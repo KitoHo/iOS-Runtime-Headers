@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/WebContentAnalysis.framework/WebContentAnalysis
  */
 
-@class NSString, NSURL;
-
 @interface WFWhitelistSite : NSObject {
     NSString *domainName;
     NSString *normalizedURLString;
@@ -11,17 +9,17 @@
     NSString *urlString;
 }
 
-@property(readonly) NSString * domainName;
-@property(copy) NSURL * url;
-@property(copy) NSString * urlString;
+@property (readonly) NSString *domainName;
+@property (copy) NSURL *url;
+@property (copy) NSString *urlString;
 
 - (void)dealloc;
 - (id)description;
 - (id)domainName;
-- (bool)hasMetasitePrefix:(id)arg1;
-- (unsigned long long)hash;
+- (BOOL)hasMetasitePrefix:(id)arg1;
+- (unsigned int)hash;
 - (id)initWithURLString:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)setUrl:(id)arg1;
 - (void)setUrlString:(id)arg1;
 - (id)url;

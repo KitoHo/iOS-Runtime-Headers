@@ -3,27 +3,27 @@
  */
 
 @interface VKTileSelection : NSObject {
+    BOOL _bootstrap;
     double _lodBias;
-    unsigned long long _maxZ;
-    long long _tileSize;
-    bool_bootstrap;
+    unsigned int _maxZ;
+    int _tileSize;
 }
 
-@property bool bootstrap;
-@property double lodBias;
-@property unsigned long long maxZ;
-@property long long tileSize;
+@property (nonatomic) BOOL bootstrap;
+@property (nonatomic) double lodBias;
+@property (nonatomic) unsigned int maxZ;
+@property (nonatomic) int tileSize;
 
-- (bool)bootstrap;
+- (BOOL)bootstrap;
 - (id)init;
-- (id)keysForContext:(id)arg1 neighbors:(id)arg2;
+- (id)keysForContext:(id)arg1 neighbors:(id)arg2 selectionScale:(float)arg3;
 - (double)lodBias;
-- (unsigned long long)maxZ;
+- (unsigned int)maxZ;
 - (struct { unsigned int x1; int x2; int x3; int x4; int x5; })relevantTilesForContext:(id)arg1;
-- (void)setBootstrap:(bool)arg1;
+- (void)setBootstrap:(BOOL)arg1;
 - (void)setLodBias:(double)arg1;
-- (void)setMaxZ:(unsigned long long)arg1;
-- (void)setTileSize:(long long)arg1;
-- (long long)tileSize;
+- (void)setMaxZ:(unsigned int)arg1;
+- (void)setTileSize:(int)arg1;
+- (int)tileSize;
 
 @end

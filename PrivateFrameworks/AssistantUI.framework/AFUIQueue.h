@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/AssistantUI.framework/AssistantUI
  */
 
-@class <AFUIQueueDelegate>, NSMutableArray;
-
 @interface AFUIQueue : NSObject <NSFastEnumeration> {
     <AFUIQueueDelegate> *_delegate;
     NSMutableArray *_objects;
 }
 
-@property(readonly) long long count;
-@property <AFUIQueueDelegate> * delegate;
-@property(readonly) id frontObject;
-@property(getter=_objects,readonly) NSMutableArray * objects;
+@property (nonatomic, readonly) int count;
+@property (nonatomic) <AFUIQueueDelegate> *delegate;
+@property (nonatomic, readonly) id frontObject;
+@property (getter=_objects, nonatomic, readonly) NSMutableArray *objects;
 
 - (void).cxx_destruct;
 - (id)_objects;
-- (long long)count;
-- (unsigned long long)countByEnumeratingWithState:(struct { unsigned long long x1; id *x2; unsigned long long *x3; unsigned long long x4[5]; }*)arg1 objects:(id*)arg2 count:(unsigned long long)arg3;
+- (int)count;
+- (unsigned int)countByEnumeratingWithState:(struct { unsigned long x1; id *x2; unsigned long x3; unsigned long x4[5]; }*)arg1 objects:(id*)arg2 count:(unsigned int)arg3;
 - (id)delegate;
 - (id)dequeueAllObjects;
 - (id)dequeueObject;
@@ -26,7 +24,7 @@
 - (void)enqueueObjects:(id)arg1;
 - (id)frontObject;
 - (id)init;
-- (id)objectAtIndex:(long long)arg1;
+- (id)objectAtIndex:(int)arg1;
 - (void)setDelegate:(id)arg1;
 
 @end

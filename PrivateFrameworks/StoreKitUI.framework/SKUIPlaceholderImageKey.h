@@ -3,13 +3,15 @@
  */
 
 @interface SKUIPlaceholderImageKey : NSObject {
-    long long _height;
-    long long _imageTreatment;
-    long long _width;
+    int _height;
+    int _imageTreatment;
+    IKColor *_placeholdeBackgroundColor;
+    int _width;
 }
 
-- (unsigned long long)hash;
-- (id)initWithSize:(struct CGSize { double x1; double x2; })arg1 imageTreatment:(long long)arg2;
-- (bool)isEqual:(id)arg1;
+- (void).cxx_destruct;
+- (unsigned int)hash;
+- (id)initWithSize:(struct CGSize { float x1; float x2; })arg1 imageTreatment:(int)arg2 placeholderBackgroundColor:(id)arg3;
+- (BOOL)isEqual:(id)arg1;
 
 @end

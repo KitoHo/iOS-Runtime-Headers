@@ -2,59 +2,57 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSCH3DNormalDirectionMapper;
-
 @interface TSCH3DPieWedgeGeometry : TSCH3DGeometry {
-    long long mAngleSteps;
-    long long mBevelEdgeSteps;
+    int mAngleSteps;
+    int mBevelEdgeSteps;
     float mBottomZ;
-    long long mCapCount;
-    long long mCapOffset;
+    int mCapCount;
+    int mCapOffset;
     float mEndAngle;
     TSCH3DNormalDirectionMapper *mNormalDirectionMapper;
     float mRadius;
-    long long mRadiusSteps;
+    int mRadiusSteps;
     float mStartAngle;
     float mTopZ;
 }
 
-@property long long angleSteps;
-@property long long bevelEdgeSteps;
-@property float bottomZ;
-@property(readonly) long long capCount;
-@property(readonly) long long capOffset;
-@property float endAngle;
-@property(readonly) TSCH3DNormalDirectionMapper * normalDirectionMapper;
-@property float radius;
-@property long long radiusSteps;
-@property float startAngle;
-@property float topZ;
+@property (nonatomic) int angleSteps;
+@property (nonatomic) int bevelEdgeSteps;
+@property (nonatomic) float bottomZ;
+@property (nonatomic, readonly) int capCount;
+@property (nonatomic, readonly) int capOffset;
+@property (nonatomic) float endAngle;
+@property (nonatomic, readonly) TSCH3DNormalDirectionMapper *normalDirectionMapper;
+@property (nonatomic) float radius;
+@property (nonatomic) int radiusSteps;
+@property (nonatomic) float startAngle;
+@property (nonatomic) float topZ;
 
-- (long long)angleSteps;
-- (long long)bevelEdgeSteps;
+- (int)angleSteps;
+- (int)bevelEdgeSteps;
 - (float)bevelHeight;
 - (float)bottomZ;
-- (long long)capCount;
-- (long long)capOffset;
+- (int)capCount;
+- (int)capOffset;
 - (void)dealloc;
 - (float)endAngle;
 - (void)generateArrays;
 - (void)generateRoundedTop:(struct vector<float, std::__1::allocator<float> > { float *x1; float *x2; struct __compressed_pair<float *, std::__1::allocator<float> > { float *x_3_1_1; } x3; }*)arg1 radiusArray:(struct vector<float, std::__1::allocator<float> > { float *x1; float *x2; struct __compressed_pair<float *, std::__1::allocator<float> > { float *x_3_1_1; } x3; }*)arg2;
 - (int)geometryCount;
 - (id)init;
-- (bool)isFullCircle;
+- (BOOL)isFullCircle;
 - (id)normalDirectionMapper;
 - (void)p_generateAngles:(struct vector<float, std::__1::allocator<float> > { float *x1; float *x2; struct __compressed_pair<float *, std::__1::allocator<float> > { float *x_3_1_1; } x3; }*)arg1;
 - (void)p_generateBevelCoordinates:(struct vector<glm::detail::tvec3<float>, std::__1::allocator<glm::detail::tvec3<float> > > { struct tvec3<float> {} *x1; struct tvec3<float> {} *x2; struct __compressed_pair<glm::detail::tvec3<float> *, std::__1::allocator<glm::detail::tvec3<float> > > { struct tvec3<float> {} *x_3_1_1; } x3; }*)arg1 andAngles:(struct vector<float, std::__1::allocator<float> > { float *x1; float *x2; struct __compressed_pair<float *, std::__1::allocator<float> > { float *x_3_1_1; } x3; }*)arg2 radiusArray:(const struct vector<float, std::__1::allocator<float> > { float *x1; float *x2; struct __compressed_pair<float *, std::__1::allocator<float> > { float *x_3_1_1; } x3; }*)arg3 topArray:(const struct vector<float, std::__1::allocator<float> > { float *x1; float *x2; struct __compressed_pair<float *, std::__1::allocator<float> > { float *x_3_1_1; } x3; }*)arg4;
 - (float)radius;
-- (long long)radiusSteps;
+- (int)radiusSteps;
 - (id)selectionKnobPositions;
-- (void)setAngleSteps:(long long)arg1;
-- (void)setBevelEdgeSteps:(long long)arg1;
+- (void)setAngleSteps:(int)arg1;
+- (void)setBevelEdgeSteps:(int)arg1;
 - (void)setBottomZ:(float)arg1;
 - (void)setEndAngle:(float)arg1;
 - (void)setRadius:(float)arg1;
-- (void)setRadiusSteps:(long long)arg1;
+- (void)setRadiusSteps:(int)arg1;
 - (void)setStartAngle:(float)arg1;
 - (void)setTopZ:(float)arg1;
 - (float)startAngle;

@@ -2,22 +2,20 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSMutableSet;
-
 @interface PUMutableIndexPathSet : PUIndexPathSet {
     NSMutableSet *_indexPaths;
 }
 
 - (void).cxx_destruct;
 - (void)addIndexPath:(id)arg1;
-- (bool)containsIndexPath:(id)arg1;
-- (long long)count;
+- (BOOL)containsIndexPath:(id)arg1;
+- (int)count;
 - (id)description;
-- (void)enumerateIndexPathsUsingBlock:(id)arg1;
-- (unsigned long long)hash;
+- (void)enumerateIndexPathsUsingBlock:(id /* block */)arg1;
+- (unsigned int)hash;
 - (id)init;
-- (id)initWithCapacity:(unsigned long long)arg1;
-- (bool)isEqual:(id)arg1;
+- (id)initWithCapacity:(unsigned int)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone { }*)arg1;
 - (void)removeAllIndexPaths;
 - (void)removeIndexPath:(id)arg1;

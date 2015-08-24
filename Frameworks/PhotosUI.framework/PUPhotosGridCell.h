@@ -2,16 +2,15 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSArray, NSNumber, PUPhotoView, PUProgressIndicatorView, UIImageView, UIView;
-
 @interface PUPhotosGridCell : UICollectionViewCell {
-    struct UIEdgeInsets { 
-        double top; 
-        double left; 
-        double bottom; 
-        double right; 
     UIImageView *_cloudIconImageView;
+    BOOL _cloudIconVisible;
     int _currentImageRequestID;
+    struct UIEdgeInsets { 
+        float top; 
+        float left; 
+        float bottom; 
+        float right; 
     } _fillerEdgeInsets;
     UIView *_highlightOverlayView;
     PUPhotoView *_photoContentView;
@@ -19,26 +18,25 @@
     PUProgressIndicatorView *_progressIndicatorView;
     NSArray *_progressIndicatorViewConstraints;
     UIImageView *_selectionBadgeImageView;
+    BOOL _selectionBadgeVisible;
     UIView *_selectionOverlayView;
     PUPhotoView *_temporaryPhotoContentView;
     UIView *_transitionFillerView;
-    bool_cloudIconVisible;
-    bool_selectionBadgeVisible;
-    bool_transitionFillerViewEnabled;
-    bool_transitionIsAppearing;
+    BOOL _transitionFillerViewEnabled;
+    BOOL _transitionIsAppearing;
 }
 
-@property(getter=isCloudIconVisible) bool cloudIconVisible;
-@property int currentImageRequestID;
-@property struct UIEdgeInsets { double x1; double x2; double x3; double x4; } fillerEdgeInsets;
-@property(getter=isHighlighted) bool highlighted;
-@property(retain) PUPhotoView * photoContentView;
-@property(retain) NSNumber * progress;
-@property(getter=isSelectionBadgeVisible) bool selectionBadgeVisible;
-@property(retain) PUPhotoView * temporaryPhotoContentView;
-@property(readonly) UIView * transitionFillerView;
-@property bool transitionFillerViewEnabled;
-@property bool transitionIsAppearing;
+@property (getter=isCloudIconVisible, nonatomic) BOOL cloudIconVisible;
+@property (nonatomic) int currentImageRequestID;
+@property (nonatomic) struct UIEdgeInsets { float x1; float x2; float x3; float x4; } fillerEdgeInsets;
+@property (getter=isHighlighted, nonatomic) BOOL highlighted;
+@property (nonatomic, retain) PUPhotoView *photoContentView;
+@property (nonatomic, retain) NSNumber *progress;
+@property (getter=isSelectionBadgeVisible, nonatomic) BOOL selectionBadgeVisible;
+@property (nonatomic, retain) PUPhotoView *temporaryPhotoContentView;
+@property (nonatomic, readonly) UIView *transitionFillerView;
+@property (nonatomic) BOOL transitionFillerViewEnabled;
+@property (nonatomic) BOOL transitionIsAppearing;
 
 + (Class)_contentViewClass;
 
@@ -47,38 +45,38 @@
 - (void)_updateCloudIcon;
 - (void)_updateContentViewClipsToBounds;
 - (void)_updateHighlight;
-- (void)_updateProgressImmediately:(bool)arg1;
+- (void)_updateProgressImmediately:(BOOL)arg1;
 - (void)_updateSelectionBadge;
 - (void)_updateSubviewOrdering;
 - (void)addTemporaryPhotoContentView;
 - (void)applyLayoutAttributes:(id)arg1;
 - (int)currentImageRequestID;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })fillerEdgeInsets;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (bool)isCloudIconVisible;
-- (bool)isSelectionBadgeVisible;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })fillerEdgeInsets;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (BOOL)isCloudIconVisible;
+- (BOOL)isSelectionBadgeVisible;
 - (void)layoutSubviews;
 - (id)photoContentView;
 - (void)prepareForReuse;
 - (id)progress;
 - (void)removeTemporaryPhotoContentView;
-- (void)setCloudIconVisible:(bool)arg1;
+- (void)setCloudIconVisible:(BOOL)arg1;
 - (void)setCurrentImageRequestID:(int)arg1;
-- (void)setFillerEdgeInsets:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; })arg1;
-- (void)setHighlighted:(bool)arg1;
+- (void)setFillerEdgeInsets:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg1;
+- (void)setHighlighted:(BOOL)arg1;
 - (void)setPhotoContentView:(id)arg1;
-- (void)setProgress:(id)arg1 immediately:(bool)arg2;
 - (void)setProgress:(id)arg1;
-- (void)setSelectionBadgeVisible:(bool)arg1;
+- (void)setProgress:(id)arg1 immediately:(BOOL)arg2;
+- (void)setSelectionBadgeVisible:(BOOL)arg1;
 - (void)setTemporaryPhotoContentView:(id)arg1;
-- (void)setTemporaryPhotoImage:(id)arg1 with:(long long)arg2;
-- (void)setTransitionFillerViewEnabled:(bool)arg1;
-- (void)setTransitionIsAppearing:(bool)arg1;
-- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
+- (void)setTemporaryPhotoImage:(id)arg1 with:(int)arg2;
+- (void)setTransitionFillerViewEnabled:(BOOL)arg1;
+- (void)setTransitionIsAppearing:(BOOL)arg1;
+- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
 - (id)temporaryPhotoContentView;
 - (id)transitionFillerView;
-- (bool)transitionFillerViewEnabled;
-- (bool)transitionIsAppearing;
+- (BOOL)transitionFillerViewEnabled;
+- (BOOL)transitionIsAppearing;
 - (void)updateConstraints;
 
 @end

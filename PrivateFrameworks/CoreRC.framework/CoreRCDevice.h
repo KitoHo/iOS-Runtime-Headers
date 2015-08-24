@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CoreRC.framework/CoreRC
  */
 
-@class <CoreRCDeviceDelegate>, CoreRCManager, NSUUID;
-
 @interface CoreRCDevice : NSObject <NSCopying, NSSecureCoding> {
     NSUUID *_busUniqueID;
     <CoreRCDeviceDelegate> *_delegate;
@@ -11,11 +9,11 @@
     NSUUID *_uniqueID;
 }
 
-@property(readonly) NSUUID * busUniqueID;
-@property(readonly) bool isLocalDevice;
-@property(readonly) NSUUID * uniqueID;
+@property (nonatomic, readonly) NSUUID *busUniqueID;
+@property (nonatomic, readonly) BOOL isLocalDevice;
+@property (nonatomic, readonly) NSUUID *uniqueID;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)bus;
 - (id)busUniqueID;
@@ -24,20 +22,20 @@
 - (void)delloc;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
 - (id)initWithBus:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDevice:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)isLocalDevice;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isLocalDevice;
 - (id)manager;
 - (id)mergeProperties;
 - (void)mergePropertiesFromDevice:(id)arg1;
 - (void)readyToSend;
 - (void)receivedHIDEvent:(id)arg1 fromDevice:(id)arg2;
-- (bool)sendHIDEvent:(id)arg1 error:(id*)arg2;
-- (bool)sendHIDEvent:(id)arg1 target:(id)arg2 error:(id*)arg3;
+- (BOOL)sendHIDEvent:(id)arg1 error:(id*)arg2;
+- (BOOL)sendHIDEvent:(id)arg1 target:(id)arg2 error:(id*)arg3;
 - (void)setDelegate:(id)arg1;
 - (void)setManager:(id)arg1;
 - (id)uniqueID;

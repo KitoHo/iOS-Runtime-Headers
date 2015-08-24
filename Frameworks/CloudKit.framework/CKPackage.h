@@ -2,60 +2,68 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class CKRecord, CKSQLite, NSArray, NSData, NSString, NSURL;
-
-@interface CKPackage : NSObject <NSSecureCoding, CKRecordValue> {
+@interface CKPackage : NSObject <CKRecordValue, NSSecureCoding> {
     NSString *_UUID;
     NSString *_anchorPath;
     NSString *_applicationBundleID;
     NSArray *_assets;
+    BOOL _downloaded;
     NSURL *_fileURL;
-    unsigned long long _nextItemIndex;
-    long long _packageID;
+    BOOL _hasSize;
+    unsigned int _nextItemIndex;
+    BOOL _open;
+    BOOL _ownsTheAnchor;
+    int _packageID;
     CKRecord *_record;
     NSString *_recordKey;
     struct _OpaquePCSShareProtection { } *_recordPCS;
+    unsigned long long _size;
     CKSQLite *_sqlite;
-    bool_open;
-    bool_ownsTheAnchor;
-    bool_transaction;
-    bool_wasCached;
+    BOOL _transaction;
+    BOOL _uploaded;
+    BOOL _wasCached;
 }
 
-@property(retain) NSString * UUID;
-@property(retain) NSString * anchorPath;
-@property(retain) NSString * applicationBundleID;
-@property(copy) NSArray * assets;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) NSURL * fileURL;
-@property(readonly) unsigned long long hash;
-@property unsigned long long nextItemIndex;
-@property(getter=isOpen) bool open;
-@property bool ownsTheAnchor;
-@property long long packageID;
-@property CKRecord * record;
-@property(copy) NSString * recordKey;
-@property struct _OpaquePCSShareProtection { }* recordPCS;
-@property(copy) NSData * signature;
-@property(retain) CKSQLite * sqlite;
-@property(readonly) Class superclass;
-@property(getter=inTransaction) bool transaction;
-@property bool wasCached;
+@property (nonatomic, retain) NSString *UUID;
+@property (nonatomic, retain) NSString *anchorPath;
+@property (nonatomic, retain) NSString *applicationBundleID;
+@property (nonatomic, copy) NSArray *assets;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) BOOL downloaded;
+@property (nonatomic, retain) NSURL *fileURL;
+@property (nonatomic) BOOL hasSize;
+@property (readonly) unsigned int hash;
+@property (nonatomic) unsigned int nextItemIndex;
+@property (getter=isOpen, nonatomic) BOOL open;
+@property (nonatomic) BOOL ownsTheAnchor;
+@property (nonatomic) int packageID;
+@property (nonatomic) CKRecord *record;
+@property (nonatomic, copy) NSString *recordKey;
+@property (nonatomic) struct _OpaquePCSShareProtection { }*recordPCS;
+@property (nonatomic, copy) NSData *signature;
+@property (nonatomic) unsigned long long size;
+@property (nonatomic, retain) CKSQLite *sqlite;
+@property (readonly) Class superclass;
+@property (getter=inTransaction, nonatomic) BOOL transaction;
+@property (nonatomic) BOOL uploaded;
+@property (nonatomic) BOOL wasCached;
 
+// Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
+
++ (id)BRBundleID;
 + (id)_packagesPathForBundleID:(id)arg1;
 + (void)destroyPackageAnchoredAtURL:(id)arg1;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)CKPropertiesDescription;
 - (id)UUID;
 - (id)_initWithPath:(id)arg1 UUID:(id)arg2;
-- (id)_itemOrNilAtIndex:(unsigned long long)arg1;
+- (id)_itemOrNilAtIndex:(unsigned int)arg1;
 - (id)_itemWithColumnsByName:(id)arg1;
 - (id)_packageDatabasePathWithUUID:(id)arg1;
-- (id)_prettyDictionaryRepresentation;
-- (void)_setReferenceCount:(long long)arg1;
+- (void)_setReferenceCount:(int)arg1;
 - (void)addItem:(id)arg1;
 - (void)addSection:(id)arg1;
 - (id)anchorPath;
@@ -64,55 +72,68 @@
 - (void)beginTransaction;
 - (void)close;
 - (void)dealloc;
-- (bool)decReferenceCount;
+- (BOOL)decReferenceCount;
 - (id)description;
 - (void)destroy;
+- (BOOL)downloaded;
 - (void)encodeWithCoder:(id)arg1;
 - (void)endTransaction;
 - (id)fileURL;
-- (bool)inTransaction;
+- (BOOL)hasSize;
+- (BOOL)inTransaction;
 - (void)incReferenceCount;
 - (id)init;
 - (id)initWithAnchorURL:(id)arg1;
 - (id)initWithArchivedAnchoredPackage:(id)arg1;
 - (id)initWithBundleIdentifier:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (bool)isAnchorStillValid;
-- (bool)isOpen;
-- (id)itemAtIndex:(unsigned long long)arg1;
-- (unsigned long long)itemCount;
+- (BOOL)isAnchorStillValid;
+- (BOOL)isOpen;
+- (id)itemAtIndex:(unsigned int)arg1;
+- (unsigned int)itemCount;
 - (id)itemEnumerator;
-- (id)itemEnumeratorForSectionAtIndex:(unsigned long long)arg1;
-- (unsigned long long)nextItemIndex;
+- (id)itemEnumeratorForSectionAtIndex:(unsigned int)arg1;
+- (unsigned int)nextItemIndex;
 - (void)open;
-- (bool)ownsTheAnchor;
-- (long long)packageID;
+- (BOOL)ownsTheAnchor;
+- (int)packageID;
 - (id)record;
 - (id)recordKey;
 - (struct _OpaquePCSShareProtection { }*)recordPCS;
 - (id)replacementObjectForCoder:(id)arg1;
-- (id)sectionAtIndex:(unsigned long long)arg1;
-- (unsigned long long)sectionCount;
+- (id)sectionAtIndex:(unsigned int)arg1;
+- (unsigned int)sectionCount;
 - (void)setAnchorPath:(id)arg1;
 - (void)setApplicationBundleID:(id)arg1;
 - (void)setAssets:(id)arg1;
+- (void)setDownloaded:(BOOL)arg1;
 - (void)setFileURL:(id)arg1;
-- (void)setNextItemIndex:(unsigned long long)arg1;
-- (void)setOpen:(bool)arg1;
-- (void)setOwnsTheAnchor:(bool)arg1;
-- (void)setPackageID:(long long)arg1;
+- (void)setHasSize:(BOOL)arg1;
+- (void)setNextItemIndex:(unsigned int)arg1;
+- (void)setOpen:(BOOL)arg1;
+- (void)setOwnsTheAnchor:(BOOL)arg1;
+- (void)setPackageID:(int)arg1;
 - (void)setRecord:(id)arg1;
 - (void)setRecordKey:(id)arg1;
 - (void)setRecordPCS:(struct _OpaquePCSShareProtection { }*)arg1;
 - (void)setSignature:(id)arg1;
+- (void)setSize:(unsigned long long)arg1;
 - (void)setSqlite:(id)arg1;
-- (void)setTransaction:(bool)arg1;
+- (void)setTransaction:(BOOL)arg1;
 - (void)setUUID:(id)arg1;
-- (void)setWasCached:(bool)arg1;
+- (void)setUploaded:(BOOL)arg1;
+- (void)setWasCached:(BOOL)arg1;
 - (id)signature;
+- (unsigned long long)size;
 - (id)sqlite;
-- (void)updateItemAtIndex:(long long)arg1 withFileURL:(id)arg2;
-- (void)updateItemAtIndex:(long long)arg1 withSignature:(id)arg2 size:(unsigned long long)arg3 itemID:(unsigned long long)arg4 sectionIndex:(unsigned long long)arg5;
-- (bool)wasCached;
+- (void)updateItemAtIndex:(int)arg1 withFileURL:(id)arg2;
+- (void)updateItemAtIndex:(int)arg1 withSignature:(id)arg2 size:(unsigned long long)arg3 itemID:(unsigned long long)arg4 sectionIndex:(unsigned int)arg5;
+- (void)updateItemsAtIndexes:(id)arg1 fileURLs:(id)arg2;
+- (BOOL)uploaded;
+- (BOOL)wasCached;
+
+// Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
+
+- (id)_prettyDictionaryRepresentation;
 
 @end

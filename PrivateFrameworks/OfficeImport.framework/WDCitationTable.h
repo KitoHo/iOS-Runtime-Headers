@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableDictionary, WDDocument;
-
 @interface WDCitationTable : NSObject {
     NSMutableDictionary *mCitations;
     WDDocument *mDocument;
@@ -12,7 +10,7 @@
 - (void)addCitation:(id)arg1 forID:(id)arg2;
 - (id)citationFor:(id)arg1;
 - (id)citationIDs;
-- (unsigned long long)count;
+- (unsigned int)count;
 - (void)dealloc;
 - (id)description;
 - (id)document;

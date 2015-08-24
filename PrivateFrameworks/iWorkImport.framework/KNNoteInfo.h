@@ -2,89 +2,87 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSObject<TSDContainerInfo>, NSString, TSDInfoGeometry, TSPObject<TSDOwningAttachment>, TSWPStorage;
-
-@interface KNNoteInfo : TSPObject <TSDContainerInfo, TSWPStorageParent, TSKDocumentObject> {
+@interface KNNoteInfo : TSPObject <TSDContainerInfo, TSKDocumentObject, TSKTransformableObject, TSWPStorageParent> {
+    TSWPStorage *mContainedStorage;
     struct CGRect { 
         struct CGPoint { 
-            double x; 
-            double y; 
+            float x; 
+            float y; 
         } origin; 
         struct CGSize { 
-            double width; 
-            double height; 
+            float width; 
+            float height; 
         } size; 
-    boolmShrinkTextForPrinting;
-    TSWPStorage *mContainedStorage;
     } mFrameForPrinting;
     NSObject<TSDContainerInfo> *mParentInfo;
+    BOOL mShrinkTextForPrinting;
 }
 
-@property(getter=isAnchoredToText,readonly) bool anchoredToText;
-@property(getter=isAttachedToBodyText,readonly) bool attachedToBodyText;
-@property(retain) TSWPStorage * containedStorage;
-@property(readonly) long long contentWritingDirection;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(getter=isFloatingAboveText,readonly) bool floatingAboveText;
-@property struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } frameForPrinting;
-@property(copy) TSDInfoGeometry * geometry;
-@property(readonly) unsigned long long hash;
-@property(getter=isInlineWithText,readonly) bool inlineWithText;
-@property bool matchesObjectPlaceholderGeometry;
-@property TSPObject<TSDOwningAttachment> * owningAttachment;
-@property(readonly) TSPObject<TSDOwningAttachment> * owningAttachmentNoRecurse;
-@property NSObject<TSDContainerInfo> * parentInfo;
-@property bool shrinkTextForPrinting;
-@property(readonly) Class superclass;
-@property(readonly) int verticalAlignment;
+@property (getter=isAnchoredToText, nonatomic, readonly) BOOL anchoredToText;
+@property (getter=isAttachedToBodyText, nonatomic, readonly) BOOL attachedToBodyText;
+@property (nonatomic, retain) TSWPStorage *containedStorage;
+@property (nonatomic, readonly) int contentWritingDirection;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (getter=isFloatingAboveText, nonatomic, readonly) BOOL floatingAboveText;
+@property (nonatomic) struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } frameForPrinting;
+@property (nonatomic, copy) TSDInfoGeometry *geometry;
+@property (readonly) unsigned int hash;
+@property (getter=isInlineWithText, nonatomic, readonly) BOOL inlineWithText;
+@property (nonatomic) BOOL matchesObjectPlaceholderGeometry;
+@property (nonatomic) TSPObject<TSDOwningAttachment> *owningAttachment;
+@property (nonatomic, readonly) TSPObject<TSDOwningAttachment> *owningAttachmentNoRecurse;
+@property (nonatomic) NSObject<TSDContainerInfo> *parentInfo;
+@property (nonatomic) BOOL shrinkTextForPrinting;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) int verticalAlignment;
+
++ (BOOL)needsObjectUUID;
 
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
-- (bool)autoListRecognition;
-- (bool)autoListTermination;
+- (BOOL)autoListRecognition;
+- (BOOL)autoListTermination;
 - (id)childEnumerator;
 - (id)childInfos;
 - (void)clearBackPointerToParentInfoIfNeeded:(id)arg1;
 - (id)containedStorage;
-- (long long)contentWritingDirection;
+- (int)contentWritingDirection;
 - (id)copyWithContext:(id)arg1;
 - (void)dealloc;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })frameForPrinting;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })frameForPrinting;
 - (id)geometry;
+- (id)infoForSelectionPath:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;
-- (id)initWithContext:(id)arg1 containedStorage:(id)arg2;
 - (id)initWithContext:(id)arg1;
-- (bool)isAnchoredToText;
-- (bool)isAttachedToBodyText;
-- (bool)isFloatingAboveText;
-- (bool)isInlineWithText;
-- (bool)isThemeContent;
+- (id)initWithContext:(id)arg1 containedStorage:(id)arg2;
+- (BOOL)isAnchoredToText;
+- (BOOL)isAttachedToBodyText;
+- (BOOL)isFloatingAboveText;
+- (BOOL)isInlineWithText;
+- (BOOL)isThemeContent;
 - (Class)layoutClass;
-- (void)loadFromArchive:(const struct NoteArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; struct Reference {} *x3; int x4; unsigned int x5[1]; }*)arg1 unarchiver:(id)arg2;
+- (void)loadFromArchive:(const struct NoteArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct Reference {} *x5; }*)arg1 unarchiver:(id)arg2;
+- (id)objectUUIDPath;
 - (id)owningAttachment;
 - (id)owningAttachmentNoRecurse;
 - (id)parentInfo;
 - (Class)repClass;
-- (void)saveToArchive:(struct NoteArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; struct Reference {} *x3; int x4; unsigned int x5[1]; }*)arg1 archiver:(id)arg2;
+- (void)saveToArchive:(struct NoteArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct Reference {} *x5; }*)arg1 archiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
 - (void)setContainedStorage:(id)arg1;
-- (void)setFrameForPrinting:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)setFrameForPrinting:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)setGeometry:(id)arg1;
 - (void)setOwningAttachment:(id)arg1;
 - (void)setParentInfo:(id)arg1;
-- (void)setShrinkTextForPrinting:(bool)arg1;
-- (bool)shouldHideEmptyBullets;
-- (bool)shrinkTextForPrinting;
-- (bool)textIsVertical;
+- (void)setPrimitiveGeometry:(id)arg1;
+- (void)setShrinkTextForPrinting:(BOOL)arg1;
+- (BOOL)shouldHideEmptyBullets;
+- (BOOL)shrinkTextForPrinting;
+- (BOOL)textIsVertical;
 - (int)verticalAlignment;
-- (void)wasAddedToDocumentRoot:(id)arg1 context:(id)arg2;
+- (void)wasAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)wasRemovedFromDocumentRoot:(id)arg1;
-- (void)willBeAddedToDocumentRoot:(id)arg1 context:(id)arg2;
+- (void)willBeAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
 
 @end

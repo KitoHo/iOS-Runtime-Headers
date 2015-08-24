@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface OITSUDateFormatter : NSObject {
     NSString *mDateOnlyFormatString;
     struct __CFDateFormatter { } *mFullDateFormatter;
@@ -13,7 +11,7 @@
 + (id)dateFormatStringSpecialSymbols;
 + (id)datePortionOfDateTimeFormatString:(id)arg1;
 + (id)defaultDateTimeFormat;
-+ (unsigned long long)p_DateTimeSplitLocationInFormatString:(id)arg1;
++ (unsigned int)p_DateTimeSplitLocationInFormatString:(id)arg1;
 + (id)shortMonthNamesForNonCachedCurrentLocale;
 + (id)supportedDateFormats;
 + (id)supportedTimeFormats;

@@ -2,32 +2,30 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class <TPPageLayoutInfoProvider>, NSObject<TSDContainerInfo>, NSString, TPBodyInfo, TPDocumentRoot, TSDInfoGeometry, TSPObject<TSDOwningAttachment>;
-
 @interface TPPageInfo : NSObject <TSDContainerInfo> {
     TPBodyInfo *_bodyInfo;
     TPDocumentRoot *_documentRoot;
     <TPPageLayoutInfoProvider> *_layoutInfoProvider;
-    unsigned long long _pageIndex;
+    unsigned int _pageIndex;
 }
 
-@property(getter=isAnchoredToText,readonly) bool anchoredToText;
-@property(getter=isAttachedToBodyText,readonly) bool attachedToBodyText;
-@property(retain,readonly) TPBodyInfo * bodyInfo;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) TPDocumentRoot * documentRoot;
-@property(getter=isFloatingAboveText,readonly) bool floatingAboveText;
-@property(copy) TSDInfoGeometry * geometry;
-@property(readonly) unsigned long long hash;
-@property(getter=isInlineWithText,readonly) bool inlineWithText;
-@property(readonly) <TPPageLayoutInfoProvider> * layoutInfoProvider;
-@property bool matchesObjectPlaceholderGeometry;
-@property TSPObject<TSDOwningAttachment> * owningAttachment;
-@property(readonly) TSPObject<TSDOwningAttachment> * owningAttachmentNoRecurse;
-@property(readonly) unsigned long long pageIndex;
-@property NSObject<TSDContainerInfo> * parentInfo;
-@property(readonly) Class superclass;
+@property (getter=isAnchoredToText, nonatomic, readonly) BOOL anchoredToText;
+@property (getter=isAttachedToBodyText, nonatomic, readonly) BOOL attachedToBodyText;
+@property (nonatomic, readonly, retain) TPBodyInfo *bodyInfo;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) TPDocumentRoot *documentRoot;
+@property (getter=isFloatingAboveText, nonatomic, readonly) BOOL floatingAboveText;
+@property (nonatomic, copy) TSDInfoGeometry *geometry;
+@property (readonly) unsigned int hash;
+@property (getter=isInlineWithText, nonatomic, readonly) BOOL inlineWithText;
+@property (nonatomic, readonly) <TPPageLayoutInfoProvider> *layoutInfoProvider;
+@property (nonatomic) BOOL matchesObjectPlaceholderGeometry;
+@property (nonatomic) TSPObject<TSDOwningAttachment> *owningAttachment;
+@property (nonatomic, readonly) TSPObject<TSDOwningAttachment> *owningAttachmentNoRecurse;
+@property (nonatomic, readonly) unsigned int pageIndex;
+@property (nonatomic) NSObject<TSDContainerInfo> *parentInfo;
+@property (readonly) Class superclass;
 
 - (id)bodyInfo;
 - (id)childInfos;
@@ -36,21 +34,23 @@
 - (void)dealloc;
 - (id)documentRoot;
 - (id)geometry;
-- (id)initWithPageIndex:(unsigned long long)arg1 documentRoot:(id)arg2 layoutInfoProvider:(id)arg3;
-- (bool)isAnchoredToText;
-- (bool)isAttachedToBodyText;
-- (bool)isFloatingAboveText;
-- (bool)isInlineWithText;
-- (bool)isThemeContent;
+- (id)infoForSelectionPath:(id)arg1;
+- (id)initWithPageIndex:(unsigned int)arg1 documentRoot:(id)arg2 layoutInfoProvider:(id)arg3;
+- (BOOL)isAnchoredToText;
+- (BOOL)isAttachedToBodyText;
+- (BOOL)isFloatingAboveText;
+- (BOOL)isInlineWithText;
+- (BOOL)isThemeContent;
 - (Class)layoutClass;
 - (id)layoutInfoProvider;
 - (id)owningAttachment;
 - (id)owningAttachmentNoRecurse;
-- (unsigned long long)pageIndex;
+- (unsigned int)pageIndex;
 - (id)parentInfo;
 - (Class)repClass;
 - (void)setGeometry:(id)arg1;
 - (void)setOwningAttachment:(id)arg1;
 - (void)setParentInfo:(id)arg1;
+- (void)setPrimitiveGeometry:(id)arg1;
 
 @end

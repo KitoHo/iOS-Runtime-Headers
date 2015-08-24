@@ -2,34 +2,33 @@
    Image: /System/Library/PrivateFrameworks/UIAccessibility.framework/UIAccessibility
  */
 
-@interface UIPasteboard_QSExtras : __UIPasteboard_QSExtras_super {
-}
+@interface UIPasteboard_QSExtras : __UIPasteboard_QSExtras_super
 
 + (id)_accessibilityQuickSpeakPasteboard;
-+ (void)_accessibilitySetUseQuickSpeakPasteBoard:(bool)arg1;
-+ (bool)_accessibilityUseQuickSpeakPasteBoard;
++ (void)_accessibilitySetUseQuickSpeakPasteBoard:(BOOL)arg1;
++ (BOOL)_accessibilityUseQuickSpeakPasteBoard;
 + (id)generalPasteboard;
-+ (id)pasteboardWithName:(id)arg1 create:(bool)arg2;
++ (id)pasteboardWithName:(id)arg1 create:(BOOL)arg2;
 + (id)pasteboardWithUniqueName;
 + (Class)safeCategoryTargetClass;
 + (id)safeCategoryTargetClassName;
 
 - (id)URL;
 - (id)URLs;
-- (bool)_accessibilityShouldSwapReceiverWithQuickSpeakPasteboard;
+- (BOOL)_accessibilityShouldSwapReceiverWithQuickSpeakPasteboard;
 - (void)addItems:(id)arg1;
-- (long long)changeCount;
+- (int)changeCount;
 - (id)color;
 - (id)colors;
-- (bool)containsPasteboardTypes:(id)arg1 inItemSet:(id)arg2;
-- (bool)containsPasteboardTypes:(id)arg1;
-- (id)dataForPasteboardType:(id)arg1 inItemSet:(id)arg2;
+- (BOOL)containsPasteboardTypes:(id)arg1;
+- (BOOL)containsPasteboardTypes:(id)arg1 inItemSet:(id)arg2;
 - (id)dataForPasteboardType:(id)arg1;
+- (id)dataForPasteboardType:(id)arg1 inItemSet:(id)arg2;
 - (id)image;
 - (id)images;
 - (id)itemSetWithPasteboardTypes:(id)arg1;
 - (id)items;
-- (long long)numberOfItems;
+- (int)numberOfItems;
 - (id)pasteboardTypes;
 - (id)pasteboardTypesForItemSet:(id)arg1;
 - (void)setData:(id)arg1 forPasteboardType:(id)arg2;

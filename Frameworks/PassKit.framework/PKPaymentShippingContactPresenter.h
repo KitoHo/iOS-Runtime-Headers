@@ -2,17 +2,14 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class NSString;
+@interface PKPaymentShippingContactPresenter : NSObject <PKPaymentAuthorizationViewPresenting>
 
-@interface PKPaymentShippingContactPresenter : NSObject <PKPaymentAuthorizationViewPresenting> {
-}
-
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 + (id)_valueForItem:(id)arg1;
-+ (void)presentView:(id)arg1 withDataItem:(id)arg2;
++ (void)presentCell:(id)arg1 withDataItem:(id)arg2;
 
 @end

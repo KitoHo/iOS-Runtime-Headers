@@ -2,29 +2,33 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class UIButton, UILabel;
-
-@interface PKPaymentSetupPrivacyFooterView : UIView {
-    long long _context;
-    UIButton *_linkButton;
-    UILabel *_message;
+@interface PKPaymentSetupPrivacyFooterView : UIView <UITextViewDelegate> {
+    int _context;
+    <PKPaymentSetupPrivacyFooterViewDelegate> *_delegate;
+    UITextView *_message;
 }
 
-@property long long context;
-@property(retain) UIButton * linkButton;
-@property(retain) UILabel * message;
+@property (nonatomic) int context;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <PKPaymentSetupPrivacyFooterViewDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) UITextView *message;
+@property (readonly) Class superclass;
 
-- (id)_highlightedStringAttributes;
-- (id)_normalStringAttributes;
-- (long long)context;
+- (id)_linkColor;
+- (id)_linkTextAttributes;
+- (id)_textAttributes;
+- (int)context;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 context:(long long)arg2;
+- (id)delegate;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1 context:(int)arg2;
 - (void)layoutSubviews;
-- (id)linkButton;
 - (id)message;
-- (void)setContext:(long long)arg1;
-- (void)setLinkButton:(id)arg1;
+- (void)setContext:(int)arg1;
+- (void)setDelegate:(id)arg1;
 - (void)setMessage:(id)arg1;
-- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
+- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
+- (BOOL)textView:(id)arg1 shouldInteractWithURL:(id)arg2 inRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg3;
 
 @end

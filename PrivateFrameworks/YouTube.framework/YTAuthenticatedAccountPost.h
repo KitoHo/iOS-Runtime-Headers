@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/YouTube.framework/YouTube
  */
 
-@class NSMutableData, NSMutableURLRequest, NSString, NSURLConnection;
-
 @interface YTAuthenticatedAccountPost : NSObject <NSURLConnectionDelegate> {
     NSURLConnection *_connection;
     id _delegate;
     NSMutableURLRequest *_postRequest;
     NSMutableData *_rawData;
     int _type;
-    bool_validResponse;
+    BOOL _validResponse;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void)_cleanup;
 - (void)_deleteVideo:(id)arg1;
 - (void)_didAuthenticate:(id)arg1;
 - (void)_failedToAuthenticate:(id)arg1;
-- (void)_listenForAuthenticationNotifications:(bool)arg1;
+- (void)_listenForAuthenticationNotifications:(BOOL)arg1;
 - (void)_removePS:(id)arg1;
 - (void)addVideoToFavorites:(id)arg1;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
@@ -37,7 +35,7 @@
 - (void)removeVideoFromFavorites:(id)arg1;
 - (void)removeVideoFromPlaylist:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setRating:(bool)arg1 forVideo:(id)arg2;
+- (void)setRating:(BOOL)arg1 forVideo:(id)arg2;
 - (void)submitRequest;
 - (void)submitRequestOfType:(id)arg1;
 - (void)unsubscribeToSubscription:(id)arg1;

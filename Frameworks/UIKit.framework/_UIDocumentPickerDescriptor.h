@@ -2,48 +2,53 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSArray, NSExtension, NSString;
-
 @interface _UIDocumentPickerDescriptor : NSObject {
     NSExtension *_extension;
+    BOOL _newlyAdded;
 }
 
-@property bool enabled;
-@property(retain) NSExtension * extension;
-@property(retain,readonly) NSString * fileProviderDocumentGroup;
-@property(copy,readonly) NSString * identifier;
-@property(copy,readonly) NSString * localizedName;
-@property(copy,readonly) NSString * nonUIIdentifier;
-@property(copy,readonly) NSArray * supportedContentTypes;
+@property (nonatomic) BOOL enabled;
+@property (nonatomic, retain) NSExtension *extension;
+@property (nonatomic, readonly, retain) NSString *fileProviderDocumentGroup;
+@property (nonatomic, readonly, copy) NSString *identifier;
+@property (nonatomic, readonly, copy) NSString *localizedName;
+@property (getter=isNewlyAdded, nonatomic) BOOL newlyAdded;
+@property (nonatomic, readonly, copy) NSString *nonUIIdentifier;
+@property (nonatomic, readonly, copy) NSArray *supportedContentTypes;
 
 + (id)allPickers;
-+ (id)allPickersForMode:(unsigned long long)arg1 documentTypes:(id)arg2;
++ (id)allPickersForMode:(unsigned int)arg1 documentTypes:(id)arg2;
 + (BOOL)cloudEnabledStatus;
-+ (id)defaultPickerIdentifierForMode:(unsigned long long)arg1 documentTypes:(id)arg2;
++ (id)defaultPickerIdentifierForMode:(unsigned int)arg1 documentTypes:(id)arg2;
 + (id)descriptorWithIdentifier:(id)arg1;
-+ (id)enabledPickersForMode:(unsigned long long)arg1 documentTypes:(id)arg2;
++ (id)enabledPickersForMode:(unsigned int)arg1 documentTypes:(id)arg2;
 + (id)hostBundleID;
 + (id)manageablePickers;
++ (id)pickerOrder;
 + (void)setCloudEnabledStatus:(BOOL)arg1;
 + (void)setHostBundleID:(id)arg1;
++ (void)setOrderFromPickers:(id)arg1;
 
 - (id)_extensionValueOfClass:(Class)arg1 forKey:(id)arg2;
 - (id)_ownBundle;
 - (id)_parentApp;
-- (long long)compare:(id)arg1;
-- (bool)enabled;
+- (int)compare:(id)arg1;
+- (id)description;
+- (BOOL)enabled;
 - (id)extension;
 - (id)fileProviderDocumentGroup;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)identifier;
-- (id)imageWithScale:(double)arg1;
-- (bool)isEqual:(id)arg1;
+- (id)imageWithScale:(float)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isNewlyAdded;
 - (id)localizedName;
 - (id)nonUIBundle;
 - (id)nonUIIdentifier;
-- (void)setEnabled:(bool)arg1;
+- (void)setEnabled:(BOOL)arg1;
 - (void)setExtension:(id)arg1;
+- (void)setNewlyAdded:(BOOL)arg1;
 - (id)supportedContentTypes;
-- (bool)supportsPickerMode:(unsigned long long)arg1;
+- (BOOL)supportsPickerMode:(unsigned int)arg1;
 
 @end

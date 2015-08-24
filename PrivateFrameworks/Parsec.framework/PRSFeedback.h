@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/Parsec.framework/Parsec
  */
 
-@class NSString;
-
-@interface PRSFeedback : NSObject <NSCopying, NSCoding, NSSecureCoding> {
+@interface PRSFeedback : NSObject <NSCoding, NSCopying, NSSecureCoding> {
     NSString *_input;
-    long long _timestamp;
+    int _timestamp;
 }
 
-@property(readonly) NSString * input;
-@property long long timestamp;
-@property(readonly) NSString * type;
+@property (nonatomic, readonly) NSString *input;
+@property (nonatomic) int timestamp;
+@property (nonatomic, readonly) NSString *type;
 
-+ (id)JSONDictionaryForFeedbackArray:(id)arg1;
-+ (bool)supportsSecureCoding;
++ (id)JSONDictionaryForFeedbackArray:(id)arg1 enableFeedbackDebugLogging:(BOOL)arg2;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)copy;
@@ -24,11 +22,11 @@
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFeedback:(id)arg1;
-- (id)initWithInput:(id)arg1 timestamp:(long long)arg2;
+- (id)initWithInput:(id)arg1 timestamp:(int)arg2;
 - (id)input;
 - (id)plist;
-- (void)setTimestamp:(long long)arg1;
-- (long long)timestamp;
+- (void)setTimestamp:(int)arg1;
+- (int)timestamp;
 - (id)type;
 - (void)validate;
 

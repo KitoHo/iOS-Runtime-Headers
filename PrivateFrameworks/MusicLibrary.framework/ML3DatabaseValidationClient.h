@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>;
-
 @interface ML3DatabaseValidationClient : NSObject {
     NSObject<OS_dispatch_queue> *_serialQueue;
     NSMutableDictionary *_validatableDatabases;
@@ -13,11 +11,11 @@
 
 - (void).cxx_destruct;
 - (id)_validatableDatabaseForPath:(id)arg1;
-- (bool)_validateDatabaseForPath:(id)arg1 usingLibrary:(id)arg2;
+- (BOOL)_validateDatabaseForPath:(id)arg1 usingLibrary:(id)arg2;
 - (id)init;
-- (bool)isValidatingDatabaseForPath:(id)arg1;
-- (bool)validateDatabaseAtPath:(id)arg1;
-- (bool)validateDatabaseForConnection:(id)arg1;
-- (bool)validateDatabaseForLibrary:(id)arg1;
+- (BOOL)isValidatingDatabaseForPath:(id)arg1;
+- (BOOL)validateDatabaseAtPath:(id)arg1;
+- (BOOL)validateDatabaseForConnection:(id)arg1;
+- (BOOL)validateDatabaseForLibrary:(id)arg1;
 
 @end

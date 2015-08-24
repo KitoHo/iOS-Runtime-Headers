@@ -2,41 +2,36 @@
    Image: /System/Library/PrivateFrameworks/HomeKitDaemon.framework/HomeKitDaemon
  */
 
-@class HMDHome, NSData, NSString, NSUUID;
-
 @interface HMDUser : NSObject <NSSecureCoding> {
-    NSString *_displayName;
     HMDHome *_home;
     NSString *_pairingUsername;
-    unsigned long long _privilege;
+    unsigned int _privilege;
     NSData *_publicKey;
+    BOOL _remoteGateway;
     NSString *_userID;
     NSUUID *_uuid;
-    bool_remoteGateway;
 }
 
-@property(retain) NSString * displayName;
-@property(readonly) HMDHome * home;
-@property(copy,readonly) NSString * pairingUsername;
-@property(readonly) unsigned long long privilege;
-@property(copy,readonly) NSData * publicKey;
-@property(getter=isRemoteGateway,readonly) bool remoteGateway;
-@property(copy,readonly) NSString * userID;
-@property(copy,readonly) NSUUID * uuid;
+@property (nonatomic, readonly) HMDHome *home;
+@property (nonatomic, readonly, copy) NSString *pairingUsername;
+@property (nonatomic, readonly) unsigned int privilege;
+@property (nonatomic, readonly, copy) NSData *publicKey;
+@property (getter=isRemoteGateway, nonatomic, readonly) BOOL remoteGateway;
+@property (nonatomic, readonly, copy) NSString *userID;
+@property (nonatomic, readonly, copy) NSUUID *uuid;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (id)displayName;
 - (void)encodeWithCoder:(id)arg1;
 - (id)home;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithName:(id)arg1 displayName:(id)arg2 pairingUsername:(id)arg3 publicKey:(id)arg4 privilege:(unsigned long long)arg5 remoteGateway:(bool)arg6 home:(id)arg7;
-- (bool)isRemoteGateway;
+- (id)initWithName:(id)arg1 pairingUsername:(id)arg2 publicKey:(id)arg3 privilege:(unsigned int)arg4 remoteGateway:(BOOL)arg5 home:(id)arg6;
+- (BOOL)isRemoteGateway;
+- (id)lookupDisplayName;
 - (id)pairingUsername;
-- (unsigned long long)privilege;
+- (unsigned int)privilege;
 - (id)publicKey;
-- (void)setDisplayName:(id)arg1;
 - (id)userID;
 - (id)uuid;
 

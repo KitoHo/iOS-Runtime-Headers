@@ -2,55 +2,53 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSString, SUItem, SUItemList, SUPageSectionGroup, SUStorePageProtocol;
-
 @interface SUStructuredPage : NSObject <NSCopying> {
-    double _artworkWidth;
-    long long _displayStyle;
+    BOOL _artworkShouldFitWidth;
+    float _artworkWidth;
+    BOOL _didShowDialog;
+    int _displayStyle;
     SUItem *_item;
     SUItemList *_itemList;
     SUStorePageProtocol *_protocol;
     SUPageSectionGroup *_sectionsGroup;
+    BOOL _shouldHideSignInButton;
     NSString *_title;
-    long long _type;
-    bool_artworkShouldFitWidth;
-    bool_didShowDialog;
-    bool_shouldHideSignInButton;
-    bool_wantsIndexBar;
+    int _type;
+    BOOL _wantsIndexBar;
 }
 
-@property(readonly) bool artworkShouldFitWidth;
-@property(readonly) double artworkWidth;
-@property(readonly) bool didShowDialog;
-@property(readonly) long long displayStyle;
-@property(readonly) bool hasDisplayableContent;
-@property(retain) SUItem * item;
-@property(retain) SUItemList * itemList;
-@property(retain) SUStorePageProtocol * protocol;
-@property(retain) SUPageSectionGroup * sectionsGroup;
-@property(readonly) bool shouldHideSignInButton;
-@property(retain) NSString * title;
-@property long long type;
-@property(readonly) bool wantsIndexBar;
+@property (nonatomic, readonly) BOOL artworkShouldFitWidth;
+@property (nonatomic, readonly) float artworkWidth;
+@property (nonatomic, readonly) BOOL didShowDialog;
+@property (nonatomic, readonly) int displayStyle;
+@property (nonatomic, readonly) BOOL hasDisplayableContent;
+@property (nonatomic, retain) SUItem *item;
+@property (nonatomic, retain) SUItemList *itemList;
+@property (nonatomic, retain) SUStorePageProtocol *protocol;
+@property (nonatomic, retain) SUPageSectionGroup *sectionsGroup;
+@property (nonatomic, readonly) BOOL shouldHideSignInButton;
+@property (nonatomic, retain) NSString *title;
+@property (nonatomic) int type;
+@property (nonatomic, readonly) BOOL wantsIndexBar;
 
-+ (long long)pageTypeForStorePageDictionary:(id)arg1;
-+ (long long)pageTypeForStorePageString:(id)arg1;
++ (int)pageTypeForStorePageDictionary:(id)arg1;
++ (int)pageTypeForStorePageString:(id)arg1;
 
 - (id)_copyItemFromDictionary:(id)arg1;
-- (long long)_displayStyleForString:(id)arg1;
+- (int)_displayStyleForString:(id)arg1;
 - (void)_parseItemsFromDictionary:(id)arg1;
 - (void)_parseProtocolFromDictionary:(id)arg1;
 - (void)_parseTemplateParametersFromDictionary:(id)arg1;
-- (bool)artworkShouldFitWidth;
-- (double)artworkWidth;
+- (BOOL)artworkShouldFitWidth;
+- (float)artworkWidth;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
-- (bool)didShowDialog;
-- (long long)displayStyle;
-- (bool)hasDisplayableContent;
+- (BOOL)didShowDialog;
+- (int)displayStyle;
+- (BOOL)hasDisplayableContent;
 - (id)item;
 - (id)itemList;
-- (bool)loadFromDictionary:(id)arg1;
+- (BOOL)loadFromDictionary:(id)arg1;
 - (id)protocol;
 - (id)sectionsGroup;
 - (void)setItem:(id)arg1;
@@ -58,10 +56,10 @@
 - (void)setProtocol:(id)arg1;
 - (void)setSectionsGroup:(id)arg1;
 - (void)setTitle:(id)arg1;
-- (void)setType:(long long)arg1;
-- (bool)shouldHideSignInButton;
+- (void)setType:(int)arg1;
+- (BOOL)shouldHideSignInButton;
 - (id)title;
-- (long long)type;
-- (bool)wantsIndexBar;
+- (int)type;
+- (BOOL)wantsIndexBar;
 
 @end

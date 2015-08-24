@@ -2,33 +2,26 @@
    Image: /System/Library/Frameworks/QuartzCore.framework/QuartzCore
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class CALayer, CAValueFunction, NSString;
-
-@interface CAForceField : NSObject <NSCopying, NSMutableCopying, NSCoding> {
+@interface CAForceField : NSObject <NSCoding, NSCopying, NSMutableCopying> {
+    BOOL _enabled;
     CAValueFunction *_function;
     CALayer *_layer;
     NSString *_name;
     void *_priv;
-    bool_enabled;
 }
 
-@property(getter=isEnabled) bool enabled;
-@property(retain) CAValueFunction * function;
-@property(retain) CALayer * layer;
-@property(copy) NSString * name;
+@property (getter=isEnabled) BOOL enabled;
+@property (retain) CAValueFunction *function;
+@property (retain) CALayer *layer;
+@property (copy) NSString *name;
 
 + (void)CAMLParserStartElement:(id)arg1;
 + (id)defaultValueForKey:(id)arg1;
 + (id)forceField;
 
-- (struct Object { int (**x1)(); struct Atomic { struct { int x_1_2_1; } x_2_1_1; } x2; }*)CA_copyRenderValue;
 - (void)CAMLParser:(id)arg1 setValue:(id)arg2 forKey:(id)arg3;
 - (id)CAMLTypeForKey:(id)arg1;
+- (struct Object { int (**x1)(); struct Atomic { struct { int x_1_2_1; } x_2_1_1; } x2; }*)CA_copyRenderValue;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (void)encodeWithCAMLWriter:(id)arg1;
@@ -36,11 +29,11 @@
 - (id)function;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEnabled;
+- (BOOL)isEnabled;
 - (id)layer;
 - (id)mutableCopyWithZone:(struct _NSZone { }*)arg1;
 - (id)name;
-- (void)setEnabled:(bool)arg1;
+- (void)setEnabled:(BOOL)arg1;
 - (void)setFunction:(id)arg1;
 - (void)setLayer:(id)arg1;
 - (void)setName:(id)arg1;

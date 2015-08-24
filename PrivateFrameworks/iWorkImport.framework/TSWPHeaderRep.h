@@ -3,17 +3,16 @@
  */
 
 @interface TSWPHeaderRep : TSWPRep {
-    double _leftClip;
-    double _rightClip;
+    float _leftClip;
+    float _rightClip;
 }
 
-@property double leftClip;
-@property double rightClip;
+@property (nonatomic) float leftClip;
+@property (nonatomic) float rightClip;
 
-- (double)leftClip;
-- (double)rightClip;
-- (void)setLeftClip:(double)arg1;
-- (void)setRightClip:(double)arg1;
-- (void)setupForDrawingInLayer:(id)arg1 context:(struct CGContext { }*)arg2;
+- (float)leftClip;
+- (float)rightClip;
+- (void)setLeftClip:(float)arg1;
+- (void)setRightClip:(float)arg1;
 
 @end

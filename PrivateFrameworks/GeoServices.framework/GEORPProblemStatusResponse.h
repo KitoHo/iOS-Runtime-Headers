@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray;
-
 @interface GEORPProblemStatusResponse : PBCodable <NSCopying> {
     struct { 
         unsigned int statusCode : 1; 
@@ -12,9 +10,9 @@
     int _statusCode;
 }
 
-@property bool hasStatusCode;
-@property(retain) NSMutableArray * problemStatus;
-@property int statusCode;
+@property (nonatomic) BOOL hasStatusCode;
+@property (nonatomic, retain) NSMutableArray *problemStatus;
+@property (nonatomic) int statusCode;
 
 - (void)addProblemStatus:(id)arg1;
 - (void)clearProblemStatus;
@@ -23,15 +21,15 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasStatusCode;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasStatusCode;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)problemStatus;
-- (id)problemStatusAtIndex:(unsigned long long)arg1;
-- (unsigned long long)problemStatusCount;
-- (bool)readFrom:(id)arg1;
-- (void)setHasStatusCode:(bool)arg1;
+- (id)problemStatusAtIndex:(unsigned int)arg1;
+- (unsigned int)problemStatusCount;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasStatusCode:(BOOL)arg1;
 - (void)setProblemStatus:(id)arg1;
 - (void)setStatusCode:(int)arg1;
 - (int)statusCode;

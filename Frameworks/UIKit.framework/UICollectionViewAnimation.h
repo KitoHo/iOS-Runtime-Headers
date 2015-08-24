@@ -2,54 +2,48 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSMutableArray, UICollectionReusableView, UICollectionViewLayoutAttributes;
-
 @interface UICollectionViewAnimation : NSObject {
+    id /* block */ _animationBlock;
     struct { 
         unsigned int animateFromCurrentPosition : 1; 
         unsigned int deleteAterAnimation : 1; 
         unsigned int rasterizeAfterAnimation : 1; 
         unsigned int resetRasterizationAfterAnimation : 1; 
-    id _animationBlock;
     } _collectionViewAnimationFlags;
     NSMutableArray *_completionHandlers;
-    double _endFraction;
+    float _endFraction;
     UICollectionViewLayoutAttributes *_finalLayoutAttributes;
-    double _startFraction;
+    float _startFraction;
     NSMutableArray *_startupHandlers;
     UICollectionReusableView *_view;
     int _viewType;
 }
 
-@property(readonly) bool animateFromCurrentPosition;
-@property(readonly) bool deleteAfterAnimation;
-@property(readonly) double endFraction;
-@property(readonly) UICollectionViewLayoutAttributes * finalLayoutAttributes;
-@property bool rasterizeAfterAnimation;
-@property bool resetRasterizationAfterAnimation;
-@property(readonly) double startFraction;
-@property(readonly) UICollectionReusableView * view;
-@property(readonly) int viewType;
+@property (nonatomic, readonly) BOOL animateFromCurrentPosition;
+@property (nonatomic, readonly) BOOL deleteAfterAnimation;
+@property (nonatomic, readonly) float endFraction;
+@property (nonatomic, readonly) UICollectionViewLayoutAttributes *finalLayoutAttributes;
+@property (nonatomic) BOOL rasterizeAfterAnimation;
+@property (nonatomic) BOOL resetRasterizationAfterAnimation;
+@property (nonatomic, readonly) float startFraction;
+@property (nonatomic, readonly) UICollectionReusableView *view;
+@property (nonatomic, readonly) int viewType;
 
-- (void)addCompletionHandler:(id)arg1;
-- (void)addStartupHandler:(id)arg1;
-- (bool)animateFromCurrentPosition;
+- (void)addCompletionHandler:(id /* block */)arg1;
+- (void)addStartupHandler:(id /* block */)arg1;
+- (BOOL)animateFromCurrentPosition;
 - (void)dealloc;
-- (bool)deleteAfterAnimation;
+- (BOOL)deleteAfterAnimation;
 - (id)description;
-- (double)endFraction;
+- (float)endFraction;
 - (id)finalLayoutAttributes;
-- (id)initWithView:(id)arg1 viewType:(int)arg2 finalLayoutAttributes:(id)arg3 startFraction:(double)arg4 endFraction:(double)arg5 animateFromCurrentPostion:(bool)arg6 deleteAfterAnimation:(bool)arg7 customAnimations:(id)arg8;
-- (bool)rasterizeAfterAnimation;
-- (bool)resetRasterizationAfterAnimation;
-- (void)setRasterizeAfterAnimation:(bool)arg1;
-- (void)setResetRasterizationAfterAnimation:(bool)arg1;
+- (id)initWithView:(id)arg1 viewType:(int)arg2 finalLayoutAttributes:(id)arg3 startFraction:(float)arg4 endFraction:(float)arg5 animateFromCurrentPostion:(BOOL)arg6 deleteAfterAnimation:(BOOL)arg7 customAnimations:(id /* block */)arg8;
+- (BOOL)rasterizeAfterAnimation;
+- (BOOL)resetRasterizationAfterAnimation;
+- (void)setRasterizeAfterAnimation:(BOOL)arg1;
+- (void)setResetRasterizationAfterAnimation:(BOOL)arg1;
 - (void)start;
-- (double)startFraction;
+- (float)startFraction;
 - (id)view;
 - (int)viewType;
 

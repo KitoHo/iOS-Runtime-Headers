@@ -2,23 +2,25 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class PUFeedSettings, PUMomentsSettings, PUPhotoEditProtoSettings, PUPhotosGridSettings;
-
 @interface PURootSettings : PUSettings {
     PUFeedSettings *_feedSettings;
+    int _imagePickerTestSourceType;
     PUMomentsSettings *_momentsSettings;
     PUPhotoEditProtoSettings *_photoEditingSettings;
     PUPhotosGridSettings *_photosGridSettings;
-    unsigned long long _settingsVersion;
+    unsigned int _settingsVersion;
+    PUSizeSettings *_sizeSettings;
 }
 
-@property(retain) PUFeedSettings * feedSettings;
-@property(retain) PUMomentsSettings * momentsSettings;
-@property(retain) PUPhotoEditProtoSettings * photoEditingSettings;
-@property(retain) PUPhotosGridSettings * photosGridSettings;
-@property unsigned long long settingsVersion;
+@property (nonatomic, retain) PUFeedSettings *feedSettings;
+@property (nonatomic) int imagePickerTestSourceType;
+@property (nonatomic, retain) PUMomentsSettings *momentsSettings;
+@property (nonatomic, retain) PUPhotoEditProtoSettings *photoEditingSettings;
+@property (nonatomic, retain) PUPhotosGridSettings *photosGridSettings;
+@property (nonatomic) unsigned int settingsVersion;
+@property (nonatomic, retain) PUSizeSettings *sizeSettings;
 
-+ (void)_addPhoto;
++ (void)_addRandomPhoto;
 + (id)_currentViewControllerStack;
 + (id)_debugRowsForViewControllerStack:(id)arg1;
 + (void)_deleteAllDiagnosticFiles;
@@ -30,15 +32,19 @@
 - (void).cxx_destruct;
 - (void)_save;
 - (id)feedSettings;
+- (int)imagePickerTestSourceType;
 - (id)momentsSettings;
 - (id)photoEditingSettings;
 - (id)photosGridSettings;
 - (void)setDefaultValues;
 - (void)setFeedSettings:(id)arg1;
+- (void)setImagePickerTestSourceType:(int)arg1;
 - (void)setMomentsSettings:(id)arg1;
 - (void)setPhotoEditingSettings:(id)arg1;
 - (void)setPhotosGridSettings:(id)arg1;
-- (void)setSettingsVersion:(unsigned long long)arg1;
-- (unsigned long long)settingsVersion;
+- (void)setSettingsVersion:(unsigned int)arg1;
+- (void)setSizeSettings:(id)arg1;
+- (unsigned int)settingsVersion;
+- (id)sizeSettings;
 
 @end

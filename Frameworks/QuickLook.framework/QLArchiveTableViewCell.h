@@ -2,11 +2,10 @@
    Image: /System/Library/Frameworks/QuickLook.framework/QuickLook
  */
 
-@interface QLArchiveTableViewCell : UITableViewCell {
-}
+@interface QLArchiveTableViewCell : UITableViewCell
 
-- (double)indentationMargin;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (float)indentationMargin;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (void)layoutSubviews;
 - (void)prepareForReuse;
 

@@ -2,42 +2,40 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSString;
-
 @interface GEORPProblemResponse : PBCodable <NSCopying> {
     struct { 
         unsigned int statusCode : 1; 
         unsigned int isNotificationSupported : 1; 
     } _has;
+    BOOL _isNotificationSupported;
     NSString *_problemId;
     int _statusCode;
-    bool_isNotificationSupported;
 }
 
-@property bool hasIsNotificationSupported;
-@property(readonly) bool hasProblemId;
-@property bool hasStatusCode;
-@property bool isNotificationSupported;
-@property(retain) NSString * problemId;
-@property int statusCode;
+@property (nonatomic) BOOL hasIsNotificationSupported;
+@property (nonatomic, readonly) BOOL hasProblemId;
+@property (nonatomic) BOOL hasStatusCode;
+@property (nonatomic) BOOL isNotificationSupported;
+@property (nonatomic, retain) NSString *problemId;
+@property (nonatomic) int statusCode;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasIsNotificationSupported;
-- (bool)hasProblemId;
-- (bool)hasStatusCode;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
-- (bool)isNotificationSupported;
+- (BOOL)hasIsNotificationSupported;
+- (BOOL)hasProblemId;
+- (BOOL)hasStatusCode;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isNotificationSupported;
 - (void)mergeFrom:(id)arg1;
 - (id)problemId;
-- (bool)readFrom:(id)arg1;
-- (void)setHasIsNotificationSupported:(bool)arg1;
-- (void)setHasStatusCode:(bool)arg1;
-- (void)setIsNotificationSupported:(bool)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (void)setHasIsNotificationSupported:(BOOL)arg1;
+- (void)setHasStatusCode:(BOOL)arg1;
+- (void)setIsNotificationSupported:(BOOL)arg1;
 - (void)setProblemId:(id)arg1;
 - (void)setStatusCode:(int)arg1;
 - (int)statusCode;

@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSMutableArray;
-
 @interface SUCellConfigurationCache : NSObject {
     id _cellContext;
     NSMutableArray *_configurations;
 }
 
-@property(retain) id cellContext;
+@property (nonatomic, retain) id cellContext;
 
 - (id)cellContext;
-- (id)configurationForRow:(unsigned long long)arg1;
+- (id)configurationForRow:(unsigned int)arg1;
 - (void)dealloc;
-- (id)initWithClass:(Class)arg1 tableHeight:(double)arg2;
+- (id)initWithClass:(Class)arg1 tableHeight:(float)arg2;
 - (void)reset;
 - (void)resetLayoutCaches;
 - (void)setCellContext:(id)arg1;

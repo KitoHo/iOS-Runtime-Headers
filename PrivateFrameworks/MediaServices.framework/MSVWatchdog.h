@@ -2,12 +2,6 @@
    Image: /System/Library/PrivateFrameworks/MediaServices.framework/MediaServices
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSOperationQueue, NSRunLoop, NSString;
-
 @interface MSVWatchdog : NSObject {
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     double _interval;
@@ -15,24 +9,24 @@
     NSOperationQueue *_operationQueue;
     NSObject<OS_dispatch_queue> *_queue;
     NSRunLoop *_runLoop;
-    id _timeoutCallback;
+    BOOL _running;
+    BOOL _scheduled;
+    id /* block */ _timeoutCallback;
     double _timeoutInterval;
     NSObject<OS_dispatch_source> *_timer;
-    bool_running;
-    bool_scheduled;
 }
 
-@property(retain) NSObject<OS_dispatch_queue> * dispatchQueue;
-@property double interval;
-@property(retain) NSString * mode;
-@property(retain) NSOperationQueue * operationQueue;
-@property(retain) NSObject<OS_dispatch_queue> * queue;
-@property(retain) NSRunLoop * runLoop;
-@property bool running;
-@property bool scheduled;
-@property(copy) id timeoutCallback;
-@property double timeoutInterval;
-@property(retain) NSObject<OS_dispatch_source> * timer;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *dispatchQueue;
+@property (nonatomic) double interval;
+@property (nonatomic, retain) NSString *mode;
+@property (nonatomic, retain) NSOperationQueue *operationQueue;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *queue;
+@property (nonatomic, retain) NSRunLoop *runLoop;
+@property (nonatomic) BOOL running;
+@property (nonatomic) BOOL scheduled;
+@property (nonatomic, copy) id /* block */ timeoutCallback;
+@property (nonatomic) double timeoutInterval;
+@property (nonatomic, retain) NSObject<OS_dispatch_source> *timer;
 
 - (void).cxx_destruct;
 - (void)_cancelTimeout;
@@ -47,24 +41,24 @@
 - (id)queue;
 - (void)resume;
 - (id)runLoop;
-- (bool)running;
+- (BOOL)running;
 - (void)scheduleInDispatchQueue:(id)arg1;
 - (void)scheduleInOperationQueue:(id)arg1;
 - (void)scheduleInRunLoop:(id)arg1;
-- (bool)scheduled;
+- (BOOL)scheduled;
 - (void)setDispatchQueue:(id)arg1;
 - (void)setInterval:(double)arg1;
 - (void)setMode:(id)arg1;
 - (void)setOperationQueue:(id)arg1;
 - (void)setQueue:(id)arg1;
 - (void)setRunLoop:(id)arg1;
-- (void)setRunning:(bool)arg1;
-- (void)setScheduled:(bool)arg1;
-- (void)setTimeoutCallback:(id)arg1;
+- (void)setRunning:(BOOL)arg1;
+- (void)setScheduled:(BOOL)arg1;
+- (void)setTimeoutCallback:(id /* block */)arg1;
 - (void)setTimeoutInterval:(double)arg1;
 - (void)setTimer:(id)arg1;
 - (void)suspend;
-- (id)timeoutCallback;
+- (id /* block */)timeoutCallback;
 - (double)timeoutInterval;
 - (id)timer;
 

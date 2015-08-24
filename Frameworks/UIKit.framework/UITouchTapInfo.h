@@ -3,19 +3,19 @@
  */
 
 @interface UITouchTapInfo : NSObject {
-    struct CGPoint { 
-        double x; 
-        double y; 
     float _multiTapDelay;
     float _rejectAsTapThrehold;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _startPosition;
     double _startTime;
-    unsigned long long _tapCount;
+    unsigned int _tapCount;
     float _viewTouchPauseThreshold;
 }
 
-- (bool)_touchLocationConsideredMovement:(id)arg1;
-- (bool)cancelTouchTracking;
+- (BOOL)_touchLocationConsideredMovement:(id)arg1;
+- (BOOL)cancelTouchTracking;
 - (void)clearTapState;
 - (void)releaseAndClearWeakRefs;
 - (void)touchBegan:(id)arg1 withEvent:(id)arg2;

@@ -2,35 +2,33 @@
    Image: /System/Library/PrivateFrameworks/CalendarFoundation.framework/CalendarFoundation
  */
 
-@class CalLogNode, NSArray, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>;
-
 @interface CalLogMaster : NSObject {
     CalLogNode *_aslNode;
+    BOOL _autoFlush;
     NSObject<OS_dispatch_group> *_dispatchGroup;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
+    BOOL _hasValidNotificationRegistrationToken;
     int _notificationRegistrationToken;
     CalLogNode *_rootConfigurationNode;
     CalLogNode *_standardOutNode;
     NSArray *_topLevelNodes;
     CalLogNode *_userNotificationNode;
-    bool_autoFlush;
-    bool_hasValidNotificationRegistrationToken;
 }
 
-@property(retain) CalLogNode * aslNode;
-@property bool autoFlush;
-@property bool hasValidNotificationRegistrationToken;
-@property int notificationRegistrationToken;
-@property(retain) CalLogNode * rootConfigurationNode;
-@property(retain) CalLogNode * standardOutNode;
-@property(retain) NSArray * topLevelNodes;
-@property(retain) CalLogNode * userNotificationNode;
+@property (nonatomic, retain) CalLogNode *aslNode;
+@property (nonatomic) BOOL autoFlush;
+@property (nonatomic) BOOL hasValidNotificationRegistrationToken;
+@property (nonatomic) int notificationRegistrationToken;
+@property (nonatomic, retain) CalLogNode *rootConfigurationNode;
+@property (nonatomic, retain) CalLogNode *standardOutNode;
+@property (nonatomic, retain) NSArray *topLevelNodes;
+@property (nonatomic, retain) CalLogNode *userNotificationNode;
 
 + (id)sharedLogMaster;
 
 - (void).cxx_destruct;
 - (id)aslNode;
-- (bool)autoFlush;
+- (BOOL)autoFlush;
 - (void)configureASLNode;
 - (void)configureRootConfigurationNode;
 - (void)configureStandardOutNode;
@@ -40,8 +38,8 @@
 - (void)dealloc;
 - (int)findMinimumLevel;
 - (id)findWhiteList;
-- (bool)flush;
-- (bool)hasValidNotificationRegistrationToken;
+- (BOOL)flush;
+- (BOOL)hasValidNotificationRegistrationToken;
 - (id)init;
 - (void)loadPreferredConfiguration;
 - (int)notificationRegistrationToken;
@@ -50,8 +48,8 @@
 - (void)reloadTopLevelNodes;
 - (id)rootConfigurationNode;
 - (void)setAslNode:(id)arg1;
-- (void)setAutoFlush:(bool)arg1;
-- (void)setHasValidNotificationRegistrationToken:(bool)arg1;
+- (void)setAutoFlush:(BOOL)arg1;
+- (void)setHasValidNotificationRegistrationToken:(BOOL)arg1;
 - (void)setNotificationRegistrationToken:(int)arg1;
 - (void)setRootConfigurationNode:(id)arg1;
 - (void)setStandardOutNode:(id)arg1;

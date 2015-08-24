@@ -2,29 +2,27 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class EKStructuredLocation, NSDictionary;
-
 @interface EKReminderLocationItem : NSObject {
     NSDictionary *_addressDictionary;
+    BOOL _isLocationBeingDetermined;
     EKStructuredLocation *_location;
     int _type;
-    bool_isLocationBeingDetermined;
 }
 
-@property(retain) NSDictionary * addressDictionary;
-@property bool isLocationBeingDetermined;
-@property(retain) EKStructuredLocation * location;
-@property int type;
+@property (nonatomic, retain) NSDictionary *addressDictionary;
+@property (nonatomic) BOOL isLocationBeingDetermined;
+@property (nonatomic, retain) EKStructuredLocation *location;
+@property (nonatomic) int type;
 
 - (void).cxx_destruct;
 - (id)addressDictionary;
 - (id)description;
-- (bool)isLocationBeingDetermined;
+- (BOOL)isLocationBeingDetermined;
 - (id)label;
 - (id)location;
 - (void)reset;
 - (void)setAddressDictionary:(id)arg1;
-- (void)setIsLocationBeingDetermined:(bool)arg1;
+- (void)setIsLocationBeingDetermined:(BOOL)arg1;
 - (void)setLocation:(id)arg1;
 - (void)setType:(int)arg1;
 - (id)stringForSubtitle;

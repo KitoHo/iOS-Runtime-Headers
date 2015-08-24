@@ -2,29 +2,26 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSString;
+@interface SAUIConfirmationOption : AceObject <SAAceSerializable>
 
-@interface SAUIConfirmationOption : AceObject <SAAceSerializable> {
-}
-
-@property bool active;
-@property(copy) NSArray * commands;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * label;
-@property(readonly) Class superclass;
-@property(copy) NSString * type;
+@property (nonatomic) BOOL active;
+@property (nonatomic, copy) NSArray *commands;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSString *label;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSString *type;
 
 + (id)confirmationOption;
 + (id)confirmationOptionWithDictionary:(id)arg1 context:(id)arg2;
 
-- (bool)active;
+- (BOOL)active;
 - (id)commands;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)label;
-- (void)setActive:(bool)arg1;
+- (void)setActive:(BOOL)arg1;
 - (void)setCommands:(id)arg1;
 - (void)setLabel:(id)arg1;
 - (void)setType:(id)arg1;

@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/CalDAV.framework/CalDAV
  */
 
-@class NSData, NSDictionary, NSMutableDictionary, NSString, NSURL;
-
 @interface CalDAVAddManagedAttachmentsTaskGroup : CoreDAVTaskGroup {
     NSDictionary *_attachments;
     NSDictionary *_contentTypes;
     NSMutableDictionary *_filenamesToServerLocation;
+    BOOL _hadPreconditionFailure;
     NSDictionary *_postFailureSizes;
     NSURL *_postURLWithQuery;
     NSString *_previousETag;
@@ -17,32 +16,31 @@
     NSString *_updatedETag;
     NSData *_updatedResourcePayload;
     NSString *_updatedScheduleTag;
-    bool_hadPreconditionFailure;
 }
 
-@property(retain) NSDictionary * attachments;
-@property(retain) NSDictionary * contentTypes;
-@property(retain) NSMutableDictionary * filenamesToServerLocation;
-@property bool hadPreconditionFailure;
-@property(retain) NSDictionary * postFailureSizes;
-@property(retain) NSString * previousETag;
-@property(retain) NSString * previousScheduleTag;
-@property(retain) NSURL * resourceURL;
-@property int state;
-@property(retain) NSString * updatedETag;
-@property(retain) NSData * updatedResourcePayload;
-@property(retain) NSString * updatedScheduleTag;
+@property (nonatomic, retain) NSDictionary *attachments;
+@property (nonatomic, retain) NSDictionary *contentTypes;
+@property (nonatomic, retain) NSMutableDictionary *filenamesToServerLocation;
+@property (nonatomic) BOOL hadPreconditionFailure;
+@property (nonatomic, retain) NSDictionary *postFailureSizes;
+@property (nonatomic, retain) NSString *previousETag;
+@property (nonatomic, retain) NSString *previousScheduleTag;
+@property (nonatomic, retain) NSURL *resourceURL;
+@property (nonatomic) int state;
+@property (nonatomic, retain) NSString *updatedETag;
+@property (nonatomic, retain) NSData *updatedResourcePayload;
+@property (nonatomic, retain) NSString *updatedScheduleTag;
 
 - (void)_fetchUpdatedContent;
 - (void)_finishWithError:(id)arg1 state:(int)arg2;
 - (void)_handlePostResponse:(id)arg1;
-- (bool)_postedLastAttachment;
+- (BOOL)_postedLastAttachment;
 - (void)_sendAttachments;
 - (id)attachments;
 - (id)contentTypes;
 - (void)dealloc;
 - (id)filenamesToServerLocation;
-- (bool)hadPreconditionFailure;
+- (BOOL)hadPreconditionFailure;
 - (id)initWithAccountInfoProvider:(id)arg1 resourceURL:(id)arg2 attachments:(id)arg3 contentTypes:(id)arg4 taskManager:(id)arg5;
 - (id)postFailureSizes;
 - (id)previousETag;
@@ -51,7 +49,7 @@
 - (void)setAttachments:(id)arg1;
 - (void)setContentTypes:(id)arg1;
 - (void)setFilenamesToServerLocation:(id)arg1;
-- (void)setHadPreconditionFailure:(bool)arg1;
+- (void)setHadPreconditionFailure:(BOOL)arg1;
 - (void)setPostFailureSizes:(id)arg1;
 - (void)setPreviousETag:(id)arg1;
 - (void)setPreviousScheduleTag:(id)arg1;

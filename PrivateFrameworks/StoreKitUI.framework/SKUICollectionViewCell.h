@@ -2,37 +2,56 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class UIColor, UIView;
-
 @interface SKUICollectionViewCell : UICollectionViewCell {
     UIView *_bottomBorderView;
-    long long _position;
+    UIView *_leftBorderView;
+    int _position;
     UIView *_rightBorderView;
     UIColor *_separatorColor;
-    long long _separatorStyle;
+    struct UIEdgeInsets { 
+        float top; 
+        float left; 
+        float bottom; 
+        float right; 
+    } _separatorInsets;
+    int _separatorStyle;
+    struct UIEdgeInsets { 
+        float top; 
+        float left; 
+        float bottom; 
+        float right; 
+    } _separatorWidths;
     UIView *_topBorderView;
 }
 
-@property(retain) UIColor * separatorColor;
-@property long long separatorStyle;
-@property bool showsCellSeparators;
+@property (nonatomic, retain) UIColor *separatorColor;
+@property (nonatomic) struct UIEdgeInsets { float x1; float x2; float x3; float x4; } separatorInsets;
+@property (nonatomic) int separatorStyle;
+@property (nonatomic) struct UIEdgeInsets { float x1; float x2; float x3; float x4; } separatorWidths;
+@property (nonatomic) BOOL showsCellSeparators;
 
 - (void).cxx_destruct;
-- (void)_setPosition:(long long)arg1;
-- (bool)_showsBottomBorder;
-- (bool)_showsRightBorder;
-- (bool)_showsTopBorder;
+- (void)_setPosition:(int)arg1;
+- (BOOL)_showsBottomBorder;
+- (BOOL)_showsLeftBorder;
+- (BOOL)_showsRightBorder;
+- (BOOL)_showsTopBorder;
 - (void)_updateBorderVisibility;
 - (void)applyLayoutAttributes:(id)arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)layoutSubviews;
 - (id)separatorColor;
-- (long long)separatorStyle;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })separatorInsets;
+- (int)separatorStyle;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })separatorWidths;
 - (void)setBackgroundColor:(id)arg1;
-- (void)setHighlighted:(bool)arg1;
-- (void)setSelected:(bool)arg1;
+- (void)setHighlighted:(BOOL)arg1;
+- (void)setSelected:(BOOL)arg1;
 - (void)setSeparatorColor:(id)arg1;
-- (void)setSeparatorStyle:(long long)arg1;
-- (void)setShowsCellSeparators:(bool)arg1;
-- (bool)showsCellSeparators;
+- (void)setSeparatorInsets:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg1;
+- (void)setSeparatorStyle:(int)arg1;
+- (void)setSeparatorWidths:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg1;
+- (void)setShowsCellSeparators:(BOOL)arg1;
+- (BOOL)showsCellSeparators;
 
 @end

@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardFoundation.framework/SpringBoardFoundation
  */
 
-@class NSArray, NSMutableArray;
-
 @interface _SBFForkJoinObservable : SBFObservable {
     NSArray *_observables;
     NSMutableArray *_results;
-    unsigned long long _uncompletedObservableCount;
+    unsigned int _uncompletedObservableCount;
 }
 
 - (void)_observableFinishedForObserver:(id)arg1;
-- (void)_setResult:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)_setResult:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)dealloc;
 - (id)initWithWithObservables:(id)arg1;
 - (id)subscribe:(id)arg1;

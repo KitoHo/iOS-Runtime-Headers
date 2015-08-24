@@ -10,20 +10,20 @@
     double _edgeRegionSize;
     double _hysteresis;
     double _maximumSwipeDuration;
-    double _restrictedEdgeRegionMinimumWeight;
+    float _restrictedEdgeRegionMinimumWeight;
     double _restrictedEdgeRegionTimeInterval;
 }
 
-@property double backProjectionTime;
-@property double bottomEdgeRegionSize;
-@property double edgeAngleWindow;
-@property double edgeAngleWindowDecayTime;
-@property double edgeAngleWindowDegreees;
-@property double edgeRegionSize;
-@property double hysteresis;
-@property double maximumSwipeDuration;
-@property double restrictedEdgeRegionMinimumWeight;
-@property double restrictedEdgeRegionTimeInterval;
+@property (nonatomic) double backProjectionTime;
+@property (nonatomic) double bottomEdgeRegionSize;
+@property (nonatomic) double edgeAngleWindow;
+@property (nonatomic) double edgeAngleWindowDecayTime;
+@property (nonatomic) double edgeAngleWindowDegreees;
+@property (nonatomic) double edgeRegionSize;
+@property (nonatomic) double hysteresis;
+@property (nonatomic) double maximumSwipeDuration;
+@property (nonatomic) float restrictedEdgeRegionMinimumWeight;
+@property (nonatomic) double restrictedEdgeRegionTimeInterval;
 
 + (id)keyPathsForValuesAffectingEdgeAngleWindowDegreees;
 + (id)settingsControllerModule;
@@ -36,7 +36,7 @@
 - (double)edgeRegionSize;
 - (double)hysteresis;
 - (double)maximumSwipeDuration;
-- (double)restrictedEdgeRegionMinimumWeight;
+- (float)restrictedEdgeRegionMinimumWeight;
 - (double)restrictedEdgeRegionTimeInterval;
 - (void)setBackProjectionTime:(double)arg1;
 - (void)setBottomEdgeRegionSize:(double)arg1;
@@ -47,7 +47,7 @@
 - (void)setEdgeRegionSize:(double)arg1;
 - (void)setHysteresis:(double)arg1;
 - (void)setMaximumSwipeDuration:(double)arg1;
-- (void)setRestrictedEdgeRegionMinimumWeight:(double)arg1;
+- (void)setRestrictedEdgeRegionMinimumWeight:(float)arg1;
 - (void)setRestrictedEdgeRegionTimeInterval:(double)arg1;
 
 @end

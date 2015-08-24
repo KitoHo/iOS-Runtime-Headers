@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/MMCSServices.framework/MMCSServices
  */
 
-@class NSData, NSString, NSURL;
-
 @interface MMCSSimpleFile : NSObject {
     NSString *_authToken;
-    long long _encryptionBehavior;
+    int _encryptionBehavior;
     int _fd;
     NSData *_fileHash;
     NSString *_guid;
@@ -19,23 +17,23 @@
     NSData *_signature;
 }
 
-@property(retain) NSString * authToken;
-@property long long encryptionBehavior;
+@property (retain) NSString *authToken;
+@property int encryptionBehavior;
 @property int fd;
-@property(retain) NSData * fileHash;
-@property(retain) NSString * guid;
+@property (retain) NSData *fileHash;
+@property (retain) NSString *guid;
 @property unsigned long long itemID;
-@property(retain) NSString * localPath;
+@property (retain) NSString *localPath;
 @property double progress;
 @property unsigned long long protocolFileSize;
-@property(retain) NSURL * requestURL;
-@property(retain) NSString * requestorID;
-@property(retain) NSData * signature;
+@property (retain) NSURL *requestURL;
+@property (retain) NSString *requestorID;
+@property (retain) NSData *signature;
 
 - (id)authToken;
 - (void)dealloc;
 - (id)description;
-- (long long)encryptionBehavior;
+- (int)encryptionBehavior;
 - (int)fd;
 - (id)fileHash;
 - (id)guid;
@@ -47,7 +45,7 @@
 - (id)requestURL;
 - (id)requestorID;
 - (void)setAuthToken:(id)arg1;
-- (void)setEncryptionBehavior:(long long)arg1;
+- (void)setEncryptionBehavior:(int)arg1;
 - (void)setFd:(int)arg1;
 - (void)setFileHash:(id)arg1;
 - (void)setGuid:(id)arg1;

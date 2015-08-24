@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/MediaPlayerUI.framework/MediaPlayerUI
  */
 
-@class IKListItemLockupElement, MPUContentSizeLayoutConstraint, MPUExtrasConstrainedArtworkContainerView, NSArray, NSLayoutConstraint, UILabel, UIView;
-
 @interface MPUExtrasTableViewCell : UITableViewCell {
     MPUExtrasConstrainedArtworkContainerView *_artworkContainer;
     NSLayoutConstraint *_artworkHeightConstraint;
@@ -25,17 +23,17 @@
     NSLayoutConstraint *_topLabelConstraint;
 }
 
-@property(readonly) MPUExtrasConstrainedArtworkContainerView * artworkContainerView;
-@property IKListItemLockupElement * element;
+@property (nonatomic, readonly) MPUExtrasConstrainedArtworkContainerView *artworkContainerView;
+@property (nonatomic) IKListItemLockupElement *element;
 
 - (void).cxx_destruct;
 - (id)artworkContainerView;
-- (void)configureForListItemLockupElement:(id)arg1 wide:(bool)arg2;
+- (void)configureForListItemLockupElement:(id)arg1 wide:(BOOL)arg2;
 - (id)element;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (void)prepareForReuse;
 - (void)setElement:(id)arg1;
-- (void)setHighlighted:(bool)arg1 animated:(bool)arg2;
-- (void)setSelected:(bool)arg1 animated:(bool)arg2;
+- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
 
 @end

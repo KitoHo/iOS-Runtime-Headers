@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/IMFoundation.framework/IMFoundation
  */
 
-@class NSMutableDictionary;
-
 @interface IMWeakObjectCache : NSObject {
     struct _opaque_pthread_mutex_t { 
-        long long __sig; 
-        BOOL __opaque[56]; 
+        long __sig; 
+        BOOL __opaque[40]; 
     } _tableLock;
     NSMutableDictionary *_weakObjectCache;
 }

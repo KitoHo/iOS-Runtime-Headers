@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardFoundation.framework/SpringBoardFoundation
  */
 
-@interface SBReadonlyTableViewCell : PTSRowTableViewCell {
-}
+@interface SBReadonlyTableViewCell : PTSRowTableViewCell
 
-+ (long long)cellStyleForRow:(id)arg1;
++ (int)cellStyleForRow:(id)arg1;
 
 - (void)updateDisplayedValue;
 

@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-@class GKUITheme, NSString;
-
 @interface GKComposeRemoteViewController : GKRemoteViewController {
     NSString *_defaultMessage;
     unsigned int _rid;
     GKUITheme *_theme;
 }
 
-@property(copy) NSString * defaultMessage;
-@property unsigned int rid;
-@property(retain) GKUITheme * theme;
+@property (nonatomic, copy) NSString *defaultMessage;
+@property (nonatomic) unsigned int rid;
+@property (nonatomic, retain) GKUITheme *theme;
 
 + (id)exportedInterface;
 + (id)serviceViewControllerInterface;
@@ -26,7 +24,7 @@
 - (void)remoteViewControllerIsCanceling;
 - (void)remoteViewControllerIsFinishing;
 - (unsigned int)rid;
-- (void)sendFinishedMessageToDelegateCancelled:(bool)arg1;
+- (void)sendFinishedMessageToDelegateCancelled:(BOOL)arg1;
 - (void)setDefaultMessage:(id)arg1;
 - (void)setRid:(unsigned int)arg1;
 - (void)setTheme:(id)arg1;

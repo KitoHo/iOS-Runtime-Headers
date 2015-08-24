@@ -2,18 +2,7 @@
    Image: /System/Library/PrivateFrameworks/PhotoEditSupport.framework/PhotoEditSupport
  */
 
-@class BLPixelImageBuffer, CIFilter, CIImage, CIVector, NSData, NSNumber;
-
 @interface BLBlackAndWhiteFilter : CIFilter {
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
     CIFilter *_colorCubeFilterBW;
     CIFilter *_colorCubeFilterGrain;
     BLPixelImageBuffer *_grainImage;
@@ -29,40 +18,49 @@
     NSNumber *_inputPreset;
     NSNumber *_inputVersion;
     float _lastAmount;
+    BOOL _lastApplyGrain;
+    BOOL _lastAppySepia;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _lastDestinationRect;
     CIVector *_lastHueStrengthArray;
     float _lastNeutralGamma;
     float _lastPhototone;
     int _lastPreset;
-    long long _lastVersion;
+    int _lastVersion;
+    BOOL _needsReprocess;
     NSData *_precomputedCube;
-    bool_lastApplyGrain;
-    bool_lastAppySepia;
-    bool_needsReprocess;
 }
 
-@property(retain) CIFilter * colorCubeFilterBW;
-@property(retain) CIFilter * colorCubeFilterGrain;
-@property(retain) BLPixelImageBuffer * grainImage;
-@property(copy) NSNumber * inputAmount;
-@property(copy) NSNumber * inputApplyGrain;
-@property(copy) NSNumber * inputApplySepia;
-@property(copy) CIVector * inputDestinationRect;
-@property(copy) CIVector * inputHueStrengthArray;
-@property(retain) CIImage * inputImage;
-@property(copy) NSNumber * inputNeutralGamma;
-@property(copy) NSNumber * inputPadding;
-@property(copy) NSNumber * inputPhototone;
-@property(copy) NSNumber * inputPreset;
-@property(copy) NSNumber * inputVersion;
-@property(retain) CIVector * lastHueStrengthArray;
-@property(retain) NSData * precomputedCube;
+@property (nonatomic, retain) CIFilter *colorCubeFilterBW;
+@property (nonatomic, retain) CIFilter *colorCubeFilterGrain;
+@property (nonatomic, retain) BLPixelImageBuffer *grainImage;
+@property (nonatomic, copy) NSNumber *inputAmount;
+@property (nonatomic, copy) NSNumber *inputApplyGrain;
+@property (nonatomic, copy) NSNumber *inputApplySepia;
+@property (nonatomic, copy) CIVector *inputDestinationRect;
+@property (nonatomic, copy) CIVector *inputHueStrengthArray;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, copy) NSNumber *inputNeutralGamma;
+@property (nonatomic, copy) NSNumber *inputPadding;
+@property (nonatomic, copy) NSNumber *inputPhototone;
+@property (nonatomic, copy) NSNumber *inputPreset;
+@property (nonatomic, copy) NSNumber *inputVersion;
+@property (nonatomic, retain) CIVector *lastHueStrengthArray;
+@property (nonatomic, retain) NSData *precomputedCube;
 
 - (void).cxx_destruct;
-- (id)applyGrain:(id)arg1 cube:(id)arg2 destRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg3 padding:(float)arg4;
+- (id)applyGrain:(id)arg1 cube:(id)arg2 destRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg3 padding:(float)arg4;
 - (id)colorCubeFilterBW;
 - (id)colorCubeFilterGrain;
-- (id)generateGrain:(id)arg1 destRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg2;
+- (id)generateGrain:(id)arg1 destRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg2;
 - (id)grainImage;
 - (id)init;
 - (id)inputAmount;
@@ -77,7 +75,7 @@
 - (id)inputPreset;
 - (id)inputVersion;
 - (id)lastHueStrengthArray;
-- (id)loadGrain:(id)arg1 destRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg2 padding:(float)arg3;
+- (id)loadGrain:(id)arg1 destRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg2 padding:(float)arg3;
 - (id)outputImage;
 - (id)precomputedCube;
 - (void)setColorCubeFilterBW:(id)arg1;

@@ -2,28 +2,26 @@
    Image: /System/Library/PrivateFrameworks/DataDetectorsUI.framework/DataDetectorsUI
  */
 
-@class DOMNode;
-
 @interface DDRange : NSObject {
-    long long _endOffset;
+    long _endOffset;
     DOMNode *_node;
-    long long _startOffset;
+    long _startOffset;
 }
 
-@property long long endOffset;
-@property(retain) DOMNode * node;
-@property long long startOffset;
+@property (nonatomic) long endOffset;
+@property (nonatomic, retain) DOMNode *node;
+@property (nonatomic) long startOffset;
 
 + (id)rangeWithDOMRange:(id)arg1;
 
 - (void)dealloc;
 - (id)description;
-- (long long)endOffset;
+- (long)endOffset;
 - (id)initWithDOMRange:(id)arg1;
 - (id)node;
-- (void)setEndOffset:(long long)arg1;
+- (void)setEndOffset:(long)arg1;
 - (void)setNode:(id)arg1;
-- (void)setStartOffset:(long long)arg1;
-- (long long)startOffset;
+- (void)setStartOffset:(long)arg1;
+- (long)startOffset;
 
 @end

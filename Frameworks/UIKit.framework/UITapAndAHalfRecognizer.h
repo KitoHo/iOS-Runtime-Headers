@@ -2,37 +2,35 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSMutableSet, UIDelayedAction, UITouch;
-
 @interface UITapAndAHalfRecognizer : UIGestureRecognizer {
-    struct CGPoint { 
-        double x; 
-        double y; 
     NSMutableSet *_activeTouches;
-    double _allowableMovement;
+    float _allowableMovement;
     int _currentNumberOfTaps;
     double _minimumFinalPressDuration;
     int _numberOfFullTaps;
+    struct CGPoint { 
+        float x; 
+        float y; 
     } _startPoint;
     UIDelayedAction *_tapTimer;
     UITouch *_touch;
 }
 
-@property double allowableMovement;
-@property double minimumFinalPressDuration;
-@property int numberOfFullTaps;
-@property(retain) UITouch * touch;
+@property (nonatomic) float allowableMovement;
+@property (nonatomic) double minimumFinalPressDuration;
+@property (nonatomic) int numberOfFullTaps;
+@property (nonatomic, retain) UITouch *touch;
 
 - (void)_resetGestureRecognizer;
 - (void)_verifyMovementInAllowableRange;
-- (double)allowableMovement;
+- (float)allowableMovement;
 - (void)clearTapTimer;
 - (void)dealloc;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;
 - (double)minimumFinalPressDuration;
 - (int)numberOfFullTaps;
 - (void)recognized:(id)arg1;
-- (void)setAllowableMovement:(double)arg1;
+- (void)setAllowableMovement:(float)arg1;
 - (void)setMinimumFinalPressDuration:(double)arg1;
 - (void)setNumberOfFullTaps:(int)arg1;
 - (void)setTouch:(id)arg1;

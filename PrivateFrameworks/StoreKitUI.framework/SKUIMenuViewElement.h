@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, SKUIItemViewElement, SKUILabelViewElement;
-
 @interface SKUIMenuViewElement : SKUIViewElement {
     BOOL _enabled;
     SKUILabelViewElement *_menuLabel;
 }
 
-@property(readonly) NSArray * menuItemTitles;
-@property(readonly) SKUILabelViewElement * menuLabel;
-@property(readonly) long long selectedItemIndex;
-@property(readonly) SKUIItemViewElement * titleItem;
+@property (nonatomic, readonly) NSArray *menuItemTitles;
+@property (nonatomic, readonly) SKUILabelViewElement *menuLabel;
+@property (nonatomic, readonly) int selectedItemIndex;
+@property (nonatomic, readonly) SKUIItemViewElement *titleItem;
 
 - (void).cxx_destruct;
-- (void)_enumerateItemElementsUsingBlock:(id)arg1;
+- (void)_enumerateItemElementsUsingBlock:(id /* block */)arg1;
 - (id)applyUpdatesWithElement:(id)arg1;
-- (void)dispatchEventOfType:(unsigned long long)arg1 forItemAtIndex:(long long)arg2;
+- (void)dispatchEventOfType:(unsigned int)arg1 forItemAtIndex:(int)arg2;
 - (id)initWithDOMElement:(id)arg1 parent:(id)arg2 elementFactory:(id)arg3;
-- (bool)isEnabled;
+- (BOOL)isEnabled;
 - (id)menuItemTitles;
 - (id)menuLabel;
-- (long long)selectedItemIndex;
+- (int)selectedItemIndex;
 - (id)titleItem;
 
 @end

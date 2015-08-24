@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class NSSet, WBSHistoryDeletionPlan, WBSHistorySQLiteStore;
-
 @interface WBSHistoryAgeAndItemCountLimitEnforcementPlan : NSObject {
     double _ageLimit;
     WBSHistoryDeletionPlan *_deletionPlan;
-    unsigned long long _itemCountLimit;
+    unsigned int _itemCountLimit;
     NSSet *_items;
     NSSet *_itemsToDiscard;
     NSSet *_itemsToKeep;
     WBSHistorySQLiteStore *_store;
 }
 
-@property(readonly) NSSet * itemsToDiscard;
-@property(readonly) NSSet * itemsToKeep;
+@property (nonatomic, readonly) NSSet *itemsToDiscard;
+@property (nonatomic, readonly) NSSet *itemsToKeep;
 
 - (void).cxx_destruct;
 - (id)_itemsToDiscardFromItemsOrderedByLastVisitTime:(id)arg1;
 - (void)execute;
-- (id)initWithSQLiteStore:(id)arg1 items:(id)arg2 ageLimit:(double)arg3 itemCountLimit:(unsigned long long)arg4;
+- (id)initWithSQLiteStore:(id)arg1 items:(id)arg2 ageLimit:(double)arg3 itemCountLimit:(unsigned int)arg4;
 - (id)itemsToDiscard;
 - (id)itemsToKeep;
 - (void)prepare;

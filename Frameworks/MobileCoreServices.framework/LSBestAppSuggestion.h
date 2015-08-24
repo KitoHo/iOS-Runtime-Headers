@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/MobileCoreServices.framework/MobileCoreServices
  */
 
-@class NSDate, NSDictionary, NSString, NSUUID;
-
 @interface LSBestAppSuggestion : NSObject {
     NSString *_activityType;
     NSString *_bundleIdentifier;
@@ -13,24 +11,24 @@
     NSString *_originatingDeviceIdentifier;
     NSString *_originatingDeviceName;
     NSString *_originatingDeviceType;
-    unsigned long long _type;
+    unsigned int _type;
     NSUUID *_uniqueIdentifier;
 }
 
-@property(copy) NSString * activityType;
-@property(copy,readonly) NSString * bundleIdentifier;
-@property(readonly) double confidence;
-@property(copy,readonly) NSDate * lastUpdateTime;
-@property(copy,readonly) NSDictionary * options;
-@property(copy,readonly) NSString * originatingDeviceIdentifier;
-@property(copy,readonly) NSString * originatingDeviceName;
-@property(copy,readonly) NSString * originatingDeviceType;
-@property(readonly) unsigned long long type;
-@property(copy) NSUUID * uniqueIdentifier;
-@property(copy,readonly) NSString * userActivityTypeIdentifier;
-@property(copy,readonly) NSDate * when;
+@property (copy) NSString *activityType;
+@property (readonly, copy) NSString *bundleIdentifier;
+@property (readonly) double confidence;
+@property (readonly, copy) NSDate *lastUpdateTime;
+@property (readonly, copy) NSDictionary *options;
+@property (readonly, copy) NSString *originatingDeviceIdentifier;
+@property (readonly, copy) NSString *originatingDeviceName;
+@property (readonly, copy) NSString *originatingDeviceType;
+@property (readonly) unsigned int type;
+@property (copy) NSUUID *uniqueIdentifier;
+@property (readonly, copy) NSString *userActivityTypeIdentifier;
+@property (readonly, copy) NSDate *when;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)activityType;
 - (id)bundleIdentifier;
@@ -38,9 +36,9 @@
 - (void)dealloc;
 - (id)debugDescription;
 - (id)description;
-- (unsigned long long)hash;
-- (id)initWithBundleIdentifier:(id)arg1 uuid:(id)arg2 activityType:(id)arg3 lastUpdateTime:(id)arg4 type:(unsigned long long)arg5 deviceName:(id)arg6 deviceIdentifier:(id)arg7 deviceType:(id)arg8 options:(id)arg9;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (id)initWithBundleIdentifier:(id)arg1 uuid:(id)arg2 activityType:(id)arg3 lastUpdateTime:(id)arg4 type:(unsigned int)arg5 deviceName:(id)arg6 deviceIdentifier:(id)arg7 deviceType:(id)arg8 options:(id)arg9;
+- (BOOL)isEqual:(id)arg1;
 - (id)lastUpdateTime;
 - (id)options;
 - (id)originatingDeviceIdentifier;
@@ -48,7 +46,7 @@
 - (id)originatingDeviceType;
 - (void)setActivityType:(id)arg1;
 - (void)setUniqueIdentifier:(id)arg1;
-- (unsigned long long)type;
+- (unsigned int)type;
 - (id)uniqueIdentifier;
 - (id)userActivityTypeIdentifier;
 - (id)when;

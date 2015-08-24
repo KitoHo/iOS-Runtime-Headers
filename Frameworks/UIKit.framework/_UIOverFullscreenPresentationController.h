@@ -2,10 +2,10 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface _UIOverFullscreenPresentationController : _UIFullscreenPresentationController {
-}
+@interface _UIOverFullscreenPresentationController : _UIFullscreenPresentationController
 
-- (bool)_shouldChangeStatusBarViewController;
-- (bool)shouldRemovePresentersView;
+- (BOOL)_shouldChangeStatusBarViewController;
+- (int)presentationStyle;
+- (BOOL)shouldRemovePresentersView;
 
 @end

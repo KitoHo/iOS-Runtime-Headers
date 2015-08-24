@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CoreRC.framework/CoreRC
  */
 
-@class <CoreRCBusDelegate>, CoreRCManager, NSMutableSet, NSSet, NSUUID;
-
 @interface CoreRCBus : NSObject <NSCopying, NSSecureCoding> {
     <CoreRCBusDelegate> *_delegate;
     NSMutableSet *_devicesInternal;
@@ -11,11 +9,11 @@
     NSUUID *_uniqueID;
 }
 
-@property(readonly) NSSet * devices;
-@property(readonly) NSMutableSet * devicesInternal;
-@property(readonly) NSUUID * uniqueID;
+@property (nonatomic, readonly) NSSet *devices;
+@property (nonatomic, readonly) NSMutableSet *devicesInternal;
+@property (nonatomic, readonly) NSUUID *uniqueID;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void)addDevice:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -26,11 +24,11 @@
 - (id)devices;
 - (id)devicesInternal;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
 - (id)initWithBus:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)manager;
 - (id)mergeDevice:(id)arg1;
 - (void)mergePropertiesFromBus:(id)arg1;
@@ -44,7 +42,7 @@
 - (void)replaceDevice:(id)arg1 withDevice:(id)arg2;
 - (void)setDelegate:(id)arg1;
 - (void)setManager:(id)arg1;
-- (bool)setProperty:(id)arg1 forKey:(id)arg2 error:(id*)arg3;
+- (BOOL)setProperty:(id)arg1 forKey:(id)arg2 error:(id*)arg3;
 - (id)uniqueID;
 
 @end

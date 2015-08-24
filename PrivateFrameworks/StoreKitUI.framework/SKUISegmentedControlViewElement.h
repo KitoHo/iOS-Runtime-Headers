@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, NSString, SKUIDividerViewElement;
-
 @interface SKUISegmentedControlViewElement : SKUIViewElement {
-    long long _maximumNumberOfVisibleItems;
+    int _maximumNumberOfVisibleItems;
     NSString *_moreListTitle;
 }
 
-@property(readonly) SKUIDividerViewElement * bottomDivider;
-@property(readonly) long long initialSelectedItemIndex;
-@property(readonly) long long maximumNumberOfVisibleItems;
-@property(readonly) NSString * moreListTitle;
-@property(readonly) NSArray * segmentItemTitles;
+@property (nonatomic, readonly) SKUIDividerViewElement *bottomDivider;
+@property (nonatomic, readonly) int initialSelectedItemIndex;
+@property (nonatomic, readonly) int maximumNumberOfVisibleItems;
+@property (nonatomic, readonly) NSString *moreListTitle;
+@property (nonatomic, readonly) NSArray *segmentItemTitles;
 
 - (void).cxx_destruct;
-- (void)_enumerateItemElementsUsingBlock:(id)arg1;
+- (void)_enumerateItemElementsUsingBlock:(id /* block */)arg1;
 - (id)applyUpdatesWithElement:(id)arg1;
 - (id)bottomDivider;
-- (void)dispatchEventOfType:(unsigned long long)arg1 forItemAtIndex:(long long)arg2;
+- (void)dispatchEventOfType:(unsigned int)arg1 forItemAtIndex:(int)arg2;
 - (id)initWithDOMElement:(id)arg1 parent:(id)arg2 elementFactory:(id)arg3;
-- (long long)initialSelectedItemIndex;
-- (long long)maximumNumberOfVisibleItems;
+- (int)initialSelectedItemIndex;
+- (int)maximumNumberOfVisibleItems;
 - (id)moreListTitle;
-- (long long)pageComponentType;
+- (int)pageComponentType;
 - (id)segmentItemTitles;
 
 @end

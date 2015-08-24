@@ -2,50 +2,48 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVPlayer, AVPlayerItem, CALayer, FigSubtitleCALayer, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
-
 @interface AVPlayerLayerInternal : NSObject {
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    struct CGSize { 
-        double width; 
-        double height; 
-    struct CGSize { 
-        double width; 
-        double height; 
     AVPlayer *_player;
-    boolhasPlayerToObserve;
-    boolisInPIPMode;
-    boolisObservingPlayer;
-    boolisPresentationLayer;
-    boolisReadyForDisplay;
-    boolshouldObservePlayer;
     CALayer *closedCaptionLayer;
+    BOOL hasPlayerToObserve;
+    BOOL isInPIPMode;
+    BOOL isObservingPlayer;
+    BOOL isPresentationLayer;
+    BOOL isReadyForDisplay;
     struct OpaqueFigSimpleMutex { } *isReadyForDisplayMutex;
     AVPlayerItem *itemMarkedReadyForDisplay;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } latestPlayerLayerBoundsAtRendering;
+    struct CGSize { 
+        float width; 
+        float height; 
     } latestPresentationSizeAtRendering;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } latestSubtitleLayoutAtRendering;
     CALayer *maskLayer;
     NSDictionary *pixelBufferAttributes;
+    struct CGSize { 
+        float width; 
+        float height; 
     } presentationSize;
     NSObject<OS_dispatch_queue> *serialQueue;
+    BOOL shouldObservePlayer;
     NSString *subtitleGravity;
     FigSubtitleCALayer *subtitleLayer;
     NSString *videoGravity;

@@ -2,34 +2,32 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSNumber, NSString, NSURL;
-
 @interface SSVServerAuthenticateResponse : NSObject <SSXPCCoding> {
     NSNumber *_authenticatedAccountIdentifier;
-    long long _performedButtonIndex;
+    int _performedButtonIndex;
     NSURL *_redirectURL;
-    long long _selectedButtonIndex;
+    int _selectedButtonIndex;
 }
 
-@property(copy) NSNumber * authenticatedAccountIdentifier;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property long long performedButtonIndex;
-@property(copy) NSURL * redirectURL;
-@property long long selectedButtonIndex;
-@property(readonly) Class superclass;
+@property (nonatomic, copy) NSNumber *authenticatedAccountIdentifier;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) int performedButtonIndex;
+@property (nonatomic, copy) NSURL *redirectURL;
+@property (nonatomic) int selectedButtonIndex;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)authenticatedAccountIdentifier;
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
-- (long long)performedButtonIndex;
+- (int)performedButtonIndex;
 - (id)redirectURL;
-- (long long)selectedButtonIndex;
+- (int)selectedButtonIndex;
 - (void)setAuthenticatedAccountIdentifier:(id)arg1;
-- (void)setPerformedButtonIndex:(long long)arg1;
+- (void)setPerformedButtonIndex:(int)arg1;
 - (void)setRedirectURL:(id)arg1;
-- (void)setSelectedButtonIndex:(long long)arg1;
+- (void)setSelectedButtonIndex:(int)arg1;
 
 @end

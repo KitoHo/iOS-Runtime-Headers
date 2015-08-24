@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UITableView, _UIBackdropView;
-
 @interface _UIModalItemActionSheetContentView : _UIModalItemContentView {
     UITableView *_cancelTableView;
     _UIBackdropView *_effectView;
@@ -15,7 +13,7 @@
 - (void)_prepareViewIfNeeded;
 - (void)dealloc;
 - (void)layout;
-- (double)numberOfOtherButtonTitles;
+- (float)numberOfOtherButtonTitles;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 

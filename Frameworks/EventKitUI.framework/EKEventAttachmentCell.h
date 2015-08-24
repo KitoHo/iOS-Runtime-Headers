@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class UIActivityIndicatorView;
-
 @interface EKEventAttachmentCell : UITableViewCell {
     UIActivityIndicatorView *_activityIndicator;
 }
@@ -12,6 +10,6 @@
 - (id)_iconForDocumentProxy:(id)arg1;
 - (void)layoutSubviews;
 - (void)setAttachment:(id)arg1;
-- (void)showSpinner:(bool)arg1;
+- (void)showSpinner:(BOOL)arg1;
 
 @end

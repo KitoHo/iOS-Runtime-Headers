@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CoreHAP.framework/CoreHAP
  */
 
-@class NSData, NSNumber, NSString;
-
 @interface HAPKeychainItem : NSObject {
     NSString *_accessGroup;
     NSString *_account;
@@ -11,28 +9,28 @@
     NSString *_itemDescription;
     NSString *_label;
     void *_platformReference;
+    BOOL _syncable;
     NSNumber *_type;
     NSData *_valueData;
-    bool_syncable;
 }
 
-@property(retain) NSString * accessGroup;
-@property(retain) NSString * account;
-@property(retain) NSData * genericData;
-@property(retain) NSString * itemDescription;
-@property(retain) NSString * label;
-@property void* platformReference;
-@property(getter=isSyncable) bool syncable;
-@property(retain) NSNumber * type;
-@property(retain) NSData * valueData;
+@property (nonatomic, retain) NSString *accessGroup;
+@property (nonatomic, retain) NSString *account;
+@property (nonatomic, retain) NSData *genericData;
+@property (nonatomic, retain) NSString *itemDescription;
+@property (nonatomic, retain) NSString *label;
+@property (nonatomic) void*platformReference;
+@property (getter=isSyncable, nonatomic) BOOL syncable;
+@property (nonatomic, retain) NSNumber *type;
+@property (nonatomic, retain) NSData *valueData;
 
 - (void).cxx_destruct;
 - (id)accessGroup;
 - (id)account;
 - (void)dealloc;
 - (id)genericData;
-- (id)initWithQueryResult:(struct __CFDictionary { }*)arg1 shouldIncludeData:(bool)arg2;
-- (bool)isSyncable;
+- (id)initWithQueryResult:(struct __CFDictionary { }*)arg1 shouldIncludeData:(BOOL)arg2;
+- (BOOL)isSyncable;
 - (id)itemDescription;
 - (id)label;
 - (void*)platformReference;
@@ -42,7 +40,7 @@
 - (void)setItemDescription:(id)arg1;
 - (void)setLabel:(id)arg1;
 - (void)setPlatformReference:(void*)arg1;
-- (void)setSyncable:(bool)arg1;
+- (void)setSyncable:(BOOL)arg1;
 - (void)setType:(id)arg1;
 - (void)setValueData:(id)arg1;
 - (id)type;

@@ -2,40 +2,35 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPPulseData, CKDPResource, CKDPShareIdentifier, NSData, NSString;
-
 @interface CKDPPulseRequest : PBRequest <NSCopying> {
+    int _apnsEnv;
+    NSString *_etag;
     struct { 
         unsigned int lookbackWindowMillis : 1; 
         unsigned int apnsEnv : 1; 
         unsigned int reset : 1; 
-    int _apnsEnv;
-    NSString *_etag;
     } _has;
     long long _lookbackWindowMillis;
     CKDPPulseData *_pulseData;
     NSData *_pushToken;
-    CKDPResource *_resource;
+    BOOL _reset;
     CKDPShareIdentifier *_shareId;
-    bool_reset;
 }
 
-@property int apnsEnv;
-@property(retain) NSString * etag;
-@property bool hasApnsEnv;
-@property(readonly) bool hasEtag;
-@property bool hasLookbackWindowMillis;
-@property(readonly) bool hasPulseData;
-@property(readonly) bool hasPushToken;
-@property bool hasReset;
-@property(readonly) bool hasResource;
-@property(readonly) bool hasShareId;
-@property long long lookbackWindowMillis;
-@property(retain) CKDPPulseData * pulseData;
-@property(retain) NSData * pushToken;
-@property bool reset;
-@property(retain) CKDPResource * resource;
-@property(retain) CKDPShareIdentifier * shareId;
+@property (nonatomic) int apnsEnv;
+@property (nonatomic, retain) NSString *etag;
+@property (nonatomic) BOOL hasApnsEnv;
+@property (nonatomic, readonly) BOOL hasEtag;
+@property (nonatomic) BOOL hasLookbackWindowMillis;
+@property (nonatomic, readonly) BOOL hasPulseData;
+@property (nonatomic, readonly) BOOL hasPushToken;
+@property (nonatomic) BOOL hasReset;
+@property (nonatomic, readonly) BOOL hasShareId;
+@property (nonatomic) long long lookbackWindowMillis;
+@property (nonatomic, retain) CKDPPulseData *pulseData;
+@property (nonatomic, retain) NSData *pushToken;
+@property (nonatomic) BOOL reset;
+@property (nonatomic, retain) CKDPShareIdentifier *shareId;
 
 + (id)options;
 
@@ -46,35 +41,32 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)etag;
-- (bool)hasApnsEnv;
-- (bool)hasEtag;
-- (bool)hasLookbackWindowMillis;
-- (bool)hasPulseData;
-- (bool)hasPushToken;
-- (bool)hasReset;
-- (bool)hasResource;
-- (bool)hasShareId;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasApnsEnv;
+- (BOOL)hasEtag;
+- (BOOL)hasLookbackWindowMillis;
+- (BOOL)hasPulseData;
+- (BOOL)hasPushToken;
+- (BOOL)hasReset;
+- (BOOL)hasShareId;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (long long)lookbackWindowMillis;
 - (void)mergeFrom:(id)arg1;
 - (id)pulseData;
 - (id)pushToken;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (unsigned int)requestTypeCode;
-- (bool)reset;
-- (id)resource;
+- (BOOL)reset;
 - (Class)responseClass;
 - (void)setApnsEnv:(int)arg1;
 - (void)setEtag:(id)arg1;
-- (void)setHasApnsEnv:(bool)arg1;
-- (void)setHasLookbackWindowMillis:(bool)arg1;
-- (void)setHasReset:(bool)arg1;
+- (void)setHasApnsEnv:(BOOL)arg1;
+- (void)setHasLookbackWindowMillis:(BOOL)arg1;
+- (void)setHasReset:(BOOL)arg1;
 - (void)setLookbackWindowMillis:(long long)arg1;
 - (void)setPulseData:(id)arg1;
 - (void)setPushToken:(id)arg1;
-- (void)setReset:(bool)arg1;
-- (void)setResource:(id)arg1;
+- (void)setReset:(BOOL)arg1;
 - (void)setShareId:(id)arg1;
 - (id)shareId;
 - (void)writeTo:(id)arg1;

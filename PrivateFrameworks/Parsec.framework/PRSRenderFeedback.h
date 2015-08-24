@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/Parsec.framework/Parsec
  */
 
-@class NSArray, NSString;
-
 @interface PRSRenderFeedback : PRSFeedback {
     NSString *_fbq;
     NSArray *_hidden;
     NSArray *_results;
-    long long _trigger_timestamp;
+    int _trigger_timestamp;
 }
 
-@property(retain) NSString * fbq;
-@property(retain) NSArray * hidden;
-@property(retain) NSArray * results;
-@property long long trigger_timestamp;
+@property (nonatomic, retain) NSString *fbq;
+@property (nonatomic, retain) NSArray *hidden;
+@property (nonatomic, retain) NSArray *results;
+@property (nonatomic) int trigger_timestamp;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
@@ -24,14 +22,14 @@
 - (id)hidden;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFeedback:(id)arg1;
-- (id)initWithInput:(id)arg1 timestamp:(long long)arg2;
+- (id)initWithInput:(id)arg1 timestamp:(int)arg2;
 - (id)plist;
 - (id)results;
 - (void)setFbq:(id)arg1;
 - (void)setHidden:(id)arg1;
 - (void)setResults:(id)arg1;
-- (void)setTrigger_timestamp:(long long)arg1;
-- (long long)trigger_timestamp;
+- (void)setTrigger_timestamp:(int)arg1;
+- (int)trigger_timestamp;
 - (id)type;
 - (void)validate;
 

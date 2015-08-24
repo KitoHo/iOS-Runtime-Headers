@@ -3,12 +3,18 @@
  */
 
 @interface PKPassWelcomeView : PKWelcomeView {
+    UIButton *_appStoreButton;
 }
 
-+ (double)headerImageRegionHeight;
-+ (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })textInsets;
++ (float)headerImageRegionHeight;
++ (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })margins;
++ (id)messageAttributedString:(BOOL)arg1;
++ (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })textInsets;
 
+- (void)_appStorePressed;
 - (void)_scanCodePressed;
+- (void)dealloc;
 - (id)init;
+- (void)layoutSubviews;
 
 @end

@@ -2,23 +2,20 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSDate, NSString, NSURL, SADecoratedString, SAMicroblogTwitterPostAuthor, SAUIAppPunchOut;
+@interface SAMicroblogMicroblogSearchResultPost : SAMicroblogMicroblogSearchResultBase
 
-@interface SAMicroblogMicroblogSearchResultPost : SAMicroblogMicroblogSearchResultBase {
-}
-
-@property(copy) NSDate * creationTime;
-@property(retain) SADecoratedString * decoratedContent;
-@property(copy) NSArray * embeddedHashtags;
-@property(copy) NSArray * embeddedImages;
-@property(copy) NSArray * embeddedLinks;
-@property(copy) NSArray * embeddedMentions;
-@property long long favoritesCount;
-@property(copy) NSString * location;
-@property(retain) SAUIAppPunchOut * punchOut;
-@property(retain) SAMicroblogTwitterPostAuthor * retweetAuthor;
-@property long long retweetCount;
-@property(copy) NSURL * webAddress;
+@property (nonatomic, copy) NSDate *creationTime;
+@property (nonatomic, retain) SADecoratedString *decoratedContent;
+@property (nonatomic, copy) NSArray *embeddedHashtags;
+@property (nonatomic, copy) NSArray *embeddedImages;
+@property (nonatomic, copy) NSArray *embeddedLinks;
+@property (nonatomic, copy) NSArray *embeddedMentions;
+@property (nonatomic) int favoritesCount;
+@property (nonatomic, copy) NSString *location;
+@property (nonatomic, retain) SAUIAppPunchOut *punchOut;
+@property (nonatomic, retain) SAMicroblogTwitterPostAuthor *retweetAuthor;
+@property (nonatomic) int retweetCount;
+@property (nonatomic, copy) NSURL *webAddress;
 
 + (id)microblogSearchResultPost;
 + (id)microblogSearchResultPostWithDictionary:(id)arg1 context:(id)arg2;
@@ -30,23 +27,23 @@
 - (id)embeddedLinks;
 - (id)embeddedMentions;
 - (id)encodedClassName;
-- (long long)favoritesCount;
+- (int)favoritesCount;
 - (id)groupIdentifier;
 - (id)location;
 - (id)punchOut;
 - (id)retweetAuthor;
-- (long long)retweetCount;
+- (int)retweetCount;
 - (void)setCreationTime:(id)arg1;
 - (void)setDecoratedContent:(id)arg1;
 - (void)setEmbeddedHashtags:(id)arg1;
 - (void)setEmbeddedImages:(id)arg1;
 - (void)setEmbeddedLinks:(id)arg1;
 - (void)setEmbeddedMentions:(id)arg1;
-- (void)setFavoritesCount:(long long)arg1;
+- (void)setFavoritesCount:(int)arg1;
 - (void)setLocation:(id)arg1;
 - (void)setPunchOut:(id)arg1;
 - (void)setRetweetAuthor:(id)arg1;
-- (void)setRetweetCount:(long long)arg1;
+- (void)setRetweetCount:(int)arg1;
 - (void)setWebAddress:(id)arg1;
 - (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
 - (id)webAddress;

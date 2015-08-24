@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class ISURLOperationPool, MFMailComposeViewController, NSArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, SUClientInterface, SUImageCache, SUScriptExecutionContext, UIViewController;
-
-@interface SUClientController : NSObject <SUClientInterfaceDelegate, MFMailComposeViewControllerDelegate, SUPurchaseManagerDelegate> {
+@interface SUClientController : NSObject <MFMailComposeViewControllerDelegate, SUClientInterfaceDelegate, SUPurchaseManagerDelegate> {
+    BOOL _active;
     SUClientInterface *_clientInterface;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     SUImageCache *_imageCache;
@@ -17,22 +16,21 @@
     SUScriptExecutionContext *_scriptExecutionContext;
     NSString *_synchedStoreFrontAtLastSuspend;
     NSMutableDictionary *_urlBagKeys;
-    bool_active;
 }
 
-@property(getter=isActive,readonly) bool active;
-@property(copy) SUClientInterface * clientInterface;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) SUImageCache * imageCache;
-@property(retain) ISURLOperationPool * imageOperationPool;
-@property(retain) UIViewController * rootViewController;
-@property(readonly) SUScriptExecutionContext * scriptExecutionContext;
-@property(readonly) NSString * storeContentLanguage;
-@property(getter=isStoreEnabled,readonly) bool storeEnabled;
-@property(readonly) bool storeFrontDidChangeSinceLastSuspend;
-@property(readonly) Class superclass;
+@property (getter=isActive, nonatomic, readonly) BOOL active;
+@property (copy) SUClientInterface *clientInterface;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) SUImageCache *imageCache;
+@property (nonatomic, retain) ISURLOperationPool *imageOperationPool;
+@property (nonatomic, retain) UIViewController *rootViewController;
+@property (nonatomic, readonly) SUScriptExecutionContext *scriptExecutionContext;
+@property (nonatomic, readonly) NSString *storeContentLanguage;
+@property (getter=isStoreEnabled, nonatomic, readonly) BOOL storeEnabled;
+@property (nonatomic, readonly) BOOL storeFrontDidChangeSinceLastSuspend;
+@property (readonly) Class superclass;
 
 + (void)setSharedController:(id)arg1;
 + (id)sharedController;
@@ -48,52 +46,52 @@
 - (void)_reloadOverlayConfigurationsFromURLBag;
 - (void)_reloadScriptExecutionContextFromURLBag;
 - (void)_reloadUserDefaultsFromURLBag;
-- (void)autosaveMessageWithCompletionBlock:(id)arg1;
+- (void)autosaveMessageWithCompletionBlock:(id /* block */)arg1;
 - (void)bagDidLoadNotification:(id)arg1;
 - (void)becomeActive;
 - (void)cancelAllOperations;
 - (id)clientIdentifier;
-- (void)clientInterface:(id)arg1 exitStoreWithReason:(long long)arg2;
-- (void)clientInterface:(id)arg1 presentDialog:(id)arg2;
-- (void)clientInterface:(id)arg1 setStatusBarHidden:(bool)arg2 withAnimation:(long long)arg3;
-- (void)clientInterface:(id)arg1 setStatusBarStyle:(long long)arg2 animated:(bool)arg3;
 - (id)clientInterface;
+- (void)clientInterface:(id)arg1 exitStoreWithReason:(int)arg2;
+- (void)clientInterface:(id)arg1 presentDialog:(id)arg2;
+- (void)clientInterface:(id)arg1 setStatusBarHidden:(BOOL)arg2 withAnimation:(int)arg3;
+- (void)clientInterface:(id)arg1 setStatusBarStyle:(int)arg2 animated:(BOOL)arg3;
 - (void)composeEmailByRestoringAutosavedMessage;
-- (void)composeEmailWithSubject:(id)arg1 body:(id)arg2 animated:(bool)arg3;
 - (void)composeEmailWithSubject:(id)arg1 body:(id)arg2;
-- (bool)composeReviewWithViewController:(id)arg1 animated:(bool)arg2;
+- (void)composeEmailWithSubject:(id)arg1 body:(id)arg2 animated:(BOOL)arg3;
+- (BOOL)composeReviewWithViewController:(id)arg1 animated:(BOOL)arg2;
 - (void)dealloc;
-- (void)dismissMailComposeViewControllerAnimated:(bool)arg1;
+- (void)dismissMailComposeViewControllerAnimated:(BOOL)arg1;
 - (void)dismissOverlayBackgroundViewController;
-- (bool)dismissTopViewControllerAnimated:(bool)arg1;
-- (bool)displayClientURL:(id)arg1 withSourceApplication:(id)arg2 sourceURLString:(id)arg3;
-- (bool)displayClientURL:(id)arg1;
-- (void)exitStoreWithReason:(long long)arg1;
-- (bool)ignoresExpectedClientsProtocol;
+- (BOOL)dismissTopViewControllerAnimated:(BOOL)arg1;
+- (BOOL)displayClientURL:(id)arg1;
+- (BOOL)displayClientURL:(id)arg1 withSourceApplication:(id)arg2 sourceURLString:(id)arg3;
+- (void)exitStoreWithReason:(int)arg1;
+- (BOOL)ignoresExpectedClientsProtocol;
 - (id)imageCache;
 - (id)imageOperationPool;
 - (id)init;
 - (id)initWithClientIdentifier:(id)arg1;
 - (id)initWithClientInterface:(id)arg1;
-- (bool)isActive;
-- (bool)isComposingEmail;
-- (bool)isStoreEnabled;
-- (bool)libraryContainsItemIdentifier:(unsigned long long)arg1;
+- (BOOL)isActive;
+- (BOOL)isComposingEmail;
+- (BOOL)isStoreEnabled;
+- (BOOL)libraryContainsItemIdentifier:(unsigned long long)arg1;
 - (void)mailComposeController:(id)arg1 didFinishWithResult:(int)arg2 error:(id)arg3;
 - (id)newScriptInterface;
 - (struct __CFArray { }*)offeredAssetTypes;
-- (bool)openClientURL:(id)arg1 withSourceApplication:(id)arg2 sourceURLString:(id)arg3;
-- (bool)openClientURL:(id)arg1;
-- (bool)openURL:(id)arg1 inClientWithIdentifier:(id)arg2;
-- (bool)openURL:(id)arg1;
+- (BOOL)openClientURL:(id)arg1;
+- (BOOL)openClientURL:(id)arg1 withSourceApplication:(id)arg2 sourceURLString:(id)arg3;
+- (BOOL)openURL:(id)arg1;
+- (BOOL)openURL:(id)arg1 inClientWithIdentifier:(id)arg2;
 - (id)overlayBackgroundViewController;
 - (id)overlayConfigurationForStorePage:(id)arg1;
-- (bool)performActionForDialog:(id)arg1 button:(id)arg2;
-- (bool)presentAccountViewController:(id)arg1 animated:(bool)arg2;
-- (bool)presentAccountViewController:(id)arg1 showNavigationBar:(bool)arg2 animated:(bool)arg3;
+- (BOOL)performActionForDialog:(id)arg1 button:(id)arg2;
+- (BOOL)presentAccountViewController:(id)arg1 animated:(BOOL)arg2;
+- (BOOL)presentAccountViewController:(id)arg1 showNavigationBar:(BOOL)arg2 animated:(BOOL)arg3;
 - (void)presentExternalURLViewController:(id)arg1;
-- (void)presentMailComposeViewController:(id)arg1 animated:(bool)arg2;
-- (bool)presentOverlayBackgroundViewController:(id)arg1;
+- (void)presentMailComposeViewController:(id)arg1 animated:(BOOL)arg2;
+- (BOOL)presentOverlayBackgroundViewController:(id)arg1;
 - (void)purchaseManager:(id)arg1 didAddPurchases:(id)arg2;
 - (void)purchaseManager:(id)arg1 failedToAddPurchases:(id)arg2;
 - (void)purchaseManager:(id)arg1 willAddPurchases:(id)arg2;
@@ -104,7 +102,7 @@
 - (id)scriptExecutionContext;
 - (id)scriptInterfaceForClientInterface:(id)arg1;
 - (void)setClientInterface:(id)arg1;
-- (void)setIgnoresExpectedClientsProtocol:(bool)arg1;
+- (void)setIgnoresExpectedClientsProtocol:(BOOL)arg1;
 - (void)setImageCache:(id)arg1;
 - (void)setImageOperationPool:(id)arg1;
 - (void)setOfferedAssetTypes:(struct __CFArray { }*)arg1;
@@ -113,7 +111,7 @@
 - (void)setUserAgent:(id)arg1;
 - (void)setViewControllerFactory:(id)arg1;
 - (id)storeContentLanguage;
-- (bool)storeFrontDidChangeSinceLastSuspend;
+- (BOOL)storeFrontDidChangeSinceLastSuspend;
 - (id)userAgent;
 - (id)viewControllerFactory;
 

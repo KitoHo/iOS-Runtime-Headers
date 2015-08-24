@@ -2,46 +2,44 @@
    Image: /System/Library/PrivateFrameworks/Radio.framework/Radio
  */
 
-@class NSData, NSDate, NSDictionary, NSString;
-
 @interface RadioPlayEvent : NSObject <NSCopying, NSMutableCopying> {
     NSDate *_datePlayed;
-    long long _endReason;
+    int _endReason;
     double _endTimeInTrack;
     NSString *_externalIdentifier;
     double _startTimeInTrack;
     long long _storeID;
     NSData *_timedMetadata;
     NSDictionary *_trackInfo;
-    long long _type;
+    int _type;
 }
 
-@property(readonly) NSDate * datePlayed;
-@property(readonly) long long endReason;
-@property(readonly) double endTimeInTrack;
-@property(copy,readonly) NSString * externalIdentifier;
-@property(readonly) double startTimeInTrack;
-@property(readonly) long long storeID;
-@property(copy,readonly) NSData * timedMetadata;
-@property(copy,readonly) NSDictionary * trackInfo;
-@property(readonly) long long type;
+@property (nonatomic, readonly) NSDate *datePlayed;
+@property (nonatomic, readonly) int endReason;
+@property (nonatomic, readonly) double endTimeInTrack;
+@property (nonatomic, readonly, copy) NSString *externalIdentifier;
+@property (nonatomic, readonly) double startTimeInTrack;
+@property (nonatomic, readonly) long long storeID;
+@property (nonatomic, readonly, copy) NSData *timedMetadata;
+@property (nonatomic, readonly, copy) NSDictionary *trackInfo;
+@property (nonatomic, readonly) int type;
 
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)datePlayed;
 - (id)description;
-- (long long)endReason;
+- (int)endReason;
 - (double)endTimeInTrack;
 - (id)externalIdentifier;
-- (unsigned long long)hash;
-- (id)initWithType:(long long)arg1;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (id)initWithType:(int)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone { }*)arg1;
 - (id)playDictionary;
 - (double)startTimeInTrack;
 - (long long)storeID;
 - (id)timedMetadata;
 - (id)trackInfo;
-- (long long)type;
+- (int)type;
 
 @end

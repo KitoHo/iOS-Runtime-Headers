@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-@class UIToolbar;
-
 @interface PLToolbar : UIToolbar {
-    unsigned int _backgroundHidden : 1;
-    unsigned int _backgroundAlwaysVisible : 1;
+    unsigned int _backgroundAlwaysVisible;
+    unsigned int _backgroundHidden;
     UIToolbar *_persistentToolbar;
 }
 
-@property(getter=isBackgroundAlwaysVisible) bool backgroundAlwaysVisible;
-@property(getter=isBackgroundHidden) bool backgroundHidden;
+@property (getter=isBackgroundAlwaysVisible, nonatomic) BOOL backgroundAlwaysVisible;
+@property (getter=isBackgroundHidden, nonatomic) BOOL backgroundHidden;
 
 - (void)dealloc;
-- (void)drawRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (bool)isBackgroundAlwaysVisible;
-- (bool)isBackgroundHidden;
-- (void)setBackgroundAlwaysVisible:(bool)arg1;
-- (void)setBackgroundHidden:(bool)arg1;
+- (void)drawRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (BOOL)isBackgroundAlwaysVisible;
+- (BOOL)isBackgroundHidden;
+- (void)setBackgroundAlwaysVisible:(BOOL)arg1;
+- (void)setBackgroundHidden:(BOOL)arg1;
 
 @end

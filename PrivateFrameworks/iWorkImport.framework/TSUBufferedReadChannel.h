@@ -2,50 +2,45 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <TSUReadChannel>, <TSUStreamReadChannel>, NSError, NSObject<OS_dispatch_data>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString;
-
 @interface TSUBufferedReadChannel : NSObject <TSUReadChannel> {
+    NSArray *_blockInfos;
     NSObject<OS_dispatch_data> *_currentStreamOutputData;
-    NSObject<OS_dispatch_semaphore> *_readSemaphore;
+    BOOL _isStreamOutputDone;
+    NSObject<OS_dispatch_queue> *_readQueue;
+    unsigned long _sourceLength;
     long long _sourceOffset;
-    unsigned long long _sourceReadBufferSize;
+    unsigned long _sourceReadBufferSize;
     <TSUReadChannel> *_sourceReadChannel;
     NSError *_sourceReadChannelError;
-    NSObject<OS_dispatch_queue> *_sourceReadQueue;
-    unsigned long long _streamOutputLength;
+    unsigned long _streamOutputLength;
     long long _streamOutputOffset;
+    unsigned long _streamOutputOutstandingLength;
     <TSUStreamReadChannel> *_streamReadChannel;
-    id _streamReadChannelBlock;
-    NSObject<OS_dispatch_queue> *_streamReadChannelOutputQueue;
-    id _streamReadChannelSourceHandler;
-    NSObject<OS_dispatch_queue> *_streamReadChannelSourceQueue;
-    bool_isStreamOutputDone;
+    id /* block */ _streamReadChannelBlock;
+    id /* block */ _streamReadChannelSourceHandler;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) bool isValid;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) BOOL isValid;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
+- (void)_close;
 - (void)_closeStreamReadChannel;
-- (id)_currentDataIntersectionWithOffset:(long long)arg1 length:(unsigned long long)arg2 isReadDone:(bool*)arg3;
-- (void)_readFromOffset:(long long)arg1 length:(unsigned long long)arg2 queue:(id)arg3 handler:(id)arg4;
-- (void)_resetStreamReadChannel;
-- (void)addBarrier:(id)arg1;
+- (id)_currentDataIntersectionWithOffset:(long long)arg1 length:(unsigned long)arg2 isReadDone:(BOOL*)arg3;
+- (void)_readFromOffset:(long long)arg1 length:(unsigned long)arg2 handler:(id /* block */)arg3;
+- (void)_resetStreamReadChannelIfNeededForOffset:(long long)arg1 length:(unsigned long)arg2;
+- (void)addBarrier:(id /* block */)arg1;
 - (void)close;
 - (void)dealloc;
-- (id)initWithReadChannel:(id)arg1 sourceReadBufferSize:(unsigned long long)arg2 streamReadChannelBlock:(id)arg3;
-- (id)initWithReadChannel:(id)arg1 streamReadChannelBlock:(id)arg2;
-- (bool)isValid;
-- (void)readFromOffset:(long long)arg1 length:(unsigned long long)arg2 queue:(id)arg3 handler:(id)arg4;
-- (void)readWithQueue:(id)arg1 handler:(id)arg2;
-- (void)setLowWater:(unsigned long long)arg1;
-- (void)setStreamReadChannelSourceQueue:(id)arg1 handler:(id)arg2;
+- (id)initWithReadChannel:(id)arg1 blockInfos:(id)arg2 streamReadChannelBlock:(id /* block */)arg3;
+- (id)initWithReadChannel:(id)arg1 sourceReadBufferSize:(unsigned long)arg2 blockInfos:(id)arg3 streamReadChannelBlock:(id /* block */)arg4;
+- (BOOL)isValid;
+- (void)readFromOffset:(long long)arg1 length:(unsigned long)arg2 handler:(id /* block */)arg3;
+- (void)readWithHandler:(id /* block */)arg1;
+- (void)setLowWater:(unsigned long)arg1;
+- (void)setStreamReadChannelSourceHandler:(id /* block */)arg1;
 
 @end

@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSString, NSURL;
-
 @interface PKPaymentPassContent : PKPassContent <NSSecureCoding> {
     NSString *_appURLScheme;
     NSString *_messagePushTopic;
     NSURL *_messageServiceURL;
+    BOOL _supportsDPANNotifications;
+    BOOL _supportsFPANNotifications;
     NSString *_transactionPushTopic;
     NSURL *_transactionServiceURL;
-    bool_supportsDPANNotifications;
-    bool_supportsFPANNotifications;
 }
 
-@property(copy) NSString * appURLScheme;
-@property(copy) NSString * messagePushTopic;
-@property(copy) NSURL * messageServiceURL;
-@property bool supportsDPANNotifications;
-@property bool supportsFPANNotifications;
-@property(copy) NSString * transactionPushTopic;
-@property(copy) NSURL * transactionServiceURL;
+@property (nonatomic, copy) NSString *appURLScheme;
+@property (nonatomic, copy) NSString *messagePushTopic;
+@property (nonatomic, copy) NSURL *messageServiceURL;
+@property (nonatomic) BOOL supportsDPANNotifications;
+@property (nonatomic) BOOL supportsFPANNotifications;
+@property (nonatomic, copy) NSString *transactionPushTopic;
+@property (nonatomic, copy) NSURL *transactionServiceURL;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)appURLScheme;
 - (void)dealloc;
@@ -34,12 +32,12 @@
 - (void)setAppURLScheme:(id)arg1;
 - (void)setMessagePushTopic:(id)arg1;
 - (void)setMessageServiceURL:(id)arg1;
-- (void)setSupportsDPANNotifications:(bool)arg1;
-- (void)setSupportsFPANNotifications:(bool)arg1;
+- (void)setSupportsDPANNotifications:(BOOL)arg1;
+- (void)setSupportsFPANNotifications:(BOOL)arg1;
 - (void)setTransactionPushTopic:(id)arg1;
 - (void)setTransactionServiceURL:(id)arg1;
-- (bool)supportsDPANNotifications;
-- (bool)supportsFPANNotifications;
+- (BOOL)supportsDPANNotifications;
+- (BOOL)supportsFPANNotifications;
 - (id)transactionPushTopic;
 - (id)transactionServiceURL;
 

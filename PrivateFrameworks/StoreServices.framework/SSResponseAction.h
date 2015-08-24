@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSString, NSURL, SSAccount, SSDialog;
-
 @interface SSResponseAction : NSObject <NSCopying> {
     SSAccount *_account;
     NSString *_actionType;
@@ -12,17 +10,17 @@
     SSDialog *_dialog;
     NSString *_footerSection;
     NSURL *_url;
-    long long _urlBagType;
+    int _urlBagType;
 }
 
-@property(readonly) NSURL * URL;
-@property(readonly) long long URLBagType;
-@property(readonly) SSAccount * account;
-@property(readonly) NSString * actionType;
-@property(readonly) NSString * clientIdentifier;
-@property(readonly) NSString * creditsString;
-@property(readonly) SSDialog * dialog;
-@property(readonly) NSString * footerSection;
+@property (nonatomic, readonly) NSURL *URL;
+@property (nonatomic, readonly) int URLBagType;
+@property (nonatomic, readonly) SSAccount *account;
+@property (nonatomic, readonly) NSString *actionType;
+@property (nonatomic, readonly) NSString *clientIdentifier;
+@property (nonatomic, readonly) NSString *creditsString;
+@property (nonatomic, readonly) SSDialog *dialog;
+@property (nonatomic, readonly) NSString *footerSection;
 
 + (id)_actionWithActionType:(id)arg1;
 + (id)_checkInAppQueueActionWithClientID:(id)arg1 environment:(id)arg2;
@@ -34,7 +32,7 @@
 + (id)_urlActionWithType:(id)arg1 URL:(id)arg2;
 
 - (id)URL;
-- (long long)URLBagType;
+- (int)URLBagType;
 - (id)account;
 - (id)actionType;
 - (id)clientIdentifier;

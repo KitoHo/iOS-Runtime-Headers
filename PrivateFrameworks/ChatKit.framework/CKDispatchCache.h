@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class CKDispatchQueue, NSCache, NSCountedSet, NSMutableDictionary, NSObject<OS_dispatch_queue>;
-
 @interface CKDispatchCache : NSObject <IMSystemMonitorListener> {
-    long long _dispatchPriority;
+    long _dispatchPriority;
     CKDispatchQueue *_dispatchQueue;
     NSObject<OS_dispatch_queue> *_lockQueue;
     NSCache *_objectCache;
@@ -13,12 +11,12 @@
     NSCountedSet *_pendingKeys;
 }
 
-@property long long dispatchPriority;
-@property(retain) CKDispatchQueue * dispatchQueue;
-@property(retain) NSObject<OS_dispatch_queue> * lockQueue;
-@property(retain) NSCache * objectCache;
-@property(retain) NSMutableDictionary * pendingGroups;
-@property(retain) NSCountedSet * pendingKeys;
+@property (nonatomic) long dispatchPriority;
+@property (nonatomic, retain) CKDispatchQueue *dispatchQueue;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *lockQueue;
+@property (nonatomic, retain) NSCache *objectCache;
+@property (nonatomic, retain) NSMutableDictionary *pendingGroups;
+@property (nonatomic, retain) NSCountedSet *pendingKeys;
 
 - (void)_beginGeneratingForKeyUnlocked:(id)arg1;
 - (void)_endGeneratingForKeyUnlocked:(id)arg1;
@@ -26,21 +24,21 @@
 - (id)cachedObjectForKey:(id)arg1;
 - (void)clearQueue;
 - (void)dealloc;
-- (long long)dispatchPriority;
+- (long)dispatchPriority;
 - (id)dispatchQueue;
 - (void)endGeneratingForKey:(id)arg1;
-- (void)enqueueBlock:(id)arg1 withPriority:(long long)arg2;
-- (void)enqueueGenerationBlock:(id)arg1 completion:(id)arg2 withPriority:(long long)arg3 forKey:(id)arg4;
+- (void)enqueueBlock:(id /* block */)arg1 withPriority:(int)arg2;
+- (void)enqueueGenerationBlock:(id /* block */)arg1 completion:(id /* block */)arg2 withPriority:(int)arg3 forKey:(id)arg4;
 - (id)init;
-- (id)initWithCacheLimit:(unsigned long long)arg1 dispatchPriority:(long long)arg2;
-- (bool)isGeneratingForKey:(id)arg1;
+- (id)initWithCacheLimit:(unsigned int)arg1 dispatchPriority:(long)arg2;
+- (BOOL)isGeneratingForKey:(id)arg1;
 - (id)lockQueue;
 - (id)objectCache;
 - (id)pendingGroups;
 - (id)pendingKeys;
 - (void)resume;
 - (void)setCachedObject:(id)arg1 forKey:(id)arg2;
-- (void)setDispatchPriority:(long long)arg1;
+- (void)setDispatchPriority:(long)arg1;
 - (void)setDispatchQueue:(id)arg1;
 - (void)setLockQueue:(id)arg1;
 - (void)setObjectCache:(id)arg1;
@@ -48,6 +46,6 @@
 - (void)setPendingKeys:(id)arg1;
 - (void)systemApplicationDidSuspend;
 - (void)systemApplicationDidSuspendForEventsOnly;
-- (bool)waitOnGenerationForKey:(id)arg1;
+- (BOOL)waitOnGenerationForKey:(id)arg1;
 
 @end

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CoreMediaStream.framework/CoreMediaStream
  */
 
-@class <MSSharingManagerDelegate>, MSMediaStreamDaemon, MSSharingProtocol, NSArray, NSMutableArray, NSMutableDictionary, NSString, NSTimer;
-
 @interface MSSharingManager : NSObject <MSSharingManager, MSSharingProtocolDelegate> {
     MSMediaStreamDaemon *_daemon;
     <MSSharingManagerDelegate> *_delegate;
@@ -15,20 +13,20 @@
     NSString *_manifestPath;
     NSString *_personID;
     MSSharingProtocol *_protocol;
+    BOOL _requestCurrentStateRequested;
     NSArray *_shares;
     NSMutableArray *_sharesWithLocalModifications;
     int _state;
-    bool_requestCurrentStateRequested;
 }
 
-@property MSMediaStreamDaemon * daemon;
-@property(copy,readonly) NSString * debugDescription;
-@property <MSSharingManagerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) NSString * personID;
-@property(retain) NSArray * shares;
-@property(readonly) Class superclass;
+@property (nonatomic) MSMediaStreamDaemon *daemon;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <MSSharingManagerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) NSString *personID;
+@property (nonatomic, retain) NSArray *shares;
+@property (readonly) Class superclass;
 
 + (id)_clearInstantiatedSharingManagersByPersonID;
 + (void)abortAllActivities;
@@ -54,7 +52,7 @@
 - (id)personID;
 - (void)refreshCurrentShareState;
 - (void)removeShare:(id)arg1;
-- (void)respondToInvitation:(id)arg1 accept:(bool)arg2;
+- (void)respondToInvitation:(id)arg1 accept:(BOOL)arg2;
 - (void)sendInvitationsForShares:(id)arg1;
 - (void)setDaemon:(id)arg1;
 - (void)setDelegate:(id)arg1;

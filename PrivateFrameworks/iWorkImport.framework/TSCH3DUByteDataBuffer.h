@@ -2,10 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface TSCH3DUByteDataBuffer : TSCH3DVectorDataBuffer {
     struct vector<TSCH3D::PODType<unsigned char>, std::__1::allocator<TSCH3D::PODType<unsigned char> > > { 
         struct PODType<unsigned char> {} *__begin_; 
@@ -16,19 +12,19 @@
     } mContainer;
 }
 
-@property(readonly) /* Warning: unhandled struct encoding: '{vector<TSCH3D::PODType<unsigned char>' */ struct * container; /* unknown property attribute:  std::__1::allocator<TSCH3D::PODType<unsigned char> > >=^{PODType<unsigned char>}}} */
+@property (nonatomic, readonly) /* Warning: unhandled struct encoding: '{vector<TSCH3D::PODType<unsigned char>' */ struct *container; /* unknown property attribute:  std::__1::allocator<TSCH3D::PODType<unsigned char> > >=^{PODType<unsigned char>}}} */
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)clear;
-- (unsigned long long)componentByteSize;
+- (unsigned int)componentByteSize;
 - (int)componentType;
-- (unsigned long long)components;
+- (unsigned int)components;
 - (struct vector<TSCH3D::PODType<unsigned char>, std::__1::allocator<TSCH3D::PODType<unsigned char> > > { struct PODType<unsigned char> {} *x1; struct PODType<unsigned char> {} *x2; struct __compressed_pair<TSCH3D::PODType<unsigned char> *, std::__1::allocator<TSCH3D::PODType<unsigned char> > > { struct PODType<unsigned char> {} *x_3_1_1; } x3; }*)container;
-- (unsigned long long)count;
+- (unsigned int)count;
 - (const void*)data;
 - (id)elementsAtIndices:(id)arg1;
 - (void)fillCapacity;
-- (id)initWithCapacity:(unsigned long long)arg1;
+- (id)initWithCapacity:(unsigned int)arg1;
 
 @end

@@ -2,32 +2,31 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSDate, NSNumber, NSString, NSURL;
+@interface SACalendarEvent : SADomainObject
 
-@interface SACalendarEvent : SADomainObject {
-}
-
-@property(copy) NSArray * alerts;
-@property bool allDay;
-@property(copy) NSArray * attendees;
-@property(copy) NSURL * calendarId;
-@property(copy) NSDate * endDate;
-@property(copy) NSNumber * includeRecurrences;
-@property(copy) NSString * location;
-@property(copy) NSString * notes;
-@property(copy) NSNumber * readOnly;
-@property(copy) NSArray * recurrences;
-@property(copy) NSDate * startDate;
-@property(copy) NSString * timeZoneId;
-@property(copy) NSString * title;
+@property (nonatomic, copy) NSArray *alerts;
+@property (nonatomic) BOOL allDay;
+@property (nonatomic, copy) NSArray *attendees;
+@property (nonatomic, copy) NSURL *calendarId;
+@property (nonatomic, copy) NSURL *calendarPunchoutURI;
+@property (nonatomic, copy) NSDate *endDate;
+@property (nonatomic, copy) NSNumber *includeRecurrences;
+@property (nonatomic, copy) NSString *location;
+@property (nonatomic, copy) NSString *notes;
+@property (nonatomic, copy) NSNumber *readOnly;
+@property (nonatomic, copy) NSArray *recurrences;
+@property (nonatomic, copy) NSDate *startDate;
+@property (nonatomic, copy) NSString *timeZoneId;
+@property (nonatomic, copy) NSString *title;
 
 + (id)event;
 + (id)eventWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)alerts;
-- (bool)allDay;
+- (BOOL)allDay;
 - (id)attendees;
 - (id)calendarId;
+- (id)calendarPunchoutURI;
 - (id)encodedClassName;
 - (id)endDate;
 - (id)groupIdentifier;
@@ -37,9 +36,10 @@
 - (id)readOnly;
 - (id)recurrences;
 - (void)setAlerts:(id)arg1;
-- (void)setAllDay:(bool)arg1;
+- (void)setAllDay:(BOOL)arg1;
 - (void)setAttendees:(id)arg1;
 - (void)setCalendarId:(id)arg1;
+- (void)setCalendarPunchoutURI:(id)arg1;
 - (void)setEndDate:(id)arg1;
 - (void)setIncludeRecurrences:(id)arg1;
 - (void)setLocation:(id)arg1;

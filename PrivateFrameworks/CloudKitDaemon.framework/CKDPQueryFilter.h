@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPLocationBound, CKDPRecordFieldIdentifier, CKDPRecordFieldValue;
-
 @interface CKDPQueryFilter : PBCodable <NSCopying> {
-    struct { 
-        unsigned int type : 1; 
     CKDPLocationBound *_bounds;
     CKDPRecordFieldIdentifier *_fieldName;
     CKDPRecordFieldValue *_fieldValue;
+    struct { 
+        unsigned int type : 1; 
     } _has;
     int _type;
 }
 
-@property(retain) CKDPLocationBound * bounds;
-@property(retain) CKDPRecordFieldIdentifier * fieldName;
-@property(retain) CKDPRecordFieldValue * fieldValue;
-@property(readonly) bool hasBounds;
-@property(readonly) bool hasFieldName;
-@property(readonly) bool hasFieldValue;
-@property bool hasType;
-@property int type;
+@property (nonatomic, retain) CKDPLocationBound *bounds;
+@property (nonatomic, retain) CKDPRecordFieldIdentifier *fieldName;
+@property (nonatomic, retain) CKDPRecordFieldValue *fieldValue;
+@property (nonatomic, readonly) BOOL hasBounds;
+@property (nonatomic, readonly) BOOL hasFieldName;
+@property (nonatomic, readonly) BOOL hasFieldValue;
+@property (nonatomic) BOOL hasType;
+@property (nonatomic) int type;
 
 - (void).cxx_destruct;
 - (id)bounds;
@@ -31,18 +29,18 @@
 - (id)dictionaryRepresentation;
 - (id)fieldName;
 - (id)fieldValue;
-- (bool)hasBounds;
-- (bool)hasFieldName;
-- (bool)hasFieldValue;
-- (bool)hasType;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasBounds;
+- (BOOL)hasFieldName;
+- (BOOL)hasFieldValue;
+- (BOOL)hasType;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setBounds:(id)arg1;
 - (void)setFieldName:(id)arg1;
 - (void)setFieldValue:(id)arg1;
-- (void)setHasType:(bool)arg1;
+- (void)setHasType:(BOOL)arg1;
 - (void)setType:(int)arg1;
 - (int)type;
 - (void)writeTo:(id)arg1;

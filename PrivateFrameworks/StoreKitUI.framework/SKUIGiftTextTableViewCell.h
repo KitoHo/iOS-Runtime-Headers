@@ -2,41 +2,39 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSString, UILabel, UITextView, UIView;
-
 @interface SKUIGiftTextTableViewCell : UITableViewCell <UITextViewDelegate> {
     UIView *_bottomBorderView;
     UILabel *_label;
-    long long _maximumCharacterCount;
+    int _maximumCharacterCount;
     UILabel *_placeholderLabel;
     UITextView *_textView;
     UIView *_topBorderView;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * label;
-@property long long maximumCharacterCount;
-@property(copy) NSString * placeholder;
-@property(readonly) Class superclass;
-@property(retain) UITextView * textView;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSString *label;
+@property (nonatomic) int maximumCharacterCount;
+@property (nonatomic, copy) NSString *placeholder;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) UITextView *textView;
 
 + (id)newTextView;
 
 - (void).cxx_destruct;
 - (void)dealloc;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (id)label;
 - (void)layoutSubviews;
-- (long long)maximumCharacterCount;
+- (int)maximumCharacterCount;
 - (id)placeholder;
 - (void)setLabel:(id)arg1;
-- (void)setMaximumCharacterCount:(long long)arg1;
+- (void)setMaximumCharacterCount:(int)arg1;
 - (void)setPlaceholder:(id)arg1;
 - (void)setTextView:(id)arg1;
-- (bool)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg2 replacementText:(id)arg3;
 - (id)textView;
+- (BOOL)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg2 replacementText:(id)arg3;
 - (void)textViewDidBeginEditing:(id)arg1;
 - (void)textViewDidEndEditing:(id)arg1;
 

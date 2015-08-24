@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class <CKMovieBalloonViewDelegate>, AVPlayer, AVPlayerItem, AVPlayerLayer, CKMovieMediaObject;
-
 @interface CKMovieBalloonView : CKImageBalloonView {
     AVPlayer *_avPlayer;
     AVPlayerItem *_avPlayerItem;
@@ -11,17 +9,17 @@
     CKMovieMediaObject *_mediaObject;
 }
 
-@property(setter=setAVPlayer:,retain) AVPlayer * avPlayer;
-@property(setter=setAVPlayerItem:,retain) AVPlayerItem * avPlayerItem;
-@property(setter=setAVPlayerLayer:,retain) AVPlayerLayer * avPlayerLayer;
-@property <CKMovieBalloonViewDelegate> * delegate;
-@property(retain) CKMovieMediaObject * mediaObject;
+@property (setter=setAVPlayer:, nonatomic, retain) AVPlayer *avPlayer;
+@property (setter=setAVPlayerItem:, nonatomic, retain) AVPlayerItem *avPlayerItem;
+@property (setter=setAVPlayerLayer:, nonatomic, retain) AVPlayerLayer *avPlayerLayer;
+@property (nonatomic) <CKMovieBalloonViewDelegate> *delegate;
+@property (nonatomic, retain) CKMovieMediaObject *mediaObject;
 
 - (id)avPlayer;
 - (id)avPlayerItem;
 - (id)avPlayerLayer;
 - (void)cleanupPlayerIfNeeded;
-- (void)configureForMediaObject:(id)arg1 previewWidth:(double)arg2 orientation:(BOOL)arg3;
+- (void)configureForMediaObject:(id)arg1 previewWidth:(float)arg2 orientation:(BOOL)arg3;
 - (void)dealloc;
 - (id)description;
 - (void)layoutSubviews;

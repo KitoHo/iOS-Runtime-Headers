@@ -3,12 +3,16 @@
  */
 
 @interface TSKAddedToDocumentContext_InsertingPrototype : TSKAddedToDocumentContext {
+    NSMutableArray *mInsertedTableInfos;
 }
 
-- (bool)autoUpdateSmartFields;
+- (void)addInsertedTableInfo:(id)arg1;
+- (BOOL)autoUpdateSmartFields;
+- (void)dealloc;
 - (id)description;
-- (bool)syncChanges;
-- (bool)uniqueBookmarks;
-- (bool)wasPasted;
+- (id)insertedTableInfos;
+- (BOOL)syncChanges;
+- (BOOL)uniqueBookmarks;
+- (BOOL)wasPasted;
 
 @end

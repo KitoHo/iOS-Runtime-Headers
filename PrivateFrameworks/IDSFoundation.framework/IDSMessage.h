@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/IDSFoundation.framework/IDSFoundation
  */
 
-@class NSDictionary, NSNumber;
-
 @interface IDSMessage : IDSBaseMessage <NSCopying> {
     NSDictionary *_deliveryStatusContext;
     NSNumber *_version;
     NSNumber *_wantsDeliveryStatus;
 }
 
-@property(copy) NSDictionary * deliveryStatusContext;
-@property(copy) NSNumber * version;
-@property(copy) NSNumber * wantsDeliveryStatus;
+@property (copy) NSDictionary *deliveryStatusContext;
+@property (copy) NSNumber *version;
+@property (copy) NSNumber *wantsDeliveryStatus;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
@@ -24,9 +22,9 @@
 - (void)setWantsDeliveryStatus:(id)arg1;
 - (id)userAgentHeaderString;
 - (id)version;
-- (bool)wantsAPSRetries;
+- (BOOL)wantsAPSRetries;
 - (id)wantsDeliveryStatus;
-- (bool)wantsHTTPHeaders;
-- (bool)wantsUserAgentInHeaders;
+- (BOOL)wantsHTTPHeaders;
+- (BOOL)wantsUserAgentInHeaders;
 
 @end

@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/DataDetectorsUI.framework/DataDetectorsUI
  */
 
-@interface DDFaceTimeAudioAction : DDTelephoneNumberAction {
-}
+@interface DDFaceTimeAudioAction : DDTelephoneNumberAction
 
-+ (bool)isAvailable;
++ (BOOL)isAvailable;
 
 - (int)interactionType;
 - (id)localizedName;

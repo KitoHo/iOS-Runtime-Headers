@@ -2,24 +2,22 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSString, UIView, UIVisualEffect, _UIVisualEffectContentView;
-
 @interface UIVisualEffectView : UIView <NSSecureCoding> {
+    _UIVisualEffectContentView *_contentView;
+    UIVisualEffect *_effect;
     struct { 
         unsigned int hasHadAlphaAnimated : 1; 
         unsigned int suppressReportingEmptyContentView : 1; 
-    _UIVisualEffectContentView *_contentView;
-    UIVisualEffect *_effect;
     } _effectViewFlags;
     NSString *_groupName;
     UIView *_maskView;
 }
 
-@property(setter=_setGroupName:,copy) NSString * _groupName;
-@property(retain) UIView * contentView;
-@property(copy) UIVisualEffect * effect;
+@property (setter=_setGroupName:, nonatomic, copy) NSString *_groupName;
+@property (nonatomic, retain) UIView *contentView;
+@property (nonatomic, copy) UIVisualEffect *effect;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void)_applyGroupNameToSubviews;
 - (void)_commonInit;

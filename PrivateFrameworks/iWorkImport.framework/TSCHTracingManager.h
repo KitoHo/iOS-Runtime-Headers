@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString, NSURL, TSMTraceBuffer;
-
 @interface TSCHTracingManager : NSObject {
-    boolmBufferSizeSet;
-    boolmTraceLevelSet;
     TSMTraceBuffer *mBuffer;
-    unsigned long long mBufferSize;
+    unsigned int mBufferSize;
+    BOOL mBufferSizeSet;
     NSURL *mLastTraceFileURL;
     NSString *mTag;
     unsigned int mTraceLevel;
+    BOOL mTraceLevelSet;
 }
 
-@property unsigned long long bufferSize;
-@property(readonly) NSURL * lastTraceFileURL;
-@property(copy) NSString * tag;
+@property unsigned int bufferSize;
+@property (readonly) NSURL *lastTraceFileURL;
+@property (copy) NSString *tag;
 @property unsigned int traceLevel;
 
 + (id)_singletonAlloc;
@@ -24,15 +22,15 @@
 + (id)sharedManager;
 
 - (id)autorelease;
-- (unsigned long long)bufferSize;
+- (unsigned int)bufferSize;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)lastTraceFileURL;
 - (oneway void)release;
 - (id)retain;
-- (unsigned long long)retainCount;
-- (void)setBufferSize:(unsigned long long)arg1;
+- (unsigned int)retainCount;
+- (void)setBufferSize:(unsigned int)arg1;
 - (void)setTag:(id)arg1;
 - (void)setTraceLevel:(unsigned int)arg1;
 - (void)setup;

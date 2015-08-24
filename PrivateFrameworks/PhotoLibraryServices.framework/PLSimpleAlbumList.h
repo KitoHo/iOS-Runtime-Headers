@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSOrderedSet, NSString;
-
 @interface PLSimpleAlbumList : NSObject <PLAssetContainerList> {
     NSOrderedSet *_containers;
 }
 
-@property(retain) NSOrderedSet * containers;
-@property(readonly) unsigned long long containersCount;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) NSOrderedSet *containers;
+@property (nonatomic, readonly) unsigned int containersCount;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
-- (bool)canEditContainers;
+- (BOOL)canEditContainers;
 - (id)containers;
-- (unsigned long long)containersCount;
+- (unsigned int)containersCount;
 - (id)containersRelationshipName;
 - (void)dealloc;
 - (id)initWithAssetContainer:(id)arg1;
 - (id)initWithAssetContainers:(id)arg1;
-- (bool)isEmpty;
+- (BOOL)isEmpty;
 - (id)managedObjectContext;
 - (id)photoLibrary;
 - (void)setContainers:(id)arg1;

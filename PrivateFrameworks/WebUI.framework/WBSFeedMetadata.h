@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class NSString, NSURL;
-
 @interface WBSFeedMetadata : NSObject <NSSecureCoding> {
     NSURL *_homepageURL;
     NSURL *_imageURL;
     NSString *_title;
 }
 
-@property(readonly) NSURL * homepageURL;
-@property(readonly) NSURL * imageURL;
-@property(readonly) NSString * title;
+@property (nonatomic, readonly) NSURL *homepageURL;
+@property (nonatomic, readonly) NSURL *imageURL;
+@property (nonatomic, readonly) NSString *title;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)description;

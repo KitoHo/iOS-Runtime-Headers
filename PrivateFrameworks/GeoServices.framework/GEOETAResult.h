@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOPlaceSearchResponse, NSMutableArray;
-
 @interface GEOETAResult : PBCodable <NSCopying> {
+    unsigned int _distance;
     struct { 
         unsigned int distance : 1; 
         unsigned int historicTravelTime : 1; 
         unsigned int liveTravelTime : 1; 
         unsigned int status : 1; 
-    unsigned int _distance;
     } _has;
     unsigned int _historicTravelTime;
     unsigned int _liveTravelTime;
@@ -19,17 +17,17 @@
     int _status;
 }
 
-@property unsigned int distance;
-@property bool hasDistance;
-@property bool hasHistoricTravelTime;
-@property bool hasLiveTravelTime;
-@property(readonly) bool hasPlaceSearchResponse;
-@property bool hasStatus;
-@property unsigned int historicTravelTime;
-@property unsigned int liveTravelTime;
-@property(retain) GEOPlaceSearchResponse * placeSearchResponse;
-@property(retain) NSMutableArray * sortedETAs;
-@property int status;
+@property (nonatomic) unsigned int distance;
+@property (nonatomic) BOOL hasDistance;
+@property (nonatomic) BOOL hasHistoricTravelTime;
+@property (nonatomic) BOOL hasLiveTravelTime;
+@property (nonatomic, readonly) BOOL hasPlaceSearchResponse;
+@property (nonatomic) BOOL hasStatus;
+@property (nonatomic) unsigned int historicTravelTime;
+@property (nonatomic) unsigned int liveTravelTime;
+@property (nonatomic, retain) GEOPlaceSearchResponse *placeSearchResponse;
+@property (nonatomic, retain) NSMutableArray *sortedETAs;
+@property (nonatomic) int status;
 
 - (void)addSortedETA:(id)arg1;
 - (void)clearSortedETAs;
@@ -39,31 +37,31 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (unsigned int)distance;
-- (bool)hasDistance;
-- (bool)hasHistoricTravelTime;
-- (bool)hasLiveTravelTime;
-- (bool)hasPlaceSearchResponse;
-- (bool)hasStatus;
-- (unsigned long long)hash;
+- (BOOL)hasDistance;
+- (BOOL)hasHistoricTravelTime;
+- (BOOL)hasLiveTravelTime;
+- (BOOL)hasPlaceSearchResponse;
+- (BOOL)hasStatus;
+- (unsigned int)hash;
 - (unsigned int)historicTravelTime;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (unsigned int)liveTravelTime;
 - (void)mergeFrom:(id)arg1;
 - (id)placeSearchResponse;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setDistance:(unsigned int)arg1;
-- (void)setHasDistance:(bool)arg1;
-- (void)setHasHistoricTravelTime:(bool)arg1;
-- (void)setHasLiveTravelTime:(bool)arg1;
-- (void)setHasStatus:(bool)arg1;
+- (void)setHasDistance:(BOOL)arg1;
+- (void)setHasHistoricTravelTime:(BOOL)arg1;
+- (void)setHasLiveTravelTime:(BOOL)arg1;
+- (void)setHasStatus:(BOOL)arg1;
 - (void)setHistoricTravelTime:(unsigned int)arg1;
 - (void)setLiveTravelTime:(unsigned int)arg1;
 - (void)setPlaceSearchResponse:(id)arg1;
 - (void)setSortedETAs:(id)arg1;
 - (void)setStatus:(int)arg1;
-- (id)sortedETAAtIndex:(unsigned long long)arg1;
+- (id)sortedETAAtIndex:(unsigned int)arg1;
 - (id)sortedETAs;
-- (unsigned long long)sortedETAsCount;
+- (unsigned int)sortedETAsCount;
 - (int)status;
 - (void)writeTo:(id)arg1;
 

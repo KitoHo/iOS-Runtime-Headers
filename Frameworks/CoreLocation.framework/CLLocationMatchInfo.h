@@ -6,26 +6,26 @@
     id _internal;
 }
 
-@property(readonly) struct { double x1; double x2; } matchCoordinate;
-@property(readonly) double matchCourse;
-@property(readonly) int matchFormOfWay;
-@property(readonly) long long matchQuality;
-@property(readonly) int matchRoadClass;
-@property(getter=isMatchShifted,readonly) bool matchShifted;
+@property (nonatomic, readonly) struct { double x1; double x2; } matchCoordinate;
+@property (nonatomic, readonly) double matchCourse;
+@property (nonatomic, readonly) int matchFormOfWay;
+@property (nonatomic, readonly) int matchQuality;
+@property (nonatomic, readonly) int matchRoadClass;
+@property (getter=isMatchShifted, nonatomic, readonly) BOOL matchShifted;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithMatchQuality:(long long)arg1 matchCoordinate:(struct { double x1; double x2; })arg2 matchCourse:(double)arg3 matchFormOfWay:(int)arg4 matchRoadClass:(int)arg5 matchShifted:(bool)arg6;
-- (bool)isMatchShifted;
+- (id)initWithMatchQuality:(int)arg1 matchCoordinate:(struct { double x1; double x2; })arg2 matchCourse:(double)arg3 matchFormOfWay:(int)arg4 matchRoadClass:(int)arg5 matchShifted:(BOOL)arg6;
+- (BOOL)isMatchShifted;
 - (struct { double x1; double x2; })matchCoordinate;
 - (double)matchCourse;
 - (int)matchFormOfWay;
-- (long long)matchQuality;
+- (int)matchQuality;
 - (int)matchRoadClass;
 - (id)shortDescription;
 

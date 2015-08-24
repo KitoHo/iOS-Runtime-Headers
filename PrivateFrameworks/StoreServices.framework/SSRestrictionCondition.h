@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSString;
-
 @interface SSRestrictionCondition : SSProtocolCondition {
     NSString *_restrictionName;
 }
 
 - (void)dealloc;
-- (bool)evaluateWithContext:(id)arg1;
+- (BOOL)evaluateWithContext:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
 
 @end

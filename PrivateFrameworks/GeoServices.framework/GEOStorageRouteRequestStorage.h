@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOURLRouteHandle, NSMutableArray, PBUnknownFields;
-
 @interface GEOStorageRouteRequestStorage : PBCodable <NSCopying> {
     struct { 
         unsigned int transportType : 1; 
@@ -14,12 +12,12 @@
     NSMutableArray *_waypoints;
 }
 
-@property(readonly) bool hasRouteHandle;
-@property bool hasTransportType;
-@property(retain) GEOURLRouteHandle * routeHandle;
-@property int transportType;
-@property(readonly) PBUnknownFields * unknownFields;
-@property(retain) NSMutableArray * waypoints;
+@property (nonatomic, readonly) BOOL hasRouteHandle;
+@property (nonatomic) BOOL hasTransportType;
+@property (nonatomic, retain) GEOURLRouteHandle *routeHandle;
+@property (nonatomic) int transportType;
+@property (nonatomic, readonly) PBUnknownFields *unknownFields;
+@property (nonatomic, retain) NSMutableArray *waypoints;
 
 - (void)addWaypoints:(id)arg1;
 - (void)clearWaypoints;
@@ -28,22 +26,22 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasRouteHandle;
-- (bool)hasTransportType;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasRouteHandle;
+- (BOOL)hasTransportType;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)routeHandle;
-- (void)setHasTransportType:(bool)arg1;
+- (void)setHasTransportType:(BOOL)arg1;
 - (void)setRouteHandle:(id)arg1;
 - (void)setTransportType:(int)arg1;
 - (void)setWaypoints:(id)arg1;
 - (int)transportType;
 - (id)unknownFields;
 - (id)waypoints;
-- (id)waypointsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)waypointsCount;
+- (id)waypointsAtIndex:(unsigned int)arg1;
+- (unsigned int)waypointsCount;
 - (void)writeTo:(id)arg1;
 
 @end

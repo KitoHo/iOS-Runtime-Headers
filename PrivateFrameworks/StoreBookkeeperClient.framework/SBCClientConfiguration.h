@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/StoreBookkeeperClient.framework/StoreBookkeeperClient
  */
 
-@class SBCPlaybackPositionDomain;
-
 @interface SBCClientConfiguration : NSObject <NSSecureCoding> {
     SBCPlaybackPositionDomain *_playbackPositionDomain;
 }
 
-@property(readonly) SBCPlaybackPositionDomain * playbackPositionDomain;
+@property (nonatomic, readonly) SBCPlaybackPositionDomain *playbackPositionDomain;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)description;

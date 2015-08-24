@@ -2,28 +2,26 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIView;
-
 @interface _UIReflectingView : UIView {
     UIView *_containerView;
     UIView *_gradientView;
-    double _reflectionAlpha;
+    float _reflectionAlpha;
 }
 
-@property(retain,readonly) UIView * containerView;
-@property double reflectionAlpha;
-@property double reflectionFraction;
+@property (nonatomic, readonly, retain) UIView *containerView;
+@property (nonatomic) float reflectionAlpha;
+@property (nonatomic) float reflectionFraction;
 
 - (id)_gradientLayer;
 - (void)_updateGradientColors;
 - (id)containerView;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)layoutSubviews;
-- (double)reflectionAlpha;
-- (double)reflectionFraction;
+- (float)reflectionAlpha;
+- (float)reflectionFraction;
 - (void)setBackgroundColor:(id)arg1;
-- (void)setFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (void)setReflectionAlpha:(double)arg1;
-- (void)setReflectionFraction:(double)arg1;
+- (void)setFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (void)setReflectionAlpha:(float)arg1;
+- (void)setReflectionFraction:(float)arg1;
 
 @end

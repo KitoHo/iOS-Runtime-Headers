@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADDrawable;
-
 @interface WDStory : NSObject {
-    boolmOle;
     OADDrawable *mHead;
+    BOOL mOle;
 }
 
 - (void)dealloc;
 - (id)head;
 - (id)initWithHead:(id)arg1;
-- (bool)isOle;
-- (void)setOle:(bool)arg1;
+- (BOOL)isOle;
+- (void)setOle:(BOOL)arg1;
 - (id)text;
 
 @end

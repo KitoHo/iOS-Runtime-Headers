@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/IMDaemonCore.framework/IMDaemonCore
  */
 
-@class NSDictionary, NSString;
-
 @interface IMDHandle : NSObject {
     NSString *_countryCode;
     NSString *_id;
     NSString *_unformattedID;
 }
 
-@property(retain) NSString * ID;
-@property(retain) NSString * countryCode;
-@property(retain,readonly) NSDictionary * handleInfo;
-@property(retain) NSString * unformattedID;
+@property (nonatomic, retain) NSString *ID;
+@property (nonatomic, retain) NSString *countryCode;
+@property (nonatomic, readonly, retain) NSDictionary *handleInfo;
+@property (nonatomic, retain) NSString *unformattedID;
 
 - (id)ID;
-- (long long)compareIDs:(id)arg1;
+- (int)compareIDs:(id)arg1;
 - (id)countryCode;
 - (void)dealloc;
 - (id)description;
 - (id)handleInfo;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithID:(id)arg1 unformattedID:(id)arg2 countryCode:(id)arg3;
-- (bool)isBetterDefinedThan:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isBetterDefinedThan:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)setCountryCode:(id)arg1;
 - (void)setID:(id)arg1;
 - (void)setUnformattedID:(id)arg1;

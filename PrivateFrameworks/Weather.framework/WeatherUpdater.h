@@ -2,22 +2,16 @@
    Image: /System/Library/PrivateFrameworks/Weather.framework/Weather
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <WeatherUpdaterDelegate>, NSMutableArray;
-
 @interface WeatherUpdater : WeatherXMLHTTPRequest {
     <WeatherUpdaterDelegate> *_delegate;
     NSMutableArray *_pendingCities;
     NSMutableArray *_updatingCities;
-    id _weatherCompletionUpdaterHandler;
+    id /* block */ _weatherCompletionUpdaterHandler;
 }
 
-@property(copy) id weatherCompletionUpdaterHandler;
+@property (nonatomic, copy) id /* block */ weatherCompletionUpdaterHandler;
 
-- (void)_failed:(unsigned long long)arg1;
+- (void)_failed:(unsigned int)arg1;
 - (void)_updateNextPendingCity;
 - (void)addCityToPendingQueue:(id)arg1;
 - (void)addUpdatingCity:(id)arg1;
@@ -26,18 +20,18 @@
 - (void)didProcessDocument;
 - (void)failCity:(id)arg1;
 - (void)failWithError:(id)arg1;
-- (void)handleCompletionForCity:(id)arg1 withUpdateDetail:(unsigned long long)arg2;
+- (void)handleCompletionForCity:(id)arg1 withUpdateDetail:(unsigned int)arg2;
 - (void)handleNilCity;
 - (id)init;
-- (bool)isDataValid:(id)arg1;
-- (bool)isUpdatingCity:(id)arg1;
+- (BOOL)isDataValid:(id)arg1;
+- (BOOL)isUpdatingCity:(id)arg1;
 - (void)loadRequestURL:(id)arg1 parameters:(id)arg2;
 - (void)parsedResultCity:(id)arg1;
 - (void)processDocument:(struct _xmlDoc { void *x1; int x2; char *x3; struct _xmlNode {} *x4; struct _xmlNode {} *x5; struct _xmlNode {} *x6; struct _xmlNode {} *x7; struct _xmlNode {} *x8; struct _xmlDoc {} *x9; int x10; int x11; struct _xmlDtd {} *x12; struct _xmlDtd {} *x13; struct _xmlNs {} *x14; char *x15; char *x16; void *x17; void *x18; char *x19; int x20; struct _xmlDict {} *x21; void *x22; int x23; int x24; }*)arg1;
 - (void)removeAllUpdatingCities;
-- (void)runAndClearWeatherCompletionWithDetail:(unsigned long long)arg1;
+- (void)runAndClearWeatherCompletionWithDetail:(unsigned int)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setWeatherCompletionUpdaterHandler:(id)arg1;
-- (id)weatherCompletionUpdaterHandler;
+- (void)setWeatherCompletionUpdaterHandler:(id /* block */)arg1;
+- (id /* block */)weatherCompletionUpdaterHandler;
 
 @end

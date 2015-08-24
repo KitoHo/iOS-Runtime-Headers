@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPLikedId;
-
 @interface CKDPGetLikesRequest : PBRequest <NSCopying> {
     struct { 
         unsigned int limit : 1; 
@@ -12,10 +10,10 @@
     unsigned int _limit;
 }
 
-@property(readonly) bool hasIdentifier;
-@property bool hasLimit;
-@property(retain) CKDPLikedId * identifier;
-@property unsigned int limit;
+@property (nonatomic, readonly) BOOL hasIdentifier;
+@property (nonatomic) BOOL hasLimit;
+@property (nonatomic, retain) CKDPLikedId *identifier;
+@property (nonatomic) unsigned int limit;
 
 + (id)options;
 
@@ -24,17 +22,17 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (bool)hasIdentifier;
-- (bool)hasLimit;
-- (unsigned long long)hash;
+- (BOOL)hasIdentifier;
+- (BOOL)hasLimit;
+- (unsigned int)hash;
 - (id)identifier;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (unsigned int)limit;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (unsigned int)requestTypeCode;
 - (Class)responseClass;
-- (void)setHasLimit:(bool)arg1;
+- (void)setHasLimit:(BOOL)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setLimit:(unsigned int)arg1;
 - (void)writeTo:(id)arg1;

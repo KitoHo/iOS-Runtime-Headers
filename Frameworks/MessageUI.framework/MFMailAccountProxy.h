@@ -2,40 +2,38 @@
    Image: /System/Library/Frameworks/MessageUI.framework/MessageUI
  */
 
-@class NSArray, NSDictionary, NSString;
-
 @interface MFMailAccountProxy : NSObject {
     NSDictionary *_properties;
 }
 
-@property(readonly) NSArray * emailAddresses;
-@property(readonly) NSString * firstEmailAddress;
-@property(readonly) NSArray * fromEmailAddresses;
-@property(readonly) NSArray * fromEmailAddressesIncludingDisabled;
-@property(readonly) NSString * fullUserName;
-@property(readonly) bool isDefaultDeliveryAccount;
-@property(readonly) id mailAccount;
-@property(readonly) bool restrictsRepliesAndForwards;
-@property(readonly) bool supportsSoftBankCodePoints;
-@property(readonly) bool supportsThreadNotifications;
-@property(readonly) NSString * uniqueID;
-@property(readonly) NSString * username;
+@property (nonatomic, readonly) NSArray *emailAddresses;
+@property (nonatomic, readonly) NSString *firstEmailAddress;
+@property (nonatomic, readonly) NSArray *fromEmailAddresses;
+@property (nonatomic, readonly) NSArray *fromEmailAddressesIncludingDisabled;
+@property (nonatomic, readonly) NSString *fullUserName;
+@property (nonatomic, readonly) BOOL isDefaultDeliveryAccount;
+@property (nonatomic, readonly) id mailAccount;
+@property (nonatomic, readonly) BOOL restrictsRepliesAndForwards;
+@property (nonatomic, readonly) BOOL supportsSoftBankCodePoints;
+@property (nonatomic, readonly) BOOL supportsThreadNotifications;
+@property (nonatomic, readonly) NSString *uniqueID;
+@property (nonatomic, readonly) NSString *username;
 
 - (id)_emailAddressesAndAliases;
 - (id)_initWithProperties:(id)arg1;
-- (bool)_isActive;
-- (bool)_isRestricted;
+- (BOOL)_isActive;
+- (BOOL)_isRestricted;
 - (void)dealloc;
 - (id)emailAddresses;
 - (id)firstEmailAddress;
 - (id)fromEmailAddresses;
 - (id)fromEmailAddressesIncludingDisabled;
 - (id)fullUserName;
-- (bool)isDefaultDeliveryAccount;
+- (BOOL)isDefaultDeliveryAccount;
 - (id)mailAccount;
-- (bool)restrictsRepliesAndForwards;
-- (bool)supportsSoftBankCodePoints;
-- (bool)supportsThreadNotifications;
+- (BOOL)restrictsRepliesAndForwards;
+- (BOOL)supportsSoftBankCodePoints;
+- (BOOL)supportsThreadNotifications;
 - (id)uniqueID;
 - (id)username;
 

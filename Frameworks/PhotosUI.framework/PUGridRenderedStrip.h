@@ -2,87 +2,85 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class <PUGridRenderedStripDataSource>, NSArray, PUSectionedGridLayout, UIView;
-
 @interface PUGridRenderedStrip : UICollectionReusableView {
-    struct CGSize { 
-        double width; 
-        double height; 
-    struct CGSize { 
-        double width; 
-        double height; 
-    struct _NSRange { 
-        unsigned long long location; 
-        unsigned long long length; 
+    BOOL __needsRendering;
     UIView *__sideExtendedContentView;
     int _backgroundColorValue;
-    unsigned long long _contentExtenderType;
+    unsigned int _contentExtenderType;
     <PUGridRenderedStripDataSource> *_dataSource;
+    BOOL _extendsToTop;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _interItemSpacing;
-    double _itemContentScale;
+    float _itemContentScale;
     NSArray *_itemIndexPaths;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _itemSize;
     PUSectionedGridLayout *_layout;
-    double _leftContentInset;
+    float _leftContentInset;
     UIView *_topContentView;
+    struct _NSRange { 
+        unsigned int location; 
+        unsigned int length; 
     } _visualItemRange;
-    long long _visualSectionIndex;
-    bool__needsRendering;
-    bool_extendsToTop;
+    int _visualSectionIndex;
 }
 
-@property(setter=_setNeedsRendering:) bool _needsRendering;
-@property(readonly) UIView * _sideExtendedContentView;
-@property int backgroundColorValue;
-@property unsigned long long contentExtenderType;
-@property <PUGridRenderedStripDataSource> * dataSource;
-@property bool extendsToTop;
-@property struct CGSize { double x1; double x2; } interItemSpacing;
-@property double itemContentScale;
-@property(retain) NSArray * itemIndexPaths;
-@property struct CGSize { double x1; double x2; } itemSize;
-@property PUSectionedGridLayout * layout;
-@property double leftContentInset;
-@property(readonly) long long numberOfColumns;
-@property(readonly) UIView * topContentView;
-@property(readonly) struct _NSRange { unsigned long long x1; unsigned long long x2; } visualItemRange;
-@property(readonly) long long visualSectionIndex;
+@property (setter=_setNeedsRendering:, nonatomic) BOOL _needsRendering;
+@property (nonatomic, readonly) UIView *_sideExtendedContentView;
+@property (nonatomic) int backgroundColorValue;
+@property (nonatomic) unsigned int contentExtenderType;
+@property (nonatomic) <PUGridRenderedStripDataSource> *dataSource;
+@property (nonatomic) BOOL extendsToTop;
+@property (nonatomic) struct CGSize { float x1; float x2; } interItemSpacing;
+@property (nonatomic) float itemContentScale;
+@property (nonatomic, retain) NSArray *itemIndexPaths;
+@property (nonatomic) struct CGSize { float x1; float x2; } itemSize;
+@property (nonatomic) PUSectionedGridLayout *layout;
+@property (nonatomic) float leftContentInset;
+@property (nonatomic, readonly) int numberOfColumns;
+@property (nonatomic, readonly) UIView *topContentView;
+@property (nonatomic, readonly) struct _NSRange { unsigned int x1; unsigned int x2; } visualItemRange;
+@property (nonatomic, readonly) int visualSectionIndex;
 
 - (void).cxx_destruct;
-- (bool)_disableRasterizeInAnimations;
-- (bool)_needsRendering;
+- (BOOL)_disableRasterizeInAnimations;
+- (BOOL)_needsRendering;
 - (void)_render;
-- (void)_setNeedsRendering:(bool)arg1;
+- (void)_setNeedsRendering:(BOOL)arg1;
 - (id)_sideExtendedContentView;
 - (void)_updateExtendedContents;
 - (void)applyLayoutAttributes:(id)arg1;
 - (int)backgroundColorValue;
-- (unsigned long long)contentExtenderType;
+- (unsigned int)contentExtenderType;
 - (id)dataSource;
-- (bool)extendsToTop;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (struct CGSize { double x1; double x2; })interItemSpacing;
-- (double)itemContentScale;
+- (BOOL)extendsToTop;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (struct CGSize { float x1; float x2; })interItemSpacing;
+- (float)itemContentScale;
 - (id)itemIndexPaths;
-- (struct CGSize { double x1; double x2; })itemSize;
+- (struct CGSize { float x1; float x2; })itemSize;
 - (id)layout;
 - (void)layoutSubviews;
-- (double)leftContentInset;
-- (long long)numberOfColumns;
+- (float)leftContentInset;
+- (int)numberOfColumns;
 - (void)setBackgroundColorValue:(int)arg1;
-- (void)setContentExtenderType:(unsigned long long)arg1;
+- (void)setContentExtenderType:(unsigned int)arg1;
 - (void)setDataSource:(id)arg1;
-- (void)setExtendsToTop:(bool)arg1;
-- (void)setInterItemSpacing:(struct CGSize { double x1; double x2; })arg1;
-- (void)setItemContentScale:(double)arg1;
+- (void)setExtendsToTop:(BOOL)arg1;
+- (void)setInterItemSpacing:(struct CGSize { float x1; float x2; })arg1;
+- (void)setItemContentScale:(float)arg1;
 - (void)setItemIndexPaths:(id)arg1;
-- (void)setItemSize:(struct CGSize { double x1; double x2; })arg1;
+- (void)setItemSize:(struct CGSize { float x1; float x2; })arg1;
 - (void)setLayout:(id)arg1;
-- (void)setLeftContentInset:(double)arg1;
+- (void)setLeftContentInset:(float)arg1;
 - (void)setNeedsRendering;
-- (void)setVisualSectionIndex:(long long)arg1 andVisualItemRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg2;
+- (void)setVisualSectionIndex:(int)arg1 andVisualItemRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg2;
 - (id)topContentView;
-- (struct _NSRange { unsigned long long x1; unsigned long long x2; })visualItemRange;
-- (long long)visualSectionIndex;
+- (struct _NSRange { unsigned int x1; unsigned int x2; })visualItemRange;
+- (int)visualSectionIndex;
 
 @end

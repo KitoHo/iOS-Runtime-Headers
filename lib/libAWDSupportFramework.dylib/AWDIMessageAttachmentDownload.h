@@ -2,9 +2,13 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDIMessageAttachmentDownload : PBCodable <NSCopying> {
+    unsigned int _attachmentSize;
+    unsigned int _connectionType;
+    unsigned int _downloadDuration;
+    int _fzError;
+    int _genericError;
+    NSString *_guid;
     struct { 
         unsigned int timestamp : 1; 
         unsigned int attachmentSize : 1; 
@@ -15,12 +19,6 @@
         unsigned int linkQuality : 1; 
         unsigned int messageError : 1; 
         unsigned int tokenError : 1; 
-    unsigned int _attachmentSize;
-    unsigned int _connectionType;
-    unsigned int _downloadDuration;
-    int _fzError;
-    int _genericError;
-    NSString *_guid;
     } _has;
     int _linkQuality;
     unsigned int _messageError;
@@ -28,26 +26,26 @@
     unsigned int _tokenError;
 }
 
-@property unsigned int attachmentSize;
-@property unsigned int connectionType;
-@property unsigned int downloadDuration;
-@property int fzError;
-@property int genericError;
-@property(retain) NSString * guid;
-@property bool hasAttachmentSize;
-@property bool hasConnectionType;
-@property bool hasDownloadDuration;
-@property bool hasFzError;
-@property bool hasGenericError;
-@property(readonly) bool hasGuid;
-@property bool hasLinkQuality;
-@property bool hasMessageError;
-@property bool hasTimestamp;
-@property bool hasTokenError;
-@property int linkQuality;
-@property unsigned int messageError;
-@property unsigned long long timestamp;
-@property unsigned int tokenError;
+@property (nonatomic) unsigned int attachmentSize;
+@property (nonatomic) unsigned int connectionType;
+@property (nonatomic) unsigned int downloadDuration;
+@property (nonatomic) int fzError;
+@property (nonatomic) int genericError;
+@property (nonatomic, retain) NSString *guid;
+@property (nonatomic) BOOL hasAttachmentSize;
+@property (nonatomic) BOOL hasConnectionType;
+@property (nonatomic) BOOL hasDownloadDuration;
+@property (nonatomic) BOOL hasFzError;
+@property (nonatomic) BOOL hasGenericError;
+@property (nonatomic, readonly) BOOL hasGuid;
+@property (nonatomic) BOOL hasLinkQuality;
+@property (nonatomic) BOOL hasMessageError;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) BOOL hasTokenError;
+@property (nonatomic) int linkQuality;
+@property (nonatomic) unsigned int messageError;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) unsigned int tokenError;
 
 - (unsigned int)attachmentSize;
 - (unsigned int)connectionType;
@@ -60,37 +58,37 @@
 - (int)fzError;
 - (int)genericError;
 - (id)guid;
-- (bool)hasAttachmentSize;
-- (bool)hasConnectionType;
-- (bool)hasDownloadDuration;
-- (bool)hasFzError;
-- (bool)hasGenericError;
-- (bool)hasGuid;
-- (bool)hasLinkQuality;
-- (bool)hasMessageError;
-- (bool)hasTimestamp;
-- (bool)hasTokenError;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasAttachmentSize;
+- (BOOL)hasConnectionType;
+- (BOOL)hasDownloadDuration;
+- (BOOL)hasFzError;
+- (BOOL)hasGenericError;
+- (BOOL)hasGuid;
+- (BOOL)hasLinkQuality;
+- (BOOL)hasMessageError;
+- (BOOL)hasTimestamp;
+- (BOOL)hasTokenError;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (int)linkQuality;
 - (void)mergeFrom:(id)arg1;
 - (unsigned int)messageError;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setAttachmentSize:(unsigned int)arg1;
 - (void)setConnectionType:(unsigned int)arg1;
 - (void)setDownloadDuration:(unsigned int)arg1;
 - (void)setFzError:(int)arg1;
 - (void)setGenericError:(int)arg1;
 - (void)setGuid:(id)arg1;
-- (void)setHasAttachmentSize:(bool)arg1;
-- (void)setHasConnectionType:(bool)arg1;
-- (void)setHasDownloadDuration:(bool)arg1;
-- (void)setHasFzError:(bool)arg1;
-- (void)setHasGenericError:(bool)arg1;
-- (void)setHasLinkQuality:(bool)arg1;
-- (void)setHasMessageError:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
-- (void)setHasTokenError:(bool)arg1;
+- (void)setHasAttachmentSize:(BOOL)arg1;
+- (void)setHasConnectionType:(BOOL)arg1;
+- (void)setHasDownloadDuration:(BOOL)arg1;
+- (void)setHasFzError:(BOOL)arg1;
+- (void)setHasGenericError:(BOOL)arg1;
+- (void)setHasLinkQuality:(BOOL)arg1;
+- (void)setHasMessageError:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasTokenError:(BOOL)arg1;
 - (void)setLinkQuality:(int)arg1;
 - (void)setMessageError:(unsigned int)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;

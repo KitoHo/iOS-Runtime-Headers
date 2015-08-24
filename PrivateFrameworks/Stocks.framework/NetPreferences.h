@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/Stocks.framework/Stocks
  */
 
-@class NSString;
-
 @interface NetPreferences : NSObject {
     NSString *_UUID;
     NSString *_buildVersion;
+    BOOL _isNetworkReachable;
     NSString *_productVersion;
-    bool_isNetworkReachable;
-    bool_serviceDebugging;
+    BOOL _serviceDebugging;
 }
 
-@property(getter=isNetworkReachable) bool networkReachable;
+@property (getter=isNetworkReachable, nonatomic) BOOL networkReachable;
 
 + (void)clearSharedPreferences;
 + (id)sharedPreferences;
@@ -25,16 +23,17 @@
 - (id)_urlStringWithHost:(id)arg1;
 - (void)addStocksHeadersToPostRequest:(id)arg1;
 - (id)backsideLogoURL;
+- (id)defaultBacksideLogoURL;
 - (id)financeRequestAttributes;
 - (id)fullQuoteURLOverrideForStock:(id)arg1;
 - (id)init;
-- (bool)isNetworkReachable;
+- (BOOL)isNetworkReachable;
 - (id)logoBacksideImage;
 - (id)logoButtonImage;
 - (void)resetLocale;
-- (bool)serviceDebugging;
+- (BOOL)serviceDebugging;
 - (id)serviceDebuggingPath;
-- (void)setNetworkReachable:(bool)arg1;
+- (void)setNetworkReachable:(BOOL)arg1;
 - (void)setupLogging;
 - (id)signedRequestForURL:(id)arg1 parameters:(id)arg2;
 - (id)stocksCountryCode;

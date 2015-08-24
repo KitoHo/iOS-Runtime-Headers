@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIContext, NSMutableDictionary;
-
 @interface CIBarcodeDetector : CIDetector {
-    double _height;
-    double _width;
+    float _height;
+    float _width;
     CIContext *context;
     NSMutableDictionary *featureOptions;
 }
 
-@property(retain) CIContext * context;
+@property (nonatomic, retain) CIContext *context;
 
 - (id)context;
 - (void)dealloc;
-- (id)featuresInImage:(id)arg1 options:(id)arg2;
 - (id)featuresInImage:(id)arg1;
+- (id)featuresInImage:(id)arg1 options:(id)arg2;
 - (void)finalize;
 - (id)initWithContext:(id)arg1 options:(id)arg2;
 - (void)setContext:(id)arg1;

@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSData;
-
 @interface OADSubBlip : OCDDelayedMedia {
-    struct CGSize { 
-        double width; 
-        double height; 
+    NSData *mData;
     struct CGRect { 
         struct CGPoint { 
-            double x; 
-            double y; 
+            float x; 
+            float y; 
         } origin; 
         struct CGSize { 
-            double width; 
-            double height; 
+            float width; 
+            float height; 
         } size; 
-    NSData *mData;
     } mFrame;
-    int mSizeInBytes;
+    long mSizeInBytes;
+    struct CGSize { 
+        float width; 
+        float height; 
     } mSizeInPoints;
     int mType;
 }
@@ -27,18 +25,18 @@
 - (id).cxx_construct;
 - (id)data;
 - (void)dealloc;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })frame;
-- (unsigned long long)hash;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })frame;
+- (unsigned int)hash;
 - (id)initWithData:(id)arg1 type:(int)arg2;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (bool)isLoaded;
 - (void)setData:(id)arg1;
-- (void)setFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (void)setSizeInBytes:(int)arg1;
-- (void)setSizeInPoints:(struct CGSize { double x1; double x2; })arg1;
+- (void)setFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (void)setSizeInBytes:(long)arg1;
+- (void)setSizeInPoints:(struct CGSize { float x1; float x2; })arg1;
 - (void)setType:(int)arg1;
-- (int)sizeInBytes;
-- (struct CGSize { double x1; double x2; })sizeInPoints;
+- (long)sizeInBytes;
+- (struct CGSize { float x1; float x2; })sizeInPoints;
 - (int)type;
 
 @end

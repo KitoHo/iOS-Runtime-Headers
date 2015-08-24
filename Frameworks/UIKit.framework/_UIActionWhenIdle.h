@@ -2,13 +2,11 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class NSInvocation;
-
 @interface _UIActionWhenIdle : NSObject {
     NSInvocation *_invocation;
 }
 
-@property(retain) NSInvocation * invocation;
+@property (nonatomic, retain) NSInvocation *invocation;
 
 + (id)actionWhenIdleWithTarget:(id)arg1 selector:(SEL)arg2 object:(id)arg3;
 
@@ -19,7 +17,7 @@
 - (void)invalidate;
 - (id)invocation;
 - (void)invoke;
-- (bool)isValid;
+- (BOOL)isValid;
 - (void)setInvocation:(id)arg1;
 
 @end

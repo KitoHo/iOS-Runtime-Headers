@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class <PLAssetContainer>, NSDictionary, NSObject<PLAlbumProtocol>;
-
 @interface PLAssetContainerChangeNotification : PLContainerChangeNotification {
+    BOOL _keyAssetDidChange;
+    BOOL _titleDidChange;
     NSDictionary *_userInfo;
-    bool_keyAssetDidChange;
-    bool_titleDidChange;
 }
 
-@property(retain,readonly) NSObject<PLAlbumProtocol> * album;
-@property(retain,readonly) <PLAssetContainer> * container;
-@property(readonly) bool keyAssetDidChange;
-@property(readonly) bool titleDidChange;
+@property (nonatomic, readonly, retain) NSObject<PLAlbumProtocol> *album;
+@property (nonatomic, readonly, retain) <PLAssetContainer> *container;
+@property (nonatomic, readonly) BOOL keyAssetDidChange;
+@property (nonatomic, readonly) BOOL titleDidChange;
 
 + (id)notificationWithContainer:(id)arg1 snapshot:(id)arg2 changedAssets:(id)arg3;
 
 - (void)_calculateDiffs;
 - (id)_contentRelationshipName;
-- (bool)_getOldSet:(id*)arg1 newSet:(id*)arg2;
+- (BOOL)_getOldSet:(id*)arg1 newSet:(id*)arg2;
 - (struct NSObject { Class x1; }*)album;
 - (id)assetContainer;
 - (id)container;
 - (void)dealloc;
 - (id)description;
-- (bool)hasDeletes;
-- (bool)keyAssetDidChange;
+- (BOOL)hasDeletes;
+- (BOOL)keyAssetDidChange;
 - (id)name;
-- (bool)titleDidChange;
+- (BOOL)titleDidChange;
 - (id)userInfo;
 
 @end

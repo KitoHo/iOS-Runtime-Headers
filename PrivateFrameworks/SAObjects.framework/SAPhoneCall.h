@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSNumber, SAPersonAttribute;
+@interface SAPhoneCall : SADomainCommand
 
-@interface SAPhoneCall : SADomainCommand {
-}
-
-@property(retain) SAPersonAttribute * callRecipient;
-@property(copy) NSNumber * emergencyCall;
-@property bool faceTime;
-@property bool faceTimeAudio;
+@property (nonatomic, retain) SAPersonAttribute *callRecipient;
+@property (nonatomic, copy) NSNumber *emergencyCall;
+@property (nonatomic) BOOL faceTime;
+@property (nonatomic) BOOL faceTimeAudio;
+@property (nonatomic) BOOL speakerphoneCall;
 
 + (id)call;
 + (id)callWithDictionary:(id)arg1 context:(id)arg2;
@@ -18,13 +16,15 @@
 - (id)callRecipient;
 - (id)emergencyCall;
 - (id)encodedClassName;
-- (bool)faceTime;
-- (bool)faceTimeAudio;
+- (BOOL)faceTime;
+- (BOOL)faceTimeAudio;
 - (id)groupIdentifier;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setCallRecipient:(id)arg1;
 - (void)setEmergencyCall:(id)arg1;
-- (void)setFaceTime:(bool)arg1;
-- (void)setFaceTimeAudio:(bool)arg1;
+- (void)setFaceTime:(BOOL)arg1;
+- (void)setFaceTimeAudio:(BOOL)arg1;
+- (void)setSpeakerphoneCall:(BOOL)arg1;
+- (BOOL)speakerphoneCall;
 
 @end

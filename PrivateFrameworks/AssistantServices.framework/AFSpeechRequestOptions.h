@@ -2,65 +2,67 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class NSNumber, NSString;
-
 @interface AFSpeechRequestOptions : NSObject <NSSecureCoding> {
-    long long _activationEvent;
+    BOOL _acousticIdEnabled;
+    int _activationEvent;
     double _activationEventTime;
-    long long _audioFileType;
+    int _audioFileType;
     NSString *_btDeviceAddress;
     double _expectedActivationEventTime;
     NSNumber *_homeButtonUpFromBeep;
+    BOOL _isEyesFree;
+    BOOL _isInitialBringUp;
     NSString *_serverCommandId;
-    bool_acousticIdEnabled;
-    bool_isEyesFree;
-    bool_isInitialBringUp;
-    bool_useAutomaticEndpointing;
-    bool_useStreamingDictation;
+    BOOL _useAutomaticEndpointing;
+    BOOL _useBorealisBuffer;
+    BOOL _useStreamingDictation;
 }
 
-@property bool acousticIdEnabled;
-@property long long activationEvent;
-@property double activationEventTime;
-@property long long audioFileType;
-@property(copy) NSString * btDeviceAddress;
-@property double expectedActivationEventTime;
-@property(copy) NSNumber * homeButtonUpFromBeep;
-@property bool isEyesFree;
-@property bool isInitialBringUp;
-@property(copy) NSString * serverCommandId;
-@property bool useAutomaticEndpointing;
-@property bool useStreamingDictation;
+@property (nonatomic) BOOL acousticIdEnabled;
+@property (nonatomic) int activationEvent;
+@property (nonatomic) double activationEventTime;
+@property (nonatomic) int audioFileType;
+@property (nonatomic, copy) NSString *btDeviceAddress;
+@property (nonatomic) double expectedActivationEventTime;
+@property (nonatomic, copy) NSNumber *homeButtonUpFromBeep;
+@property (nonatomic) BOOL isEyesFree;
+@property (nonatomic) BOOL isInitialBringUp;
+@property (nonatomic, copy) NSString *serverCommandId;
+@property (nonatomic) BOOL useAutomaticEndpointing;
+@property (nonatomic) BOOL useBorealisBuffer;
+@property (nonatomic) BOOL useStreamingDictation;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (bool)acousticIdEnabled;
-- (long long)activationEvent;
+- (BOOL)acousticIdEnabled;
+- (int)activationEvent;
 - (double)activationEventTime;
-- (long long)audioFileType;
+- (int)audioFileType;
 - (id)btDeviceAddress;
 - (void)encodeWithCoder:(id)arg1;
 - (double)expectedActivationEventTime;
 - (id)homeButtonUpFromBeep;
-- (id)initWithActivationEvent:(long long)arg1;
+- (id)initWithActivationEvent:(int)arg1;
 - (id)initWithCoder:(id)arg1;
-- (bool)isEyesFree;
-- (bool)isInitialBringUp;
+- (BOOL)isEyesFree;
+- (BOOL)isInitialBringUp;
 - (id)serverCommandId;
-- (void)setAcousticIdEnabled:(bool)arg1;
-- (void)setActivationEvent:(long long)arg1;
+- (void)setAcousticIdEnabled:(BOOL)arg1;
+- (void)setActivationEvent:(int)arg1;
 - (void)setActivationEventTime:(double)arg1;
-- (void)setAudioFileType:(long long)arg1;
+- (void)setAudioFileType:(int)arg1;
 - (void)setBtDeviceAddress:(id)arg1;
 - (void)setExpectedActivationEventTime:(double)arg1;
 - (void)setHomeButtonUpFromBeep:(id)arg1;
-- (void)setIsEyesFree:(bool)arg1;
-- (void)setIsInitialBringUp:(bool)arg1;
+- (void)setIsEyesFree:(BOOL)arg1;
+- (void)setIsInitialBringUp:(BOOL)arg1;
 - (void)setServerCommandId:(id)arg1;
-- (void)setUseAutomaticEndpointing:(bool)arg1;
-- (void)setUseStreamingDictation:(bool)arg1;
-- (bool)useAutomaticEndpointing;
-- (bool)useStreamingDictation;
+- (void)setUseAutomaticEndpointing:(BOOL)arg1;
+- (void)setUseBorealisBuffer:(BOOL)arg1;
+- (void)setUseStreamingDictation:(BOOL)arg1;
+- (BOOL)useAutomaticEndpointing;
+- (BOOL)useBorealisBuffer;
+- (BOOL)useStreamingDictation;
 
 @end

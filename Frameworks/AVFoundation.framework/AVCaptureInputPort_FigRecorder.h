@@ -2,20 +2,18 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVCaptureInputPortInternal_FigRecorder, AVCaptureInput_FigRecorder, NSString;
-
 @interface AVCaptureInputPort_FigRecorder : NSObject {
     AVCaptureInputPortInternal_FigRecorder *_internal;
 }
 
-@property(readonly) struct OpaqueCMClock { }* clock;
-@property(getter=isEnabled) bool enabled;
-@property(readonly) struct opaqueCMFormatDescription { }* formatDescription;
-@property(readonly) AVCaptureInput_FigRecorder * input;
-@property(readonly) NSString * mediaType;
+@property (nonatomic, readonly) struct OpaqueCMClock { }*clock;
+@property (getter=isEnabled, nonatomic) BOOL enabled;
+@property (nonatomic, readonly) struct opaqueCMFormatDescription { }*formatDescription;
+@property (nonatomic, readonly) AVCaptureInput_FigRecorder *input;
+@property (nonatomic, readonly) NSString *mediaType;
 
-+ (bool)automaticallyNotifiesObserversOfClock;
-+ (id)portWithInput:(id)arg1 mediaType:(id)arg2 formatDescription:(struct opaqueCMFormatDescription { }*)arg3 enabled:(bool)arg4;
++ (BOOL)automaticallyNotifiesObserversOfClock;
++ (id)portWithInput:(id)arg1 mediaType:(id)arg2 formatDescription:(struct opaqueCMFormatDescription { }*)arg3 enabled:(BOOL)arg4;
 
 - (void)_setClock:(struct OpaqueCMClock { }*)arg1;
 - (void)_setFormatDescription:(struct opaqueCMFormatDescription { }*)arg1;
@@ -24,12 +22,12 @@
 - (id)description;
 - (struct opaqueCMFormatDescription { }*)formatDescription;
 - (id)init;
-- (id)initWithInput:(id)arg1 mediaType:(id)arg2 formatDescription:(struct opaqueCMFormatDescription { }*)arg3 enabled:(bool)arg4;
+- (id)initWithInput:(id)arg1 mediaType:(id)arg2 formatDescription:(struct opaqueCMFormatDescription { }*)arg3 enabled:(BOOL)arg4;
 - (id)input;
-- (bool)isEnabled;
-- (bool)isKindOfClass:(Class)arg1;
+- (BOOL)isEnabled;
+- (BOOL)isKindOfClass:(Class)arg1;
 - (id)mediaType;
-- (void)setEnabled:(bool)arg1;
+- (void)setEnabled:(BOOL)arg1;
 - (void)setOwner:(id)arg1;
 - (id)valueForUndefinedKey:(id)arg1;
 

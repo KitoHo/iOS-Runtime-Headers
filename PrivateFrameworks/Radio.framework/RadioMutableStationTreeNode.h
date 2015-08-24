@@ -2,26 +2,23 @@
    Image: /System/Library/PrivateFrameworks/Radio.framework/Radio
  */
 
-@class NSArray, NSDictionary, NSString, RadioArtworkCollection;
+@interface RadioMutableStationTreeNode : RadioStationTreeNode
 
-@interface RadioMutableStationTreeNode : RadioStationTreeNode {
-}
-
-@property(copy) RadioArtworkCollection * artworkCollection;
-@property long long childNodeLoadingStyle;
-@property(copy) NSArray * childNodes;
-@property long long displayStyle;
-@property bool hasAdditionalChildNodes;
-@property(copy) NSString * name;
-@property long long nodeID;
-@property(copy) NSDictionary * stationDictionary;
+@property (nonatomic, copy) RadioArtworkCollection *artworkCollection;
+@property (nonatomic) int childNodeLoadingStyle;
+@property (nonatomic, copy) NSArray *childNodes;
+@property (nonatomic) int displayStyle;
+@property (nonatomic) BOOL hasAdditionalChildNodes;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic) long long nodeID;
+@property (nonatomic, copy) NSDictionary *stationDictionary;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)setArtworkCollection:(id)arg1;
-- (void)setChildNodeLoadingStyle:(long long)arg1;
+- (void)setChildNodeLoadingStyle:(int)arg1;
 - (void)setChildNodes:(id)arg1;
-- (void)setDisplayStyle:(long long)arg1;
-- (void)setHasAdditionalChildNodes:(bool)arg1;
+- (void)setDisplayStyle:(int)arg1;
+- (void)setHasAdditionalChildNodes:(BOOL)arg1;
 - (void)setName:(id)arg1;
 - (void)setNodeID:(long long)arg1;
 - (void)setStationDictionary:(id)arg1;

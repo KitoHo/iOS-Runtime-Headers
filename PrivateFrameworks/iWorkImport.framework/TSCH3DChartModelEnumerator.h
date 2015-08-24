@@ -2,52 +2,50 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSArray, TSCH3DChartType, TSCHChartAxis, TSCHChartInfo, TSCHChartModel, TSCHChartSeries, TSCHChartSeriesType;
-
 @interface TSCH3DChartModelEnumerator : NSObject {
-    struct ValueEnumerator { 
-        boolmForward; 
-        unsigned long long mIndex; 
-        unsigned long long mMax; 
-        double mValue; 
-    struct ValueEnumerator { 
-        boolmForward; 
-        unsigned long long mIndex; 
-        unsigned long long mMax; 
-        double mValue; 
-    struct vector<double, std::__1::allocator<double> > { 
-        double *__begin_; 
-        double *__end_; 
-        struct __compressed_pair<double *, std::__1::allocator<double> > { 
-            double *__first_; 
-        } __end_cap_; 
-    struct vector<double, std::__1::allocator<double> > { 
-        double *__begin_; 
-        double *__end_; 
-        struct __compressed_pair<double *, std::__1::allocator<double> > { 
-            double *__first_; 
-        } __end_cap_; 
     TSCH3DChartType *mChartType;
+    struct ValueEnumerator { 
+        BOOL mForward; 
+        unsigned int mIndex; 
+        unsigned int mMax; 
+        double mValue; 
     } mCoordinate;
     TSCHChartAxis *mCoordinateAxis;
+    struct vector<double, std::__1::allocator<double> > { 
+        double *__begin_; 
+        double *__end_; 
+        struct __compressed_pair<double *, std::__1::allocator<double> > { 
+            double *__first_; 
+        } __end_cap_; 
     } mCoordinateValues;
     double mIntercept;
     TSCHChartModel *mModel;
-    unsigned long long mNumberOfValues;
+    unsigned int mNumberOfValues;
+    struct ValueEnumerator { 
+        BOOL mForward; 
+        unsigned int mIndex; 
+        unsigned int mMax; 
+        double mValue; 
     } mSeries;
     NSArray *mSeriesList;
     TSCHChartSeriesType *mSeriesType;
+    struct vector<double, std::__1::allocator<double> > { 
+        double *__begin_; 
+        double *__end_; 
+        struct __compressed_pair<double *, std::__1::allocator<double> > { 
+            double *__first_; 
+        } __end_cap_; 
     } mSeriesValues;
     double mUnitSpaceIntercept;
     TSCHChartAxis *mValueAxis;
 }
 
-@property(readonly) TSCH3DChartType * chartType;
-@property(readonly) TSCHChartInfo * info;
-@property(readonly) TSCHChartModel * model;
-@property(readonly) TSCHChartSeries * series;
-@property(readonly) TSCHChartSeriesType * seriesType;
-@property(readonly) struct tvec2<int> { union { int x_1_1_1; int x_1_1_2; int x_1_1_3; } x1; union { int x_2_1_1; int x_2_1_2; int x_2_1_3; } x2; } size;
+@property (nonatomic, readonly) TSCH3DChartType *chartType;
+@property (nonatomic, readonly) TSCHChartInfo *info;
+@property (nonatomic, readonly) TSCHChartModel *model;
+@property (nonatomic, readonly) TSCHChartSeries *series;
+@property (nonatomic, readonly) TSCHChartSeriesType *seriesType;
+@property (nonatomic, readonly) struct tvec2<int> { union { int x_1_1_1; int x_1_1_2; int x_1_1_3; } x1; union { int x_2_1_1; int x_2_1_2; int x_2_1_3; } x2; } size;
 
 + (id)enumeratorWithModel:(id)arg1 chartType:(id)arg2 seriesType:(id)arg3;
 
@@ -55,26 +53,27 @@
 - (void).cxx_destruct;
 - (double)axisSpaceValue;
 - (id)chartType;
-- (unsigned long long)countSeries;
+- (unsigned int)countSeries;
 - (void)dealloc;
 - (id)elementEnumerator;
-- (unsigned long long)elementIndex;
+- (unsigned int)elementIndex;
 - (double)groupValue;
-- (unsigned long long)index;
+- (unsigned int)index;
 - (id)info;
 - (id)initWithModel:(id)arg1 chartType:(id)arg2 seriesType:(id)arg3;
 - (double)intercept;
-- (bool)isValid;
-- (bool)isValidNonZero;
+- (BOOL)isStackedPercentageThatRoundsDownToZero;
+- (BOOL)isValid;
+- (BOOL)isValidNonZero;
 - (id)model;
-- (id)nextElement:(unsigned long long)arg1;
 - (id)nextElement;
-- (id)nextSeries:(unsigned long long)arg1;
+- (id)nextElement:(unsigned int)arg1;
 - (id)nextSeries;
-- (unsigned long long)numberOfSeries;
+- (id)nextSeries:(unsigned int)arg1;
+- (unsigned int)numberOfSeries;
 - (id)p_resetCoordinateEnumeration;
 - (struct tvec2<int> { union { int x_1_1_1; int x_1_1_2; int x_1_1_3; } x1; union { int x_2_1_1; int x_2_1_2; int x_2_1_3; } x2; })position;
-- (void)resetForReverseSeriesEnumeration:(bool)arg1;
+- (void)resetForReverseSeriesEnumeration:(BOOL)arg1;
 - (id)reverseSeriesEnumerator;
 - (id)series;
 - (id)seriesEnumerator;
@@ -82,10 +81,10 @@
 - (id)seriesFillOrStrokeColor;
 - (id)seriesName;
 - (id)seriesType;
-- (bool)showSeriesName;
-- (bool)showValueLabels;
+- (BOOL)showSeriesName;
+- (BOOL)showValueLabels;
 - (struct tvec2<int> { union { int x_1_1_1; int x_1_1_2; int x_1_1_3; } x1; union { int x_2_1_1; int x_2_1_2; int x_2_1_3; } x2; })size;
-- (bool)skipZeroValues;
+- (BOOL)skipZeroValues;
 - (double)unitSpaceIntercept;
 - (double)unitSpaceValue;
 - (double)unitSpaceValueForAxisValue:(double)arg1;

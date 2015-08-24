@@ -2,9 +2,10 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDSMSSentMessage : PBCodable <NSCopying> {
+    int _ctError;
+    int _fzError;
+    NSString *_guid;
     struct { 
         unsigned int timestamp : 1; 
         unsigned int ctError : 1; 
@@ -14,9 +15,6 @@
         unsigned int isToEmail : 1; 
         unsigned int isToPhoneNumber : 1; 
         unsigned int sendDuration : 1; 
-    int _ctError;
-    int _fzError;
-    NSString *_guid;
     } _has;
     unsigned int _hasAttachments;
     unsigned int _isGroupMessage;
@@ -26,24 +24,24 @@
     unsigned long long _timestamp;
 }
 
-@property int ctError;
-@property int fzError;
-@property(retain) NSString * guid;
-@property unsigned int hasAttachments;
-@property bool hasCtError;
-@property bool hasFzError;
-@property(readonly) bool hasGuid;
-@property bool hasHasAttachments;
-@property bool hasIsGroupMessage;
-@property bool hasIsToEmail;
-@property bool hasIsToPhoneNumber;
-@property bool hasSendDuration;
-@property bool hasTimestamp;
-@property unsigned int isGroupMessage;
-@property unsigned int isToEmail;
-@property unsigned int isToPhoneNumber;
-@property unsigned int sendDuration;
-@property unsigned long long timestamp;
+@property (nonatomic) int ctError;
+@property (nonatomic) int fzError;
+@property (nonatomic, retain) NSString *guid;
+@property (nonatomic) unsigned int hasAttachments;
+@property (nonatomic) BOOL hasCtError;
+@property (nonatomic) BOOL hasFzError;
+@property (nonatomic, readonly) BOOL hasGuid;
+@property (nonatomic) BOOL hasHasAttachments;
+@property (nonatomic) BOOL hasIsGroupMessage;
+@property (nonatomic) BOOL hasIsToEmail;
+@property (nonatomic) BOOL hasIsToPhoneNumber;
+@property (nonatomic) BOOL hasSendDuration;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) unsigned int isGroupMessage;
+@property (nonatomic) unsigned int isToEmail;
+@property (nonatomic) unsigned int isToPhoneNumber;
+@property (nonatomic) unsigned int sendDuration;
+@property (nonatomic) unsigned long long timestamp;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -54,35 +52,35 @@
 - (int)fzError;
 - (id)guid;
 - (unsigned int)hasAttachments;
-- (bool)hasCtError;
-- (bool)hasFzError;
-- (bool)hasGuid;
-- (bool)hasHasAttachments;
-- (bool)hasIsGroupMessage;
-- (bool)hasIsToEmail;
-- (bool)hasIsToPhoneNumber;
-- (bool)hasSendDuration;
-- (bool)hasTimestamp;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasCtError;
+- (BOOL)hasFzError;
+- (BOOL)hasGuid;
+- (BOOL)hasHasAttachments;
+- (BOOL)hasIsGroupMessage;
+- (BOOL)hasIsToEmail;
+- (BOOL)hasIsToPhoneNumber;
+- (BOOL)hasSendDuration;
+- (BOOL)hasTimestamp;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (unsigned int)isGroupMessage;
 - (unsigned int)isToEmail;
 - (unsigned int)isToPhoneNumber;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (unsigned int)sendDuration;
 - (void)setCtError:(int)arg1;
 - (void)setFzError:(int)arg1;
 - (void)setGuid:(id)arg1;
 - (void)setHasAttachments:(unsigned int)arg1;
-- (void)setHasCtError:(bool)arg1;
-- (void)setHasFzError:(bool)arg1;
-- (void)setHasHasAttachments:(bool)arg1;
-- (void)setHasIsGroupMessage:(bool)arg1;
-- (void)setHasIsToEmail:(bool)arg1;
-- (void)setHasIsToPhoneNumber:(bool)arg1;
-- (void)setHasSendDuration:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
+- (void)setHasCtError:(BOOL)arg1;
+- (void)setHasFzError:(BOOL)arg1;
+- (void)setHasHasAttachments:(BOOL)arg1;
+- (void)setHasIsGroupMessage:(BOOL)arg1;
+- (void)setHasIsToEmail:(BOOL)arg1;
+- (void)setHasIsToPhoneNumber:(BOOL)arg1;
+- (void)setHasSendDuration:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
 - (void)setIsGroupMessage:(unsigned int)arg1;
 - (void)setIsToEmail:(unsigned int)arg1;
 - (void)setIsToPhoneNumber:(unsigned int)arg1;

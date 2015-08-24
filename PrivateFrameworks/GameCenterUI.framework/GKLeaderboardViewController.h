@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-@class <GKLeaderboardViewControllerDelegate>, NSString;
-
 @interface GKLeaderboardViewController : GKGameCenterViewController {
     <GKLeaderboardViewControllerDelegate> *_leaderboardDelegate;
 }
 
-@property(copy) NSString * category;
-@property <GKLeaderboardViewControllerDelegate> * leaderboardDelegate;
-@property long long timeScope;
+@property (nonatomic, copy) NSString *category;
+@property (nonatomic) <GKLeaderboardViewControllerDelegate> *leaderboardDelegate;
+@property (nonatomic) int timeScope;
 
 - (id)category;
 - (id)init;
@@ -18,7 +16,7 @@
 - (void)notifyDelegateOnWillFinish;
 - (void)setCategory:(id)arg1;
 - (void)setLeaderboardDelegate:(id)arg1;
-- (void)setTimeScope:(long long)arg1;
-- (long long)timeScope;
+- (void)setTimeScope:(int)arg1;
+- (int)timeScope;
 
 @end

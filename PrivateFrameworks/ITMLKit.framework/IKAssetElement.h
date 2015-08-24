@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@class NSString, NSURL;
-
 @interface IKAssetElement : IKViewElement {
-    bool_infiniteDuration;
+    BOOL _infiniteDuration;
 }
 
-@property(retain,readonly) NSString * actionParams;
-@property(retain,readonly) NSString * adamID;
-@property(retain,readonly) NSString * bookmarkID;
-@property(retain,readonly) NSString * contentID;
-@property(getter=isInfiniteDuration,readonly) bool infiniteDuration;
-@property(readonly) long long keyDelivery;
-@property(retain,readonly) NSString * serviceID;
-@property(readonly) long long type;
-@property(retain,readonly) NSURL * url;
+@property (nonatomic, readonly, retain) NSString *actionParams;
+@property (nonatomic, readonly, retain) NSString *adamID;
+@property (nonatomic, readonly, retain) NSString *bookmarkID;
+@property (nonatomic, readonly, retain) NSString *contentID;
+@property (getter=isInfiniteDuration, nonatomic, readonly) BOOL infiniteDuration;
+@property (nonatomic, readonly) int keyDelivery;
+@property (nonatomic, readonly, retain) NSString *serviceID;
+@property (nonatomic, readonly) int type;
+@property (nonatomic, readonly, retain) NSURL *url;
 
-+ (bool)shouldParseChildDOMElements;
++ (BOOL)shouldParseChildDOMElements;
 
 - (id)actionParams;
 - (id)adamID;
 - (id)bookmarkID;
 - (id)contentID;
-- (bool)infiniteDuration;
-- (bool)isInfiniteDuration;
-- (long long)keyDelivery;
+- (BOOL)infiniteDuration;
+- (BOOL)isInfiniteDuration;
+- (int)keyDelivery;
 - (id)serviceID;
-- (long long)type;
+- (int)type;
 - (id)url;
 
 @end

@@ -2,30 +2,28 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIScreen;
-
 @interface UIKBScreenTraits : NSObject {
-    double _keyboardWidth;
-    long long _orientation;
+    float _keyboardWidth;
+    BOOL _knobInput;
+    int _orientation;
     UIScreen *_screen;
-    bool_knobInput;
 }
 
-@property(readonly) long long idiom;
-@property double keyboardWidth;
-@property(readonly) bool knobInput;
-@property long long orientation;
-@property(readonly) UIScreen * screen;
+@property (nonatomic, readonly) int idiom;
+@property (nonatomic) float keyboardWidth;
+@property (nonatomic, readonly) BOOL knobInput;
+@property (nonatomic) int orientation;
+@property (nonatomic, readonly) UIScreen *screen;
 
-+ (id)traitsWithScreen:(id)arg1 orientation:(long long)arg2;
++ (id)traitsWithScreen:(id)arg1 orientation:(int)arg2;
 
-- (long long)idiom;
-- (id)initWithScreen:(id)arg1 orientation:(long long)arg2;
-- (double)keyboardWidth;
-- (bool)knobInput;
-- (long long)orientation;
+- (int)idiom;
+- (id)initWithScreen:(id)arg1 orientation:(int)arg2;
+- (float)keyboardWidth;
+- (BOOL)knobInput;
+- (int)orientation;
 - (id)screen;
-- (void)setKeyboardWidth:(double)arg1;
-- (void)setOrientation:(long long)arg1;
+- (void)setKeyboardWidth:(float)arg1;
+- (void)setOrientation:(int)arg1;
 
 @end

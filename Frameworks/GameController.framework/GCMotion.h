@@ -2,48 +2,42 @@
    Image: /System/Library/Frameworks/GameController.framework/GameController
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class CMMotionManager, GCController;
-
 @interface GCMotion : NSObject {
-    struct { 
-        double x; 
-        double y; 
-        double z; 
-    struct { 
-        double x; 
-        double y; 
-        double z; 
     struct GCQuaternion { 
         double x; 
         double y; 
         double z; 
         double w; 
+    } _attitude;
+    GCController *_controller;
     struct { 
         double x; 
         double y; 
         double z; 
-    } _attitude;
-    GCController *_controller;
     } _gravity;
     CMMotionManager *_motionMgr;
+    struct { 
+        double x; 
+        double y; 
+        double z; 
     } _rotationRate;
+    struct { 
+        double x; 
+        double y; 
+        double z; 
     } _userAcceleration;
-    id _valueChangedHandler;
+    id /* block */ _valueChangedHandler;
 }
 
-@property(readonly) struct GCQuaternion { double x1; double x2; double x3; double x4; } attitude;
-@property(readonly) GCController * controller;
-@property(readonly) struct { double x1; double x2; double x3; } gravity;
-@property(readonly) struct { double x1; double x2; double x3; } rotationRate;
-@property(readonly) struct { double x1; double x2; double x3; } userAcceleration;
-@property(copy) id valueChangedHandler;
+@property (readonly) struct GCQuaternion { double x1; double x2; double x3; double x4; } attitude;
+@property (readonly) GCController *controller;
+@property (readonly) struct { double x1; double x2; double x3; } gravity;
+@property (readonly) struct { double x1; double x2; double x3; } rotationRate;
+@property (readonly) struct { double x1; double x2; double x3; } userAcceleration;
+@property (copy) id /* block */ valueChangedHandler;
 
 - (void).cxx_destruct;
-- (bool)_isUpdatingDeviceMotion;
+- (BOOL)_isUpdatingDeviceMotion;
 - (void)_setAttitude:(struct GCQuaternion { double x1; double x2; double x3; double x4; })arg1;
 - (void)_setGravity:(struct { double x1; double x2; double x3; })arg1;
 - (void)_setRotationRate:(struct { double x1; double x2; double x3; })arg1;
@@ -55,8 +49,8 @@
 - (struct { double x1; double x2; double x3; })gravity;
 - (id)initWithController:(id)arg1;
 - (struct { double x1; double x2; double x3; })rotationRate;
-- (void)setValueChangedHandler:(id)arg1;
+- (void)setValueChangedHandler:(id /* block */)arg1;
 - (struct { double x1; double x2; double x3; })userAcceleration;
-- (id)valueChangedHandler;
+- (id /* block */)valueChangedHandler;
 
 @end

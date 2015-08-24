@@ -2,64 +2,75 @@
    Image: /System/Library/PrivateFrameworks/HomeKitDaemon.framework/HomeKitDaemon
  */
 
-@class HMMessageDispatcher, NSMutableSet, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
-
 @interface HMDConnectionProxy : NSObject <HMDaemonConnection> {
-    unsigned long long _activeMessageCount;
+    BOOL _activated;
+    unsigned int _activeMessageCount;
     NSObject<OS_dispatch_group> *_activeMessageTracker;
     NSString *_clientName;
+    BOOL _entitledForAPIAccess;
+    BOOL _entitledForBackgroundMode;
+    BOOL _entitledForSPIAccess;
     NSMutableSet *_pendingRequests;
+    BOOL _ready;
     HMMessageDispatcher *_recvDispatcher;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSXPCConnection *_xpcConnection;
-    bool_activated;
-    bool_ready;
 }
 
-@property bool activated;
-@property unsigned long long activeMessageCount;
-@property(retain) NSObject<OS_dispatch_group> * activeMessageTracker;
-@property(retain) NSString * clientName;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) NSMutableSet * pendingRequests;
-@property bool ready;
-@property(retain) HMMessageDispatcher * recvDispatcher;
-@property(readonly) Class superclass;
-@property(retain) NSObject<OS_dispatch_queue> * workQueue;
-@property NSXPCConnection * xpcConnection;
+@property (nonatomic) BOOL activated;
+@property (nonatomic) unsigned int activeMessageCount;
+@property (nonatomic, retain) NSObject<OS_dispatch_group> *activeMessageTracker;
+@property (getter=isAuthorizedForHomeDataAccess, nonatomic, readonly) BOOL authorizedForHomeDataAccess;
+@property (nonatomic, retain) NSString *clientName;
+@property (nonatomic, readonly) int clientPid;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (getter=isEntitledForAPIAccess, nonatomic, readonly) BOOL entitledForAPIAccess;
+@property (getter=isEntitledForBackgroundMode, nonatomic, readonly) BOOL entitledForBackgroundMode;
+@property (getter=isEntitledForSPIAccess, nonatomic, readonly) BOOL entitledForSPIAccess;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, retain) NSMutableSet *pendingRequests;
+@property (nonatomic) BOOL ready;
+@property (nonatomic, retain) HMMessageDispatcher *recvDispatcher;
+@property (nonatomic, readonly) id remoteProxy;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *workQueue;
+@property (nonatomic) NSXPCConnection *xpcConnection;
 
 - (void).cxx_destruct;
-- (bool)_checkForAuthorizationForMessage:(id)arg1 client:(id)arg2 responseHandler:(id)arg3;
 - (void)activate;
-- (bool)activated;
-- (unsigned long long)activeMessageCount;
+- (BOOL)activated;
+- (unsigned int)activeMessageCount;
 - (id)activeMessageTracker;
-- (void)checkinWithName:(id)arg1 handleMessageWithName:(id)arg2 messageIdentifier:(id)arg3 messagePayload:(id)arg4 target:(id)arg5 responseHandler:(id)arg6;
+- (void)checkinWithName:(id)arg1 handleMessageWithName:(id)arg2 messageIdentifier:(id)arg3 messagePayload:(id)arg4 target:(id)arg5 responseHandler:(id /* block */)arg6;
 - (id)clientName;
 - (int)clientPid;
 - (void)deactivate;
 - (void)dealloc;
-- (void)handleMessageWithName:(id)arg1 messageIdentifier:(id)arg2 messagePayload:(id)arg3 target:(id)arg4 responseHandler:(id)arg5;
 - (void)handleMessageWithName:(id)arg1 messageIdentifier:(id)arg2 messagePayload:(id)arg3 target:(id)arg4;
+- (void)handleMessageWithName:(id)arg1 messageIdentifier:(id)arg2 messagePayload:(id)arg3 target:(id)arg4 responseHandler:(id /* block */)arg5;
 - (id)initWithConnection:(id)arg1 queue:(id)arg2 activeMessageTracker:(id)arg3 recvDispatcher:(id)arg4;
+- (BOOL)isAuthorizedForHomeDataAccess;
+- (BOOL)isEntitledForAPIAccess;
+- (BOOL)isEntitledForBackgroundMode;
+- (BOOL)isEntitledForSPIAccess;
 - (id)name;
 - (id)pendingRequests;
-- (bool)ready;
+- (BOOL)ready;
 - (void)recheckinWithName:(id)arg1;
 - (id)recvDispatcher;
 - (id)remoteProxy;
-- (void)setActivated:(bool)arg1;
-- (void)setActiveMessageCount:(unsigned long long)arg1;
+- (void)setActivated:(BOOL)arg1;
+- (void)setActiveMessageCount:(unsigned int)arg1;
 - (void)setActiveMessageTracker:(id)arg1;
 - (void)setClientName:(id)arg1;
 - (void)setPendingRequests:(id)arg1;
-- (void)setReady:(bool)arg1;
+- (void)setReady:(BOOL)arg1;
 - (void)setRecvDispatcher:(id)arg1;
 - (void)setWorkQueue:(id)arg1;
 - (void)setXpcConnection:(id)arg1;
-- (bool)shouldSendResponseForMessageIdentifier:(id)arg1;
+- (BOOL)shouldSendResponseForMessageIdentifier:(id)arg1;
 - (id)workQueue;
 - (id)xpcConnection;
 

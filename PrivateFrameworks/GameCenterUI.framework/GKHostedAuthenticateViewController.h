@@ -2,56 +2,50 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSError, NSString;
-
 @interface GKHostedAuthenticateViewController : GKHostedViewController <GKAuthenticateViewController> {
-    id _completionHandler;
-    id _dismissCompletionHandler;
+    id /* block */ _completionHandler;
+    BOOL _disablesSignIn;
+    id /* block */ _dismissCompletionHandler;
     NSError *_error;
-    long long _mode;
-    bool_disablesSignIn;
-    bool_rotationLocked;
+    int _mode;
+    BOOL _rotationLocked;
 }
 
-@property(copy) id completionHandler;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property bool disablesSignIn;
-@property(copy) id dismissCompletionHandler;
-@property(retain) NSError * error;
-@property(readonly) unsigned long long hash;
-@property long long mode;
-@property(getter=isRotationLocked) bool rotationLocked;
-@property(readonly) Class superclass;
+@property (nonatomic, copy) id /* block */ completionHandler;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) BOOL disablesSignIn;
+@property (nonatomic, copy) id /* block */ dismissCompletionHandler;
+@property (nonatomic, retain) NSError *error;
+@property (readonly) unsigned int hash;
+@property (nonatomic) int mode;
+@property (getter=isRotationLocked, nonatomic) BOOL rotationLocked;
+@property (readonly) Class superclass;
 
-+ (bool)_preventsAppearanceProxyCustomization;
++ (BOOL)_preventsAppearanceProxyCustomization;
 
-- (bool)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
-- (id)completionHandler;
+- (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
+- (id /* block */)completionHandler;
 - (void)dealloc;
-- (bool)disablesSignIn;
-- (id)dismissCompletionHandler;
-- (void)dismissViewControllerAnimated:(bool)arg1 completion:(id)arg2;
+- (BOOL)disablesSignIn;
+- (id /* block */)dismissCompletionHandler;
+- (void)dismissViewControllerAnimated:(BOOL)arg1 completion:(id /* block */)arg2;
 - (id)error;
 - (void)finishAuthenticationWithError:(id)arg1;
 - (id)hostSideViewControllerClassName;
-- (id)initWithMode:(long long)arg1;
-- (bool)isRotationLocked;
-- (long long)mode;
+- (id)initWithMode:(int)arg1;
+- (BOOL)isRotationLocked;
+- (int)mode;
 - (id)serviceSideViewControllerClassName;
-- (void)setCompletionHandler:(id)arg1;
-- (void)setDisablesSignIn:(bool)arg1;
-- (void)setDismissCompletionHandler:(id)arg1;
+- (void)setCompletionHandler:(id /* block */)arg1;
+- (void)setDisablesSignIn:(BOOL)arg1;
+- (void)setDismissCompletionHandler:(id /* block */)arg1;
 - (void)setError:(id)arg1;
-- (void)setMode:(long long)arg1;
-- (void)setRotationLocked:(bool)arg1;
-- (bool)shouldAutomaticallyForwardAppearanceMethods;
-- (bool)shouldAutomaticallyForwardRotationMethods;
-- (bool)shouldAutorotate;
+- (void)setMode:(int)arg1;
+- (void)setRotationLocked:(BOOL)arg1;
+- (BOOL)shouldAutomaticallyForwardAppearanceMethods;
+- (BOOL)shouldAutomaticallyForwardRotationMethods;
+- (BOOL)shouldAutorotate;
 - (void)showPasswordChangeAlertWithURL:(id)arg1;
 
 @end

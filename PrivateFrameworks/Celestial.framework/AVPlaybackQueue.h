@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class AVQueue, NSMutableArray;
-
 @interface AVPlaybackQueue : NSObject {
     AVQueue *_avItemQueue;
     int _avQueueTransactionCount;
     id _delegate;
     struct OpaqueFigPlayer { } *_figPlayer;
+    BOOL _hasBuiltPlaybackQueue;
     int _ignoreAVQueueModifications;
     NSMutableArray *_pbItemQueue;
-    long long _repeatMode;
-    bool_hasBuiltPlaybackQueue;
-    bool_waitingToAddFirstItem;
+    int _repeatMode;
+    BOOL _waitingToAddFirstItem;
 }
 
 - (void)beginAVQueueTransaction;
@@ -34,7 +32,7 @@
 - (void)scheduleRemoveItemsNoLongerInPlayQueue;
 - (void)setAVItemQueue:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setRepeatMode:(long long)arg1;
-- (void)updateBookmarkTimesIncludeFirst:(bool)arg1 updateFirst:(bool)arg2;
+- (void)setRepeatMode:(int)arg1;
+- (void)updateBookmarkTimesIncludeFirst:(BOOL)arg1 updateFirst:(BOOL)arg2;
 
 @end

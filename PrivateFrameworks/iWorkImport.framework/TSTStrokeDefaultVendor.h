@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class <TSTTableStrokeProviding>, NSPointerArray, TSTMasterLayout;
-
 @interface TSTStrokeDefaultVendor : NSObject {
     unsigned int _bodySideBorderColumn;
     unsigned int _bottomBorderRow;
@@ -11,24 +9,24 @@
     unsigned int _headerColumnSeparatorColumn;
     unsigned int _headerRowSeparatorRow;
     unsigned int _headerSideBorderColumn;
+    BOOL _isValid;
     TSTMasterLayout *_masterLayout;
     <TSTTableStrokeProviding> *_strokeProvider;
     NSPointerArray *_strokeTypeToLayerMap;
     unsigned int _topBorderRow;
-    bool_isValid;
 }
 
-@property unsigned int bodySideBorderColumn;
-@property unsigned int bottomBorderRow;
-@property unsigned int footerRowSeparatorRow;
-@property unsigned int headerColumnSeparatorColumn;
-@property unsigned int headerRowSeparatorRow;
-@property unsigned int headerSideBorderColumn;
-@property bool isValid;
-@property TSTMasterLayout * masterLayout;
-@property <TSTTableStrokeProviding> * strokeProvider;
-@property(retain) NSPointerArray * strokeTypeToLayerMap;
-@property unsigned int topBorderRow;
+@property (nonatomic) unsigned int bodySideBorderColumn;
+@property (nonatomic) unsigned int bottomBorderRow;
+@property (nonatomic) unsigned int footerRowSeparatorRow;
+@property (nonatomic) unsigned int headerColumnSeparatorColumn;
+@property (nonatomic) unsigned int headerRowSeparatorRow;
+@property (nonatomic) unsigned int headerSideBorderColumn;
+@property (nonatomic) BOOL isValid;
+@property (nonatomic) TSTMasterLayout *masterLayout;
+@property (nonatomic) <TSTTableStrokeProviding> *strokeProvider;
+@property (nonatomic, retain) NSPointerArray *strokeTypeToLayerMap;
+@property (nonatomic) unsigned int topBorderRow;
 
 - (unsigned int)bodySideBorderColumn;
 - (unsigned int)bottomBorderRow;
@@ -39,7 +37,7 @@
 - (unsigned int)headerSideBorderColumn;
 - (id)initWithMasterLayout:(id)arg1;
 - (void)invalidate;
-- (bool)isValid;
+- (BOOL)isValid;
 - (id)masterLayout;
 - (int)p_strokeTypeForColumn:(unsigned int)arg1;
 - (int)p_strokeTypeForRow:(unsigned int)arg1;
@@ -51,7 +49,7 @@
 - (void)setHeaderColumnSeparatorColumn:(unsigned int)arg1;
 - (void)setHeaderRowSeparatorRow:(unsigned int)arg1;
 - (void)setHeaderSideBorderColumn:(unsigned int)arg1;
-- (void)setIsValid:(bool)arg1;
+- (void)setIsValid:(BOOL)arg1;
 - (void)setMasterLayout:(id)arg1;
 - (void)setStrokeProvider:(id)arg1;
 - (void)setStrokeTypeToLayerMap:(id)arg1;
@@ -62,7 +60,7 @@
 - (id)strokeProvider;
 - (id)strokeTypeToLayerMap;
 - (unsigned int)topBorderRow;
-- (bool)validate;
-- (bool)validateGeometry;
+- (BOOL)validate;
+- (BOOL)validateGeometry;
 
 @end

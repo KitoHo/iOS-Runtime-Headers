@@ -2,13 +2,12 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@interface MCManagedDefaultsManager : NSObject {
-}
+@interface MCManagedDefaultsManager : NSObject
 
 + (id)sharedManager;
 
 - (void)addDefaults:(id)arg1 toManagedDomain:(id)arg2;
-- (bool)domainHasManagedDefaults:(id)arg1;
+- (BOOL)domainHasManagedDefaults:(id)arg1;
 - (id)managedDefaultsForDomain:(id)arg1;
 - (id)managedDefaultsPathForDomain:(id)arg1;
 - (void)removeAllManagedDefaultsFromDomain:(id)arg1;

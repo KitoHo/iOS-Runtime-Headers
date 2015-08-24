@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/ImageCapture.framework/ImageCapture
  */
 
-@class PTPInitiator;
-
 @interface PTPCameraDevice : ICCameraDevice {
     void *_ptpCameraProperties;
 }
 
-@property(readonly) PTPInitiator * initiator;
+@property (readonly) PTPInitiator *initiator;
 
 - (void)addToEventHandlerQ:(id)arg1;
 - (void)dealloc;
-- (bool)eject;
+- (BOOL)eject;
 - (void)enumerateContent;
 - (void)finalize;
 - (id)initWithTCPIPInfo:(id)arg1;

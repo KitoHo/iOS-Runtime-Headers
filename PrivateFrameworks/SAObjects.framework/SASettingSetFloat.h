@@ -2,17 +2,16 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@interface SASettingSetFloat : SASettingSetNumber {
-}
+@interface SASettingSetFloat : SASettingSetNumber
 
-@property float value;
+@property (nonatomic) float value;
 
 + (id)setFloat;
 + (id)setFloatWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (bool)requiresResponse;
+- (BOOL)requiresResponse;
 - (void)setValue:(float)arg1;
 - (float)value;
 

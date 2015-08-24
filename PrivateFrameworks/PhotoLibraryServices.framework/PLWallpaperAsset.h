@@ -2,15 +2,12 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSDictionary, NSString, NSURL;
+@interface PLWallpaperAsset : PLManagedAsset
 
-@interface PLWallpaperAsset : PLManagedAsset {
-}
-
-@property(readonly) NSString * imageName;
-@property(retain) NSURL * imageURL;
-@property(retain) NSURL * thumbnailURL;
-@property(retain) NSDictionary * wallpaperOptions;
+@property (nonatomic, readonly) NSString *imageName;
+@property (nonatomic, retain) NSURL *imageURL;
+@property (nonatomic, retain) NSURL *thumbnailURL;
+@property (nonatomic, retain) NSDictionary *wallpaperOptions;
 
 + (id)entityInManagedObjectContext:(id)arg1;
 + (id)entityName;
@@ -18,14 +15,14 @@
 
 - (id)_image;
 - (id)_thumbnailImage;
-- (bool)allowsWallpaperEditing;
+- (BOOL)allowsWallpaperEditing;
 - (void)awakeFromInsert;
 - (id)imageName;
 - (id)imageURL;
-- (id)imageWithFormat:(int)arg1 outImageProperties:(const struct __CFDictionary {}**)arg2;
 - (id)imageWithFormat:(int)arg1;
+- (id)imageWithFormat:(int)arg1 outImageProperties:(const struct __CFDictionary {}**)arg2;
 - (id)indexSheetImage;
-- (bool)isIncludedInMoments;
+- (BOOL)isIncludedInMoments;
 - (id)newFullScreenImage:(const struct __CFDictionary {}**)arg1;
 - (void)prepareForDeletion;
 - (void)setImageURL:(id)arg1;

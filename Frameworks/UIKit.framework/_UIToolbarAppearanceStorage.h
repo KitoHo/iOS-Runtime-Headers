@@ -2,35 +2,33 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class UIImage;
-
 @interface _UIToolbarAppearanceStorage : _UIBarAppearanceStorage {
     UIImage *_backgroundImage;
     UIImage *_miniBackgroundImage;
     UIImage *_miniTopBackgroundImage;
     UIImage *_topBackgroundImage;
-    boolhidesShadow;
+    BOOL hidesShadow;
     UIImage *shadowImage;
     UIImage *topShadowImage;
 }
 
-@property(retain) UIImage * backgroundImage;
-@property bool hidesShadow;
-@property(retain) UIImage * miniBackgroundImage;
-@property(retain) UIImage * miniTopBackgroundImage;
-@property(retain) UIImage * shadowImage;
-@property(retain) UIImage * topBackgroundImage;
-@property(retain) UIImage * topShadowImage;
+@property (nonatomic, retain) UIImage *backgroundImage;
+@property (nonatomic) BOOL hidesShadow;
+@property (nonatomic, retain) UIImage *miniBackgroundImage;
+@property (nonatomic, retain) UIImage *miniTopBackgroundImage;
+@property (nonatomic, retain) UIImage *shadowImage;
+@property (nonatomic, retain) UIImage *topBackgroundImage;
+@property (nonatomic, retain) UIImage *topShadowImage;
 
-+ (long long)typicalBarPosition;
++ (int)typicalBarPosition;
 
 - (id)backgroundImage;
 - (void)dealloc;
-- (bool)hidesShadow;
+- (BOOL)hidesShadow;
 - (id)miniBackgroundImage;
 - (id)miniTopBackgroundImage;
 - (void)setBackgroundImage:(id)arg1;
-- (void)setHidesShadow:(bool)arg1;
+- (void)setHidesShadow:(BOOL)arg1;
 - (void)setMiniBackgroundImage:(id)arg1;
 - (void)setMiniTopBackgroundImage:(id)arg1;
 - (void)setShadowImage:(id)arg1;

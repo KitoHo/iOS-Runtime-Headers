@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CoreMediaStream.framework/CoreMediaStream
  */
 
-@class NSDate, NSString;
-
 @interface MSASComment : NSObject {
     NSString *_GUID;
     int _ID;
@@ -12,35 +10,35 @@
     NSString *_email;
     NSString *_firstName;
     NSString *_fullName;
+    BOOL _isBatchComment;
+    BOOL _isCaption;
+    BOOL _isDeletable;
+    BOOL _isLike;
+    BOOL _isMine;
     NSString *_lastName;
     NSString *_personID;
     NSDate *_timestamp;
-    bool_isBatchComment;
-    bool_isCaption;
-    bool_isDeletable;
-    bool_isLike;
-    bool_isMine;
 }
 
-@property(retain) NSString * GUID;
-@property int ID;
-@property(retain) NSDate * clientTimestamp;
-@property(retain) NSString * content;
-@property(retain) NSString * email;
-@property(retain) NSString * firstName;
-@property(retain) NSString * fullName;
-@property bool isBatchComment;
-@property bool isCaption;
-@property bool isDeletable;
-@property bool isLike;
-@property bool isMine;
-@property(retain) NSString * lastName;
-@property(retain) NSString * personID;
-@property(retain) NSDate * timestamp;
+@property (nonatomic, retain) NSString *GUID;
+@property (nonatomic) int ID;
+@property (nonatomic, retain) NSDate *clientTimestamp;
+@property (nonatomic, retain) NSString *content;
+@property (nonatomic, retain) NSString *email;
+@property (nonatomic, retain) NSString *firstName;
+@property (nonatomic, retain) NSString *fullName;
+@property (nonatomic) BOOL isBatchComment;
+@property (nonatomic) BOOL isCaption;
+@property (nonatomic) BOOL isDeletable;
+@property (nonatomic) BOOL isLike;
+@property (nonatomic) BOOL isMine;
+@property (nonatomic, retain) NSString *lastName;
+@property (nonatomic, retain) NSString *personID;
+@property (nonatomic, retain) NSDate *timestamp;
 
 + (id)MSASPCommentFromProtocolDictionary:(id)arg1;
 + (id)comment;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)GUID;
@@ -52,15 +50,15 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)firstName;
 - (id)fullName;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (bool)isBatchComment;
-- (bool)isCaption;
-- (bool)isDeletable;
-- (bool)isEqual:(id)arg1;
-- (bool)isLike;
-- (bool)isMine;
+- (BOOL)isBatchComment;
+- (BOOL)isCaption;
+- (BOOL)isDeletable;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isLike;
+- (BOOL)isMine;
 - (id)lastName;
 - (id)personID;
 - (void)setClientTimestamp:(id)arg1;
@@ -70,11 +68,11 @@
 - (void)setFullName:(id)arg1;
 - (void)setGUID:(id)arg1;
 - (void)setID:(int)arg1;
-- (void)setIsBatchComment:(bool)arg1;
-- (void)setIsCaption:(bool)arg1;
-- (void)setIsDeletable:(bool)arg1;
-- (void)setIsLike:(bool)arg1;
-- (void)setIsMine:(bool)arg1;
+- (void)setIsBatchComment:(BOOL)arg1;
+- (void)setIsCaption:(BOOL)arg1;
+- (void)setIsDeletable:(BOOL)arg1;
+- (void)setIsLike:(BOOL)arg1;
+- (void)setIsMine:(BOOL)arg1;
 - (void)setLastName:(id)arg1;
 - (void)setPersonID:(id)arg1;
 - (void)setTimestamp:(id)arg1;

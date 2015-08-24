@@ -2,10 +2,9 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@interface UIKeyboardCandidateUtilities : NSObject {
-}
+@interface UIKeyboardCandidateUtilities : NSObject
 
-+ (id)candidateBarBackgroundWithHighlight:(bool)arg1;
-+ (id)candidateScrollViewBackgroundWithHeight:(double)arg1;
++ (id)candidateBarBackgroundWithHighlight:(BOOL)arg1;
++ (id)candidateScrollViewBackgroundWithHeight:(float)arg1;
 
 @end

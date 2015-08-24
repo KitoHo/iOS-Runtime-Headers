@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class NSMutableArray;
-
 @interface MFBufferedQueue : NSObject {
     unsigned int _currentSize;
     double _maximumLatency;
@@ -12,25 +10,25 @@
     double _timeOfLastFlush;
 }
 
-@property double maximumLatency;
-@property unsigned int maximumSize;
-@property(readonly) unsigned int size;
+@property (nonatomic) double maximumLatency;
+@property (nonatomic) unsigned int maximumSize;
+@property (nonatomic, readonly) unsigned int size;
 
-- (bool)_flush;
-- (bool)addItem:(id)arg1;
+- (BOOL)_flush;
+- (BOOL)addItem:(id)arg1;
 - (void)dealloc;
-- (bool)flush;
-- (bool)flushIfNecessary;
-- (bool)handleItems:(id)arg1;
+- (BOOL)flush;
+- (BOOL)flushIfNecessary;
+- (BOOL)handleItems:(id)arg1;
 - (id)init;
 - (id)initWithMaximumSize:(unsigned int)arg1 latency:(double)arg2;
-- (bool)isEmpty;
+- (BOOL)isEmpty;
 - (double)maximumLatency;
 - (unsigned int)maximumSize;
 - (void)removeAllObjects;
 - (void)setMaximumLatency:(double)arg1;
 - (void)setMaximumSize:(unsigned int)arg1;
 - (unsigned int)size;
-- (unsigned long long)sizeForItem:(id)arg1;
+- (unsigned int)sizeForItem:(id)arg1;
 
 @end

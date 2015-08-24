@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class NSString;
-
 @interface _MFDADeferredModifyMailboxOperation : MFOfflineCacheOperation <MFDADeferredFolderChangeOperation> {
     NSString *_folderID;
     NSString *_newDisplayName;
@@ -17,6 +15,6 @@
 - (id)folderChangeResult;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFolderID:(id)arg1 newParentFolderID:(id)arg2 newDisplayName:(id)arg3;
-- (bool)performWithAccount:(id)arg1 offlineCache:(id)arg2;
+- (BOOL)performWithAccount:(id)arg1 offlineCache:(id)arg2;
 
 @end

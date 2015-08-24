@@ -2,25 +2,26 @@
    Image: /System/Library/Frameworks/UIKit.framework/UIKit
  */
 
-@class <UIViewControllerTransitionCoordinator>, UIDimmingView, UIPresentationController, UIPresentationController<_UISearchControllerPresenting>, UIView;
-
 @interface _UISearchPresentationAssistant : NSObject <UIDimmingViewDelegate> {
     UIPresentationController<_UISearchControllerPresenting> *_adaptivePresentationController;
     UIDimmingView *_dimmingView;
+    BOOL _isFormSheetPresentation;
+    BOOL _presentationWasAnimated;
     UIView *_searchBarContainerView;
     UIPresentationController *_searchPresentationController;
     <UIViewControllerTransitionCoordinator> *_transitioningToSizeCoordinator;
-    bool_isFormSheetPresentation;
-    bool_presentationWasAnimated;
 }
 
-@property UIPresentationController<_UISearchControllerPresenting> * adaptivePresentationController;
-@property bool presentationWasAnimated;
-@property(retain) <UIViewControllerTransitionCoordinator> * transitioningToSizeCoordinator;
+@property (nonatomic) UIPresentationController<_UISearchControllerPresenting> *adaptivePresentationController;
+@property (nonatomic) BOOL presentationWasAnimated;
+@property (nonatomic, retain) <UIViewControllerTransitionCoordinator> *transitioningToSizeCoordinator;
 
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })_containerFrame;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })_containerFrame;
+- (BOOL)_currentTransitionIsRotating;
 - (id)_searchBarContainerSuperview;
-- (bool)_statusBarPreferredHidden;
+- (float)_statusBarHeightChangeDueToRotation;
+- (BOOL)_statusBarPreferredHidden;
+- (BOOL)_statusBarPreferredHiddenForInterfaceOrientation:(int)arg1;
 - (id)adaptivePresentationController;
 - (void)dealloc;
 - (id)dimmingView;
@@ -28,20 +29,20 @@
 - (void)ensureAppropriatelySizedSearchBar:(id)arg1;
 - (id)initWithSearchPresentationController:(id)arg1;
 - (id)locateNavigationController;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })optimalFrameForSearchBar:(id)arg1;
-- (bool)presentationIsPopoverToOverFullScreenAdaptation;
-- (bool)presentationWasAnimated;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })optimalFrameForSearchBar:(id)arg1;
+- (BOOL)presentationIsPopoverToOverFullScreenAdaptation;
+- (BOOL)presentationWasAnimated;
 - (void)removeContainerViewFromSuperview;
-- (double)resultsControllerContentOffset;
+- (float)resultsControllerContentOffset;
 - (id)searchBarContainerView;
-- (bool)searchBarToBecomeTopAttached;
-- (bool)searchBarWillResizeForScopeBar;
+- (BOOL)searchBarToBecomeTopAttached;
+- (BOOL)searchBarWillResizeForScopeBar;
 - (void)setAdaptivePresentationController:(id)arg1;
-- (void)setPresentationWasAnimated:(bool)arg1;
+- (void)setPresentationWasAnimated:(BOOL)arg1;
 - (void)setTransitioningToSizeCoordinator:(id)arg1;
-- (bool)shouldAccountForStatusBar;
-- (double)statusBarAdjustment;
+- (BOOL)shouldAccountForStatusBar;
+- (float)statusBarAdjustment;
 - (id)transitioningToSizeCoordinator;
-- (struct CGSize { double x1; double x2; })updateSearchBarContainerFrame;
+- (struct CGSize { float x1; float x2; })updateSearchBarContainerFrame;
 
 @end

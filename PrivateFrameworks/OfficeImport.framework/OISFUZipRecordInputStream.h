@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class <OISFUBufferedInputStream>;
-
 @interface OISFUZipRecordInputStream : NSObject {
     const char *mBuffer;
     long long mBufferEnd;
@@ -11,7 +9,7 @@
     <OISFUBufferedInputStream> *mInput;
 }
 
-- (const char *)dataAtOffset:(long long)arg1 size:(unsigned long long)arg2 end:(long long)arg3;
+- (const char *)dataAtOffset:(long long)arg1 size:(unsigned long)arg2 end:(long long)arg3;
 - (void)dealloc;
 - (id)initWithDataRepresentation:(id)arg1;
 

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/PowerlogLiteOperators.framework/PowerlogLiteOperators
  */
 
-@class AWDServerConnection, NSMutableDictionary, NSMutableSet;
-
 @interface PLAWDMetricsService : PLService {
     AWDServerConnection *_awdServerConn;
     NSMutableDictionary *_classDictionary;
@@ -11,10 +9,10 @@
     NSMutableSet *_updateRunningMetrics;
 }
 
-@property(retain) AWDServerConnection * awdServerConn;
-@property(retain) NSMutableDictionary * classDictionary;
-@property(retain) NSMutableSet * currRunningMetrics;
-@property(retain) NSMutableSet * updateRunningMetrics;
+@property (retain) AWDServerConnection *awdServerConn;
+@property (retain) NSMutableDictionary *classDictionary;
+@property (retain) NSMutableSet *currRunningMetrics;
+@property (retain) NSMutableSet *updateRunningMetrics;
 
 + (id)entryAggregateDefinitions;
 + (id)entryEventNoneDefinitions;
@@ -22,13 +20,13 @@
 + (void)load;
 
 - (void).cxx_destruct;
-- (void)auxClassWrapper:(id)arg1 withAction:(long long)arg2;
+- (void)auxClassWrapper:(id)arg1 withAction:(int)arg2;
 - (id)awdServerConn;
 - (id)classDictionary;
-- (bool)connectToAWDServer;
+- (BOOL)connectToAWDServer;
 - (id)currRunningMetrics;
 - (id)init;
-- (bool)initAWDInterface;
+- (BOOL)initAWDInterface;
 - (void)initOperatorDependancies;
 - (void)setAwdServerConn:(id)arg1;
 - (void)setClassDictionary:(id)arg1;

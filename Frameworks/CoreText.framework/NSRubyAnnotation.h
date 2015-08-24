@@ -2,10 +2,9 @@
    Image: /System/Library/Frameworks/CoreText.framework/CoreText
  */
 
-@interface NSRubyAnnotation : NSObject <NSCopying, NSSecureCoding> {
-}
+@interface NSRubyAnnotation : NSObject <NSCopying, NSSecureCoding>
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)encodeWithCoder:(id)arg1;

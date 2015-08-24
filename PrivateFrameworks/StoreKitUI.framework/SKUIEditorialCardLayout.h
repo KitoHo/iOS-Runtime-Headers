@@ -2,28 +2,26 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, NSMutableArray, SKUILockupViewElement;
-
 @interface SKUIEditorialCardLayout : NSObject {
-    struct CGSize { 
-        double width; 
-        double height; 
     NSMutableArray *_allLockups;
     SKUILockupViewElement *_primaryLockup;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _primaryLockupSize;
-    double _secondaryLockupWidth;
+    float _secondaryLockupWidth;
 }
 
-@property(readonly) NSArray * allLockups;
-@property(readonly) SKUILockupViewElement * primaryLockup;
-@property(readonly) struct CGSize { double x1; double x2; } primaryLockupSize;
-@property(readonly) double secondaryLockupWidth;
+@property (nonatomic, readonly) NSArray *allLockups;
+@property (nonatomic, readonly) SKUILockupViewElement *primaryLockup;
+@property (nonatomic, readonly) struct CGSize { float x1; float x2; } primaryLockupSize;
+@property (nonatomic, readonly) float secondaryLockupWidth;
 
 - (void).cxx_destruct;
 - (id)allLockups;
-- (id)initWithCard:(id)arg1 width:(double)arg2 context:(id)arg3;
+- (id)initWithCard:(id)arg1 width:(float)arg2 context:(id)arg3;
 - (id)primaryLockup;
-- (struct CGSize { double x1; double x2; })primaryLockupSize;
-- (double)secondaryLockupWidth;
+- (struct CGSize { float x1; float x2; })primaryLockupSize;
+- (float)secondaryLockupWidth;
 
 @end

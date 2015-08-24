@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/CalendarUIKit.framework/CalendarUIKit
  */
 
-@class NSDate;
-
 @interface CUIKUserActivityCalendarDate : CUIKUserActivity {
     NSDate *_date;
-    unsigned long long _view;
+    unsigned int _view;
 }
 
-@property(readonly) NSDate * date;
-@property(readonly) unsigned long long view;
+@property (nonatomic, readonly) NSDate *date;
+@property (nonatomic, readonly) unsigned int view;
 
 - (void).cxx_destruct;
 - (id)date;
 - (id)dictionary;
-- (id)initWithDate:(id)arg1 view:(unsigned long long)arg2;
+- (id)initWithDate:(id)arg1 view:(unsigned int)arg2;
 - (id)initWithDictionary:(id)arg1;
-- (unsigned long long)view;
+- (unsigned int)view;
 
 @end

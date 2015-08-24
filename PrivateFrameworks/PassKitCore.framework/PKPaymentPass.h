@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSSet, NSString, NSURL, PKPaymentApplication;
-
 @interface PKPaymentPass : PKPass <NSCopying, NSSecureCoding> {
     NSString *_appURLScheme;
     NSSet *_associatedApplicationIdentifiers;
@@ -13,31 +11,35 @@
     NSSet *_paymentApplications;
     NSString *_primaryAccountIdentifier;
     NSString *_primaryAccountNumberSuffix;
+    NSString *_sanitizedPrimaryAccountNumber;
+    BOOL _supportsDPANNotifications;
+    BOOL _supportsFPANNotifications;
     NSString *_transactionPushTopic;
     NSURL *_transactionServiceURL;
-    bool_supportsDPANNotifications;
-    bool_supportsFPANNotifications;
 }
 
-@property(readonly) unsigned long long activationState;
-@property(copy) NSString * appURLScheme;
-@property(copy) NSSet * associatedApplicationIdentifiers;
-@property(readonly) NSString * deviceAccountIdentifier;
-@property(readonly) NSString * deviceAccountNumberSuffix;
-@property(retain) PKPaymentApplication * devicePaymentApplication;
-@property(copy) NSString * messagePushTopic;
-@property(copy) NSURL * messageServiceURL;
-@property(copy) NSSet * paymentApplications;
-@property(copy) NSString * primaryAccountIdentifier;
-@property(copy) NSString * primaryAccountNumberSuffix;
-@property bool supportsDPANNotifications;
-@property bool supportsFPANNotifications;
-@property(copy) NSString * transactionPushTopic;
-@property(copy) NSURL * transactionServiceURL;
+@property (nonatomic, readonly) unsigned int activationState;
+@property (nonatomic, copy) NSString *appURLScheme;
+@property (nonatomic, copy) NSSet *associatedApplicationIdentifiers;
+@property (readonly) NSString *deviceAccountIdentifier;
+@property (readonly) NSString *deviceAccountNumberSuffix;
+@property (nonatomic, retain) PKPaymentApplication *devicePaymentApplication;
+@property (nonatomic, copy) NSString *messagePushTopic;
+@property (nonatomic, copy) NSURL *messageServiceURL;
+@property (nonatomic, copy) NSSet *paymentApplications;
+@property (nonatomic, copy) NSString *primaryAccountIdentifier;
+@property (nonatomic, copy) NSString *primaryAccountNumberSuffix;
+@property (nonatomic, copy) NSString *sanitizedPrimaryAccountNumber;
+@property (nonatomic) BOOL supportsDPANNotifications;
+@property (nonatomic) BOOL supportsFPANNotifications;
+@property (nonatomic, copy) NSString *transactionPushTopic;
+@property (nonatomic, copy) NSURL *transactionServiceURL;
 
-+ (bool)supportsSecureCoding;
+// Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
 
-- (unsigned long long)activationState;
++ (BOOL)supportsSecureCoding;
+
+- (unsigned int)activationState;
 - (id)appURLScheme;
 - (id)associatedApplicationIdentifiers;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -46,7 +48,7 @@
 - (id)deviceAccountNumberSuffix;
 - (id)devicePaymentApplication;
 - (void)encodeWithCoder:(id)arg1;
-- (void)identifyDevicePaymentAppWithSecureElementID:(id)arg1 sanitize:(bool)arg2;
+- (void)identifyDevicePaymentAppWithSecureElementID:(id)arg1 sanitize:(BOOL)arg2;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDictionary:(id)arg1 bundle:(id)arg2;
 - (id)messagePushTopic;
@@ -56,6 +58,8 @@
 - (id)paymentApplications;
 - (id)primaryAccountIdentifier;
 - (id)primaryAccountNumberSuffix;
+- (id)sanitizedDeviceAccountNumber;
+- (id)sanitizedPrimaryAccountNumber;
 - (void)setAppURLScheme:(id)arg1;
 - (void)setAssociatedApplicationIdentifiers:(id)arg1;
 - (void)setDevicePaymentApplication:(id)arg1;
@@ -64,13 +68,21 @@
 - (void)setPaymentApplications:(id)arg1;
 - (void)setPrimaryAccountIdentifier:(id)arg1;
 - (void)setPrimaryAccountNumberSuffix:(id)arg1;
-- (void)setSupportsDPANNotifications:(bool)arg1;
-- (void)setSupportsFPANNotifications:(bool)arg1;
+- (void)setSanitizedPrimaryAccountNumber:(id)arg1;
+- (void)setSupportsDPANNotifications:(BOOL)arg1;
+- (void)setSupportsFPANNotifications:(BOOL)arg1;
 - (void)setTransactionPushTopic:(id)arg1;
 - (void)setTransactionServiceURL:(id)arg1;
-- (bool)supportsDPANNotifications;
-- (bool)supportsFPANNotifications;
+- (BOOL)supportsDPANNotifications;
+- (BOOL)supportsFPANNotifications;
 - (id)transactionPushTopic;
 - (id)transactionServiceURL;
+
+// Image: /System/Library/PrivateFrameworks/NanoPassKit.framework/NanoPassKit
+
+- (BOOL)npkPassIsAvailableForPaymentForSEID:(id)arg1;
+- (BOOL)npkPassNeedsUserActionForPaymentForSEID:(id)arg1;
+- (BOOL)npkPassNeedsUserVerificationForSEID:(id)arg1;
+- (int)npkPaymentApplicationStateForSEID:(id)arg1;
 
 @end

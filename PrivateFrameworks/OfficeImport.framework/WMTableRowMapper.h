@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class WDTableRow;
-
 @interface WMTableRowMapper : CMMapper {
     double mHeight;
     WDTableRow *mWdTableRow;
 }
 
-+ (bool)isTableRowDeleted:(id)arg1;
++ (BOOL)isTableRowDeleted:(id)arg1;
 
 - (double)height;
 - (id)initWithWDTableRow:(id)arg1 parent:(id)arg2;

@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/CoreSuggestionsInternals.framework/CoreSuggestionsInternals
  */
 
-@class NSString, SGSqliteDatabase, SGSuggestHistory;
-
 @interface SGSqlEntityStore : NSObject {
     SGSqliteDatabase *_db;
     SGSuggestHistory *_history;
+    BOOL _identityStoreDirty;
     NSString *_path;
-    bool_identityStoreDirty;
 }
 
 + (id)defaultPath;
@@ -29,33 +27,33 @@
 - (id)_filterOutNotActedOnEvents:(id)arg1;
 - (id)_filterOutOlderVersionsOfPseudoEvents:(id)arg1;
 - (id)_filterOutUndisplayableEntities:(id)arg1;
-- (bool)_removeEntitiesWhere:(id)arg1 onPrep:(id)arg2;
+- (BOOL)_removeEntitiesWhere:(id)arg1 onPrep:(id /* block */)arg2;
 - (id)_sanitizePrefix:(id)arg1;
 - (id)_sanitizeWildcard:(id)arg1;
 - (long long)_writeEntityToDb:(id)arg1;
-- (id)allContactsWithEntityType:(unsigned long long)arg1;
+- (id)allContactsWithEntityType:(unsigned int)arg1;
 - (id)allCuratedContacts;
 - (id)allPseudoContacts;
 - (void)clearAllTables;
-- (bool)clearDatabase;
+- (BOOL)clearDatabase;
 - (id)confirmedFieldValuesForEntity:(id)arg1;
-- (bool)contactEntityIsActedOn:(id)arg1;
+- (BOOL)contactEntityIsActedOn:(id)arg1;
 - (void)createTables;
 - (id)dbHandleForTesting;
 - (void)deleteEntitiesByDuplicateKey:(id)arg1;
 - (id)displayableEntities:(id)arg1;
 - (id)duplicateKeysMatchingAnyTag:(id)arg1;
-- (unsigned long long)entityCount;
+- (unsigned int)entityCount;
 - (id)entityFromSqlResult:(struct sqlite3_stmt { }*)arg1;
-- (bool)entityIsDisplayable:(id)arg1;
+- (BOOL)entityIsDisplayable:(id)arg1;
 - (id)historyForTesting;
 - (id)initWithFilename:(id)arg1;
-- (bool)isLocked;
+- (BOOL)isLocked;
 - (long long)latestSchemaVersion;
 - (id)loadContactByRecordId:(id)arg1;
-- (id)loadContactDetailsForRecordId:(id)arg1 type:(unsigned long long)arg2;
-- (id)loadContactDetailsWithWhereClause:(id)arg1 onPrep:(id)arg2 type:(unsigned long long)arg3 dedupeAgainst:(id)arg4;
-- (id)loadEntitiesByEntityKey:(id)arg1 entityType:(long long)arg2 resolveDuplicates:(id)arg3;
+- (id)loadContactDetailsForRecordId:(id)arg1 type:(unsigned int)arg2;
+- (id)loadContactDetailsWithWhereClause:(id)arg1 onPrep:(id /* block */)arg2 type:(unsigned int)arg3 dedupeAgainst:(id)arg4;
+- (id)loadEntitiesByEntityKey:(id)arg1 entityType:(long long)arg2 resolveDuplicates:(id /* block */)arg3;
 - (id)loadEntityByKey:(id)arg1;
 - (id)loadEntityByRecordId:(id)arg1;
 - (id)loadEventByKey:(id)arg1;
@@ -68,12 +66,12 @@
 - (id)suggestContactByKey:(id)arg1;
 - (id)suggestContactByMasterEntityId:(long long)arg1;
 - (id)suggestContactByRecordId:(id)arg1;
-- (id)suggestContactsByMasterEntityQuery:(id)arg1 bindings:(id)arg2;
-- (id)suggestEventsStartingAt:(double)arg1 endingAt:(double)arg2 limitTo:(unsigned long long)arg3 additionalWhereClause:(id)arg4 options:(unsigned int)arg5 onPrep:(id)arg6;
-- (id)suggestEventsStartingAt:(double)arg1 endingAt:(double)arg2 limitTo:(unsigned long long)arg3 options:(unsigned int)arg4;
-- (id)suggestEventsStartingAt:(double)arg1 endingAt:(double)arg2 limitTo:(unsigned long long)arg3;
-- (id)suggestEventsStartingAt:(double)arg1 endingAt:(double)arg2 prefix:(id)arg3 limitTo:(unsigned long long)arg4 options:(unsigned int)arg5;
-- (id)suggestEventsStartingAt:(double)arg1 endingAt:(double)arg2 prefix:(id)arg3 limitTo:(unsigned long long)arg4;
+- (id)suggestContactsByMasterEntityQuery:(id)arg1 bindings:(id /* block */)arg2;
+- (id)suggestEventsStartingAt:(double)arg1 endingAt:(double)arg2 limitTo:(unsigned int)arg3;
+- (id)suggestEventsStartingAt:(double)arg1 endingAt:(double)arg2 limitTo:(unsigned int)arg3 additionalWhereClause:(id)arg4 options:(unsigned int)arg5 onPrep:(id /* block */)arg6;
+- (id)suggestEventsStartingAt:(double)arg1 endingAt:(double)arg2 limitTo:(unsigned int)arg3 options:(unsigned int)arg4;
+- (id)suggestEventsStartingAt:(double)arg1 endingAt:(double)arg2 prefix:(id)arg3 limitTo:(unsigned int)arg4;
+- (id)suggestEventsStartingAt:(double)arg1 endingAt:(double)arg2 prefix:(id)arg3 limitTo:(unsigned int)arg4 options:(unsigned int)arg5;
 - (void)unlock;
 - (void)writeEntity:(id)arg1;
 - (long long)writeEntityFields:(id)arg1;

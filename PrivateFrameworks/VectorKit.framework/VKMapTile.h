@@ -2,36 +2,34 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class VKRasterTile, VKTile;
-
 @interface VKMapTile : VKTile <NSCopying> {
+    struct shared_ptr<vk::LabelMapTile> { 
+        struct LabelMapTile {} *__ptr_; 
+        struct __shared_weak_count {} *__cntrl_; 
+    } _labelMapTile;
     struct { 
         float x0; 
         float x1; 
         float y0; 
         float y1; 
-    struct shared_ptr<vk::LabelMapTile> { 
-        struct LabelMapTile {} *__ptr_; 
-        struct __shared_weak_count {} *__cntrl_; 
-    } _labelMapTile;
-    } _localBounds[34];
+    } _localBounds;
     float _maximumStyleZ;
+    BOOL _needsRasterization;
     VKRasterTile *_rasterized;
-    double _stateDates[34];
-    id _stateMetas[34];
-    unsigned long long _states[34];
-    VKTile *_tiles[34];
-    bool_needsRasterization;
+    double _stateDates;
+    /* Warning: unhandled array encoding: '[34@]' */ id _stateMetas;
+    unsigned int _states;
+    VKTile *_tiles;
 }
 
-@property struct shared_ptr<vk::LabelMapTile> { struct LabelMapTile {} *x1; struct __shared_weak_count {} *x2; } labelMapTile;
-@property(readonly) float maximumStyleZ;
-@property bool needsRasterization;
-@property(retain) VKRasterTile * rasterized;
+@property (nonatomic) struct shared_ptr<vk::LabelMapTile> { struct LabelMapTile {} *x1; struct __shared_weak_count {} *x2; } labelMapTile;
+@property (nonatomic, readonly) float maximumStyleZ;
+@property (nonatomic) BOOL needsRasterization;
+@property (nonatomic, retain) VKRasterTile *rasterized;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)_setTile:(id)arg1 state:(unsigned long long)arg2 metadata:(id)arg3 forLayer:(unsigned long long)arg4 timestamp:(double)arg5;
+- (void)_setTile:(id)arg1 state:(unsigned int)arg2 metadata:(id)arg3 forLayer:(unsigned long long)arg4 timestamp:(double)arg5;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
@@ -40,14 +38,14 @@
 - (struct shared_ptr<vk::LabelMapTile> { struct LabelMapTile {} *x1; struct __shared_weak_count {} *x2; })labelMapTile;
 - (struct { float x1; float x2; float x3; float x4; })localBoundsForLayer:(unsigned long long)arg1;
 - (float)maximumStyleZ;
-- (bool)needsRasterization;
+- (BOOL)needsRasterization;
 - (id)rasterized;
 - (void)setLabelMapTile:(struct shared_ptr<vk::LabelMapTile> { struct LabelMapTile {} *x1; struct __shared_weak_count {} *x2; })arg1;
-- (void)setNeedsRasterization:(bool)arg1;
+- (void)setNeedsRasterization:(BOOL)arg1;
 - (void)setRasterized:(id)arg1;
-- (void)setTile:(id)arg1 state:(unsigned long long)arg2 metadata:(id)arg3 forLayer:(unsigned long long)arg4;
+- (void)setTile:(id)arg1 state:(unsigned int)arg2 metadata:(id)arg3 forLayer:(unsigned long long)arg4;
 - (id)tileForLayer:(unsigned long long)arg1;
-- (unsigned long long)tileStateForLayer:(unsigned long long)arg1;
+- (unsigned int)tileStateForLayer:(unsigned long long)arg1;
 - (void)updateViewDependentStateWithContext:(id)arg1;
 
 @end

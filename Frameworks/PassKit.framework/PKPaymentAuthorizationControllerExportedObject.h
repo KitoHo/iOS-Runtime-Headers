@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-@class <PKPaymentAuthorizationControllerDelegate>, <PKPaymentAuthorizationControllerPrivateDelegate>, <PKPaymentAuthorizationServiceProtocol>, NSString, PKPaymentAuthorizationController;
-
 @interface PKPaymentAuthorizationControllerExportedObject : NSObject <PKPaymentAuthorizationHostProtocol> {
     PKPaymentAuthorizationController *_controller;
     <PKPaymentAuthorizationControllerDelegate> *_delegate;
@@ -11,20 +9,21 @@
     <PKPaymentAuthorizationServiceProtocol> *_serviceProxy;
 }
 
-@property PKPaymentAuthorizationController * controller;
-@property(copy,readonly) NSString * debugDescription;
-@property <PKPaymentAuthorizationControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property <PKPaymentAuthorizationControllerPrivateDelegate> * privateDelegate;
-@property(retain) <PKPaymentAuthorizationServiceProtocol> * serviceProxy;
-@property(readonly) Class superclass;
+@property (nonatomic) PKPaymentAuthorizationController *controller;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <PKPaymentAuthorizationControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) <PKPaymentAuthorizationControllerPrivateDelegate> *privateDelegate;
+@property (nonatomic, retain) <PKPaymentAuthorizationServiceProtocol> *serviceProxy;
+@property (readonly) Class superclass;
 
 - (void)authorizationDidAuthorizePayment:(id)arg1;
 - (void)authorizationDidFinishWithError:(id)arg1;
 - (void)authorizationDidPresent;
 - (void)authorizationDidSelectShippingAddress:(id)arg1;
 - (void)authorizationDidSelectShippingMethod:(id)arg1;
+- (void)authorizationWillStart;
 - (id)controller;
 - (void)dealloc;
 - (id)delegate;

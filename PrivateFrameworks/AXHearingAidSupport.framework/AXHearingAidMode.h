@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/AXHearingAidSupport.framework/AXHearingAidSupport
  */
 
-@class NSString;
-
 @interface AXHearingAidMode : NSObject <NSSecureCoding> {
-    long long _category;
+    int _category;
     int _ear;
     unsigned char _index;
+    BOOL _isSelected;
     NSString *_name;
-    bool_isSelected;
     int syncAttempts;
 }
 
-@property long long category;
-@property int ear;
-@property unsigned char index;
-@property bool isSelected;
-@property(copy) NSString * name;
-@property int syncAttempts;
+@property (nonatomic) int category;
+@property (nonatomic) int ear;
+@property (nonatomic) unsigned char index;
+@property (nonatomic) BOOL isSelected;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic) int syncAttempts;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
-- (long long)category;
+- (int)category;
 - (void)dealloc;
 - (id)description;
 - (int)ear;
@@ -30,14 +28,14 @@
 - (unsigned char)index;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithRepresentation:(id)arg1;
-- (bool)isEqual:(id)arg1;
-- (bool)isSelected;
-- (bool)isStream;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isSelected;
+- (BOOL)isStream;
 - (id)name;
-- (void)setCategory:(long long)arg1;
+- (void)setCategory:(int)arg1;
 - (void)setEar:(int)arg1;
 - (void)setIndex:(unsigned char)arg1;
-- (void)setIsSelected:(bool)arg1;
+- (void)setIsSelected:(BOOL)arg1;
 - (void)setName:(id)arg1;
 - (void)setSyncAttempts:(int)arg1;
 - (int)syncAttempts;

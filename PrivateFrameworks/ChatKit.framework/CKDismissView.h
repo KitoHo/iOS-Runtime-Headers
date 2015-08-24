@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class <CKDismissViewDelegate>, NSArray;
-
 @interface CKDismissView : UIView {
     <CKDismissViewDelegate> *_delegate;
     NSArray *_passthroughViews;
 }
 
-@property <CKDismissViewDelegate> * delegate;
-@property(copy) NSArray * passthroughViews;
+@property (nonatomic) <CKDismissViewDelegate> *delegate;
+@property (nonatomic, copy) NSArray *passthroughViews;
 
 - (void)dealloc;
 - (id)delegate;
-- (id)hitTest:(struct CGPoint { double x1; double x2; })arg1 withEvent:(id)arg2;
+- (id)hitTest:(struct CGPoint { float x1; float x2; })arg1 withEvent:(id)arg2;
 - (id)passthroughViews;
 - (void)setDelegate:(id)arg1;
 - (void)setPassthroughViews:(id)arg1;

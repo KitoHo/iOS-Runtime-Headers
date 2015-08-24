@@ -2,18 +2,17 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@class CLLocation, NSString;
+@interface EKStructuredLocation : EKObject <NSCopying>
 
-@interface EKStructuredLocation : EKObject <NSCopying> {
-}
+@property (nonatomic, retain) NSString *address;
+@property (nonatomic, copy) NSString *addressBookEntityID;
+@property (nonatomic, retain) CLLocation *geoLocation;
+@property (nonatomic, readonly) BOOL isStructured;
+@property (nonatomic) double radius;
+@property (nonatomic, retain) NSString *routing;
+@property (nonatomic, retain) NSString *title;
 
-@property(retain) NSString * address;
-@property(copy) NSString * addressBookEntityID;
-@property(retain) CLLocation * geoLocation;
-@property(readonly) bool isStructured;
-@property double radius;
-@property(retain) NSString * routing;
-@property(retain) NSString * title;
+// Image: /System/Library/Frameworks/EventKit.framework/EventKit
 
 + (id)locationWithTitle:(id)arg1;
 
@@ -25,10 +24,9 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)geoLocation;
-- (id)humanReadableContactString;
 - (id)init;
-- (bool)isEqualToLocation:(id)arg1;
-- (bool)isStructured;
+- (BOOL)isEqualToLocation:(id)arg1;
+- (BOOL)isStructured;
 - (double)radius;
 - (id)routing;
 - (void)setAddress:(id)arg1;
@@ -39,5 +37,9 @@
 - (void)setTitle:(id)arg1;
 - (id)title;
 - (void)updatePersistentObject;
+
+// Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
+
+- (id)humanReadableContactString;
 
 @end

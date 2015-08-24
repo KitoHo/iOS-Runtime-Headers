@@ -2,64 +2,54 @@
    Image: /System/Library/PrivateFrameworks/AXHearingAidSupport.framework/AXHearingAidSupport
  */
 
-@class <AXHARemoteControllerDelegate>, AXHARemoteMessage, AXHATimer, NSInputStream, NSMutableArray, NSMutableData, NSNetService, NSOutputStream, NSString;
-
 @interface AXHARemoteController : NSObject <NSNetServiceDelegate, NSStreamDelegate> {
-    NSMutableArray *_ackQueue;
-    AXHATimer *_ackTimer;
     AXHATimer *_communicationTimer;
     AXHARemoteMessage *_currentMessageInFlight;
-    AXHATimer *_dataTimer;
+    AXHAPacket *_currentPacket;
     <AXHARemoteControllerDelegate> *_delegate;
+    BOOL _didValidateHIID;
     NSMutableData *_inputBuffer;
     NSInputStream *_inputStream;
     NSMutableData *_outputBuffer;
     NSMutableArray *_outputDataQueue;
     NSOutputStream *_outputStream;
     NSNetService *_service;
-    bool_didValidateHIID;
 }
 
-@property(retain) NSMutableArray * ackQueue;
-@property(retain) AXHATimer * ackTimer;
-@property(retain) AXHATimer * communicationTimer;
-@property(retain) AXHARemoteMessage * currentMessageInFlight;
-@property(retain) AXHATimer * dataTimer;
-@property(copy,readonly) NSString * debugDescription;
-@property <AXHARemoteControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property bool didValidateHIID;
-@property(readonly) unsigned long long hash;
-@property(retain) NSMutableData * inputBuffer;
-@property(retain) NSInputStream * inputStream;
-@property(retain) NSMutableData * outputBuffer;
-@property(retain) NSMutableArray * outputDataQueue;
-@property(retain) NSOutputStream * outputStream;
-@property(retain) NSNetService * service;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) AXHATimer *communicationTimer;
+@property (nonatomic, retain) AXHARemoteMessage *currentMessageInFlight;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <AXHARemoteControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) BOOL didValidateHIID;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NSMutableData *inputBuffer;
+@property (nonatomic, retain) NSInputStream *inputStream;
+@property (nonatomic, retain) NSMutableData *outputBuffer;
+@property (nonatomic, retain) NSMutableArray *outputDataQueue;
+@property (nonatomic, retain) NSOutputStream *outputStream;
+@property (nonatomic, retain) NSNetService *service;
+@property (readonly) Class superclass;
 
 - (void)acceptConnection:(int)arg1;
-- (id)ackQueue;
-- (id)ackTimer;
 - (void)clearMessageQueue;
 - (void)closeConnectionWithError:(id)arg1;
 - (id)communicationTimer;
 - (id)currentMessageInFlight;
-- (id)dataTimer;
 - (void)dealloc;
 - (id)delegate;
 - (id)description;
 - (void)didCommunicate;
-- (bool)didValidateHIID;
+- (BOOL)didValidateHIID;
 - (void)enqueueData:(id)arg1;
 - (void)finishedSending:(id)arg1;
 - (id)init;
 - (id)initWithService:(id)arg1;
 - (id)inputBuffer;
 - (id)inputStream;
-- (bool)isConnected;
-- (bool)isConnecting;
-- (bool)isSlave;
+- (BOOL)isConnected;
+- (BOOL)isConnecting;
+- (BOOL)isSlave;
 - (void)messageWasAcked:(id)arg1;
 - (id)name;
 - (void)netService:(id)arg1 didAcceptConnectionWithInputStream:(id)arg2 outputStream:(id)arg3;
@@ -79,16 +69,13 @@
 - (void)receivedData:(id)arg1;
 - (void)resetConnection;
 - (void)sendDataChunk;
-- (bool)sendObject:(id)arg1 withSendCompletion:(id)arg2 andAckCompletion:(id)arg3;
-- (bool)sendObject:(id)arg1;
+- (BOOL)sendObject:(id)arg1;
+- (BOOL)sendObject:(id)arg1 withSendCompletion:(id /* block */)arg2;
 - (id)service;
-- (void)setAckQueue:(id)arg1;
-- (void)setAckTimer:(id)arg1;
 - (void)setCommunicationTimer:(id)arg1;
 - (void)setCurrentMessageInFlight:(id)arg1;
-- (void)setDataTimer:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setDidValidateHIID:(bool)arg1;
+- (void)setDidValidateHIID:(BOOL)arg1;
 - (void)setInputBuffer:(id)arg1;
 - (void)setInputStream:(id)arg1;
 - (void)setOutputBuffer:(id)arg1;
@@ -97,7 +84,7 @@
 - (void)setSecuritySettingsForStream:(id)arg1;
 - (void)setService:(id)arg1;
 - (void)setupStream:(id)arg1;
-- (void)stream:(id)arg1 handleEvent:(unsigned long long)arg2;
+- (void)stream:(id)arg1 handleEvent:(unsigned int)arg2;
 - (void)validatePairedAid;
 
 @end

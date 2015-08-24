@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSError, NSString;
-
 @interface CKZonePCSDiagnosticInformation : NSObject <NSSecureCoding> {
     NSString *_pcsDiagnosticString;
     NSError *_pcsError;
     int _pcsStatus;
-    bool_wasRepaired;
+    BOOL _wasRepaired;
 }
 
-@property(retain) NSString * pcsDiagnosticString;
-@property(retain) NSError * pcsError;
-@property int pcsStatus;
-@property bool wasRepaired;
+@property (nonatomic, retain) NSString *pcsDiagnosticString;
+@property (nonatomic, retain) NSError *pcsError;
+@property (nonatomic) int pcsStatus;
+@property (nonatomic) BOOL wasRepaired;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
@@ -27,7 +25,7 @@
 - (void)setPcsDiagnosticString:(id)arg1;
 - (void)setPcsError:(id)arg1;
 - (void)setPcsStatus:(int)arg1;
-- (void)setWasRepaired:(bool)arg1;
-- (bool)wasRepaired;
+- (void)setWasRepaired:(BOOL)arg1;
+- (BOOL)wasRepaired;
 
 @end

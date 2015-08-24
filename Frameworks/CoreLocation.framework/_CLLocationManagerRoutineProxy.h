@@ -2,24 +2,22 @@
    Image: /System/Library/Frameworks/CoreLocation.framework/CoreLocation
  */
 
-@class <CLLocationManagerDelegate>, CLLocationManagerRoutine, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
-
 @interface _CLLocationManagerRoutineProxy : NSObject <CLLocationManagerRoutineClientInterface> {
     NSXPCConnection *_connection;
     <CLLocationManagerDelegate> *_delegate;
     CLLocationManagerRoutine *_locationManagerRoutine;
     NSObject<OS_dispatch_queue> *_queue;
-    bool_updating;
+    BOOL _updating;
 }
 
-@property(retain) NSXPCConnection * connection;
-@property(copy,readonly) NSString * debugDescription;
-@property <CLLocationManagerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property CLLocationManagerRoutine * locationManagerRoutine;
-@property(readonly) Class superclass;
-@property bool updating;
+@property (nonatomic, retain) NSXPCConnection *connection;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <CLLocationManagerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic) CLLocationManagerRoutine *locationManagerRoutine;
+@property (readonly) Class superclass;
+@property (nonatomic) BOOL updating;
 
 - (id)connection;
 - (void)createConnection;
@@ -31,7 +29,7 @@
 - (void)setConnection:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setLocationManagerRoutine:(id)arg1;
-- (void)setUpdating:(bool)arg1;
-- (bool)updating;
+- (void)setUpdating:(BOOL)arg1;
+- (BOOL)updating;
 
 @end

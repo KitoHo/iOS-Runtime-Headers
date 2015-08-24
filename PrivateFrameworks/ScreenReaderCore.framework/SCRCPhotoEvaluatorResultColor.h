@@ -3,19 +3,19 @@
  */
 
 @interface SCRCPhotoEvaluatorResultColor : SCRCPhotoEvaluatorResult {
-    double _blueLevel;
-    double _greenLevel;
-    double _redLevel;
+    float _blueLevel;
+    float _greenLevel;
+    float _redLevel;
 }
 
-@property(readonly) double blueLevel;
-@property(readonly) double greenLevel;
-@property(readonly) double redLevel;
+@property (nonatomic, readonly) float blueLevel;
+@property (nonatomic, readonly) float greenLevel;
+@property (nonatomic, readonly) float redLevel;
 
-- (double)blueLevel;
-- (double)greenLevel;
+- (float)blueLevel;
+- (float)greenLevel;
 - (id)humanReadableResult;
-- (id)initWithRedLevel:(double)arg1 blueLevel:(double)arg2 greenLevel:(double)arg3;
-- (double)redLevel;
+- (id)initWithRedLevel:(float)arg1 blueLevel:(float)arg2 greenLevel:(float)arg3;
+- (float)redLevel;
 
 @end

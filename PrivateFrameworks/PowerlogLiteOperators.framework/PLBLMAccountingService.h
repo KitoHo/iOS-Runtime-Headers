@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/PowerlogLiteOperators.framework/PowerlogLiteOperators
  */
 
-@class NSDate, NSMutableArray, NSMutableDictionary, PLEntryNotificationOperatorComposition, PLNSTimerOperatorComposition, PLQLAccountingQuery, PLXPCListenerOperatorComposition;
-
 @interface PLBLMAccountingService : PLService {
     double _APSOCBasePower;
     PLEntryNotificationOperatorComposition *_LTESleepStatsQueryCallback;
@@ -16,6 +14,7 @@
     double _lastSafeTimeForSnapping;
     PLNSTimerOperatorComposition *_lteSleepStatsQueryTimer;
     NSMutableDictionary *_postAccoutingQueries;
+    NSMutableDictionary *_postpostAccoutingQueries;
     PLEntryNotificationOperatorComposition *_processmonitorCallback;
     PLEntryNotificationOperatorComposition *_processnetworkCallback;
     NSMutableDictionary *_queries;
@@ -26,25 +25,26 @@
     PLXPCListenerOperatorComposition *_xpcListenerDuetEvent;
 }
 
-@property(readonly) double APSOCBasePower;
-@property(retain) PLEntryNotificationOperatorComposition * LTESleepStatsQueryCallback;
-@property(retain) PLQLAccountingQuery * autoLockQuery;
-@property(retain) PLEntryNotificationOperatorComposition * bbCallback;
-@property(readonly) NSMutableDictionary * daemonRename;
-@property(readonly) double highBrightnessThreshold;
-@property(retain) PLEntryNotificationOperatorComposition * ioreportCallback;
-@property(retain) NSDate * lastQueryRunTime;
+@property (readonly) double APSOCBasePower;
+@property (retain) PLEntryNotificationOperatorComposition *LTESleepStatsQueryCallback;
+@property (retain) PLQLAccountingQuery *autoLockQuery;
+@property (retain) PLEntryNotificationOperatorComposition *bbCallback;
+@property (readonly) NSMutableDictionary *daemonRename;
+@property (readonly) double highBrightnessThreshold;
+@property (retain) PLEntryNotificationOperatorComposition *ioreportCallback;
+@property (retain) NSDate *lastQueryRunTime;
 @property double lastSafeTimeForSnapping;
-@property(retain) PLNSTimerOperatorComposition * lteSleepStatsQueryTimer;
-@property(retain) NSMutableDictionary * postAccoutingQueries;
-@property(retain) PLEntryNotificationOperatorComposition * processmonitorCallback;
-@property(retain) PLEntryNotificationOperatorComposition * processnetworkCallback;
-@property(retain) NSMutableDictionary * queries;
-@property(retain) NSMutableArray * registeredNotifications;
-@property(retain) PLNSTimerOperatorComposition * runQueryTimer;
-@property(retain) NSMutableArray * snapRails;
-@property(retain) PLEntryNotificationOperatorComposition * wifiCallback;
-@property(retain) PLXPCListenerOperatorComposition * xpcListenerDuetEvent;
+@property (retain) PLNSTimerOperatorComposition *lteSleepStatsQueryTimer;
+@property (retain) NSMutableDictionary *postAccoutingQueries;
+@property (retain) NSMutableDictionary *postpostAccoutingQueries;
+@property (retain) PLEntryNotificationOperatorComposition *processmonitorCallback;
+@property (retain) PLEntryNotificationOperatorComposition *processnetworkCallback;
+@property (retain) NSMutableDictionary *queries;
+@property (retain) NSMutableArray *registeredNotifications;
+@property (retain) PLNSTimerOperatorComposition *runQueryTimer;
+@property (retain) NSMutableArray *snapRails;
+@property (retain) PLEntryNotificationOperatorComposition *wifiCallback;
+@property (retain) PLXPCListenerOperatorComposition *xpcListenerDuetEvent;
 
 + (id)BBOOSRailsForCurrentDevice;
 + (id)BBRailsForCurrentDevice;
@@ -52,12 +52,17 @@
 + (id)GPSRailsForCurrentDevice;
 + (id)aggregateNameAppEnergyBreakdown;
 + (id)aggregatedData;
++ (id)appNameForNetworkingExtension:(id)arg1;
 + (id)daemonsAccounted;
 + (id)defaults;
 + (id)entryAggregateDefinitions;
 + (id)entryEventNoneDefinitionLogging;
 + (id)entryEventNoneDefinitions;
 + (id)entryEventNoneQueryTime;
++ (id)gizmoDaemonTransformation;
++ (id)gizmoExtensions;
++ (id)gizmoIDSTopicTransformation;
++ (BOOL)isWatchExtensionForNetworking:(id)arg1;
 + (void)load;
 + (id)railDefinitions;
 
@@ -78,12 +83,13 @@
 - (void)initAccountingEntitiesLastTime;
 - (void)initOperatorDependancies;
 - (id)ioreportCallback;
-- (bool)isAppPresentInFGDictionary:(id)arg1 app:(id)arg2;
+- (BOOL)isAppPresentInFGDictionary:(id)arg1 app:(id)arg2;
 - (double)lastBoundedTimeForAccountingWithNow:(id)arg1 withLastDate:(id)arg2;
 - (id)lastQueryRunTime;
 - (double)lastSafeTimeForSnapping;
 - (id)lteSleepStatsQueryTimer;
 - (id)postAccoutingQueries;
+- (id)postpostAccoutingQueries;
 - (id)processmonitorCallback;
 - (id)processnetworkCallback;
 - (id)queries;
@@ -95,6 +101,7 @@
 - (void)registerForTelephonyActivityNotifications;
 - (id)registeredNotifications;
 - (void)runPostAccountingQueriesForQuery:(id)arg1 withAccountedBuckets:(id)arg2;
+- (void)runPostPostAccountingQueriesForQueryID:(id)arg1 withAccountedBuckets:(id)arg2;
 - (void)runQueries:(id)arg1;
 - (id)runQueryTimer;
 - (void)setAPSOCBasePower:(id)arg1;
@@ -107,6 +114,7 @@
 - (void)setLastSafeTimeForSnapping:(double)arg1;
 - (void)setLteSleepStatsQueryTimer:(id)arg1;
 - (void)setPostAccoutingQueries:(id)arg1;
+- (void)setPostpostAccoutingQueries:(id)arg1;
 - (void)setProcessmonitorCallback:(id)arg1;
 - (void)setProcessnetworkCallback:(id)arg1;
 - (void)setQueries:(id)arg1;
@@ -122,8 +130,8 @@
 - (id)setupForeGroundQuery;
 - (void)setupPostAccountingQueries;
 - (void)setupQueries;
-- (double)snapRails:(id)arg1 withLastSnapTime:(double)arg2 withLoggingArray:(id)arg3;
 - (id)snapRails;
+- (double)snapRails:(id)arg1 withLastSnapTime:(double)arg2 withLoggingArray:(id)arg3;
 - (void)storeAggregatedResult:(id)arg1 withValue:(double)arg2;
 - (void)storeQueryResult:(id)arg1 withEntryKeyName:(id)arg2 withAggKey:(id)arg3 forQuery:(id)arg4;
 - (void)testRailEnergy;

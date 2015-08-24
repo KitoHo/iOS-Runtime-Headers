@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSCHStyleSemanticTag;
-
 @interface TSCHSemanticTagAndPropertyPair : NSObject <NSCopying> {
     int mProperty;
     TSCHStyleSemanticTag *mSemanticTag;
@@ -14,9 +12,9 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithSemanticTag:(id)arg1 property:(int)arg2;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (int)property;
 - (id)semanticTag;
 

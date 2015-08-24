@@ -2,12 +2,10 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIContext, NSMutableDictionary;
-
 @interface CIRectangleDetector : CIDetector {
-    double _height;
+    float _height;
     void *_internalBuffer;
-    double _width;
+    float _width;
     CIContext *context;
     NSMutableDictionary *featureOptions;
     struct __CVBuffer { } *interimScaleBuffer;
@@ -16,12 +14,12 @@
     struct __CVBuffer { } *scaleBuffer;
 }
 
-@property(retain) CIContext * context;
+@property (nonatomic, retain) CIContext *context;
 
 - (id)context;
 - (void)dealloc;
-- (id)featuresInImage:(id)arg1 options:(id)arg2;
 - (id)featuresInImage:(id)arg1;
+- (id)featuresInImage:(id)arg1 options:(id)arg2;
 - (id)featuresInImageUsingCCRect:(id)arg1 options:(id)arg2;
 - (void)finalize;
 - (id)initWithContext:(id)arg1 options:(id)arg2;

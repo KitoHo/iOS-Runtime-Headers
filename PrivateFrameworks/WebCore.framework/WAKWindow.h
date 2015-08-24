@@ -2,150 +2,141 @@
    Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class CALayer, WAKView;
-
 @interface WAKWindow : WAKResponder {
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
     struct CGSize { 
-        double width; 
-        double height; 
-    struct CGSize { 
-        double width; 
-        double height; 
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    struct TCMalloc_SpinLock { 
-        unsigned int lockword_; 
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
+        float width; 
+        float height; 
     } _availableScreenSize;
     WAKView *_contentView;
+    BOOL _entireWindowVisibleForTesting;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _exposedScrollViewRect;
+    struct TCMalloc_SpinLock { 
+        unsigned int lockword_; 
     } _exposedScrollViewRectLock;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _frame;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _frozenVisibleRect;
     CALayer *_hostLayer;
     WAKView *_nextResponder;
     WAKView *_responderView;
     CALayer *_rootLayer;
-    double _screenScale;
+    float _screenScale;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _screenSize;
-    struct LegacyTileCache { id x1; struct RetainPtr<CGImage *> { void *x_2_1_1; } x2; boolx3; boolx4; boolx5; struct RetainPtr<LegacyTileCacheTombstone> { void *x_6_1_1; } x6; int x7; int x8; struct IntSize { int x_9_1_1; int x_9_1_2; } x9; boolx10; boolx11; boolx12; boolx13; boolx14; boolx15; struct OwnPtr<WebCore::LegacyTileGrid> { struct LegacyTileGrid {} *x_16_1_1; } x16; struct OwnPtr<WebCore::LegacyTileGrid> { struct LegacyTileGrid {} *x_17_1_1; } x17; struct Timer<WebCore::LegacyTileCache> { int (**x_18_1_1)(); double x_18_1_2; double x_18_1_3; double x_18_1_4; int x_18_1_5; unsigned int x_18_1_6; struct Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow> {} *x_18_1_7; struct function<void ()>={type=[24C] {} x_18_1_8; struct __base<void ()> {} *x_18_1_9; } x18; } *_tileCache;
-    bool_useOrientationDependentFontAntialiasing;
-    bool_visible;
+    struct LegacyTileCache { id x1; /* Warning: Unrecognized filer type: 'R' using 'void*' */ void*x2; void*x3; void*x4; void*x5; int x6; in void*x7; void*x8; const void*x9; unsigned char x10; void*x11; unsigned int x12; void*x13; void*x14; void*x15; void*x16; void*x17; char *x18; void*x19; void*x20; void *x21; } *_tileCache;
+    BOOL _useOrientationDependentFontAntialiasing;
+    BOOL _visible;
 }
 
-@property struct CGImage { }* contentReplacementImage;
-@property bool useOrientationDependentFontAntialiasing;
+@property (nonatomic) struct CGImage { }*contentReplacementImage;
+@property (nonatomic) BOOL useOrientationDependentFontAntialiasing;
 
 + (id)currentEvent;
-+ (bool)hasLandscapeOrientation;
++ (BOOL)hasLandscapeOrientation;
 + (void)setOrientationProvider:(id)arg1;
 
-- (struct LegacyTileCache { id x1; struct RetainPtr<CGImage *> { void *x_2_1_1; } x2; boolx3; boolx4; boolx5; struct RetainPtr<LegacyTileCacheTombstone> { void *x_6_1_1; } x6; int x7; int x8; struct IntSize { int x_9_1_1; int x_9_1_2; } x9; boolx10; boolx11; boolx12; boolx13; boolx14; boolx15; struct OwnPtr<WebCore::LegacyTileGrid> { struct LegacyTileGrid {} *x_16_1_1; } x16; struct OwnPtr<WebCore::LegacyTileGrid> { struct LegacyTileGrid {} *x_17_1_1; } x17; struct Timer<WebCore::LegacyTileCache> { int (**x_18_1_1)(); double x_18_1_2; double x_18_1_3; double x_18_1_4; int x_18_1_5; unsigned int x_18_1_6; struct Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow> {} *x_18_1_7; struct function<void ()>={type=[24C] {} x_18_1_8; struct __base<void ()> {} *x_18_1_9; } x18; }*)tileCache;
 - (id).cxx_construct;
 - (id)_newFirstResponderAfterResigning;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })_visibleRectRespectingMasksToBounds:(bool)arg1;
-- (struct CGSize { double x1; double x2; })availableScreenSize;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })_visibleRectRespectingMasksToBounds:(BOOL)arg1;
+- (struct CGSize { float x1; float x2; })availableScreenSize;
 - (void)close;
 - (struct CGImage { }*)contentReplacementImage;
 - (id)contentView;
-- (struct CGPoint { double x1; double x2; })convertBaseToScreen:(struct CGPoint { double x1; double x2; })arg1;
-- (struct CGPoint { double x1; double x2; })convertScreenToBase:(struct CGPoint { double x1; double x2; })arg1;
+- (struct CGPoint { float x1; float x2; })convertBaseToScreen:(struct CGPoint { float x1; float x2; })arg1;
+- (struct CGPoint { float x1; float x2; })convertScreenToBase:(struct CGPoint { float x1; float x2; })arg1;
 - (float)currentTileScale;
 - (void)dealloc;
 - (id)description;
 - (void)didRotate;
-- (void)displayRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)displayRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)dumpTiles;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })exposedScrollViewRect;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })extendedVisibleRect;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })exposedScrollViewRect;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })extendedVisibleRect;
 - (id)firstResponder;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })frame;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })frame;
 - (void)freezeVisibleRect;
-- (bool)hasPendingDraw;
+- (BOOL)hasPendingDraw;
 - (id)hostLayer;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (id)initWithLayer:(id)arg1;
-- (bool)isKeyWindow;
-- (bool)isVisible;
-- (bool)keepsZoomedOutTiles;
+- (BOOL)isKeyWindow;
+- (BOOL)isVisible;
+- (BOOL)keepsZoomedOutTiles;
 - (int)keyViewSelectionDirection;
 - (void)layoutTiles;
 - (void)layoutTilesNow;
-- (void)layoutTilesNowForRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (bool)makeFirstResponder:(id)arg1;
+- (void)layoutTilesNowForRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (BOOL)makeFirstResponder:(id)arg1;
 - (void)makeKeyWindow;
 - (id)recursiveDescription;
 - (void)removeAllNonVisibleTiles;
 - (void)removeAllTiles;
 - (void)removeForegroundTiles;
 - (id)rootLayer;
-- (double)screenScale;
-- (struct CGSize { double x1; double x2; })screenSize;
+- (float)screenScale;
+- (struct CGSize { float x1; float x2; })screenSize;
 - (void)sendEvent:(id)arg1;
 - (void)sendEventSynchronously:(id)arg1;
 - (void)sendMouseMoveEvent:(id)arg1 contentChange:(int*)arg2;
-- (void)setAcceleratedDrawingEnabled:(bool)arg1;
-- (void)setAvailableScreenSize:(struct CGSize { double x1; double x2; })arg1;
-- (void)setContentRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)setAcceleratedDrawingEnabled:(BOOL)arg1;
+- (void)setAvailableScreenSize:(struct CGSize { float x1; float x2; })arg1;
+- (void)setContentRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)setContentReplacementImage:(struct CGImage { }*)arg1;
 - (void)setContentView:(id)arg1;
 - (void)setCurrentTileScale:(float)arg1;
-- (void)setExposedScrollViewRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (void)setFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 display:(bool)arg2;
-- (void)setKeepsZoomedOutTiles:(bool)arg1;
+- (void)setEntireWindowVisibleForTesting:(BOOL)arg1;
+- (void)setExposedScrollViewRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (void)setFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1 display:(BOOL)arg2;
+- (void)setKeepsZoomedOutTiles:(BOOL)arg1;
 - (void)setNeedsDisplay;
-- (void)setNeedsDisplayInRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)setNeedsDisplayInRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)setRootLayer:(id)arg1;
-- (void)setScreenScale:(double)arg1;
-- (void)setScreenSize:(struct CGSize { double x1; double x2; })arg1;
-- (void)setTileBordersVisible:(bool)arg1;
-- (void)setTileControllerShouldUseLowScaleTiles:(bool)arg1;
-- (void)setTilePaintCountsVisible:(bool)arg1;
-- (void)setTilesOpaque:(bool)arg1;
+- (void)setScreenScale:(float)arg1;
+- (void)setScreenSize:(struct CGSize { float x1; float x2; })arg1;
+- (void)setTileBordersVisible:(BOOL)arg1;
+- (void)setTileControllerShouldUseLowScaleTiles:(BOOL)arg1;
+- (void)setTilePaintCountsVisible:(BOOL)arg1;
+- (void)setTilesOpaque:(BOOL)arg1;
 - (void)setTilingDirection:(int)arg1;
 - (void)setTilingMode:(int)arg1;
-- (void)setUseOrientationDependentFontAntialiasing:(bool)arg1;
-- (void)setVisible:(bool)arg1;
+- (void)setUseOrientationDependentFontAntialiasing:(BOOL)arg1;
+- (void)setVisible:(BOOL)arg1;
 - (void)setZoomedOutTileScale:(float)arg1;
-- (bool)tilesOpaque;
+- (struct LegacyTileCache { id x1; /* Warning: Unrecognized filer type: 'R' using 'void*' */ void*x2; void*x3; void*x4; void*x5; int x6; in void*x7; void*x8; const void*x9; unsigned char x10; void*x11; unsigned int x12; void*x13; void*x14; void*x15; void*x16; void*x17; char *x18; void*x19; void*x20; void *x21; }*)tileCache;
+- (BOOL)tilesOpaque;
 - (int)tilingDirection;
 - (int)tilingMode;
 - (void)unfreezeVisibleRect;
-- (bool)useOrientationDependentFontAntialiasing;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })visibleRect;
+- (BOOL)useOrientationDependentFontAntialiasing;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })visibleRect;
 - (void)willRotate;
 - (float)zoomedOutTileScale;
 

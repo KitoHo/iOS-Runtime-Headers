@@ -3,25 +3,29 @@
  */
 
 @interface MPUSpringAnimationFactory : MPUAnimationFactory {
-    double _damping;
-    double _mass;
-    double _stiffness;
-    double _velocity;
+    float _damping;
+    float _mass;
+    float _stiffness;
+    float _velocity;
 }
 
-@property double damping;
-@property double mass;
-@property double stiffness;
-@property double velocity;
+@property (nonatomic) float damping;
+@property (nonatomic) float mass;
+@property (nonatomic) float stiffness;
+@property (nonatomic) float velocity;
+
++ (void)animateUsingSpringWithDamping:(float)arg1 mass:(float)arg2 stiffness:(float)arg3 velocity:(float)arg4 animations:(id /* block */)arg5 options:(unsigned int)arg6 completion:(id /* block */)arg7;
 
 - (id)_basicAnimationForView:(id)arg1 withKeyPath:(id)arg2;
-- (double)damping;
-- (double)mass;
-- (void)setDamping:(double)arg1;
-- (void)setMass:(double)arg1;
-- (void)setStiffness:(double)arg1;
-- (void)setVelocity:(double)arg1;
-- (double)stiffness;
-- (double)velocity;
+- (id)_newSpringAnimationForKeyPath:(id)arg1;
+- (float)damping;
+- (double)durationForEpsilon:(double)arg1;
+- (float)mass;
+- (void)setDamping:(float)arg1;
+- (void)setMass:(float)arg1;
+- (void)setStiffness:(float)arg1;
+- (void)setVelocity:(float)arg1;
+- (float)stiffness;
+- (float)velocity;
 
 @end

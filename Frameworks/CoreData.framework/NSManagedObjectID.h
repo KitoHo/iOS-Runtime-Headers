@@ -2,35 +2,37 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSEntityDescription, NSPersistentStore;
+@interface NSManagedObjectID : NSObject <NSCopying>
 
-@interface NSManagedObjectID : NSObject <NSCopying> {
-}
+@property (readonly) NSEntityDescription *entity;
+@property (readonly) NSPersistentStore *persistentStore;
+@property (getter=isTemporaryID, readonly) BOOL temporaryID;
 
-@property(readonly) NSEntityDescription * entity;
-@property(readonly) NSPersistentStore * persistentStore;
-@property(getter=isTemporaryID,readonly) bool temporaryID;
+// Image: /System/Library/Frameworks/CoreData.framework/CoreData
 
-+ (bool)accessInstanceVariablesDirectly;
++ (BOOL)accessInstanceVariablesDirectly;
 + (void)initialize;
-+ (long long)version;
++ (int)version;
 
 - (id)URIRepresentation;
-- (bool)_isDeallocating;
-- (bool)_isPersistentStoreAlive;
-- (long long)_referenceData64;
+- (BOOL)_isDeallocating;
+- (BOOL)_isPersistentStoreAlive;
 - (id)_referenceData;
+- (long long)_referenceData64;
 - (id)_retainedURIString;
 - (id)_storeIdentifier;
 - (id)_storeInfo1;
-- (bool)_tryRetain;
+- (BOOL)_tryRetain;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)entity;
 - (id)initWithCoder:(id)arg1;
-- (bool)isTemporaryID;
+- (BOOL)isTemporaryID;
 - (id)persistentStore;
+
+// Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
+
 - (id)pl_shortURI;
 
 @end

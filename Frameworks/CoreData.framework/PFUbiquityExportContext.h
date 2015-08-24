@@ -2,26 +2,24 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSMutableDictionary, NSString, PFUbiquityLocation;
-
 @interface PFUbiquityExportContext : NSObject {
     NSString *_localPeerID;
     NSMutableDictionary *_storeNameToStoreExportContext;
     PFUbiquityLocation *_ubiquityRootLocation;
     NSMutableDictionary *_ubiquityRootPathToStack;
-    bool_useLocalStorage;
+    BOOL _useLocalStorage;
 }
 
-@property(readonly) NSString * localPeerID;
-@property bool useLocalStorage;
+@property (nonatomic, readonly) NSString *localPeerID;
+@property (nonatomic) BOOL useLocalStorage;
 
 - (void)dealloc;
 - (id)description;
 - (id)initWithLocalPeerID:(id)arg1 andUbiquityRootLocation:(id)arg2;
 - (id)localPeerID;
-- (void)setUseLocalStorage:(bool)arg1;
+- (void)setUseLocalStorage:(BOOL)arg1;
 - (id)storeExportContextForStore:(id)arg1;
 - (id)storeExportContextForStoreName:(id)arg1;
-- (bool)useLocalStorage;
+- (BOOL)useLocalStorage;
 
 @end

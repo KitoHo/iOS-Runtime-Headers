@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSString, SSAuthenticationContext, SSLookupProperties;
-
 @interface SSLookupRequest : SSRequest <SSXPCCoding> {
     SSAuthenticationContext *_authenticationContext;
-    long long _personalizationStyle;
+    int _personalizationStyle;
     SSLookupProperties *_properties;
-    long long _resultFilters;
+    int _resultFilters;
 }
 
-@property(copy,readonly) SSLookupProperties * _lookupProperties;
-@property bool authenticatesIfNeeded;
-@property(copy) SSAuthenticationContext * authenticationContext;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * keyProfile;
-@property long long localizationStyle;
-@property long long personalizationStyle;
-@property long long resultFilters;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly, copy) SSLookupProperties *_lookupProperties;
+@property (nonatomic) BOOL authenticatesIfNeeded;
+@property (nonatomic, copy) SSAuthenticationContext *authenticationContext;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, copy) NSString *keyProfile;
+@property (nonatomic) int localizationStyle;
+@property (nonatomic) int personalizationStyle;
+@property (nonatomic) int resultFilters;
+@property (readonly) Class superclass;
 
 - (id)_lookupProperties;
 - (void)_setTimeoutInterval:(id)arg1;
-- (bool)authenticatesIfNeeded;
+- (BOOL)authenticatesIfNeeded;
 - (id)authenticationContext;
 - (id)copyXPCEncoding;
 - (void)dealloc;
@@ -33,19 +31,19 @@
 - (id)initWithLocation:(id)arg1;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)keyProfile;
-- (long long)localizationStyle;
-- (long long)personalizationStyle;
-- (long long)resultFilters;
-- (void)setAuthenticatesIfNeeded:(bool)arg1;
+- (int)localizationStyle;
+- (int)personalizationStyle;
+- (int)resultFilters;
+- (void)setAuthenticatesIfNeeded:(BOOL)arg1;
 - (void)setAuthenticationContext:(id)arg1;
 - (void)setKeyProfile:(id)arg1;
-- (void)setLocalizationStyle:(long long)arg1;
-- (void)setPersonalizationStyle:(long long)arg1;
-- (void)setResultFilters:(long long)arg1;
+- (void)setLocalizationStyle:(int)arg1;
+- (void)setPersonalizationStyle:(int)arg1;
+- (void)setResultFilters:(int)arg1;
 - (void)setValue:(id)arg1 forRequestParameter:(id)arg2;
-- (bool)start;
-- (void)startWithCompletionBlock:(id)arg1;
-- (void)startWithLookupBlock:(id)arg1;
+- (BOOL)start;
+- (void)startWithCompletionBlock:(id /* block */)arg1;
+- (void)startWithLookupBlock:(id /* block */)arg1;
 - (id)valueForRequestParameter:(id)arg1;
 
 @end

@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/iTunesStore.framework/iTunesStore
  */
 
-@class ISOperationQueue;
-
 @interface ISURLOperationPool : NSObject {
     ISOperationQueue *_operationQueue;
 }
 
-@property(retain) ISOperationQueue * operationQueue;
+@property (nonatomic, retain) ISOperationQueue *operationQueue;
 
-- (id)_poolOperationForOperation:(id)arg1 flags:(long long)arg2;
-- (void)addOperation:(id)arg1 withFlags:(long long)arg2;
+- (id)_poolOperationForOperation:(id)arg1 flags:(int)arg2;
+- (void)addOperation:(id)arg1 withFlags:(int)arg2;
 - (void)cancelOperation:(id)arg1;
 - (void)dealloc;
 - (id)init;

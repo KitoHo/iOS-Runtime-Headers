@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableSet;
-
 @interface PBAnimationCacheState : PDAnimationCacheState {
     NSMutableSet *mEntranceDrawables;
     NSMutableSet *mExitDrawables;
@@ -11,6 +9,6 @@
 
 - (void)dealloc;
 - (id)init;
-- (bool)isValid:(id)arg1;
+- (BOOL)isValid:(id)arg1;
 
 @end

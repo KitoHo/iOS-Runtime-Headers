@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableDictionary, NSMutableSet, OAXDrawingState, OCPPackagePart;
-
 @interface OAVReadState : OCXReadState {
     Class mClient;
     NSMutableSet *mDualDrawables;
@@ -19,9 +17,9 @@
 - (void)dealloc;
 - (id)drawableForVmlShapeId:(id)arg1;
 - (id)initWithClient:(Class)arg1 packagePart:(id)arg2;
-- (bool)isDualDrawable:(id)arg1;
+- (BOOL)isDualDrawable:(id)arg1;
 - (id)oaxState;
-- (unsigned int)officeArtShapeIdWithVmlShapeId:(id)arg1;
+- (unsigned long)officeArtShapeIdWithVmlShapeId:(id)arg1;
 - (id)packagePart;
 - (void)resetForNewDrawing;
 - (void)setDrawable:(id)arg1 forVmlShapeId:(id)arg2;

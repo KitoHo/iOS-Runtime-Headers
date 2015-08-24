@@ -2,38 +2,36 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class NSDictionary, NSString, NSURL, NSUUID;
-
 @interface WBSCloudTab : NSObject <NSCopying> {
+    BOOL _isShowingReader;
     NSDictionary *_readerScrollPositionDictionary;
     NSString *_title;
     NSURL *_url;
     NSUUID *_uuid;
-    bool_isShowingReader;
 }
 
-@property(readonly) NSDictionary * dictionaryRepresentation;
-@property(readonly) NSDictionary * dictionaryRepresentationForUserActivityUserInfo;
-@property bool isShowingReader;
-@property(copy) NSDictionary * readerScrollPositionDictionary;
-@property(copy) NSString * title;
-@property(retain) NSURL * url;
-@property(retain) NSUUID * uuid;
+@property (nonatomic, readonly) NSDictionary *dictionaryRepresentation;
+@property (nonatomic, readonly) NSDictionary *dictionaryRepresentationForUserActivityUserInfo;
+@property (nonatomic) BOOL isShowingReader;
+@property (nonatomic, copy) NSDictionary *readerScrollPositionDictionary;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, retain) NSURL *url;
+@property (nonatomic, retain) NSUUID *uuid;
 
-+ (id)_dictionaryWithURL:(id)arg1 uuid:(id)arg2 title:(id)arg3 isShowingReader:(bool)arg4 readerScrollPosition:(id)arg5;
++ (id)_dictionaryWithURL:(id)arg1 uuid:(id)arg2 title:(id)arg3 isShowingReader:(BOOL)arg4 readerScrollPosition:(id)arg5;
 
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)dictionaryRepresentationForUserActivityUserInfo;
-- (bool)hasSameUUIDAndURLAsTab:(id)arg1;
+- (BOOL)hasSameUUIDAndURLAsTab:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithDictionaryFromUserActivityUserInfo:(id)arg1;
-- (id)initWithURL:(id)arg1 uuid:(id)arg2 title:(id)arg3 isShowingReader:(bool)arg4 readerScrollPosition:(id)arg5;
-- (bool)isShowingReader;
+- (id)initWithURL:(id)arg1 uuid:(id)arg2 title:(id)arg3 isShowingReader:(BOOL)arg4 readerScrollPosition:(id)arg5;
+- (BOOL)isShowingReader;
 - (id)readerScrollPositionDictionary;
-- (void)setIsShowingReader:(bool)arg1;
+- (void)setIsShowingReader:(BOOL)arg1;
 - (void)setReaderScrollPositionDictionary:(id)arg1;
 - (void)setTitle:(id)arg1;
 - (void)setUrl:(id)arg1;

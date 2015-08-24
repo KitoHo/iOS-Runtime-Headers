@@ -2,64 +2,62 @@
    Image: /System/Library/PrivateFrameworks/SiriUI.framework/SiriUI
  */
 
-@class SiriUIKeyline, UIImageView, UILabel, UIView;
-
 @interface SiriUIContentCollectionViewCell : SiriUIClearBackgroundCell {
     struct UIOffset { 
-        double horizontal; 
-        double vertical; 
-    struct UIOffset { 
-        double horizontal; 
-        double vertical; 
-    struct UIEdgeInsets { 
-        double top; 
-        double left; 
-        double bottom; 
-        double right; 
+        float horizontal; 
+        float vertical; 
     } _accessoryOffset;
     UIView *_accessoryView;
     UIImageView *_chevronView;
+    BOOL _hasChevron;
     SiriUIKeyline *_keyline;
-    long long _keylineType;
+    int _keylineType;
+    struct UIEdgeInsets { 
+        float top; 
+        float left; 
+        float bottom; 
+        float right; 
     } _textAndAccessoryInsets;
     UILabel *_textLabel;
+    struct UIOffset { 
+        float horizontal; 
+        float vertical; 
     } _textOffset;
-    long long _verticalAlignment;
-    bool_hasChevron;
+    int _verticalAlignment;
 }
 
-@property struct UIOffset { double x1; double x2; } accessoryOffset;
-@property(retain) UIView * accessoryView;
-@property bool hasChevron;
-@property(readonly) SiriUIKeyline * keyline;
-@property long long keylineType;
-@property struct UIEdgeInsets { double x1; double x2; double x3; double x4; } textAndAccessoryInsets;
-@property(retain) UILabel * textLabel;
-@property struct UIOffset { double x1; double x2; } textOffset;
-@property long long verticalAlignment;
+@property (nonatomic) struct UIOffset { float x1; float x2; } accessoryOffset;
+@property (nonatomic, retain) UIView *accessoryView;
+@property (nonatomic) BOOL hasChevron;
+@property (nonatomic, readonly) SiriUIKeyline *keyline;
+@property (nonatomic) int keylineType;
+@property (nonatomic) struct UIEdgeInsets { float x1; float x2; float x3; float x4; } textAndAccessoryInsets;
+@property (nonatomic, retain) UILabel *textLabel;
+@property (nonatomic) struct UIOffset { float x1; float x2; } textOffset;
+@property (nonatomic) int verticalAlignment;
 
 + (id)reuseIdentifier;
 
 - (void).cxx_destruct;
-- (struct UIOffset { double x1; double x2; })accessoryOffset;
+- (struct UIOffset { float x1; float x2; })accessoryOffset;
 - (id)accessoryView;
-- (bool)hasChevron;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (BOOL)hasChevron;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (id)keyline;
-- (long long)keylineType;
+- (int)keylineType;
 - (void)layoutSubviews;
 - (void)prepareForReuse;
-- (void)setAccessoryOffset:(struct UIOffset { double x1; double x2; })arg1;
+- (void)setAccessoryOffset:(struct UIOffset { float x1; float x2; })arg1;
 - (void)setAccessoryView:(id)arg1;
-- (void)setHasChevron:(bool)arg1;
-- (void)setKeylineType:(long long)arg1;
-- (void)setTextAndAccessoryInsets:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; })arg1;
+- (void)setHasChevron:(BOOL)arg1;
+- (void)setKeylineType:(int)arg1;
+- (void)setTextAndAccessoryInsets:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg1;
 - (void)setTextLabel:(id)arg1;
-- (void)setTextOffset:(struct UIOffset { double x1; double x2; })arg1;
-- (void)setVerticalAlignment:(long long)arg1;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })textAndAccessoryInsets;
+- (void)setTextOffset:(struct UIOffset { float x1; float x2; })arg1;
+- (void)setVerticalAlignment:(int)arg1;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })textAndAccessoryInsets;
 - (id)textLabel;
-- (struct UIOffset { double x1; double x2; })textOffset;
-- (long long)verticalAlignment;
+- (struct UIOffset { float x1; float x2; })textOffset;
+- (int)verticalAlignment;
 
 @end

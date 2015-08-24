@@ -2,41 +2,43 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSString, NSURL, UIColor, UITabBarItem;
-
 @interface SKUITabBarItem : NSObject <NSCopying> {
-    long long _barTintStyle;
+    BOOL _alwaysCreatesRootViewController;
+    int _barTintStyle;
+    UIViewController *_customRootViewController;
     NSString *_metricsIdentifier;
     NSURL *_rootURL;
     Class _rootViewControllerClass;
     NSString *_tabIdentifier;
     UITabBarItem *_underlyingTabBarItem;
     UIColor *_userInterfaceTintColor;
-    bool_alwaysCreatesRootViewController;
 }
 
-@property bool alwaysCreatesRootViewController;
-@property long long barTintStyle;
-@property(copy) NSString * metricsIdentifier;
-@property(copy) NSURL * rootURL;
-@property(retain) Class rootViewControllerClass;
-@property(readonly) NSString * tabIdentifier;
-@property(retain) UITabBarItem * underlyingTabBarItem;
-@property(retain) UIColor * userInterfaceTintColor;
+@property (nonatomic) BOOL alwaysCreatesRootViewController;
+@property (nonatomic) int barTintStyle;
+@property (nonatomic, retain) UIViewController *customRootViewController;
+@property (nonatomic, copy) NSString *metricsIdentifier;
+@property (nonatomic, copy) NSURL *rootURL;
+@property (nonatomic, retain) Class rootViewControllerClass;
+@property (nonatomic, readonly) NSString *tabIdentifier;
+@property (nonatomic, retain) UITabBarItem *underlyingTabBarItem;
+@property (nonatomic, retain) UIColor *userInterfaceTintColor;
 
 - (void).cxx_destruct;
-- (bool)alwaysCreatesRootViewController;
-- (long long)barTintStyle;
+- (BOOL)alwaysCreatesRootViewController;
+- (int)barTintStyle;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
+- (id)customRootViewController;
 - (id)description;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithTabIdentifier:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)metricsIdentifier;
 - (id)rootURL;
 - (Class)rootViewControllerClass;
-- (void)setAlwaysCreatesRootViewController:(bool)arg1;
-- (void)setBarTintStyle:(long long)arg1;
+- (void)setAlwaysCreatesRootViewController:(BOOL)arg1;
+- (void)setBarTintStyle:(int)arg1;
+- (void)setCustomRootViewController:(id)arg1;
 - (void)setMetricsIdentifier:(id)arg1;
 - (void)setRootURL:(id)arg1;
 - (void)setRootViewControllerClass:(Class)arg1;

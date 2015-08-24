@@ -2,46 +2,40 @@
    Image: /System/Library/Frameworks/Photos.framework/Photos
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class PHImageRequestOptions;
-
 @interface PHImageRequest : PHImageManagerRequest {
-    struct CGSize { 
-        double width; 
-        double height; 
     int _bestFormat;
-    long long _contentMode;
+    int _contentMode;
     int _degradedFormat;
     PHImageRequestOptions *_options;
-    id _resultHandler;
+    id /* block */ _resultHandler;
+    struct CGSize { 
+        float width; 
+        float height; 
     } _targetSize;
 }
 
 @property int bestFormat;
-@property(readonly) long long contentMode;
+@property (nonatomic, readonly) int contentMode;
 @property int degradedFormat;
-@property(readonly) PHImageRequestOptions * options;
-@property(copy,readonly) id resultHandler;
-@property(readonly) struct CGSize { double x1; double x2; } targetSize;
+@property (nonatomic, readonly) PHImageRequestOptions *options;
+@property (nonatomic, readonly, copy) id /* block */ resultHandler;
+@property (nonatomic, readonly) struct CGSize { float x1; float x2; } targetSize;
 
-+ (id)descriptionWithContentMode:(long long)arg1;
-+ (id)imageRequestWithAsset:(id)arg1 targetSize:(struct CGSize { double x1; double x2; })arg2 contentMode:(long long)arg3 options:(id)arg4 domain:(id)arg5 resultHandler:(id)arg6;
++ (id)descriptionWithContentMode:(int)arg1;
++ (id)imageRequestWithAsset:(id)arg1 targetSize:(struct CGSize { float x1; float x2; })arg2 contentMode:(int)arg3 options:(id)arg4 domain:(id)arg5 resultHandler:(id /* block */)arg6;
 
 - (void).cxx_destruct;
 - (int)bestFormat;
 - (void)clearResultHandler;
 - (void)cloneIDAndResultHandlerFromRequest:(id)arg1;
-- (long long)contentMode;
+- (int)contentMode;
 - (int)degradedFormat;
 - (id)description;
-- (id)initImageRequestWithAsset:(id)arg1 targetSize:(struct CGSize { double x1; double x2; })arg2 contentMode:(long long)arg3 options:(id)arg4 domain:(id)arg5 resultHandler:(id)arg6;
+- (id)initImageRequestWithAsset:(id)arg1 targetSize:(struct CGSize { float x1; float x2; })arg2 contentMode:(int)arg3 options:(id)arg4 domain:(id)arg5 resultHandler:(id /* block */)arg6;
 - (id)options;
-- (id)resultHandler;
+- (id /* block */)resultHandler;
 - (void)setBestFormat:(int)arg1;
 - (void)setDegradedFormat:(int)arg1;
-- (struct CGSize { double x1; double x2; })targetSize;
+- (struct CGSize { float x1; float x2; })targetSize;
 
 @end

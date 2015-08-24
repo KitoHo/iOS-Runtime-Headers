@@ -2,81 +2,79 @@
    Image: /System/Library/PrivateFrameworks/VoiceMemos.framework/VoiceMemos
  */
 
-@class MPAVRoute, NSArray, NSString, _RCMPRoutingController;
-
 @interface RCAudioSessionRoutingController : NSObject <MPAVRoutingControllerDelegate> {
     NSArray *_cachedPickableRoutes;
     MPAVRoute *_cachedPickedRoute;
+    BOOL _expectsFaceContactWhenHandsetSelected;
+    BOOL _hasAppliedUserDefaultForRouteSetting;
     _RCMPRoutingController *_routingController;
+    BOOL _shouldReportUserDefaultForRouteSetting;
+    BOOL _useVoiceMemoSettings;
     struct __CFArray { } *_weakSessionRoutingAssertions;
-    bool_expectsFaceContactWhenHandsetSelected;
-    bool_hasAppliedUserDefaultForRouteSetting;
-    bool_shouldReportUserDefaultForRouteSetting;
-    bool_useVoiceMemoSettings;
 }
 
-@property(readonly) NSString * activeInputRouteName;
-@property(readonly) unsigned long long availableRoutesMask;
-@property(readonly) NSArray * cachedPickableRoutes;
-@property(readonly) MPAVRoute * cachedPickedRoute;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property bool expectsFaceContactWhenHandsetSelected;
-@property(readonly) bool hasAppliedUserDefaultForRouteSetting;
-@property(readonly) unsigned long long hash;
-@property(readonly) bool isRoutingToPhoneCall;
-@property(readonly) _RCMPRoutingController * routingController;
-@property(readonly) NSString * selectedRouteName;
-@property(readonly) long long selectedRouteType;
-@property(readonly) bool shouldReportUserDefaultForRouteSetting;
-@property(readonly) Class superclass;
-@property bool useVoiceMemoSettings;
-@property(readonly) struct __CFArray { }* weakSessionRoutingAssertions;
+@property (nonatomic, readonly) NSString *activeInputRouteName;
+@property (nonatomic, readonly) unsigned int availableRoutesMask;
+@property (nonatomic, readonly) NSArray *cachedPickableRoutes;
+@property (nonatomic, readonly) MPAVRoute *cachedPickedRoute;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) BOOL expectsFaceContactWhenHandsetSelected;
+@property (nonatomic, readonly) BOOL hasAppliedUserDefaultForRouteSetting;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) BOOL isRoutingToPhoneCall;
+@property (nonatomic, readonly) _RCMPRoutingController *routingController;
+@property (nonatomic, readonly) NSString *selectedRouteName;
+@property (nonatomic, readonly) int selectedRouteType;
+@property (nonatomic, readonly) BOOL shouldReportUserDefaultForRouteSetting;
+@property (readonly) Class superclass;
+@property (nonatomic) BOOL useVoiceMemoSettings;
+@property (nonatomic, readonly) struct __CFArray { }*weakSessionRoutingAssertions;
 
 + (id)sharedRouteController;
 
 - (void).cxx_destruct;
-- (unsigned long long)_RCAudioRouteMaskForRoutes:(id)arg1;
+- (unsigned int)_RCAudioRouteMaskForRoutes:(id)arg1;
 - (void)_activateAudioSessionCategory;
 - (void)_applyUserDefaultAudioRoute;
-- (unsigned long long)_availableRoutesMask;
+- (unsigned int)_availableRoutesMask;
 - (void)_deactivateAudioSessionCategory;
-- (void)_pickAudioDeviceRouteType:(long long)arg1;
+- (void)_pickAudioDeviceRouteType:(int)arg1;
 - (void)_pickHandsetAudioDeviceRoute;
 - (void)_pickSpeakerAudioDeviceRoute;
-- (bool)_requireAudioSessionCategoryActiveForAssertions:(id)arg1;
-- (bool)_routeDefaultBoolForKey:(id)arg1 nonVoiceMemoAppValue:(bool)arg2;
-- (void)_setShouldRouteToSpeakerUserDefaultValue:(bool)arg1;
-- (void)_setWeakSessionRoutingAssertions:(struct __CFArray { }*)arg1 applyImmediately:(bool)arg2;
-- (bool)_speakerIsUserDefaultRoute;
-- (bool)_speakerRouteIsPickedOrPreferred;
-- (void)_updateAudioSessionActiveStateImmediately:(bool)arg1;
+- (BOOL)_requireAudioSessionCategoryActiveForAssertions:(id)arg1;
+- (BOOL)_routeDefaultBoolForKey:(id)arg1 nonVoiceMemoAppValue:(BOOL)arg2;
+- (void)_setShouldRouteToSpeakerUserDefaultValue:(BOOL)arg1;
+- (void)_setWeakSessionRoutingAssertions:(struct __CFArray { }*)arg1 applyImmediately:(BOOL)arg2;
+- (BOOL)_speakerIsUserDefaultRoute;
+- (BOOL)_speakerRouteIsPickedOrPreferred;
+- (void)_updateAudioSessionActiveStateImmediately:(BOOL)arg1;
 - (void)_updateProximitySetting;
 - (void)_updateSpeakerRouteDefault;
-- (bool)_wirelessRouteIsPickedOrPreferred;
+- (BOOL)_wirelessRouteIsPickedOrPreferred;
 - (id)activeInputRouteName;
 - (void)addRouteAssertion:(id)arg1;
-- (unsigned long long)availableRoutesMask;
+- (unsigned int)availableRoutesMask;
 - (id)cachedPickableRoutes;
 - (id)cachedPickedRoute;
 - (void)dealloc;
-- (bool)expectsFaceContactWhenHandsetSelected;
-- (void)fetchActiveInputRouteWithCompletionHandler:(id)arg1;
-- (bool)hasAppliedUserDefaultForRouteSetting;
+- (BOOL)expectsFaceContactWhenHandsetSelected;
+- (void)fetchActiveInputRouteWithCompletionHandler:(id /* block */)arg1;
+- (BOOL)hasAppliedUserDefaultForRouteSetting;
 - (id)init;
-- (bool)isRoutingToPhoneCall;
+- (BOOL)isRoutingToPhoneCall;
 - (void)removeRouteAssertion:(id)arg1;
 - (id)routingController;
 - (void)routingControllerAvailableRoutesDidChange:(id)arg1;
 - (void)routingControllerIsRoutingToAirPlayMirrorDestinationDidChange:(id)arg1;
 - (id)selectedRouteName;
-- (long long)selectedRouteType;
-- (void)setExpectsFaceContactWhenHandsetSelected:(bool)arg1;
-- (void)setUseVoiceMemoSettings:(bool)arg1;
-- (bool)shouldReportUserDefaultForRouteSetting;
+- (int)selectedRouteType;
+- (void)setExpectsFaceContactWhenHandsetSelected:(BOOL)arg1;
+- (void)setUseVoiceMemoSettings:(BOOL)arg1;
+- (BOOL)shouldReportUserDefaultForRouteSetting;
 - (void)showAvailableRoutes;
 - (void)toggleSpeaker;
-- (bool)useVoiceMemoSettings;
+- (BOOL)useVoiceMemoSettings;
 - (struct __CFArray { }*)weakSessionRoutingAssertions;
 
 @end

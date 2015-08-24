@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-@class UIButton, _UIBackdropView;
-
 @interface PLHighFidelityVideoOverlayButton : UIView <PLVideoOverlayButton> {
     SEL _action;
     _UIBackdropView *_backdropView;
     UIButton *_button;
-    long long _style;
+    int _style;
     id _target;
 }
 
@@ -16,8 +14,8 @@
 - (void)_playButtonDeactivate:(id)arg1;
 - (void)_playButtonTapped:(id)arg1;
 - (void)dealloc;
-- (id)initWithStyle:(long long)arg1;
+- (id)initWithStyle:(int)arg1;
 - (void)setTarget:(id)arg1 action:(SEL)arg2;
-- (long long)style;
+- (int)style;
 
 @end

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/PowerlogLiteOperators.framework/PowerlogLiteOperators
  */
 
-@class NSMutableSet, NSTimer, PLEntryNotificationOperatorComposition, PLOperator;
-
 @interface PLAWDNetworkUsage : PLAWDAuxMetrics {
     PLEntryNotificationOperatorComposition *_nameConnectionCallback;
     PLEntryNotificationOperatorComposition *_netEventCallback;
@@ -11,12 +9,12 @@
     NSTimer *_snapshotTimer;
 }
 
-@property(retain) PLEntryNotificationOperatorComposition * nameConnectionCallback;
-@property(retain) PLEntryNotificationOperatorComposition * netEventCallback;
+@property (retain) PLEntryNotificationOperatorComposition *nameConnectionCallback;
+@property (retain) PLEntryNotificationOperatorComposition *netEventCallback;
 @property unsigned int netState;
-@property PLOperator * operator;
-@property(retain) NSMutableSet * runningMetrics;
-@property(retain) NSTimer * snapshotTimer;
+@property PLOperator *operator;
+@property (nonatomic, retain) NSMutableSet *runningMetrics;
+@property (retain) NSTimer *snapshotTimer;
 
 + (id)entryAggregateDefinitions;
 + (id)entryEventPointDefinitions;
@@ -40,6 +38,6 @@
 - (id)snapshotTimer;
 - (void)startMetricCollection:(id)arg1;
 - (void)stopMetricCollection:(id)arg1;
-- (bool)submitDataToAWDServer:(id)arg1 withAwdConn:(id)arg2;
+- (BOOL)submitDataToAWDServer:(id)arg1 withAwdConn:(id)arg2;
 
 @end

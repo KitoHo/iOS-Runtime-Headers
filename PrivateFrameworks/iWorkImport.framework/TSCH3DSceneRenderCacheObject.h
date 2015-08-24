@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSMutableArray;
-
 @interface TSCH3DSceneRenderCacheObject : NSObject {
-    boolmCachingEnabled;
+    BOOL mCachingEnabled;
     NSMutableArray *mChildCacheObjects;
     NSMutableArray *mDynamicResources;
 }
 
-@property bool cachingEnabled;
+@property (nonatomic) BOOL cachingEnabled;
 
 + (id)cacheObject;
 
 - (void)allocateDynamicResourcesIntoArray:(id)arg1;
-- (bool)cachingEnabled;
-- (id)childCacheObjectAtIndex:(unsigned long long)arg1;
+- (BOOL)cachingEnabled;
+- (id)childCacheObjectAtIndex:(unsigned int)arg1;
 - (void)dealloc;
 - (void)flushCache;
 - (id)init;
 - (int)p_resourceUpdateFlag;
 - (void)p_updateResourceUpdateFlags:(int)arg1;
-- (id)resourceAtIndex:(unsigned long long)arg1 created:(bool*)arg2 ifAbsent:(id)arg3;
-- (id)resourceAtIndex:(unsigned long long)arg1;
-- (unsigned long long)resourceCount;
-- (void)setCachingEnabled:(bool)arg1;
+- (id)resourceAtIndex:(unsigned int)arg1;
+- (id)resourceAtIndex:(unsigned int)arg1 created:(BOOL*)arg2 ifAbsent:(id /* block */)arg3;
+- (unsigned int)resourceCount;
+- (void)setCachingEnabled:(BOOL)arg1;
 
 @end

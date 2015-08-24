@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/PlugInKit.framework/PlugInKit
  */
 
-@class NSObject<OS_dispatch_queue>, PKHostPlugIn;
-
 @interface PKHostDefaults : NSUserDefaults {
     PKHostPlugIn *_plugin;
     NSObject<OS_dispatch_queue> *_queue;
 }
 
-@property PKHostPlugIn * plugin;
-@property(retain) NSObject<OS_dispatch_queue> * queue;
+@property PKHostPlugIn *plugin;
+@property (retain) NSObject<OS_dispatch_queue> *queue;
 
 - (void).cxx_destruct;
 - (id)initWithPlugIn:(id)arg1;
@@ -21,6 +19,6 @@
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (void)setPlugin:(id)arg1;
 - (void)setQueue:(id)arg1;
-- (bool)synchronize;
+- (BOOL)synchronize;
 
 @end

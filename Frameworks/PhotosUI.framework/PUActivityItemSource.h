@@ -2,44 +2,38 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSDictionary, NSString, NSURL, PHAsset, PLVideoRemaker, _PUActivityItemSourceOperation;
-
 @interface PUActivityItemSource : NSObject <UIActivityItemDeferredSource, UIActivityItemSource> {
     NSURL *__assetURL;
     NSURL *__assetsLibraryURL;
     int __imageManagerRequestID;
     NSDictionary *__pasteboardRepresentation;
-    long long __remakerWasCancelled;
+    int __remakerWasCancelled;
     NSURL *__videoRemakerURL;
     PHAsset *_asset;
-    id _completionHandler;
+    id /* block */ _completionHandler;
     _PUActivityItemSourceOperation *_currentOperation;
-    id _postCompletionHandler;
-    id _progressHandler;
+    BOOL _hasRecognizedVideoAdjustments;
+    id /* block */ _postCompletionHandler;
+    id /* block */ _progressHandler;
     PLVideoRemaker *_remaker;
-    id _remakerCompletionHandler;
+    id /* block */ _remakerCompletionHandler;
     id _strongSelf;
-    bool_hasRecognizedVideoAdjustments;
 }
 
-@property(setter=_setAssetURL:,retain) NSURL * _assetURL;
-@property(setter=_setAssetsLibraryURL:,retain) NSURL * _assetsLibraryURL;
-@property(setter=_setImageManagerRequestID:) int _imageManagerRequestID;
-@property(setter=_setPasteboardRepresentation:,retain) NSDictionary * _pasteboardRepresentation;
-@property(setter=_setRemakerWasCancelled:) long long _remakerWasCancelled;
-@property(setter=_setVideoRemakerURL:,retain) NSURL * _videoRemakerURL;
-@property(readonly) PHAsset * asset;
-@property(copy) id completionHandler;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(copy) id postCompletionHandler;
-@property(copy) id progressHandler;
-@property(readonly) Class superclass;
+@property (setter=_setAssetURL:, retain) NSURL *_assetURL;
+@property (setter=_setAssetsLibraryURL:, retain) NSURL *_assetsLibraryURL;
+@property (setter=_setImageManagerRequestID:) int _imageManagerRequestID;
+@property (setter=_setPasteboardRepresentation:, retain) NSDictionary *_pasteboardRepresentation;
+@property (setter=_setRemakerWasCancelled:) int _remakerWasCancelled;
+@property (setter=_setVideoRemakerURL:, retain) NSURL *_videoRemakerURL;
+@property (nonatomic, readonly) PHAsset *asset;
+@property (copy) id /* block */ completionHandler;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (copy) id /* block */ postCompletionHandler;
+@property (copy) id /* block */ progressHandler;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)_assetURL;
@@ -47,39 +41,39 @@
 - (void)_cancelVideoRemaking:(id)arg1;
 - (void)_cleanupRemaker;
 - (int)_imageManagerRequestID;
-- (bool)_needsAssetsLibraryURLForActivityType:(id)arg1;
-- (bool)_needsVideoRemakerForActivityType:(id)arg1 adjustmentData:(id)arg2 needsAssetsLibraryURL:(bool)arg3;
+- (BOOL)_needsAssetsLibraryURLForActivityType:(id)arg1;
+- (BOOL)_needsVideoRemakerForActivityType:(id)arg1 adjustmentData:(id)arg2 needsAssetsLibraryURL:(BOOL)arg3;
 - (id)_newOperationForActivityType:(id)arg1;
 - (id)_newPasteboardRepresentationForURL:(id)arg1;
 - (void)_operation:(id)arg1 prepareItemForActivityType:(id)arg2;
 - (id)_pasteboardRepresentation;
-- (long long)_remakerWasCancelled;
+- (int)_remakerWasCancelled;
 - (void)_removeTempFile;
 - (void)_setAssetURL:(id)arg1;
 - (void)_setAssetsLibraryURL:(id)arg1;
 - (void)_setImageManagerRequestID:(int)arg1;
 - (void)_setPasteboardRepresentation:(id)arg1;
-- (void)_setRemakerWasCancelled:(long long)arg1;
+- (void)_setRemakerWasCancelled:(int)arg1;
 - (void)_setVideoRemakerURL:(id)arg1;
 - (id)_videoRemakerURL;
 - (id)activityViewController:(id)arg1 dataTypeIdentifierForActivityType:(id)arg2;
 - (id)activityViewController:(id)arg1 itemForActivityType:(id)arg2;
-- (id)activityViewController:(id)arg1 thumbnailImageForActivityType:(id)arg2 suggestedSize:(struct CGSize { double x1; double x2; })arg3;
+- (id)activityViewController:(id)arg1 thumbnailImageForActivityType:(id)arg2 suggestedSize:(struct CGSize { float x1; float x2; })arg3;
 - (id)activityViewControllerOperation:(id)arg1;
 - (id)activityViewControllerPlaceholderItem:(id)arg1;
 - (id)asset;
 - (void)cancel;
 - (void)cancelRemaking;
-- (id)completionHandler;
+- (id /* block */)completionHandler;
 - (void)dealloc;
 - (id)initWithAsset:(id)arg1;
-- (id)postCompletionHandler;
-- (id)progressHandler;
-- (void)remakeVideoWithTrimStartTime:(double)arg1 endTime:(double)arg2 forMail:(bool)arg3 progressHandler:(id)arg4 completionHandler:(id)arg5;
+- (id /* block */)postCompletionHandler;
+- (id /* block */)progressHandler;
+- (void)remakeVideoWithTrimStartTime:(double)arg1 endTime:(double)arg2 forMail:(BOOL)arg3 progressHandler:(id /* block */)arg4 completionHandler:(id /* block */)arg5;
 - (void)runWithActivityType:(id)arg1;
-- (void)setCompletionHandler:(id)arg1;
-- (void)setPostCompletionHandler:(id)arg1;
-- (void)setProgressHandler:(id)arg1;
+- (void)setCompletionHandler:(id /* block */)arg1;
+- (void)setPostCompletionHandler:(id /* block */)arg1;
+- (void)setProgressHandler:(id /* block */)arg1;
 - (void)videoRemakerDidBeginRemaking:(id)arg1;
 - (void)videoRemakerDidEndRemaking:(id)arg1 temporaryPath:(id)arg2;
 

@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@interface MPFullscreenWindow : UIWindow {
-}
+@interface MPFullscreenWindow : UIWindow
 
-- (bool)_canAffectStatusBarAppearance;
+- (BOOL)_canAffectStatusBarAppearance;
 
 @end

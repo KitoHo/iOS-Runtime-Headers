@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/AXHearingAidSupport.framework/AXHearingAidSupport
  */
 
-@class AXRemoteHearingAidDevice, NSNumberFormatter, UIActivityIndicatorView, UIImageView, UILabel;
-
 @interface AXHearingAidDetailCell : PSTableCell {
+    BOOL _bluetoothAvailable;
     AXRemoteHearingAidDevice *_device;
     UIImageView *_leftBattery;
     UILabel *_leftLabel;
@@ -12,22 +11,21 @@
     NSNumberFormatter *_numberFormatter;
     UIImageView *_rightBattery;
     UILabel *_rightLabel;
-    bool_bluetoothAvailable;
 }
 
-@property(retain) AXRemoteHearingAidDevice * device;
+@property (nonatomic, retain) AXRemoteHearingAidDevice *device;
 
 - (unsigned long long)accessibilityTraits;
 - (id)accessibilityValue;
 - (void)bluetoothAvailabilityDidChange:(id)arg1;
 - (void)dealloc;
 - (id)device;
-- (id)imageForBatteryLevel:(double)arg1;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 andDevice:(id)arg3;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (id)imageForBatteryLevel:(float)arg1;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 andDevice:(id)arg3;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 - (void)layoutSubviews;
 - (void)setDevice:(id)arg1;
-- (void)setSelected:(bool)arg1 animated:(bool)arg2;
+- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)updateAvailability;
 
 @end

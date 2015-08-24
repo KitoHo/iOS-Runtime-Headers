@@ -2,13 +2,10 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSDictionary, NSString;
+@interface NSOrthography : NSObject <NSCoding, NSCopying>
 
-@interface NSOrthography : NSObject <NSCopying, NSCoding> {
-}
-
-@property(copy,readonly) NSString * dominantScript;
-@property(copy,readonly) NSDictionary * languageMap;
+@property (readonly, copy) NSString *dominantScript;
+@property (readonly, copy) NSDictionary *languageMap;
 
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
 + (void)initialize;
@@ -23,10 +20,10 @@
 - (id)dominantLanguageForScript:(id)arg1;
 - (id)dominantScript;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned long long)hash;
+- (unsigned int)hash;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDominantScript:(id)arg1 languageMap:(id)arg2;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)languageMap;
 - (id)languagesForScript:(id)arg1;
 - (unsigned int)orthographyFlags;

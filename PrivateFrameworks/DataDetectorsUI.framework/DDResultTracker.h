@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/DataDetectorsUI.framework/DataDetectorsUI
  */
 
-@class NSMutableArray;
-
 @interface DDResultTracker : NSObject {
-    boolsortByProximity;
-    unsigned int countRemainingByCategory[6];
+    unsigned int countRemainingByCategory;
     struct __DDResult { } *existingAddressResult;
-    unsigned long long maximumDistance;
-    unsigned long long maximumDistanceForEmails;
+    unsigned int maximumDistance;
+    unsigned int maximumDistanceForEmails;
     struct __DDResult { } *referenceResult;
-    unsigned long long referenceResultLocation;
+    unsigned int referenceResultLocation;
     NSMutableArray *resultsAfter;
     NSMutableArray *resultsBefore;
+    bool sortByProximity;
     unsigned int totalCountRemaining;
 }
 
-@property unsigned long long maximumDistance;
-@property unsigned long long maximumDistanceForEmails;
-@property(readonly) unsigned int totalCountRemaining;
+@property unsigned int maximumDistance;
+@property unsigned int maximumDistanceForEmails;
+@property (readonly) unsigned int totalCountRemaining;
 
-- (bool)addResultIfAppropriate:(struct __DDResult { }*)arg1;
+- (BOOL)addResultIfAppropriate:(struct __DDResult { }*)arg1;
 - (void)dealloc;
 - (id)initWithReferenceResult:(struct __DDResult { }*)arg1;
-- (unsigned long long)maximumDistance;
-- (unsigned long long)maximumDistanceForEmails;
+- (unsigned int)maximumDistance;
+- (unsigned int)maximumDistanceForEmails;
 - (id)results;
-- (void)setMaximumDistance:(unsigned long long)arg1;
-- (void)setMaximumDistanceForEmails:(unsigned long long)arg1;
+- (void)setMaximumDistance:(unsigned int)arg1;
+- (void)setMaximumDistanceForEmails:(unsigned int)arg1;
 - (unsigned int)totalCountRemaining;
 
 @end

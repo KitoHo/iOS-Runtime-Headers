@@ -2,12 +2,6 @@
    Image: /System/Library/PrivateFrameworks/DataAccess.framework/DataAccess
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSString, NoteContext;
-
 @interface DALocalDBHelper : NSObject {
     int _abConnectionCount;
     void *_abDB;
@@ -15,22 +9,22 @@
     void *_bookmarkDB;
     int _calConnectionCount;
     struct CalDatabase { } *_calDB;
-    id _calUnitTestCallbackBlock;
+    id /* block */ _calUnitTestCallbackBlock;
     NSString *_clientIdentifier;
     int _noteConnectionCount;
     NoteContext *_noteDB;
 }
 
-@property int abConnectionCount;
-@property void* abDB;
-@property int bookmarkConnectionCount;
-@property void* bookmarkDB;
-@property int calConnectionCount;
-@property struct CalDatabase { }* calDB;
-@property(copy) id calUnitTestCallbackBlock;
-@property(retain) NSString * clientIdentifier;
-@property int noteConnectionCount;
-@property(retain) NoteContext * noteDB;
+@property (nonatomic) int abConnectionCount;
+@property (nonatomic) void*abDB;
+@property (nonatomic) int bookmarkConnectionCount;
+@property (nonatomic) void*bookmarkDB;
+@property (nonatomic) int calConnectionCount;
+@property (nonatomic) struct CalDatabase { }*calDB;
+@property (nonatomic, copy) id /* block */ calUnitTestCallbackBlock;
+@property (nonatomic, retain) NSString *clientIdentifier;
+@property (nonatomic) int noteConnectionCount;
+@property (nonatomic, retain) NoteContext *noteDB;
 
 + (void)abSetTestABDBDir:(id)arg1;
 + (id)abTestABDBDir;
@@ -39,47 +33,47 @@
 + (id)sharedInstanceForAccountType:(id)arg1 creatingClass:(Class)arg2;
 
 - (void).cxx_destruct;
-- (bool)_calOpenDBWithClientIdentifier:(id)arg1;
+- (BOOL)_calOpenDBWithClientIdentifier:(id)arg1;
 - (void)_registerForAddressBookYieldNotifications;
 - (void)_registerForCalendarYieldNotifications;
-- (bool)abCloseDBAndSave:(bool)arg1;
+- (BOOL)abCloseDBAndSave:(BOOL)arg1;
 - (int)abConnectionCount;
 - (id)abConstraintPlistPath;
 - (void*)abDB;
-- (void*)abDBThrowOnNil:(bool)arg1;
+- (void*)abDBThrowOnNil:(BOOL)arg1;
 - (void)abOpenDB;
 - (void)abProcessAddedImages;
 - (void)abProcessAddedRecords;
-- (bool)abSaveDB;
-- (void)bookmarkCloseDBAndSave:(bool)arg1;
+- (BOOL)abSaveDB;
+- (void)bookmarkCloseDBAndSave:(BOOL)arg1;
 - (int)bookmarkConnectionCount;
 - (void*)bookmarkDB;
-- (bool)bookmarkOpenDB;
+- (BOOL)bookmarkOpenDB;
 - (void)bookmarkSaveDB;
 - (void)calClearSuperfluousChanges;
-- (bool)calCloseDBAndSave:(bool)arg1;
+- (BOOL)calCloseDBAndSave:(BOOL)arg1;
 - (int)calConnectionCount;
 - (struct CalDatabase { }*)calDB;
 - (void)calOpenDBAsGenericClient;
 - (void)calOpenDBWithClientIdentifier:(id)arg1;
-- (bool)calSaveDB;
-- (bool)calSaveDBAndFlushCaches;
-- (id)calUnitTestCallbackBlock;
-- (void)calUnitTestsSetCallbackBlockForSave:(id)arg1;
+- (BOOL)calSaveDB;
+- (BOOL)calSaveDBAndFlushCaches;
+- (id /* block */)calUnitTestCallbackBlock;
+- (void)calUnitTestsSetCallbackBlockForSave:(id /* block */)arg1;
 - (id)changeTrackingID;
 - (id)clientIdentifier;
-- (bool)noteCloseDBAndSave:(bool)arg1;
+- (BOOL)noteCloseDBAndSave:(BOOL)arg1;
 - (int)noteConnectionCount;
 - (id)noteDB;
 - (void)noteOpenDB;
-- (bool)noteSaveDB;
+- (BOOL)noteSaveDB;
 - (void)setAbConnectionCount:(int)arg1;
 - (void)setAbDB:(void*)arg1;
 - (void)setBookmarkConnectionCount:(int)arg1;
 - (void)setBookmarkDB:(void*)arg1;
 - (void)setCalConnectionCount:(int)arg1;
 - (void)setCalDB:(struct CalDatabase { }*)arg1;
-- (void)setCalUnitTestCallbackBlock:(id)arg1;
+- (void)setCalUnitTestCallbackBlock:(id /* block */)arg1;
 - (void)setClientIdentifier:(id)arg1;
 - (void)setNoteConnectionCount:(int)arg1;
 - (void)setNoteDB:(id)arg1;

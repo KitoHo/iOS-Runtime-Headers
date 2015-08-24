@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@interface OADTextLineBreak : OADTextRun {
-}
+@interface OADTextLineBreak : OADTextRun
 
-- (bool)isEmpty;
+- (BOOL)isEmpty;
 
 @end

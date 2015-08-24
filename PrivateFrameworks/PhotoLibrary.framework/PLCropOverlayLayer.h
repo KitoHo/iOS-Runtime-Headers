@@ -2,37 +2,35 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-@class UIView;
-
 @interface PLCropOverlayLayer : UIView {
-    struct CGRect { 
-        struct CGPoint { 
-            double x; 
-            double y; 
-        } origin; 
-        struct CGSize { 
-            double width; 
-            double height; 
-        } size; 
-    unsigned int _showsCropRect : 1;
-    unsigned int _showThirdsGrid : 1;
-    unsigned int _showsStraightenGrid : 1;
-    unsigned int _thirdsVisible : 1;
-    unsigned int _highlighted : 1;
     UIView *_bottomEdgeLayer;
     UIView *_bottomLeftCornerLayer;
     UIView *_bottomOpaqueLayer;
     UIView *_bottomRightCornerLayer;
     UIView *_bottomThirdLayer;
+    struct CGRect { 
+        struct CGPoint { 
+            float x; 
+            float y; 
+        } origin; 
+        struct CGSize { 
+            float width; 
+            float height; 
+        } size; 
     } _cropRect;
+    unsigned int _highlighted;
     UIView *_leftEdgeLayer;
     UIView *_leftOpaqueLayer;
     UIView *_leftThirdLayer;
     UIView *_rightEdgeLayer;
     UIView *_rightOpaqueLayer;
     UIView *_rightThirdLayer;
-    UIView *_straightenHorizontalLayers[6];
-    UIView *_straightenVerticalLayers[6];
+    unsigned int _showThirdsGrid;
+    unsigned int _showsCropRect;
+    unsigned int _showsStraightenGrid;
+    UIView *_straightenHorizontalLayers;
+    UIView *_straightenVerticalLayers;
+    unsigned int _thirdsVisible;
     UIView *_topEdgeLayer;
     UIView *_topLeftCornerLayer;
     UIView *_topOpaqueLayer;
@@ -42,17 +40,17 @@
 
 - (void)_updateCropRectVisibility;
 - (void)_updateLayout;
-- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })cropRect;
+- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })cropRect;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (bool)isHighlighted;
-- (void)setCropRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (void)setHighlighted:(bool)arg1;
-- (void)setShowsCropRect:(bool)arg1;
-- (void)showStraightenGrid:(bool)arg1;
-- (void)showThirdsGrid:(bool)arg1;
-- (bool)showsCropRect;
-- (bool)showsStraightenGrid;
-- (bool)showsThirdsGrid;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (BOOL)isHighlighted;
+- (void)setCropRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (void)setHighlighted:(BOOL)arg1;
+- (void)setShowsCropRect:(BOOL)arg1;
+- (void)showStraightenGrid:(BOOL)arg1;
+- (void)showThirdsGrid:(BOOL)arg1;
+- (BOOL)showsCropRect;
+- (BOOL)showsStraightenGrid;
+- (BOOL)showsThirdsGrid;
 
 @end

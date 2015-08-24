@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADDrawable, WDCharacterProperties;
-
 @interface WDOfficeArt : WDRun {
-    boolmFloating;
     OADDrawable *mDrawable;
+    bool mFloating;
     WDCharacterProperties *mProperties;
 }
 
@@ -21,7 +19,7 @@
 - (id)imageData;
 - (id)imageName;
 - (id)initWithParagraph:(id)arg1;
-- (bool)isDrawableOverridden;
+- (BOOL)isDrawableOverridden;
 - (bool)isFloating;
 - (id)overrideDrawable;
 - (void)propagateTextTypeToDrawables;

@@ -2,9 +2,11 @@
    Image: /System/Library/PrivateFrameworks/CloudDocs.framework/CloudDocs
  */
 
-@class NSMutableDictionary, NSNumber, NSString, NSURL;
-
-@interface BRQueryItem : NSObject <NSSecureCoding, NSCopying> {
+@interface BRQueryItem : NSObject <NSCopying, NSSecureCoding> {
+    NSMutableDictionary *_attrs;
+    NSString *_containerID;
+    unsigned short _diffs;
+    NSNumber *_fileObjectID;
     union { 
         struct { 
             unsigned int downloadStatus : 2; 
@@ -17,13 +19,11 @@
             unsigned int isDownloadActive : 1; 
             unsigned int isDownloadRequested : 1; 
             unsigned int isAlias : 1; 
+            unsigned int shareOptions : 3; 
         } ; 
         unsigned short value; 
-    NSMutableDictionary *_attrs;
-    NSString *_containerID;
-    unsigned short _diffs;
-    NSNumber *_fileObjectID;
     } _flags;
+    BOOL _isNetworkOffline;
     NSURL *_localRepresentationURL;
     long long _logicalHandle;
     NSString *_logicalName;
@@ -34,39 +34,41 @@
     id _replacement;
     NSNumber *_size;
     NSURL *_url;
-    bool_isNetworkOffline;
 }
 
-@property(readonly) NSString * containerID;
-@property(readonly) unsigned short diffs;
-@property(readonly) unsigned int downloadStatus;
-@property(readonly) NSNumber * fileObjectID;
-@property(readonly) bool hasTransferStatuses;
-@property(readonly) bool isAlias;
-@property(readonly) bool isConflicted;
-@property(readonly) bool isDead;
-@property(readonly) bool isDocument;
-@property(readonly) bool isDownloadActive;
-@property(readonly) bool isDownloadRequested;
-@property(readonly) bool isInTransfer;
-@property(readonly) bool isLive;
-@property bool isNetworkOffline;
-@property bool isPreCrash;
-@property(readonly) bool isUploadActive;
-@property(readonly) NSURL * localRepresentationURL;
-@property(readonly) NSString * logicalName;
-@property(readonly) NSNumber * mtime;
-@property(readonly) NSString * parentPath;
-@property(readonly) NSString * path;
-@property(readonly) NSString * physicalName;
-@property id replacement;
-@property(readonly) NSNumber * size;
-@property(readonly) unsigned int uploadStatus;
-@property(readonly) NSURL * url;
+@property (nonatomic, readonly) NSString *containerID;
+@property (nonatomic, readonly) unsigned short diffs;
+@property (nonatomic, readonly) unsigned int downloadStatus;
+@property (nonatomic, readonly) NSNumber *fileObjectID;
+@property (nonatomic, readonly) BOOL hasTransferStatuses;
+@property (nonatomic, readonly) BOOL isAlias;
+@property (nonatomic, readonly) BOOL isConflicted;
+@property (nonatomic, readonly) BOOL isDead;
+@property (nonatomic, readonly) BOOL isDocument;
+@property (nonatomic, readonly) BOOL isDownloadActive;
+@property (nonatomic, readonly) BOOL isDownloadRequested;
+@property (nonatomic, readonly) BOOL isInTransfer;
+@property (nonatomic, readonly) BOOL isLive;
+@property (nonatomic) BOOL isNetworkOffline;
+@property (nonatomic) BOOL isPreCrash;
+@property (nonatomic, readonly) BOOL isUploadActive;
+@property (nonatomic, readonly) NSURL *localRepresentationURL;
+@property (nonatomic, readonly) NSString *logicalName;
+@property (nonatomic, readonly) NSNumber *mtime;
+@property (nonatomic, readonly) NSString *parentPath;
+@property (nonatomic, readonly) NSString *path;
+@property (nonatomic, readonly) NSString *physicalName;
+@property (nonatomic) id replacement;
+@property (nonatomic, readonly) unsigned int shareOptions;
+@property (nonatomic, readonly) NSNumber *size;
+@property (nonatomic, readonly) unsigned int uploadStatus;
+@property (nonatomic, readonly) NSURL *url;
+
+// Image: /System/Library/PrivateFrameworks/CloudDocs.framework/CloudDocs
 
 + (id)askDaemonQueryItemForURL:(id)arg1;
 + (void)initialize;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void)_mergeAttrs:(id)arg1;
 - (void)_mergeURL:(id)arg1;
@@ -75,7 +77,7 @@
 - (id)attributeForName:(id)arg1;
 - (id)attributeNames;
 - (id)attributesForNames:(id)arg1;
-- (bool)canMerge:(id)arg1;
+- (BOOL)canMerge:(id)arg1;
 - (void)clearDiffs;
 - (id)containerID;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -85,23 +87,23 @@
 - (unsigned int)downloadStatus;
 - (void)encodeWithCoder:(id)arg1;
 - (id)fileObjectID;
-- (bool)hasTransferStatuses;
+- (BOOL)hasTransferStatuses;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithQueryItem:(id)arg1;
-- (id)initWithRelPath:(id)arg1 error:(id*)arg2;
-- (bool)isAlias;
-- (bool)isConflicted;
-- (bool)isDead;
-- (bool)isDocument;
-- (bool)isDownloadActive;
-- (bool)isDownloadRequested;
-- (bool)isEqual:(id)arg1;
-- (bool)isEqualToQueryItem:(id)arg1;
-- (bool)isInTransfer;
-- (bool)isLive;
-- (bool)isNetworkOffline;
-- (bool)isPreCrash;
-- (bool)isUploadActive;
+- (BOOL)isAlias;
+- (BOOL)isConflicted;
+- (BOOL)isDead;
+- (BOOL)isDocument;
+- (BOOL)isDownloadActive;
+- (BOOL)isDownloadRequested;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToQueryItem:(id)arg1;
+- (BOOL)isInTransfer;
+- (BOOL)isLive;
+- (BOOL)isNetworkOffline;
+- (BOOL)isPreCrash;
+- (BOOL)isShared;
+- (BOOL)isUploadActive;
 - (id)localRepresentationURL;
 - (id)logicalName;
 - (void)markDead;
@@ -111,13 +113,20 @@
 - (id)path;
 - (id)physicalName;
 - (id)replacement;
-- (void)setIsNetworkOffline:(bool)arg1;
-- (void)setIsPreCrash:(bool)arg1;
+- (void)setAttribute:(id)arg1 forKey:(id)arg2;
+- (void)setIsNetworkOffline:(BOOL)arg1;
+- (void)setIsPreCrash:(BOOL)arg1;
 - (void)setReplacement:(id)arg1;
-- (void)setTransferAttribute:(id)arg1 forKey:(id)arg2 diff:(unsigned short)arg3;
+- (unsigned int)shareOptions;
+- (id)sharedItemRole;
 - (id)size;
+- (id)subclassDescription;
 - (unsigned int)uploadStatus;
 - (id)url;
 - (id)valueForKey:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
+
+- (id)initWithRelPath:(id)arg1 error:(id*)arg2;
 
 @end

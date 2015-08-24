@@ -2,16 +2,14 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class <AVPlayerItemOutputPullDelegate>, AVPlayerItemVideoOutputInternal, NSObject<OS_dispatch_queue>;
-
 @interface AVPlayerItemVideoOutput : AVPlayerItemOutput {
     AVPlayerItemVideoOutputInternal *_videoOutputInternal;
 }
 
-@property(readonly) <AVPlayerItemOutputPullDelegate> * delegate;
-@property(readonly) NSObject<OS_dispatch_queue> * delegateQueue;
+@property (nonatomic, readonly) <AVPlayerItemOutputPullDelegate> *delegate;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *delegateQueue;
 
-- (bool)_attachToPlayerItem:(id)arg1;
+- (BOOL)_attachToPlayerItem:(id)arg1;
 - (void)_detachFromPlayerItem;
 - (void)_dispatchOutputMediaDataWillChange;
 - (void)_dispatchOutputSequenceWasFlushed;
@@ -26,12 +24,12 @@
 - (id)delegate;
 - (id)delegateQueue;
 - (void)finalize;
-- (bool)hasNewPixelBufferForItemTime:(struct { long long x1; int x2; unsigned int x3; long long x4; })arg1;
+- (BOOL)hasNewPixelBufferForItemTime:(struct { long long x1; int x2; unsigned int x3; long long x4; })arg1;
 - (id)init;
 - (id)initWithPixelBufferAttributes:(id)arg1;
 - (void)requestNotificationOfMediaDataChangeWithAdvanceInterval:(double)arg1;
 - (void)setDelegate:(id)arg1 queue:(id)arg2;
-- (void)setSuppressesPlayerRendering:(bool)arg1;
-- (bool)suppressesPlayerRendering;
+- (void)setSuppressesPlayerRendering:(BOOL)arg1;
+- (BOOL)suppressesPlayerRendering;
 
 @end

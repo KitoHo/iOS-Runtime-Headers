@@ -2,41 +2,35 @@
    Image: /System/Library/PrivateFrameworks/VoiceMemos.framework/VoiceMemos
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSMutableArray, RCCaptureInputDevice, RCCaptureSession;
-
 @interface _RCCaptureInputDeviceSession : NSObject {
     RCCaptureInputDevice *_captureInputDevice;
     RCCaptureSession *_captureSession;
+    BOOL _captureSessionWasActivated;
     NSMutableArray *_sessionFinishedBlocks;
-    id _sessionPreparedBlock;
-    bool_captureSessionWasActivated;
-    bool_useStartSoundEffect;
+    id /* block */ _sessionPreparedBlock;
+    BOOL _useStartSoundEffect;
 }
 
-@property(readonly) RCCaptureInputDevice * captureInputDevice;
-@property(retain) RCCaptureSession * captureSession;
-@property bool captureSessionWasActivated;
-@property(copy) id sessionPreparedBlock;
-@property bool useStartSoundEffect;
+@property (nonatomic, readonly) RCCaptureInputDevice *captureInputDevice;
+@property (nonatomic, retain) RCCaptureSession *captureSession;
+@property (nonatomic) BOOL captureSessionWasActivated;
+@property (nonatomic, copy) id /* block */ sessionPreparedBlock;
+@property (nonatomic) BOOL useStartSoundEffect;
 
 - (void).cxx_destruct;
-- (void)addSessionFinishedBlock:(id)arg1;
+- (void)addSessionFinishedBlock:(id /* block */)arg1;
 - (id)captureInputDevice;
 - (id)captureSession;
-- (bool)captureSessionWasActivated;
+- (BOOL)captureSessionWasActivated;
 - (void)dealloc;
 - (id)description;
 - (id)initWithCaptureInputDevice:(id)arg1;
 - (void)invokeSessionFinishedBlocksWithError:(id)arg1;
-- (id)sessionPreparedBlock;
+- (id /* block */)sessionPreparedBlock;
 - (void)setCaptureSession:(id)arg1;
-- (void)setCaptureSessionWasActivated:(bool)arg1;
-- (void)setSessionPreparedBlock:(id)arg1;
-- (void)setUseStartSoundEffect:(bool)arg1;
-- (bool)useStartSoundEffect;
+- (void)setCaptureSessionWasActivated:(BOOL)arg1;
+- (void)setSessionPreparedBlock:(id /* block */)arg1;
+- (void)setUseStartSoundEffect:(BOOL)arg1;
+- (BOOL)useStartSoundEffect;
 
 @end

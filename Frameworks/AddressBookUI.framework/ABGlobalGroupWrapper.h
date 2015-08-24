@@ -2,13 +2,12 @@
    Image: /System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
  */
 
-@interface ABGlobalGroupWrapper : ABGroupWrapper {
-}
+@interface ABGlobalGroupWrapper : ABGroupWrapper
 
 + (id)newGlobalGroupWrapperWithAddressBook:(void*)arg1;
 
-- (bool)isEqual:(id)arg1;
-- (bool)isGlobalWrapper;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isGlobalWrapper;
 - (id)name;
 
 @end

@@ -2,25 +2,23 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class <PUFeedCellDelegate>, NSIndexPath, NSString, UITapGestureRecognizer;
-
 @interface PUFeedCell : UICollectionViewCell <UIGestureRecognizerDelegate> {
     UITapGestureRecognizer *__tapGestureRecognizer;
     <PUFeedCellDelegate> *_delegate;
     NSIndexPath *_indexPath;
     NSString *_representedElementKind;
-    bool_tappable;
+    BOOL _tappable;
 }
 
-@property(setter=_setTapGestureRecognizer:,retain) UITapGestureRecognizer * _tapGestureRecognizer;
-@property(copy,readonly) NSString * debugDescription;
-@property <PUFeedCellDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(retain) NSIndexPath * indexPath;
-@property(retain) NSString * representedElementKind;
-@property(readonly) Class superclass;
-@property(getter=isTappable) bool tappable;
+@property (setter=_setTapGestureRecognizer:, nonatomic, retain) UITapGestureRecognizer *_tapGestureRecognizer;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <PUFeedCellDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, retain) NSIndexPath *indexPath;
+@property (nonatomic, retain) NSString *representedElementKind;
+@property (readonly) Class superclass;
+@property (getter=isTappable, nonatomic) BOOL tappable;
 
 - (void).cxx_destruct;
 - (void)_handleTap:(id)arg1;
@@ -30,14 +28,14 @@
 - (void)applyLayoutAttributes:(id)arg1;
 - (void)dealloc;
 - (id)delegate;
-- (bool)gestureRecognizerShouldBegin:(id)arg1;
+- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
 - (id)indexPath;
-- (bool)isTappable;
+- (BOOL)isTappable;
 - (id)representedElementKind;
 - (void)setDelegate:(id)arg1;
 - (void)setIndexPath:(id)arg1;
 - (void)setRepresentedElementKind:(id)arg1;
-- (void)setTappable:(bool)arg1;
-- (bool)shouldRecognizerTap:(id)arg1;
+- (void)setTappable:(BOOL)arg1;
+- (BOOL)shouldRecognizerTap:(id)arg1;
 
 @end

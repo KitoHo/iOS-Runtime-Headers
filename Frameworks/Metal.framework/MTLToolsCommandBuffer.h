@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/Metal.framework/Metal
  */
 
-@class <MTLCommandQueue>, <MTLDevice>, MTLToolsPointerArray, NSDictionary, NSError, NSString;
-
 @interface MTLToolsCommandBuffer : MTLToolsObject <MTLCommandBufferSPI> {
     MTLToolsPointerArray *_blitCommandEncoders;
     MTLToolsPointerArray *_computeCommandEncoders;
@@ -11,27 +9,27 @@
     MTLToolsPointerArray *_renderCommandEncoders;
 }
 
-@property(readonly) MTLToolsPointerArray * blitCommandEncoders;
-@property(readonly) <MTLCommandQueue> * commandQueue;
-@property(readonly) MTLToolsPointerArray * computeCommandEncoders;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) <MTLDevice> * device;
-@property(readonly) NSError * error;
-@property(readonly) unsigned long long hash;
-@property(copy) NSString * label;
-@property(readonly) MTLToolsPointerArray * parallelRenderCommandEncoders;
-@property(getter=isProfilingEnabled) bool profilingEnabled;
-@property(readonly) NSDictionary * profilingResults;
-@property(readonly) MTLToolsPointerArray * renderCommandEncoders;
-@property(readonly) bool retainedReferences;
-@property(readonly) unsigned long long status;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) MTLToolsPointerArray *blitCommandEncoders;
+@property (readonly) <MTLCommandQueue> *commandQueue;
+@property (nonatomic, readonly) MTLToolsPointerArray *computeCommandEncoders;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) <MTLDevice> *device;
+@property (readonly) NSError *error;
+@property (readonly) unsigned int hash;
+@property (copy) NSString *label;
+@property (nonatomic, readonly) MTLToolsPointerArray *parallelRenderCommandEncoders;
+@property (getter=isProfilingEnabled) BOOL profilingEnabled;
+@property (readonly) NSDictionary *profilingResults;
+@property (nonatomic, readonly) MTLToolsPointerArray *renderCommandEncoders;
+@property (readonly) BOOL retainedReferences;
+@property (readonly) unsigned int status;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (void)acceptVisitor:(id)arg1;
-- (void)addCompletedHandler:(id)arg1;
-- (void)addScheduledHandler:(id)arg1;
+- (void)addCompletedHandler:(id /* block */)arg1;
+- (void)addScheduledHandler:(id /* block */)arg1;
 - (id)blitCommandEncoder;
 - (id)blitCommandEncoders;
 - (id)commandQueue;
@@ -42,21 +40,21 @@
 - (void)enqueue;
 - (id)error;
 - (id)initWithBaseObject:(id)arg1 parent:(id)arg2;
-- (bool)isProfilingEnabled;
+- (BOOL)isProfilingEnabled;
 - (id)label;
 - (id)parallelRenderCommandEncoderWithDescriptor:(id)arg1;
 - (id)parallelRenderCommandEncoders;
-- (void)presentDrawable:(id)arg1 atTime:(double)arg2;
 - (void)presentDrawable:(id)arg1;
+- (void)presentDrawable:(id)arg1 atTime:(double)arg2;
 - (id)profilingResults;
 - (id)renderCommandEncoderWithDescriptor:(id)arg1;
 - (id)renderCommandEncoders;
-- (bool)retainedReferences;
-- (id)sampledComputeCommandEncoderWithProgramInfoBuffer:(struct { unsigned int x1 : 8; unsigned int x2 : 24; unsigned int x3; unsigned long long x4; unsigned long long x5; }*)arg1 capacity:(unsigned long long)arg2;
-- (id)sampledRenderCommandEncoderWithFramebuffer:(id)arg1 programInfoBuffer:(struct { unsigned int x1 : 8; unsigned int x2 : 24; unsigned int x3; unsigned long long x4; unsigned long long x5; }*)arg2 capacity:(unsigned long long)arg3;
+- (BOOL)retainedReferences;
+- (id)sampledComputeCommandEncoderWithProgramInfoBuffer:(struct { unsigned int x1 : 8; unsigned int x2 : 24; unsigned int x3; unsigned long long x4; unsigned long long x5; }*)arg1 capacity:(unsigned int)arg2;
+- (id)sampledRenderCommandEncoderWithFramebuffer:(id)arg1 programInfoBuffer:(struct { unsigned int x1 : 8; unsigned int x2 : 24; unsigned int x3; unsigned long long x4; unsigned long long x5; }*)arg2 capacity:(unsigned int)arg3;
 - (void)setLabel:(id)arg1;
-- (void)setProfilingEnabled:(bool)arg1;
-- (unsigned long long)status;
+- (void)setProfilingEnabled:(BOOL)arg1;
+- (unsigned int)status;
 - (id)unwrapMTLRenderPassDescriptor:(id)arg1;
 - (void)waitUntilCompleted;
 - (void)waitUntilScheduled;

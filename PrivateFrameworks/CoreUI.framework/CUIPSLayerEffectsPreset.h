@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/CoreUI.framework/CoreUI
  */
 
-@interface CUIPSLayerEffectsPreset : CUIShapeEffectPreset {
-}
+@interface CUIPSLayerEffectsPreset : CUIShapeEffectPreset
 
-- (id)initWithLayerEffects:(id)arg1 forScaleFactor:(double)arg2;
+- (id)initWithLayerEffects:(id)arg1 forScaleFactor:(float)arg2;
 
 @end

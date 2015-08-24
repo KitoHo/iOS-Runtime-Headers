@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSString;
-
 @interface GEOTrafficIncident : PBCodable <NSCopying> {
+    double _endTime;
     struct { 
         unsigned int endTime : 1; 
         unsigned int lastUpdated : 1; 
@@ -13,7 +12,6 @@
         unsigned int type : 1; 
         unsigned int vertexCount : 1; 
         unsigned int vertexOffset : 1; 
-    double _endTime;
     } _has;
     NSString *_info;
     double _lastUpdated;
@@ -26,26 +24,26 @@
     int _vertexOffset;
 }
 
-@property double endTime;
-@property bool hasEndTime;
-@property(readonly) bool hasInfo;
-@property bool hasLastUpdated;
-@property(readonly) bool hasLocation;
-@property bool hasStartTime;
-@property(readonly) bool hasTitle;
-@property bool hasType;
-@property bool hasUID;
-@property bool hasVertexCount;
-@property bool hasVertexOffset;
-@property(retain) NSString * info;
-@property double lastUpdated;
-@property(retain) NSString * location;
-@property double startTime;
-@property(retain) NSString * title;
-@property int type;
-@property long long uID;
-@property int vertexCount;
-@property int vertexOffset;
+@property (nonatomic) double endTime;
+@property (nonatomic) BOOL hasEndTime;
+@property (nonatomic, readonly) BOOL hasInfo;
+@property (nonatomic) BOOL hasLastUpdated;
+@property (nonatomic, readonly) BOOL hasLocation;
+@property (nonatomic) BOOL hasStartTime;
+@property (nonatomic, readonly) BOOL hasTitle;
+@property (nonatomic) BOOL hasType;
+@property (nonatomic) BOOL hasUID;
+@property (nonatomic) BOOL hasVertexCount;
+@property (nonatomic) BOOL hasVertexOffset;
+@property (nonatomic, retain) NSString *info;
+@property (nonatomic) double lastUpdated;
+@property (nonatomic, retain) NSString *location;
+@property (nonatomic) double startTime;
+@property (nonatomic, retain) NSString *title;
+@property (nonatomic) int type;
+@property (nonatomic) long long uID;
+@property (nonatomic) int vertexCount;
+@property (nonatomic) int vertexOffset;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -53,31 +51,31 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (double)endTime;
-- (bool)hasEndTime;
-- (bool)hasInfo;
-- (bool)hasLastUpdated;
-- (bool)hasLocation;
-- (bool)hasStartTime;
-- (bool)hasTitle;
-- (bool)hasType;
-- (bool)hasUID;
-- (bool)hasVertexCount;
-- (bool)hasVertexOffset;
-- (unsigned long long)hash;
+- (BOOL)hasEndTime;
+- (BOOL)hasInfo;
+- (BOOL)hasLastUpdated;
+- (BOOL)hasLocation;
+- (BOOL)hasStartTime;
+- (BOOL)hasTitle;
+- (BOOL)hasType;
+- (BOOL)hasUID;
+- (BOOL)hasVertexCount;
+- (BOOL)hasVertexOffset;
+- (unsigned int)hash;
 - (id)info;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (double)lastUpdated;
 - (id)location;
 - (void)mergeFrom:(id)arg1;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (void)setEndTime:(double)arg1;
-- (void)setHasEndTime:(bool)arg1;
-- (void)setHasLastUpdated:(bool)arg1;
-- (void)setHasStartTime:(bool)arg1;
-- (void)setHasType:(bool)arg1;
-- (void)setHasUID:(bool)arg1;
-- (void)setHasVertexCount:(bool)arg1;
-- (void)setHasVertexOffset:(bool)arg1;
+- (void)setHasEndTime:(BOOL)arg1;
+- (void)setHasLastUpdated:(BOOL)arg1;
+- (void)setHasStartTime:(BOOL)arg1;
+- (void)setHasType:(BOOL)arg1;
+- (void)setHasUID:(BOOL)arg1;
+- (void)setHasVertexCount:(BOOL)arg1;
+- (void)setHasVertexOffset:(BOOL)arg1;
 - (void)setInfo:(id)arg1;
 - (void)setLastUpdated:(double)arg1;
 - (void)setLocation:(id)arg1;

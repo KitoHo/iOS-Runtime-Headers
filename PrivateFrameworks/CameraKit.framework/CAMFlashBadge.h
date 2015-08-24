@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/CameraKit.framework/CameraKit
  */
 
-@class UIImage;
-
 @interface CAMFlashBadge : CAMBadgeView {
     UIImage *__contentImage;
 }
 
-@property(retain) UIImage * _contentImage;
+@property (nonatomic, retain) UIImage *_contentImage;
 
 - (void).cxx_destruct;
 - (void)_commonInit;
 - (id)_contentImage;
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })_imageInsets;
-- (struct CGSize { double x1; double x2; })_imageSize;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })_imageInsets;
+- (struct CGSize { float x1; float x2; })_imageSize;
 - (id)_maskImage;
 - (void)set_contentImage:(id)arg1;
-- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
+- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
 
 @end

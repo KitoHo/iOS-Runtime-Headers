@@ -2,9 +2,7 @@
    Image: /System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
  */
 
-@class NSSharedKeySet;
-
-@interface NSSharedKeySet : NSObject <NSFastEnumeration, NSCopying, NSCoding> {
+@interface NSSharedKeySet : NSObject <NSCoding, NSCopying, NSFastEnumeration> {
     unsigned int _M;
     double _c;
     unsigned int _factor;
@@ -20,13 +18,13 @@
 @property unsigned int M;
 @property double c;
 @property unsigned int factor;
-@property char * g;
-@property id* keys;
+@property char *g;
+@property id*keys;
 @property unsigned int numKey;
-@property void* rankTable;
-@property unsigned int* seeds;
+@property void*rankTable;
+@property unsigned int*seeds;
 @property unsigned char select;
-@property(retain) NSSharedKeySet * subSharedKeySet;
+@property (retain) NSSharedKeySet *subSharedKeySet;
 
 + (id)keySetWithKeys:(id)arg1;
 
@@ -34,25 +32,25 @@
 - (id)allKeys;
 - (double)c;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (unsigned long long)count;
-- (unsigned long long)countByEnumeratingWithState:(struct { unsigned long long x1; id *x2; unsigned long long *x3; unsigned long long x4[5]; }*)arg1 objects:(id*)arg2 count:(unsigned long long)arg3;
+- (unsigned int)count;
+- (unsigned int)countByEnumeratingWithState:(struct { unsigned long x1; id *x2; unsigned long x3; unsigned long x4[5]; }*)arg1 objects:(id*)arg2 count:(unsigned int)arg3;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (unsigned int)factor;
 - (void)finalize;
 - (char *)g;
-- (id)generateSubclassCode:(id)arg1 printChainOfKeySetIfPossible:(bool)arg2 printSpecialCode:(unsigned long long)arg3;
-- (unsigned long long)hash;
-- (unsigned long long)indexForKey:(id)arg1;
+- (id)generateSubclassCode:(id)arg1 printChainOfKeySetIfPossible:(BOOL)arg2 printSpecialCode:(unsigned int)arg3;
+- (unsigned int)hash;
+- (unsigned int)indexForKey:(id)arg1;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithKeys:(id*)arg1 count:(unsigned long long)arg2;
-- (bool)isEmpty;
-- (bool)isEqual:(id)arg1;
-- (id)keyAtIndex:(unsigned long long)arg1;
-- (unsigned long long)keySetCount;
+- (id)initWithKeys:(id*)arg1 count:(unsigned int)arg2;
+- (BOOL)isEmpty;
+- (BOOL)isEqual:(id)arg1;
+- (id)keyAtIndex:(unsigned int)arg1;
+- (unsigned int)keySetCount;
 - (id*)keys;
-- (unsigned long long)maximumIndex;
+- (unsigned int)maximumIndex;
 - (unsigned int)numKey;
 - (void*)rankTable;
 - (unsigned int*)seeds;

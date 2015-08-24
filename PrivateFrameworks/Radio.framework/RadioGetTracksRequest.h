@@ -2,51 +2,77 @@
    Image: /System/Library/PrivateFrameworks/Radio.framework/Radio
  */
 
-@class NSData, NSDictionary, RadioPlayEventCollection, RadioPlaybackContext, RadioStation, SSURLConnectionRequest;
-
 @interface RadioGetTracksRequest : RadioRequest {
+    NSNumber *_accountUniqueIdentifier;
     NSDictionary *_additionalRequestParameters;
     unsigned long long _globalVersion;
     NSData *_heartbeatTokenData;
-    unsigned long long _numberOfTracks;
+    BOOL _includeCleanTracksOnly;
+    unsigned int _numberOfTracks;
+    NSArray *_playActivityFeedEvents;
     RadioPlayEventCollection *_playEventCollection;
     RadioPlaybackContext *_playbackContext;
-    long long _reasonType;
+    SSVPlaybackLease *_playbackLease;
+    int _reasonType;
     SSURLConnectionRequest *_request;
-    RadioStation *_station;
-    bool_includeCleanTracksOnly;
-    bool_shouldIncludeAsset;
+    BOOL _shouldIncludeAsset;
+    BOOL _shouldIncludeStationInResponse;
+    BOOL _skipPromptForSeamlessPlayback;
+    NSString *_stationHash;
+    long long _stationID;
+    RadioStationMatchContext *_stationMatchContext;
+    NSString *_stationStringID;
 }
 
-@property(copy) NSDictionary * additionalRequestParameters;
-@property(copy) NSData * heartbeatTokenData;
-@property bool includeCleanTracksOnly;
-@property unsigned long long numberOfTracks;
-@property(copy) RadioPlayEventCollection * playEventCollection;
-@property(copy) RadioPlaybackContext * playbackContext;
-@property long long reasonType;
-@property bool shouldIncludeAsset;
+@property (nonatomic, readonly, copy) NSNumber *accountUniqueIdentifier;
+@property (nonatomic, copy) NSDictionary *additionalRequestParameters;
+@property (nonatomic, copy) NSData *heartbeatTokenData;
+@property (nonatomic) BOOL includeCleanTracksOnly;
+@property (nonatomic) unsigned int numberOfTracks;
+@property (nonatomic, copy) NSArray *playActivityFeedEvents;
+@property (nonatomic, copy) RadioPlayEventCollection *playEventCollection;
+@property (nonatomic, copy) RadioPlaybackContext *playbackContext;
+@property (nonatomic, retain) SSVPlaybackLease *playbackLease;
+@property (nonatomic) int reasonType;
+@property (nonatomic) BOOL shouldIncludeAsset;
+@property (nonatomic) BOOL shouldIncludeStationInResponse;
+@property (nonatomic) BOOL skipPromptForSeamlessPlayback;
+@property (nonatomic, retain) RadioStationMatchContext *stationMatchContext;
 
 - (void).cxx_destruct;
+- (id)_playbackContextForStation:(id)arg1;
+- (id)accountUniqueIdentifier;
 - (id)additionalRequestParameters;
 - (void)cancel;
 - (id)heartbeatTokenData;
-- (bool)includeCleanTracksOnly;
+- (BOOL)includeCleanTracksOnly;
 - (id)init;
+- (id)initWithGlobalVersion:(unsigned long long)arg1;
 - (id)initWithStation:(id)arg1 globalVersion:(unsigned long long)arg2;
-- (unsigned long long)numberOfTracks;
+- (id)initWithStationStringID:(id)arg1 globalVersion:(unsigned long long)arg2;
+- (unsigned int)numberOfTracks;
+- (id)playActivityFeedEvents;
 - (id)playEventCollection;
 - (id)playbackContext;
-- (long long)reasonType;
+- (id)playbackLease;
+- (int)reasonType;
 - (void)setAdditionalRequestParameters:(id)arg1;
 - (void)setHeartbeatTokenData:(id)arg1;
-- (void)setIncludeCleanTracksOnly:(bool)arg1;
-- (void)setNumberOfTracks:(unsigned long long)arg1;
+- (void)setIncludeCleanTracksOnly:(BOOL)arg1;
+- (void)setNumberOfTracks:(unsigned int)arg1;
+- (void)setPlayActivityFeedEvents:(id)arg1;
 - (void)setPlayEventCollection:(id)arg1;
 - (void)setPlaybackContext:(id)arg1;
-- (void)setReasonType:(long long)arg1;
-- (void)setShouldIncludeAsset:(bool)arg1;
-- (bool)shouldIncludeAsset;
-- (void)startWithCompletionHandler:(id)arg1;
+- (void)setPlaybackLease:(id)arg1;
+- (void)setReasonType:(int)arg1;
+- (void)setShouldIncludeAsset:(BOOL)arg1;
+- (void)setShouldIncludeStationInResponse:(BOOL)arg1;
+- (void)setSkipPromptForSeamlessPlayback:(BOOL)arg1;
+- (void)setStationMatchContext:(id)arg1;
+- (BOOL)shouldIncludeAsset;
+- (BOOL)shouldIncludeStationInResponse;
+- (BOOL)skipPromptForSeamlessPlayback;
+- (void)startWithCompletionHandler:(id /* block */)arg1;
+- (id)stationMatchContext;
 
 @end

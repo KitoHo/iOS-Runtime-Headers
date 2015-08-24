@@ -2,15 +2,16 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class NSDictionary;
-
 @interface MPRemotePlaybackQueue : NSObject {
     struct _MRSystemAppPlaybackQueue { } *_mediaRemotePlaybackQueue;
     NSDictionary *_userInfo;
 }
 
-@property(getter=isRequestingImmediatePlayback,readonly) bool requestingImmediatePlayback;
-@property(readonly) NSDictionary * userInfo;
+@property (getter=isRequestingImmediatePlayback, nonatomic, readonly) BOOL requestingImmediatePlayback;
+@property (nonatomic, readonly) BOOL shouldOverrideManuallyCuratedQueue;
+@property (nonatomic, readonly) NSDictionary *userInfo;
+
+// Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
 
 + (id)queueWithMediaRemotePlaybackQueue:(struct _MRSystemAppPlaybackQueue { }*)arg1;
 
@@ -18,7 +19,13 @@
 - (void)dealloc;
 - (id)init;
 - (id)initWithMediaRemotePlaybackQueue:(struct _MRSystemAppPlaybackQueue { }*)arg1;
-- (bool)isRequestingImmediatePlayback;
+- (BOOL)isRequestingImmediatePlayback;
+- (BOOL)shouldOverrideManuallyCuratedQueue;
 - (id)userInfo;
+- (BOOL)verifyWithError:(id*)arg1;
+
+// Image: /System/Library/PrivateFrameworks/FuseUI.framework/FuseUI
+
+- (id)createPlaybackContext;
 
 @end

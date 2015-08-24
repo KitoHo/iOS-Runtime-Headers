@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/Social.framework/Social
  */
 
-@class NSDictionary, NSString;
-
 @interface SLFacebookPostPrivacySetting : NSObject <NSSecureCoding> {
     NSString *_identifier;
     NSString *_name;
@@ -11,16 +9,16 @@
     int _type;
 }
 
-@property(retain) NSString * identifier;
-@property(retain) NSString * name;
-@property(retain) NSDictionary * parameters;
+@property (retain) NSString *identifier;
+@property (retain) NSString *name;
+@property (retain) NSDictionary *parameters;
 @property int type;
 
 + (int)_privacySettingTypeFromTypeIdentifier:(id)arg1;
 + (id)postPrivacySettingForPrivacyOptionDictionary:(id)arg1;
 + (id)postPrivacySettingWithIdentifier:(id)arg1 name:(id)arg2 type:(int)arg3 parameters:(id)arg4;
 + (id)postPrivacySettingsForPrivacyOptions:(id)arg1;
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)_parametersJSONStringRepresentation;

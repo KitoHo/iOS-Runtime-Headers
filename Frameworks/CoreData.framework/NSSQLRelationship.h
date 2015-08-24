@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSSQLEntity, NSSQLRelationship;
-
 @interface NSSQLRelationship : NSSQLProperty {
     NSSQLEntity *_destinationEntity;
     NSSQLRelationship *_inverse;
@@ -19,7 +17,7 @@
 - (id)initForReadOnlyFetchWithEntity:(id)arg1 propertyDescription:(id)arg2;
 - (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2;
 - (id)inverseRelationship;
-- (bool)isOrdered;
+- (BOOL)isOrdered;
 - (id)relationshipDescription;
 - (id)sourceEntity;
 

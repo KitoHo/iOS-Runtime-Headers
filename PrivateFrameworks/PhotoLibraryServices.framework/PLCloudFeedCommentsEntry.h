@@ -2,21 +2,18 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSMutableOrderedSet, NSOrderedSet, NSString;
+@interface PLCloudFeedCommentsEntry : PLCloudFeedEntry
 
-@interface PLCloudFeedCommentsEntry : PLCloudFeedEntry {
-}
-
-@property(retain) NSString * entryCloudAssetGUID;
-@property(retain) NSOrderedSet * entryComments;
-@property(retain) NSOrderedSet * entryLikeComments;
-@property(readonly) NSMutableOrderedSet * mutableEntryComments;
-@property(readonly) NSMutableOrderedSet * mutableEntryLikeComments;
+@property (nonatomic, retain) NSString *entryCloudAssetGUID;
+@property (nonatomic, retain) NSOrderedSet *entryComments;
+@property (nonatomic, retain) NSOrderedSet *entryLikeComments;
+@property (nonatomic, readonly) NSMutableOrderedSet *mutableEntryComments;
+@property (nonatomic, readonly) NSMutableOrderedSet *mutableEntryLikeComments;
 
 + (id)entityName;
 
 - (id)mutableEntryComments;
 - (id)mutableEntryLikeComments;
-- (bool)shouldBeRemovedFromPhotoLibrary:(id)arg1;
+- (BOOL)shouldBeRemovedFromPhotoLibrary:(id)arg1;
 
 @end

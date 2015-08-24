@@ -2,9 +2,10 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDIMessageQueryFinished : PBCodable <NSCopying> {
+    unsigned int _connectionType;
+    int _genericError;
+    NSString *_guid;
     struct { 
         unsigned int timestamp : 1; 
         unsigned int connectionType : 1; 
@@ -16,9 +17,6 @@
         unsigned int resultCode : 1; 
         unsigned int success : 1; 
         unsigned int uRLError : 1; 
-    unsigned int _connectionType;
-    int _genericError;
-    NSString *_guid;
     } _has;
     unsigned int _isEmail;
     unsigned int _isPhoneNumber;
@@ -30,28 +28,28 @@
     int _uRLError;
 }
 
-@property unsigned int connectionType;
-@property int genericError;
-@property(retain) NSString * guid;
-@property bool hasConnectionType;
-@property bool hasGenericError;
-@property(readonly) bool hasGuid;
-@property bool hasIsEmail;
-@property bool hasIsPhoneNumber;
-@property bool hasPOSIXError;
-@property bool hasQueryDuration;
-@property bool hasResultCode;
-@property bool hasSuccess;
-@property bool hasTimestamp;
-@property bool hasURLError;
-@property unsigned int isEmail;
-@property unsigned int isPhoneNumber;
-@property int pOSIXError;
-@property unsigned int queryDuration;
-@property int resultCode;
-@property unsigned int success;
-@property unsigned long long timestamp;
-@property int uRLError;
+@property (nonatomic) unsigned int connectionType;
+@property (nonatomic) int genericError;
+@property (nonatomic, retain) NSString *guid;
+@property (nonatomic) BOOL hasConnectionType;
+@property (nonatomic) BOOL hasGenericError;
+@property (nonatomic, readonly) BOOL hasGuid;
+@property (nonatomic) BOOL hasIsEmail;
+@property (nonatomic) BOOL hasIsPhoneNumber;
+@property (nonatomic) BOOL hasPOSIXError;
+@property (nonatomic) BOOL hasQueryDuration;
+@property (nonatomic) BOOL hasResultCode;
+@property (nonatomic) BOOL hasSuccess;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) BOOL hasURLError;
+@property (nonatomic) unsigned int isEmail;
+@property (nonatomic) unsigned int isPhoneNumber;
+@property (nonatomic) int pOSIXError;
+@property (nonatomic) unsigned int queryDuration;
+@property (nonatomic) int resultCode;
+@property (nonatomic) unsigned int success;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) int uRLError;
 
 - (unsigned int)connectionType;
 - (void)copyTo:(id)arg1;
@@ -61,39 +59,39 @@
 - (id)dictionaryRepresentation;
 - (int)genericError;
 - (id)guid;
-- (bool)hasConnectionType;
-- (bool)hasGenericError;
-- (bool)hasGuid;
-- (bool)hasIsEmail;
-- (bool)hasIsPhoneNumber;
-- (bool)hasPOSIXError;
-- (bool)hasQueryDuration;
-- (bool)hasResultCode;
-- (bool)hasSuccess;
-- (bool)hasTimestamp;
-- (bool)hasURLError;
-- (unsigned long long)hash;
+- (BOOL)hasConnectionType;
+- (BOOL)hasGenericError;
+- (BOOL)hasGuid;
+- (BOOL)hasIsEmail;
+- (BOOL)hasIsPhoneNumber;
+- (BOOL)hasPOSIXError;
+- (BOOL)hasQueryDuration;
+- (BOOL)hasResultCode;
+- (BOOL)hasSuccess;
+- (BOOL)hasTimestamp;
+- (BOOL)hasURLError;
+- (unsigned int)hash;
 - (unsigned int)isEmail;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (unsigned int)isPhoneNumber;
 - (void)mergeFrom:(id)arg1;
 - (int)pOSIXError;
 - (unsigned int)queryDuration;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (int)resultCode;
 - (void)setConnectionType:(unsigned int)arg1;
 - (void)setGenericError:(int)arg1;
 - (void)setGuid:(id)arg1;
-- (void)setHasConnectionType:(bool)arg1;
-- (void)setHasGenericError:(bool)arg1;
-- (void)setHasIsEmail:(bool)arg1;
-- (void)setHasIsPhoneNumber:(bool)arg1;
-- (void)setHasPOSIXError:(bool)arg1;
-- (void)setHasQueryDuration:(bool)arg1;
-- (void)setHasResultCode:(bool)arg1;
-- (void)setHasSuccess:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
-- (void)setHasURLError:(bool)arg1;
+- (void)setHasConnectionType:(BOOL)arg1;
+- (void)setHasGenericError:(BOOL)arg1;
+- (void)setHasIsEmail:(BOOL)arg1;
+- (void)setHasIsPhoneNumber:(BOOL)arg1;
+- (void)setHasPOSIXError:(BOOL)arg1;
+- (void)setHasQueryDuration:(BOOL)arg1;
+- (void)setHasResultCode:(BOOL)arg1;
+- (void)setHasSuccess:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasURLError:(BOOL)arg1;
 - (void)setIsEmail:(unsigned int)arg1;
 - (void)setIsPhoneNumber:(unsigned int)arg1;
 - (void)setPOSIXError:(int)arg1;

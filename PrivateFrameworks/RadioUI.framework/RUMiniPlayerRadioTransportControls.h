@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/RadioUI.framework/RadioUI
  */
 
-@class MPUBorderConfiguration, MPUBorderDrawingCache, MPUStackView, NSString, RUTrackDownloadView, SKUICircleProgressIndicator, UIButton, UITapGestureRecognizer, UIView;
-
 @interface RUMiniPlayerRadioTransportControls : MPUMiniPlayerTransportControls <MPUStackViewDataSource, RUTrackDownloadViewDelegate> {
     SKUICircleProgressIndicator *_createActivityIndicatorView;
     UIButton *_infoButton;
@@ -14,39 +12,39 @@
     RUTrackDownloadView *_trackDownloadView;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(getter=isShowingCreateLoadingIndicator) bool showingCreateLoadingIndicator;
-@property(readonly) Class superclass;
-@property(readonly) UIView * viewForPresentingStationActions;
-@property(readonly) UIView * viewForPresentingTrackActions;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (getter=isShowingCreateLoadingIndicator, nonatomic) BOOL showingCreateLoadingIndicator;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) UIView *viewForPresentingStationActions;
+@property (nonatomic, readonly) UIView *viewForPresentingTrackActions;
 
 + (unsigned long long)defaultVisibleParts;
 
 - (void).cxx_destruct;
 - (void)_avItemArtworkDidChangeNotification:(id)arg1;
 - (void)_avItemStoreIDDidChangeNotification:(id)arg1;
-- (double)_expectedInfoButtonAlpha;
+- (float)_expectedInfoButtonAlpha;
 - (void)_infoButtonAction:(id)arg1;
-- (void)_isLikedDidChangeNotification:(id)arg1;
+- (void)_likedStateDidChangeNotification:(id)arg1;
 - (void)_playbackContentsDidChangeNotification:(id)arg1;
-- (void)_prospectivePlaybackInformationDidChangeAnimated:(bool)arg1;
+- (void)_prospectivePlaybackInformationDidChangeAnimated:(BOOL)arg1;
 - (void)_registerForAVItemNotifications;
 - (void)_requestStationVisiblityAction:(id)arg1;
 - (void)_unregisterForAVItemNotifications;
-- (void)_updateForItemChangeWithPreviousItem:(id)arg1 animated:(bool)arg2;
+- (void)_updateForItemChangeWithPreviousItem:(id)arg1 animated:(BOOL)arg2;
 - (id)buttonImageForPart:(unsigned long long)arg1;
 - (void)dealloc;
 - (void)didMoveToWindow;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
-- (bool)isShowingCreateLoadingIndicator;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (BOOL)isShowingCreateLoadingIndicator;
 - (void)layoutSubviews;
-- (long long)numberOfItemsInStackView:(id)arg1;
+- (int)numberOfItemsInStackView:(id)arg1;
 - (void)registerForPlayerNotifications;
 - (void)setItem:(id)arg1;
-- (void)setShowingCreateLoadingIndicator:(bool)arg1;
-- (void)stackView:(id)arg1 applyAttributesToItem:(id)arg2 atIndex:(long long)arg3;
+- (void)setShowingCreateLoadingIndicator:(BOOL)arg1;
+- (void)stackView:(id)arg1 applyAttributesToItem:(id)arg2 atIndex:(int)arg3;
 - (void)stackView:(id)arg1 didCreateItem:(id)arg2;
 - (id)tintColorForPart:(unsigned long long)arg1;
 - (void)trackDownloadViewWillTransition:(id)arg1;

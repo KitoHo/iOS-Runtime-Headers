@@ -2,18 +2,16 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class NSString, RadioStation;
-
-@interface MPRadioStation : NSObject <NSCopying> {
+@interface MPRadioStation : NSObject <NSCopying, NSSecureCoding> {
     RadioStation *_station;
 }
 
-@property(getter=_station,readonly) RadioStation * _station;
-@property(readonly) NSString * localizedDescription;
-@property(readonly) NSString * localizedName;
-@property(readonly) long long uniqueIdentifier;
+@property (getter=_station, nonatomic, readonly) RadioStation *_station;
+@property (nonatomic, readonly) NSString *localizedDescription;
+@property (nonatomic, readonly) NSString *localizedName;
+@property (nonatomic, readonly) long long uniqueIdentifier;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)_station;
@@ -21,7 +19,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithStation:(id)arg1;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)localizedDescription;
 - (id)localizedName;
 - (long long)uniqueIdentifier;

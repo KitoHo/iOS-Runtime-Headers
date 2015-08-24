@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class WDParagraph;
-
 @interface WDRun : NSObject {
     WDParagraph *mParagraph;
 }
@@ -12,7 +10,7 @@
 - (void)dealloc;
 - (id)init;
 - (id)initWithParagraph:(id)arg1;
-- (bool)isEmpty;
+- (BOOL)isEmpty;
 - (id)paragraph;
 - (int)runType;
 

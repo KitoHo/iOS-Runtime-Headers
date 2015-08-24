@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSMutableArray;
-
 @interface CKDPPkiRetrieveResponse : PBCodable <NSCopying> {
     NSMutableArray *_publicKeys;
 }
 
-@property(retain) NSMutableArray * publicKeys;
+@property (nonatomic, retain) NSMutableArray *publicKeys;
 
 - (void).cxx_destruct;
 - (void)addPublicKey:(id)arg1;
@@ -17,13 +15,13 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (id)publicKeyAtIndex:(unsigned long long)arg1;
+- (id)publicKeyAtIndex:(unsigned int)arg1;
 - (id)publicKeys;
-- (unsigned long long)publicKeysCount;
-- (bool)readFrom:(id)arg1;
+- (unsigned int)publicKeysCount;
+- (BOOL)readFrom:(id)arg1;
 - (void)setPublicKeys:(id)arg1;
 - (void)writeTo:(id)arg1;
 

@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSURL, TSPDocumentResourceCache, TSUDownloadManager;
-
 @interface TSPDocumentResourceManager : NSObject {
     NSURL *_appDocumentResourcesMetadataURL;
     NSURL *_appDocumentResourcesURL;
     TSPDocumentResourceCache *_cache;
     NSDictionary *_documentResourcesConfiguration;
     NSObject<OS_dispatch_queue> *_documentResourcesConfigurationQueue;
-    long long _documentResourcesConfigurationToken;
+    long _documentResourcesConfigurationToken;
     TSUDownloadManager *_downloadManager;
     NSMutableDictionary *_sageDocumentResourcesConfiguration;
-    long long _sageDocumentResourcesConfigurationToken;
+    long _sageDocumentResourcesConfigurationToken;
 }
 
-@property(readonly) TSPDocumentResourceCache * cache;
-@property(readonly) TSUDownloadManager * downloadManager;
+@property (nonatomic, readonly) TSPDocumentResourceCache *cache;
+@property (nonatomic, readonly) TSUDownloadManager *downloadManager;
 
 + (id)appDocumentResourcesMetadataURL;
 + (id)appDocumentResourcesURL;
@@ -29,9 +27,9 @@
 - (void).cxx_destruct;
 - (id)URLForAppDocumentResourceWithDigestString:(id)arg1 extension:(id)arg2;
 - (id)URLForCachedDocumentResourceWithDigestString:(id)arg1;
-- (id)applicationDataStorageForInfo:(id)arg1 isValidated:(bool)arg2;
+- (id)applicationDataStorageForInfo:(id)arg1 isValidated:(BOOL)arg2;
 - (id)cache;
-- (id)cachedDocumentResourceDataStorageForInfo:(id)arg1 isValidated:(bool)arg2;
+- (id)cachedDocumentResourceDataStorageForInfo:(id)arg1 isValidated:(BOOL)arg2;
 - (void)clearCache;
 - (id)dataStorageForDigestString:(id)arg1 locator:(id)arg2 extension:(id)arg3 infoToDownload:(id*)arg4;
 - (id)documentResourcesConfiguration;

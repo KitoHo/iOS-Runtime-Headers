@@ -2,8 +2,6 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class _CDSnapshot;
-
 @interface NSSQLRow : NSExternalRefCountedData {
     _CDSnapshot *_snapshot;
 }
@@ -25,7 +23,7 @@
 - (unsigned int)foreignOrderKeyForSlot:(unsigned int)arg1;
 - (id)initWithSQLEntity:(id)arg1 objectID:(struct _NSScalarObjectID { Class x1; }*)arg2;
 - (id)initWithSQLEntity:(id)arg1 ownedObjectID:(struct _NSScalarObjectID { Class x1; }*)arg2 andTimestamp:(double)arg3;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (const id*)knownKeyValuesPointer;
 - (struct __CFBitVector { }*)newCalculatedDeltaMaskFrom:(id)arg1;
 - (struct _NSScalarObjectID { Class x1; }*)newObjectIDForToOne:(id)arg1;

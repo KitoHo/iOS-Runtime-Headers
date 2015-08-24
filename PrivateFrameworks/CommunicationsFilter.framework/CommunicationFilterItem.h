@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/CommunicationsFilter.framework/CommunicationsFilter
  */
 
-@class NSString;
-
 @interface CommunicationFilterItem : NSObject {
     NSString *_emailAddress;
     struct __CFPhoneNumber { } *_phoneNumber;
 }
 
-@property(readonly) NSString * emailAddress;
-@property(readonly) struct __CFPhoneNumber { }* phoneNumber;
-@property(readonly) NSString * unformattedID;
+@property (nonatomic, readonly) NSString *emailAddress;
+@property (nonatomic, readonly) struct __CFPhoneNumber { }*phoneNumber;
+@property (nonatomic, readonly) NSString *unformattedID;
 
-- (bool)_acceptItemType:(id)arg1;
-- (bool)_acceptVersion:(id)arg1;
+- (BOOL)_acceptItemType:(id)arg1;
+- (BOOL)_acceptVersion:(id)arg1;
 - (id)_dictionaryRepresentationWithRedaction;
 - (void)dealloc;
 - (id)description;
@@ -23,8 +21,8 @@
 - (id)initWithDictionaryRepresentation:(id)arg1;
 - (id)initWithEmailAddress:(id)arg1;
 - (id)initWithPhoneNumber:(struct __CFPhoneNumber { }*)arg1;
-- (bool)isPhoneNumber;
-- (bool)matchesFilterItem:(id)arg1;
+- (BOOL)isPhoneNumber;
+- (BOOL)matchesFilterItem:(id)arg1;
 - (struct __CFPhoneNumber { }*)phoneNumber;
 - (id)unformattedID;
 

@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/CoreUI.framework/CoreUI
  */
 
-@class NSMutableDictionary;
-
 @interface CUIPSDLayerEffects : NSObject {
     NSMutableDictionary *_effectList;
-    double _effectScale;
-    bool_visible;
+    float _effectScale;
+    BOOL _visible;
 }
 
-@property(copy) NSMutableDictionary * effectList;
-@property double effectScale;
-@property bool visible;
+@property (copy) NSMutableDictionary *effectList;
+@property float effectScale;
+@property BOOL visible;
 
 - (void)addLayerEffectComponent:(id)arg1;
 - (void)dealloc;
 - (id)dropShadow;
 - (id)effectList;
-- (double)effectScale;
+- (float)effectScale;
 - (id)init;
 - (void)setEffectList:(id)arg1;
-- (void)setEffectScale:(double)arg1;
-- (void)setVisible:(bool)arg1;
-- (bool)visible;
+- (void)setEffectScale:(float)arg1;
+- (void)setVisible:(BOOL)arg1;
+- (BOOL)visible;
 
 @end

@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCHChartTypeBubble : TSCHChartTypeScatter {
-}
+@interface TSCHChartTypeBubble : TSCHChartTypeScatter
 
 - (id)allCDESectionLabels;
-- (id)defaultSeriesType:(unsigned long long)arg1;
+- (id)defaultSeriesType:(unsigned int)arg1;
 - (id)init;
 - (id)userInterfaceName;
 

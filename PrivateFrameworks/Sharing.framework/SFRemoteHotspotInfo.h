@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/Sharing.framework/Sharing
  */
 
-@class NSNumber, NSString;
-
 @interface SFRemoteHotspotInfo : NSObject <NSSecureCoding> {
     NSNumber *_channel;
     NSString *_name;
     NSString *_password;
 }
 
-@property(retain) NSNumber * channel;
-@property(copy) NSString * name;
-@property(copy) NSString * password;
+@property (retain) NSNumber *channel;
+@property (copy) NSString *name;
+@property (copy) NSString *password;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (id)channel;
 - (void)dealloc;

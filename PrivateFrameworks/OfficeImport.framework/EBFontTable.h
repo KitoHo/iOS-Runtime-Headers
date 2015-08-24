@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@interface EBFontTable : NSObject {
-}
+@interface EBFontTable : NSObject
 
-+ (unsigned long long)edFontIndexFromXlFontIndex:(unsigned int)arg1;
++ (unsigned int)edFontIndexFromXlFontIndex:(unsigned int)arg1;
 + (void)readWithState:(id)arg1;
-+ (unsigned int)xlFontIndexFromEDFontIndex:(unsigned long long)arg1;
++ (unsigned int)xlFontIndexFromEDFontIndex:(unsigned int)arg1;
 
 @end

@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/CorePDF.framework/CorePDF
  */
 
-@interface CPIsland : CPZone {
-}
+@interface CPIsland : CPZone
 
-- (bool)bordersWindClockwise;
+- (BOOL)bordersWindClockwise;
 
 @end

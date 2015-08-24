@@ -2,9 +2,8 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDAirPlaySlideshowSessionEndedOnClient : PBCodable <NSCopying> {
+    unsigned int _duration;
     struct { 
         unsigned int timestamp : 1; 
         unsigned int duration : 1; 
@@ -14,7 +13,6 @@
         unsigned int minPhotoBytes : 1; 
         unsigned int reason : 1; 
         unsigned int totalPhotos : 1; 
-    unsigned int _duration;
     } _has;
     unsigned int _maxBPS;
     unsigned int _maxPhotoBytes;
@@ -26,24 +24,24 @@
     unsigned int _totalPhotos;
 }
 
-@property unsigned int duration;
-@property bool hasDuration;
-@property bool hasMaxBPS;
-@property bool hasMaxPhotoBytes;
-@property bool hasMinBPS;
-@property bool hasMinPhotoBytes;
-@property bool hasReason;
-@property(readonly) bool hasSessionUUID;
-@property bool hasTimestamp;
-@property bool hasTotalPhotos;
-@property unsigned int maxBPS;
-@property unsigned int maxPhotoBytes;
-@property unsigned int minBPS;
-@property unsigned int minPhotoBytes;
-@property int reason;
-@property(retain) NSString * sessionUUID;
-@property unsigned long long timestamp;
-@property unsigned int totalPhotos;
+@property (nonatomic) unsigned int duration;
+@property (nonatomic) BOOL hasDuration;
+@property (nonatomic) BOOL hasMaxBPS;
+@property (nonatomic) BOOL hasMaxPhotoBytes;
+@property (nonatomic) BOOL hasMinBPS;
+@property (nonatomic) BOOL hasMinPhotoBytes;
+@property (nonatomic) BOOL hasReason;
+@property (nonatomic, readonly) BOOL hasSessionUUID;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) BOOL hasTotalPhotos;
+@property (nonatomic) unsigned int maxBPS;
+@property (nonatomic) unsigned int maxPhotoBytes;
+@property (nonatomic) unsigned int minBPS;
+@property (nonatomic) unsigned int minPhotoBytes;
+@property (nonatomic) int reason;
+@property (nonatomic, retain) NSString *sessionUUID;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) unsigned int totalPhotos;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -51,34 +49,34 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (unsigned int)duration;
-- (bool)hasDuration;
-- (bool)hasMaxBPS;
-- (bool)hasMaxPhotoBytes;
-- (bool)hasMinBPS;
-- (bool)hasMinPhotoBytes;
-- (bool)hasReason;
-- (bool)hasSessionUUID;
-- (bool)hasTimestamp;
-- (bool)hasTotalPhotos;
-- (unsigned long long)hash;
-- (bool)isEqual:(id)arg1;
+- (BOOL)hasDuration;
+- (BOOL)hasMaxBPS;
+- (BOOL)hasMaxPhotoBytes;
+- (BOOL)hasMinBPS;
+- (BOOL)hasMinPhotoBytes;
+- (BOOL)hasReason;
+- (BOOL)hasSessionUUID;
+- (BOOL)hasTimestamp;
+- (BOOL)hasTotalPhotos;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (unsigned int)maxBPS;
 - (unsigned int)maxPhotoBytes;
 - (void)mergeFrom:(id)arg1;
 - (unsigned int)minBPS;
 - (unsigned int)minPhotoBytes;
-- (bool)readFrom:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (int)reason;
 - (id)sessionUUID;
 - (void)setDuration:(unsigned int)arg1;
-- (void)setHasDuration:(bool)arg1;
-- (void)setHasMaxBPS:(bool)arg1;
-- (void)setHasMaxPhotoBytes:(bool)arg1;
-- (void)setHasMinBPS:(bool)arg1;
-- (void)setHasMinPhotoBytes:(bool)arg1;
-- (void)setHasReason:(bool)arg1;
-- (void)setHasTimestamp:(bool)arg1;
-- (void)setHasTotalPhotos:(bool)arg1;
+- (void)setHasDuration:(BOOL)arg1;
+- (void)setHasMaxBPS:(BOOL)arg1;
+- (void)setHasMaxPhotoBytes:(BOOL)arg1;
+- (void)setHasMinBPS:(BOOL)arg1;
+- (void)setHasMinPhotoBytes:(BOOL)arg1;
+- (void)setHasReason:(BOOL)arg1;
+- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasTotalPhotos:(BOOL)arg1;
 - (void)setMaxBPS:(unsigned int)arg1;
 - (void)setMaxPhotoBytes:(unsigned int)arg1;
 - (void)setMinBPS:(unsigned int)arg1;

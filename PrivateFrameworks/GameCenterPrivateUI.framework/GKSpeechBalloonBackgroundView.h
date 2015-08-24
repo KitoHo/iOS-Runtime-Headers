@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class _GKCustomDrawnSpeechBalloonBackgroundView, _GKImageSpeechBalloonBackgroundView;
-
 @interface GKSpeechBalloonBackgroundView : UIView {
     _GKCustomDrawnSpeechBalloonBackgroundView *_customDrawnView;
     unsigned char _drawStyle;
@@ -11,16 +9,16 @@
     unsigned char _tipDirection;
 }
 
-@property(retain) _GKCustomDrawnSpeechBalloonBackgroundView * customDrawnView;
-@property unsigned char drawStyle;
-@property(retain) _GKImageSpeechBalloonBackgroundView * strokedImageView;
-@property unsigned char tipDirection;
+@property (nonatomic, retain) _GKCustomDrawnSpeechBalloonBackgroundView *customDrawnView;
+@property (nonatomic) unsigned char drawStyle;
+@property (nonatomic, retain) _GKImageSpeechBalloonBackgroundView *strokedImageView;
+@property (nonatomic) unsigned char tipDirection;
 
-- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })alignmentRectInsets;
+- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })alignmentRectInsets;
 - (id)customDrawnView;
 - (void)dealloc;
 - (unsigned char)drawStyle;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)setCustomDrawnView:(id)arg1;
 - (void)setDrawStyle:(unsigned char)arg1;
 - (void)setStrokedImageView:(id)arg1;

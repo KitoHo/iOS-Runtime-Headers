@@ -2,46 +2,42 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface FigCaptureClientSessionMonitor : NSObject {
     int _applicationState;
     id _applicationStateChangeNotificationToken;
-    id _applicationStateHandler;
+    id /* block */ _applicationStateHandler;
     int _clientType;
-    id _interruptionHandler;
+    BOOL _haveExternalCMSession;
+    id /* block */ _interruptionHandler;
     int _interruptionState;
     id _interruptionStateChangeNotificationToken;
+    BOOL _invalid;
     int _pid;
     struct opaqueCMSession { } *_session;
+    BOOL _stateChangeCallbacksEnabled;
     struct OpaqueFigSimpleMutex { } *_stateChangeLock;
-    bool_haveExternalCMSession;
-    bool_invalid;
-    bool_stateChangeCallbacksEnabled;
 }
 
-@property(readonly) struct opaqueCMSession { }* session;
+@property (readonly) struct opaqueCMSession { }*session;
 
 + (id)_stringForCMSessionState:(unsigned int)arg1;
 + (void)initialize;
 + (void)startPrewarmingMonitor;
 + (void)stopPrewarmingMonitor;
 
-- (int)_createAndObserveCMSession;
+- (long)_createAndObserveCMSession;
 - (void)_deregisterAndReleaseCMSession;
 - (void)_handleApplicationStateChange:(unsigned int)arg1;
 - (void)_handleAudioInterruptionChange:(int)arg1;
 - (void)_handleCMSessionManagerNofification:(id)arg1;
 - (int)_queryClientType;
-- (int)_registerCMSessionForObservation;
-- (int)_updateApplicationState;
+- (long)_registerCMSessionForObservation;
+- (long)_updateApplicationState;
 - (void)dealloc;
 - (id)init;
-- (id)initWithPID:(int)arg1 applicationStateHandler:(id)arg2 interruptionHandler:(id)arg3;
+- (id)initWithPID:(int)arg1 applicationStateHandler:(id /* block */)arg2 interruptionHandler:(id /* block */)arg3;
 - (void)invalidate;
-- (int)observeSession:(struct opaqueCMSession { }*)arg1;
+- (long)observeSession:(struct opaqueCMSession { }*)arg1;
 - (struct opaqueCMSession { }*)session;
 
 @end

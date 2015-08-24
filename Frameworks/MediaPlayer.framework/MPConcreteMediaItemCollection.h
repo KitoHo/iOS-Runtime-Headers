@@ -2,41 +2,39 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class MPConcreteMediaEntityPropertiesCache, MPMediaItem, MPMediaQuery;
-
-@interface MPConcreteMediaItemCollection : MPMediaItemCollection <NSCoding, NSCopying, MPCacheableConcreteMediaEntity> {
-    long long _grouping;
+@interface MPConcreteMediaItemCollection : MPMediaItemCollection <MPCacheableConcreteMediaEntity, NSCoding, NSCopying> {
+    int _grouping;
     long long _identifier;
     MPMediaQuery *_itemsQuery;
     MPConcreteMediaEntityPropertiesCache *_propertiesCache;
     MPMediaItem *_representativeItem;
 }
 
-@property(retain,readonly) MPConcreteMediaEntityPropertiesCache * cachedPropertyValues;
+@property (nonatomic, readonly, retain) MPConcreteMediaEntityPropertiesCache *cachedPropertyValues;
 
 - (void).cxx_destruct;
-- (id)_initWithIdentifier:(long long)arg1 valuesForProperties:(id)arg2 itemsQuery:(id)arg3 grouping:(long long)arg4 representativeItemIdentifier:(long long)arg5 propertiesCache:(id)arg6;
+- (id)_initWithIdentifier:(long long)arg1 valuesForProperties:(id)arg2 itemsQuery:(id)arg3 grouping:(int)arg4 representativeItemIdentifier:(long long)arg5 propertiesCache:(id)arg6;
 - (id)cachedPropertyValues;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (unsigned long long)count;
+- (unsigned int)count;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
-- (void)enumerateValuesForProperties:(id)arg1 usingBlock:(id)arg2;
-- (long long)groupingType;
-- (unsigned long long)hash;
+- (void)enumerateValuesForProperties:(id)arg1 usingBlock:(id /* block */)arg2;
+- (int)groupingType;
+- (unsigned int)hash;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithIdentifier:(long long)arg1 itemsQuery:(id)arg2 grouping:(long long)arg3;
-- (id)initWithIdentifier:(long long)arg1 valuesForProperties:(id)arg2 itemsQuery:(id)arg3 grouping:(long long)arg4 representativeItemIdentifier:(long long)arg5;
+- (id)initWithIdentifier:(long long)arg1 itemsQuery:(id)arg2 grouping:(int)arg3;
+- (id)initWithIdentifier:(long long)arg1 valuesForProperties:(id)arg2 itemsQuery:(id)arg3 grouping:(int)arg4 representativeItemIdentifier:(long long)arg5;
 - (id)initWithMultiverseIdentifier:(id)arg1;
 - (void)invalidateCachedProperties;
-- (bool)isEqual:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)items;
 - (id)itemsQuery;
 - (id)mediaLibrary;
 - (unsigned long long)persistentID;
 - (id)representativeItem;
-- (void)setValue:(id)arg1 forProperty:(id)arg2 withCompletionBlock:(id)arg3;
-- (bool)setValue:(id)arg1 forProperty:(id)arg2;
+- (BOOL)setValue:(id)arg1 forProperty:(id)arg2;
+- (void)setValue:(id)arg1 forProperty:(id)arg2 withCompletionBlock:(id /* block */)arg3;
 - (id)valueForProperty:(id)arg1;
 - (id)valuesForProperties:(id)arg1;
 

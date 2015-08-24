@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/ScreenReaderOutput.framework/ScreenReaderOutput
  */
 
-@class SCROWeakReferenceContainer;
-
 @interface SCROConnection : NSObject {
     SCROWeakReferenceContainer *_delegate;
     int _handlerType;
     unsigned int _identifier;
     struct __CFRunLoopSource { } *_invalidationSource;
+    BOOL _isConnectionStarted;
     unsigned int _pingPort;
     struct __CFRunLoopSource { } *_pingSource;
-    bool_isConnectionStarted;
 }
 
 + (void)_addConnectionToRunLoop:(id)arg1;
 + (void)_configServer;
 + (void)_createConnectionRunLoop;
-+ (void)_unconfigServerAndRetry:(bool)arg1;
++ (void)_unconfigServerAndRetry:(BOOL)arg1;
 + (void)initialize;
 
 - (void)_ping;
@@ -25,8 +23,8 @@
 - (void)_stopConnection;
 - (void)dealloc;
 - (id)handlerArrayValueForKey:(int)arg1;
-- (id)handlerValueForKey:(int)arg1 withObject:(id)arg2;
 - (id)handlerValueForKey:(int)arg1;
+- (id)handlerValueForKey:(int)arg1 withObject:(id)arg2;
 - (id)initWithHandlerType:(int)arg1 delegate:(id)arg2;
 - (void)invalidate;
 - (int)performHandlerActionForKey:(int)arg1;

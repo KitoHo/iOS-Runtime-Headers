@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OITSUColor;
-
 @interface MFPSolidBrush : MFPBrush {
     OITSUColor *mColor;
 }
 
 - (id)color;
 - (void)dealloc;
-- (void)fillPath:(id)arg1 evenOddRule:(bool)arg2;
+- (void)fillPath:(id)arg1 evenOddRule:(BOOL)arg2;
 - (id)initWithColor:(id)arg1;
 - (void)setColor:(id)arg1;
 

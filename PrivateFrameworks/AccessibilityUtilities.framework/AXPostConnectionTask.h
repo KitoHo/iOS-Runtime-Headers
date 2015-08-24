@@ -2,30 +2,24 @@
    Image: /System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class AXTimer;
-
 @interface AXPostConnectionTask : NSObject {
-    id _postConnectionBlock;
+    BOOL _didTimeout;
+    id /* block */ _postConnectionBlock;
     AXTimer *_timeoutTimer;
-    bool_didTimeout;
 }
 
-@property bool didTimeout;
-@property(copy) id postConnectionBlock;
-@property(retain) AXTimer * timeoutTimer;
+@property (nonatomic) BOOL didTimeout;
+@property (nonatomic, copy) id /* block */ postConnectionBlock;
+@property (nonatomic, retain) AXTimer *timeoutTimer;
 
 - (void)_performTask;
 - (void)dealloc;
-- (bool)didTimeout;
-- (id)initWithConnectBlock:(id)arg1 timeout:(double)arg2 accessQueue:(id)arg3;
+- (BOOL)didTimeout;
+- (id)initWithConnectBlock:(id /* block */)arg1 timeout:(double)arg2 accessQueue:(id)arg3;
 - (void)performTask;
-- (id)postConnectionBlock;
-- (void)setDidTimeout:(bool)arg1;
-- (void)setPostConnectionBlock:(id)arg1;
+- (id /* block */)postConnectionBlock;
+- (void)setDidTimeout:(BOOL)arg1;
+- (void)setPostConnectionBlock:(id /* block */)arg1;
 - (void)setTimeoutTimer:(id)arg1;
 - (id)timeoutTimer;
 

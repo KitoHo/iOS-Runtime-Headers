@@ -2,21 +2,16 @@
    Image: /System/Library/PrivateFrameworks/WebBookmarks.framework/WebBookmarks
  */
 
-@class NSObject<OS_xpc_object>, NSString, NSTimer, WebBookmarksXPCConnection;
-
 @interface WBReadingListPrivate : NSObject <WebBookmarksXPCConnectionDelegate> {
-    NSTimer *_batchTimer;
-    NSObject<OS_xpc_object> *_batchedReadingListItems;
     WebBookmarksXPCConnection *_connection;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (readonly) Class superclass;
 
 - (void)_addReadingListItemWithURL:(id)arg1 title:(id)arg2 previewText:(id)arg3;
-- (void)_batchTimerDidFire:(id)arg1;
 - (void)connection:(id)arg1 didCloseWithError:(id)arg2;
 - (void)dealloc;
 - (id)init;

@@ -2,47 +2,45 @@
    Image: /System/Library/PrivateFrameworks/PersistentConnection.framework/PersistentConnection
  */
 
-@class <PCInterfaceUsabilityMonitorDelegate>, CUTWeakReference, NSObject<OS_dispatch_queue>, NSString, PCInterfaceUsabilityMonitor;
-
-@interface PCWWANUsabilityMonitor : NSObject <PCInterfaceUsabilityMonitorProtocol, PCInterfaceUsabilityMonitorDelegate> {
+@interface PCWWANUsabilityMonitor : NSObject <PCInterfaceUsabilityMonitorDelegate, PCInterfaceUsabilityMonitorProtocol> {
     NSObject<OS_dispatch_queue> *_ctServerQueue;
     struct __CFString { } *_currentRAT;
     NSObject<OS_dispatch_queue> *_delegateQueue;
     CUTWeakReference *_delegateReference;
     PCInterfaceUsabilityMonitor *_interfaceMonitor;
     NSString *_interfaceName;
+    BOOL _isInCall;
+    BOOL _isInHighPowerState;
     NSObject<OS_dispatch_queue> *_ivarQueue;
     NSObject<OS_dispatch_queue> *_monitorDelegateQueue;
     int _powerlogCDRXToken;
     struct __CTServerConnection { } *_telephonyServer;
-    unsigned long long _thresholdOffTransitionCount;
+    unsigned int _thresholdOffTransitionCount;
+    BOOL _trackUsability;
     double _trackedTimeInterval;
-    int _wwanContextID;
-    bool_isInCall;
-    bool_isInHighPowerState;
-    bool_trackUsability;
+    long _wwanContextID;
 }
 
-@property(readonly) struct __CFString { }* currentRAT;
-@property(copy,readonly) NSString * debugDescription;
-@property <PCInterfaceUsabilityMonitorDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned long long hash;
-@property(readonly) long long interfaceIdentifier;
-@property(readonly) bool isBadLinkQuality;
-@property(readonly) bool isInterfaceHistoricallyUsable;
-@property(readonly) bool isInterfaceUsable;
-@property(readonly) bool isInternetReachable;
-@property(readonly) bool isLTEWithCDRX;
-@property(readonly) bool isPoorLinkQuality;
-@property(readonly) bool isRadioHot;
-@property(readonly) int linkQuality;
-@property(retain,readonly) NSString * linkQualityString;
-@property(readonly) Class superclass;
-@property(readonly) struct __CFString { }* wwanInterfaceName;
+@property (nonatomic, readonly) struct __CFString { }*currentRAT;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <PCInterfaceUsabilityMonitorDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned int hash;
+@property (nonatomic, readonly) int interfaceIdentifier;
+@property (nonatomic, readonly) BOOL isBadLinkQuality;
+@property (nonatomic, readonly) BOOL isInterfaceHistoricallyUsable;
+@property (nonatomic, readonly) BOOL isInterfaceUsable;
+@property (nonatomic, readonly) BOOL isInternetReachable;
+@property (nonatomic, readonly) BOOL isLTEWithCDRX;
+@property (nonatomic, readonly) BOOL isPoorLinkQuality;
+@property (nonatomic, readonly) BOOL isRadioHot;
+@property (nonatomic, readonly) int linkQuality;
+@property (nonatomic, readonly, retain) NSString *linkQualityString;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) struct __CFString { }*wwanInterfaceName;
 
-- (void)_adjustInterfaceNameForWWANContextID:(int)arg1;
-- (void)_callDelegateOnIvarQueueWithBlock:(id)arg1;
+- (void)_adjustInterfaceNameForWWANContextID:(long)arg1;
+- (void)_callDelegateOnIvarQueueWithBlock:(id /* block */)arg1;
 - (void)_forwardConfigurationOnIvarQueue;
 - (void)_handleTelephonyNotificationWithName:(struct __CFString { }*)arg1 userInfo:(struct __CFDictionary { }*)arg2;
 - (void)_setupWWANMonitor;
@@ -50,21 +48,21 @@
 - (void)dealloc;
 - (id)delegate;
 - (id)initWithDelegateQueue:(id)arg1;
-- (long long)interfaceIdentifier;
+- (int)interfaceIdentifier;
 - (void)interfaceLinkQualityChanged:(id)arg1 previousLinkQuality:(int)arg2;
 - (void)interfaceReachabilityChanged:(id)arg1;
-- (bool)isBadLinkQuality;
-- (bool)isInterfaceHistoricallyUsable;
-- (bool)isInterfaceUsable;
-- (bool)isInternetReachable;
-- (bool)isLTEWithCDRX;
-- (bool)isPoorLinkQuality;
-- (bool)isRadioHot;
+- (BOOL)isBadLinkQuality;
+- (BOOL)isInterfaceHistoricallyUsable;
+- (BOOL)isInterfaceUsable;
+- (BOOL)isInternetReachable;
+- (BOOL)isLTEWithCDRX;
+- (BOOL)isPoorLinkQuality;
+- (BOOL)isRadioHot;
 - (int)linkQuality;
 - (id)linkQualityString;
 - (void)setDelegate:(id)arg1;
-- (void)setThresholdOffTransitionCount:(unsigned long long)arg1;
-- (void)setTrackUsability:(bool)arg1;
+- (void)setThresholdOffTransitionCount:(unsigned int)arg1;
+- (void)setTrackUsability:(BOOL)arg1;
 - (void)setTrackedTimeInterval:(double)arg1;
 - (struct __CFString { }*)wwanInterfaceName;
 

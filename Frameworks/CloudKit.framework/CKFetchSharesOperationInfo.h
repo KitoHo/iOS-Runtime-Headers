@@ -2,24 +2,22 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSArray;
-
-@interface CKFetchSharesOperationInfo : CKOperationInfo <NSSecureCoding> {
-    NSArray *_shareIDsToFetch;
-    bool_isFetchAllSharesOperation;
+@interface CKFetchSharesOperationInfo : CKDatabaseOperationInfo <NSSecureCoding> {
+    NSArray *_shareIDs;
+    NSArray *_zoneIDs;
 }
 
-@property bool isFetchAllSharesOperation;
-@property(retain) NSArray * shareIDsToFetch;
+@property (nonatomic, retain) NSArray *shareIDs;
+@property (nonatomic, retain) NSArray *zoneIDs;
 
-+ (bool)supportsSecureCoding;
++ (BOOL)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (bool)isFetchAllSharesOperation;
-- (void)setIsFetchAllSharesOperation:(bool)arg1;
-- (void)setShareIDsToFetch:(id)arg1;
-- (id)shareIDsToFetch;
+- (void)setShareIDs:(id)arg1;
+- (void)setZoneIDs:(id)arg1;
+- (id)shareIDs;
+- (id)zoneIDs;
 
 @end

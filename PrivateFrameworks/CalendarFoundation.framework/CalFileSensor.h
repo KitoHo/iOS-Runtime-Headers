@@ -2,42 +2,36 @@
    Image: /System/Library/PrivateFrameworks/CalendarFoundation.framework/CalendarFoundation
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
-
 @interface CalFileSensor : NSObject {
-    id _eventBlock;
+    id /* block */ _eventBlock;
     NSString *_path;
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_source> *_source;
+    BOOL _started;
     int _type;
-    bool_started;
 }
 
-@property(copy) id eventBlock;
-@property(retain) NSString * path;
-@property bool started;
-@property int type;
+@property (nonatomic, copy) id /* block */ eventBlock;
+@property (nonatomic, retain) NSString *path;
+@property (nonatomic) BOOL started;
+@property (nonatomic) int type;
 
-+ (unsigned long long)_maskForFileSensorType:(int)arg1;
++ (unsigned long)_maskForFileSensorType:(int)arg1;
 + (id)copyFileSensorTypeAsString:(int)arg1;
 
 - (void).cxx_destruct;
 - (void)dealloc;
 - (id)description;
-- (id)eventBlock;
+- (id /* block */)eventBlock;
 - (id)init;
 - (id)initWithPath:(id)arg1 andType:(int)arg2;
 - (id)path;
-- (void)setEventBlock:(id)arg1;
+- (void)setEventBlock:(id /* block */)arg1;
 - (void)setPath:(id)arg1;
-- (void)setStarted:(bool)arg1;
+- (void)setStarted:(BOOL)arg1;
 - (void)setType:(int)arg1;
 - (void)start;
-- (bool)started;
+- (BOOL)started;
 - (void)stop;
 - (int)type;
 
